@@ -9,91 +9,79 @@
 import Foundation
 import KeychainAccess
 
+private protocol AnyOptional {
+    var isNil: Bool { get }
+}
+
+extension Optional: AnyOptional {
+    var isNil: Bool { self == nil }
+}
+
+@propertyWrapper struct UserDefaultsBacked<Value> {
+    let key: String
+    let defaultValue: Value
+    var storage: UserDefaults = .standard
+
+    var wrappedValue: Value {
+        get {
+            let value = storage.value(forKey: key) as? Value
+            return value ?? defaultValue
+        }
+        set {
+            if let optional = newValue as? AnyOptional, optional.isNil {
+                storage.removeObject(forKey: key)
+            } else {
+                storage.setValue(newValue, forKey: key)
+            }
+        }
+    }
+}
+
+extension UserDefaultsBacked where Value: ExpressibleByNilLiteral {
+    init(key: String, storage: UserDefaults = .standard) {
+        self.init(key: key, defaultValue: nil, storage: storage)
+    }
+}
+
+@propertyWrapper struct KeychainBacked {
+    let key: String
+    let keychain = Keychain(service: "com.peterandlinda.CloudNotes")
+
+    var wrappedValue: String {
+        get { keychain[key] ?? "" }
+        set { keychain[key] = newValue }
+    }
+}
+
 struct KeychainHelper {
-    private static let keychain = Keychain(service: "com.peterandlinda.CloudNotes")
 
-    static var username: String {
-        get {
-            return keychain["username"] ?? ""
-        }
-        set {
-            keychain["username"] = newValue
-        }
-    }
+    @KeychainBacked(key: "username")
+    static var username: String
 
-    static var password: String {
-        get {
-            return keychain["password"] ?? ""
-        }
-        set {
-            keychain["password"] = newValue
-        }
-    }
+    @KeychainBacked(key: "password")
+    static var password: String
 
-    static var server: String {
-        get {
-            return UserDefaults.standard.string(forKey: "Server") ?? ""
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: "Server")
-        }
-    }
+    @UserDefaultsBacked(key: "Server", defaultValue: "")
+    static var server: String
 
-    static var version: String? {
-        get {
-            return UserDefaults.standard.string(forKey: "version")
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: "version")
-        }
-    }
+    @UserDefaultsBacked(key: "version")
+    static var version: String?
 
-    static var syncOnStart: Bool {
-        get {
-            return UserDefaults.standard.bool(forKey: "SyncOnStart")
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: "SyncOnStart")
-        }
-    }
+    @UserDefaultsBacked(key: "SyncOnStart", defaultValue: false)
+    static var syncOnStart: Bool
 
-    static var offlineMode: Bool {
-        get {
-            return UserDefaults.standard.bool(forKey: "OfflineMode")
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: "OfflineMode")
-            NotificationCenter.default.post(name: .offlineModeChanged, object: nil)
-        }
-    }
+    @UserDefaultsBacked(key: "OfflineMode", defaultValue: false)
+    static var offlineMode: Bool
 
-    static var allowUntrustedCertificate: Bool {
-        get {
-            return UserDefaults.standard.bool(forKey: "AllowUntrustedCertificate")
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: "AllowUntrustedCertificate")
-        }
-    }
+    @UserDefaultsBacked(key: "AllowUntrustedCertificate", defaultValue: false)
+    static var allowUntrustedCertificate: Bool
 
-    static var isNextCloud: Bool {
-        get {
-            return UserDefaults.standard.bool(forKey: "IsNextCloud")
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: "IsNextCloud")
-        }
-    }
+    @UserDefaultsBacked(key: "IsNextCloud", defaultValue: false)
+    static var isNextCloud: Bool
 
-    static var dbReset: Bool {
-        get {
-            return UserDefaults.standard.bool(forKey: "dbReset")
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: "dbReset")
-        }
-    }
-
+    @UserDefaultsBacked(key: "dbReset", defaultValue: false)
+    static var dbReset: Bool
+    
     static var sectionExpandedInfo: ExpandableSectionType {
         get {
             if let data = UserDefaults.standard.value(forKey: "Sections") as? Data,

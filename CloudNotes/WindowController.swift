@@ -52,6 +52,7 @@ class WindowController: NSWindowController {
 
     @IBAction func onOffline(sender: Any?) {
         KeychainHelper.offlineMode.toggle()
+        NotificationCenter.default.post(name: .offlineModeChanged, object: nil)
     }
 
     @IBAction func onSync(sender: Any?) {

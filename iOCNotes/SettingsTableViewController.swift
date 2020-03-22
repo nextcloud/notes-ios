@@ -81,6 +81,7 @@ class SettingsTableViewController: UITableViewController {
     
     @IBAction func offlineModeChanged(_ sender: Any) {
         KeychainHelper.offlineMode = offlineModeSwitch.isOn
+        NotificationCenter.default.post(name: .offlineModeChanged, object: nil)
     }
 
     @IBAction func onDone(_ sender: Any) {
