@@ -20,6 +20,7 @@ extension CDNote {
     @NSManaged public var cdCategory: String
     @NSManaged public var cdContent: String
     @NSManaged public var cdFavorite: Bool
+    @NSManaged public var cdReadOnly: Bool
     @NSManaged public var cdGuid: String?
     @NSManaged public var cdModified: Double
     @NSManaged public var cdId: Int64
@@ -57,6 +58,15 @@ extension CDNote: NoteProtocol {
         }
         set {
             self.cdFavorite = newValue
+        }
+    }
+
+    var readOnly: Bool {
+        get {
+            return self.cdReadOnly
+        }
+        set {
+            self.cdReadOnly = newValue
         }
     }
 

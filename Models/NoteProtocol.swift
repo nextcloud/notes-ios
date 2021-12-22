@@ -13,6 +13,7 @@ protocol NoteProtocol {
     var category: String {get set}
     var content: String {get set}
     var favorite: Bool {get set}
+    var readOnly: Bool {get set}
     var guid: String? {get set}
     var modified: TimeInterval {get set}
     var id: Int64 {get set}
@@ -31,6 +32,7 @@ struct NoteStruct: Codable, NoteProtocol {
     var category: String
     var content: String
     var favorite: Bool
+    var readOnly: Bool
     var guid: String?
     var modified: TimeInterval
     var id: Int64
@@ -46,6 +48,7 @@ struct NoteStruct: Codable, NoteProtocol {
         case category
         case content
         case favorite
+        case readOnly
         case guid
         case modified
         case id
@@ -60,6 +63,7 @@ struct NoteStruct: Codable, NoteProtocol {
         category = try values.decodeIfPresent(String.self, forKey: .category) ?? ""
         content = try values.decode(String.self, forKey: .content)
         favorite = try values.decode(Bool.self, forKey: .favorite)
+        readOnly = try values.decode(Bool.self, forKey: .readOnly)
         guid = try values.decodeIfPresent(String.self, forKey: .guid)
         modified = try values.decode(TimeInterval.self, forKey: .modified)
         id = try values.decode(Int64.self, forKey: .id)
@@ -77,6 +81,7 @@ struct NoteStruct: Codable, NoteProtocol {
         title = Constants.newNote
         self.category = category
         self.favorite = favorite
+        readOnly = false
         guid = UUID().uuidString
         modified = Date().timeIntervalSince1970
         id = -1
@@ -92,6 +97,7 @@ struct NoteStruct: Codable, NoteProtocol {
         title = dictionary[CodingKeys.title.rawValue] as? String ?? Constants.newNote
         self.category = dictionary[CodingKeys.category.rawValue] as? String ?? ""
         self.favorite = dictionary[CodingKeys.favorite.rawValue] as? Bool ?? false
+        self.readOnly = dictionary[CodingKeys.readOnly.rawValue] as? Bool ?? false
 //        guid = UUID().uuidString
         modified = dictionary[CodingKeys.modified.rawValue] as? TimeInterval ?? Date().timeIntervalSince1970
         id = dictionary[CodingKeys.id.rawValue] as? Int64 ?? -1

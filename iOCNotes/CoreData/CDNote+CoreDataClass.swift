@@ -147,6 +147,7 @@ public class CDNote: NSManagedObject {
                         existingRecord.content = note.content
                         existingRecord.title = note.title
                         existingRecord.favorite = note.favorite
+                        existingRecord.readOnly = note.readOnly
                         existingRecord.modified = note.modified
                         existingRecord.etag = note.etag
                         existingRecord.addNeeded = note.addNeeded
@@ -165,6 +166,7 @@ public class CDNote: NSManagedObject {
                         }
                         newRecord.title = note.title
                         newRecord.favorite = note.favorite
+                        newRecord.readOnly = note.readOnly
                         newRecord.modified = note.modified
                         newRecord.etag = note.etag
                         newRecord.updateNeeded = note.updateNeeded
@@ -197,6 +199,7 @@ public class CDNote: NSManagedObject {
                     existingRecord.content = note.content
                     existingRecord.title = note.title
                     existingRecord.favorite = note.favorite
+                    existingRecord.readOnly = note.readOnly
                     existingRecord.modified = note.modified
                     existingRecord.etag = note.etag
                     existingRecord.addNeeded = note.addNeeded
@@ -216,6 +219,7 @@ public class CDNote: NSManagedObject {
                     }
                     newRecord.title = note.title
                     newRecord.favorite = note.favorite
+                    newRecord.readOnly = note.readOnly
                     newRecord.modified = note.modified
                     newRecord.etag = note.etag
                     newRecord.updateNeeded = note.updateNeeded
