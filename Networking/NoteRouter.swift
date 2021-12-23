@@ -123,17 +123,19 @@ enum Router: URLRequestConvertible {
     case createNote(parameters: Parameters)
     case updateNote(id: Int, paramters: Parameters)
     case deleteNote(id: Int)
+    case settings
+    case updateSettings(notesPath: String, fileSuffix: String)
 
     static let applicationJson = "application/json"
     static let defaultApiVersion = "0.2"
     
     var method: HTTPMethod {
         switch self {
-        case .allNotes, .getNote:
+        case .allNotes, .getNote, .settings:
             return .get
         case .createNote:
             return .post
-        case .updateNote:
+        case .updateNote, .updateSettings:
             return .put
         case .deleteNote:
             return .delete
@@ -152,6 +154,8 @@ enum Router: URLRequestConvertible {
             return "/notes/\(id)"
         case .deleteNote(let id):
             return "/notes/\(id)"
+        case .settings, .updateSettings:
+            return "/settings"
         }
     }
     
@@ -206,7 +210,9 @@ enum Router: URLRequestConvertible {
 
             case .updateNote(_, let parameters):
                 urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
-
+            case .updateSettings(let notesPath, let fileSuffix):
+                let parameters = ["notesPath": notesPath, "fileSuffix": fileSuffix] as [String : Any]
+                urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
             default:
                 break
             }

@@ -39,6 +39,24 @@ struct KeychainHelper {
         }
     }
 
+    static var notesPath: String {
+        get {
+            return UserDefaults.standard.string(forKey: "NotesPath") ?? "Notes"
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "NotesPath")
+        }
+    }
+
+    static var fileSuffix: String {
+        get {
+            return UserDefaults.standard.string(forKey: "FileSuffix") ?? ".txt"
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "FileSuffix")
+        }
+    }
+
     static var version: String? {
         get {
             return UserDefaults.standard.string(forKey: "version")

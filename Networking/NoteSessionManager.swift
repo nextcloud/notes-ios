@@ -280,7 +280,69 @@ class NoteSessionManager {
                 completion?()
             })
     }
-    
+
+    func settings(completion: SyncCompletionBlock? = nil) {
+        let router = Router.settings
+        session
+            .request(router)
+            .validate(statusCode: 200..<300)
+            .validate(contentType: [Router.applicationJson])
+            .responseDecodable(of: SettingsStruct.self) { response in
+                switch response.result {
+                case let .success(result):
+                    KeychainHelper.fileSuffix = result.fileSuffix
+                    KeychainHelper.notesPath = result.notesPath
+                case let .failure(error):
+                    print(error.localizedDescription)
+                    if let urlResponse = response.response {
+                        switch urlResponse.statusCode {
+                        case 400: // Bad request, endpoint not supported
+                            print(error)
+                        case 401:
+                            let title = NSLocalizedString("Unauthorized", comment: "An error message title")
+                            let body = NSLocalizedString("Check username and password.", comment: "An error message")
+                            NoteSessionManager.shared.showErrorMessage(message: ErrorMessage(title: title, body: body))
+                        default:
+                            let message = ErrorMessage(title: NSLocalizedString("Error Getting Settings", comment: "The title of an error message"),
+                                                       body: error.localizedDescription)
+                            self.showErrorMessage(message: message)
+                        }
+                    }
+                }
+                completion?()
+            }
+    }
+
+    func updateSettings(completion: SyncCompletionBlock? = nil) {
+        let router = Router.updateSettings(notesPath: KeychainHelper.notesPath, fileSuffix: KeychainHelper.fileSuffix)
+        session
+            .request(router)
+            .validate(statusCode: 200..<300)
+            .validate(contentType: [Router.applicationJson])
+            .responseData { response in
+                switch response.result {
+                case .success( _):
+                    completion?()
+                case let .failure(error):
+                    if let urlResponse = response.response {
+                        switch urlResponse.statusCode {
+                        case 400: // Bad request, endpoint not supported
+                            print(error)
+                        case 401:
+                            let title = NSLocalizedString("Unauthorized", comment: "An error message title")
+                            let body = NSLocalizedString("Check username and password.", comment: "An error message")
+                            NoteSessionManager.shared.showErrorMessage(message: ErrorMessage(title: title, body: body))
+                        default:
+                            let message = ErrorMessage(title: NSLocalizedString("Error Updating Settings", comment: "The title of an error message"),
+                                                       body: error.localizedDescription)
+                            self.showErrorMessage(message: message)
+                        }
+                    }
+                    completion?()
+                }
+            }
+    }
+
     func sync(completion: SyncCompletionBlock? = nil) {
 
         func deleteOnServer(completion: @escaping SyncCompletionBlock) {
@@ -515,7 +577,6 @@ class NoteSessionManager {
                                                        body: error.localizedDescription)
                             self.showErrorMessage(message: message)
                         }
-                        
                     }
                 }
                 completion?()

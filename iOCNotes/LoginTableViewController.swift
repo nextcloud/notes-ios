@@ -100,6 +100,9 @@ class LoginTableViewController: UITableViewController {
                     self?.usernameTextField.text = KeychainHelper.username
                     self?.passwordTextField.text = KeychainHelper.password
                     self?.tableView.reloadSections(IndexSet(integer: 1), with: .none)
+                    NoteSessionManager.shared.settings {
+                        print("All Done")
+                    }
                 }
             }
         }
