@@ -41,19 +41,19 @@ struct KeychainHelper {
 
     static var notesPath: String {
         get {
-            return UserDefaults.standard.string(forKey: "NotesPath") ?? "Notes"
+            return UserDefaults.standard.string(forKey: "NotesPath") ?? Constants.notesPath
         }
         set {
             UserDefaults.standard.set(newValue, forKey: "NotesPath")
         }
     }
 
-    static var fileSuffix: String {
+    static var fileSuffix: FileSuffix {
         get {
-            return UserDefaults.standard.string(forKey: "FileSuffix") ?? ".txt"
+            return FileSuffix(rawValue: UserDefaults.standard.integer(forKey: "FileSuffix")) ?? FileSuffix.txt
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: "FileSuffix")
+            UserDefaults.standard.set(newValue.rawValue, forKey: "FileSuffix")
         }
     }
 

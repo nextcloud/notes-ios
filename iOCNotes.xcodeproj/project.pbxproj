@@ -110,6 +110,7 @@
 		D0E38B0324930C410075B7F0 /* Throttler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09E644E248ABAEB003FB4C9 /* Throttler.swift */; };
 		D0E60F152772D809009CF78F /* SettingsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E60F142772D809009CF78F /* SettingsProtocol.swift */; };
 		D0E60F162772D809009CF78F /* SettingsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E60F142772D809009CF78F /* SettingsProtocol.swift */; };
+		D0E60F1827741633009CF78F /* FileExtensionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E60F1727741633009CF78F /* FileExtensionTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -308,6 +309,7 @@
 		D0CFE5621888A7BD00165839 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D0CFE5AC1890659600165839 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D0E60F142772D809009CF78F /* SettingsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProtocol.swift; sourceTree = "<group>"; };
+		D0E60F1727741633009CF78F /* FileExtensionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileExtensionTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -551,6 +553,7 @@
 				D0B6D4AC22F91DDA0037E073 /* CollapsibleTableViewHeaderView.swift */,
 				D0B6D4AD22F91DDA0037E073 /* CollapsibleTableViewHeaderView.xib */,
 				D03493B822F3CC5700E1A9B0 /* CategoryTableViewController.swift */,
+				D0E60F1727741633009CF78F /* FileExtensionTableViewController.swift */,
 				D06882ED22BB146200CEBC1F /* EditorViewController.swift */,
 				D09538421D32A56A006BB78E /* PBHPreviewController.swift */,
 				D08713EC1D18DA40001EAF82 /* PBHHeaderTextView.swift */,
@@ -965,6 +968,7 @@
 				D06882EC22BACDA300CEBC1F /* SettingsTableViewController.swift in Sources */,
 				D0E60F152772D809009CF78F /* SettingsProtocol.swift in Sources */,
 				BDD015A32353F7D4000BA001 /* PBHSplitViewController.swift in Sources */,
+				D0E60F1827741633009CF78F /* FileExtensionTableViewController.swift in Sources */,
 				D095AE45245BB25F00A7EF62 /* NoteSessionManager.swift in Sources */,
 				D05110C120CA1FE000AFFDC7 /* Notes.xcdatamodeld in Sources */,
 				D07F5E8E2207B6FF00528E90 /* NoteRouter.swift in Sources */,

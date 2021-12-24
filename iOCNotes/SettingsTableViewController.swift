@@ -14,7 +14,9 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet var syncOnStartSwitch: UISwitch!
     @IBOutlet weak var offlineModeSwitch: UISwitch!
     @IBOutlet var statusLabel: UILabel!
-    
+    @IBOutlet var extensionLabel: UILabel!
+    @IBOutlet var folderLabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         #if targetEnvironment(macCatalyst)
@@ -33,6 +35,8 @@ class SettingsTableViewController: UITableViewController {
         } else {
             self.statusLabel.text =  NSLocalizedString("Not Logged In", comment: "A status label indicating that the user is not logged in")
         }
+        extensionLabel.text = KeychainHelper.fileSuffix.description
+        folderLabel.text = KeychainHelper.notesPath
         #if targetEnvironment(macCatalyst)
         self.tableView.cellForRow(at: IndexPath(row: 0, section: 0))?.isHidden = true
         #endif
@@ -56,7 +60,14 @@ class SettingsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 1 {
+        switch indexPath.section {
+        case 0:
+            break
+        case 1:
+            if indexPath.row == 1 {
+                showNotesFolderAlert()
+            }
+        case 2:
             let email = "support@pbh.dev"
             let subject = NSLocalizedString("CloudNotes Support Request", comment: "Support email subject")
             let body = NSLocalizedString("<Please state your question or problem here>", comment: "Support email body placeholder")
@@ -82,6 +93,9 @@ class SettingsTableViewController: UITableViewController {
                     }
                 }
             }
+
+        default:
+            break
         }
     }
 
@@ -102,7 +116,38 @@ class SettingsTableViewController: UITableViewController {
     @IBAction func onDone(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-    
+
+    private func showNotesFolderAlert() {
+        var nameTextField: UITextField?
+        let folderPath = KeychainHelper.notesPath
+        let alertController = UIAlertController(title: NSLocalizedString("Notes Folder", comment: "Title of alert to change notes folder"),
+                                                message: NSLocalizedString("Enter a name for the folder where notes should be saved on the server", comment: "Message of alert to change notes folder"),
+                                                preferredStyle: .alert)
+        alertController.addTextField { textField in
+            nameTextField = textField
+            textField.text = folderPath
+            textField.keyboardType = .default
+        }
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: "Caption of Cancel button"), style: .cancel, handler: nil)
+        let renameAction = UIAlertAction(title: NSLocalizedString("Save", comment: "Caption of Save button"), style: .default) { _ in
+            guard let newName = nameTextField?.text,
+                !newName.isEmpty,
+                newName != folderPath else {
+                    return
+            }
+            KeychainHelper.notesPath = newName
+            NoteSessionManager.shared.updateSettings { [weak self] in
+                self?.folderLabel.text = KeychainHelper.notesPath
+            }
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(renameAction)
+        present(alertController, animated: true, completion: nil)
+    }
+
+
+
+
 }
 
 extension SettingsTableViewController: MFMailComposeViewControllerDelegate {

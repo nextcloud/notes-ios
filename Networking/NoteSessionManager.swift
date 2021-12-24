@@ -290,7 +290,12 @@ class NoteSessionManager {
             .responseDecodable(of: SettingsStruct.self) { response in
                 switch response.result {
                 case let .success(result):
-                    KeychainHelper.fileSuffix = result.fileSuffix
+                    switch result.fileSuffix {
+                    case FileSuffix.md.suffix:
+                        KeychainHelper.fileSuffix = FileSuffix.md
+                    default:
+                        KeychainHelper.fileSuffix = FileSuffix.txt
+                    }
                     KeychainHelper.notesPath = result.notesPath
                 case let .failure(error):
                     print(error.localizedDescription)
@@ -314,7 +319,7 @@ class NoteSessionManager {
     }
 
     func updateSettings(completion: SyncCompletionBlock? = nil) {
-        let router = Router.updateSettings(notesPath: KeychainHelper.notesPath, fileSuffix: KeychainHelper.fileSuffix)
+        let router = Router.updateSettings(notesPath: KeychainHelper.notesPath, fileSuffix: KeychainHelper.fileSuffix.suffix)
         session
             .request(router)
             .validate(statusCode: 200..<300)
