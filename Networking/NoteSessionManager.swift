@@ -17,7 +17,6 @@ import AppKit
 
 typealias SyncCompletionBlock = () -> Void
 typealias SyncCompletionBlockWithNote = (_ note: CDNote?) -> Void
-typealias SyncCompletionBlockWithRetry = (_ retry: Bool) -> Void
 
 struct ErrorMessage {
     var title: String
@@ -152,16 +151,7 @@ class NoteSessionManager {
         session = Session(configuration: configuration, serverTrustManager: CustomServerTrustPolicyManager(allHostsMustBeEvaluated: true, evaluators: [:]))
     }
 
-    func status(server: String, username: String, password: String, completion: SyncCompletionBlock? = nil) {
-        var serverAddress = server.trimmingCharacters(in: CharacterSet(charactersIn: "/ "))
-        if !serverAddress.contains("://"),
-            !serverAddress.hasPrefix("http") {
-            serverAddress = "https://\(serverAddress)"
-        }
-        KeychainHelper.server = serverAddress
-        KeychainHelper.username = username
-        KeychainHelper.password = password
-        
+    func status(completion: SyncCompletionBlock? = nil) {        
         let router = StatusRouter.status
         session
             .request(router)
@@ -178,16 +168,7 @@ class NoteSessionManager {
         }
     }
 
-    func capabilities(server: String, username: String, password: String, completion: SyncCompletionBlock? = nil) {
-        var serverAddress = server.trimmingCharacters(in: CharacterSet(charactersIn: "/ "))
-        if !serverAddress.contains("://"),
-            !serverAddress.hasPrefix("http") {
-            serverAddress = "https://\(serverAddress)"
-        }
-        KeychainHelper.server = serverAddress
-        KeychainHelper.username = username
-        KeychainHelper.password = password
-
+    func capabilities(completion: SyncCompletionBlock? = nil) {
         let router = OCSRouter.capabilities
         session
             .request(router)
@@ -284,7 +265,7 @@ class NoteSessionManager {
     func settings(completion: SyncCompletionBlock? = nil) {
         let router = Router.settings
         session
-            .request(router)
+            .request(router, interceptor: LoginRequestInterceptor())
             .validate(statusCode: 200..<300)
             .validate(contentType: [Router.applicationJson])
             .responseDecodable(of: SettingsStruct.self) { response in

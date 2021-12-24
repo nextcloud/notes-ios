@@ -11,9 +11,9 @@ import MessageUI
 
 class SettingsTableViewController: UITableViewController {
 
+    @IBOutlet var serverTextField: UITextField!
     @IBOutlet var syncOnStartSwitch: UISwitch!
     @IBOutlet weak var offlineModeSwitch: UISwitch!
-    @IBOutlet var statusLabel: UILabel!
     @IBOutlet var extensionLabel: UILabel!
     @IBOutlet var folderLabel: UILabel!
 
@@ -28,15 +28,12 @@ class SettingsTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.serverTextField.text = KeychainHelper.server
         self.syncOnStartSwitch.isOn = KeychainHelper.syncOnStart
         offlineModeSwitch.isOn = KeychainHelper.offlineMode
-        if NoteSessionManager.isConnectedToServer {
-            self.statusLabel.text = NSLocalizedString("Logged In", comment:"A status label indicating that the user is logged in")
-        } else {
-            self.statusLabel.text =  NSLocalizedString("Not Logged In", comment: "A status label indicating that the user is not logged in")
-        }
         extensionLabel.text = KeychainHelper.fileSuffix.description
         folderLabel.text = KeychainHelper.notesPath
+        tableView.reloadData()
         #if targetEnvironment(macCatalyst)
         self.tableView.cellForRow(at: IndexPath(row: 0, section: 0))?.isHidden = true
         #endif
@@ -58,16 +55,26 @@ class SettingsTableViewController: UITableViewController {
         #endif
         return UITableView.automaticDimension
     }
+
+    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        if section == 0 {
+            return updateFooter()
+        } else {
+            return nil
+        }
+    }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
             break
         case 1:
+            break
+        case 2:
             if indexPath.row == 1 {
                 showNotesFolderAlert()
             }
-        case 2:
+        case 3:
             let email = "support@pbh.dev"
             let subject = NSLocalizedString("CloudNotes Support Request", comment: "Support email subject")
             let body = NSLocalizedString("<Please state your question or problem here>", comment: "Support email body placeholder")
@@ -103,6 +110,11 @@ class SettingsTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination
         vc.navigationItem.rightBarButtonItem = nil
+        if segue.identifier == "loginSegue",
+           let loginWebViewController = segue.destination as? LoginWebViewController,
+           let serverAddress = serverTextField.text, !serverAddress.isEmpty {
+            loginWebViewController.serverAddress = serverAddress
+        }
     }
 
     @IBAction func syncOnStartChanged(_ sender: Any) {
@@ -145,8 +157,17 @@ class SettingsTableViewController: UITableViewController {
         present(alertController, animated: true, completion: nil)
     }
 
-
-
+    private func updateFooter() -> String {
+        guard !KeychainHelper.productName.isEmpty,
+            !KeychainHelper.productVersion.isEmpty,
+            !KeychainHelper.server.isEmpty
+            else {
+            return NSLocalizedString("Not logged in", comment: "Message about not being logged in")
+        }
+        let notesVersion = KeychainHelper.notesVersion.isEmpty ? "" : "\(KeychainHelper.notesVersion) "
+        let format = NSLocalizedString("Using Notes %@on %@ %@.", comment:"Message with Notes version, product name and version")
+        return String.localizedStringWithFormat(format, notesVersion, KeychainHelper.productName, KeychainHelper.productVersion)
+    }
 
 }
 

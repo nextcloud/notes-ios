@@ -529,15 +529,7 @@ class NotesTableViewController: UITableViewController {
 
     @IBAction func onSettings(sender: Any?) {
         let storyboard = UIStoryboard(name: "Settings", bundle:nil)
-        var nav: UINavigationController?
-        if sender as? UIBarButtonItem == settingsBarButton {
-            nav = storyboard.instantiateViewController(withIdentifier: "login") as? UINavigationController
-        } else {
-            let loginController = storyboard.instantiateViewController(withIdentifier: "LoginTableViewController")
-            nav = UINavigationController(rootViewController: loginController)
-            nav?.modalPresentationStyle = .formSheet
-        }
-        if let nav = nav {
+        if let nav = storyboard.instantiateViewController(withIdentifier: "login") as? UINavigationController {
             present(nav, animated: true, completion: nil)
         }
     }

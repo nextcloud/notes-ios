@@ -88,7 +88,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             EditorViewController.self,
             PBHPreviewController.self,
             SettingsTableViewController.self,
-            LoginTableViewController.self
+            LoginWebViewController.self
         ]
         UIScrollView.appearance(whenContainedInInstancesOf: scrollViewArray).backgroundColor = .ph_cellBackgroundColor
 
