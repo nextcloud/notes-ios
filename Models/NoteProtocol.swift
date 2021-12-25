@@ -62,8 +62,8 @@ struct NoteStruct: Codable, NoteProtocol {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         category = try values.decodeIfPresent(String.self, forKey: .category) ?? ""
         content = try values.decode(String.self, forKey: .content)
-        favorite = try values.decode(Bool.self, forKey: .favorite)
-        readOnly = try values.decode(Bool.self, forKey: .readOnly)
+        favorite = try values.decodeIfPresent(Bool.self, forKey: .favorite) ?? false
+        readOnly = try values.decodeIfPresent(Bool.self, forKey: .readOnly) ?? false
         guid = try values.decodeIfPresent(String.self, forKey: .guid)
         modified = try values.decode(TimeInterval.self, forKey: .modified)
         id = try values.decode(Int64.self, forKey: .id)
