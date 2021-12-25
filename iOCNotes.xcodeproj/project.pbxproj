@@ -110,7 +110,7 @@
 		D0E60F152772D809009CF78F /* SettingsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E60F142772D809009CF78F /* SettingsProtocol.swift */; };
 		D0E60F162772D809009CF78F /* SettingsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E60F142772D809009CF78F /* SettingsProtocol.swift */; };
 		D0E60F1827741633009CF78F /* FileExtensionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E60F1727741633009CF78F /* FileExtensionTableViewController.swift */; };
-		D0E60F1A27756608009CF78F /* LoginWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E60F1927756608009CF78F /* LoginWebViewController.swift */; };
+		D0E60F1A27756608009CF78F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E60F1927756608009CF78F /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -309,7 +309,7 @@
 		D0CFE5AC1890659600165839 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D0E60F142772D809009CF78F /* SettingsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProtocol.swift; sourceTree = "<group>"; };
 		D0E60F1727741633009CF78F /* FileExtensionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileExtensionTableViewController.swift; sourceTree = "<group>"; };
-		D0E60F1927756608009CF78F /* LoginWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWebViewController.swift; sourceTree = "<group>"; };
+		D0E60F1927756608009CF78F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -545,7 +545,7 @@
 				D004DB7E23948F3D0080A7D1 /* SceneDelegate.swift */,
 				D004DB82239759020080A7D1 /* SettingsSceneDelegate.swift */,
 				D018034923B037B1001CA4FC /* CategoriesSceneDelegate.swift */,
-				D0E60F1927756608009CF78F /* LoginWebViewController.swift */,
+				D0E60F1927756608009CF78F /* LoginViewController.swift */,
 				D06882EB22BACDA300CEBC1F /* SettingsTableViewController.swift */,
 				D01067E52213C17D0047E090 /* NotesTableViewController.swift */,
 				D0B0F3A327360BD000E51C3F /* NotesFRCManager.swift */,
@@ -963,7 +963,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D095384A1D3313F8006BB78E /* PBHPreviewController.swift in Sources */,
-				D0E60F1A27756608009CF78F /* LoginWebViewController.swift in Sources */,
+				D0E60F1A27756608009CF78F /* LoginViewController.swift in Sources */,
 				D07F5E862207B1DF00528E90 /* CDNote+CoreDataClass.swift in Sources */,
 				D0B0F3A427360BD000E51C3F /* NotesFRCManager.swift in Sources */,
 				D06882EC22BACDA300CEBC1F /* SettingsTableViewController.swift in Sources */,

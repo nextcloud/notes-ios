@@ -457,36 +457,17 @@
             </objects>
             <point key="canvasLocation" x="1336.8" y="235.23238380809596"/>
         </scene>
-        <!--Login Web View Controller-->
+        <!--Login-->
         <scene sceneID="lWz-lB-XeL">
             <objects>
-                <viewController id="2qd-S3-5a6" customClass="LoginWebViewController" customModule="iOCNotes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2qd-S3-5a6" customClass="LoginViewController" customModule="iOCNotes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yxI-MU-OHE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="15b-ql-2kE">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
-                                <color key="backgroundColor" name="PHWhiteBackground"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="yL8-9Q-3tm"/>
                         <color key="backgroundColor" name="PHWhiteBackground"/>
-                        <constraints>
-                            <constraint firstItem="15b-ql-2kE" firstAttribute="top" secondItem="yL8-9Q-3tm" secondAttribute="top" id="3fc-0e-VjD"/>
-                            <constraint firstItem="15b-ql-2kE" firstAttribute="width" secondItem="yL8-9Q-3tm" secondAttribute="width" id="Jr0-AF-zL2"/>
-                            <constraint firstItem="15b-ql-2kE" firstAttribute="leading" secondItem="yL8-9Q-3tm" secondAttribute="leading" id="KIf-Q6-a2A"/>
-                            <constraint firstItem="15b-ql-2kE" firstAttribute="height" secondItem="yL8-9Q-3tm" secondAttribute="height" id="xxe-1Z-rLS"/>
-                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="FvN-vM-GK3"/>
-                    <connections>
-                        <outlet property="webView" destination="15b-ql-2kE" id="rhF-44-D96"/>
-                    </connections>
+                    <navigationItem key="navigationItem" title="Login" id="FvN-vM-GK3"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yW1-AM-9eQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

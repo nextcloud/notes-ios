@@ -107,12 +107,23 @@ class SettingsTableViewController: UITableViewController {
     }
 
     // MARK: - Navigation
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "loginSegue" {
+            return !(serverTextField.text?.isEmpty ?? true)
+        } else {
+            return true
+        }
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination
         vc.navigationItem.rightBarButtonItem = nil
         if segue.identifier == "loginSegue",
-           let loginWebViewController = segue.destination as? LoginWebViewController,
+           let loginWebViewController = segue.destination as? LoginViewController,
            let serverAddress = serverTextField.text, !serverAddress.isEmpty {
+            KeychainHelper.server = ""
+            KeychainHelper.username = ""
+            KeychainHelper.password = ""
             loginWebViewController.serverAddress = serverAddress
         }
     }
