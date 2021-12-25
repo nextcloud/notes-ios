@@ -6,6 +6,7 @@
 //  Copyright © 2021 Peter Hedlund. All rights reserved.
 //
 
+import PKHUD
 import UIKit
 import WebKit
 
@@ -13,7 +14,6 @@ class LoginViewController: UIViewController {
 
     var serverAddress = ""
 
-    private var activityIndicator: UIActivityIndicatorView?
     private var webView: WKWebView?
     private var ignoreNavigationFailure = false
 
@@ -54,22 +54,24 @@ class LoginViewController: UIViewController {
             webView!.customUserAgent = userAgent
             webView!.navigationDelegate = self
 
-            activityIndicator = UIActivityIndicatorView(style: .gray)
-            if let activityIndicator = activityIndicator {
-                activityIndicator.center = self.view.center
-                activityIndicator.startAnimating()
-                self.view.addSubview(activityIndicator)
-            }
-
+            HUD.show(.progress)
             webView!.load(request)
         }
     }
 
     private func completeLogin() {
+        let hudTitle = NSLocalizedString("Logged In", comment: "HUD title when logged in")
+        let statusSubtitle = NSLocalizedString("Checking server status", comment: "HUD subtitle when checking server status")
+        let capabilitiesSubtitle = NSLocalizedString("Checking server capabilities", comment: "HUD subtitle when checking server capabilities")
+        let settingsSubtitle = NSLocalizedString("Checking server settings", comment: "HUD subtitle when checking server settings")
+        HUD.show(.labeledProgress(title: hudTitle, subtitle: statusSubtitle))
         NoteSessionManager.shared.status() {
+            HUD.show(.labeledProgress(title: hudTitle, subtitle: capabilitiesSubtitle))
             NoteSessionManager.shared.capabilities() {
+                HUD.show(.labeledProgress(title: hudTitle, subtitle: settingsSubtitle))
                 NoteSessionManager.shared.settings { [weak self] in
                     print("All Done")
+                    HUD.hide()
                     self?.navigationController?.popViewController(animated: true)
                 }
             }
@@ -149,7 +151,7 @@ extension LoginViewController: WKNavigationDelegate {
 
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         print("didFinish")
-        activityIndicator?.stopAnimating()
+        HUD.hide()
     }
 
 }
