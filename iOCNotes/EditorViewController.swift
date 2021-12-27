@@ -21,7 +21,7 @@ class EditorViewController: UIViewController {
     @IBOutlet var fixedSpace: UIBarButtonItem!
     
     var updatedByEditing = false
-    var noteExporter: PBHNoteExporter?
+    var noteExporter: NoteExporter?
     var bottomLayoutConstraint: NSLayoutConstraint?
     var isNewNote = false
 
@@ -215,7 +215,7 @@ class EditorViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showPreview" {
-            if let preview = segue.destination as? PBHPreviewController, let note = note {
+            if let preview = segue.destination as? PreviewViewController, let note = note {
                 preview.content = noteView.text
                 preview.noteTitle = note.title
                 preview.noteDate = noteView.headerLabel.text
@@ -233,7 +233,7 @@ class EditorViewController: UIViewController {
             textToExport = noteView.text
         }
         if let text = textToExport {
-            noteExporter = PBHNoteExporter(title: note?.title ?? "Untitled", text: text, viewController: self, from: activityButton)
+            noteExporter = NoteExporter(title: note?.title ?? "Untitled", text: text, viewController: self, from: activityButton)
             noteExporter?.showMenu()
         }
     }

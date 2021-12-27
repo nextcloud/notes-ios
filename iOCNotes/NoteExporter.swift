@@ -3,14 +3,14 @@
 //  iOCNotes
 //
 //  Created by Peter Hedlund on 7/20/16.
-//  Copyright © 2016 Peter Hedlund. All rights reserved.
+//  Copyright © 2016-2021 Peter Hedlund. All rights reserved.
 //
 
+import cmark_gfm_swift
 import CoreFoundation
-import Down
 import UIKit
 
-class PBHNoteExporter: NSObject {
+class NoteExporter: NSObject {
 
     var text: String
     var title: String
@@ -101,16 +101,13 @@ class PBHNoteExporter: NSObject {
                     } catch {}
                 case "md":
                     do {
-                        let down = Down(markdownString: self.text)
-                        if let commonMark = try? down.toCommonMark() {
-                            try commonMark.write(to: fileURL, atomically: true, encoding: .utf8)
-                            if let viewFormatter = (self.viewController as? EditorViewController)?.noteView.viewPrintFormatter() {
-                                formatter = viewFormatter
-                                formatter.perPageContentInsets = UIEdgeInsets(top: 72, left: 72, bottom: 72, right: 72)
-                                activityItems = [formatter, self.text, fileURL]
-                            } else {
-                                activityItems = [self.text, fileURL]
-                            }
+                        try self.text.write(to: fileURL, atomically: true, encoding: .utf8)
+                        if let viewFormatter = (self.viewController as? EditorViewController)?.noteView.viewPrintFormatter() {
+                            formatter = viewFormatter
+                            formatter.perPageContentInsets = UIEdgeInsets(top: 72, left: 72, bottom: 72, right: 72)
+                            activityItems = [formatter, self.text, fileURL]
+                        } else {
+                            activityItems = [self.text, fileURL]
                         }
                     } catch {}
                 case "html":
@@ -124,15 +121,24 @@ class PBHNoteExporter: NSObject {
 
                 case "rtf":
                     do {
-                        let down = Down(markdownString: self.text)
-                        if let output = try? down.toAttributedString() {
-                            let rtfData = try output.data(from: NSMakeRange(0, output.length), documentAttributes: [NSAttributedString.DocumentAttributeKey.documentType: NSAttributedString.DocumentType.rtf])
-                                try rtfData.write(to: fileURL, options: .atomicWrite)
-                                formatter = UISimpleTextPrintFormatter(attributedText: output)
-                                formatter.perPageContentInsets = UIEdgeInsets(top: 72, left: 72, bottom: 72, right: 72)
-                                activityItems = [formatter, rtfData, fileURL]
-                            }
-                        } catch { }
+                        if let data = self.asHtml().data(using: String.Encoding.utf8) {
+                            let options: [NSAttributedString.DocumentReadingOptionKey: Any] = [
+                                .documentType: NSAttributedString.DocumentType.html,
+                                .characterEncoding: NSNumber(value: String.Encoding.utf8.rawValue)
+                            ]
+                            let attributedString = try NSAttributedString(data: data, options: options, documentAttributes: nil)
+
+                            let rtfOptions: [NSAttributedString.DocumentAttributeKey: Any] = [
+                                .documentType: NSAttributedString.DocumentType.rtf,
+                                .characterEncoding: NSNumber(value: String.Encoding.utf8.rawValue)
+                            ]
+                            let rtfData = try attributedString.data(from: NSMakeRange(0, attributedString.length), documentAttributes: rtfOptions)
+                            try rtfData.write(to: fileURL, options: .atomicWrite)
+                            formatter = UISimpleTextPrintFormatter(attributedText: attributedString)
+                            formatter.perPageContentInsets = UIEdgeInsets(top: 72, left: 72, bottom: 72, right: 72)
+                            activityItems = [formatter, rtfData, fileURL]
+                        }
+                    } catch { }
                 case "pdf":
                     let formatter = UIMarkupTextPrintFormatter(markupText: self.asHtml())
                     let renderer = UIPrintPageRenderer()
@@ -189,9 +195,7 @@ class PBHNoteExporter: NSObject {
 
     private func asHtml() -> String {
         var result = ""
-        do {
-            let down = Down(markdownString: self.text)
-            let outputHtml = try down.toHTML()
+        if let outputHtml = Node(markdown: text, options: [], extensions: [.checkbox, .table])?.html {
             let htmlTemplate = """
                 <?xml version="1.0" encoding="utf-8"?>
                 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -210,14 +214,13 @@ class PBHNoteExporter: NSObject {
                 </html>
                 """
             result = htmlTemplate
-        } catch { }
-
+        }
         return result
     }
 
 }
 
-extension PBHNoteExporter: UIPopoverPresentationControllerDelegate {
+extension NoteExporter: UIPopoverPresentationControllerDelegate {
 
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
         return .none

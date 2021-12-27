@@ -86,7 +86,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NotesTableViewController.self,
             CategoryTableViewController.self,
             EditorViewController.self,
-            PBHPreviewController.self,
+            PreviewViewController.self,
             SettingsTableViewController.self,
             LoginViewController.self
         ]
