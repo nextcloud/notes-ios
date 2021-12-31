@@ -83,7 +83,6 @@
 		D0AB0E802470B74D00D3E6B6 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0AB0E7E2470B74D00D3E6B6 /* MainInterface.storyboard */; };
 		D0AB0E842470B74D00D3E6B6 /* ActionExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D0AB0E782470B74D00D3E6B6 /* ActionExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D0B0F3A427360BD000E51C3F /* NotesFRCManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B0F3A327360BD000E51C3F /* NotesFRCManager.swift */; };
-		D0B684B12533F3C700312D27 /* Notepad in Frameworks */ = {isa = PBXBuildFile; productRef = D0B684B02533F3C700312D27 /* Notepad */; };
 		D0B6D4AE22F91DDA0037E073 /* CollapsibleTableViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B6D4AC22F91DDA0037E073 /* CollapsibleTableViewHeaderView.swift */; };
 		D0B6D4AF22F91DDA0037E073 /* CollapsibleTableViewHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0B6D4AD22F91DDA0037E073 /* CollapsibleTableViewHeaderView.xib */; };
 		D0BA4DDD2494814300136A61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D071BFE423CD6245002BF63B /* Assets.xcassets */; };
@@ -112,6 +111,7 @@
 		D0E60F1A27756608009CF78F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E60F1927756608009CF78F /* LoginViewController.swift */; };
 		D0E60F242777DD38009CF78F /* cmark_gfm_swift in Frameworks */ = {isa = PBXBuildFile; productRef = D0E60F232777DD38009CF78F /* cmark_gfm_swift */; };
 		D0E60F28277801F8009CF78F /* PreviewWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E60F27277801F8009CF78F /* PreviewWebView.swift */; };
+		D0E60F30277BD792009CF78F /* Notepad in Frameworks */ = {isa = PBXBuildFile; productRef = D0E60F2F277BD792009CF78F /* Notepad */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -314,6 +314,7 @@
 		D0E60F1E2777A5DA009CF78F /* libcmark-gfm.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libcmark-gfm.tbd"; path = "usr/lib/libcmark-gfm.tbd"; sourceTree = SDKROOT; };
 		D0E60F1F2777A5DA009CF78F /* libcmark-gfm-extensions.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libcmark-gfm-extensions.tbd"; path = "usr/lib/libcmark-gfm-extensions.tbd"; sourceTree = SDKROOT; };
 		D0E60F27277801F8009CF78F /* PreviewWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewWebView.swift; sourceTree = "<group>"; };
+		D0E60F2E277BD74F009CF78F /* Notepad */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Notepad; path = ../Notepad; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -363,7 +364,7 @@
 				D0CAFF162533E89900C47FA0 /* PKHUD in Frameworks */,
 				D0CFE53B1888A7BD00165839 /* UIKit.framework in Frameworks */,
 				D0CFE5371888A7BD00165839 /* Foundation.framework in Frameworks */,
-				D0B684B12533F3C700312D27 /* Notepad in Frameworks */,
+				D0E60F30277BD792009CF78F /* Notepad in Frameworks */,
 				D0CAFF092533E7FB00C47FA0 /* SwiftMessages in Frameworks */,
 				D078A1C4239C8A2000E1A004 /* CoreServices.framework in Frameworks */,
 			);
@@ -486,6 +487,7 @@
 		D0CFE52A1888A7BD00165839 = {
 			isa = PBXGroup;
 			children = (
+				D0E60F2C277BD6E3009CF78F /* Packages */,
 				D084FB6C245A5FDC003EB6FB /* Shared */,
 				D01067DC220BCAD60047E090 /* Models */,
 				D07F5E8C2207B6D700528E90 /* Networking */,
@@ -609,6 +611,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		D0E60F2C277BD6E3009CF78F /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				D0E60F2E277BD74F009CF78F /* Notepad */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -721,9 +731,9 @@
 				D0C876DE248F18700052EA63 /* Version */,
 				D0CAFF082533E7FB00C47FA0 /* SwiftMessages */,
 				D0CAFF152533E89900C47FA0 /* PKHUD */,
-				D0B684B02533F3C700312D27 /* Notepad */,
 				D08BFBDC2765835A00550B73 /* KSCrash */,
 				D0E60F232777DD38009CF78F /* cmark_gfm_swift */,
+				D0E60F2F277BD792009CF78F /* Notepad */,
 			);
 			productName = iOCNotes;
 			productReference = D0CFE5331888A7BD00165839 /* CloudNotes.app */;
@@ -799,7 +809,6 @@
 				D0C876DD248F18700052EA63 /* XCRemoteSwiftPackageReference "Version" */,
 				D0CAFF072533E7FB00C47FA0 /* XCRemoteSwiftPackageReference "SwiftMessages" */,
 				D0CAFF142533E89900C47FA0 /* XCRemoteSwiftPackageReference "PKHUD" */,
-				D0B684AF2533F3C700312D27 /* XCRemoteSwiftPackageReference "Notepad" */,
 				D08BFBDB2765835A00550B73 /* XCRemoteSwiftPackageReference "KSCrash" */,
 				D0E60F222777DD38009CF78F /* XCRemoteSwiftPackageReference "cmark-gfm-swift" */,
 			);
@@ -1824,14 +1833,6 @@
 				kind = branch;
 			};
 		};
-		D0B684AF2533F3C700312D27 /* XCRemoteSwiftPackageReference "Notepad" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/phedlund/Notepad/";
-			requirement = {
-				branch = spm;
-				kind = branch;
-			};
-		};
 		D0C876DD248F18700052EA63 /* XCRemoteSwiftPackageReference "Version" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mrackwitz/Version";
@@ -1892,11 +1893,6 @@
 			package = D08BFBDB2765835A00550B73 /* XCRemoteSwiftPackageReference "KSCrash" */;
 			productName = KSCrash;
 		};
-		D0B684B02533F3C700312D27 /* Notepad */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D0B684AF2533F3C700312D27 /* XCRemoteSwiftPackageReference "Notepad" */;
-			productName = Notepad;
-		};
 		D0C876DE248F18700052EA63 /* Version */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D0C876DD248F18700052EA63 /* XCRemoteSwiftPackageReference "Version" */;
@@ -1921,6 +1917,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D0E60F222777DD38009CF78F /* XCRemoteSwiftPackageReference "cmark-gfm-swift" */;
 			productName = cmark_gfm_swift;
+		};
+		D0E60F2F277BD792009CF78F /* Notepad */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Notepad;
 		};
 /* End XCSwiftPackageProductDependency section */
 

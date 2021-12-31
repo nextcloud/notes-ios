@@ -47,7 +47,7 @@ class PBHHeaderTextView: UITextView {
         let container = NSTextContainer(size: containerSize)
         container.widthTracksTextView = true
 
-        let layoutManager = NSLayoutManager()
+        let layoutManager = LayoutManager()
         layoutManager.addTextContainer(container)
         let theme = Theme("system-minimal")
         noteTextStorage.theme = theme
@@ -79,7 +79,7 @@ class PBHHeaderTextView: UITextView {
         noteTextStorage.setAttributedString(attributedString)
         
         let textViewRect = self.frame;
-        let layoutManager = NSLayoutManager()
+        let layoutManager = LayoutManager()
         
         let containerSize = CGSize(width:textViewRect.size.width, height:CGFloat.greatestFiniteMagnitude)
         let container = NSTextContainer.init(size: containerSize)
