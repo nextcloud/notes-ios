@@ -48,7 +48,7 @@ class EditorViewController: UIViewController {
         }
     }
    
-    var noteView = PBHHeaderTextView(frame: CGRect(x: 0, y: 0, width: 1, height: 1))
+    var noteView = HeaderTextView(frame: .zero)
 
     private var observers = [NSObjectProtocol]()
     private let throttler = Throttler(minimumDelay: 0.5)

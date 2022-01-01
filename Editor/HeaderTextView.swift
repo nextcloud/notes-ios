@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import Notepad
 
-class PBHHeaderTextView: UITextView {
+class HeaderTextView: UITextView {
 
     let smallPadding: CGFloat = 20.0
 
@@ -19,8 +18,9 @@ class PBHHeaderTextView: UITextView {
     private var headerLabelConstraintConstant: CGFloat = 20.0
     
     private var noteTextStorage = Storage()
+    private var checkBoxTapHandler = CheckBoxTapHandler()
 
-    private var textInset = UIEdgeInsets(top: 30, left: 0, bottom: 0, right: 0);
+    private var textContentInset = UIEdgeInsets(top: 30, left: 0, bottom: 0, right: 0);
     private var containerInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20);
 
     lazy var headerLabel: UILabel = {
@@ -54,7 +54,10 @@ class PBHHeaderTextView: UITextView {
         noteTextStorage.addLayoutManager(layoutManager)
 
         super.init(frame: frame, textContainer: container)
-        self.contentInset = textInset
+        self.addGestureRecognizer(checkBoxTapHandler.tapGestureRecognizer)
+        checkBoxTapHandler.textView = self
+        checkBoxTapHandler.layoutManager = layoutManager
+        self.contentInset = textContentInset
         self.textContainerInset = containerInset
         self.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(headerLabel)
@@ -70,7 +73,7 @@ class PBHHeaderTextView: UITextView {
     }
     
     func setup() {
-        self.contentInset = textInset
+        self.contentInset = textContentInset
         self.textContainerInset = containerInset
         self.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(headerLabel)
@@ -156,7 +159,7 @@ class PBHHeaderTextView: UITextView {
 
 }
 
-extension PBHHeaderTextView: UITextDropDelegate {
+extension HeaderTextView: UITextDropDelegate {
 
     func textDroppableView(_ textDroppableView: UIView & UITextDroppable, proposalForDrop drop: UITextDropRequest) -> UITextDropProposal {
         if drop.isSameView {

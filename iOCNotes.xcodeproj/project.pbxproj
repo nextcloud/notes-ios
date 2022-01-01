@@ -70,7 +70,7 @@
 		D07F5E872207B1DF00528E90 /* CDNote+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07F5E852207B1DE00528E90 /* CDNote+CoreDataProperties.swift */; };
 		D07F5E892207B2CF00528E90 /* NotesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07F5E882207B2CF00528E90 /* NotesData.swift */; };
 		D07F5E8E2207B6FF00528E90 /* NoteRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07F5E8D2207B6FF00528E90 /* NoteRouter.swift */; };
-		D08713ED1D18DA40001EAF82 /* PBHHeaderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08713EC1D18DA40001EAF82 /* PBHHeaderTextView.swift */; };
+		D08713ED1D18DA40001EAF82 /* HeaderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08713EC1D18DA40001EAF82 /* HeaderTextView.swift */; };
 		D08BFBDD2765835A00550B73 /* KSCrash in Frameworks */ = {isa = PBXBuildFile; productRef = D08BFBDC2765835A00550B73 /* KSCrash */; };
 		D095384A1D3313F8006BB78E /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09538421D32A56A006BB78E /* PreviewViewController.swift */; };
 		D095AE45245BB25F00A7EF62 /* NoteSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01067DD220BCE3C0047E090 /* NoteSessionManager.swift */; };
@@ -111,7 +111,16 @@
 		D0E60F1A27756608009CF78F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E60F1927756608009CF78F /* LoginViewController.swift */; };
 		D0E60F242777DD38009CF78F /* cmark_gfm_swift in Frameworks */ = {isa = PBXBuildFile; productRef = D0E60F232777DD38009CF78F /* cmark_gfm_swift */; };
 		D0E60F28277801F8009CF78F /* PreviewWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E60F27277801F8009CF78F /* PreviewWebView.swift */; };
-		D0E60F30277BD792009CF78F /* Notepad in Frameworks */ = {isa = PBXBuildFile; productRef = D0E60F2F277BD792009CF78F /* Notepad */; };
+		D0E60F57277FADD5009CF78F /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E60F37277FADD5009CF78F /* Storage.swift */; };
+		D0E60F59277FADD5009CF78F /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E60F39277FADD5009CF78F /* Style.swift */; };
+		D0E60F5A277FADD5009CF78F /* UniversalTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E60F3A277FADD5009CF78F /* UniversalTypes.swift */; };
+		D0E60F5C277FADD5009CF78F /* AttributedStringKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E60F3C277FADD5009CF78F /* AttributedStringKey.swift */; };
+		D0E60F5E277FADD5009CF78F /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E60F3E277FADD5009CF78F /* Theme.swift */; };
+		D0E60F5F277FADD5009CF78F /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E60F3F277FADD5009CF78F /* Element.swift */; };
+		D0E60F64277FADD6009CF78F /* LayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E60F44277FADD5009CF78F /* LayoutManager.swift */; };
+		D0E60F71277FADD6009CF78F /* CheckBoxTapHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E60F52277FADD5009CF78F /* CheckBoxTapHandler.swift */; };
+		D0E60F74277FADD6009CF78F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E60F55277FADD5009CF78F /* Extensions.swift */; };
+		D0E60F76277FB0A5009CF78F /* Themes.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D0E60F75277FB0A5009CF78F /* Themes.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -259,7 +268,7 @@
 		D07F5E8A2207B61500528E90 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		D07F5E8D2207B6FF00528E90 /* NoteRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteRouter.swift; sourceTree = "<group>"; };
 		D07F5E8F2207B81F00528E90 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = Carthage/Build/iOS/KeychainAccess.framework; sourceTree = "<group>"; };
-		D08713EC1D18DA40001EAF82 /* PBHHeaderTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PBHHeaderTextView.swift; sourceTree = "<group>"; };
+		D08713EC1D18DA40001EAF82 /* HeaderTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderTextView.swift; sourceTree = "<group>"; };
 		D093575724551E42006F4E01 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		D09538421D32A56A006BB78E /* PreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		D09DB858241F0CD1001E0E08 /* Credits.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Credits.html; sourceTree = "<group>"; };
@@ -314,7 +323,16 @@
 		D0E60F1E2777A5DA009CF78F /* libcmark-gfm.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libcmark-gfm.tbd"; path = "usr/lib/libcmark-gfm.tbd"; sourceTree = SDKROOT; };
 		D0E60F1F2777A5DA009CF78F /* libcmark-gfm-extensions.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libcmark-gfm-extensions.tbd"; path = "usr/lib/libcmark-gfm-extensions.tbd"; sourceTree = SDKROOT; };
 		D0E60F27277801F8009CF78F /* PreviewWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewWebView.swift; sourceTree = "<group>"; };
-		D0E60F2E277BD74F009CF78F /* Notepad */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Notepad; path = ../Notepad; sourceTree = "<group>"; };
+		D0E60F37277FADD5009CF78F /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		D0E60F39277FADD5009CF78F /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		D0E60F3A277FADD5009CF78F /* UniversalTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UniversalTypes.swift; sourceTree = "<group>"; };
+		D0E60F3C277FADD5009CF78F /* AttributedStringKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributedStringKey.swift; sourceTree = "<group>"; };
+		D0E60F3E277FADD5009CF78F /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		D0E60F3F277FADD5009CF78F /* Element.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
+		D0E60F44277FADD5009CF78F /* LayoutManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutManager.swift; sourceTree = "<group>"; };
+		D0E60F52277FADD5009CF78F /* CheckBoxTapHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoxTapHandler.swift; sourceTree = "<group>"; };
+		D0E60F55277FADD5009CF78F /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		D0E60F75277FB0A5009CF78F /* Themes.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Themes.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -364,7 +382,6 @@
 				D0CAFF162533E89900C47FA0 /* PKHUD in Frameworks */,
 				D0CFE53B1888A7BD00165839 /* UIKit.framework in Frameworks */,
 				D0CFE5371888A7BD00165839 /* Foundation.framework in Frameworks */,
-				D0E60F30277BD792009CF78F /* Notepad in Frameworks */,
 				D0CAFF092533E7FB00C47FA0 /* SwiftMessages in Frameworks */,
 				D078A1C4239C8A2000E1A004 /* CoreServices.framework in Frameworks */,
 			);
@@ -487,11 +504,11 @@
 		D0CFE52A1888A7BD00165839 = {
 			isa = PBXGroup;
 			children = (
-				D0E60F2C277BD6E3009CF78F /* Packages */,
 				D084FB6C245A5FDC003EB6FB /* Shared */,
 				D01067DC220BCAD60047E090 /* Models */,
 				D07F5E8C2207B6D700528E90 /* Networking */,
 				D05110BE20CA1F9D00AFFDC7 /* CoreData */,
+				D0E60F35277FADA0009CF78F /* Editor */,
 				D0CFE53C1888A7BD00165839 /* iOCNotes */,
 				D0CFE55E1888A7BD00165839 /* iOCNotesTests */,
 				D018039F23B2BA23001CA4FC /* AppKitGlue */,
@@ -565,7 +582,6 @@
 				D06882ED22BB146200CEBC1F /* EditorViewController.swift */,
 				D09538421D32A56A006BB78E /* PreviewViewController.swift */,
 				D0E60F27277801F8009CF78F /* PreviewWebView.swift */,
-				D08713EC1D18DA40001EAF82 /* PBHHeaderTextView.swift */,
 				D059F7DA1D40596D00C252F2 /* NoteExporter.swift */,
 				D0545F22230901D30001D165 /* PBHOpenInActivity.swift */,
 				BDD015A22353F7D4000BA001 /* PBHSplitViewController.swift */,
@@ -611,12 +627,22 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		D0E60F2C277BD6E3009CF78F /* Packages */ = {
+		D0E60F35277FADA0009CF78F /* Editor */ = {
 			isa = PBXGroup;
 			children = (
-				D0E60F2E277BD74F009CF78F /* Notepad */,
+				D0E60F3C277FADD5009CF78F /* AttributedStringKey.swift */,
+				D0E60F52277FADD5009CF78F /* CheckBoxTapHandler.swift */,
+				D0E60F3F277FADD5009CF78F /* Element.swift */,
+				D0E60F55277FADD5009CF78F /* Extensions.swift */,
+				D08713EC1D18DA40001EAF82 /* HeaderTextView.swift */,
+				D0E60F44277FADD5009CF78F /* LayoutManager.swift */,
+				D0E60F37277FADD5009CF78F /* Storage.swift */,
+				D0E60F39277FADD5009CF78F /* Style.swift */,
+				D0E60F3E277FADD5009CF78F /* Theme.swift */,
+				D0E60F3A277FADD5009CF78F /* UniversalTypes.swift */,
+				D0E60F75277FB0A5009CF78F /* Themes.bundle */,
 			);
-			name = Packages;
+			path = Editor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -733,7 +759,6 @@
 				D0CAFF152533E89900C47FA0 /* PKHUD */,
 				D08BFBDC2765835A00550B73 /* KSCrash */,
 				D0E60F232777DD38009CF78F /* cmark_gfm_swift */,
-				D0E60F2F277BD792009CF78F /* Notepad */,
 			);
 			productName = iOCNotes;
 			productReference = D0CFE5331888A7BD00165839 /* CloudNotes.app */;
@@ -879,6 +904,7 @@
 				D02256C71891FD7C0038232A /* defaults.plist in Resources */,
 				D09E430C1E2C46930010E4B3 /* Main_iPhone.storyboard in Resources */,
 				D0225709189745C40038232A /* Settings.bundle in Resources */,
+				D0E60F76277FB0A5009CF78F /* Themes.bundle in Resources */,
 				D0BCFE6A2454BF40007C4CA3 /* Categories.storyboard in Resources */,
 				D0CFE5411888A7BD00165839 /* InfoPlist.strings in Resources */,
 			);
@@ -987,27 +1013,36 @@
 				BDD015A32353F7D4000BA001 /* PBHSplitViewController.swift in Sources */,
 				D0E60F1827741633009CF78F /* FileExtensionTableViewController.swift in Sources */,
 				D095AE45245BB25F00A7EF62 /* NoteSessionManager.swift in Sources */,
+				D0E60F5E277FADD5009CF78F /* Theme.swift in Sources */,
 				D05110C120CA1FE000AFFDC7 /* Notes.xcdatamodeld in Sources */,
 				D07F5E8E2207B6FF00528E90 /* NoteRouter.swift in Sources */,
 				D09E6451248B3A7C003FB4C9 /* OCSProtocol.swift in Sources */,
+				D0E60F5C277FADD5009CF78F /* AttributedStringKey.swift in Sources */,
 				BD653F88231C43FA00D59A88 /* Constants.swift in Sources */,
 				D01067E42213BDF30047E090 /* AppDelegate.swift in Sources */,
 				D0E38B0324930C410075B7F0 /* Throttler.swift in Sources */,
 				D01067E62213C17D0047E090 /* NotesTableViewController.swift in Sources */,
 				D0B6D4AE22F91DDA0037E073 /* CollapsibleTableViewHeaderView.swift in Sources */,
 				BD92271B22CD3743004E2408 /* UtilityExtensions.swift in Sources */,
+				D0E60F71277FADD6009CF78F /* CheckBoxTapHandler.swift in Sources */,
+				D0E60F5F277FADD5009CF78F /* Element.swift in Sources */,
 				D0C1C39F2462448D00AAC4A8 /* SyncOperation.swift in Sources */,
+				D0E60F74277FADD6009CF78F /* Extensions.swift in Sources */,
+				D0E60F57277FADD5009CF78F /* Storage.swift in Sources */,
 				D0545F23230901D30001D165 /* PBHOpenInActivity.swift in Sources */,
 				D06882EE22BB146200CEBC1F /* EditorViewController.swift in Sources */,
 				D07F5E892207B2CF00528E90 /* NotesData.swift in Sources */,
+				D0E60F59277FADD5009CF78F /* Style.swift in Sources */,
 				D03493B722F2837500E1A9B0 /* NoteTableViewCell.swift in Sources */,
 				D01067E22213BB5E0047E090 /* NoteProtocol.swift in Sources */,
 				D059F7DB1D40596D00C252F2 /* NoteExporter.swift in Sources */,
 				D07F5E872207B1DF00528E90 /* CDNote+CoreDataProperties.swift in Sources */,
 				BD86DD8522B9CDD500115E5D /* KeychainHelper.swift in Sources */,
-				D08713ED1D18DA40001EAF82 /* PBHHeaderTextView.swift in Sources */,
+				D08713ED1D18DA40001EAF82 /* HeaderTextView.swift in Sources */,
+				D0E60F5A277FADD5009CF78F /* UniversalTypes.swift in Sources */,
 				D0E60F28277801F8009CF78F /* PreviewWebView.swift in Sources */,
 				D03493B922F3CC5700E1A9B0 /* CategoryTableViewController.swift in Sources */,
+				D0E60F64277FADD6009CF78F /* LayoutManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1917,10 +1952,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D0E60F222777DD38009CF78F /* XCRemoteSwiftPackageReference "cmark-gfm-swift" */;
 			productName = cmark_gfm_swift;
-		};
-		D0E60F2F277BD792009CF78F /* Notepad */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Notepad;
 		};
 /* End XCSwiftPackageProductDependency section */
 
