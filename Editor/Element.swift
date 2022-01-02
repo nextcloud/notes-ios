@@ -7,8 +7,6 @@
 //
 
 import Foundation
-import Alamofire
-
 
 /// A String type enum to keep track of the different elements we're tracking with regex.
 public enum Element: String {
