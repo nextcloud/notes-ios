@@ -45,13 +45,13 @@ public class LayoutManager: NSLayoutManager {
                 rect.size.width = rect.size.height
                 if #available(iOS 13.0, *) {
                     if checked {
-                        let image = UIImage(systemName: "checkmark.square")?.withTintColor(color, renderingMode: .alwaysOriginal)
-                        print("Drawing checkmark in \(rect)")
-                        image?.draw(in: rect)
+                        UIImage(systemName: "checkmark.square")?
+                            .withTintColor(color, renderingMode: .alwaysOriginal)
+                            .draw(in: rect)
                     } else {
-                        let image = UIImage(systemName: "square")?.withTintColor(color, renderingMode: .alwaysOriginal)
-                        print("Drawing square in \(rect)")
-                        image?.draw(in: rect)
+                        UIImage(systemName: "square")?
+                            .withTintColor(color, renderingMode: .alwaysOriginal)
+                            .draw(in: rect)
                     }
                 } else {
                     // Fallback on earlier versions

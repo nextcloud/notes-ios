@@ -30,14 +30,11 @@ public class CheckBoxTapHandler: NSObject {
             let textStorage = layoutManager.textStorage
             var tappedLocation = sender.location(in: textView)
             let containerInset = textView.textContainerInset
-            print("Tapped at \(tappedLocation) for text view frame \(textView.frame) with insets \(containerInset)")
             tappedLocation.x -= containerInset.left
             tappedLocation.y -= containerInset.top
             if !textView.bounds.contains(tappedLocation) {
                 return
             }
-            print("Tapped at adjusted location \(tappedLocation)")
-            print("Tapped in text view")
 
             let glyphIndex = layoutManager.glyphIndex(for: tappedLocation, in: textView.textContainer)
             let charIndex = layoutManager.characterIndexForGlyph(at: glyphIndex)
@@ -53,25 +50,20 @@ public class CheckBoxTapHandler: NSObject {
                     checked = value
                 }
 
-                print("Tapped in \(checked ? "Checked" : "Unchecked") box")
                 if let input = textStorage?.string {
                     let character = input[input.index(input.startIndex, offsetBy: charIndex)]
                     switch character {
                     case " ":
-                        print("Found space character")
                         textStorage?.replaceCharacters(in: NSRange(location: charIndex - 1, length: 3), with: "[x]")
                     case "x", "X":
-                        print("Found x")
                         textStorage?.replaceCharacters(in: NSRange(location: charIndex - 1, length: 3), with: "[ ]")
                     case "[":
-                        print("Found opening bracket")
                         if checked {
                             textStorage?.replaceCharacters(in: NSRange(location: charIndex, length: 3), with: "[ ]")
                         } else {
                             textStorage?.replaceCharacters(in: NSRange(location: charIndex, length: 3), with: "[x]")
                         }
                     case "]":
-                        print("Found closing bracket")
                         if checked {
                             textStorage?.replaceCharacters(in: NSRange(location: charIndex - 2, length: 3), with: "[ ]")
                         } else {
