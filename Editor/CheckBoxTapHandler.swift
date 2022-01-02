@@ -18,6 +18,7 @@ public class CheckBoxTapHandler: NSObject {
         tapGestureRecognizer = UITapGestureRecognizer()
         super.init()
         tapGestureRecognizer.addTarget(self, action: #selector(handleTap(sender:)))
+        tapGestureRecognizer.delegate = self
     }
 
     @objc func handleTap(sender: UITapGestureRecognizer) {
@@ -42,7 +43,7 @@ public class CheckBoxTapHandler: NSObject {
             let charIndex = layoutManager.characterIndexForGlyph(at: glyphIndex)
             let range = NSRange(location: charIndex, length: 1)
 
-            textStorage?.enumerateAttribute(.checkBox, in: range, options: .longestEffectiveRangeNotRequired) { value, range, _ in
+            textStorage?.enumerateAttribute(.checkBox, in: range, options: .longestEffectiveRangeNotRequired) { value, _, _ in
                 guard let value = value else {
                     return
                 }
@@ -82,6 +83,46 @@ public class CheckBoxTapHandler: NSObject {
                 }
             }
         }
+    }
+
+}
+
+extension CheckBoxTapHandler: UIGestureRecognizerDelegate {
+
+    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        if gestureRecognizer != tapGestureRecognizer {
+            return true
+        }
+        guard let layoutManager = layoutManager, let textView = textView else {
+            return true
+        }
+        var result = true
+        let textStorage = layoutManager.textStorage
+        var tappedLocation = gestureRecognizer.location(in: textView)
+        let containerInset = textView.textContainerInset
+        tappedLocation.x -= containerInset.left
+        tappedLocation.y -= containerInset.top
+        if !textView.bounds.contains(tappedLocation) {
+            return true
+        }
+
+        let glyphIndex = layoutManager.glyphIndex(for: tappedLocation, in: textView.textContainer)
+        let charIndex = layoutManager.characterIndexForGlyph(at: glyphIndex)
+        let range = NSRange(location: charIndex, length: 1)
+
+        textStorage?.enumerateAttribute(.checkBox, in: range, options: .longestEffectiveRangeNotRequired) { value, _, stop in
+            if value == nil {
+                return
+            }
+            if let input = textStorage?.string {
+                let character = input[input.index(input.startIndex, offsetBy: charIndex)]
+                if "[ xX]".contains(character) {
+                    result = false // Don't enter edit mode if checkbox is tapped
+                    stop.pointee = true
+                }
+            }
+        }
+        return result
     }
 
 }
