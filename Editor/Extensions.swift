@@ -12,6 +12,7 @@ import Foundation
     import struct UIKit.CGFloat
 #elseif os(macOS)
     import struct AppKit.CGFloat
+import UIKit
 #endif
 
 extension UniversalColor {
@@ -85,47 +86,52 @@ extension String {
 }
 
 extension UniversalFont {
-    func with(traits: String, size: CGFloat) -> UniversalFont? {
-        guard let traits = getTraits(from: traits) else {
-            return self
+
+        func with(traits: String) -> UniversalFont {
+            guard let traits = getTraits(from: traits) else {
+                return self
+            }
+            let descriptor = fontDescriptor.withSymbolicTraits(traits) ?? UniversalFontDescriptor(fontAttributes: [:])
+            return UniversalFont(descriptor: descriptor, size: 0)
         }
-        let descriptor = fontDescriptor.withSymbolicTraits(traits) ?? UniversalFontDescriptor(fontAttributes: [:])
-        return UniversalFont(descriptor: descriptor, size: size)
-    }
-    
-    #if os(iOS)
+
+        func bold() -> UniversalFont {
+            return with(traits: "bold")
+        }
+
+        func italic() -> UniversalFont {
+            return with(traits: "italic")
+        }
+
+
+#if os(iOS)
     @available(iOS 13.0, *)
-    convenience init?(
-        style: UniversalFont.TextStyle,
-        weight: UniversalFont.Weight = .regular,
-        design: UniversalFontDescriptor.SystemDesign = .default) {
-        
+    convenience init?(style: UniversalFont.TextStyle, design: UniversalFontDescriptor.SystemDesign = .default) {
         guard let descriptor = UniversalFontDescriptor.preferredFontDescriptor(withTextStyle: style)
-            .addingAttributes([UniversalFontDescriptor.AttributeName.traits: [UniversalFontDescriptor.TraitKey.weight: weight]])
-            .withDesign(design) else {
-                return nil
-        }
+                .withDesign(design) else {
+                    return nil
+                }
         self.init(descriptor: descriptor, size: 0)
     }
-    #endif
+#endif
 
     private func getTraits(from traits: String) -> UniversalTraits? {
-        #if os(iOS)
+#if os(iOS)
         switch traits {
-            case "italic": return .traitItalic
-            case "bold": return .traitBold
-            case "expanded": return .traitExpanded
-            case "condensed": return .traitCondensed
-            default: return nil
+        case "italic": return .traitItalic
+        case "bold": return .traitBold
+        case "expanded": return .traitExpanded
+        case "condensed": return .traitCondensed
+        default: return nil
         }
-        #elseif os(macOS)
+#elseif os(macOS)
         switch traits {
-            case "italic": return .italic
-            case "bold": return .bold
-            case "expanded": return .expanded
-            case "condensed": return .condensed
-            default: return nil
+        case "italic": return .italic
+        case "bold": return .bold
+        case "expanded": return .expanded
+        case "condensed": return .condensed
+        default: return nil
         }
-        #endif
+#endif
     }
 }

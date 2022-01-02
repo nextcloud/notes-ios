@@ -126,6 +126,9 @@ public class Storage: NSTextStorage {
         for (style) in theme.styles {
             style.regex.enumerateMatches(in: backingString, options: .withoutAnchoringBounds, range: range, using: { (match, flags, stop) in
                 guard let match = match else { return }
+                for i in 0..<match.numberOfRanges {
+                    print("\( match.regularExpression?.pattern ?? "") matched at \(match.range(at: i))")
+                }
                 if match.resultType == NSTextCheckingResult.CheckingType.regularExpression, match.regularExpression?.pattern == Element.checkBoxUnchecked.rawValue {
                     backingStore.addAttribute(.checkBox, value: false, range: match.range(at: 2))
                     backingStore.addAttributes(style.attributes, range: match.range(at: 2))

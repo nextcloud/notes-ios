@@ -29,7 +29,16 @@
             "traits": "italic",
             "color": "#C678DD"
         },
-        "code": {
+        "codeInline": {
+            "traits": "monospace",
+            "color": "#95C077"
+        },
+        "codeBlock": {
+            "traits": "monospace",
+            "color": "#95C077"
+        },
+        "codeFenced": {
+            "traits": "monospace",
             "color": "#95C077"
         },
         "handle": {
@@ -46,6 +55,9 @@
             "color": "#D19A66"
         },
         "checkBoxChecked": {
+            "color": "#78aedd"
+        },
+        "quote": {
             "color": "#78aedd"
         }
     }

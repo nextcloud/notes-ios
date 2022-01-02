@@ -154,16 +154,25 @@ public struct Theme {
         
         if let fontName = attributes["font"] as? String, fontName != "System", !fontName.hasPrefix(".") {
             // use custom font if set
-            font = UniversalFont(name: fontName, size: fontSize)?.with(traits: fontTraits, size: fontSize)
+            font = UniversalFont(name: fontName, size: fontSize)?.with(traits: fontTraits)
         } else if let bodyFont = bodyFont, bodyFont.fontName != "System", !bodyFont.fontName.hasPrefix(".") {
             // use body font if set
-            font = UniversalFont(name: bodyFont.fontName, size: fontSize)?.with(traits: fontTraits, size: fontSize)
+            font = UniversalFont(name: bodyFont.fontName, size: fontSize)?.with(traits: fontTraits)
         } else {
             #if os(iOS)
             if #available(iOS 13.0, *) {
-                font = UniversalFont(style: .body, weight: .regular)
+                switch fontTraits {
+                case "bold":
+                    font = UniversalFont(style: .body)?.bold()
+                case "italic":
+                    font = UniversalFont(style: .body)?.italic()
+                case "monospace":
+                    font = UniversalFont(style: .body, design: .monospaced)
+                default:
+                    font = UniversalFont(style: .body)
+                }
             } else {
-                font = UniversalFont.systemFont(ofSize: fontSize).with(traits: fontTraits, size: fontSize)
+                font = UniversalFont.systemFont(ofSize: fontSize).with(traits: fontTraits)
             }
             #else
             // use system font in all other cases
