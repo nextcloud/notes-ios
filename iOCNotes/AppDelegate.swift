@@ -149,7 +149,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         KeychainHelper.didSyncInBackground = false
     }
         
-    @available(iOS 13.0, *)
     func scheduleAppSync() {
         BGTaskScheduler.shared.cancelAllTaskRequests()
         let request = BGAppRefreshTaskRequest(identifier: "com.peterandlinda.iOCNotes.Sync")
@@ -161,7 +160,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        }
     }
     
-    @available(iOS 13.0, *)
     func handleAppSync(task: BGAppRefreshTask) {
         // Schedule a new refresh task
         scheduleAppSync()
@@ -233,7 +231,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     #endif
 
     #if targetEnvironment(macCatalyst)
-    @available(iOS 13.0, *)
     override func buildMenu(with builder: UIMenuBuilder) {
         super.buildMenu(with: builder)
         
@@ -274,12 +271,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         builder.insertSibling(noteMenu, beforeMenu: .window)
     }
     
-    @available(iOS 13.0, *)
     override func validate(_ command: UICommand) {
         print(command.description)
     }
     
-    @available(iOS 13.0, *)
     @objc func openPreferences() {
         let userActivity = NSUserActivity(activityType: "com.peterandlinda.CloudNotes.appSettings")
         UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil) { (e) in

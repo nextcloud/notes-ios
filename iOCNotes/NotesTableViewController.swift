@@ -428,7 +428,6 @@ class NotesTableViewController: UITableViewController {
         present(alertController, animated: true, completion: nil)
     }
     
-    @available(iOS 13.0, *)
     public override func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         guard manager.fetchedResultsController.validate(indexPath: indexPath) else {
             return nil

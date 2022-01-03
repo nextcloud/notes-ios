@@ -105,7 +105,6 @@ extension UniversalFont {
 
 
 #if os(iOS)
-    @available(iOS 13.0, *)
     convenience init?(style: UniversalFont.TextStyle, design: UniversalFontDescriptor.SystemDesign = .default) {
         guard let descriptor = UniversalFontDescriptor.preferredFontDescriptor(withTextStyle: style)
                 .withDesign(design) else {
