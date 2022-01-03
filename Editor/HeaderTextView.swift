@@ -3,7 +3,7 @@
 //  iOCNotes
 //
 //  Created by Peter Hedlund on 6/20/16.
-//  Copyright © 2016 Peter Hedlund. All rights reserved.
+//  Copyright © 2022 Peter Hedlund. All rights reserved.
 //
 
 import UIKit
@@ -49,7 +49,7 @@ class HeaderTextView: UITextView {
 
         let layoutManager = LayoutManager()
         layoutManager.addTextContainer(container)
-        let theme = Theme("system-minimal")
+        let theme = Theme("cloudnotes")
         noteTextStorage.theme = theme
         noteTextStorage.addLayoutManager(layoutManager)
 

@@ -128,10 +128,27 @@ public struct Theme {
         
         let bodyFont = body.attributes[NSAttributedString.Key.font] as? UniversalFont
         // if size is set use custom size, otherwise use body font size, otherwise fallback to 15 points
-        let fontSize: CGFloat = attributes["size"] as? CGFloat ?? (bodyFont?.pointSize ?? 15)
+        let fontSize: CGFloat = attributes["size"] as? CGFloat ?? (bodyFont?.pointSize ?? (UniversalFont(style: .body)?.pointSize ?? 15))
         let fontTraits = attributes["traits"] as? String ?? ""
         var font: UniversalFont?
-        
+
+        var textStyle: UniversalFont.TextStyle = .body
+        if let style = attributes["style"] as? String  {
+            switch style {
+            case "body":
+                break
+            case "title1":
+                textStyle = .title1
+            case "title2":
+                textStyle = .title2
+            case "title3":
+                textStyle = .title3
+            default:
+                break
+            }
+        }
+        font = UniversalFont.preferredFont(forTextStyle: textStyle)
+
         if let fontName = attributes["font"] as? String, fontName != "System", !fontName.hasPrefix(".") {
             // use custom font if set
             font = UniversalFont(name: fontName, size: fontSize)?.with(traits: fontTraits)
@@ -142,13 +159,13 @@ public struct Theme {
 #if os(iOS)
             switch fontTraits {
             case "bold":
-                font = UniversalFont(style: .body)?.bold()
+                font = font?.bold()
             case "italic":
-                font = UniversalFont(style: .body)?.italic()
+                font = font?.italic()
             case "monospace":
-                font = UniversalFont(style: .body, design: .monospaced)
+                font = UniversalFont(style: textStyle, design: .monospaced)
             default:
-                font = UniversalFont(style: .body)
+                break
             }
 #else
             // use system font in all other cases

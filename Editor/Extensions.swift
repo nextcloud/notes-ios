@@ -87,21 +87,21 @@ extension String {
 
 extension UniversalFont {
 
-        func with(traits: String) -> UniversalFont {
-            guard let traits = getTraits(from: traits) else {
-                return self
-            }
-            let descriptor = fontDescriptor.withSymbolicTraits(traits) ?? UniversalFontDescriptor(fontAttributes: [:])
-            return UniversalFont(descriptor: descriptor, size: 0)
+    func with(traits: String) -> UniversalFont {
+        guard let traits = getTraits(from: traits) else {
+            return self
         }
+        let descriptor = fontDescriptor.withSymbolicTraits(traits) ?? UniversalFontDescriptor(fontAttributes: [:])
+        return UniversalFont(descriptor: descriptor, size: 0)
+    }
 
-        func bold() -> UniversalFont {
-            return with(traits: "bold")
-        }
-
-        func italic() -> UniversalFont {
-            return with(traits: "italic")
-        }
+    func bold() -> UniversalFont {
+        return with(traits: "bold")
+    }
+    
+    func italic() -> UniversalFont {
+        return with(traits: "italic")
+    }
 
 
 #if os(iOS)

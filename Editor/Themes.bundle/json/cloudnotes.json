@@ -1,43 +1,44 @@
 {
-    "name": "System Minimal",
+    "name": "CloudNotes",
     "style": "Light",
     "author": {
-        "name": "Stefan Trauth",
-        "email": "mail@stefantrauth.de"
+        "name": "Peter Hedlund",
+        "email": "support@pbh.dev"
     },
     "version": "1.0",
     "styles": {
         "h1": {
             "color": "#C96667",
-            "size": 20,
-            "traits": "bold"
+            "style": "title1",
         },
         "h2": {
+            "style": "title2",
             "color": "#C96667"
         },
         "h3": {
+            "style": "title3",
             "color": "#C96667"
         },
         "body": {
-            "size": 17
+            "style": "body"
         },
         "bold": {
-            "traits": "bold",
-            "color": "#D19A66"
+            "traits": "bold"
         },
         "italic": {
-            "traits": "italic",
-            "color": "#C678DD"
+            "traits": "italic"
         },
         "codeInline": {
             "traits": "monospace",
             "color": "#95C077"
         },
         "codeBlock": {
+            "style": "body",
             "traits": "monospace",
             "color": "#95C077"
         },
         "codeFenced": {
+            "style": "body",
             "traits": "monospace",
             "color": "#95C077"
         },
@@ -52,10 +53,10 @@
             "color": "#78aedd"
         },
         "checkBoxUnchecked": {
-            "color": "#D19A66"
+            "style": "body"
         },
         "checkBoxChecked": {
-            "color": "#78aedd"
+            "style": "body"
         },
         "quote": {
             "color": "#78aedd"
