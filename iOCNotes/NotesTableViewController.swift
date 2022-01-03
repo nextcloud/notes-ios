@@ -306,40 +306,7 @@ class NotesTableViewController: UITableViewController {
         configureCell(cell, at: indexPath)
         return cell
     }
-    
-    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        // Use context menu on iOS 13 and above
-        if #available(iOS 13.0, *) {
-            return nil
-        }
-        // Currently only NextCloud supports categories
-        if !isNextcloud() {
-            return nil
-        }
-        var actions = [UIContextualAction]()
-        let title = NSLocalizedString("Category", comment: "Name of cell category action")
-        let categoryAction = UIContextualAction(style: .normal,
-                                                title: title,
-                                                handler: { [weak self] (_, _, completionHandler) in
-                                                    self?.showCategories(indexPath: indexPath)
-                                                    completionHandler(true)
-        })
-        actions.append(categoryAction)
         
-        if KeychainHelper.notesApiVersion != Router.defaultApiVersion {
-            let renameAction = UIContextualAction(style: .normal,
-                                                  title: NSLocalizedString("Rename", comment: "Action to change title of a note"),
-                                                  handler: { [weak self] (_, _, completionHandler) in
-                                                    self?.showRenameAlert(for: indexPath)
-                                                    completionHandler(true)
-            })
-            actions.append(renameAction)
-        }
-        
-        let configuration = UISwipeActionsConfiguration(actions: actions)
-        return configuration
-    }
-    
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }

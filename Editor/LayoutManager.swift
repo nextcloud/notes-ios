@@ -43,29 +43,14 @@ public class LayoutManager: NSLayoutManager {
                 rect = rect.offsetBy(dx: 0, dy: 2)
                 rect.size.height = max(rect.size.height, font.lineHeight) - 3
                 rect.size.width = rect.size.height
-                if #available(iOS 13.0, *) {
-                    if checked {
-                        UIImage(systemName: "checkmark.square")?
-                            .withTintColor(color, renderingMode: .alwaysOriginal)
-                            .draw(in: rect)
-                    } else {
-                        UIImage(systemName: "square")?
-                            .withTintColor(color, renderingMode: .alwaysOriginal)
-                            .draw(in: rect)
-                    }
+                if checked {
+                    UIImage(systemName: "checkmark.square")?
+                        .withTintColor(color, renderingMode: .alwaysOriginal)
+                        .draw(in: rect)
                 } else {
-                    // Fallback on earlier versions
-                    let path = UIBezierPath(roundedRect: rect, cornerRadius: 3)
-                    path.stroke()
-                    if checked {
-                        let checkmark = UIBezierPath()
-                        let size = rect.size
-                        checkmark.move(to: CGPoint(x: rect.origin.x + 22/100 * size.width, y: rect.origin.y + 52/100 * size.height))
-                        checkmark.addLine(to: CGPoint(x: rect.origin.x + 38/100 * size.width, y: rect.origin.y + 68/100 * size.height))
-                        checkmark.addLine(to: CGPoint(x: rect.origin.x + 76/100 * size.width, y: rect.origin.y + 30/100 * size.height))
-                        checkmark.lineWidth = 2.0
-                        checkmark.stroke()
-                    }
+                    UIImage(systemName: "square")?
+                        .withTintColor(color, renderingMode: .alwaysOriginal)
+                        .draw(in: rect)
                 }
                 context.restoreGState()
             } else {

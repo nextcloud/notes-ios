@@ -41,16 +41,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         installation?.install()
         #endif
         
-        if #available(iOS 13.0, *) {
-            _ = BGTaskScheduler.shared.register(forTaskWithIdentifier: "com.peterandlinda.iOCNotes.Sync", using: nil) { task in
-                if let task = task as? BGAppRefreshTask {
-                    print(task.description)
-                    self.handleAppSync(task: task)
-                }
+        _ = BGTaskScheduler.shared.register(forTaskWithIdentifier: "com.peterandlinda.iOCNotes.Sync", using: nil) { task in
+            if let task = task as? BGAppRefreshTask {
+                print(task.description)
+                self.handleAppSync(task: task)
             }
-        } else {
-            // Fallback on earlier versions
-            // Do nothing
         }
 
         #if targetEnvironment(macCatalyst)
@@ -137,12 +132,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         notesTableViewController?.updateFrcDelegate(update: .disable)
         updateFrcDelegateNeeded = true
-        if #available(iOS 13.0, *) {
-            scheduleAppSync()
-        } else {
-            // Fallback on earlier versions
-            // Do nothing
-        }
+        scheduleAppSync()
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
