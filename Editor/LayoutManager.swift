@@ -73,3 +73,46 @@ public class LayoutManager: NSLayoutManager {
     }
 
 }
+
+extension LayoutManager: NSLayoutManagerDelegate {
+    public func layoutManager(_ layoutManager: NSLayoutManager, shouldGenerateGlyphs glyphs: UnsafePointer<CGGlyph>, properties props: UnsafePointer<NSLayoutManager.GlyphProperty>, characterIndexes charIndexes: UnsafePointer<Int>, font aFont: UIFont, forGlyphRange glyphRange: NSRange) -> Int {
+
+        guard let textStorage = textStorage else {
+            layoutManager.setGlyphs(glyphs, properties: props, characterIndexes: charIndexes,
+                                    font: aFont, forGlyphRange: glyphRange)
+            return glyphRange.length
+        }
+
+        let firstCharIndex = charIndexes[0]
+        let lastCharIndex = charIndexes[glyphRange.length - 1]
+        let charactersRange = NSRange(location: firstCharIndex, length: lastCharIndex - firstCharIndex + 1)
+
+        var replacementRanges = [NSRange]()
+        textStorage.enumerateAttributes(in: charactersRange, options: []) { attributes, range, _ in
+            for attribute in attributes where attribute.key == .listItemUnordered {
+                replacementRanges.append(range)
+            }
+        }
+
+        let finalGlyphs = UnsafeMutablePointer<CGGlyph>(mutating: glyphs)
+        let myCharacter: [UniChar] = [0x2022]
+        var myGlyphs: [CGGlyph] = [0]
+        let canEncode = CTFontGetGlyphsForCharacters(aFont, myCharacter, &myGlyphs, myCharacter.count)
+        if !canEncode {
+            print("! Failed to get the glyphs for characters \(myCharacter).")
+        }
+
+        for i in 0 ..< glyphRange.length {
+            let characterIndex = charIndexes[i]
+            let filteredReplacementRanges = replacementRanges.filter { NSLocationInRange(characterIndex, $0) }
+            if !filteredReplacementRanges.isEmpty {
+                finalGlyphs[0] = myGlyphs[0]
+            }
+        }
+
+        layoutManager.setGlyphs(finalGlyphs, properties: props, characterIndexes: charIndexes, font: aFont, forGlyphRange: glyphRange)
+        return glyphRange.length
+    }
+
+}
+

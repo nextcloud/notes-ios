@@ -48,6 +48,7 @@ class HeaderTextView: UITextView {
         container.widthTracksTextView = true
 
         let layoutManager = LayoutManager()
+        layoutManager.delegate = layoutManager
         layoutManager.addTextContainer(container)
         let theme = Theme("cloudnotes")
         noteTextStorage.theme = theme

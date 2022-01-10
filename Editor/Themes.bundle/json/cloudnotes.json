@@ -58,6 +58,12 @@
         "checkBoxChecked": {
             "style": "body"
         },
+        "listItemUnordered": {
+            "style": "body"
+        },
+        "listItemOrdered": {
+            "style": "body"
+        },
         "quote": {
             "color": "#78aedd"
         }

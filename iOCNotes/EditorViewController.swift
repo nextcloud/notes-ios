@@ -400,6 +400,116 @@ extension EditorViewController: UITextViewDelegate {
                 }
             }
         }
+
+        //
+        // When the user hits the return key, to initiate a new line, we will do some processing
+        // to see if we are continuing a list of unordered or ordered bullet points.
+        // As an extra requirement, if the user hits return on an empty bullet point, then we clear the bullet point.
+        //
+
+        if text.first == Character("\n") {
+
+            let fullText = textView.text as NSString
+            let precedingText = fullText.substring(to: range.upperBound)
+            let precedingLines = precedingText.components(separatedBy: .newlines)
+            guard let precedingLineString = precedingLines.last else {
+                return true
+            }
+            let precedingLineNSString = precedingLineString as NSString
+            let precedingLineRange = NSMakeRange(0, precedingLineNSString.length)
+            let precedingLineRangeInFullText = NSMakeRange(fullText.length - precedingLineNSString.length, precedingLineNSString.length)
+            let options = NSRegularExpression.MatchingOptions(rawValue: 0)
+
+            //
+            // This code will check for the prescence of a filled bullet point on the preceding line,
+            // in the format of `1. Bullet Point Text`, or `- A dashed bullet point`
+            // If this is found, then the new line will automatically gain it's own indexed bullet point.
+            //
+
+            // Pattern: [Line Beginning] {([Numbers] [Full Stop]) or [Bullet Character: -+*]} [Single Space Character] [All Characters] [Line End]
+            guard let listItemUnorderedRegex = try? NSRegularExpression(pattern: Element.listItemUnordered.rawValue, options: .anchorsMatchLines) else {
+                return true
+            }
+
+            if let unorderedMatch = listItemUnorderedRegex.matches(in: precedingLineString, options: options, range: precedingLineRange).first {
+
+                for i in 0..<unorderedMatch.numberOfRanges {
+                    let startIndex = textView.text.index(textView.text.startIndex, offsetBy: unorderedMatch.range(at: i).location)
+                    let endIndex = textView.text.index(textView.text.startIndex, offsetBy: unorderedMatch.range(at: i).location + unorderedMatch.range(at: i).length)
+                    print("Unordered list matched at \(unorderedMatch.range(at: i)) chars '\(textView.text[startIndex..<endIndex])'")
+                }
+
+                // Matched on an unordered bullet: "- Some Text"
+                let bulletRange = unorderedMatch.range(at: 2)
+                if bulletRange.location != NSNotFound {
+                    let bulletString = precedingLineNSString.substring(with: bulletRange)
+                    let newText = "\(text)\(bulletString) "
+                    let newFullText = fullText.replacingCharacters(in: range, with: newText)
+
+                    textView.text = newFullText
+
+                    let estimatedCursor = NSMakeRange(range.location + newText.count, 0)
+                    textView.selectedRange = estimatedCursor
+
+                    return false
+                }
+            }
+
+            guard let listItemOrderedRegex = try? NSRegularExpression(pattern: Element.listItemOrdered.rawValue, options: .anchorsMatchLines) else {
+                return true
+            }
+
+            if let orderedMatch = listItemOrderedRegex.matches(in: precedingLineString, options: options, range: precedingLineRange).first {
+
+                for i in 0..<orderedMatch.numberOfRanges {
+                    let startIndex = textView.text.index(textView.text.startIndex, offsetBy: orderedMatch.range(at: i).location)
+                    let endIndex = textView.text.index(textView.text.startIndex, offsetBy: orderedMatch.range(at: i).location + orderedMatch.range(at: i).length)
+                    print("Ordered list matched at \(orderedMatch.range(at: i)) chars '\(textView.text[startIndex..<endIndex])'")
+                }
+
+                //
+                // In this scenario we are checking if the user has hit return on an empty bullet point line such as
+                // `1. `, `- `, or `+ `. If this is the case, the the user is signifying that they wish to insert a regular paragraph
+                // and that the bullet point index should be removed.
+                //
+
+                // Matched on an ordered bullet: "1. Some Text"
+                let digitRange = orderedMatch.range(at: 2)
+                if digitRange.location != NSNotFound {
+                    let substring = precedingLineNSString.substring(with: digitRange)
+                    if let previousIndex = Int(substring.dropLast()) {
+                        let newIndex = previousIndex + 1
+                        let newText = "\(text)\(newIndex). "
+
+                        let newFullText = fullText.replacingCharacters(in: range, with: newText)
+
+                        textView.text = newFullText
+
+                        let estimatedCursor = NSMakeRange(range.location + newText.count, 0)
+                        textView.selectedRange = estimatedCursor
+
+                        return false
+                    }
+                }
+
+            }
+            guard let emptyLineRegex = try? NSRegularExpression(pattern: "^((\\d+.)|[-+*])\\s?$", options: .anchorsMatchLines) else {
+                return true
+            }
+
+            if let _ = emptyLineRegex.matches(in: precedingLineString, options: options, range: precedingLineRange).first {
+                let updatingRange = (precedingText as NSString).range(of: precedingLineString, options: .backwards)
+
+                let newFullText = fullText.replacingCharacters(in: updatingRange, with: "")
+                textView.text = newFullText
+
+                let estimatedCursor = NSMakeRange(updatingRange.location, 0)
+                textView.selectedRange = estimatedCursor
+
+                return false
+            }
+        }
+
         return true
     }
     

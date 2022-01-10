@@ -28,8 +28,10 @@ public enum Element: String {
     case url = "\\[([^\\]]+)\\]\\(([^\\)\"\\s]+)(?:\\s+\"(.*)\")?\\)"
     case image = "\\!\\[([^\\]]+)\\]\\(([^\\)\"\\s]+)(?:\\s+\"(.*)\")?\\)"
 
-    case checkBoxUnchecked = "^\\s*(-|\\*)\\s+(\\[ ])(?=\\W|$)"
-    case checkBoxChecked = "^\\s*(-|\\*)\\s+(\\[[xX]])(?=\\W|$)"
+    case checkBoxUnchecked = "^(\\s*)([-*+])\\s.(\\[ ])(?=\\W|$)"
+    case checkBoxChecked =   "^(\\s*)([-*+])\\s.(\\[[xX]])(?=\\W|$)"
+    case listItemUnordered = "^(\\s*)([-*+])\\s.(.*)"
+    case listItemOrdered =   "^(\\s*)(\\d+\\.)\\s.(.*)"
 
     case quote = "(^> ?.+?)((\n\n\\w)|\\Z|$)"
 
@@ -59,6 +61,8 @@ public enum Element: String {
         case "codeFenced": return .codeFenced
         case "url": return .url
         case "image": return .image
+        case "listItemUnordered": return .listItemUnordered
+        case "listItemOrdered": return .listItemOrdered
         case "checkBoxUnchecked": return .checkBoxUnchecked
         case "checkBoxChecked": return .checkBoxChecked
         case "quote": return .quote
