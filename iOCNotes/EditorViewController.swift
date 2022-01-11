@@ -417,7 +417,6 @@ extension EditorViewController: UITextViewDelegate {
             }
             let precedingLineNSString = precedingLineString as NSString
             let precedingLineRange = NSMakeRange(0, precedingLineNSString.length)
-            let precedingLineRangeInFullText = NSMakeRange(fullText.length - precedingLineNSString.length, precedingLineNSString.length)
             let options = NSRegularExpression.MatchingOptions(rawValue: 0)
 
             //
@@ -427,6 +426,62 @@ extension EditorViewController: UITextViewDelegate {
             //
 
             // Pattern: [Line Beginning] {([Numbers] [Full Stop]) or [Bullet Character: -+*]} [Single Space Character] [All Characters] [Line End]
+            guard let checkboxUncheckedRegex = try? NSRegularExpression(pattern: Element.checkBoxUnchecked.rawValue, options: .anchorsMatchLines) else {
+                return true
+            }
+
+            if let checkboxUncheckedMatch = checkboxUncheckedRegex.matches(in: precedingLineString, options: options, range: precedingLineRange).first {
+
+                for i in 0..<checkboxUncheckedMatch.numberOfRanges {
+                    let startIndex = textView.text.index(textView.text.startIndex, offsetBy: checkboxUncheckedMatch.range(at: i).location)
+                    let endIndex = textView.text.index(textView.text.startIndex, offsetBy: checkboxUncheckedMatch.range(at: i).location + checkboxUncheckedMatch.range(at: i).length)
+                    print("Unchecked checkbox matched at \(checkboxUncheckedMatch.range(at: i)) chars '\(textView.text[startIndex..<endIndex])'")
+                }
+
+                // Matched on an unordered bullet: "- Some Text"
+                let checkboxRange = checkboxUncheckedMatch.range(at: 0)
+                if checkboxRange.location != NSNotFound {
+                    let checkboxString = precedingLineNSString.substring(with: checkboxRange)
+                    let newText = "\(text)\(checkboxString) "
+                    let newFullText = fullText.replacingCharacters(in: range, with: newText)
+
+                    textView.text = newFullText
+
+                    let estimatedCursor = NSMakeRange(range.location + newText.count, 0)
+                    textView.selectedRange = estimatedCursor
+
+                    return false
+                }
+            }
+
+            guard let checkboxCheckedRegex = try? NSRegularExpression(pattern: Element.checkBoxChecked.rawValue, options: .anchorsMatchLines) else {
+                return true
+            }
+
+            if let checkboxCheckedMatch = checkboxCheckedRegex.matches(in: precedingLineString, options: options, range: precedingLineRange).first {
+
+                for i in 0..<checkboxCheckedMatch.numberOfRanges {
+                    let startIndex = textView.text.index(textView.text.startIndex, offsetBy: checkboxCheckedMatch.range(at: i).location)
+                    let endIndex = textView.text.index(textView.text.startIndex, offsetBy: checkboxCheckedMatch.range(at: i).location + checkboxCheckedMatch.range(at: i).length)
+                    print("Checked checkbox matched at \(checkboxCheckedMatch.range(at: i)) chars '\(textView.text[startIndex..<endIndex])'")
+                }
+
+                // Matched on an unordered bullet: "- Some Text"
+                let checkboxRange = checkboxCheckedMatch.range(at: 0)
+                if checkboxRange.location != NSNotFound {
+                    let checkboxString = precedingLineNSString.substring(with: checkboxRange).replacingOccurrences(of: "X", with: " ").replacingOccurrences(of: "x", with: " ")
+                    let newText = "\(text)\(checkboxString) "
+                    let newFullText = fullText.replacingCharacters(in: range, with: newText)
+
+                    textView.text = newFullText
+
+                    let estimatedCursor = NSMakeRange(range.location + newText.count, 0)
+                    textView.selectedRange = estimatedCursor
+
+                    return false
+                }
+            }
+
             guard let listItemUnorderedRegex = try? NSRegularExpression(pattern: Element.listItemUnordered.rawValue, options: .anchorsMatchLines) else {
                 return true
             }
@@ -440,7 +495,7 @@ extension EditorViewController: UITextViewDelegate {
                 }
 
                 // Matched on an unordered bullet: "- Some Text"
-                let bulletRange = unorderedMatch.range(at: 2)
+                let bulletRange = NSRange(location: unorderedMatch.range(at: 0).location, length: unorderedMatch.range(at: 0).length - unorderedMatch.range(at: 3).length - 1)
                 if bulletRange.location != NSNotFound {
                     let bulletString = precedingLineNSString.substring(with: bulletRange)
                     let newText = "\(text)\(bulletString) "

@@ -118,12 +118,14 @@ public class Storage: NSTextStorage {
     ///
     /// - parameter range: The range in which to apply styles.
     func applyStyles(_ range: NSRange) {
-        guard let theme = self.theme else { return }
+        guard let theme = self.theme else {
+            return
+        }
 
         let backingString = backingStore.string
         backingStore.setAttributes(theme.body.attributes, range: range)
 
-        for (style) in theme.styles {
+        for style in theme.styles {
             style.regex.enumerateMatches(in: backingString, options: .withoutAnchoringBounds, range: range, using: { (match, flags, stop) in
                 guard let match = match,
                       match.resultType == NSTextCheckingResult.CheckingType.regularExpression,
@@ -133,30 +135,29 @@ public class Storage: NSTextStorage {
 //                for i in 0..<match.numberOfRanges {
 //                    print("\(pattern) matched at \(match.range(at: i))")
 //                }
-                if pattern == Element.listItemUnordered.rawValue {
-                    for i in 0..<match.numberOfRanges {
-                        let startIndex = backingString.index(backingString.startIndex, offsetBy: match.range(at: i).location)
-                        let endIndex = backingString.index(backingString.startIndex, offsetBy: match.range(at: i).location + match.range(at: i).length)
-                        print("listItemUnordered matched at \(match.range(at: i)) chars '\(backingString[startIndex..<endIndex])'")
-                    }
+                if pattern == Element.checkBoxUnchecked.rawValue {
+//                    for i in 0..<match.numberOfRanges {
+//                        let startIndex = backingString.index(backingString.startIndex, offsetBy: match.range(at: i).location)
+//                        let endIndex = backingString.index(backingString.startIndex, offsetBy: match.range(at: i).location + match.range(at: i).length)
+//                        print("listItemUnordered matched at \(match.range(at: i)) chars '\(backingString[startIndex..<endIndex])'")
+//                    }
+                    backingStore.addAttribute(.checkBox, value: false, range: match.range(at: 3))
+                    backingStore.addAttributes(style.attributes, range: match.range(at: 3))
+                } else if pattern == Element.checkBoxChecked.rawValue {
+                    backingStore.addAttribute(.checkBox, value: true, range: match.range(at: 3))
+                    backingStore.addAttributes(style.attributes, range: match.range(at: 3))
+                } else if pattern == Element.listItemUnordered.rawValue {
+//                    for i in 0..<match.numberOfRanges {
+//                        let startIndex = backingString.index(backingString.startIndex, offsetBy: match.range(at: i).location)
+//                        let endIndex = backingString.index(backingString.startIndex, offsetBy: match.range(at: i).location + match.range(at: i).length)
+//                        print("listItemUnordered matched at \(match.range(at: i)) chars '\(backingString[startIndex..<endIndex])'")
+//                    }
                     let range = match.range(at: 2)
                     backingStore.addAttribute(.listItemUnordered, value: true, range: range)
                     backingStore.addAttributes(style.attributes, range: range)
                 } else if pattern == Element.listItemOrdered.rawValue {
-                    for i in 0..<match.numberOfRanges {
-                        let startIndex = backingString.index(backingString.startIndex, offsetBy: match.range(at: i).location)
-                        let endIndex = backingString.index(backingString.startIndex, offsetBy: match.range(at: i).location + match.range(at: i).length)
-                        print("listItemOrdered matched at \(match.range(at: i)) chars '\(backingString[startIndex..<endIndex])'")
-                    }
-                    let range = match.range(at: 2)
                     backingStore.addAttribute(.listItemOrdered, value: true, range: range)
                     backingStore.addAttributes(style.attributes, range: range)
-                } else if pattern == Element.checkBoxUnchecked.rawValue {
-                    backingStore.addAttribute(.checkBox, value: false, range: match.range(at: 2))
-                    backingStore.addAttributes(style.attributes, range: match.range(at: 2))
-                } else if pattern == Element.checkBoxChecked.rawValue {
-                    backingStore.addAttribute(.checkBox, value: true, range: match.range(at: 2))
-                    backingStore.addAttributes(style.attributes, range: match.range(at: 2))
                 } else {
                     backingStore.addAttributes(style.attributes, range: match.range(at: 0))
                 }

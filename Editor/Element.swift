@@ -28,8 +28,8 @@ public enum Element: String {
     case url = "\\[([^\\]]+)\\]\\(([^\\)\"\\s]+)(?:\\s+\"(.*)\")?\\)"
     case image = "\\!\\[([^\\]]+)\\]\\(([^\\)\"\\s]+)(?:\\s+\"(.*)\")?\\)"
 
-    case checkBoxUnchecked = "^(\\s*)([-*+])\\s.(\\[ ])(?=\\W|$)"
-    case checkBoxChecked =   "^(\\s*)([-*+])\\s.(\\[[xX]])(?=\\W|$)"
+    case checkBoxUnchecked = "^(\\s*)([-*+])\\s+(\\[ ])(?=\\W|$)"
+    case checkBoxChecked =   "^(\\s*)([-*+])\\s+(\\[[xX]])(?=\\W|$)"
     case listItemUnordered = "^(\\s*)([-*+])\\s.(.*)"
     case listItemOrdered =   "^(\\s*)(\\d+\\.)\\s.(.*)"
 
