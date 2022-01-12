@@ -8,7 +8,8 @@
 import Foundation
 
 extension NSAttributedString.Key {
-    static let checkBox = NSAttributedString.Key("CheckBox")
+    static let checkBoxOpen = NSAttributedString.Key("CheckBoxOpen")
+    static let checkBoxChecked = NSAttributedString.Key("CheckBoxChecked")
     static let listItemUnordered = NSAttributedString.Key("ListItemUnordered")
     static let listItemOrdered = NSAttributedString.Key("ListItemOrdered")
 }
