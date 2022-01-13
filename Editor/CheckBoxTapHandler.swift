@@ -23,11 +23,10 @@ public class CheckBoxTapHandler: NSObject {
 
     @objc func handleTap(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
-            guard let layoutManager = layoutManager, let textView = textView else {
+            guard let layoutManager = layoutManager, let textView = textView, let textStorage = layoutManager.textStorage as? Storage else {
                 return
             }
 
-            let textStorage = layoutManager.textStorage
             var tappedLocation = sender.location(in: textView)
             let containerInset = textView.textContainerInset
             tappedLocation.x -= containerInset.left
@@ -40,39 +39,28 @@ public class CheckBoxTapHandler: NSObject {
             let charIndex = layoutManager.characterIndexForGlyph(at: glyphIndex)
             let range = NSRange(location: charIndex, length: 1)
 
-            textStorage?.enumerateAttribute(.checkBox, in: range, options: .longestEffectiveRangeNotRequired) { value, _, _ in
-                guard let value = value else {
-                    return
-                }
+            var clearRanges = [NSRange]()
+            var checkRanges = [NSRange]()
 
-                var checked = false
-                if let value = value as? Bool {
-                    checked = value
-                }
-
-                if let input = textStorage?.string {
-                    let character = input[input.index(input.startIndex, offsetBy: charIndex)]
-                    switch character {
-                    case " ":
-                        textStorage?.replaceCharacters(in: NSRange(location: charIndex - 1, length: 3), with: "[x]")
-                    case "x", "X":
-                        textStorage?.replaceCharacters(in: NSRange(location: charIndex - 1, length: 3), with: "[ ]")
-                    case "[":
-                        if checked {
-                            textStorage?.replaceCharacters(in: NSRange(location: charIndex, length: 3), with: "[ ]")
-                        } else {
-                            textStorage?.replaceCharacters(in: NSRange(location: charIndex, length: 3), with: "[x]")
-                        }
-                    case "]":
-                        if checked {
-                            textStorage?.replaceCharacters(in: NSRange(location: charIndex - 2, length: 3), with: "[ ]")
-                        } else {
-                            textStorage?.replaceCharacters(in: NSRange(location: charIndex - 2, length: 3), with: "[x]")
-                        }
+            textStorage.enumerateAttributes(in: range, options: .longestEffectiveRangeNotRequired) { attributes, range, _ in
+                for attribute in attributes {
+                    switch attribute.key {
+                    case .checkBoxOpen:
+                        checkRanges.append(range)
+                    case .checkBoxChecked:
+                        clearRanges.append(range)
                     default:
-                        print("Found unrelated character")
+                        break
                     }
                 }
+            }
+
+            for range in checkRanges {
+                textStorage.replaceCharacters(in: NSRange(location: range.location - 2, length: 3), with: "[x]")
+            }
+
+            for range in clearRanges {
+                textStorage.replaceCharacters(in: NSRange(location: range.location - 2, length: 3), with: "[ ]")
             }
         }
     }
@@ -102,7 +90,19 @@ extension CheckBoxTapHandler: UIGestureRecognizerDelegate {
         let charIndex = layoutManager.characterIndexForGlyph(at: glyphIndex)
         let range = NSRange(location: charIndex, length: 1)
 
-        textStorage?.enumerateAttribute(.checkBox, in: range, options: .longestEffectiveRangeNotRequired) { value, _, stop in
+        textStorage?.enumerateAttribute(.checkBoxOpen, in: range, options: .longestEffectiveRangeNotRequired) { value, _, stop in
+            if value == nil {
+                return
+            }
+            if let input = textStorage?.string {
+                let character = input[input.index(input.startIndex, offsetBy: charIndex)]
+                if "[ xX]".contains(character) {
+                    result = false // Don't enter edit mode if checkbox is tapped
+                    stop.pointee = true
+                }
+            }
+        }
+        textStorage?.enumerateAttribute(.checkBoxChecked, in: range, options: .longestEffectiveRangeNotRequired) { value, _, stop in
             if value == nil {
                 return
             }

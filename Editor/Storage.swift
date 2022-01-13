@@ -141,7 +141,7 @@ public class Storage: NSTextStorage {
 //                        let endIndex = backingString.index(backingString.startIndex, offsetBy: match.range(at: i).location + match.range(at: i).length)
 //                        print("listItemUnordered matched at \(match.range(at: i)) chars '\(backingString[startIndex..<endIndex])'")
 //                    }
-                    backingStore.addAttribute(.checkBoxOpen, value: false, range: match.range(at: 3))
+                    backingStore.addAttribute(.checkBoxOpen, value: true, range: match.range(at: 3))
                     backingStore.addAttributes(style.attributes, range: match.range(at: 3))
                 } else if pattern == Element.checkBoxChecked.rawValue {
                     backingStore.addAttribute(.checkBoxChecked, value: true, range: match.range(at: 3))
