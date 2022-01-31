@@ -411,6 +411,7 @@ extension EditorViewController: UITextViewDelegate {
 
             let fullText = textView.text as NSString
             let precedingText = fullText.substring(to: range.upperBound)
+            var allLines = fullText.components(separatedBy: .newlines)
             let precedingLines = precedingText.components(separatedBy: .newlines)
             guard let precedingLineString = precedingLines.last else {
                 return true
@@ -418,7 +419,12 @@ extension EditorViewController: UITextViewDelegate {
             let precedingLineNSString = precedingLineString as NSString
             let precedingLineRange = NSMakeRange(0, precedingLineNSString.length)
             let options = NSRegularExpression.MatchingOptions(rawValue: 0)
-
+            let precedingLineIndex = allLines.firstIndex(of: precedingLineString)
+            var remainingLines = Array<String>.SubSequence()
+            if let precedingIndex = precedingLineIndex {
+                remainingLines = allLines.dropFirst(precedingIndex + 1)
+                print("Preceding line index \(precedingLineIndex ?? -1)")
+            }
             //
             // This code will check for the prescence of a filled bullet point on the preceding line,
             // in the format of `1. Bullet Point Text`, or `- A dashed bullet point`
@@ -522,6 +528,37 @@ extension EditorViewController: UITextViewDelegate {
                     print("Ordered list matched at \(orderedMatch.range(at: i)) chars '\(textView.text[startIndex..<endIndex])'")
                 }
 
+                let digitPrefix = precedingLineString
+                    .trimmingCharacters(in: .whitespacesAndNewlines)
+                    .prefix(while: { $0.isASCII && $0.isNumber })
+                if let digit = Int(digitPrefix), let index = precedingLineIndex {
+                    print("Value: \(digit)")
+                    let newLine = "\(digit + 1). "
+
+                    var updatedLines = [String]()
+                    for line in remainingLines {
+                        let digitPrefix = line
+                            .trimmingCharacters(in: .whitespacesAndNewlines)
+                            .prefix(while: { $0.isASCII && $0.isNumber })
+                        if let digit = Int(digitPrefix) {
+                            let updatedLine = line.replacingOccurrences(of: digitPrefix, with: "\(digit + 1)")
+                            print("Updated line: \(updatedLine)")
+                            updatedLines.append(updatedLine)
+                        } else {
+                            break
+                        }
+                    }
+                    if !updatedLines.isEmpty {
+                        let shiftedIndex = index + 1
+                        allLines.replaceSubrange(shiftedIndex..<shiftedIndex + updatedLines.count, with: updatedLines)
+                    }
+                    allLines.insert(newLine, at: index + 1)
+
+
+                    textView.text = allLines.joined(separator: "\n")
+                }
+
+                return false
                 //
                 // In this scenario we are checking if the user has hit return on an empty bullet point line such as
                 // `1. `, `- `, or `+ `. If this is the case, the the user is signifying that they wish to insert a regular paragraph
@@ -529,25 +566,164 @@ extension EditorViewController: UITextViewDelegate {
                 //
 
                 // Matched on an ordered bullet: "1. Some Text"
-                let digitRange = orderedMatch.range(at: 2)
-                if digitRange.location != NSNotFound {
-                    let substring = precedingLineNSString.substring(with: digitRange)
-                    if let previousIndex = Int(substring.dropLast()) {
-                        let newIndex = previousIndex + 1
-                        let newText = "\(text)\(newIndex). "
+//                let digitRange = orderedMatch.range(at: 2)
+//                if digitRange.location != NSNotFound {
+//                    let substring = precedingLineNSString.substring(with: digitRange)
+//                    if let previousIndex = Int(substring.dropLast()) {
+//                        let newIndex = previousIndex + 1
+//                        let newText = "\(text)\(newIndex). "
+//
+//                        let newFullText = fullText.replacingCharacters(in: range, with: newText)
+//
+//                        textView.text = newFullText
+//
+//                        let estimatedCursor = NSMakeRange(range.location + newText.count, 0)
+//                        textView.selectedRange = estimatedCursor
+//
+//                        return false
+//                    }
+//                }
 
-                        let newFullText = fullText.replacingCharacters(in: range, with: newText)
+                // goBackOneLine is a Boolean to indicate whether the cursor
+                // should go back 1 line; set to YES in the case that the
+                // user has deleted the number at the start of the line
+                var goBackOneLine = false
 
-                        textView.text = newFullText
+                // Get a string representation of the current line number
+                // in order to calculate cursor placement based on the
+                // character count of the number
+//                NSString *precedingText = [textView.text substringToIndex:range.location];
+//                NSString *precedingLineNSString = [NSString stringWithFormat:@"%lu", [precedingText componentsSeparatedByString:@"\n"].count + 1];
 
-                        let estimatedCursor = NSMakeRange(range.location + newText.count, 0)
-                        textView.selectedRange = estimatedCursor
+                // If the replacement string either contains a new line
+                // character or is a backspace, proceed with the following
+                // block...
+                if text.contains(Character("\n")) || range.length == 1 {
 
-                        return false
+                    // Combine the new text with the old
+                    var combinedText = fullText.replacingCharacters(in: range, with: text)
+
+                    // Seperate the combinedText into lines
+                    var lines = combinedText.components(separatedBy: "\n")
+
+                    // To handle the backspace condition
+                    if range.length == 1 {
+
+                        // If the user deletes the number at the beginning of the line,
+                        // also delete the newline character proceeding it
+                        // Check to see if the user's deleting a number and
+                        // if so, keep moving backwards digit by digit to see if the
+                        // string's preceeded by a newline too.
+                        let currentCharacter = fullText.character(at: range.location)
+                        if Int(currentCharacter) >= 0 && Int(currentCharacter) <= 9 {
+
+                            var index = 1
+                            var c = currentCharacter
+//                            while Int(c) >= 0 && Int(c) <= 9 {
+//
+//                                c = fullText.character(at: range.location - index)
+//
+//                                // If a newline is found directly preceding
+//                                // the number, delete the number and move back
+//                                // to the preceding line.
+//                                if c == unichar("\n") {
+//                                    combinedText = fullText.replacingCharacters(in: NSRange(location: range.location - index, length: range.length + index), with: text)
+//
+//                                    lines = combinedText.components(separatedBy: "\n")
+//
+//                                    // Set this variable so the cursor knows to back
+//                                    // up one line
+//                                    goBackOneLine = true
+//
+//                                    break
+//                                }
+//                                index ++
+//                            }
+                        }
+
+                        // If the user attempts to delete the number 1
+                        // on the first line...
+                        if range.location == 1 {
+                            if let firstRow = lines.first {
+
+                                // If there's text left in the current row, don't
+                                // remove the number 1
+                                if firstRow.count > 3 {
+                                    return false
+                                }
+                            }
+
+                            // Else if there's no text left in text view other than
+                            // the 1, don't let the user delete it
+                            else if lines.count == 1 {
+                                return false
+                            }
+
+                            // Else if there's no text in the first row, but there's text
+                            // in the next, move the next row up
+                            else if lines.count > 1 {
+                               _ = lines.dropFirst()
+                            }
+                        }
                     }
+
+                    // Using a loop, remove the numbers at the start of the lines
+                    // and store the new strings in the linesWithoutLeadingNumbers array
+                    var linesWithoutLeadingNumbers = [String]()
+
+                    // Go through each line
+                    for line in lines {
+
+                        // Use the following string to make updates
+                        var stringWithoutLeadingNumbers = line
+
+                        // Go through each character
+                        for index in line.indices {
+                            if CharacterSet.decimalDigits.containsUnicodeScalars(of: line[index]) {
+                                stringWithoutLeadingNumbers = String(stringWithoutLeadingNumbers.dropFirst())
+                            } else {
+                                break
+                            }
+                        }
+                        linesWithoutLeadingNumbers.append(stringWithoutLeadingNumbers.trimmingCharacters(in: .whitespaces))
+                    }
+
+                    var linesWithUpdatedNumbers = [String]()
+
+                    for (index, line2) in linesWithoutLeadingNumbers.enumerated() {
+                        let updatedLine = ("\(index + 1) \(line2)")
+                        linesWithUpdatedNumbers.append(updatedLine)
+                    }
+
+                    var combinedString = ""
+
+                    for (index, line2) in linesWithUpdatedNumbers.enumerated() {
+                        combinedString = combinedString.appending(line2)
+                        if index < linesWithUpdatedNumbers.count - 1 {
+                            combinedString = combinedString.appending("\n")
+                        }
+                    }
+
+//                    // Set the cursor appropriately.
+//                    NSRange cursor;
+//                    if ([text isEqualToString:@"\n"]) {
+//                       cursor = NSMakeRange(range.location + precedingLineNSString.length + 2, 0);
+//                    } else if (goBackOneLine) {
+//                        cursor = NSMakeRange(range.location - 1, 0);
+//                    } else {
+//                        cursor = NSMakeRange(range.location, 0);
+//                    }
+//
+//                    textView.selectedRange = cursor;
+//
+//                    // And update the text view
+                    textView.text = combinedString
+
+                    return false
                 }
 
-            }
+
+        }
             guard let emptyLineRegex = try? NSRegularExpression(pattern: "^((\\d+.)|[-+*])\\s?$", options: .anchorsMatchLines) else {
                 return true
             }
@@ -584,4 +760,10 @@ extension EditorViewController: UINavigationControllerDelegate {
         }
     }
     
+}
+
+extension CharacterSet {
+    func containsUnicodeScalars(of character: Character) -> Bool {
+        return character.unicodeScalars.allSatisfy(contains(_:))
+    }
 }
