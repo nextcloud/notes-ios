@@ -47,7 +47,7 @@ class EditorViewController: UIViewController {
             }
         }
     }
-   
+
     var noteView = HeaderTextView(frame: .zero)
 
     private var observers = [NSObjectProtocol]()
@@ -85,14 +85,14 @@ class EditorViewController: UIViewController {
             bottomConstraint,
         ])
         navigationItem.rightBarButtonItems = [addButton, fixedSpace, activityButton, fixedSpace, deleteButton, fixedSpace, previewButton]
-        #if !targetEnvironment(macCatalyst)
+#if !targetEnvironment(macCatalyst)
         if #available(iOS 14.0, *) {
             //
         } else {
             navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
         }
         navigationItem.leftItemsSupplementBackButton = true
-        #endif
+#endif
         if let note = note {
             noteView.text = note.content;
             noteView.isEditable = true
@@ -101,9 +101,9 @@ class EditorViewController: UIViewController {
             addButton.isEnabled = !noteView.text.isEmpty
             previewButton.isEnabled = !noteView.text.isEmpty
             deleteButton.isEnabled = true
-            #if targetEnvironment(macCatalyst)
+#if targetEnvironment(macCatalyst)
             (splitViewController as? PBHSplitViewController)?.buildMacToolbar()
-            #endif
+#endif
         } else {
             noteView.isEditable = false
             noteView.isSelectable = false
@@ -114,18 +114,18 @@ class EditorViewController: UIViewController {
             addButton.isEnabled = true
             deleteButton.isEnabled = false
             previewButton.isEnabled = false
-            #if targetEnvironment(macCatalyst)
+#if targetEnvironment(macCatalyst)
             (splitViewController as? PBHSplitViewController)?.buildMacToolbar()
-            #endif
+#endif
         }
-        #if targetEnvironment(macCatalyst)
+#if targetEnvironment(macCatalyst)
         navigationController?.navigationBar.isHidden = true
-        #else
+#else
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.delegate = self
         navigationController?.toolbar.isTranslucent = true
         navigationController?.toolbar.clipsToBounds = true
-        #endif
+#endif
         if let splitVC = splitViewController as? PBHSplitViewController {
             splitVC.editorViewController = self
         }
@@ -134,30 +134,30 @@ class EditorViewController: UIViewController {
                                                                      object: nil,
                                                                      queue: OperationQueue.main,
                                                                      using: { [weak self] notification in
-                                                                        self?.keyboardWillShow(notification: notification)
+            self?.keyboardWillShow(notification: notification)
         }))
         self.observers.append(NotificationCenter.default.addObserver(forName: UIWindow.keyboardWillHideNotification,
                                                                      object: nil,
                                                                      queue: OperationQueue.main,
                                                                      using: { [weak self] notification in
-                                                                        self?.keyboardWillHide(notification: notification)
+            self?.keyboardWillHide(notification: notification)
         }))
         self.observers.append(NotificationCenter.default.addObserver(forName: UIContentSizeCategory.didChangeNotification,
                                                                      object: nil,
                                                                      queue: OperationQueue.main,
                                                                      using: { [weak self] _ in
-                                                                        self?.preferredContentSizeChanged()
+            self?.preferredContentSizeChanged()
         }))
         self.observers.append(NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification,
                                                                      object: nil,
                                                                      queue: OperationQueue.main,
                                                                      using: { [weak self] _ in
-                                                                        guard let self = self else { return }
-                                                                        self.noteView.isScrollEnabled = false
-                                                                        self.noteView.isScrollEnabled = true
-                                                                        if self.noteView.selectedRange.location != 0 {
-                                                                            self.noteView.scrollRangeToVisible(self.noteView.selectedRange)
-                                                                        }
+            guard let self = self else { return }
+            self.noteView.isScrollEnabled = false
+            self.noteView.isScrollEnabled = true
+            if self.noteView.selectedRange.location != 0 {
+                self.noteView.scrollRangeToVisible(self.noteView.selectedRange)
+            }
 
         }))
 
@@ -185,7 +185,7 @@ class EditorViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        //TODO: This works around a Swift/Objective-C interaction issue. Verify that it is still needed.
+        //        //TODO: This works around a Swift/Objective-C interaction issue. Verify that it is still needed.
         self.noteView.isScrollEnabled = false
         self.noteView.isScrollEnabled = true
     }
@@ -198,7 +198,7 @@ class EditorViewController: UIViewController {
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         if traitCollection.horizontalSizeClass == .regular,
-            traitCollection.userInterfaceIdiom == .pad {
+           traitCollection.userInterfaceIdiom == .pad {
             if splitViewController?.displayMode == .allVisible {
                 noteView.updateInsets(size: 50)
             } else {
@@ -243,7 +243,7 @@ class EditorViewController: UIViewController {
         let deleteAction = UIAlertAction(title: NSLocalizedString("Delete Note", comment: "A menu action"),
                                          style: .destructive,
                                          handler: { [weak self] action in
-                                            self?.deleteNote(action)
+            self?.deleteNote(action)
         })
         let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: "A menu action"), style: .cancel, handler: { _ in
             //
@@ -263,9 +263,9 @@ class EditorViewController: UIViewController {
                        delay: 0.0,
                        options: [.curveEaseInOut, .allowUserInteraction],
                        animations: { [weak self] in
-                        let targetFrame = CGRect(x: self?.noteView.frame.size.width ?? 100 / 2, y: self?.noteView.frame.size.height ?? 100 / 2, width: 0, height: 0)
-                        imageView.frame = targetFrame
-                        imageView.alpha = 0.0
+            let targetFrame = CGRect(x: self?.noteView.frame.size.width ?? 100 / 2, y: self?.noteView.frame.size.height ?? 100 / 2, width: 0, height: 0)
+            imageView.frame = targetFrame
+            imageView.alpha = 0.0
         }) { (_) in
             imageView.removeFromSuperview()
             self.view.layer.setNeedsDisplay()
@@ -312,9 +312,9 @@ class EditorViewController: UIViewController {
             self.navigationItem.rightBarButtonItems = [self.doneButton, self.fixedSpace, self.redoButton, self.fixedSpace, self.undoButton]
         }
         if let info = notification.userInfo,
-            let rect: CGRect = info[UIWindow.keyboardFrameEndUserInfoKey] as? CGRect,
-            let ar = self.view?.convert(rect, from: nil),
-            let animationDuration: TimeInterval = info[UIWindow.keyboardAnimationDurationUserInfoKey] as? TimeInterval {
+           let rect: CGRect = info[UIWindow.keyboardFrameEndUserInfoKey] as? CGRect,
+           let ar = self.view?.convert(rect, from: nil),
+           let animationDuration: TimeInterval = info[UIWindow.keyboardAnimationDurationUserInfoKey] as? TimeInterval {
             let kbHeight = ar.size.height
             var textInsets = self.noteView.textContainerInset
             textInsets.bottom = kbHeight
@@ -333,7 +333,7 @@ class EditorViewController: UIViewController {
             self.navigationItem.rightBarButtonItems = [self.addButton, self.fixedSpace, self.activityButton, self.fixedSpace, self.deleteButton, self.fixedSpace, self.previewButton];
         }
         if let info = notification.userInfo,
-            let animationDuration: TimeInterval = info[UIWindow.keyboardAnimationDurationUserInfoKey] as? TimeInterval {
+           let animationDuration: TimeInterval = info[UIWindow.keyboardAnimationDurationUserInfoKey] as? TimeInterval {
 
             self.bottomLayoutConstraint?.isActive = false
             self.bottomLayoutConstraint = noteView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
@@ -351,15 +351,13 @@ class EditorViewController: UIViewController {
         self.noteView.headerLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)
     }
 
-
-
-/*
+    /*
      - (void)noteAdded:(NSNotification*)notification {
      [self noteUpdated:notification];
      }
-
-*/
-
+     
+     */
+    
 }
 
 extension EditorViewController: UITextViewDelegate {
@@ -381,9 +379,9 @@ extension EditorViewController: UITextViewDelegate {
         self.addButton.isEnabled = !textView.text.isEmpty
         self.previewButton.isEnabled = !textView.text.isEmpty
         self.deleteButton.isEnabled = true
-        #if targetEnvironment(macCatalyst)
+#if targetEnvironment(macCatalyst)
         (splitViewController as? PBHSplitViewController)?.buildMacToolbar()
-        #endif
+#endif
         throttler.throttle { [weak self] in
             self?.updateNoteContent()
         }
@@ -401,14 +399,7 @@ extension EditorViewController: UITextViewDelegate {
             }
         }
 
-        //
-        // When the user hits the return key, to initiate a new line, we will do some processing
-        // to see if we are continuing a list of unordered or ordered bullet points.
-        // As an extra requirement, if the user hits return on an empty bullet point, then we clear the bullet point.
-        //
-
         if text.first == Character("\n") {
-
             let fullText = textView.text as NSString
             let precedingText = fullText.substring(to: range.upperBound)
             var allLines = fullText.components(separatedBy: .newlines)
@@ -425,26 +416,18 @@ extension EditorViewController: UITextViewDelegate {
                 remainingLines = allLines.dropFirst(precedingIndex + 1)
                 print("Preceding line index \(precedingLineIndex ?? -1)")
             }
-            //
-            // This code will check for the prescence of a filled bullet point on the preceding line,
-            // in the format of `1. Bullet Point Text`, or `- A dashed bullet point`
-            // If this is found, then the new line will automatically gain it's own indexed bullet point.
-            //
 
-            // Pattern: [Line Beginning] {([Numbers] [Full Stop]) or [Bullet Character: -+*]} [Single Space Character] [All Characters] [Line End]
             guard let checkboxUncheckedRegex = try? NSRegularExpression(pattern: Element.checkBoxUnchecked.rawValue, options: .anchorsMatchLines) else {
                 return true
             }
 
             if let checkboxUncheckedMatch = checkboxUncheckedRegex.matches(in: precedingLineString, options: options, range: precedingLineRange).first {
-
                 for i in 0..<checkboxUncheckedMatch.numberOfRanges {
                     let startIndex = textView.text.index(textView.text.startIndex, offsetBy: checkboxUncheckedMatch.range(at: i).location)
                     let endIndex = textView.text.index(textView.text.startIndex, offsetBy: checkboxUncheckedMatch.range(at: i).location + checkboxUncheckedMatch.range(at: i).length)
                     print("Unchecked checkbox matched at \(checkboxUncheckedMatch.range(at: i)) chars '\(textView.text[startIndex..<endIndex])'")
                 }
 
-                // Matched on an unordered bullet: "- Some Text"
                 let checkboxRange = checkboxUncheckedMatch.range(at: 0)
                 if checkboxRange.location != NSNotFound {
                     let checkboxString = precedingLineNSString.substring(with: checkboxRange)
@@ -472,7 +455,6 @@ extension EditorViewController: UITextViewDelegate {
                     print("Checked checkbox matched at \(checkboxCheckedMatch.range(at: i)) chars '\(textView.text[startIndex..<endIndex])'")
                 }
 
-                // Matched on an unordered bullet: "- Some Text"
                 let checkboxRange = checkboxCheckedMatch.range(at: 0)
                 if checkboxRange.location != NSNotFound {
                     let checkboxString = precedingLineNSString.substring(with: checkboxRange).replacingOccurrences(of: "X", with: " ").replacingOccurrences(of: "x", with: " ")
@@ -500,7 +482,6 @@ extension EditorViewController: UITextViewDelegate {
                     print("Unordered list matched at \(unorderedMatch.range(at: i)) chars '\(textView.text[startIndex..<endIndex])'")
                 }
 
-                // Matched on an unordered bullet: "- Some Text"
                 let bulletRange = NSRange(location: unorderedMatch.range(at: 0).location, length: unorderedMatch.range(at: 0).length - unorderedMatch.range(at: 3).length - 1)
                 if bulletRange.location != NSNotFound {
                     let bulletString = precedingLineNSString.substring(with: bulletRange)
@@ -569,171 +550,8 @@ extension EditorViewController: UITextViewDelegate {
                 }
 
                 return false
-                //
-                // In this scenario we are checking if the user has hit return on an empty bullet point line such as
-                // `1. `, `- `, or `+ `. If this is the case, the the user is signifying that they wish to insert a regular paragraph
-                // and that the bullet point index should be removed.
-                //
 
-                // Matched on an ordered bullet: "1. Some Text"
-//                let digitRange = orderedMatch.range(at: 2)
-//                if digitRange.location != NSNotFound {
-//                    let substring = precedingLineNSString.substring(with: digitRange)
-//                    if let previousIndex = Int(substring.dropLast()) {
-//                        let newIndex = previousIndex + 1
-//                        let newText = "\(text)\(newIndex). "
-//
-//                        let newFullText = fullText.replacingCharacters(in: range, with: newText)
-//
-//                        textView.text = newFullText
-//
-//                        let estimatedCursor = NSMakeRange(range.location + newText.count, 0)
-//                        textView.selectedRange = estimatedCursor
-//
-//                        return false
-//                    }
-//                }
-
-                // goBackOneLine is a Boolean to indicate whether the cursor
-                // should go back 1 line; set to YES in the case that the
-                // user has deleted the number at the start of the line
-                var goBackOneLine = false
-
-                // Get a string representation of the current line number
-                // in order to calculate cursor placement based on the
-                // character count of the number
-//                NSString *precedingText = [textView.text substringToIndex:range.location];
-//                NSString *precedingLineNSString = [NSString stringWithFormat:@"%lu", [precedingText componentsSeparatedByString:@"\n"].count + 1];
-
-                // If the replacement string either contains a new line
-                // character or is a backspace, proceed with the following
-                // block...
-                if text.contains(Character("\n")) || range.length == 1 {
-
-                    // Combine the new text with the old
-                    var combinedText = fullText.replacingCharacters(in: range, with: text)
-
-                    // Seperate the combinedText into lines
-                    var lines = combinedText.components(separatedBy: "\n")
-
-                    // To handle the backspace condition
-                    if range.length == 1 {
-
-                        // If the user deletes the number at the beginning of the line,
-                        // also delete the newline character proceeding it
-                        // Check to see if the user's deleting a number and
-                        // if so, keep moving backwards digit by digit to see if the
-                        // string's preceeded by a newline too.
-                        let currentCharacter = fullText.character(at: range.location)
-                        if Int(currentCharacter) >= 0 && Int(currentCharacter) <= 9 {
-
-                            var index = 1
-                            var c = currentCharacter
-//                            while Int(c) >= 0 && Int(c) <= 9 {
-//
-//                                c = fullText.character(at: range.location - index)
-//
-//                                // If a newline is found directly preceding
-//                                // the number, delete the number and move back
-//                                // to the preceding line.
-//                                if c == unichar("\n") {
-//                                    combinedText = fullText.replacingCharacters(in: NSRange(location: range.location - index, length: range.length + index), with: text)
-//
-//                                    lines = combinedText.components(separatedBy: "\n")
-//
-//                                    // Set this variable so the cursor knows to back
-//                                    // up one line
-//                                    goBackOneLine = true
-//
-//                                    break
-//                                }
-//                                index ++
-//                            }
-                        }
-
-                        // If the user attempts to delete the number 1
-                        // on the first line...
-                        if range.location == 1 {
-                            if let firstRow = lines.first {
-
-                                // If there's text left in the current row, don't
-                                // remove the number 1
-                                if firstRow.count > 3 {
-                                    return false
-                                }
-                            }
-
-                            // Else if there's no text left in text view other than
-                            // the 1, don't let the user delete it
-                            else if lines.count == 1 {
-                                return false
-                            }
-
-                            // Else if there's no text in the first row, but there's text
-                            // in the next, move the next row up
-                            else if lines.count > 1 {
-                               _ = lines.dropFirst()
-                            }
-                        }
-                    }
-
-                    // Using a loop, remove the numbers at the start of the lines
-                    // and store the new strings in the linesWithoutLeadingNumbers array
-                    var linesWithoutLeadingNumbers = [String]()
-
-                    // Go through each line
-                    for line in lines {
-
-                        // Use the following string to make updates
-                        var stringWithoutLeadingNumbers = line
-
-                        // Go through each character
-                        for index in line.indices {
-                            if CharacterSet.decimalDigits.containsUnicodeScalars(of: line[index]) {
-                                stringWithoutLeadingNumbers = String(stringWithoutLeadingNumbers.dropFirst())
-                            } else {
-                                break
-                            }
-                        }
-                        linesWithoutLeadingNumbers.append(stringWithoutLeadingNumbers.trimmingCharacters(in: .whitespaces))
-                    }
-
-                    var linesWithUpdatedNumbers = [String]()
-
-                    for (index, line2) in linesWithoutLeadingNumbers.enumerated() {
-                        let updatedLine = ("\(index + 1) \(line2)")
-                        linesWithUpdatedNumbers.append(updatedLine)
-                    }
-
-                    var combinedString = ""
-
-                    for (index, line2) in linesWithUpdatedNumbers.enumerated() {
-                        combinedString = combinedString.appending(line2)
-                        if index < linesWithUpdatedNumbers.count - 1 {
-                            combinedString = combinedString.appending("\n")
-                        }
-                    }
-
-//                    // Set the cursor appropriately.
-//                    NSRange cursor;
-//                    if ([text isEqualToString:@"\n"]) {
-//                       cursor = NSMakeRange(range.location + precedingLineNSString.length + 2, 0);
-//                    } else if (goBackOneLine) {
-//                        cursor = NSMakeRange(range.location - 1, 0);
-//                    } else {
-//                        cursor = NSMakeRange(range.location, 0);
-//                    }
-//
-//                    textView.selectedRange = cursor;
-//
-//                    // And update the text view
-                    textView.text = combinedString
-
-                    return false
-                }
-
-
-        }
+            }
             guard let emptyLineRegex = try? NSRegularExpression(pattern: "^((\\d+.)|[-+*])\\s?$", options: .anchorsMatchLines) else {
                 return true
             }
