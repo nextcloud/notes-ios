@@ -523,39 +523,49 @@ extension EditorViewController: UITextViewDelegate {
             if let orderedMatch = listItemOrderedRegex.matches(in: precedingLineString, options: options, range: precedingLineRange).first {
 
                 for i in 0..<orderedMatch.numberOfRanges {
-                    let startIndex = textView.text.index(textView.text.startIndex, offsetBy: orderedMatch.range(at: i).location)
-                    let endIndex = textView.text.index(textView.text.startIndex, offsetBy: orderedMatch.range(at: i).location + orderedMatch.range(at: i).length)
-                    print("Ordered list matched at \(orderedMatch.range(at: i)) chars '\(textView.text[startIndex..<endIndex])'")
+                    let startIndex = precedingLineString.index(precedingLineString.startIndex, offsetBy: orderedMatch.range(at: i).location)
+                    let endIndex = precedingLineString.index(precedingLineString.startIndex, offsetBy: orderedMatch.range(at: i).location + orderedMatch.range(at: i).length)
+                    print("Ordered list matched at \(orderedMatch.range(at: i)) chars '\(precedingLineString[startIndex..<endIndex])'")
                 }
+                let startIndex = precedingLineString.index(precedingLineString.startIndex, offsetBy: orderedMatch.range(at: 2).location)
+                let endIndex = precedingLineString.firstIndex(of: ".")
 
-                let digitPrefix = precedingLineString
-                    .trimmingCharacters(in: .whitespacesAndNewlines)
-                    .prefix(while: { $0.isASCII && $0.isNumber })
-                if let digit = Int(digitPrefix), let index = precedingLineIndex {
+                let digitString = precedingLineString[startIndex..<endIndex!]
+                print(digitString)
+
+                if let digit = Int(digitString), let index = precedingLineIndex {
                     print("Value: \(digit)")
-                    let newLine = "\(digit + 1). "
+                    let newLine = "\(precedingLineString[precedingLineString.startIndex..<startIndex])\(digit + 1). "
 
                     var updatedLines = [String]()
                     for line in remainingLines {
-                        let digitPrefix = line
-                            .trimmingCharacters(in: .whitespacesAndNewlines)
-                            .prefix(while: { $0.isASCII && $0.isNumber })
-                        if let digit = Int(digitPrefix) {
-                            let updatedLine = line.replacingOccurrences(of: digitPrefix, with: "\(digit + 1)")
-                            print("Updated line: \(updatedLine)")
-                            updatedLines.append(updatedLine)
+                        let lineNSString = line as NSString
+                        let lineRange = NSMakeRange(0, lineNSString.length)
+                        if let matches = listItemOrderedRegex.matches(in: line, options: options, range: lineRange).first {
+                            let startIndex = line.index(line.startIndex, offsetBy: matches.range(at: 2).location)
+                            let endIndex = line.firstIndex(of: ".")
+
+                            let digitString = line[startIndex..<endIndex!]
+
+                            if let digit = Int(digitString) {
+                                let updatedLine = line.replacingOccurrences(of: digitString, with: "\(digit + 1)")
+                                print("Updated line: \(updatedLine)")
+                                updatedLines.append(updatedLine)
+                            } else {
+                                break
+                            }
                         } else {
                             break
                         }
-                    }
-                    if !updatedLines.isEmpty {
-                        let shiftedIndex = index + 1
-                        allLines.replaceSubrange(shiftedIndex..<shiftedIndex + updatedLines.count, with: updatedLines)
+                        if !updatedLines.isEmpty {
+                            let shiftedIndex = index + 1
+                            allLines.replaceSubrange(shiftedIndex..<shiftedIndex + updatedLines.count, with: updatedLines)
+                        }
                     }
                     allLines.insert(newLine, at: index + 1)
-
-
                     textView.text = allLines.joined(separator: "\n")
+                    let estimatedCursor = NSMakeRange(range.location + newLine.count + 1, 0)
+                    textView.selectedRange = estimatedCursor
                 }
 
                 return false
