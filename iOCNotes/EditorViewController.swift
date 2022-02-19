@@ -399,8 +399,8 @@ extension EditorViewController: UITextViewDelegate {
             }
         }
 
+        let fullText = textView.text as NSString
         if text.first == Character("\n") {
-            let fullText = textView.text as NSString
             let precedingText = fullText.substring(to: range.upperBound)
             var allLines = fullText.components(separatedBy: .newlines)
             let precedingLines = precedingText.components(separatedBy: .newlines)
@@ -550,7 +550,6 @@ extension EditorViewController: UITextViewDelegate {
                 }
 
                 return false
-
             }
             guard let emptyLineRegex = try? NSRegularExpression(pattern: "^((\\d+.)|[-+*])\\s?$", options: .anchorsMatchLines) else {
                 return true
@@ -566,6 +565,87 @@ extension EditorViewController: UITextViewDelegate {
                 textView.selectedRange = estimatedCursor
 
                 return false
+            }
+        } else if text.isEmpty {
+            print("Upper bound: \(range.upperBound) Lower bound: \(range.lowerBound) Character: \(fullText.character(at: range.lowerBound))")
+            if (range.upperBound > range.lowerBound) {
+                print("Backspace pressed")
+                if fullText.character(at: range.lowerBound) == 10 {
+                    print("Moved to previous line")
+                    let currentCursor = textView.selectedRange.location
+
+                    let precedingText = fullText.substring(to: range.upperBound - 1)
+                    var allLines = fullText.components(separatedBy: .newlines)
+                    let precedingLines = precedingText.components(separatedBy: .newlines)
+                    guard let precedingLineString = precedingLines.last else {
+                        return true
+                    }
+                    let precedingLineNSString = precedingLineString as NSString
+                    let precedingLineRange = NSMakeRange(0, precedingLineNSString.length)
+                    let options = NSRegularExpression.MatchingOptions(rawValue: 0)
+                    let precedingLineIndex = allLines.firstIndex(of: precedingLineString)
+                    var remainingLines = Array<String>.SubSequence()
+                    if let precedingIndex = precedingLineIndex {
+                        allLines.remove(at: precedingIndex + 1)
+                        remainingLines = allLines.dropFirst(precedingIndex + 1)
+                        print("Preceding line index \(precedingLineIndex ?? -1)")
+                    }
+                    guard let listItemOrderedRegex = try? NSRegularExpression(pattern: Element.listItemOrdered.rawValue, options: .anchorsMatchLines) else {
+                        return true
+                    }
+                    print("Current line: \(precedingLineString)")
+                    if let orderedMatch = listItemOrderedRegex.matches(in: precedingLineString, options: options, range: precedingLineRange).first {
+
+                        for i in 0..<orderedMatch.numberOfRanges {
+                            let startIndex = precedingLineString.index(precedingLineString.startIndex, offsetBy: orderedMatch.range(at: i).location)
+                            let endIndex = precedingLineString.index(precedingLineString.startIndex, offsetBy: orderedMatch.range(at: i).location + orderedMatch.range(at: i).length)
+                            print("Ordered list matched at \(orderedMatch.range(at: i)) chars '\(precedingLineString[startIndex..<endIndex])'")
+                        }
+                        let startIndex = precedingLineString.index(precedingLineString.startIndex, offsetBy: orderedMatch.range(at: 2).location)
+                        let endIndex = precedingLineString.firstIndex(of: ".")
+
+                        let digitString = precedingLineString[startIndex..<endIndex!]
+
+                        if let digit = Int(digitString), let index = precedingLineIndex {
+                            print("Value: \(digit)")
+                            var updatedLines = [String]()
+                            for line in remainingLines {
+                                let lineNSString = line as NSString
+                                let lineRange = NSMakeRange(0, lineNSString.length)
+                                if let matches = listItemOrderedRegex.matches(in: line, options: options, range: lineRange).first {
+                                    let startIndex = line.index(line.startIndex, offsetBy: matches.range(at: 2).location)
+                                    let endIndex = line.firstIndex(of: ".")
+
+                                    let digitString = line[startIndex..<endIndex!]
+
+                                    if let digit = Int(digitString) {
+                                        let updatedLine = line.replacingOccurrences(of: digitString, with: "\(digit - 1)")
+                                        print("Updated line: \(updatedLine)")
+                                        updatedLines.append(updatedLine)
+                                    } else {
+                                        break
+                                    }
+                                } else {
+                                    break
+                                }
+                            }
+                            if !updatedLines.isEmpty {
+                                let shiftedIndex = index + 1
+                                allLines.replaceSubrange(shiftedIndex..<shiftedIndex + updatedLines.count, with: updatedLines)
+                            }
+                            textView.text = allLines.joined(separator: "\n")
+                            let estimatedCursor = NSMakeRange(currentCursor - 1, 0)
+                            textView.selectedRange = estimatedCursor
+                        }
+
+                        return false
+                    }
+                }
+            } else if (range.upperBound == range.lowerBound) {
+                print("Backspace pressed but no text to delete")
+                if (textView.text.isEmpty) || (textView.text == nil) {
+                    print("Text view is empty")
+                }
             }
         }
 
