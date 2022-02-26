@@ -410,7 +410,14 @@ extension EditorViewController: UITextViewDelegate {
             let precedingLineNSString = precedingLineString as NSString
             let precedingLineRange = NSMakeRange(0, precedingLineNSString.length)
             let options = NSRegularExpression.MatchingOptions(rawValue: 0)
-            let precedingLineIndex = allLines.firstIndex(of: precedingLineString)
+            var lineRemainder = ""
+            let precedingLineIndex = allLines.firstIndex { line in
+                if line.hasPrefix(precedingLineString) {
+                    lineRemainder = String(line.suffix(from: precedingLineString.endIndex))
+                    return true
+                }
+                return false
+            }
             var remainingLines = Array<String>.SubSequence()
             if let precedingIndex = precedingLineIndex {
                 remainingLines = allLines.dropFirst(precedingIndex + 1)
@@ -516,7 +523,8 @@ extension EditorViewController: UITextViewDelegate {
 
                 if let digit = Int(digitString), let index = precedingLineIndex {
                     print("Value: \(digit)")
-                    let newLine = "\(precedingLineString[precedingLineString.startIndex..<startIndex])\(digit + 1). "
+                    allLines[index] = precedingLineString
+                    let newLine = "\(precedingLineString[precedingLineString.startIndex..<startIndex])\(digit + 1). \(lineRemainder)"
 
                     var updatedLines = [String]()
                     for line in remainingLines {
