@@ -164,6 +164,8 @@ public struct Theme {
                 font = font?.italic()
             case "monospace":
                 font = UniversalFont(style: textStyle, design: .monospaced)
+            case "strikeThrough":
+                stringAttributes[NSAttributedString.Key.strikethroughStyle] = NSUnderlineStyle.single.rawValue
             default:
                 break
             }

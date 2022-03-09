@@ -21,6 +21,7 @@ public enum Element: String {
     case bold = "(^|[\\W_])(?:(?!\\1)|(?=^))(\\*|_)\\2(?=\\S)(.*?\\S)\\2\\2(?!\\2)(?=[\\W_]|$)"
     case italic = "(^|[\\W_])(?:(?!\\1)|(?=^))(\\*|_)(?=\\S)((?:(?!\\2).)*?\\S)\\2(?!\\2)(?=[\\W_]|$)"
     case boldItalic = "(\\*\\*\\*\\w+(\\s\\w+)*\\*\\*\\*)"
+    case strikeThrough = "(~~)(?=\\S)(.+?)(?<=\\S)\\1"
     case codeInline = "`([^`\n\r]+)`"
     case codeBlock = "^((?:(?:[ ]{4}|\\t).*(\\R|$))+)(?=\\W|$)"
     case codeFenced = "^`{3}([\\S]+)?\n([\\s\\S]+)\n`{3}(?=\\W|$)"
@@ -56,6 +57,7 @@ public enum Element: String {
         case "bold": return .bold
         case "italic": return .italic
         case "boldItalic": return .boldItalic
+        case "strikeThrough": return .strikeThrough
         case "codeInline": return .codeInline
         case "codeBlock": return .codeBlock
         case "codeFenced": return .codeFenced

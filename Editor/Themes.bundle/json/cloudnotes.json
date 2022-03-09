@@ -28,6 +28,9 @@
         "italic": {
             "traits": "italic"
         },
+        "strikeThrough": {
+            "traits": "strikeThrough"
+        },
         "codeInline": {
             "traits": "monospace",
             "color": "#95C077"
