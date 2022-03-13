@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Hnc-wc-q9I">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -12,21 +14,21 @@
             <objects>
                 <tableViewController id="DXe-Iw-CcD" customClass="NotesTableViewController" customModule="iOCNotes" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="K35-HQ-LQQ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                         <color key="separatorColor" name="PHWhiteReadText"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="PUY-jA-gLM">
-                            <rect key="frame" x="0.0" y="111.5" width="600" height="1"/>
+                            <rect key="frame" x="0.0" y="111.5" width="414" height="1"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NoteCell" textLabel="1Q3-he-nuB" detailTextLabel="x61-QN-GPh" style="IBUITableViewCellStyleSubtitle" id="kka-p9-Iaq" customClass="NoteTableViewCell" customModule="iOCNotes" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="49.5" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="49.5" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kka-p9-Iaq" id="bx6-5a-S9d">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1Q3-he-nuB">
@@ -45,9 +47,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="R1o-2G-Lxf" kind="showDetail" identifier="showDetail" id="RCf-VZ-GG6"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -93,7 +92,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2nj-I5-PGU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1349" y="-1235"/>
+            <point key="canvasLocation" x="1700" y="-1235"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="T5b-rp-L4S">
@@ -111,13 +110,13 @@
         <!--Editor View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="EditorViewController" customModule="iOCNotes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="editorViewController" id="vXZ-lx-hvc" customClass="EditorViewController" customModule="iOCNotes" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ate-YD-PfH"/>
                         <viewControllerLayoutGuide type="bottom" id="2tF-Ws-VkG"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" name="PHWhiteBackground"/>
                     </view>
@@ -180,25 +179,34 @@
                 </barButtonItem>
                 <barButtonItem width="10" style="plain" systemItem="fixedSpace" id="thB-y7-Xbs"/>
             </objects>
-            <point key="canvasLocation" x="1351" y="-485"/>
+            <point key="canvasLocation" x="1700" y="-485"/>
         </scene>
         <!--Preview View Controller-->
         <scene sceneID="zMG-OD-d12">
             <objects>
-                <viewController storyboardIdentifier="PreviewController" id="7xC-ZL-ULJ" customClass="PreviewViewController" customModule="iOCNotes" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="previewViewController" id="7xC-ZL-ULJ" customClass="PreviewViewController" customModule="iOCNotes" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hdL-0d-TTy"/>
                         <viewControllerLayoutGuide type="bottom" id="bpa-Yz-xfN"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8k1-Ib-19a">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="editBarButton" destination="C7H-QN-aUy" id="f3Y-F4-fcc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IYG-2G-Yb7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <barButtonItem image="square.and.pencil" catalog="system" id="C7H-QN-aUy" userLabel="Preview">
+                    <color key="tintColor" name="PHWhiteIcon"/>
+                    <connections>
+                        <action selector="onEditBarButton:" destination="7xC-ZL-ULJ" id="fEP-Wa-L1w"/>
+                    </connections>
+                </barButtonItem>
             </objects>
-            <point key="canvasLocation" x="2072.8000000000002" y="-485.30734632683664"/>
+            <point key="canvasLocation" x="2714" y="-485"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fMS-Gw-CfY">
@@ -215,7 +223,6 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <toolbar key="toolbar" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="p4w-cm-yXR">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </toolbar>
@@ -225,7 +232,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NPZ-9D-o3J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="622" y="-1235"/>
+            <point key="canvasLocation" x="710" y="-1235"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1o0-w2-ASY">
@@ -245,15 +252,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bF7-Sg-WkW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="622" y="-485"/>
+            <point key="canvasLocation" x="709" y="-485"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="RCf-VZ-GG6"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="doc.text.magnifyingglass" catalog="system" width="107" height="128"/>
         <image name="gear" width="24" height="44"/>
+        <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <namedColor name="PHWhiteBackground">
             <color red="0.97000002861022949" green="0.97000002861022949" blue="0.97000002861022949" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

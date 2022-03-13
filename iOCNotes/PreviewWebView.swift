@@ -38,7 +38,7 @@ class PreviewWebView: WKWebView {
       .strikethrough // Strikethrough
     ]
 
-    public init(markdown: String, completion: LoadCompletion? = nil) throws {
+    public init(completion: LoadCompletion? = nil) throws {
 
         let bundleUrl = Bundle.main.url(forResource: "Preview", withExtension: "bundle")!
         self.bundle =  Bundle(url: bundleUrl)!
@@ -47,11 +47,11 @@ class PreviewWebView: WKWebView {
         
         super.init(frame: .zero, configuration: WKWebViewConfiguration())
         navigationDelegate = self
-        do {
-            try loadHTML(markdown)
-        } catch {
-            //
-        }
+//        do {
+//            try loadHTML(markdown)
+//        } catch {
+//            //
+//        }
     }
 
     required public init?(coder: NSCoder) {
@@ -60,7 +60,7 @@ class PreviewWebView: WKWebView {
 
 }
 
-private extension PreviewWebView {
+extension PreviewWebView {
 
     func loadHTML(_ markdown: String) throws {
         let htmlString = Node(markdown: markdown, options: options, extensions: extensions)?.html
@@ -69,7 +69,7 @@ private extension PreviewWebView {
         loadHTMLString(pageHTMLString, baseURL: baseURL)
     }
 
-    func htmlFromTemplate(_ htmlString: String) throws -> String {
+    private func htmlFromTemplate(_ htmlString: String) throws -> String {
         let template = try String(contentsOf: baseURL, encoding: .utf8)
         return template.replacingOccurrences(of: "PREVIEW_HTML", with: htmlString)
     }

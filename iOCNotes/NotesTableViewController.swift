@@ -23,7 +23,7 @@ class NotesTableViewController: UITableViewController {
 
     var notes: [CDNote]?
     var searchController: UISearchController?
-    var editorViewController: EditorViewController?
+    private var editorViewController: EditorViewController?
     
     private var networkHasBeenUnreachable = false
     private var searchResult: [CDNote]?
@@ -360,46 +360,78 @@ class NotesTableViewController: UITableViewController {
 
     // MARK: - Navigation
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch segue.identifier {
-        case detailSegueIdentifier:
-            var selectedIndexPath = IndexPath(row: 0, section: 0)
-            if let cell = sender as? UITableViewCell, let cellIndexPath = tableView.indexPath(for: cell) {
-                selectedIndexPath = cellIndexPath
-            }
-            if let navigationController = segue.destination as? UINavigationController,
-                let editorController = navigationController.topViewController as? EditorViewController {
-                editorViewController = editorController
-                let note = manager.fetchedResultsController.object(at: selectedIndexPath)
-                editorController.note = note
-                editorController.isNewNote = isAddingFromButton
-                isAddingFromButton = false
-                #if !targetEnvironment(macCatalyst)
-                if #available(iOS 14.0, *) {
-                    //
-                } else {
-                    editorController.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-                }
-                editorController.navigationItem.leftItemsSupplementBackButton = true
-                editorController.navigationItem.title = note.title
-                if splitViewController?.displayMode == .allVisible || splitViewController?.displayMode == .primaryOverlay {
-                    UIView.animate(withDuration: 0.3, animations: {
-                        self.splitViewController?.preferredDisplayMode = .primaryHidden
-                    }, completion: nil)
-                }
-                #endif
-            }
-            
-        default:
-            break
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        switch segue.identifier {
+//        case detailSegueIdentifier:
+//            var selectedIndexPath = IndexPath(row: 0, section: 0)
+//            if let cell = sender as? UITableViewCell, let cellIndexPath = tableView.indexPath(for: cell) {
+//                selectedIndexPath = cellIndexPath
+//            }
+//            if let navigationController = segue.destination as? UINavigationController,
+//                let editorController = navigationController.topViewController as? EditorViewController {
+//                editorViewController = editorController
+//                let note = manager.fetchedResultsController.object(at: selectedIndexPath)
+//                editorController.note = note
+//                editorController.isNewNote = isAddingFromButton
+//                isAddingFromButton = false
+//                #if !targetEnvironment(macCatalyst)
+//                if #available(iOS 14.0, *) {
+//                    //
+//                } else {
+//                    editorController.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+//                }
+//                editorController.navigationItem.leftItemsSupplementBackButton = true
+//                editorController.navigationItem.title = note.title
+//                if splitViewController?.displayMode == .allVisible || splitViewController?.displayMode == .primaryOverlay {
+//                    UIView.animate(withDuration: 0.3, animations: {
+//                        self.splitViewController?.preferredDisplayMode = .primaryHidden
+//                    }, completion: nil)
+//                }
+//                #endif
+//            }
+//            
+//        default:
+//            break
+//        }
+//    }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let destinationVC: UIViewController
         #if !targetEnvironment(macCatalyst)
         tableView.deselectRow(at: indexPath, animated: true)
         #endif
         editorViewController?.isNewNote = false
+
+        switch KeychainHelper.openInPreview {
+        case false:
+            let editorController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "editorViewController") as! EditorViewController
+            editorViewController = editorController
+            let note = manager.fetchedResultsController.object(at: indexPath)
+            editorController.note = note
+            editorController.isNewNote = isAddingFromButton
+            isAddingFromButton = false
+#if !targetEnvironment(macCatalyst)
+            if #available(iOS 14.0, *) {
+                //
+            } else {
+                editorController.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+            }
+            editorController.navigationItem.leftItemsSupplementBackButton = true
+            editorController.navigationItem.title = note.title
+            if splitViewController?.displayMode == .allVisible || splitViewController?.displayMode == .primaryOverlay {
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.splitViewController?.preferredDisplayMode = .primaryHidden
+                }, completion: nil)
+            }
+#endif
+            navigationController?.pushViewController(editorController, animated: true)
+        case true:
+            let previewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "previewViewController") as! PreviewViewController
+            let note = manager.fetchedResultsController.object(at: indexPath)
+            previewController.note = note
+            navigationController?.pushViewController(previewController, animated: true)
+        }
+
     }
 
     private func showRenameAlert(for indexPath: IndexPath) {

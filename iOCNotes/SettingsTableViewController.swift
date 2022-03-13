@@ -14,6 +14,7 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet var serverTextField: UITextField!
     @IBOutlet var syncOnStartSwitch: UISwitch!
     @IBOutlet weak var offlineModeSwitch: UISwitch!
+    @IBOutlet var openAsPreviewSwitch: UISwitch!
     @IBOutlet var extensionLabel: UILabel!
     @IBOutlet var folderLabel: UILabel!
 
@@ -31,6 +32,7 @@ class SettingsTableViewController: UITableViewController {
         self.serverTextField.text = KeychainHelper.server
         self.syncOnStartSwitch.isOn = KeychainHelper.syncOnStart
         offlineModeSwitch.isOn = KeychainHelper.offlineMode
+        openAsPreviewSwitch.isOn = KeychainHelper.openInPreview
         extensionLabel.text = KeychainHelper.fileSuffix.description
         folderLabel.text = KeychainHelper.notesPath
         tableView.reloadData()
@@ -140,6 +142,9 @@ class SettingsTableViewController: UITableViewController {
     
     @IBAction func offlineModeChanged(_ sender: Any) {
         KeychainHelper.offlineMode = offlineModeSwitch.isOn
+    }
+    @IBAction func openAsPreviewChanged(_ sender: Any) {
+        KeychainHelper.openInPreview = openAsPreviewSwitch.isOn
     }
 
     @IBAction func onDone(_ sender: Any) {

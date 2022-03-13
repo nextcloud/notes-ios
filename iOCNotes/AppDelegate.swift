@@ -313,7 +313,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             let configuration = UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
 //            configuration.delegateClass = SceneDelegate.self
-//            configuration.storyboard = UIStoryboard(name: "Main_iPhone", bundle: Bundle.main)
+//            configuration.storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
             return configuration
         }
     }

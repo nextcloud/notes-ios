@@ -181,4 +181,13 @@ struct KeychainHelper {
         }
     }
 
+    static var openInPreview: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: "openInPreview")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "openInPreview")
+        }
+    }
+
 }

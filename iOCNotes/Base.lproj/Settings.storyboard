@@ -154,10 +154,46 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="NOTES" footerTitle="Opens notes as read only previews" id="lh0-ZQ-Gci" userLabel="NOTES">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="AvO-79-JL4">
+                                        <rect key="frame" x="0.0" y="357.5" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AvO-79-JL4" id="aON-SK-TMi">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open as Preview" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AKD-0f-OJm">
+                                                    <rect key="frame" x="20" y="0.5" width="315" height="43"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="43" id="wch-9K-nho"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TZR-Ff-ig8">
+                                                    <rect key="frame" x="345" y="6.5" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="openAsPreviewChanged:" destination="F8m-nl-oCR" eventType="valueChanged" id="96r-X0-4T8"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="AKD-0f-OJm" firstAttribute="leading" secondItem="aON-SK-TMi" secondAttribute="leadingMargin" id="6Hz-FK-ROq"/>
+                                                <constraint firstItem="AKD-0f-OJm" firstAttribute="centerY" secondItem="aON-SK-TMi" secondAttribute="centerY" id="F5V-LH-vXa"/>
+                                                <constraint firstItem="TZR-Ff-ig8" firstAttribute="leading" secondItem="AKD-0f-OJm" secondAttribute="trailing" constant="10" id="FWJ-ge-q5X"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="TZR-Ff-ig8" secondAttribute="trailing" id="nn4-i2-nSP"/>
+                                                <constraint firstAttribute="centerY" secondItem="TZR-Ff-ig8" secondAttribute="centerY" constant="0.25" id="vXv-Zh-3xp"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                             <tableViewSection headerTitle="SERVER SETTINGS" footerTitle="These settings only affect how notes are managed on the server. CloudNotes does not handle any files." id="RvH-hn-Sfv">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Pvp-6i-NLV" detailTextLabel="uVd-ib-jy0" style="IBUITableViewCellStyleValue1" id="ACx-MP-ADX">
-                                        <rect key="frame" x="0.0" y="357.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="467.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ACx-MP-ADX" id="CPP-fv-iaY">
                                             <rect key="frame" x="0.0" y="0.0" width="385.5" height="44"/>
@@ -184,7 +220,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="ltN-gF-yom" detailTextLabel="1jH-jZ-oMs" style="IBUITableViewCellStyleValue1" id="E4L-zJ-LSa">
-                                        <rect key="frame" x="0.0" y="401.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="511.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="E4L-zJ-LSa" id="qUp-16-Jx6">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -212,7 +248,7 @@
                             <tableViewSection headerTitle="SUPPORT" id="ENv-ON-tbr">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="fwh-Xy-h5M" style="IBUITableViewCellStyleDefault" id="pci-Wx-m6v">
-                                        <rect key="frame" x="0.0" y="518" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="628" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pci-Wx-m6v" id="JSp-e4-6B7">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -229,7 +265,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="6So-Rg-NhZ" style="IBUITableViewCellStyleDefault" id="qF6-HN-yJq">
-                                        <rect key="frame" x="0.0" y="562" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="672" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qF6-HN-yJq" id="Vx6-tf-8OO">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -265,6 +301,7 @@
                         <outlet property="extensionLabel" destination="uVd-ib-jy0" id="vFF-ud-T8e"/>
                         <outlet property="folderLabel" destination="1jH-jZ-oMs" id="LYS-ig-oUx"/>
                         <outlet property="offlineModeSwitch" destination="6lP-Wx-RS7" id="2kX-Fk-LmN"/>
+                        <outlet property="openAsPreviewSwitch" destination="TZR-Ff-ig8" id="WAZ-zc-rlm"/>
                         <outlet property="serverTextField" destination="hYn-5e-22n" id="ylC-Iz-gyO"/>
                         <outlet property="syncOnStartSwitch" destination="dU6-Jt-bTb" id="K6t-KV-pfL"/>
                     </connections>
