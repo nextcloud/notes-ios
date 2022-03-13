@@ -10,19 +10,23 @@ import Foundation
 
 public struct Style {
     var regex: NSRegularExpression!
+    public var priority: Int
     public var attributes: [NSAttributedString.Key: Any] = [:]
 
-    public init(element: Element, attributes: [NSAttributedString.Key: Any]) {
+    public init(element: Element, priority: Int, attributes: [NSAttributedString.Key: Any]) {
         self.regex = element.toRegex()
+        self.priority = priority
         self.attributes = attributes
     }
 
-    public init(regex: NSRegularExpression, attributes: [NSAttributedString.Key: Any]) {
+    public init(regex: NSRegularExpression, priority: Int, attributes: [NSAttributedString.Key: Any]) {
+        self.priority = priority
         self.regex = regex
         self.attributes = attributes
     }
 
     public init() {
+        self.priority = Int.max
         self.regex = Element.unknown.toRegex()
     }
 }

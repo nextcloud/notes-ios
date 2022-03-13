@@ -125,7 +125,11 @@ public class Storage: NSTextStorage {
         let backingString = backingStore.string
         backingStore.setAttributes(theme.body.attributes, range: range)
 
-        for style in theme.styles {
+        let sortedStyles = theme.styles.sorted {
+            $0.priority > $1.priority
+        }
+
+        for style in sortedStyles {
             style.regex.enumerateMatches(in: backingString, options: .withoutAnchoringBounds, range: range, using: { (match, flags, stop) in
                 guard let match = match,
                       match.resultType == NSTextCheckingResult.CheckingType.regularExpression,

@@ -75,22 +75,22 @@ public struct Theme {
         }
 
         if var allStyles = data["styles"] as? [String: AnyObject] {
-            if let bodyStyles = allStyles["body"] as? [String: AnyObject], let parsedBodyStyles = parse(bodyStyles) {
-                body = Style(element: .body, attributes: parsedBodyStyles)
+            if let bodyStyles = allStyles["body"] as? [String: AnyObject], let priority = bodyStyles["priority"] as? Int, let parsedBodyStyles = parse(bodyStyles) {
+                body = Style(element: .body, priority: priority, attributes: parsedBodyStyles)
             } else { // Create a default body font so other styles can inherit from it.
                 let attributes = [NSAttributedString.Key.foregroundColor: UniversalColor.label]
-                body = Style(element: .body, attributes: attributes)
+                body = Style(element: .body, priority: 1, attributes: attributes)
             }
 
             allStyles.removeValue(forKey: "body")
             for (element, attributes) in allStyles {
-                if let attributes = attributes as? [String : AnyObject], let parsedStyles = parse(attributes) {
+                if let attributes = attributes as? [String : AnyObject], let priority = attributes["priority"] as? Int, let parsedStyles = parse(attributes) {
                     if let regexString = attributes["regex"] as? String {
                         let regex = regexString.toRegex()
-                        styles.append(Style(regex: regex, attributes: parsedStyles))
+                        styles.append(Style(regex: regex, priority: priority, attributes: parsedStyles))
                     }
                     else {
-                        styles.append(Style(element: Element.unknown.from(string: element), attributes: parsedStyles))
+                        styles.append(Style(element: Element.unknown.from(string: element), priority: priority, attributes: parsedStyles))
                     }
                 }
             }
@@ -126,9 +126,7 @@ public struct Theme {
             stringAttributes[NSAttributedString.Key.foregroundColor] = UniversalColor.label
         }
         
-        let bodyFont = body.attributes[NSAttributedString.Key.font] as? UniversalFont
-        // if size is set use custom size, otherwise use body font size, otherwise fallback to 15 points
-        let fontSize: CGFloat = attributes["size"] as? CGFloat ?? (bodyFont?.pointSize ?? (UniversalFont(style: .body)?.pointSize ?? 15))
+//        let bodyFont = body.attributes[NSAttributedString.Key.font] as? UniversalFont
         let fontTraits = attributes["traits"] as? String ?? ""
         var font: UniversalFont?
 
@@ -136,7 +134,7 @@ public struct Theme {
         if let style = attributes["style"] as? String  {
             switch style {
             case "body":
-                break
+                textStyle = .body
             case "title1":
                 textStyle = .title1
             case "title2":
@@ -149,13 +147,13 @@ public struct Theme {
         }
         font = UniversalFont.preferredFont(forTextStyle: textStyle)
 
-        if let fontName = attributes["font"] as? String, fontName != "System", !fontName.hasPrefix(".") {
-            // use custom font if set
-            font = UniversalFont(name: fontName, size: fontSize)?.with(traits: fontTraits)
-        } else if let bodyFont = bodyFont, bodyFont.fontName != "System", !bodyFont.fontName.hasPrefix(".") {
-            // use body font if set
-            font = UniversalFont(name: bodyFont.fontName, size: fontSize)?.with(traits: fontTraits)
-        } else {
+//        if let fontName = attributes["font"] as? String, fontName != "System", !fontName.hasPrefix(".") {
+//            // use custom font if set
+//            font = UniversalFont(name: fontName, size: fontSize)?.with(traits: fontTraits)
+//        } else if let bodyFont = bodyFont, bodyFont.fontName != "System", !bodyFont.fontName.hasPrefix(".") {
+//            // use body font if set
+//            font = UniversalFont(name: bodyFont.fontName, size: fontSize)?.with(traits: fontTraits)
+//        } else {
 #if os(iOS)
             switch fontTraits {
             case "bold":
@@ -163,7 +161,7 @@ public struct Theme {
             case "italic":
                 font = font?.italic()
             case "monospace":
-                font = UniversalFont(style: textStyle, design: .monospaced)
+                font = UIFont(style: textStyle, design: .monospaced)
             case "strikeThrough":
                 stringAttributes[NSAttributedString.Key.strikethroughStyle] = NSUnderlineStyle.single.rawValue
             default:
@@ -173,7 +171,7 @@ public struct Theme {
             // use system font in all other cases
             font = UniversalFont.systemFont(ofSize: fontSize).with(traits: fontTraits, size: fontSize)
 #endif
-        }
+//        }
 
         stringAttributes[NSAttributedString.Key.font] = font
         return stringAttributes

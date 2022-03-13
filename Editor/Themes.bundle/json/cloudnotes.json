@@ -8,66 +8,85 @@
     "version": "1.0",
     "styles": {
         "h1": {
+            "priority": 9,
             "color": "#C96667",
             "style": "title1",
         },
         "h2": {
+            "priority": 10,
             "style": "title2",
             "color": "#C96667"
         },
         "h3": {
+            "priority": 11,
             "style": "title3",
             "color": "#C96667"
         },
         "body": {
+            "priority": 1,
             "style": "body"
         },
         "bold": {
+            "priority": 1,
             "traits": "bold"
         },
         "italic": {
+            "priority": 2,
             "traits": "italic"
         },
         "strikeThrough": {
+            "priority": 3,
             "traits": "strikeThrough"
         },
         "codeInline": {
+            "priority": 4,
             "traits": "monospace",
             "color": "#95C077"
         },
         "codeBlock": {
+            "priority": 12,
             "style": "body",
             "traits": "monospace",
             "color": "#95C077"
         },
         "codeFenced": {
+            "priority": 13,
             "style": "body",
             "traits": "monospace",
             "color": "#95C077"
         },
         "handle": {
+            "priority": 5,
             "regex": "[@＠][a-zA-Z0-9_]{1,20}",
             "color": "#78ddd5"
         },
         "url": {
+            "priority": 6,
             "color": "#78aedd"
         },
         "image": {
+            "priority": 7,
             "color": "#78aedd"
         },
         "checkBoxUnchecked": {
+            "priority": 14,
             "style": "body"
         },
         "checkBoxChecked": {
+            "priority": 15,
             "style": "body"
         },
         "listItemUnordered": {
+            "priority": 16,
             "style": "body"
         },
         "listItemOrdered": {
+            "priority": 17,
             "style": "body"
         },
         "quote": {
+            "priority": 8,
+            "style": "body",
             "color": "#78aedd"
         }
     }
