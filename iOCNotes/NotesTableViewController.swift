@@ -14,6 +14,7 @@ import UIKit
 
 let detailSegueIdentifier = "showDetail"
 let categorySegueIdentifier = "SelectCategorySegue"
+let settingsSegueIdentifier = "ShowSettings"
 
 class NotesTableViewController: UITableViewController {
 
@@ -389,7 +390,12 @@ class NotesTableViewController: UITableViewController {
                 }
                 #endif
             }
-            
+        case settingsSegueIdentifier:
+            if let navigationController = segue.destination as? UINavigationController,
+               let controller = navigationController.topViewController as? SettingsTableViewController {
+                controller.presentationController?.delegate = self
+                navigationController.presentationController?.delegate = self
+            }
         default:
             break
         }
@@ -493,13 +499,6 @@ class NotesTableViewController: UITableViewController {
         }
     }
 
-    @IBAction func onSettings(sender: Any?) {
-        let storyboard = UIStoryboard(name: "Settings", bundle:nil)
-        if let nav = storyboard.instantiateViewController(withIdentifier: "login") as? UINavigationController {
-            present(nav, animated: true, completion: nil)
-        }
-    }
-
     @IBAction func onAdd(sender: Any?) {
         isAddingFromButton = true
         addNote(content: "")
@@ -566,7 +565,7 @@ class NotesTableViewController: UITableViewController {
 
     private func didBecomeActive() {
         if KeychainHelper.server.isEmpty {
-            onSettings(sender: nil)
+            performSegue(withIdentifier: "ShowSettings", sender: self)
         } else if KeychainHelper.syncOnStart {
             onRefresh(sender: nil)
         } else if KeychainHelper.dbReset {
@@ -575,6 +574,9 @@ class NotesTableViewController: UITableViewController {
             try? manager.fetchedResultsController.performFetch()
             tableView.reloadData()
         }
+        addBarButton.isEnabled = true
+        settingsBarButton.isEnabled = true
+        refreshBarButton.isEnabled = NoteSessionManager.isOnline
     }
     
     fileprivate func showCategories(indexPath: IndexPath) {
@@ -682,6 +684,15 @@ extension NotesTableViewController: CollapsibleTableViewHeaderViewDelegate {
             header.collapsed = !collapsed
             self.tableView.reloadSections(NSIndexSet(index: sectionIndex) as IndexSet, with: .automatic)
         }
+    }
+}
+
+extension NotesTableViewController: UIAdaptivePresentationControllerDelegate {
+
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        addBarButton.isEnabled = true
+        settingsBarButton.isEnabled = true
+        refreshBarButton.isEnabled = NoteSessionManager.isOnline
     }
 }
 

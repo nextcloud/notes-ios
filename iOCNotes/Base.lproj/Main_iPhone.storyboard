@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Hnc-wc-q9I">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Hnc-wc-q9I">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,21 +14,21 @@
             <objects>
                 <tableViewController id="DXe-Iw-CcD" customClass="NotesTableViewController" customModule="iOCNotes" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="K35-HQ-LQQ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                         <color key="separatorColor" name="PHWhiteReadText"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="PUY-jA-gLM">
-                            <rect key="frame" x="0.0" y="111.5" width="600" height="1"/>
+                            <rect key="frame" x="0.0" y="111.5" width="414" height="1"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NoteCell" textLabel="1Q3-he-nuB" detailTextLabel="x61-QN-GPh" style="IBUITableViewCellStyleSubtitle" id="kka-p9-Iaq" customClass="NoteTableViewCell" customModule="iOCNotes" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="49.5" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="49.5" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kka-p9-Iaq" id="bx6-5a-S9d">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1Q3-he-nuB">
@@ -60,7 +62,7 @@
                         <barButtonItem key="leftBarButtonItem" image="gear" id="Ehu-4h-6IO">
                             <color key="tintColor" name="PHWhiteIcon"/>
                             <connections>
-                                <action selector="onSettingsWithSender:" destination="DXe-Iw-CcD" id="cs1-YA-pRQ"/>
+                                <segue destination="JBc-8M-sq7" kind="presentation" identifier="ShowSettings" id="84a-UW-Z90"/>
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
@@ -95,6 +97,14 @@
             </objects>
             <point key="canvasLocation" x="1349" y="-1235"/>
         </scene>
+        <!--Settings-->
+        <scene sceneID="clz-zK-6Sc">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Settings" id="JBc-8M-sq7" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nya-es-Ato" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2027" y="-1456"/>
+        </scene>
         <!--Split View Controller-->
         <scene sceneID="T5b-rp-L4S">
             <objects>
@@ -117,7 +127,7 @@
                         <viewControllerLayoutGuide type="bottom" id="2tF-Ws-VkG"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" name="PHWhiteBackground"/>
                     </view>
@@ -191,10 +201,11 @@
                         <viewControllerLayoutGuide type="bottom" id="bpa-Yz-xfN"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8k1-Ib-19a">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" id="vsb-LD-pwS"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IYG-2G-Yb7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -215,7 +226,6 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <toolbar key="toolbar" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="p4w-cm-yXR">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </toolbar>
@@ -252,7 +262,7 @@
         <segue reference="RCf-VZ-GG6"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="doc.text.magnifyingglass" catalog="system" width="107" height="128"/>
+        <image name="doc.text.magnifyingglass" catalog="system" width="32" height="32"/>
         <image name="gear" width="24" height="44"/>
         <namedColor name="PHWhiteBackground">
             <color red="0.97000002861022949" green="0.97000002861022949" blue="0.97000002861022949" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

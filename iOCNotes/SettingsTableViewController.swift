@@ -143,7 +143,11 @@ class SettingsTableViewController: UITableViewController {
     }
 
     @IBAction func onDone(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true) {
+            if let presentationController = self.presentationController {
+                presentationController.delegate?.presentationControllerDidDismiss?(presentationController)
+            }
+        }
     }
 
     private func showNotesFolderAlert() {
