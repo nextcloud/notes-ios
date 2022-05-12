@@ -70,11 +70,11 @@
         },
         "checkBoxUnchecked": {
             "priority": 14,
-            "style": "body"
+            "style": "title2"
         },
         "checkBoxChecked": {
             "priority": 15,
-            "style": "body"
+            "style": "title2"
         },
         "listItemUnordered": {
             "priority": 16,
