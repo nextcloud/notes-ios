@@ -575,7 +575,6 @@ extension EditorViewController: UITextViewDelegate {
                 return false
             }
         } else if text.isEmpty {
-            print("Upper bound: \(range.upperBound) Lower bound: \(range.lowerBound) Character: \(fullText.character(at: range.lowerBound))")
             if (range.upperBound > range.lowerBound) {
                 print("Backspace pressed")
                 if fullText.character(at: range.lowerBound) == 10 {
