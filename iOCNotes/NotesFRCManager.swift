@@ -9,6 +9,23 @@
 import CoreData
 import UIKit
 
+class NotesManager {
+    let manager: FRCManager<CDNote>
+
+    init() {
+        let request = CDNote.fetchRequest()
+        request.fetchBatchSize = 288
+        request.predicate = .allNotes
+        request.sortDescriptors = [NSSortDescriptor(key: "cdCategory", ascending: true),
+                                   NSSortDescriptor(key: "cdModified", ascending: false)]
+
+        manager = FRCManager(fetchRequest: request,
+                  managedObjectContext: NotesData.mainThreadContext,
+                  sectionNameKeyPath: "sectionName",
+                  delegate: nil)
+    }
+}
+
 protocol NotesFRCManagerChange {
     func applyChanges(tableView: UITableView, animation: UITableView.RowAnimation?)
 
