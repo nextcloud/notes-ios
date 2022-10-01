@@ -31,8 +31,8 @@ public enum Element: String {
 
     case checkBoxUnchecked = "^(\\s*)([-*+])\\s+(\\[ ])(?=\\W|$)"
     case checkBoxChecked =   "^(\\s*)([-*+])\\s+(\\[[xX]])(?=\\W|$)"
-    case listItemUnordered = "^(\\s*)([-*+])\\s.(.*)"
-    case listItemOrdered =   "^(\\s*)(\\d+\\.)\\s.(.*)"
+    case listItemUnordered = "^(\\s*)([-*+])\\s+(\\S+)"
+    case listItemOrdered =   "^(\\s*)(\\d+\\.)\\s+(\\S+)"
 
     case quote = "(^> ?.+?)((\n\n\\w)|\\Z|$)"
 

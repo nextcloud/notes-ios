@@ -559,7 +559,7 @@ extension EditorViewController: UITextViewDelegate {
 
                 return false
             }
-            guard let emptyLineRegex = try? NSRegularExpression(pattern: "^((\\d+.)|[-+*])\\s?$", options: .anchorsMatchLines) else {
+            guard let emptyLineRegex = try? NSRegularExpression(pattern: "^((\\d+\\.)|[-+*])\\s+$", options: .anchorsMatchLines) else {
                 return true
             }
 
