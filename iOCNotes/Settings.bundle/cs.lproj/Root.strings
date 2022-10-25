@@ -1,11 +1,11 @@
-
-/* 
+/*
   Root.strings
   iOCNotes
 
   Created by Peter Hedlund on 6/22/14.
   Copyright (c) 2014 Peter Hedlund. All rights reserved.
-*/"About" = "O aplikaci";
+*/
+"About" = "O aplikaci";
 
 "Acknowledgements" = "Poděkování";
 

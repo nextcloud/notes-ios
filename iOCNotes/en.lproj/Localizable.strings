@@ -1,4 +1,3 @@
-
 /* Crash report email body placeholder */
 "<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Please provide as much details as possible about what you were doing when the crash occurred.>";
 
@@ -203,3 +202,45 @@
 
 /* A message */
 "You are now connected to Notes on your server" = "You are now connected to Notes on your server";
+
+/* HUD subtitle when checking server capabilities */
+"Checking server capabilities" = "Checking server capabilities";
+
+/* HUD subtitle when checking server settings */
+"Checking server settings" = "Checking server settings";
+
+/* HUD subtitle when checking server status */
+"Checking server status" = "Checking server status";
+
+/* No comment provided by engineer. */
+"Connection error" = "Connection error";
+
+/* No comment provided by engineer. */
+"Do you want to connect to the server anyway?" = "Do you want to connect to the server anyway?";
+
+/* Message of alert to change notes folder */
+"Enter a name for the folder where notes should be saved on the server" = "Enter a name for the folder where notes should be saved on the server";
+
+/* An error message title */
+"Error" = "Error";
+
+/* No comment provided by engineer. */
+"No" = "No";
+
+/* Title of alert to change notes folder */
+"Notes Folder" = "Notes Folder";
+
+/* A menu option for sharing in pdf format */
+"PDF" = "PDF";
+
+/* Caption of Save button */
+"Save" = "Save";
+
+/* No comment provided by engineer. */
+"The certificate for this server is invalid" = "The certificate for this server is invalid";
+
+/* No comment provided by engineer. */
+"View Certificate" = "View Certificate";
+
+/* No comment provided by engineer. */
+"Yes" = "Yes";

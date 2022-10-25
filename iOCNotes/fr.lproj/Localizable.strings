@@ -1,4 +1,3 @@
-
 /* Crash report email body placeholder */
 "<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Veuillez fournir autant de détails que possible sur ce que vous faisiez lorsque le crash s'est produit.>";
 
@@ -8,9 +7,30 @@
 /* An error message */
 "A server installation could not be found. Check the server address." = "Une installation de serveur est introuvable. Vérifiez l'adresse du serveur.";
 
+/* Acknowledgements */
+"Acknowledgements" = "Remerciements";
+
+/* Title of alert for adding a category */
+"Add Category" = "Ajouter une catégorie";
+
+/* Item to show all notes */
+"All" = "Toutes";
+
 /* A menu action
    A menu option for cancelling */
 "Cancel" = "Annuler";
+
+/* Header title, categories */
+"CATEGORIES" = "CATEGORIES";
+
+/* 'Category' menu item */
+"Category" = "Catégorie";
+
+/* Action to change category of a note */
+"Category..." = "Catégorie...";
+
+/* Action to change category of a note */
+"Change Category..." = "Changer de Catégorie";
 
 /* An error message */
 "Check username and password." = "Vérifiez le nom d'utilisateur et le mot de passe.";
@@ -30,14 +50,23 @@
 /* A button title */
 "Connect" = "Connexion";
 
+/* Status information, connected */
+"Connected to Notes on the server" = "Connecté au serveur";
+
 /* An error message title */
 "Connection failure" = "Échec de connexion";
 
 /* Alert view title */
 "Crash Detected" = "Crash détecté";
 
+/* Action to delete a note */
+"Delete" = "Supprimer";
+
 /* A menu action */
 "Delete Note" = "Supprimer la note";
+
+/* Prompt on alert for adding a category */
+"Enter a name for the new category" = "Saisissez un nom pour la nouvelle catégorie";
 
 /* The title of an error message */
 "Error Adding Note" = "Erreur lors de l'ajout de la note";
@@ -60,11 +89,17 @@
 /* An error message */
 "Failed to connect to a server. Check your settings." = "Échec de la connexion à un serveur. Vérifiez vos paramètres.";
 
+/* Item to show favorite notes */
+"Favorites" = "Favoris";
+
 /* A menu option for plain sharing in html format */
 "HTML" = "HTML";
 
 /* A status label indicating that the user is logged in */
 "Logged In" = "Connecté";
+
+/* Header title, main */
+"MAIN" = "PRINCIPAL";
 
 /* A menu option for sharing in markdown format */
 "Markdown" = "Markdown";
@@ -75,14 +110,26 @@
 /* No comment provided by engineer. */
 "No thanks" = "Non merci";
 
+/* Status information, not connected */
+"Not connected to Notes on a server" = "Déconnecté du serveur";
+
 /* A status label indicating that the user is not logged in */
 "Not Logged In" = "Pas connecté";
+
+/* Message about not being logged in */
+"Not logged in" = "Utilisateur non connecté";
+
+/* Title of alert to change title */
+"Note Title" = "Titre de la note";
 
 /* An error message */
 "Notes could not be found on your server. Make sure it is installed and enabled" = "L'application Notes est introuvable sur votre serveur. Assurez-vous qu'elle est installée et activée";
 
 /* An error message title */
 "Notes not found" = "Notes non trouvée";
+
+/* Button, OK */
+"OK" = "OK";
 
 /* Title for Open In activity */
 "Open In..." = "Ouvrir dans...";
@@ -96,6 +143,16 @@
 
 /* A button title */
 "Reconnect" = "Se Reconnecter";
+
+/* Action to change title of a note
+   Caption of Rename button */
+"Rename" = "Renommer";
+
+/* Message of alert to change title */
+"Rename the note" = "Renommer la note";
+
+/* Action to change title of a note */
+"Rename..." = "Renommer...";
 
 /* A menu option for sharing in rich text format */
 "Rich Text" = "Texte riche";
@@ -137,69 +194,53 @@
 /* Text displayed for notes not assigned to a category */
 "Uncategorized" = "Non catégorisé";
 
+/* Message with Notes version, product name and version */
+"Using Notes %@on %@ %@." = "Utilise Notes %@ sur %@ %@.";
+
 /* No comment provided by engineer. */
 "Yes, please!" = "Oui s'il vous plaît!";
 
 /* A message */
 "You are now connected to Notes on your server" = "Vous êtes maintenant connecté à Notes sur votre serveur";
 
-/* Acknowledgements */
-"Acknowledgements" = "Remerciements";
+/* HUD subtitle when checking server capabilities */
+"Checking server capabilities" = "Checking server capabilities";
 
-/* Title of alert for adding a category */
-"Add Category" = "Ajouter une catégorie";
+/* HUD subtitle when checking server settings */
+"Checking server settings" = "Checking server settings";
 
-/* Item to show all notes */
-"All" = "Toutes";
+/* HUD subtitle when checking server status */
+"Checking server status" = "Checking server status";
 
-/* Header title, categories */
-"CATEGORIES" = "CATEGORIES";
+/* No comment provided by engineer. */
+"Connection error" = "Connection error";
 
-/* 'Category' menu item */
-"Category" = "Catégorie";
+/* No comment provided by engineer. */
+"Do you want to connect to the server anyway?" = "Do you want to connect to the server anyway?";
 
-/* Action to change category of a note */
-"Category..." = "Catégorie...";
+/* Message of alert to change notes folder */
+"Enter a name for the folder where notes should be saved on the server" = "Enter a name for the folder where notes should be saved on the server";
 
-/* Action to change category of a note */
-"Change Category..." = "Changer de Catégorie";
+/* An error message title */
+"Error" = "Error";
 
-/* Status information, connected */
-"Connected to Notes on the server" = "Connecté au serveur";
+/* No comment provided by engineer. */
+"No" = "No";
 
-/* Action to delete a note */
-"Delete" = "Supprimer";
+/* Title of alert to change notes folder */
+"Notes Folder" = "Notes Folder";
 
-/* Prompt on alert for adding a category */
-"Enter a name for the new category" = "Saisissez un nom pour la nouvelle catégorie";
+/* A menu option for sharing in pdf format */
+"PDF" = "PDF";
 
-/* Item to show favorite notes */
-"Favorites" = "Favoris";
+/* Caption of Save button */
+"Save" = "Save";
 
-/* Header title, main */
-"MAIN" = "PRINCIPAL";
+/* No comment provided by engineer. */
+"The certificate for this server is invalid" = "The certificate for this server is invalid";
 
-/* Status information, not connected */
-"Not connected to Notes on a server" = "Déconnecté du serveur";
+/* No comment provided by engineer. */
+"View Certificate" = "View Certificate";
 
-/* Message about not being logged in */
-"Not logged in" = "Utilisateur non connecté";
-
-/* Title of alert to change title */
-"Note Title" = "Titre de la note";
-
-/* Button, OK */
-"OK" = "OK";
-
-/* Action to change title of a note
-   Caption of Rename button */
-"Rename" = "Renommer";
-
-/* Message of alert to change title */
-"Rename the note" = "Renommer la note";
-
-/* Action to change title of a note */
-"Rename..." = "Renommer...";
-
-/* Message with Notes version, product name and version */
-"Using Notes %@on %@ %@." = "Utilise Notes %@ sur %@ %@.";
+/* No comment provided by engineer. */
+"Yes" = "Yes";
