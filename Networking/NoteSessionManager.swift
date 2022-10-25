@@ -23,14 +23,18 @@ struct ErrorMessage {
     var body: String
 }
 
-final class CustomServerTrustPolicyManager: ServerTrustManager {
+final class NotesServerTrustPolicyManager: ServerTrustManager {
     override func serverTrustEvaluator(forHost host: String) -> ServerTrustEvaluating? {
         let server = KeychainHelper.server
         if KeychainHelper.allowUntrustedCertificate,
-            !host.isEmpty,
-            let serverHost = URLComponents(string: server)?.host,
-            host == serverHost {
-            return DisabledTrustEvaluator()
+           !host.isEmpty,
+           let serverHost = URLComponents(string: server)?.host,
+           host == serverHost,
+           let certificate = ServerStatus.shared.savedCert(host: host) {
+            return PinnedCertificatesTrustEvaluator(certificates: [certificate],
+                                                    acceptSelfSignedCertificates: true,
+                                                    performDefaultValidation: false,
+                                                    validateHost: false)
         } else {
             return DefaultTrustEvaluator()
         }
@@ -148,7 +152,7 @@ class NoteSessionManager {
         configuration.timeoutIntervalForResource = 30
         configuration.timeoutIntervalForRequest = 30
         configuration.waitsForConnectivity = true
-        session = Session(configuration: configuration, serverTrustManager: CustomServerTrustPolicyManager(allHostsMustBeEvaluated: true, evaluators: [:]))
+        session = Session(configuration: configuration, serverTrustManager: NotesServerTrustPolicyManager(allHostsMustBeEvaluated: true, evaluators: [:]))
     }
 
     func status(completion: SyncCompletionBlock? = nil) {        

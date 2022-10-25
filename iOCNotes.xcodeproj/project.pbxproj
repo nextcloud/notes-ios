@@ -32,6 +32,7 @@
 		D02BBB9623D5339B0097F120 /* NoteTreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02BBB9523D5339B0097F120 /* NoteTreeNode.swift */; };
 		D02BBB9A23DA91170097F120 /* NoteCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02BBB9923DA91170097F120 /* NoteCellView.swift */; };
 		D02BBB9C23DBE3960097F120 /* ModifiedValueTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02BBB9B23DBE3960097F120 /* ModifiedValueTransformer.swift */; };
+		D02D15CC2905D756006ADCBB /* OpenSSL in Frameworks */ = {isa = PBXBuildFile; productRef = D02D15CB2905D756006ADCBB /* OpenSSL */; };
 		D03493B722F2837500E1A9B0 /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03493B622F2837500E1A9B0 /* NoteTableViewCell.swift */; };
 		D03493B922F3CC5700E1A9B0 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03493B822F3CC5700E1A9B0 /* CategoryTableViewController.swift */; };
 		D05110C120CA1FE000AFFDC7 /* Notes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D05110BF20CA1FE000AFFDC7 /* Notes.xcdatamodeld */; };
@@ -62,6 +63,8 @@
 		D071BFFC23D151CC002BF63B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D071BFFB23D151CC002BF63B /* Alamofire */; };
 		D071BFFE23D151D2002BF63B /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = D071BFFD23D151D2002BF63B /* KeychainAccess */; };
 		D071C00023D1571B002BF63B /* PrefsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D071BFFF23D1571B002BF63B /* PrefsViewController.swift */; };
+		D075B1BC2906DDBF0085D64E /* ServerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D075B1BB2906DDBF0085D64E /* ServerStatus.swift */; };
+		D075B1BE29074E6B0085D64E /* CertificateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D075B1BD29074E6B0085D64E /* CertificateViewController.swift */; };
 		D076032623EF8E0C00A11C56 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D076032523EF8E0C00A11C56 /* NotesViewController.swift */; };
 		D076032823F0F91A00A11C56 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D076032723F0F91A00A11C56 /* SplitViewController.swift */; };
 		D076032A23FA497A00A11C56 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D076032923FA497A00A11C56 /* CategoriesViewController.swift */; };
@@ -247,6 +250,8 @@
 		D071BFEA23CD6245002BF63B /* CloudNotes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CloudNotes.entitlements; sourceTree = "<group>"; };
 		D071BFEE23CD6777002BF63B /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		D071BFFF23D1571B002BF63B /* PrefsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefsViewController.swift; sourceTree = "<group>"; };
+		D075B1BB2906DDBF0085D64E /* ServerStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerStatus.swift; sourceTree = "<group>"; };
+		D075B1BD29074E6B0085D64E /* CertificateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateViewController.swift; sourceTree = "<group>"; };
 		D076032523EF8E0C00A11C56 /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		D076032723F0F91A00A11C56 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		D076032923FA497A00A11C56 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
@@ -375,6 +380,7 @@
 				D0C876DF248F18700052EA63 /* Version in Frameworks */,
 				D08BFBDD2765835A00550B73 /* KSCrash in Frameworks */,
 				D0595C7C238632610004C4E8 /* KeychainAccess in Frameworks */,
+				D02D15CC2905D756006ADCBB /* OpenSSL in Frameworks */,
 				D06CDA60238F6EC300CF90B0 /* Alamofire in Frameworks */,
 				D0E60F242777DD38009CF78F /* cmark_gfm_swift in Frameworks */,
 				D017D4241D3B03BE00B21443 /* WebKit.framework in Frameworks */,
@@ -475,6 +481,7 @@
 				D07F5E8D2207B6FF00528E90 /* NoteRouter.swift */,
 				D01067DD220BCE3C0047E090 /* NoteSessionManager.swift */,
 				D0C1C39E2462448D00AAC4A8 /* SyncOperation.swift */,
+				D075B1BB2906DDBF0085D64E /* ServerStatus.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -572,6 +579,7 @@
 				D018034923B037B1001CA4FC /* CategoriesSceneDelegate.swift */,
 				D0E60F1927756608009CF78F /* LoginViewController.swift */,
 				D06882EB22BACDA300CEBC1F /* SettingsTableViewController.swift */,
+				D075B1BD29074E6B0085D64E /* CertificateViewController.swift */,
 				D01067E52213C17D0047E090 /* NotesTableViewController.swift */,
 				D0B0F3A327360BD000E51C3F /* NotesFRCManager.swift */,
 				D03493B622F2837500E1A9B0 /* NoteTableViewCell.swift */,
@@ -759,6 +767,7 @@
 				D0CAFF152533E89900C47FA0 /* PKHUD */,
 				D08BFBDC2765835A00550B73 /* KSCrash */,
 				D0E60F232777DD38009CF78F /* cmark_gfm_swift */,
+				D02D15CB2905D756006ADCBB /* OpenSSL */,
 			);
 			productName = iOCNotes;
 			productReference = D0CFE5331888A7BD00165839 /* CloudNotes.app */;
@@ -836,6 +845,7 @@
 				D0CAFF142533E89900C47FA0 /* XCRemoteSwiftPackageReference "PKHUD" */,
 				D08BFBDB2765835A00550B73 /* XCRemoteSwiftPackageReference "KSCrash" */,
 				D0E60F222777DD38009CF78F /* XCRemoteSwiftPackageReference "cmark-gfm-swift" */,
+				D02D15CA2905D756006ADCBB /* XCRemoteSwiftPackageReference "OpenSSL" */,
 			);
 			productRefGroup = D0CFE5341888A7BD00165839 /* Products */;
 			projectDirPath = "";
@@ -1028,6 +1038,7 @@
 				D0E60F5F277FADD5009CF78F /* Element.swift in Sources */,
 				D0C1C39F2462448D00AAC4A8 /* SyncOperation.swift in Sources */,
 				D0E60F74277FADD6009CF78F /* Extensions.swift in Sources */,
+				D075B1BC2906DDBF0085D64E /* ServerStatus.swift in Sources */,
 				D0E60F57277FADD5009CF78F /* Storage.swift in Sources */,
 				D0545F23230901D30001D165 /* PBHOpenInActivity.swift in Sources */,
 				D06882EE22BB146200CEBC1F /* EditorViewController.swift in Sources */,
@@ -1043,6 +1054,7 @@
 				D0E60F28277801F8009CF78F /* PreviewWebView.swift in Sources */,
 				D03493B922F3CC5700E1A9B0 /* CategoryTableViewController.swift in Sources */,
 				D0E60F64277FADD6009CF78F /* LayoutManager.swift in Sources */,
+				D075B1BE29074E6B0085D64E /* CertificateViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1844,6 +1856,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D02D15CA2905D756006ADCBB /* XCRemoteSwiftPackageReference "OpenSSL" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/krzyzanowskim/OpenSSL";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		D0595C7A238632610004C4E8 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess";
@@ -1903,6 +1923,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D02D15CB2905D756006ADCBB /* OpenSSL */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D02D15CA2905D756006ADCBB /* XCRemoteSwiftPackageReference "OpenSSL" */;
+			productName = OpenSSL;
+		};
 		D0595C7B238632610004C4E8 /* KeychainAccess */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D0595C7A238632610004C4E8 /* XCRemoteSwiftPackageReference "KeychainAccess" */;

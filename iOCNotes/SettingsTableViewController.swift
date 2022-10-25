@@ -113,14 +113,6 @@ class SettingsTableViewController: UITableViewController {
     }
 
     // MARK: - Navigation
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        if identifier == "loginSegue" {
-            return !(serverTextField.text?.isEmpty ?? true)
-        } else {
-            return true
-        }
-    }
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination
         vc.navigationItem.rightBarButtonItem = nil
@@ -131,6 +123,58 @@ class SettingsTableViewController: UITableViewController {
             KeychainHelper.username = ""
             KeychainHelper.password = ""
             loginWebViewController.serverAddress = serverAddress
+        } else if segue.identifier == "showCertificate" {
+            let certificateViewController = segue.destination as? CertificateViewController
+            let host = URL(string: KeychainHelper.server)?.host
+            certificateViewController?.host = host ?? ""
+        }
+    }
+
+    @IBAction func onLogin(_ sender: Any) {
+        ServerStatus.shared.reset()
+        Task {
+            do {
+                if let serverAddress = serverTextField.text, !serverAddress.isEmpty {
+                    KeychainHelper.server = ""
+                    KeychainHelper.username = ""
+                    KeychainHelper.password = ""
+                    var address = serverAddress.trimmingCharacters(in: CharacterSet(charactersIn: "/ "))
+                    if !address.contains("://"),
+                       !address.hasPrefix("http") {
+                        address = "https://\(address)"
+                    }
+                    KeychainHelper.server = address
+                    try await ServerStatus.shared.check()
+                }
+            } catch (let error as NSError) {
+                print(error.localizedDescription)
+                if error.code == NSURLErrorServerCertificateUntrusted {
+                    let alertController = UIAlertController(title: NSLocalizedString("The certificate for this server is invalid", comment: ""),
+                                                            message: NSLocalizedString("Do you want to connect to the server anyway?", comment: ""),
+                                                            preferredStyle: .alert)
+
+                    alertController.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: ""), style: .default, handler: { [weak self] _ in
+                        if let host = URL(string: KeychainHelper.server)?.host {
+                            ServerStatus.shared.writeCertificate(host: host)
+                            KeychainHelper.allowUntrustedCertificate = true
+                            self?.performSegue(withIdentifier: "loginSegue", sender: self)
+                        }
+                    }))
+
+                    alertController.addAction(UIAlertAction(title: NSLocalizedString("No", comment: ""), style: .default, handler: { _ in
+                        KeychainHelper.allowUntrustedCertificate = false
+                    }))
+
+                    alertController.addAction(UIAlertAction(title: NSLocalizedString("View Certificate", comment: ""), style: .default, handler: { [weak self] _ in
+                        self?.performSegue(withIdentifier: "showCertificate", sender: self)
+                    }))
+                    self.present(alertController, animated: true)
+                } else {
+                    let alertController = UIAlertController(title: NSLocalizedString("Connection error", comment: ""), message: error.localizedDescription, preferredStyle: .alert)
+                    alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: { _ in }))
+                    self.present(alertController, animated: true, completion: { })
+                }
+            }
         }
     }
 
