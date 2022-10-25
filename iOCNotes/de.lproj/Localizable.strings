@@ -213,19 +213,19 @@
 "Checking server status" = "Checking server status";
 
 /* No comment provided by engineer. */
-"Connection error" = "Connection error";
+"Connection error" = "Verbindungsfehler";
 
 /* No comment provided by engineer. */
-"Do you want to connect to the server anyway?" = "Do you want to connect to the server anyway?";
+"Do you want to connect to the server anyway?" = "Möchten Sie dennoch eine Verbindung zu diesem Server herstellen?";
 
 /* Message of alert to change notes folder */
 "Enter a name for the folder where notes should be saved on the server" = "Enter a name for the folder where notes should be saved on the server";
 
 /* An error message title */
-"Error" = "Error";
+"Error" = "Fehler";
 
 /* No comment provided by engineer. */
-"No" = "No";
+"No" = "Nein";
 
 /* Title of alert to change notes folder */
 "Notes Folder" = "Notes Folder";
@@ -234,13 +234,13 @@
 "PDF" = "PDF";
 
 /* Caption of Save button */
-"Save" = "Save";
+"Save" = "Speichern";
 
 /* No comment provided by engineer. */
-"The certificate for this server is invalid" = "The certificate for this server is invalid";
+"The certificate for this server is invalid" = "Das Zertifikat für diesen Server ist ungültig";
 
 /* No comment provided by engineer. */
 "View Certificate" = "View Certificate";
 
 /* No comment provided by engineer. */
-"Yes" = "Yes";
+"Yes" = "Ja";

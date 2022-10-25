@@ -213,19 +213,19 @@
 "Checking server status" = "Checking server status";
 
 /* No comment provided by engineer. */
-"Connection error" = "Connection error";
+"Connection error" = "Chyba spojení";
 
 /* No comment provided by engineer. */
-"Do you want to connect to the server anyway?" = "Do you want to connect to the server anyway?";
+"Do you want to connect to the server anyway?" = "Chcete se k tomuto serveru připojit i tak?";
 
 /* Message of alert to change notes folder */
 "Enter a name for the folder where notes should be saved on the server" = "Enter a name for the folder where notes should be saved on the server";
 
 /* An error message title */
-"Error" = "Error";
+"Error" = "Chyba";
 
 /* No comment provided by engineer. */
-"No" = "No";
+"No" = "Ne";
 
 /* Title of alert to change notes folder */
 "Notes Folder" = "Notes Folder";
@@ -234,13 +234,13 @@
 "PDF" = "PDF";
 
 /* Caption of Save button */
-"Save" = "Save";
+"Save" = "Uložit";
 
 /* No comment provided by engineer. */
-"The certificate for this server is invalid" = "The certificate for this server is invalid";
+"The certificate for this server is invalid" = "Certifikát tohoto serveru není platný";
 
 /* No comment provided by engineer. */
 "View Certificate" = "View Certificate";
 
 /* No comment provided by engineer. */
-"Yes" = "Yes";
+"Yes" = "Ano";

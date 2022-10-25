@@ -213,19 +213,19 @@
 "Checking server status" = "Checking server status";
 
 /* No comment provided by engineer. */
-"Connection error" = "Connection error";
+"Connection error" = "연결 오류";
 
 /* No comment provided by engineer. */
-"Do you want to connect to the server anyway?" = "Do you want to connect to the server anyway?";
+"Do you want to connect to the server anyway?" = "그래도 서버에 연결하시겠습니까?";
 
 /* Message of alert to change notes folder */
 "Enter a name for the folder where notes should be saved on the server" = "Enter a name for the folder where notes should be saved on the server";
 
 /* An error message title */
-"Error" = "Error";
+"Error" = "오류";
 
 /* No comment provided by engineer. */
-"No" = "No";
+"No" = "아니요";
 
 /* Title of alert to change notes folder */
 "Notes Folder" = "Notes Folder";
@@ -234,13 +234,13 @@
 "PDF" = "PDF";
 
 /* Caption of Save button */
-"Save" = "Save";
+"Save" = "저장";
 
 /* No comment provided by engineer. */
-"The certificate for this server is invalid" = "The certificate for this server is invalid";
+"The certificate for this server is invalid" = "이 서버의 인증서가 잘못됨";
 
 /* No comment provided by engineer. */
 "View Certificate" = "View Certificate";
 
 /* No comment provided by engineer. */
-"Yes" = "Yes";
+"Yes" = "예";
