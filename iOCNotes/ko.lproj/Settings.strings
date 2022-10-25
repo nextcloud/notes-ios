@@ -26,10 +26,10 @@
 "CrO-Ue-LFh.text" = "비밀번호";
 
 /* Class = "UIButton"; configuration.title = "Log In"; ObjectID = "dUo-KO-48Z"; */
-"dUo-KO-48Z.configuration.title" = "Log In";
+"dUo-KO-48Z.configuration.title" = "로그인";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "dUo-KO-48Z"; */
-"dUo-KO-48Z.normalTitle" = "Button";
+"dUo-KO-48Z.normalTitle" = "로그인";
 
 /* Class = "UITableViewSection"; headerTitle = "SUPPORT"; ObjectID = "ENv-ON-tbr"; */
 "ENv-ON-tbr.headerTitle" = "지원";

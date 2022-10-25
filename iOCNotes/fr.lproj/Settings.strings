@@ -26,10 +26,10 @@
 "CrO-Ue-LFh.text" = "Mot de passe";
 
 /* Class = "UIButton"; configuration.title = "Log In"; ObjectID = "dUo-KO-48Z"; */
-"dUo-KO-48Z.configuration.title" = "Log In";
+"dUo-KO-48Z.configuration.title" = "Se connecter";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "dUo-KO-48Z"; */
-"dUo-KO-48Z.normalTitle" = "Button";
+"dUo-KO-48Z.normalTitle" = "Se connecter";
 
 /* Class = "UITableViewSection"; headerTitle = "SUPPORT"; ObjectID = "ENv-ON-tbr"; */
 "ENv-ON-tbr.headerTitle" = "ASSISTANCE";
