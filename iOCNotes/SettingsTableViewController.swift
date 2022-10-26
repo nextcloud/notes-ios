@@ -145,6 +145,8 @@ class SettingsTableViewController: UITableViewController {
                     }
                     KeychainHelper.server = address
                     try await ServerStatus.shared.check()
+                    KeychainHelper.allowUntrustedCertificate = false
+                    performSegue(withIdentifier: "loginSegue", sender: self)
                 }
             } catch (let error as NSError) {
                 print(error.localizedDescription)
