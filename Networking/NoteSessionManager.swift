@@ -428,7 +428,8 @@ class NoteSessionManager {
     func addToServer(note: CDNote, handler: @escaping SyncHandler) {
         let newNote = note
         var result: CDNote?
-        let parameters: Parameters = ["content": note.content as Any,
+        let parameters: Parameters = ["title": note.title as Any,
+                                      "content": note.content as Any,
                                       "category": note.category as Any,
                                       "modified": note.modified,
                                       "favorite": note.favorite]
