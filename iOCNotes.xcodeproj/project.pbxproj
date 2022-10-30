@@ -1667,7 +1667,7 @@
 				CODE_SIGN_ENTITLEMENTS = iOCNotes/iOCNotes.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 2876;
+				CURRENT_PROJECT_VERSION = 2878;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 73AQJ77PZ5;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1681,7 +1681,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 4.0.4;
+				MARKETING_VERSION = 4.1.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.peterandlinda.${TARGET_NAME:rfc1034identifier}";
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -1703,7 +1703,7 @@
 				CODE_SIGN_ENTITLEMENTS = iOCNotes/iOCNotes.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 2876;
+				CURRENT_PROJECT_VERSION = 2878;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 73AQJ77PZ5;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1717,7 +1717,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 4.0.4;
+				MARKETING_VERSION = 4.1.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.peterandlinda.${TARGET_NAME:rfc1034identifier}";
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
