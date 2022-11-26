@@ -34,6 +34,8 @@ class SettingsTableViewController: UITableViewController {
         extensionLabel.text = KeychainHelper.fileSuffix.description
         folderLabel.text = KeychainHelper.notesPath
         tableView.reloadData()
+        tableView.isScrollEnabled = false
+        tableView.isScrollEnabled = true
         #if targetEnvironment(macCatalyst)
         self.tableView.cellForRow(at: IndexPath(row: 0, section: 0))?.isHidden = true
         #endif
