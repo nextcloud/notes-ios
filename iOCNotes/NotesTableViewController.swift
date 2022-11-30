@@ -483,6 +483,7 @@ class NotesTableViewController: UITableViewController {
 
     @IBAction func onRefresh(sender: Any?) {
         guard NoteSessionManager.isOnline else {
+            refreshControl?.endRefreshing()
             return
         }
 
