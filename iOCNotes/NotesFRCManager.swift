@@ -80,12 +80,21 @@ class FRCChange: NotesFRCManagerChange {
     var updatedElements = [IndexNote]()
 
     func applyChanges(tableView: UITableView, animation: UITableView.RowAnimation?) {
+        var filteredUpdatedRows = [IndexPath]()
+        // the batch update will crash if entered with an invalid index path
+        // (even if the updated rows are filtered inside the block)
+        if !updatedRows.isEmpty {
+            filteredUpdatedRows = updatedRows.filter( { tableView.isValid(indexPath: $0) })
+            if filteredUpdatedRows.isEmpty {
+                return
+            }
+        }
         tableView.performBatchUpdates {
             tableView.deleteRows(at: deletedRows, with: animation ?? .fade)
             tableView.deleteSections(deletedSections, with: animation ?? .fade)
             tableView.insertSections(insertedSections, with: animation ?? .fade)
             tableView.insertRows(at: insertedRows, with: animation ?? .fade)
-            tableView.reloadRows(at: updatedRows, with: animation ?? .fade)
+            tableView.reloadRows(at: filteredUpdatedRows, with: animation ?? .fade)
         } completion: { _ in }
     }
 
@@ -277,4 +286,13 @@ extension NSFetchedResultsController {
         return true
     }
 
+}
+
+extension UITableView {
+    func isValid(indexPath: IndexPath) -> Bool {
+        return indexPath.section >= 0
+            && indexPath.section < self.numberOfSections
+            && indexPath.row >= 0
+            && indexPath.row < self.numberOfRows(inSection: indexPath.section)
+    }
 }
