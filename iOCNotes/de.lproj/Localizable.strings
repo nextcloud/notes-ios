@@ -244,3 +244,6 @@
 
 /* No comment provided by engineer. */
 "Yes" = "Ja";
+
+// NEXTCLOUD
+"_account_select_to_add_"   = "Das Konto auswählen, das hinzugefügt werden soll";

@@ -244,3 +244,6 @@
 
 /* No comment provided by engineer. */
 "Yes" = "예";
+
+// NEXTCLOUD
+"_account_select_to_add_"   = "추가할 계정을 선택하십시오";
