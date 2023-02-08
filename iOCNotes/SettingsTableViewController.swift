@@ -19,6 +19,7 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet var folderLabel: UILabel!
 
     private var shareAccounts: [NKShareAccounts.DataAccounts]?
+    private var user: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +48,7 @@ class SettingsTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.serverTextField.text = KeychainHelper.server
+        self.user = nil
         self.syncOnStartSwitch.isOn = KeychainHelper.syncOnStart
         offlineModeSwitch.isOn = KeychainHelper.offlineMode
         extensionLabel.text = KeychainHelper.fileSuffix.description
@@ -143,6 +145,7 @@ class SettingsTableViewController: UITableViewController {
             KeychainHelper.username = ""
             KeychainHelper.password = ""
             loginWebViewController.serverAddress = serverAddress
+            loginWebViewController.user = self.user
         } else if segue.identifier == "showCertificate" {
             let certificateViewController = segue.destination as? CertificateViewController
             let host = URL(string: KeychainHelper.server)?.host
@@ -265,13 +268,12 @@ extension SettingsTableViewController: MFMailComposeViewControllerDelegate {
     }
 }
 
-extension SettingsTableViewController {
+extension SettingsTableViewController: NCShareAccountsDelegate {
 
     // MARK: - Talk accounts View Controller
 
     @objc func openShareAccountsViewController() {
 
-        /*
         if let shareAccounts = self.shareAccounts, let vc = UIStoryboard(name: "NCShareAccounts", bundle: nil).instantiateInitialViewController() as? NCShareAccounts {
 
             vc.accounts = shareAccounts
@@ -287,7 +289,10 @@ extension SettingsTableViewController {
 
             self.present(popup, animated: true)
         }
-        */
     }
 
+    func selected(url: String, user: String) {
+        serverTextField.text = url
+        self.user = user
+    }
 }

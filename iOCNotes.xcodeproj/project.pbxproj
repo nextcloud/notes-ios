@@ -124,6 +124,9 @@
 		D0E60F74277FADD6009CF78F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E60F55277FADD5009CF78F /* Extensions.swift */; };
 		D0E60F76277FB0A5009CF78F /* Themes.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D0E60F75277FB0A5009CF78F /* Themes.bundle */; };
 		F77B56FF2993DE6300A23E76 /* NextcloudKit in Frameworks */ = {isa = PBXBuildFile; productRef = F77B56FE2993DE6300A23E76 /* NextcloudKit */; };
+		F77B57042993E32100A23E76 /* NCShareAccounts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F77B57022993E32100A23E76 /* NCShareAccounts.storyboard */; };
+		F77B57052993E32100A23E76 /* NCShareAccounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77B57032993E32100A23E76 /* NCShareAccounts.swift */; };
+		F77B57082993E39500A23E76 /* NCPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77B57072993E39500A23E76 /* NCPopupViewController.swift */; };
 		F7BB8B7229915A650010D2F7 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7BB8B7129915A650010D2F7 /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -338,6 +341,9 @@
 		D0E60F52277FADD5009CF78F /* CheckBoxTapHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoxTapHandler.swift; sourceTree = "<group>"; };
 		D0E60F55277FADD5009CF78F /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D0E60F75277FB0A5009CF78F /* Themes.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Themes.bundle; sourceTree = "<group>"; };
+		F77B57022993E32100A23E76 /* NCShareAccounts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NCShareAccounts.storyboard; sourceTree = "<group>"; };
+		F77B57032993E32100A23E76 /* NCShareAccounts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NCShareAccounts.swift; sourceTree = "<group>"; };
+		F77B57072993E39500A23E76 /* NCPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NCPopupViewController.swift; sourceTree = "<group>"; };
 		F7BB8B7129915A650010D2F7 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -513,6 +519,7 @@
 		D0CFE52A1888A7BD00165839 = {
 			isa = PBXGroup;
 			children = (
+				F77B57002993E32100A23E76 /* Nextcloud */,
 				D084FB6C245A5FDC003EB6FB /* Shared */,
 				D01067DC220BCAD60047E090 /* Models */,
 				D07F5E8C2207B6D700528E90 /* Networking */,
@@ -653,6 +660,32 @@
 				D0E60F75277FB0A5009CF78F /* Themes.bundle */,
 			);
 			path = Editor;
+			sourceTree = "<group>";
+		};
+		F77B57002993E32100A23E76 /* Nextcloud */ = {
+			isa = PBXGroup;
+			children = (
+				F77B57062993E39500A23E76 /* Utility */,
+				F77B57012993E32100A23E76 /* Account Request */,
+			);
+			path = Nextcloud;
+			sourceTree = "<group>";
+		};
+		F77B57012993E32100A23E76 /* Account Request */ = {
+			isa = PBXGroup;
+			children = (
+				F77B57022993E32100A23E76 /* NCShareAccounts.storyboard */,
+				F77B57032993E32100A23E76 /* NCShareAccounts.swift */,
+			);
+			path = "Account Request";
+			sourceTree = "<group>";
+		};
+		F77B57062993E39500A23E76 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				F77B57072993E39500A23E76 /* NCPopupViewController.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -918,6 +951,7 @@
 				D02256C71891FD7C0038232A /* defaults.plist in Resources */,
 				D09E430C1E2C46930010E4B3 /* Main_iPhone.storyboard in Resources */,
 				D0225709189745C40038232A /* Settings.bundle in Resources */,
+				F77B57042993E32100A23E76 /* NCShareAccounts.storyboard in Resources */,
 				D0E60F76277FB0A5009CF78F /* Themes.bundle in Resources */,
 				D0BCFE6A2454BF40007C4CA3 /* Categories.storyboard in Resources */,
 				D0CFE5411888A7BD00165839 /* InfoPlist.strings in Resources */,
@@ -1046,12 +1080,14 @@
 				D0E60F57277FADD5009CF78F /* Storage.swift in Sources */,
 				D0545F23230901D30001D165 /* PBHOpenInActivity.swift in Sources */,
 				D06882EE22BB146200CEBC1F /* EditorViewController.swift in Sources */,
+				F77B57052993E32100A23E76 /* NCShareAccounts.swift in Sources */,
 				D07F5E892207B2CF00528E90 /* NotesData.swift in Sources */,
 				D0E60F59277FADD5009CF78F /* Style.swift in Sources */,
 				D03493B722F2837500E1A9B0 /* NoteTableViewCell.swift in Sources */,
 				D01067E22213BB5E0047E090 /* NoteProtocol.swift in Sources */,
 				D059F7DB1D40596D00C252F2 /* NoteExporter.swift in Sources */,
 				D07F5E872207B1DF00528E90 /* CDNote+CoreDataProperties.swift in Sources */,
+				F77B57082993E39500A23E76 /* NCPopupViewController.swift in Sources */,
 				BD86DD8522B9CDD500115E5D /* KeychainHelper.swift in Sources */,
 				D08713ED1D18DA40001EAF82 /* HeaderTextView.swift in Sources */,
 				D0E60F5A277FADD5009CF78F /* UniversalTypes.swift in Sources */,

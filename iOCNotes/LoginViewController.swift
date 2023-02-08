@@ -13,6 +13,7 @@ import WebKit
 class LoginViewController: UIViewController {
 
     var serverAddress = ""
+    var user: String?
 
     private var webView: WKWebView?
     private var ignoreNavigationFailure = false
@@ -39,7 +40,10 @@ class LoginViewController: UIViewController {
             address = "https://\(address)"
         }
         address = address.replacingOccurrences(of: "/index.php", with: "")
-        let urlString = "\(address)/index.php/login/flow"
+        var urlString = "\(address)/index.php/login/flow"
+        if let user = self.user {
+            urlString += "?user=\(user)"
+        }
         if let url = URL(string: urlString) {
             var request = URLRequest(url: url)
 
