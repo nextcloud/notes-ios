@@ -8,6 +8,7 @@
 
 import UIKit
 import MessageUI
+import NextcloudKit
 
 class SettingsTableViewController: UITableViewController {
 
@@ -17,6 +18,8 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet var extensionLabel: UILabel!
     @IBOutlet var folderLabel: UILabel!
 
+    private var shareAccounts: [NKShareAccounts.DataAccounts]?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         #if targetEnvironment(macCatalyst)
@@ -24,6 +27,21 @@ class SettingsTableViewController: UITableViewController {
         self.tableView.rowHeight = UITableView.automaticDimension;
         self.tableView.estimatedRowHeight = 44.0;
         #endif
+
+        if let dirGroupApps = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.nextcloud.apps") {
+            if let shareAccounts = NKShareAccounts().getShareAccount(at: dirGroupApps, application: UIApplication.shared) {
+                var accountTemp = [NKShareAccounts.DataAccounts]()
+                for shareAccount in shareAccounts {
+                    accountTemp.append(shareAccount)
+                }
+                if !accountTemp.isEmpty {
+                    self.shareAccounts = accountTemp
+                    let image = UIImage(systemName: "person.line.dotted.person")
+                    let navigationItemTalk = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(openShareAccountsViewController))
+                    self.navigationItem.rightBarButtonItem = navigationItemTalk
+                }
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -244,6 +262,32 @@ extension SettingsTableViewController: MFMailComposeViewControllerDelegate {
 
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         dismiss(animated: true, completion: nil)
+    }
+}
+
+extension SettingsTableViewController {
+
+    // MARK: - Talk accounts View Controller
+
+    @objc func openShareAccountsViewController() {
+
+        /*
+        if let shareAccounts = self.shareAccounts, let vc = UIStoryboard(name: "NCShareAccounts", bundle: nil).instantiateInitialViewController() as? NCShareAccounts {
+
+            vc.accounts = shareAccounts
+            vc.enableTimerProgress = false
+            vc.dismissDidEnterBackground = false
+            vc.delegate = self
+
+            let screenHeighMax = UIScreen.main.bounds.height - (UIScreen.main.bounds.height/5)
+            let numberCell = shareAccounts.count
+            let height = min(CGFloat(numberCell * Int(vc.heightCell) + 45), screenHeighMax)
+
+            let popup = NCPopupViewController(contentController: vc, popupWidth: 300, popupHeight: height+20)
+
+            self.present(popup, animated: true)
+        }
+        */
     }
 
 }

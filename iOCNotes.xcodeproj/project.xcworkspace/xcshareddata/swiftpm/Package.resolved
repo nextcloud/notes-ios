@@ -37,6 +37,15 @@
       }
     },
     {
+      "identity" : "nextcloudkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/nextcloud/NextcloudKit",
+      "state" : {
+        "branch" : "develop",
+        "revision" : "e2fbaf108f25b032d2d7c151ebc9aa3bc95c24b6"
+      }
+    },
+    {
       "identity" : "openssl",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/krzyzanowskim/OpenSSL",
@@ -61,6 +70,24 @@
       "state" : {
         "revision" : "b29dd21090b708aa0ae9ecbaf6e2d0487028dc3f",
         "version" : "9.0.6"
+      }
+    },
+    {
+      "identity" : "swiftyjson",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SwiftyJSON/SwiftyJSON",
+      "state" : {
+        "revision" : "b3dcd7dbd0d488e1a7077cb33b00f2083e382f07",
+        "version" : "5.0.1"
+      }
+    },
+    {
+      "identity" : "swiftyxmlparser",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/yahoojapan/SwiftyXMLParser",
+      "state" : {
+        "revision" : "d7a1d23f04c86c1cd2e8f19247dd15d74e0ea8be",
+        "version" : "5.6.0"
       }
     },
     {

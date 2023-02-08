@@ -75,6 +75,8 @@
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>mailto</string>
+		<string>nextcloud</string>
+		<string>nextcloudtalk</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>

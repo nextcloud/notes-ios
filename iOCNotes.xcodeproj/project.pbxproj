@@ -123,6 +123,7 @@
 		D0E60F71277FADD6009CF78F /* CheckBoxTapHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E60F52277FADD5009CF78F /* CheckBoxTapHandler.swift */; };
 		D0E60F74277FADD6009CF78F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E60F55277FADD5009CF78F /* Extensions.swift */; };
 		D0E60F76277FB0A5009CF78F /* Themes.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D0E60F75277FB0A5009CF78F /* Themes.bundle */; };
+		F77B56FF2993DE6300A23E76 /* NextcloudKit in Frameworks */ = {isa = PBXBuildFile; productRef = F77B56FE2993DE6300A23E76 /* NextcloudKit */; };
 		F7BB8B7229915A650010D2F7 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7BB8B7129915A650010D2F7 /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -383,6 +384,7 @@
 				D02D15CC2905D756006ADCBB /* OpenSSL in Frameworks */,
 				D06CDA60238F6EC300CF90B0 /* Alamofire in Frameworks */,
 				D0E60F242777DD38009CF78F /* cmark_gfm_swift in Frameworks */,
+				F77B56FF2993DE6300A23E76 /* NextcloudKit in Frameworks */,
 				D017D4241D3B03BE00B21443 /* WebKit.framework in Frameworks */,
 				D0CFE5AD1890659600165839 /* QuartzCore.framework in Frameworks */,
 				D0CAFF162533E89900C47FA0 /* PKHUD in Frameworks */,
@@ -768,6 +770,7 @@
 				D08BFBDC2765835A00550B73 /* KSCrash */,
 				D0E60F232777DD38009CF78F /* cmark_gfm_swift */,
 				D02D15CB2905D756006ADCBB /* OpenSSL */,
+				F77B56FE2993DE6300A23E76 /* NextcloudKit */,
 			);
 			productName = iOCNotes;
 			productReference = D0CFE5331888A7BD00165839 /* Nextcloud Notes.app */;
@@ -846,6 +849,7 @@
 				D08BFBDB2765835A00550B73 /* XCRemoteSwiftPackageReference "KSCrash" */,
 				D0E60F222777DD38009CF78F /* XCRemoteSwiftPackageReference "cmark-gfm-swift" */,
 				D02D15CA2905D756006ADCBB /* XCRemoteSwiftPackageReference "OpenSSL" */,
+				F77B56FD2993DE6300A23E76 /* XCRemoteSwiftPackageReference "NextcloudKit" */,
 			);
 			productRefGroup = D0CFE5341888A7BD00165839 /* Products */;
 			projectDirPath = "";
@@ -1924,6 +1928,14 @@
 				kind = branch;
 			};
 		};
+		F77B56FD2993DE6300A23E76 /* XCRemoteSwiftPackageReference "NextcloudKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nextcloud/NextcloudKit";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1981,6 +1993,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D0E60F222777DD38009CF78F /* XCRemoteSwiftPackageReference "cmark-gfm-swift" */;
 			productName = cmark_gfm_swift;
+		};
+		F77B56FE2993DE6300A23E76 /* NextcloudKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F77B56FD2993DE6300A23E76 /* XCRemoteSwiftPackageReference "NextcloudKit" */;
+			productName = NextcloudKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 
