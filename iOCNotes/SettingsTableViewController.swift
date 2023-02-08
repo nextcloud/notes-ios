@@ -39,7 +39,7 @@ class SettingsTableViewController: UITableViewController {
                     self.shareAccounts = accountTemp
                     let image = UIImage(systemName: "person.line.dotted.person")
                     let navigationItemTalk = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(openShareAccountsViewController))
-                    self.navigationItem.rightBarButtonItem = navigationItemTalk
+                    self.navigationItem.leftBarButtonItem = navigationItemTalk
                 }
             }
         }

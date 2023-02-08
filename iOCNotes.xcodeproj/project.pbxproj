@@ -581,36 +581,36 @@
 		D0CFE53C1888A7BD00165839 /* iOCNotes */ = {
 			isa = PBXGroup;
 			children = (
-				D004DB692391EC200080A7D1 /* iOCNotes.entitlements */,
 				D01067E32213BDF20047E090 /* AppDelegate.swift */,
-				D004DB7E23948F3D0080A7D1 /* SceneDelegate.swift */,
-				D004DB82239759020080A7D1 /* SettingsSceneDelegate.swift */,
+				D0BCFE6C2454BF40007C4CA3 /* Categories.storyboard */,
 				D018034923B037B1001CA4FC /* CategoriesSceneDelegate.swift */,
-				D0E60F1927756608009CF78F /* LoginViewController.swift */,
-				D06882EB22BACDA300CEBC1F /* SettingsTableViewController.swift */,
+				D03493B822F3CC5700E1A9B0 /* CategoryTableViewController.swift */,
 				D075B1BD29074E6B0085D64E /* CertificateViewController.swift */,
-				D01067E52213C17D0047E090 /* NotesTableViewController.swift */,
-				D0B0F3A327360BD000E51C3F /* NotesFRCManager.swift */,
-				D03493B622F2837500E1A9B0 /* NoteTableViewCell.swift */,
 				D0B6D4AC22F91DDA0037E073 /* CollapsibleTableViewHeaderView.swift */,
 				D0B6D4AD22F91DDA0037E073 /* CollapsibleTableViewHeaderView.xib */,
-				D03493B822F3CC5700E1A9B0 /* CategoryTableViewController.swift */,
-				D0E60F1727741633009CF78F /* FileExtensionTableViewController.swift */,
+				BDD015A0234CEF86000BA001 /* Colors.xcassets */,
 				D06882ED22BB146200CEBC1F /* EditorViewController.swift */,
-				D09538421D32A56A006BB78E /* PreviewViewController.swift */,
-				D0E60F27277801F8009CF78F /* PreviewWebView.swift */,
+				D0E60F1727741633009CF78F /* FileExtensionTableViewController.swift */,
+				D0CFE5511888A7BD00165839 /* Images.xcassets */,
+				D004DB692391EC200080A7D1 /* iOCNotes.entitlements */,
+				F7BB8B7129915A650010D2F7 /* Launch Screen.storyboard */,
+				D0E60F1927756608009CF78F /* LoginViewController.swift */,
+				D09E430E1E2C46930010E4B3 /* Main_iPhone.storyboard */,
 				D059F7DA1D40596D00C252F2 /* NoteExporter.swift */,
+				D0B0F3A327360BD000E51C3F /* NotesFRCManager.swift */,
+				D01067E52213C17D0047E090 /* NotesTableViewController.swift */,
+				D03493B622F2837500E1A9B0 /* NoteTableViewCell.swift */,
 				D0545F22230901D30001D165 /* PBHOpenInActivity.swift */,
 				BDD015A22353F7D4000BA001 /* PBHSplitViewController.swift */,
-				D0CFE5511888A7BD00165839 /* Images.xcassets */,
-				BDD015A0234CEF86000BA001 /* Colors.xcassets */,
-				F7BB8B7129915A650010D2F7 /* Launch Screen.storyboard */,
-				D09E430E1E2C46930010E4B3 /* Main_iPhone.storyboard */,
-				D0BCFE632454BF0B007C4CA3 /* Settings.storyboard */,
-				D0BCFE6C2454BF40007C4CA3 /* Categories.storyboard */,
-				D0CFE53D1888A7BD00165839 /* Supporting Files */,
 				D004DB7623920E820080A7D1 /* Preview.bundle */,
+				D09538421D32A56A006BB78E /* PreviewViewController.swift */,
+				D0E60F27277801F8009CF78F /* PreviewWebView.swift */,
+				D004DB7E23948F3D0080A7D1 /* SceneDelegate.swift */,
 				D0225708189745C40038232A /* Settings.bundle */,
+				D0BCFE632454BF0B007C4CA3 /* Settings.storyboard */,
+				D004DB82239759020080A7D1 /* SettingsSceneDelegate.swift */,
+				D06882EB22BACDA300CEBC1F /* SettingsTableViewController.swift */,
+				D0CFE53D1888A7BD00165839 /* Supporting Files */,
 			);
 			path = iOCNotes;
 			sourceTree = "<group>";
@@ -1532,7 +1532,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 16;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = NKUJUXUJ3B;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1570,7 +1570,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 16;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = NKUJUXUJ3B;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1707,7 +1707,7 @@
 				CODE_SIGN_ENTITLEMENTS = iOCNotes/iOCNotes.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 16;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = NKUJUXUJ3B;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1743,7 +1743,7 @@
 				CODE_SIGN_ENTITLEMENTS = iOCNotes/iOCNotes.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 16;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = NKUJUXUJ3B;
 				FRAMEWORK_SEARCH_PATHS = (
