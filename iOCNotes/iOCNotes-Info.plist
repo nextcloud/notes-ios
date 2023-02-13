@@ -64,7 +64,7 @@
 			<string>com.peterandlinda.iOCNotes.actionurl</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>cloudnotes</string>
+				<string>nextcloudnotes</string>
 			</array>
 		</dict>
 	</array>
@@ -88,7 +88,7 @@
 		<true/>
 	</dict>
 	<key>NSLocalNetworkUsageDescription</key>
-	<string>CloudNotes needs local network access if your server is hosted locally</string>
+	<string>NextcloudNotes needs local network access if your server is hosted locally</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>

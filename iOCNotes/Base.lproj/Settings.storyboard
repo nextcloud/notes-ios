@@ -156,7 +156,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="SERVER SETTINGS" footerTitle="These settings only affect how notes are managed on the server. CloudNotes does not handle any files." id="RvH-hn-Sfv">
+                            <tableViewSection headerTitle="SERVER SETTINGS" footerTitle="These settings only affect how notes are managed on the server. NextcloudNotes does not handle any files." id="RvH-hn-Sfv">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Pvp-6i-NLV" detailTextLabel="uVd-ib-jy0" style="IBUITableViewCellStyleValue1" id="ACx-MP-ADX">
                                         <rect key="frame" x="0.0" y="382.5" width="375" height="44"/>

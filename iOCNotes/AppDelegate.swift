@@ -185,7 +185,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        if let scheme = url.scheme, scheme == "cloudnotes" {
+        if let scheme = url.scheme, scheme == "nextcloudnotes" {
             let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
             if let queryItems = urlComponents?.queryItems,
                 let item = queryItems.first(where: { $0.name == "note" }),
@@ -213,12 +213,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let email = KSCrashInstallationEmail.sharedInstance() {
             let emailAddress = "support@pbh.dev";
             email.recipients = [emailAddress];
-            email.subject = NSLocalizedString("CloudNotes Crash Report", comment: "Crash report email subject")
+            email.subject = NSLocalizedString("NextcloudNotes Crash Report", comment: "Crash report email subject")
             email.message = NSLocalizedString("<Please provide as much details as possible about what you were doing when the crash occurred.>", comment: "Crash report email body placeholder")
             email.filenameFmt = "crash-report-%d.txt.gz"
 
             email.addConditionalAlert(withTitle: NSLocalizedString("Crash Detected", comment: "Alert view title"),
-                                      message: NSLocalizedString("CloudNotes crashed last time it was launched. Do you want to send a report to the developer?", comment: ""),
+                                      message: NSLocalizedString("NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?", comment: ""),
                                       yesAnswer: NSLocalizedString("Yes, please!", comment: ""),
                                       noAnswer:NSLocalizedString("No thanks", comment: ""))
 

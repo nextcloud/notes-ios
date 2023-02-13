@@ -39,13 +39,13 @@
 "Close & Sync" = "닫고 & 동기화";
 
 /* Crash report email subject */
-"CloudNotes Crash Report" = "CloudNotes Crash Report";
+"NextcloudNotes Crash Report" = "NextcloudNotes Crash Report";
 
 /* No comment provided by engineer. */
-"CloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "CloudNotes가 저번 실행되었을 때 문제가 발생했습니다. 개발자에게 제보하시겠습니까?";
+"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "NextcloudNotes 가 저번 실행되었을 때 문제가 발생했습니다. 개발자에게 제보하시겠습니까?";
 
 /* Support email subject */
-"CloudNotes Support Request" = "CloudNotes 지원 요청";
+"NextcloudNotes Support Request" = "NextcloudNotes 지원 요청";
 
 /* A button title */
 "Connect" = "연결";

@@ -39,13 +39,13 @@
 "Close & Sync" = "Schließen & syncen";
 
 /* Crash report email subject */
-"CloudNotes Crash Report" = "CloudNotes Absturzbericht";
+"NextcloudNotes Crash Report" = "NextcloudNotes Absturzbericht";
 
 /* No comment provided by engineer. */
-"CloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "CloudNotes ist beim letzten Start abgestürzt. Möchten Sie an den Entwickler einen Bericht senden?";
+"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "NextcloudNotes ist beim letzten Start abgestürzt. Möchten Sie an den Entwickler einen Bericht senden?";
 
 /* Support email subject */
-"CloudNotes Support Request" = "CloudNotes Hilfe-Anfrage";
+"NextcloudNotes Support Request" = "NextcloudNotes Hilfe-Anfrage";
 
 /* A button title */
 "Connect" = "Verbinden";

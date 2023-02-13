@@ -37,7 +37,7 @@ class SettingsTableViewController: UITableViewController {
                 }
                 if !accountTemp.isEmpty {
                     self.shareAccounts = accountTemp
-                    let image = UIImage(systemName: "person.line.dotted.person")
+                    let image = UIImage(systemName: "person.badge.plus")
                     let navigationItemTalk = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(openShareAccountsViewController))
                     self.navigationItem.leftBarButtonItem = navigationItemTalk
                 }
@@ -99,7 +99,7 @@ class SettingsTableViewController: UITableViewController {
         case 3:
             if indexPath.row == 0 {
                 let email = "support@pbh.dev"
-                let subject = NSLocalizedString("CloudNotes Support Request", comment: "Support email subject")
+                let subject = NSLocalizedString("NextcloudNotes Support Request", comment: "Support email subject")
                 let body = NSLocalizedString("<Please state your question or problem here>", comment: "Support email body placeholder")
                 if MFMailComposeViewController.canSendMail() {
                     let mailViewController = MFMailComposeViewController()
