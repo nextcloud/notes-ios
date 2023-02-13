@@ -19,6 +19,7 @@ import BackgroundTasks
 #if targetEnvironment(macCatalyst)
 import AppKitInterface
 #endif
+import NextcloudKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -133,6 +134,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         notesTableViewController?.updateFrcDelegate(update: .disable)
         updateFrcDelegateNeeded = true
         scheduleAppSync()
+    }
+
+    func applicationWillResignActive(_ application: UIApplication) {
+
+        if !KeychainHelper.server.isEmpty, let dirGroupApps = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.nextcloud.apps") {
+            let account = NKShareAccounts.DataAccounts(withUrl: KeychainHelper.server, user: KeychainHelper.username)
+            _ = NKShareAccounts().putShareAccounts(at: dirGroupApps, app: "nextcloudnotes", dataAccounts: [account])
+        }
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
