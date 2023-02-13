@@ -31,16 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
 
-        #if targetEnvironment(macCatalyst)
-        if let bundleUrl = Bundle.main.builtInPlugInsURL {
-            let pluginUrl = bundleUrl.appendingPathComponent("AppKitGlue").appendingPathExtension("bundle")
-            if let appKitBundle = Bundle(url: pluginUrl) {
-                if let entryPoint = appKitBundle.classNamed("AppKitGlue.AppKitEntryPoint") as? AppKitInterfaceProtocol.Type {
-                    appKitPlugin = entryPoint.init()
-                }
-            }
-        }
-        #else
         window?.tintColor = .ph_iconColor
 
         if #available(iOS 15, *) {
@@ -79,7 +69,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITextField.appearance().textColor = .ph_textColor
 
         UITextView.appearance().tintColor = .ph_selectedTextColor
-        #endif
         
         if let splitViewController = self.window?.rootViewController as? UISplitViewController {
             if let firstNavigationController = splitViewController.viewControllers.first as? UINavigationController {

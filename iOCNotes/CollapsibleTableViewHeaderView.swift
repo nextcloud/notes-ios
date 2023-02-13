@@ -31,20 +31,13 @@ class CollapsibleTableViewHeaderView: UITableViewHeaderFooterView {
     required init?(coder aDecoder: NSCoder) {
         collapsed = false
         super.init(coder: aDecoder)
-        #if !targetEnvironment(macCatalyst)
         let backgroundView = UIView()
         backgroundView.backgroundColor = .ph_backgroundColor
         self.backgroundView = backgroundView
-        #endif
         addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(CollapsibleTableViewHeaderView.onTap(_:))))
     }
     
     override func draw(_ rect: CGRect) {
-        #if targetEnvironment(macCatalyst)
-        self.titleLabel.font = UIFont.systemFont(ofSize: 15, weight: .regular)
-        self.titleLabel.textColor = .label
-        self.folderImageView.isHidden = true
-        #endif
         super.draw(rect)
     }
     

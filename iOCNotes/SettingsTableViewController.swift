@@ -23,11 +23,6 @@ class SettingsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        #if targetEnvironment(macCatalyst)
-        navigationController?.navigationBar.isHidden = true
-        self.tableView.rowHeight = UITableView.automaticDimension;
-        self.tableView.estimatedRowHeight = 44.0;
-        #endif
 
         if let dirGroupApps = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.nextcloud.apps") {
             if let shareAccounts = NKShareAccounts().getShareAccount(at: dirGroupApps, application: UIApplication.shared) {
@@ -56,17 +51,7 @@ class SettingsTableViewController: UITableViewController {
         tableView.reloadData()
         tableView.isScrollEnabled = false
         tableView.isScrollEnabled = true
-        #if targetEnvironment(macCatalyst)
-        self.tableView.cellForRow(at: IndexPath(row: 0, section: 0))?.isHidden = true
-        #endif
     }
-    
-    #if targetEnvironment(macCatalyst)
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        AppDelegate.shared.sceneDidActivate(identifier: "Preferences")
-    }
-    #endif
     
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

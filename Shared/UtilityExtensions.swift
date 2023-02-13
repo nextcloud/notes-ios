@@ -31,7 +31,6 @@ struct DisclosureSection: Codable {
 
 typealias DisclosureSections = [DisclosureSection]
 
-#if os(iOS)
 extension UIImage {
     static func colorResizableImage(color: UIColor) -> UIImage {
         var image = UIImage()
@@ -79,27 +78,6 @@ extension UILabel {
     }
 
 }
-
-extension UITextView {
-  #if targetEnvironment(macCatalyst)
-  @objc(_focusRingType)
-  var focusRingType: UInt {
-       return 1 //NSFocusRingTypeNone
-  }
-  #endif
-}  
-#endif
-
-#if targetEnvironment(macCatalyst)
-extension NSToolbarItem.Identifier {
-    static let add = NSToolbarItem.Identifier(rawValue: "add")
-    static let refresh = NSToolbarItem.Identifier(rawValue: "refresh")
-    static let back = NSToolbarItem.Identifier(rawValue: "back")
-    static let preview = NSToolbarItem.Identifier(rawValue: "preview")
-    static let share = NSToolbarItem.Identifier(rawValue: "share")
-    static let segmented = NSToolbarItem.Identifier(rawValue: "segmented")
-}
-#endif
 
 extension String {
     
