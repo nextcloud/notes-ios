@@ -39,7 +39,6 @@
 		D07F5E892207B2CF00528E90 /* NotesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07F5E882207B2CF00528E90 /* NotesData.swift */; };
 		D07F5E8E2207B6FF00528E90 /* NoteRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07F5E8D2207B6FF00528E90 /* NoteRouter.swift */; };
 		D08713ED1D18DA40001EAF82 /* HeaderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08713EC1D18DA40001EAF82 /* HeaderTextView.swift */; };
-		D08BFBDD2765835A00550B73 /* KSCrash in Frameworks */ = {isa = PBXBuildFile; productRef = D08BFBDC2765835A00550B73 /* KSCrash */; };
 		D095384A1D3313F8006BB78E /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09538421D32A56A006BB78E /* PreviewViewController.swift */; };
 		D095AE45245BB25F00A7EF62 /* NoteSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01067DD220BCE3C0047E090 /* NoteSessionManager.swift */; };
 		D09E430C1E2C46930010E4B3 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D09E430E1E2C46930010E4B3 /* Main_iPhone.storyboard */; };
@@ -265,7 +264,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0C876DF248F18700052EA63 /* Version in Frameworks */,
-				D08BFBDD2765835A00550B73 /* KSCrash in Frameworks */,
 				D0595C7C238632610004C4E8 /* KeychainAccess in Frameworks */,
 				D02D15CC2905D756006ADCBB /* OpenSSL in Frameworks */,
 				D06CDA60238F6EC300CF90B0 /* Alamofire in Frameworks */,
@@ -556,7 +554,6 @@
 				D0C876DE248F18700052EA63 /* Version */,
 				D0CAFF082533E7FB00C47FA0 /* SwiftMessages */,
 				D0CAFF152533E89900C47FA0 /* PKHUD */,
-				D08BFBDC2765835A00550B73 /* KSCrash */,
 				D0E60F232777DD38009CF78F /* cmark_gfm_swift */,
 				D02D15CB2905D756006ADCBB /* OpenSSL */,
 				F77B56FE2993DE6300A23E76 /* NextcloudKit */,
@@ -625,7 +622,6 @@
 				D0C876DD248F18700052EA63 /* XCRemoteSwiftPackageReference "Version" */,
 				D0CAFF072533E7FB00C47FA0 /* XCRemoteSwiftPackageReference "SwiftMessages" */,
 				D0CAFF142533E89900C47FA0 /* XCRemoteSwiftPackageReference "PKHUD" */,
-				D08BFBDB2765835A00550B73 /* XCRemoteSwiftPackageReference "KSCrash" */,
 				D0E60F222777DD38009CF78F /* XCRemoteSwiftPackageReference "cmark-gfm-swift" */,
 				D02D15CA2905D756006ADCBB /* XCRemoteSwiftPackageReference "OpenSSL" */,
 				F77B56FD2993DE6300A23E76 /* XCRemoteSwiftPackageReference "NextcloudKit" */,
@@ -1245,14 +1241,6 @@
 				minimumVersion = 5.1.0;
 			};
 		};
-		D08BFBDB2765835A00550B73 /* XCRemoteSwiftPackageReference "KSCrash" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/phedlund/KSCrash";
-			requirement = {
-				branch = arm64e_fix;
-				kind = branch;
-			};
-		};
 		D0C876DD248F18700052EA63 /* XCRemoteSwiftPackageReference "Version" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mrackwitz/Version";
@@ -1310,11 +1298,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D06CDA5E238F6EC300CF90B0 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		D08BFBDC2765835A00550B73 /* KSCrash */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D08BFBDB2765835A00550B73 /* XCRemoteSwiftPackageReference "KSCrash" */;
-			productName = KSCrash;
 		};
 		D0C876DE248F18700052EA63 /* Version */ = {
 			isa = XCSwiftPackageProductDependency;

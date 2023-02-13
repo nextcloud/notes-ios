@@ -28,21 +28,12 @@
       }
     },
     {
-      "identity" : "kscrash",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/phedlund/KSCrash",
-      "state" : {
-        "branch" : "arm64e_fix",
-        "revision" : "1ee67a75f35a861f155a9704693f42b98c40bfbc"
-      }
-    },
-    {
       "identity" : "nextcloudkit",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/nextcloud/NextcloudKit",
       "state" : {
-        "branch" : "develop",
-        "revision" : "e2fbaf108f25b032d2d7c151ebc9aa3bc95c24b6"
+        "revision" : "0d694aa234210f7c85ab41b05d1429ad0eb50266",
+        "version" : "1.6.0"
       }
     },
     {

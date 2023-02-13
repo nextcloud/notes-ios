@@ -70,11 +70,6 @@ class SettingsTableViewController: UITableViewController {
     
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        #if targetEnvironment(macCatalyst)
-        if indexPath.section == 0, indexPath.row == 0 {
-            return 2.0
-        }
-        #endif
         return UITableView.automaticDimension
     }
 
