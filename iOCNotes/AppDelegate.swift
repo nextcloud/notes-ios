@@ -95,8 +95,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillResignActive(_ application: UIApplication) {
 
-        if !KeychainHelper.server.isEmpty, let dirGroupApps = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.nextcloud.apps") {
-            let account = NKShareAccounts.DataAccounts(withUrl: KeychainHelper.server, user: KeychainHelper.username)
+        if !KeychainHelper.server.isEmpty,
+            let server = URL(string: KeychainHelper.server),
+            let scheme = server.scheme, let host = server.host,
+            let dirGroupApps = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.nextcloud.apps") {
+            let account = NKShareAccounts.DataAccounts(withUrl: scheme + "://" + host, user: KeychainHelper.username)
             _ = NKShareAccounts().putShareAccounts(at: dirGroupApps, app: "nextcloudnotes", dataAccounts: [account])
         }
     }
