@@ -24,6 +24,49 @@
 import UIKit
 import WebKit
 
+/*
+ if editor == NCGlobal.shared.editorText || editor == NCGlobal.shared.editorOnlyoffice {
+
+     if metadata.url == "" {
+
+         let fileNamePath = CCUtility.returnFileNamePath(fromFileName: metadata.fileName, serverUrl: metadata.serverUrl, urlBase: metadata.urlBase, userId: metadata.userId, account: metadata.account)!
+
+         var options = NKRequestOptions()
+         if editor == NCGlobal.shared.editorOnlyoffice {
+             options = NKRequestOptions(customUserAgent: NCUtility.shared.getCustomUserAgentOnlyOffice())
+         } else {
+             options = NKRequestOptions(customUserAgent: NCUtility.shared.getCustomUserAgentNCText())
+         }
+
+         NCActivityIndicator.shared.start(backgroundView: viewController.view)
+         NextcloudKit.shared.NCTextOpenFile(fileNamePath: fileNamePath, editor: editor, options: options) { account, url, data, error in
+
+             NCActivityIndicator.shared.stop()
+
+             if error == .success && account == self.appDelegate.account && url != nil {
+
+                 if let navigationController = viewController.navigationController {
+
+                     let viewController: NCViewerNextcloudText = UIStoryboard(name: "NCViewerNextcloudText", bundle: nil).instantiateInitialViewController() as! NCViewerNextcloudText
+
+                     viewController.metadata = metadata
+                     viewController.editor = editor
+                     viewController.link = url!
+                     viewController.imageIcon = imageIcon
+
+                     navigationController.pushViewController(viewController, animated: true)
+                 }
+
+             } else if error != .success {
+
+                 NCContentPresenter.shared.showError(error: error)
+             }
+         }
+
+     }
+ */
+
+
 class NCViewerNextcloudText: UIViewController, WKNavigationDelegate, WKScriptMessageHandler {
 
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
