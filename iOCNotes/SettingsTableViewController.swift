@@ -207,7 +207,6 @@ class SettingsTableViewController: UITableViewController {
         let format = NSLocalizedString("Using Notes %@on %@ %@.", comment:"Message with Notes version, product name and version")
         return String.localizedStringWithFormat(format, notesVersion, KeychainHelper.productName, KeychainHelper.productVersion)
     }
-
 }
 
 extension SettingsTableViewController: MFMailComposeViewControllerDelegate {
