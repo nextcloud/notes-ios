@@ -377,7 +377,7 @@ class NotesTableViewController: UITableViewController {
         return true
     }
     */
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case detailSegueIdentifier:
