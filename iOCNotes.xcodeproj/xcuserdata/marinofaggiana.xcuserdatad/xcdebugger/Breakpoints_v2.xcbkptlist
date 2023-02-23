@@ -7,47 +7,79 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F2C292ED-FF6D-4839-9ECB-266A6152AE25"
+            uuid = "5F593685-AD6C-4A8C-A007-586526F1EB89"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iOCNotes/EditorViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "73A6A5A9-6F28-4E6C-9F68-FD28C69BA32B"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOCNotes/NotesTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "362"
-            endingLineNumber = "362"
-            landmarkName = "prepare(for:sender:)"
+            startingLineNumber = "536"
+            endingLineNumber = "536"
+            landmarkName = "addNote(content:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "332D05D2-E999-487A-90AA-1D9CE664A548"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iOCNotes/NotesTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "368"
+            endingLineNumber = "368"
+            landmarkName = "NotesTableViewController"
+            landmarkType = "3">
             <Locations>
                <Location
-                  uuid = "F2C292ED-FF6D-4839-9ECB-266A6152AE25 - b06dbf07ff5368f6"
+                  uuid = "332D05D2-E999-487A-90AA-1D9CE664A548 - ddb6bd0a28b4da87"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "iOCNotes.NotesTableViewController.prepare(for: __C.UIStoryboardSegue, sender: Swift.Optional&lt;Any&gt;) -&gt; ()"
+                  symbolName = "iOCNotes.NotesTableViewController.shouldPerformSegue(withIdentifier: Swift.String, sender: Swift.Optional&lt;Any&gt;) -&gt; Swift.Bool"
                   moduleName = "Nextcloud Notes"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/marinofaggiana/Developer/notes-ios/iOCNotes/NotesTableViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "362"
-                  endingLineNumber = "362"
-                  offsetFromSymbolStart = "1868">
+                  startingLineNumber = "367"
+                  endingLineNumber = "367"
+                  offsetFromSymbolStart = "2216">
                </Location>
                <Location
-                  uuid = "F2C292ED-FF6D-4839-9ECB-266A6152AE25 - b06dbf07ff5368f6"
+                  uuid = "332D05D2-E999-487A-90AA-1D9CE664A548 - 96e1d6e2defc5c53"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "iOCNotes.NotesTableViewController.prepare(for: __C.UIStoryboardSegue, sender: Swift.Optional&lt;Any&gt;) -&gt; ()"
+                  symbolName = "closure #1 (Swift.String, Swift.Optional&lt;Swift.String&gt;, Swift.Optional&lt;Foundation.Data&gt;, NextcloudKit.NKError) -&gt; () in iOCNotes.NotesTableViewController.shouldPerformSegue(withIdentifier: Swift.String, sender: Swift.Optional&lt;Any&gt;) -&gt; Swift.Bool"
                   moduleName = "Nextcloud Notes"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/marinofaggiana/Developer/notes-ios/iOCNotes/NotesTableViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "362"
-                  endingLineNumber = "362"
-                  offsetFromSymbolStart = "2036">
+                  startingLineNumber = "367"
+                  endingLineNumber = "367"
+                  offsetFromSymbolStart = "68">
                </Location>
             </Locations>
          </BreakpointContent>

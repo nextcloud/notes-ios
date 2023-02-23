@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var notesTableViewController: NotesTableViewController?
+    var networkReachability: NKCommon.typeReachability?
     static var shared: AppDelegate {
         return UIApplication.shared.delegate as! AppDelegate
     }
@@ -23,6 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private var updateFrcDelegateNeeded = true
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+
+        NextcloudKit.shared.setup(delegate: self)
 
         _ = BGTaskScheduler.shared.register(forTaskWithIdentifier: "com.peterandlinda.iOCNotes.Sync", using: nil) { task in
             if let task = task as? BGAppRefreshTask {
@@ -175,6 +178,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         return true
+    }
+}
+
+extension AppDelegate: NKCommonDelegate {
+
+    func networkReachabilityObserver(_ typeReachability: NKCommon.typeReachability) {
+        networkReachability = typeReachability
     }
 }
 

@@ -24,6 +24,7 @@ class SettingsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        /*
         if let dirGroupApps = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.nextcloud.apps") {
             if let shareAccounts = NKShareAccounts().getShareAccount(at: dirGroupApps, application: UIApplication.shared) {
                 var accountTemp = [NKShareAccounts.DataAccounts]()
@@ -38,6 +39,7 @@ class SettingsTableViewController: UITableViewController {
                 }
             }
         }
+        */
     }
     
     override func viewWillAppear(_ animated: Bool) {
