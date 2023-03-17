@@ -356,7 +356,7 @@ class NotesTableViewController: UITableViewController {
 
     // MARK: - Navigation
 
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+    func isAvailableDirectEditing(identifier: String) -> Bool {
 
         var supportsFileId: Bool = false
 
@@ -368,24 +368,33 @@ class NotesTableViewController: UITableViewController {
         }
 
         if identifier == detailSegueIdentifier && supportsFileId && (appDelegate.networkReachability == NKCommon.TypeReachability.reachableCellular || appDelegate.networkReachability == NKCommon.TypeReachability.reachableEthernetOrWiFi) {
-            var selectedIndexPath = IndexPath(row: 0, section: 0)
-            if let cell = sender as? UITableViewCell, let cellIndexPath = tableView.indexPath(for: cell) {
-                selectedIndexPath = cellIndexPath
-            }
-            if let navigationController = self.navigationController {
-                let note = notesManager.manager.fetchedResultsController.object(at: selectedIndexPath)
-                let notesPath = KeychainHelper.notesPath
-                NextcloudKit.shared.NCTextOpenFile(fileNamePath: notesPath, fileId: String(note.cdId), editor: "text") { account, url, data, error in
-                    if error == .success, let url = url, let viewController: NCViewerNextcloudText = UIStoryboard(name: "NCViewerNextcloudText", bundle: nil).instantiateInitialViewController() as? NCViewerNextcloudText {
-                        viewController.editor = "text"
-                        viewController.link = url
-                        viewController.fileName = note.cdTitle
-                        navigationController.pushViewController(viewController, animated: true)
-                    } else {
-                        //
-                    }
+            return true
+        }
+        return false
+    }
+
+    func openTextWebView(note: CDNote) {
+
+        if let navigationController = self.navigationController {
+            let notesPath = KeychainHelper.notesPath
+            NextcloudKit.shared.NCTextOpenFile(fileNamePath: notesPath, fileId: String(note.cdId), editor: "text") { account, url, data, error in
+                if error == .success, let url = url, let viewController: NCViewerNextcloudText = UIStoryboard(name: "NCViewerNextcloudText", bundle: nil).instantiateInitialViewController() as? NCViewerNextcloudText {
+                    viewController.editor = "text"
+                    viewController.link = url
+                    viewController.fileName = note.cdTitle
+                    navigationController.pushViewController(viewController, animated: true)
+                } else {
+                    //
                 }
             }
+        }
+    }
+
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+
+        if isAvailableDirectEditing(identifier: identifier), let cell = sender as? UITableViewCell, let cellIndexPath = tableView.indexPath(for: cell) {
+            let note = notesManager.manager.fetchedResultsController.object(at: cellIndexPath)
+            openTextWebView(note: note)
             return false
         } else {
             return true
@@ -547,7 +556,11 @@ class NotesTableViewController: UITableViewController {
                     self?.tableView.selectRow(at: indexPath, animated: true, scrollPosition: .top)
                 }
                 self?.editorViewController?.isNewNote = true
-                self?.performSegue(withIdentifier: detailSegueIdentifier, sender: self)
+                if (self?.isAvailableDirectEditing(identifier: detailSegueIdentifier)) ?? false, let note = note {
+                    self?.openTextWebView(note: note)
+                } else {
+                    self?.performSegue(withIdentifier: detailSegueIdentifier, sender: self)
+                }
             }
             HUD.hide()
         })
