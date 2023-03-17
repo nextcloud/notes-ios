@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var notesTableViewController: NotesTableViewController?
-    var networkReachability: NKCommon.typeReachability?
+    var networkReachability: NKCommon.TypeReachability?
     static var shared: AppDelegate {
         return UIApplication.shared.delegate as! AppDelegate
     }
@@ -25,7 +25,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
 
-        NextcloudKit.shared.setup(delegate: self)
+        let appVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
+        let appName = "NextcloudNotes" // Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String
+        let userAgent = "Mozilla/5.0 (iOS) \(appName)/\(appVersion ?? "")"
+
+        NextcloudKit.shared.setup(delegate: NCNetworking.shared)
+        NextcloudKit.shared.setup(userAgent: userAgent)
 
         _ = BGTaskScheduler.shared.register(forTaskWithIdentifier: "com.peterandlinda.iOCNotes.Sync", using: nil) { task in
             if let task = task as? BGAppRefreshTask {
@@ -108,6 +113,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
+        NCService.shared.startRequestServicesServer()
         updateFrcDelegateIfNeeded()
     }
     
@@ -178,13 +184,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         return true
-    }
-}
-
-extension AppDelegate: NKCommonDelegate {
-
-    func networkReachabilityObserver(_ typeReachability: NKCommon.typeReachability) {
-        networkReachability = typeReachability
     }
 }
 

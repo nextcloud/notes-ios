@@ -33,7 +33,7 @@
       "location" : "https://github.com/nextcloud/NextcloudKit",
       "state" : {
         "branch" : "develop",
-        "revision" : "5541b4aab82c1348e7cde83ecff217721ea2e589"
+        "revision" : "07b45ac0a509cfbf088e256d5b9dcab1d87d341c"
       }
     },
     {
@@ -41,8 +41,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/krzyzanowskim/OpenSSL",
       "state" : {
-        "revision" : "52db2ab9de7f78d1dea0d728fddd47fb133e25b7",
-        "version" : "1.1.1900"
+        "revision" : "87f41bf9488e7dd2b0de2ab97cb3eafc7304e0e6",
+        "version" : "1.1.2000"
       }
     },
     {

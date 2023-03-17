@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "NotesTableViewController.shouldPerformSegue(withIdentifier:sender:):NotesTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "supportsFileId.boolValue">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

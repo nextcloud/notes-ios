@@ -355,19 +355,30 @@ class NotesTableViewController: UITableViewController {
 
     // MARK: - Navigation
 
-    /*
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
 
-        if identifier == detailSegueIdentifier && (appDelegate.networkReachability == NKCommon.typeReachability.reachableCellular || appDelegate.networkReachability == NKCommon.typeReachability.reachableEthernetOrWiFi) {
+        var supportsFileId: Bool = false
+
+        if let jsonCapabilities = NCService.shared.jsonCapabilities {
+            let capabilitie = jsonCapabilities[NCElementsJSON.shared.capabilitiesDirectEditingSupportsFileId]
+            if capabilitie.exists(), capabilitie.boolValue {
+                supportsFileId = true
+            }
+        }
+
+        if identifier == detailSegueIdentifier && supportsFileId && (appDelegate.networkReachability == NKCommon.TypeReachability.reachableCellular || appDelegate.networkReachability == NKCommon.TypeReachability.reachableEthernetOrWiFi) {
             var selectedIndexPath = IndexPath(row: 0, section: 0)
             if let cell = sender as? UITableViewCell, let cellIndexPath = tableView.indexPath(for: cell) {
                 selectedIndexPath = cellIndexPath
             }
             if let navigationController = self.navigationController {
                 let note = notesManager.manager.fetchedResultsController.object(at: selectedIndexPath)
-                NextcloudKit.shared.NCTextOpenFileID(fileNamePath: nil, fileId: String(note.cdId), editor: "text") { account, url, data, error in
-                    print("")
+                NextcloudKit.shared.NCTextOpenFile(fileNamePath: "", fileId: "", editor: "text") { account, url, data, error in
+
                 }
+                //NextcloudKit.shared.NCTextOpenFileID(fileNamePath: nil, fileId: String(note.cdId), editor: "text") { account, url, data, error in
+                //    print("")
+                //}
             }
             return false
         } else {
@@ -376,7 +387,6 @@ class NotesTableViewController: UITableViewController {
 
         return true
     }
-    */
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
@@ -712,47 +722,4 @@ extension NSPredicate {
         return NSPredicate(format: "cdDeleteNeeded == %@", NSNumber(value: false))
     }
     
-}
-
-extension NextcloudKit {
-
-    @objc public func NCTextOpenFileID(fileNamePath: String?,
-                                      fileId: String?,
-                                      editor: String,
-                                      options: NKRequestOptions = NKRequestOptions(),
-                                      completion: @escaping (_ account: String, _  url: String?, _ data: Data?, _ error: NKError) -> Void) {
-
-        let account = self.nkCommonInstance.account
-        let urlBase = self.nkCommonInstance.urlBase
-        var endpoint = ""
-
-        if let fileNamePath = fileNamePath {
-            guard let fileNamePath = fileNamePath.urlEncoded else {
-                return options.queue.async { completion(account, nil, nil, .urlError) }
-            }
-            endpoint = "ocs/v2.php/apps/files/api/v1/directEditing/open?path=/\(fileNamePath)&editorId=\(editor)"
-        } else if let fileId = fileId {
-            endpoint = "ocs/v2.php/apps/files/api/v1/directEditing/open?fileId=\(fileId)&editorId=\(editor)"
-        }
-
-        guard let url = self.nkCommonInstance.createStandardUrl(serverUrl: urlBase, endpoint: endpoint) else {
-            return options.queue.async { completion(account, nil, nil, .urlError) }
-        }
-
-        let headers = self.nkCommonInstance.getStandardHeaders(options: options)
-
-        sessionManager.request(url, method: .post, parameters: nil, encoding: URLEncoding.default, headers: headers, interceptor: nil).validate(statusCode: 200..<300).responseData(queue: self.nkCommonInstance.backgroundQueue) { (response) in
-            debugPrint(response)
-
-            switch response.result {
-            case .failure(let error):
-                let error = NKError(error: error, afResponse: response)
-                options.queue.async { completion(account, nil, nil, error) }
-            case .success(let jsonData):
-                let json = JSON(jsonData)
-                let url = json["ocs"]["data"]["url"].stringValue
-                options.queue.async { completion(account, url, jsonData, .success) }
-            }
-        }
-    }
 }
