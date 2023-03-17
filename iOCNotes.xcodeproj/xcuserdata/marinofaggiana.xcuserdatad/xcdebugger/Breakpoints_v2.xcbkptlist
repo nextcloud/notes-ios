@@ -7,70 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "64854894-05F1-4552-9F84-E4C2E231913B"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iOCNotes/NotesTableViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "369"
-            endingLineNumber = "369"
-            landmarkName = "shouldPerformSegue(withIdentifier:sender:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "AACB3739-AB81-4A5D-BF76-C6352C85AB92"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iOCNotes/NotesTableViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "374"
-            endingLineNumber = "374"
-            landmarkName = "shouldPerformSegue(withIdentifier:sender:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "AACB3739-AB81-4A5D-BF76-C6352C85AB92 - ddb6bd0a28b4db6e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "iOCNotes.NotesTableViewController.shouldPerformSegue(withIdentifier: Swift.String, sender: Swift.Optional&lt;Any&gt;) -&gt; Swift.Bool"
-                  moduleName = "Nextcloud Notes"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/marinofaggiana/Developer/notes-ios/iOCNotes/NotesTableViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "374"
-                  endingLineNumber = "374"
-                  offsetFromSymbolStart = "2328">
-               </Location>
-               <Location
-                  uuid = "AACB3739-AB81-4A5D-BF76-C6352C85AB92 - ddb6bd0a28b4db6e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "iOCNotes.NotesTableViewController.shouldPerformSegue(withIdentifier: Swift.String, sender: Swift.Optional&lt;Any&gt;) -&gt; Swift.Bool"
-                  moduleName = "Nextcloud Notes"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/marinofaggiana/Developer/notes-ios/iOCNotes/NotesTableViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "374"
-                  endingLineNumber = "374"
-                  offsetFromSymbolStart = "2384">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "FBD6FB26-1F24-4C28-9F6B-35CCC9AC71F6"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -81,22 +17,6 @@
             startingLineNumber = "115"
             endingLineNumber = "115"
             landmarkName = "webView(_:didReceiveServerRedirectForProvisionalNavigation:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "50BB406C-6D7C-49BE-ADCB-9F58BE6854C5"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iOCNotes/AppDelegate.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
-            landmarkName = "applicationWillResignActive(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -158,25 +78,9 @@
             filePath = "iOCNotes/NotesTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "577"
-            endingLineNumber = "577"
+            startingLineNumber = "581"
+            endingLineNumber = "581"
             landmarkName = "didBecomeActive()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "96516B60-8A79-4B48-995C-35685F320E0B"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iOCNotes/NotesTableViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "363"
-            endingLineNumber = "363"
-            landmarkName = "shouldPerformSegue(withIdentifier:sender:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -18,6 +18,7 @@ import Alamofire
 let detailSegueIdentifier = "showDetail"
 let categorySegueIdentifier = "SelectCategorySegue"
 let settingsSegueIdentifier = "ShowSettings"
+let directeditingSegueIdentifier = "directEditing"
 
 class NotesTableViewController: UITableViewController {
 
@@ -373,19 +374,22 @@ class NotesTableViewController: UITableViewController {
             }
             if let navigationController = self.navigationController {
                 let note = notesManager.manager.fetchedResultsController.object(at: selectedIndexPath)
-                NextcloudKit.shared.NCTextOpenFile(fileNamePath: "", fileId: "", editor: "text") { account, url, data, error in
-
+                let notesPath = KeychainHelper.notesPath
+                NextcloudKit.shared.NCTextOpenFile(fileNamePath: notesPath, fileId: String(note.cdId), editor: "text") { account, url, data, error in
+                    if error == .success, let url = url, let viewController: NCViewerNextcloudText = UIStoryboard(name: "NCViewerNextcloudText", bundle: nil).instantiateInitialViewController() as? NCViewerNextcloudText {
+                        viewController.editor = "text"
+                        viewController.link = url
+                        viewController.fileName = note.cdTitle
+                        navigationController.pushViewController(viewController, animated: true)
+                    } else {
+                        //
+                    }
                 }
-                //NextcloudKit.shared.NCTextOpenFileID(fileNamePath: nil, fileId: String(note.cdId), editor: "text") { account, url, data, error in
-                //    print("")
-                //}
             }
             return false
         } else {
             return true
         }
-
-        return true
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

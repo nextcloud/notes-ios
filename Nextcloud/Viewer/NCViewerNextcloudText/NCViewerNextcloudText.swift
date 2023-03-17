@@ -24,49 +24,6 @@
 import UIKit
 import WebKit
 
-/*
- if editor == NCGlobal.shared.editorText || editor == NCGlobal.shared.editorOnlyoffice {
-
-     if metadata.url == "" {
-
-         let fileNamePath = CCUtility.returnFileNamePath(fromFileName: metadata.fileName, serverUrl: metadata.serverUrl, urlBase: metadata.urlBase, userId: metadata.userId, account: metadata.account)!
-
-         var options = NKRequestOptions()
-         if editor == NCGlobal.shared.editorOnlyoffice {
-             options = NKRequestOptions(customUserAgent: NCUtility.shared.getCustomUserAgentOnlyOffice())
-         } else {
-             options = NKRequestOptions(customUserAgent: NCUtility.shared.getCustomUserAgentNCText())
-         }
-
-         NCActivityIndicator.shared.start(backgroundView: viewController.view)
-         NextcloudKit.shared.NCTextOpenFile(fileNamePath: fileNamePath, editor: editor, options: options) { account, url, data, error in
-
-             NCActivityIndicator.shared.stop()
-
-             if error == .success && account == self.appDelegate.account && url != nil {
-
-                 if let navigationController = viewController.navigationController {
-
-                     let viewController: NCViewerNextcloudText = UIStoryboard(name: "NCViewerNextcloudText", bundle: nil).instantiateInitialViewController() as! NCViewerNextcloudText
-
-                     viewController.metadata = metadata
-                     viewController.editor = editor
-                     viewController.link = url!
-                     viewController.imageIcon = imageIcon
-
-                     navigationController.pushViewController(viewController, animated: true)
-                 }
-
-             } else if error != .success {
-
-                 NCContentPresenter.shared.showError(error: error)
-             }
-         }
-
-     }
- */
-
-
 class NCViewerNextcloudText: UIViewController, WKNavigationDelegate, WKScriptMessageHandler {
 
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -74,8 +31,7 @@ class NCViewerNextcloudText: UIViewController, WKNavigationDelegate, WKScriptMes
     var bottomConstraint: NSLayoutConstraint?
     var link: String = ""
     var editor: String = ""
-    var fileName: String = ""
-    var imageIcon: UIImage?
+    var fileName: String?
 
     // MARK: - View Life Cycle
 
@@ -86,13 +42,7 @@ class NCViewerNextcloudText: UIViewController, WKNavigationDelegate, WKScriptMes
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        /*
-        if !metadata.ocId.hasPrefix("TEMP") {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "more")!.image(color: .label, size: 25), style: .plain, target: self, action: #selector(self.openMenuMore))
-        }
-        */
-
-        navigationController?.navigationBar.prefersLargeTitles = false
+        // navigationController?.setNavigationBarHidden(true, animated: true)
         navigationItem.title = fileName
 
         let config = WKWebViewConfiguration()
@@ -129,6 +79,8 @@ class NCViewerNextcloudText: UIViewController, WKNavigationDelegate, WKScriptMes
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+
+        // navigationController?.setNavigationBarHidden(false, animated: true)
 
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardDidShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
