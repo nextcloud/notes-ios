@@ -7,22 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "FBD6FB26-1F24-4C28-9F6B-35CCC9AC71F6"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iOCNotes/LoginViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
-            landmarkName = "webView(_:didReceiveServerRedirectForProvisionalNavigation:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "29D2DA40-D49B-48CE-87DE-B103C472C72A"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -78,8 +62,8 @@
             filePath = "iOCNotes/NotesTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "594"
-            endingLineNumber = "594"
+            startingLineNumber = "602"
+            endingLineNumber = "602"
             landmarkName = "didBecomeActive()"
             landmarkType = "7">
          </BreakpointContent>
@@ -87,17 +71,49 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "0C1E883A-BA39-421B-914B-0B6312421C7C"
+            uuid = "9E37D041-A480-4639-B790-B0C2467D3DCB"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOCNotes/NotesTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "405"
-            endingLineNumber = "405"
-            landmarkName = "prepare(for:sender:)"
+            startingLineNumber = "567"
+            endingLineNumber = "567"
+            landmarkName = "addNote(content:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9E37D041-A480-4639-B790-B0C2467D3DCB - 4e03eeb6567f84be"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;iOCNotes.CDNote&gt;) -&gt; () in iOCNotes.NotesTableViewController.addNote(content: Swift.String) -&gt; ()"
+                  moduleName = "Nextcloud Notes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marinofaggiana/Developer/notes-ios/iOCNotes/NotesTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "567"
+                  endingLineNumber = "567"
+                  offsetFromSymbolStart = "1980">
+               </Location>
+               <Location
+                  uuid = "9E37D041-A480-4639-B790-B0C2467D3DCB - 4e03eeb6567f84be"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;iOCNotes.CDNote&gt;) -&gt; () in iOCNotes.NotesTableViewController.addNote(content: Swift.String) -&gt; ()"
+                  moduleName = "Nextcloud Notes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marinofaggiana/Developer/notes-ios/iOCNotes/NotesTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "567"
+                  endingLineNumber = "567"
+                  offsetFromSymbolStart = "2280">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

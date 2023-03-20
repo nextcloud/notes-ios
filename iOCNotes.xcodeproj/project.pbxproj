@@ -81,6 +81,7 @@
 		D0E60F71277FADD6009CF78F /* CheckBoxTapHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E60F52277FADD5009CF78F /* CheckBoxTapHandler.swift */; };
 		D0E60F74277FADD6009CF78F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E60F55277FADD5009CF78F /* Extensions.swift */; };
 		D0E60F76277FB0A5009CF78F /* Themes.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D0E60F75277FB0A5009CF78F /* Themes.bundle */; };
+		F75D7B1229C8687C00ABD392 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = F75D7B1129C8687C00ABD392 /* JGProgressHUD */; };
 		F770842529C45BD000367DBD /* NCService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770842429C45BD000367DBD /* NCService.swift */; };
 		F770842729C462C700367DBD /* NCNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770842629C462C700367DBD /* NCNetworking.swift */; };
 		F770842A29C4683000367DBD /* NCElementsJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770842929C4683000367DBD /* NCElementsJSON.swift */; };
@@ -280,6 +281,7 @@
 				F77B56FF2993DE6300A23E76 /* NextcloudKit in Frameworks */,
 				D017D4241D3B03BE00B21443 /* WebKit.framework in Frameworks */,
 				D0CFE5AD1890659600165839 /* QuartzCore.framework in Frameworks */,
+				F75D7B1229C8687C00ABD392 /* JGProgressHUD in Frameworks */,
 				D0CAFF162533E89900C47FA0 /* PKHUD in Frameworks */,
 				D0CFE53B1888A7BD00165839 /* UIKit.framework in Frameworks */,
 				D0CFE5371888A7BD00165839 /* Foundation.framework in Frameworks */,
@@ -602,6 +604,7 @@
 				D0E60F232777DD38009CF78F /* cmark_gfm_swift */,
 				D02D15CB2905D756006ADCBB /* OpenSSL */,
 				F77B56FE2993DE6300A23E76 /* NextcloudKit */,
+				F75D7B1129C8687C00ABD392 /* JGProgressHUD */,
 			);
 			productName = iOCNotes;
 			productReference = D0CFE5331888A7BD00165839 /* Nextcloud Notes.app */;
@@ -670,6 +673,7 @@
 				D0E60F222777DD38009CF78F /* XCRemoteSwiftPackageReference "cmark-gfm-swift" */,
 				D02D15CA2905D756006ADCBB /* XCRemoteSwiftPackageReference "OpenSSL" */,
 				F77B56FD2993DE6300A23E76 /* XCRemoteSwiftPackageReference "NextcloudKit" */,
+				F75D7B1029C8687C00ABD392 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 			);
 			productRefGroup = D0CFE5341888A7BD00165839 /* Products */;
 			projectDirPath = "";
@@ -1323,6 +1327,14 @@
 				kind = branch;
 			};
 		};
+		F75D7B1029C8687C00ABD392 /* XCRemoteSwiftPackageReference "JGProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		F77B56FD2993DE6300A23E76 /* XCRemoteSwiftPackageReference "NextcloudKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/nextcloud/NextcloudKit";
@@ -1368,6 +1380,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D0E60F222777DD38009CF78F /* XCRemoteSwiftPackageReference "cmark-gfm-swift" */;
 			productName = cmark_gfm_swift;
+		};
+		F75D7B1129C8687C00ABD392 /* JGProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F75D7B1029C8687C00ABD392 /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
+			productName = JGProgressHUD;
 		};
 		F77B56FE2993DE6300A23E76 /* NextcloudKit */ = {
 			isa = XCSwiftPackageProductDependency;

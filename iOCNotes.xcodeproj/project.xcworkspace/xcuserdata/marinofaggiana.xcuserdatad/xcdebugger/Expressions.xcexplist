@@ -3,6 +3,20 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "NotesTableViewController.openTextWebView(note:):NotesTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.splitViewController?.navigationController">
+            </PersistentString>
+            <PersistentString
+               value = "self.splitViewController">
+            </PersistentString>
+            <PersistentString
+               value = "VC?.navigationBar">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "NotesTableViewController.shouldPerformSegue(withIdentifier:sender:):NotesTableViewController.swift">
          <PersistentStrings>
             <PersistentString

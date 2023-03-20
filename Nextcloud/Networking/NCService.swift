@@ -40,12 +40,15 @@ class NCService: NSObject {
 
         guard !KeychainHelper.server.isEmpty,
               !KeychainHelper.username.isEmpty,
-              !KeychainHelper.password.isEmpty
+              !KeychainHelper.password.isEmpty,
+              let server = URL(string: KeychainHelper.server),
+              let scheme = server.scheme,
+              let host = server.host
         else { return }
 
+        let urlBase = scheme + "://" + host
         let user = KeychainHelper.username
         let password = KeychainHelper.password
-        let urlBase = KeychainHelper.server
         let account: String = "\(user) \(urlBase)"
 
         settingAccount(account, urlBase: urlBase, user: user, userId: user, password: password)

@@ -375,19 +375,27 @@ class NotesTableViewController: UITableViewController {
 
     func openTextWebView(note: CDNote) {
 
-        if let navigationController = self.navigationController {
-            let notesPath = KeychainHelper.notesPath
-            NextcloudKit.shared.NCTextOpenFile(fileNamePath: notesPath, fileId: String(note.cdId), editor: "text") { account, url, data, error in
-                if error == .success, let url = url, let viewController: NCViewerNextcloudText = UIStoryboard(name: "NCViewerNextcloudText", bundle: nil).instantiateInitialViewController() as? NCViewerNextcloudText {
-                    viewController.editor = "text"
-                    viewController.link = url
-                    viewController.fileName = note.cdTitle
-                    navigationController.pushViewController(viewController, animated: true)
+        let notesPath = KeychainHelper.notesPath
+        NextcloudKit.shared.NCTextOpenFile(fileNamePath: notesPath, fileId: String(note.cdId), editor: "text") { account, url, data, error in
+            if error == .success, let url = url, let viewController: NCViewerNextcloudText = UIStoryboard(name: "NCViewerNextcloudText", bundle: nil).instantiateInitialViewController() as? NCViewerNextcloudText {
+                viewController.editor = "text"
+                viewController.link = url
+                viewController.fileName = note.cdTitle
+                if let splitViewController = self.splitViewController {
+                    splitViewController.showDetailViewController(viewController, sender: self)
+                    if splitViewController.displayMode == .allVisible || splitViewController.displayMode == .primaryOverlay {
+                        UIView.animate(withDuration: 0.3, animations: {
+                            self.splitViewController?.preferredDisplayMode = .primaryHidden
+                        }, completion: nil)
+                    }
                 } else {
-                    //
+                    self.navigationController?.pushViewController(viewController, animated: true)
                 }
+            } else {
+                //
             }
         }
+
     }
 
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {

@@ -23,6 +23,7 @@
 
 import UIKit
 import WebKit
+import JGProgressHUD
 
 class NCViewerNextcloudText: UIViewController, WKNavigationDelegate, WKScriptMessageHandler {
 
@@ -32,6 +33,7 @@ class NCViewerNextcloudText: UIViewController, WKNavigationDelegate, WKScriptMes
     var link: String = ""
     var editor: String = ""
     var fileName: String?
+    let hud = JGProgressHUD()
 
     // MARK: - View Life Cycle
 
@@ -68,6 +70,9 @@ class NCViewerNextcloudText: UIViewController, WKNavigationDelegate, WKScriptMes
 
         webView.customUserAgent = getCustomUserAgentNCText()
         webView.load(request)
+
+        guard let view = appDelegate.window?.rootViewController?.view else { return }
+        hud.show(in: view)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -168,7 +173,9 @@ class NCViewerNextcloudText: UIViewController, WKNavigationDelegate, WKScriptMes
         print("didReceiveServerRedirectForProvisionalNavigation")
     }
 
-    public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) { }
+    public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        hud.dismiss()
+    }
 }
 
 extension NCViewerNextcloudText: UINavigationControllerDelegate {
