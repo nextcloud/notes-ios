@@ -24,6 +24,7 @@
 import UIKit
 import NextcloudKit
 import SwiftyJSON
+import JGProgressHUD
 
 class NCService: NSObject {
     @objc static let shared: NCService = {
@@ -62,7 +63,13 @@ class NCService: NSObject {
 
     private func requestServerCapabilities() {
 
+        guard let view = appDelegate.window?.rootViewController?.view else { return }
+        let hud = JGProgressHUD()
+        hud.textLabel.text = NSLocalizedString("Checking server capabilities", comment: "HUD subtitle when checking server capabilities")
+        hud.show(in: view)
+        
         NextcloudKit.shared.getCapabilities { account, data, error in
+            hud.dismiss()
             if error == .success, let data = data {
                 self.jsonCapabilities = JSON(data)
             }  else {
