@@ -24,7 +24,6 @@
 import UIKit
 import NextcloudKit
 import SwiftyJSON
-import JGProgressHUD
 
 class NCService: NSObject {
     @objc static let shared: NCService = {
@@ -37,7 +36,7 @@ class NCService: NSObject {
 
     // MARK: -
 
-    @objc public func startRequestServicesServer() {
+    @objc public func startRequestServicesServer(completion: @escaping () -> Void) {
 
         guard !KeychainHelper.server.isEmpty,
               !KeychainHelper.username.isEmpty,
@@ -53,7 +52,7 @@ class NCService: NSObject {
         let account: String = "\(user) \(urlBase)"
 
         settingAccount(account, urlBase: urlBase, user: user, userId: user, password: password)
-        requestServerCapabilities()
+        requestServerCapabilities(completion: completion)
     }
 
     private func settingAccount(_ account: String, urlBase: String, user: String, userId: String, password: String) {
@@ -61,21 +60,21 @@ class NCService: NSObject {
         NextcloudKit.shared.setup(account: account, user: user, userId: userId, password: password, urlBase: urlBase)
     }
 
-    private func requestServerCapabilities() {
+    private func requestServerCapabilities(completion: @escaping () -> Void) {
 
-        guard let view = appDelegate.window?.rootViewController?.view else { return }
-        let hud = JGProgressHUD()
-        hud.textLabel.text = NSLocalizedString("Checking server capabilities", comment: "HUD subtitle when checking server capabilities")
-        hud.show(in: view)
-        
         NextcloudKit.shared.getCapabilities { account, data, error in
-            hud.dismiss()
             if error == .success, let data = data {
                 self.jsonCapabilities = JSON(data)
+                if let jsonCapabilities = NCService.shared.jsonCapabilities,
+                   let version = jsonCapabilities[NCElementsJSON.shared.capabilitiesNotesVersion].string,
+                   let apiVersion = jsonCapabilities[NCElementsJSON.shared.capabilitiesNotesApiVersion].array?.last?.string {
+                    KeychainHelper.notesVersion = version
+                    KeychainHelper.notesApiVersion = apiVersion
+                }
             }  else {
                 self.jsonCapabilities = nil
             }
+            completion()
         }
-        
     }
 }

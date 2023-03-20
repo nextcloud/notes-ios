@@ -72,4 +72,7 @@ import UIKit
     @objc public let capabilitiesUserStatusSupportsEmoji: Array = ["ocs", "data", "capabilities", "user_status", "supports_emoji"]
 
     @objc public let capabilitiesDirectEditingSupportsFileId: Array = ["ocs", "data", "capabilities", "files", "directEditing", "supportsFileId"]
+
+    @objc public let capabilitiesNotesVersion: Array = ["ocs", "data", "capabilities", "notes", "version"]
+    @objc public let capabilitiesNotesApiVersion: Array = ["ocs", "data", "capabilities", "notes", "api_version"]
 }

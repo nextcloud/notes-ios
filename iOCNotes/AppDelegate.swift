@@ -113,7 +113,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
-        NCService.shared.startRequestServicesServer()
+        NCService.shared.startRequestServicesServer { }
         updateFrcDelegateIfNeeded()
     }
     

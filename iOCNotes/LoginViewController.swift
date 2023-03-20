@@ -66,15 +66,10 @@ class LoginViewController: UIViewController {
     private func completeLogin() {
         let hudTitle = NSLocalizedString("Logged In", comment: "HUD title when logged in")
         let statusSubtitle = NSLocalizedString("Checking server status", comment: "HUD subtitle when checking server status")
-        let capabilitiesSubtitle = NSLocalizedString("Checking server capabilities", comment: "HUD subtitle when checking server capabilities")
-        let settingsSubtitle = NSLocalizedString("Checking server settings", comment: "HUD subtitle when checking server settings")
         HUD.show(.labeledProgress(title: hudTitle, subtitle: statusSubtitle))
         NoteSessionManager.shared.status() {
-            HUD.show(.labeledProgress(title: hudTitle, subtitle: capabilitiesSubtitle))
-            NoteSessionManager.shared.capabilities() {
-                HUD.show(.labeledProgress(title: hudTitle, subtitle: settingsSubtitle))
+            NCService.shared.startRequestServicesServer {
                 NoteSessionManager.shared.settings { [weak self] in
-                    print("All Done")
                     HUD.hide()
                     self?.navigationController?.popViewController(animated: true)
                 }
