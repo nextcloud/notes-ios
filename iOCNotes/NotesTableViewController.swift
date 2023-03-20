@@ -382,6 +382,7 @@ class NotesTableViewController: UITableViewController {
                 viewController.link = url
                 viewController.fileName = note.cdTitle
                 if let splitViewController = self.splitViewController {
+                    viewController.navigationItem.hidesBackButton = true
                     splitViewController.showDetailViewController(viewController, sender: self)
                     if splitViewController.displayMode == .allVisible || splitViewController.displayMode == .primaryOverlay {
                         UIView.animate(withDuration: 0.3, animations: {

@@ -62,8 +62,8 @@
             filePath = "iOCNotes/NotesTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "602"
-            endingLineNumber = "602"
+            startingLineNumber = "603"
+            endingLineNumber = "603"
             landmarkName = "didBecomeActive()"
             landmarkType = "7">
          </BreakpointContent>
@@ -78,13 +78,13 @@
             filePath = "iOCNotes/NotesTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "567"
-            endingLineNumber = "567"
+            startingLineNumber = "568"
+            endingLineNumber = "568"
             landmarkName = "addNote(content:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "9E37D041-A480-4639-B790-B0C2467D3DCB - 4e03eeb6567f84be"
+                  uuid = "9E37D041-A480-4639-B790-B0C2467D3DCB - 4e03eeb6567f849d"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -94,12 +94,12 @@
                   urlString = "file:///Users/marinofaggiana/Developer/notes-ios/iOCNotes/NotesTableViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "567"
-                  endingLineNumber = "567"
+                  startingLineNumber = "568"
+                  endingLineNumber = "568"
                   offsetFromSymbolStart = "1980">
                </Location>
                <Location
-                  uuid = "9E37D041-A480-4639-B790-B0C2467D3DCB - 4e03eeb6567f84be"
+                  uuid = "9E37D041-A480-4639-B790-B0C2467D3DCB - 4e03eeb6567f849d"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -109,8 +109,8 @@
                   urlString = "file:///Users/marinofaggiana/Developer/notes-ios/iOCNotes/NotesTableViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "567"
-                  endingLineNumber = "567"
+                  startingLineNumber = "568"
+                  endingLineNumber = "568"
                   offsetFromSymbolStart = "2280">
                </Location>
             </Locations>
