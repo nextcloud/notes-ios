@@ -136,7 +136,6 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="activityButton" destination="pXa-gb-ki1" id="fMm-Yj-DYc"/>
-                        <outlet property="addButton" destination="nY9-Vh-Cce" id="zDO-gf-ygq"/>
                         <outlet property="deleteButton" destination="aql-su-dTG" id="aZw-En-uzG"/>
                         <outlet property="doneButton" destination="1qk-bQ-vnb" id="t3C-JM-SAg"/>
                         <outlet property="fixedSpace" destination="thB-y7-Xbs" id="6iI-ez-fg4"/>
@@ -156,12 +155,6 @@
                     <color key="tintColor" name="PHWhiteIcon"/>
                     <connections>
                         <action selector="onDelete:" destination="vXZ-lx-hvc" id="UNY-4r-5qs"/>
-                    </connections>
-                </barButtonItem>
-                <barButtonItem systemItem="add" id="nY9-Vh-Cce">
-                    <color key="tintColor" name="PHWhiteIcon"/>
-                    <connections>
-                        <action selector="onAdd:" destination="vXZ-lx-hvc" id="vjE-6L-EfD"/>
                     </connections>
                 </barButtonItem>
                 <barButtonItem image="doc.text.magnifyingglass" catalog="system" id="3f2-rn-lgQ" userLabel="Preview">

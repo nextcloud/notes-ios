@@ -81,10 +81,6 @@ extension PBHSplitViewController: UISplitViewControllerDelegate {
         return .primary
     }
 
-    @objc func onAddButtonAction(sender: UIBarButtonItem) {
-        editorViewController?.onAdd(sender)
-    }
-
     @objc func onRefreshButtonAction(sender: UIBarButtonItem) {
         notesTableViewController?.onRefresh(sender: sender)
     }
