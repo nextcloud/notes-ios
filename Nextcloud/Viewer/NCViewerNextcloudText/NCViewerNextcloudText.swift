@@ -92,7 +92,8 @@ class NCViewerNextcloudText: UIViewController, WKNavigationDelegate, WKScriptMes
     }
 
     @objc func viewUnload() {
-        navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true)
+        // navigationController?.popViewController(animated: true)
     }
 
     // MARK: - NotificationCenter
