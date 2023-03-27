@@ -359,6 +359,7 @@ class NotesTableViewController: UITableViewController {
     func isAvailableDirectEditing(identifier: String) -> Bool {
 
         var supportsFileId: Bool = false
+        let offlineMode = KeychainHelper.offlineMode
 
         if let jsonCapabilities = NCService.shared.jsonCapabilities {
             let capabilitie = jsonCapabilities[NCElementsJSON.shared.capabilitiesDirectEditingSupportsFileId]
@@ -367,7 +368,7 @@ class NotesTableViewController: UITableViewController {
             }
         }
 
-        if identifier == detailSegueIdentifier && supportsFileId && (appDelegate.networkReachability == NKCommon.TypeReachability.reachableCellular || appDelegate.networkReachability == NKCommon.TypeReachability.reachableEthernetOrWiFi) {
+        if identifier == detailSegueIdentifier && !offlineMode && supportsFileId && (appDelegate.networkReachability == NKCommon.TypeReachability.reachableCellular || appDelegate.networkReachability == NKCommon.TypeReachability.reachableEthernetOrWiFi) {
             return true
         }
         return false
