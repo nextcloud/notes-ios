@@ -39,13 +39,13 @@
 "Close & Sync" = "Fermer et synchroniser";
 
 /* Crash report email subject */
-"CloudNotes Crash Report" = "Rapport de crash CloudNotes";
+"NextcloudNotes Crash Report" = "Rapport de crash NextcloudNotes";
 
 /* No comment provided by engineer. */
-"CloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "CloudNotes s'est crashé la dernière fois qu'il a été lancé. Voulez-vous envoyer un rapport au développeur?";
+"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "NextcloudNotes s'est crashé la dernière fois qu'il a été lancé. Voulez-vous envoyer un rapport au développeur?";
 
 /* Support email subject */
-"CloudNotes Support Request" = "Demande d'assistance CloudNotes";
+"NextcloudNotes Support Request" = "Demande d'assistance NextcloudNotes";
 
 /* A button title */
 "Connect" = "Connexion";
@@ -244,3 +244,6 @@
 
 /* No comment provided by engineer. */
 "Yes" = "Oui";
+
+// NEXTCLOUD
+"_account_select_to_add_"   = "Sélectionner le compte à ajouter";

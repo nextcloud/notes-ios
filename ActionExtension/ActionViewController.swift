@@ -52,7 +52,7 @@ class ActionViewController: UIViewController {
         if let content = content, let context = extensionContext {
             let selector = Selector("openURL:")
             var urlComponents = URLComponents()
-            urlComponents.scheme = "cloudnotes"
+            urlComponents.scheme = "nextcloudnotes"
             urlComponents.path = "action"
             urlComponents.queryItems = [URLQueryItem(name: "note", value: content)]
             if let url = urlComponents.url {

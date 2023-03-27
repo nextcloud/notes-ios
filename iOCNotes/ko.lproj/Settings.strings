@@ -82,8 +82,8 @@
 /* Class = "UITableViewSection"; headerTitle = "Extension"; ObjectID = "Rfx-NI-FZ4"; */
 "Rfx-NI-FZ4.headerTitle" = "Extension";
 
-/* Class = "UITableViewSection"; footerTitle = "These settings only affect how notes are managed on the server. CloudNotes does not handle any files."; ObjectID = "RvH-hn-Sfv"; */
-"RvH-hn-Sfv.footerTitle" = "These settings only affect how notes are managed on the server. CloudNotes does not handle any files.";
+/* Class = "UITableViewSection"; footerTitle = "These settings only affect how notes are managed on the server. NextcloudNotes does not handle any files."; ObjectID = "RvH-hn-Sfv"; */
+"RvH-hn-Sfv.footerTitle" = "These settings only affect how notes are managed on the server. NextcloudNotes does not handle any files.";
 
 /* Class = "UITableViewSection"; headerTitle = "SERVER SETTINGS"; ObjectID = "RvH-hn-Sfv"; */
 "RvH-hn-Sfv.headerTitle" = "SERVER SETTINGS";

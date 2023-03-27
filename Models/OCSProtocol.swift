@@ -114,7 +114,7 @@ struct OCSVersion: Codable {
 
 struct OCSData: Decodable {
     var version: OCSVersion
-    var notes: OCSNotes?
+    // var notes: OCSNotes?
     
     enum CodingKeys: String, CodingKey {
         case version
@@ -128,8 +128,8 @@ struct OCSData: Decodable {
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         version = try values.decode(OCSVersion.self, forKey: .version)
-        let capabilityValues = try values.nestedContainer(keyedBy: ExtraKeys.self, forKey: .capabilities)
-        notes = try capabilityValues.decodeIfPresent(OCSNotes.self, forKey: .notes)
+        // let capabilityValues = try values.nestedContainer(keyedBy: ExtraKeys.self, forKey: .capabilities)
+        // notes = try capabilityValues.decodeIfPresent(OCSNotes.self, forKey: .notes)
     }
 }
 
@@ -138,7 +138,7 @@ struct OCSData: Decodable {
    "api_version": [ "0.2", "1.0" ],
    "version": "3.6.0"
  }
- */
+
 struct OCSNotes: Decodable {
     var api_version: [String]
     var version: String
@@ -159,6 +159,7 @@ struct OCSNotes: Decodable {
         version = try values.decodeIfPresent(String.self, forKey: .version) ?? ""
     }
 }
+*/
 
 
 struct OCS: Decodable {

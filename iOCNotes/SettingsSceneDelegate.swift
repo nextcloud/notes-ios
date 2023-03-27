@@ -21,9 +21,6 @@ class SettingsSceneDelegate: UIResponder, UIWindowSceneDelegate {
             return
         }
 
-        #if targetEnvironment(macCatalyst)
-        buildMacToolbar()
-        #endif
         windowScene.title = "Preferences"
     }
 
@@ -62,88 +59,5 @@ class SettingsSceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         settingsNavController.popViewController(animated: true)
     }
-
-    #if targetEnvironment(macCatalyst)
-    @objc func toolbarGroupSelectionChanged(sender: NSToolbarItemGroup) {
-        let storyboard = UIStoryboard(name: "Settings", bundle:nil)
-        var nav: UINavigationController?
-        switch sender.selectedIndex {
-        case 0:
-            print("Selected Settings")
-            if let settingsController = storyboard.instantiateViewController(withIdentifier: "SettingsTableViewController") as? SettingsTableViewController {
-                nav = UINavigationController(rootViewController: settingsController)
-            }
-        case 1:
-            print("Selected Server")
-            if let loginController = storyboard.instantiateViewController(withIdentifier: "LoginTableViewController") as? LoginTableViewController {
-                nav = UINavigationController(rootViewController: loginController)
-            }
-        default:
-            break
-        }
-        window?.rootViewController = nav
-    }
-    #endif
-
 }
 
-#if targetEnvironment(macCatalyst)
-extension SettingsSceneDelegate {
-  
-    func buildMacToolbar() {
-        guard let windowScene = window?.windowScene else {
-            return
-        }
-        
-        if let titlebar = windowScene.titlebar {
-            let toolbar = NSToolbar(identifier: "SettingsToolbar")
-            toolbar.centeredItemIdentifier = .segmented
-            toolbar.allowsUserCustomization = false
-            toolbar.delegate = self
-            titlebar.toolbar = toolbar
-            titlebar.titleVisibility = .hidden
-        }
-    }
-    
-}
-
-extension SettingsSceneDelegate: NSToolbarDelegate {
-    
-    func toolbar(_ toolbar: NSToolbar, itemForItemIdentifier itemIdentifier: NSToolbarItem.Identifier, willBeInsertedIntoToolbar flag: Bool) -> NSToolbarItem? {
-        switch itemIdentifier {
-        case .back:
-            let barButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.left"),
-                                                style: .plain,
-                                                target: self,
-                                                action: #selector(self.onBackButtonAction(sender:)))
-            barButtonItem.accessibilityIdentifier = itemIdentifier.rawValue
-            let button = NSToolbarItem(itemIdentifier: itemIdentifier, barButtonItem: barButtonItem)
-            return button
-        case .segmented:
-            let group = NSToolbarItemGroup(itemIdentifier: .segmented,
-                                           titles: ["Settings", "Server"],
-                                           selectionMode: .selectOne,
-                                           labels: ["section1", "section2"],
-                                           target: self,
-                                           action: #selector(toolbarGroupSelectionChanged))
-            group.setSelected(true, at: 0)
-            return group
-        default:
-            break
-        }
-        return nil
-    }
-
-    func toolbarDefaultItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
-        return [
-            .segmented,
-            .flexibleSpace
-        ]
-    }
-    
-    func toolbarAllowedItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
-        return toolbarDefaultItemIdentifiers(toolbar)
-    }
-    
-}
-#endif

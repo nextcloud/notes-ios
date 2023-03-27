@@ -8,6 +8,7 @@
 
 import UIKit
 import MessageUI
+import NextcloudKit
 
 class SettingsTableViewController: UITableViewController {
 
@@ -17,18 +18,32 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet var extensionLabel: UILabel!
     @IBOutlet var folderLabel: UILabel!
 
+    private var shareAccounts: [NKShareAccounts.DataAccounts]?
+    private var user: String?
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        #if targetEnvironment(macCatalyst)
-        navigationController?.navigationBar.isHidden = true
-        self.tableView.rowHeight = UITableView.automaticDimension;
-        self.tableView.estimatedRowHeight = 44.0;
-        #endif
+
+        if let dirGroupApps = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.nextcloud.apps") {
+            if let shareAccounts = NKShareAccounts().getShareAccount(at: dirGroupApps, application: UIApplication.shared) {
+                var accountTemp = [NKShareAccounts.DataAccounts]()
+                for shareAccount in shareAccounts {
+                    accountTemp.append(shareAccount)
+                }
+                if !accountTemp.isEmpty {
+                    self.shareAccounts = accountTemp
+                    let image = UIImage(systemName: "person.badge.plus")
+                    let navigationItemTalk = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(openShareAccountsViewController))
+                    self.navigationItem.leftBarButtonItem = navigationItemTalk
+                }
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.serverTextField.text = KeychainHelper.server
+        self.user = nil
         self.syncOnStartSwitch.isOn = KeychainHelper.syncOnStart
         offlineModeSwitch.isOn = KeychainHelper.offlineMode
         extensionLabel.text = KeychainHelper.fileSuffix.description
@@ -36,25 +51,10 @@ class SettingsTableViewController: UITableViewController {
         tableView.reloadData()
         tableView.isScrollEnabled = false
         tableView.isScrollEnabled = true
-        #if targetEnvironment(macCatalyst)
-        self.tableView.cellForRow(at: IndexPath(row: 0, section: 0))?.isHidden = true
-        #endif
     }
-    
-    #if targetEnvironment(macCatalyst)
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        AppDelegate.shared.sceneDidActivate(identifier: "Preferences")
-    }
-    #endif
     
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        #if targetEnvironment(macCatalyst)
-        if indexPath.section == 0, indexPath.row == 0 {
-            return 2.0
-        }
-        #endif
         return UITableView.automaticDimension
     }
 
@@ -76,39 +76,6 @@ class SettingsTableViewController: UITableViewController {
             if indexPath.row == 1 {
                 showNotesFolderAlert()
             }
-        case 3:
-            if indexPath.row == 0 {
-                let email = "support@pbh.dev"
-                let subject = NSLocalizedString("CloudNotes Support Request", comment: "Support email subject")
-                let body = NSLocalizedString("<Please state your question or problem here>", comment: "Support email body placeholder")
-                if MFMailComposeViewController.canSendMail() {
-                    let mailViewController = MFMailComposeViewController()
-                    mailViewController.mailComposeDelegate = self
-                    mailViewController.setToRecipients([email])
-                    mailViewController.setSubject(subject)
-                    mailViewController.setMessageBody(body, isHTML: false)
-                    mailViewController.modalPresentationStyle = .formSheet;
-                    present(mailViewController, animated: true, completion: nil)
-                } else {
-                    var components = URLComponents()
-                    components.scheme = "mailto"
-                    components.path = email
-                    components.queryItems = [URLQueryItem(name: "subject", value: subject),
-                                             URLQueryItem(name: "body", value: body)]
-                    if let mailURL = components.url {
-                        if UIApplication.shared.canOpenURL(mailURL) {
-                            UIApplication.shared.open(mailURL, options: [:], completionHandler: nil)
-                        } else {
-                            // No email client configured
-                        }
-                    }
-                }
-            } else if indexPath.row == 1 {
-                if let url = URL(string: "https://pbh.dev/cloudnotes") {
-                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                }
-            }
-
         default:
             break
         }
@@ -125,6 +92,7 @@ class SettingsTableViewController: UITableViewController {
             KeychainHelper.username = ""
             KeychainHelper.password = ""
             loginWebViewController.serverAddress = serverAddress
+            loginWebViewController.user = self.user
         } else if segue.identifier == "showCertificate" {
             let certificateViewController = segue.destination as? CertificateViewController
             let host = URL(string: KeychainHelper.server)?.host
@@ -237,7 +205,6 @@ class SettingsTableViewController: UITableViewController {
         let format = NSLocalizedString("Using Notes %@on %@ %@.", comment:"Message with Notes version, product name and version")
         return String.localizedStringWithFormat(format, notesVersion, KeychainHelper.productName, KeychainHelper.productVersion)
     }
-
 }
 
 extension SettingsTableViewController: MFMailComposeViewControllerDelegate {
@@ -245,5 +212,33 @@ extension SettingsTableViewController: MFMailComposeViewControllerDelegate {
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         dismiss(animated: true, completion: nil)
     }
+}
 
+extension SettingsTableViewController: NCShareAccountsDelegate {
+
+    // MARK: - Talk accounts View Controller
+
+    @objc func openShareAccountsViewController() {
+
+        if let shareAccounts = self.shareAccounts, let vc = UIStoryboard(name: "NCShareAccounts", bundle: nil).instantiateInitialViewController() as? NCShareAccounts {
+
+            vc.accounts = shareAccounts
+            vc.enableTimerProgress = false
+            vc.dismissDidEnterBackground = false
+            vc.delegate = self
+
+            let screenHeighMax = UIScreen.main.bounds.height - (UIScreen.main.bounds.height/5)
+            let numberCell = shareAccounts.count
+            let height = min(CGFloat(numberCell * Int(vc.heightCell) + 45), screenHeighMax)
+
+            let popup = NCPopupViewController(contentController: vc, popupWidth: 300, popupHeight: height+20)
+
+            self.present(popup, animated: true)
+        }
+    }
+
+    func selected(url: String, user: String) {
+        serverTextField.text = url
+        self.user = user
+    }
 }

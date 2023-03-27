@@ -8,12 +8,8 @@
 
 import Alamofire
 import Foundation
-#if os(iOS)
 import UIKit
 import SwiftMessages
-#else
-import AppKit
-#endif
 
 typealias SyncCompletionBlock = () -> Void
 typealias SyncCompletionBlockWithNote = (_ note: CDNote?) -> Void
@@ -166,29 +162,6 @@ class NoteSessionManager {
                     KeychainHelper.productVersion = result.versionstring
                     KeychainHelper.productName = result.productname
                 case let .failure(error):
-                    print(error.localizedDescription)
-                }
-                completion?()
-        }
-    }
-
-    func capabilities(completion: SyncCompletionBlock? = nil) {
-        let router = OCSRouter.capabilities
-        session
-            .request(router)
-            .validate(contentType: [Router.applicationJson])
-            .responseDecodable(of: OCS.self) { response in
-                switch response.result {
-                case let .success(result):
-                    if let notesData = result.data.notes {
-                        KeychainHelper.notesApiVersion = notesData.api_version.last ?? Router.defaultApiVersion
-                        KeychainHelper.notesVersion = notesData.version
-                        KeychainHelper.productVersion = result.data.version.string
-                    } else {
-                        KeychainHelper.notesApiVersion = Router.defaultApiVersion
-                    }
-                case let .failure(error):
-                    KeychainHelper.notesApiVersion = Router.defaultApiVersion
                     print(error.localizedDescription)
                 }
                 completion?()

@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return
         }
         
-        windowScene.title = "CloudNotes"
+        windowScene.title = "NextcloudNotes"
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

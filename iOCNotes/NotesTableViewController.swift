@@ -11,10 +11,14 @@ import MobileCoreServices
 import PKHUD
 import SwiftMessages
 import UIKit
+import NextcloudKit
+import SwiftyJSON
+import Alamofire
 
 let detailSegueIdentifier = "showDetail"
 let categorySegueIdentifier = "SelectCategorySegue"
 let settingsSegueIdentifier = "ShowSettings"
+let directeditingSegueIdentifier = "directEditing"
 
 class NotesTableViewController: UITableViewController {
 
@@ -25,6 +29,7 @@ class NotesTableViewController: UITableViewController {
     var notes: [CDNote]?
     var searchController: UISearchController?
     var editorViewController: EditorViewController?
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     private var networkHasBeenUnreachable = false
     private var searchResult: [CDNote]?
@@ -141,9 +146,6 @@ class NotesTableViewController: UITableViewController {
 
         let nib = UINib(nibName: "CollapsibleTableViewHeaderView", bundle: nil)
         tableView.register(nib, forHeaderFooterViewReuseIdentifier: "HeaderView")
-        #if targetEnvironment(macCatalyst)
-        navigationController?.navigationBar.isHidden = true
-        #else
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.toolbar.isTranslucent = true
         navigationController?.toolbar.clipsToBounds = true
@@ -156,7 +158,6 @@ class NotesTableViewController: UITableViewController {
         notesManager.manager.delegate = self
         updateFrcDelegate(update: .enable(withFetch: true))
         tableView.tableHeaderView = searchController?.searchBar
-        #endif
 
         tableView.contentOffset = CGPoint(x: 0, y: searchController?.searchBar.frame.size.height ?? 0.0 + tableView.contentOffset.y)
         tableView.backgroundView = UIView()
@@ -169,9 +170,7 @@ class NotesTableViewController: UITableViewController {
         tableView.reloadData()
         definesPresentationContext = true
         refreshBarButton.isEnabled = NoteSessionManager.isOnline
-        #if !targetEnvironment(macCatalyst)
         tableView.backgroundColor = .ph_backgroundColor
-        #endif
         if let splitVC = splitViewController as? PBHSplitViewController {
             splitVC.notesTableViewController = self
         }
@@ -283,17 +282,12 @@ class NotesTableViewController: UITableViewController {
         guard notesManager.manager.fetchedResultsController.validate(indexPath: indexPath) else {
             return
         }
-        #if targetEnvironment(macCatalyst)
-        cell.textLabel?.font = UIFont.systemFont(ofSize: 17)
-        cell.textLabel?.textColor = nil
-        #else
         cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
         cell.backgroundColor = .ph_cellBackgroundColor
         cell.contentView.backgroundColor = .ph_cellBackgroundColor
         let selectedBackgroundView = UIView(frame: cell.frame)
         selectedBackgroundView.backgroundColor = UIColor.ph_cellSelectionColor
         cell.selectedBackgroundView = selectedBackgroundView
-        #endif
 
         let note = notesManager.manager.fetchedResultsController.object(at: indexPath)
         cell.textLabel?.text = note.title
@@ -362,6 +356,51 @@ class NotesTableViewController: UITableViewController {
 
     // MARK: - Navigation
 
+    func isAvailableDirectEditing(identifier: String) -> Bool {
+
+        var supportsFileId: Bool = false
+
+        if let jsonCapabilities = NCService.shared.jsonCapabilities {
+            let capabilitie = jsonCapabilities[NCElementsJSON.shared.capabilitiesDirectEditingSupportsFileId]
+            if capabilitie.exists(), capabilitie.boolValue {
+                supportsFileId = true
+            }
+        }
+
+        if identifier == detailSegueIdentifier && supportsFileId && (appDelegate.networkReachability == NKCommon.TypeReachability.reachableCellular || appDelegate.networkReachability == NKCommon.TypeReachability.reachableEthernetOrWiFi) {
+            return true
+        }
+        return false
+    }
+
+    func openTextWebView(note: CDNote) {
+
+        let notesPath = KeychainHelper.notesPath
+        NextcloudKit.shared.NCTextOpenFile(fileNamePath: notesPath, fileId: String(note.cdId), editor: "text") { account, url, data, error in
+            if error == .success, let url = url, let viewController: NCViewerNextcloudText = UIStoryboard(name: "NCViewerNextcloudText", bundle: nil).instantiateInitialViewController() as? NCViewerNextcloudText {
+                viewController.editor = "text"
+                viewController.link = url
+                viewController.fileName = note.cdTitle
+                viewController.modalPresentationStyle = .fullScreen
+                self.navigationController?.present(viewController, animated: true)
+            } else {
+                //
+            }
+        }
+
+    }
+
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+
+        if isAvailableDirectEditing(identifier: identifier), let cell = sender as? UITableViewCell, let cellIndexPath = tableView.indexPath(for: cell) {
+            let note = notesManager.manager.fetchedResultsController.object(at: cellIndexPath)
+            openTextWebView(note: note)
+            return false
+        } else {
+            return true
+        }
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case detailSegueIdentifier:
@@ -376,7 +415,6 @@ class NotesTableViewController: UITableViewController {
                 editorController.note = note
                 editorController.isNewNote = isAddingFromButton
                 isAddingFromButton = false
-                #if !targetEnvironment(macCatalyst)
                 if #available(iOS 14.0, *) {
                     //
                 } else {
@@ -389,7 +427,6 @@ class NotesTableViewController: UITableViewController {
                         self.splitViewController?.preferredDisplayMode = .primaryHidden
                     }, completion: nil)
                 }
-                #endif
             }
         case settingsSegueIdentifier:
             if let navigationController = segue.destination as? UINavigationController,
@@ -403,9 +440,7 @@ class NotesTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        #if !targetEnvironment(macCatalyst)
         tableView.deselectRow(at: indexPath, animated: true)
-        #endif
         editorViewController?.isNewNote = false
     }
 
@@ -521,7 +556,11 @@ class NotesTableViewController: UITableViewController {
                     self?.tableView.selectRow(at: indexPath, animated: true, scrollPosition: .top)
                 }
                 self?.editorViewController?.isNewNote = true
-                self?.performSegue(withIdentifier: detailSegueIdentifier, sender: self)
+                if (self?.isAvailableDirectEditing(identifier: detailSegueIdentifier)) ?? false, let note = note {
+                    self?.openTextWebView(note: note)
+                } else {
+                    self?.performSegue(withIdentifier: detailSegueIdentifier, sender: self)
+                }
             }
             HUD.hide()
         })

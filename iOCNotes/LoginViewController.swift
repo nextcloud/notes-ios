@@ -13,6 +13,7 @@ import WebKit
 class LoginViewController: UIViewController {
 
     var serverAddress = ""
+    var user: String?
 
     private var webView: WKWebView?
     private var ignoreNavigationFailure = false
@@ -39,12 +40,15 @@ class LoginViewController: UIViewController {
             address = "https://\(address)"
         }
         address = address.replacingOccurrences(of: "/index.php", with: "")
-        let urlString = "\(address)/index.php/login/flow"
+        var urlString = "\(address)/index.php/login/flow"
+        if let user = self.user {
+            urlString += "?user=\(user)"
+        }
         if let url = URL(string: urlString) {
             var request = URLRequest(url: url)
 
             let appVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
-            let appName = "CloudNotes" // Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String
+            let appName = "NextcloudNotes" // Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String
             let userAgent = "Mozilla/5.0 (iOS) \(appName)/\(appVersion ?? "")"
             let language = Locale.preferredLanguages[0] as String
 
@@ -62,15 +66,10 @@ class LoginViewController: UIViewController {
     private func completeLogin() {
         let hudTitle = NSLocalizedString("Logged In", comment: "HUD title when logged in")
         let statusSubtitle = NSLocalizedString("Checking server status", comment: "HUD subtitle when checking server status")
-        let capabilitiesSubtitle = NSLocalizedString("Checking server capabilities", comment: "HUD subtitle when checking server capabilities")
-        let settingsSubtitle = NSLocalizedString("Checking server settings", comment: "HUD subtitle when checking server settings")
         HUD.show(.labeledProgress(title: hudTitle, subtitle: statusSubtitle))
         NoteSessionManager.shared.status() {
-            HUD.show(.labeledProgress(title: hudTitle, subtitle: capabilitiesSubtitle))
-            NoteSessionManager.shared.capabilities() {
-                HUD.show(.labeledProgress(title: hudTitle, subtitle: settingsSubtitle))
+            NCService.shared.startRequestServicesServer {
                 NoteSessionManager.shared.settings { [weak self] in
-                    print("All Done")
                     HUD.hide()
                     self?.navigationController?.popViewController(animated: true)
                 }

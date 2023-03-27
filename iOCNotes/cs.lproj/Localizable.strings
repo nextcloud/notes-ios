@@ -39,13 +39,13 @@
 "Close & Sync" = "Zavřít a synchronizovat";
 
 /* Crash report email subject */
-"CloudNotes Crash Report" = "Hlášení o pádu CloudNotes";
+"NextcloudNotes Crash Report" = "Hlášení o pádu NextcloudNotes";
 
 /* No comment provided by engineer. */
-"CloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "CloudNotes při minulém spuštění zhavarovalo. Chcete odeslat hlášení vývojáři?";
+"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "NextcloudNotes při minulém spuštění zhavarovalo. Chcete odeslat hlášení vývojáři?";
 
 /* Support email subject */
-"CloudNotes Support Request" = "Požadavek na technickou podporu ke CloudNotes";
+"NextcloudNotes Support Request" = "Požadavek na technickou podporu ke NextcloudNotes";
 
 /* A button title */
 "Connect" = "Připojit";
@@ -244,3 +244,6 @@
 
 /* No comment provided by engineer. */
 "Yes" = "Ano";
+
+// NEXTCLOUD
+"_account_select_to_add_"   = "Vyberte účet, který přidat";

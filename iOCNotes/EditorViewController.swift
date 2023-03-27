@@ -13,7 +13,6 @@ class EditorViewController: UIViewController {
 
     @IBOutlet var activityButton: UIBarButtonItem!
     @IBOutlet var deleteButton: UIBarButtonItem!
-    @IBOutlet var addButton: UIBarButtonItem!
     @IBOutlet var previewButton: UIBarButtonItem!
     @IBOutlet var undoButton: UIBarButtonItem!
     @IBOutlet var redoButton: UIBarButtonItem!
@@ -84,26 +83,21 @@ class EditorViewController: UIViewController {
             noteView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
             bottomConstraint,
         ])
-        navigationItem.rightBarButtonItems = [addButton, fixedSpace, activityButton, fixedSpace, deleteButton, fixedSpace, previewButton]
-#if !targetEnvironment(macCatalyst)
+        navigationItem.rightBarButtonItems = [fixedSpace, activityButton, fixedSpace, deleteButton, fixedSpace, previewButton]
         if #available(iOS 14.0, *) {
             //
         } else {
             navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
         }
         navigationItem.leftItemsSupplementBackButton = true
-#endif
+
         if let note = note {
             noteView.text = note.content;
             noteView.isEditable = true
             noteView.isSelectable = true
             activityButton.isEnabled = !noteView.text.isEmpty
-            addButton.isEnabled = !noteView.text.isEmpty
             previewButton.isEnabled = !noteView.text.isEmpty
             deleteButton.isEnabled = true
-#if targetEnvironment(macCatalyst)
-            (splitViewController as? PBHSplitViewController)?.buildMacToolbar()
-#endif
         } else {
             noteView.isEditable = false
             noteView.isSelectable = false
@@ -111,21 +105,13 @@ class EditorViewController: UIViewController {
             noteView.headerLabel.text = NSLocalizedString("Select or create a note.", comment: "Placeholder text when no note is selected")
             navigationItem.title = ""
             activityButton.isEnabled = false
-            addButton.isEnabled = true
             deleteButton.isEnabled = false
             previewButton.isEnabled = false
-#if targetEnvironment(macCatalyst)
-            (splitViewController as? PBHSplitViewController)?.buildMacToolbar()
-#endif
         }
-#if targetEnvironment(macCatalyst)
-        navigationController?.navigationBar.isHidden = true
-#else
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.delegate = self
         navigationController?.toolbar.isTranslucent = true
         navigationController?.toolbar.clipsToBounds = true
-#endif
         if let splitVC = splitViewController as? PBHSplitViewController {
             splitVC.editorViewController = self
         }
@@ -279,14 +265,7 @@ class EditorViewController: UIViewController {
         }
         present(deleteAlertController, animated: true, completion: nil)
     }
-    
-    @IBAction func onAdd(_ sender: Any?) {
-        NoteSessionManager.shared.add(content: "", category: "", favorite: false) { [weak self] note in
-            self?.note = note
-            self?.isNewNote = true
-        }
-    }
-    
+
     @IBAction func onPreview(_ sender: Any?) {
         performSegue(withIdentifier: "showPreview", sender: sender)
     }
@@ -330,7 +309,7 @@ class EditorViewController: UIViewController {
 
     func keyboardWillHide(notification: Notification) {
         if self.traitCollection.userInterfaceIdiom == .phone {
-            self.navigationItem.rightBarButtonItems = [self.addButton, self.fixedSpace, self.activityButton, self.fixedSpace, self.deleteButton, self.fixedSpace, self.previewButton];
+            self.navigationItem.rightBarButtonItems = [self.activityButton, self.fixedSpace, self.deleteButton, self.fixedSpace, self.previewButton];
         }
         if let info = notification.userInfo,
            let animationDuration: TimeInterval = info[UIWindow.keyboardAnimationDurationUserInfoKey] as? TimeInterval {
@@ -376,12 +355,8 @@ extension EditorViewController: UITextViewDelegate {
 
     func textViewDidChange(_ textView: UITextView) {
         self.activityButton.isEnabled = !textView.text.isEmpty
-        self.addButton.isEnabled = !textView.text.isEmpty
         self.previewButton.isEnabled = !textView.text.isEmpty
         self.deleteButton.isEnabled = true
-#if targetEnvironment(macCatalyst)
-        (splitViewController as? PBHSplitViewController)?.buildMacToolbar()
-#endif
         throttler.throttle { [weak self] in
             self?.updateNoteContent()
         }
