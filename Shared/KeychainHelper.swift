@@ -85,6 +85,15 @@ struct KeychainHelper {
         }
     }
 
+    static var useLegacyEditor: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: "UseLegacyEditor")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "UseLegacyEditor")
+        }
+    }
+
     static var allowUntrustedCertificate: Bool {
         get {
             return UserDefaults.standard.bool(forKey: "AllowUntrustedCertificate")

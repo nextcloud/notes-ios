@@ -15,6 +15,7 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet var serverTextField: UITextField!
     @IBOutlet var syncOnStartSwitch: UISwitch!
     @IBOutlet weak var offlineModeSwitch: UISwitch!
+    @IBOutlet private weak var useLegacyEditorSwitch: UISwitch!
     @IBOutlet var extensionLabel: UILabel!
     @IBOutlet var folderLabel: UILabel!
 
@@ -46,6 +47,7 @@ class SettingsTableViewController: UITableViewController {
         self.user = nil
         self.syncOnStartSwitch.isOn = KeychainHelper.syncOnStart
         offlineModeSwitch.isOn = KeychainHelper.offlineMode
+        useLegacyEditorSwitch.isOn = KeychainHelper.useLegacyEditor
         extensionLabel.text = KeychainHelper.fileSuffix.description
         folderLabel.text = KeychainHelper.notesPath
         tableView.reloadData()
@@ -156,6 +158,10 @@ class SettingsTableViewController: UITableViewController {
     
     @IBAction func offlineModeChanged(_ sender: Any) {
         KeychainHelper.offlineMode = offlineModeSwitch.isOn
+    }
+
+    @IBAction func useLegacyEditorChanged(_ sender: Any) {
+        KeychainHelper.useLegacyEditor = useLegacyEditorSwitch.isOn
     }
 
     @IBAction func onDone(_ sender: Any) {

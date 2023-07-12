@@ -156,6 +156,42 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="EDITING" id="DBu-Fc-oHs">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="HOH-Pa-Xcc">
+                                        <rect key="frame" x="0.0" y="382.5" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HOH-Pa-Xcc" id="hq1-JW-uGb">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use Legacy Editor" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNz-4b-0Fb">
+                                                    <rect key="frame" x="16" y="0.5" width="284" height="43"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="43" id="lmD-Dy-Ml4"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="CHE-8e-aaV">
+                                                    <rect key="frame" x="310" y="6.5" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="useLegacyEditorChanged:" destination="F8m-nl-oCR" eventType="valueChanged" id="dK8-XY-8o6"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerY" secondItem="CHE-8e-aaV" secondAttribute="centerY" constant="0.25" id="25e-gt-fNJ"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="CHE-8e-aaV" secondAttribute="trailing" id="2xm-xW-kwb"/>
+                                                <constraint firstItem="CHE-8e-aaV" firstAttribute="leading" secondItem="pNz-4b-0Fb" secondAttribute="trailing" constant="10" id="QbT-1T-lNe"/>
+                                                <constraint firstItem="pNz-4b-0Fb" firstAttribute="centerY" secondItem="hq1-JW-uGb" secondAttribute="centerY" id="aGZ-4L-HZf"/>
+                                                <constraint firstItem="pNz-4b-0Fb" firstAttribute="leading" secondItem="hq1-JW-uGb" secondAttribute="leadingMargin" id="fgm-0d-jzU"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                             <tableViewSection headerTitle="SERVER SETTINGS" footerTitle="These settings only affect how notes are managed on the server. NextcloudNotes does not handle any files." id="RvH-hn-Sfv">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Pvp-6i-NLV" detailTextLabel="uVd-ib-jy0" style="IBUITableViewCellStyleValue1" id="ACx-MP-ADX">
@@ -231,6 +267,7 @@
                         <outlet property="offlineModeSwitch" destination="6lP-Wx-RS7" id="2kX-Fk-LmN"/>
                         <outlet property="serverTextField" destination="qsr-x5-g2x" id="9Dn-za-ISw"/>
                         <outlet property="syncOnStartSwitch" destination="dU6-Jt-bTb" id="K6t-KV-pfL"/>
+                        <outlet property="useLegacyEditorSwitch" destination="CHE-8e-aaV" id="NoO-fA-kEP"/>
                         <segue destination="1E9-LH-nmA" kind="show" identifier="showCertificate" id="Fbo-sc-Bvp"/>
                         <segue destination="2qd-S3-5a6" kind="show" identifier="loginSegue" id="WJt-t1-FSo"/>
                     </connections>

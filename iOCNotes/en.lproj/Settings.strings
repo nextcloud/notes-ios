@@ -25,6 +25,9 @@
 /* Class = "UILabel"; text = "Password"; ObjectID = "CrO-Ue-LFh"; */
 "CrO-Ue-LFh.text" = "Password";
 
+/* Class = "UITableViewSection"; headerTitle = "EDITING"; ObjectID = "DBu-Fc-oHs"; */
+"DBu-Fc-oHs.headerTitle" = "EDITING";
+
 /* Class = "UIButton"; configuration.title = "Log In"; ObjectID = "dUo-KO-48Z"; */
 "dUo-KO-48Z.configuration.title" = "Log In";
 
@@ -72,6 +75,9 @@
 
 /* Class = "UILabel"; text = "Notes Folder"; ObjectID = "ltN-gF-yom"; */
 "ltN-gF-yom.text" = "Notes Folder";
+
+/* Class = "UILabel"; text = "Use Legacy Editor"; ObjectID = "pNz-4b-0Fb"; */
+"pNz-4b-0Fb.text" = "Use Legacy Editor";
 
 /* Class = "UILabel"; text = "File Extension"; ObjectID = "Pvp-6i-NLV"; */
 "Pvp-6i-NLV.text" = "File Extension";
