@@ -64,6 +64,7 @@ class NCService: NSObject {
 
         NextcloudKit.shared.getCapabilities { account, data, error in
             if error == .success, let data = data {
+                data.printJson()
                 self.jsonCapabilities = JSON(data)
                 if let jsonCapabilities = NCService.shared.jsonCapabilities,
                    let version = jsonCapabilities[NCElementsJSON.shared.capabilitiesNotesVersion].string,
@@ -78,3 +79,36 @@ class NCService: NSObject {
         }
     }
 }
+
+extension Data {
+
+    func printJson() {
+        do {
+            let json = try JSONSerialization.jsonObject(with: self, options: [])
+            let data = try JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
+            guard let jsonString = String(data: data, encoding: .utf8) else {
+                print("Inavlid data")
+                return
+            }
+            print(jsonString)
+        } catch {
+            print("Error: \(error.localizedDescription)")
+        }
+    }
+
+    func jsonToString() -> String {
+        do {
+            let json = try JSONSerialization.jsonObject(with: self, options: [])
+            let data = try JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
+            guard let jsonString = String(data: data, encoding: .utf8) else {
+                print("Inavlid data")
+                return ""
+            }
+            return jsonString
+        } catch {
+            print("Error: \(error.localizedDescription)")
+        }
+        return ""
+    }
+}
+
