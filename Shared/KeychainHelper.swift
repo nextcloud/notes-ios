@@ -181,4 +181,12 @@ struct KeychainHelper {
         }
     }
 
+    static var internalEditor: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: "InternalEditor")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "InternalEditor")
+        }
+    }
 }

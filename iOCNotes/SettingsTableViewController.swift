@@ -17,6 +17,7 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var offlineModeSwitch: UISwitch!
     @IBOutlet var extensionLabel: UILabel!
     @IBOutlet var folderLabel: UILabel!
+    @IBOutlet weak var internalEditorSwitch: UISwitch!
 
     private var shareAccounts: [NKShareAccounts.DataAccounts]?
     private var user: String?
@@ -48,6 +49,7 @@ class SettingsTableViewController: UITableViewController {
         offlineModeSwitch.isOn = KeychainHelper.offlineMode
         extensionLabel.text = KeychainHelper.fileSuffix.description
         folderLabel.text = KeychainHelper.notesPath
+        internalEditorSwitch.isOn = KeychainHelper.internalEditor
         tableView.reloadData()
         tableView.isScrollEnabled = false
         tableView.isScrollEnabled = true
@@ -156,6 +158,10 @@ class SettingsTableViewController: UITableViewController {
     
     @IBAction func offlineModeChanged(_ sender: Any) {
         KeychainHelper.offlineMode = offlineModeSwitch.isOn
+    }
+
+    @IBAction func internalEditorChanged(_ sender: Any) {
+        KeychainHelper.internalEditor = internalEditorSwitch.isOn
     }
 
     @IBAction func onDone(_ sender: Any) {

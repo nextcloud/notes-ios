@@ -360,6 +360,10 @@ class NotesTableViewController: UITableViewController {
 
         var supportsFileId: Bool = false
 
+        if KeychainHelper.internalEditor {
+            return false
+        }
+
         if let jsonCapabilities = NCService.shared.jsonCapabilities {
             let capabilitie = jsonCapabilities[NCElementsJSON.shared.capabilitiesDirectEditingSupportsFileId]
             if capabilitie.exists(), capabilitie.boolValue {
@@ -370,6 +374,7 @@ class NotesTableViewController: UITableViewController {
         if identifier == detailSegueIdentifier && supportsFileId && (appDelegate.networkReachability == NKCommon.TypeReachability.reachableCellular || appDelegate.networkReachability == NKCommon.TypeReachability.reachableEthernetOrWiFi) {
             return true
         }
+
         return false
     }
 

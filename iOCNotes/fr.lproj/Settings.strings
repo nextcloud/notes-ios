@@ -114,3 +114,6 @@
 
 /* Class = "UINavigationItem"; title = "Login Information"; ObjectID = "ZPa-hv-oSb"; */
 "ZPa-hv-oSb.title" = "Informations de connexion";
+
+/* Class = "UILabel"; text = "Sync on Start"; ObjectID = "9Dd-Vq-hcz"; */
+"9Dd-Vq-hcz.text" = "Éditeur interne";
