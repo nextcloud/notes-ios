@@ -79,7 +79,6 @@
 		F75D7B1229C8687C00ABD392 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = F75D7B1129C8687C00ABD392 /* JGProgressHUD */; };
 		F770842529C45BD000367DBD /* NCService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770842429C45BD000367DBD /* NCService.swift */; };
 		F770842729C462C700367DBD /* NCNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770842629C462C700367DBD /* NCNetworking.swift */; };
-		F770842A29C4683000367DBD /* NCElementsJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770842929C4683000367DBD /* NCElementsJSON.swift */; };
 		F77B56FF2993DE6300A23E76 /* NextcloudKit in Frameworks */ = {isa = PBXBuildFile; productRef = F77B56FE2993DE6300A23E76 /* NextcloudKit */; };
 		F77B57042993E32100A23E76 /* NCShareAccounts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F77B57022993E32100A23E76 /* NCShareAccounts.storyboard */; };
 		F77B57052993E32100A23E76 /* NCShareAccounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77B57032993E32100A23E76 /* NCShareAccounts.swift */; };
@@ -239,7 +238,6 @@
 		D0E60F75277FB0A5009CF78F /* Themes.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Themes.bundle; sourceTree = "<group>"; };
 		F770842429C45BD000367DBD /* NCService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCService.swift; sourceTree = "<group>"; };
 		F770842629C462C700367DBD /* NCNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCNetworking.swift; sourceTree = "<group>"; };
-		F770842929C4683000367DBD /* NCElementsJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NCElementsJSON.swift; sourceTree = "<group>"; };
 		F77B57022993E32100A23E76 /* NCShareAccounts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NCShareAccounts.storyboard; sourceTree = "<group>"; };
 		F77B57032993E32100A23E76 /* NCShareAccounts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NCShareAccounts.swift; sourceTree = "<group>"; };
 		F77B57072993E39500A23E76 /* NCPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NCPopupViewController.swift; sourceTree = "<group>"; };
@@ -482,18 +480,9 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
-		F770842829C467FE00367DBD /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				F770842929C4683000367DBD /* NCElementsJSON.swift */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
 		F77B57002993E32100A23E76 /* Nextcloud */ = {
 			isa = PBXGroup;
 			children = (
-				F770842829C467FE00367DBD /* Data */,
 				F770842329C45BB900367DBD /* Networking */,
 				F77B57012993E32100A23E76 /* Account Request */,
 				F77B57062993E39500A23E76 /* Utility */,
@@ -722,7 +711,6 @@
 				D0E60F59277FADD5009CF78F /* Style.swift in Sources */,
 				D03493B722F2837500E1A9B0 /* NoteTableViewCell.swift in Sources */,
 				D01067E22213BB5E0047E090 /* NoteProtocol.swift in Sources */,
-				F770842A29C4683000367DBD /* NCElementsJSON.swift in Sources */,
 				D059F7DB1D40596D00C252F2 /* NoteExporter.swift in Sources */,
 				D07F5E872207B1DF00528E90 /* CDNote+CoreDataProperties.swift in Sources */,
 				F77B57082993E39500A23E76 /* NCPopupViewController.swift in Sources */,

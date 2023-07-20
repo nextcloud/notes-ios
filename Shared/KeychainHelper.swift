@@ -189,4 +189,22 @@ struct KeychainHelper {
             UserDefaults.standard.set(newValue, forKey: "InternalEditor")
         }
     }
+
+    static var directEditingSupportsFileId: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: "directEditingSupportsFileId")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "directEditingSupportsFileId")
+        }
+    }
+
+    static var directEditing: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: "directEditing")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "directEditing")
+        }
+    }
 }
