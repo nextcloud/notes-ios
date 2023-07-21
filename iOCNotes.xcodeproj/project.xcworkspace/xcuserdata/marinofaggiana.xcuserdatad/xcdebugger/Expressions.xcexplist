@@ -17,18 +17,26 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "NotesTableViewController.shouldPerformSegue(withIdentifier:sender:):NotesTableViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "supportsFileId.boolValue">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "NotesTableViewController.prepare(for:sender:):NotesTableViewController.swift">
          <PersistentStrings>
             <PersistentString
                value = "segue.identifier">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in NCService.requestServerCapabilities(completion:):NCService.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "jsonCapabilities[capabilitiesDirectEditing].boolValue">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "NotesTableViewController.shouldPerformSegue(withIdentifier:sender:):NotesTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "supportsFileId.boolValue">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

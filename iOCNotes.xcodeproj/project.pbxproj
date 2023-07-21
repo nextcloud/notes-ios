@@ -12,7 +12,6 @@
 		BD92271B22CD3743004E2408 /* UtilityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD92271A22CD3743004E2408 /* UtilityExtensions.swift */; };
 		BDD015A1234CF551000BA001 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDD015A0234CEF86000BA001 /* Colors.xcassets */; };
 		BDD015A32353F7D4000BA001 /* PBHSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD015A22353F7D4000BA001 /* PBHSplitViewController.swift */; };
-		BDDD77A9235CDF130053DAEC /* NotesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDD77A8235CDF130053DAEC /* NotesTests.swift */; };
 		D004DB7723920E820080A7D1 /* Preview.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D004DB7623920E820080A7D1 /* Preview.bundle */; };
 		D00CDFBF194E65B3007505E9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D00CDFC1194E65B4007505E9 /* Localizable.strings */; };
 		D01067E22213BB5E0047E090 /* NoteProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01067E12213BB5E0047E090 /* NoteProtocol.swift */; };
@@ -60,10 +59,6 @@
 		D0CFE53B1888A7BD00165839 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CFE53A1888A7BD00165839 /* UIKit.framework */; };
 		D0CFE5411888A7BD00165839 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D0CFE53F1888A7BD00165839 /* InfoPlist.strings */; };
 		D0CFE5521888A7BD00165839 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0CFE5511888A7BD00165839 /* Images.xcassets */; };
-		D0CFE5591888A7BD00165839 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CFE5581888A7BD00165839 /* XCTest.framework */; };
-		D0CFE55A1888A7BD00165839 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CFE5361888A7BD00165839 /* Foundation.framework */; };
-		D0CFE55B1888A7BD00165839 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CFE53A1888A7BD00165839 /* UIKit.framework */; };
-		D0CFE5631888A7BD00165839 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D0CFE5611888A7BD00165839 /* InfoPlist.strings */; };
 		D0CFE5AD1890659600165839 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CFE5AC1890659600165839 /* QuartzCore.framework */; };
 		D0E38B0324930C410075B7F0 /* Throttler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09E644E248ABAEB003FB4C9 /* Throttler.swift */; };
 		D0E60F152772D809009CF78F /* SettingsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E60F142772D809009CF78F /* SettingsProtocol.swift */; };
@@ -84,7 +79,6 @@
 		F75D7B1229C8687C00ABD392 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = F75D7B1129C8687C00ABD392 /* JGProgressHUD */; };
 		F770842529C45BD000367DBD /* NCService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770842429C45BD000367DBD /* NCService.swift */; };
 		F770842729C462C700367DBD /* NCNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770842629C462C700367DBD /* NCNetworking.swift */; };
-		F770842A29C4683000367DBD /* NCElementsJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770842929C4683000367DBD /* NCElementsJSON.swift */; };
 		F77B56FF2993DE6300A23E76 /* NextcloudKit in Frameworks */ = {isa = PBXBuildFile; productRef = F77B56FE2993DE6300A23E76 /* NextcloudKit */; };
 		F77B57042993E32100A23E76 /* NCShareAccounts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F77B57022993E32100A23E76 /* NCShareAccounts.storyboard */; };
 		F77B57052993E32100A23E76 /* NCShareAccounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77B57032993E32100A23E76 /* NCShareAccounts.swift */; };
@@ -101,13 +95,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = D0AB0E772470B74D00D3E6B6;
 			remoteInfo = ActionExtension;
-		};
-		D0CFE55C1888A7BD00165839 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D0CFE52B1888A7BD00165839 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D0CFE5321888A7BD00165839;
-			remoteInfo = iOCNotes;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -229,7 +216,6 @@
 		D0CFE53E1888A7BD00165839 /* iOCNotes-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iOCNotes-Info.plist"; sourceTree = "<group>"; };
 		D0CFE5401888A7BD00165839 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D0CFE5511888A7BD00165839 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		D0CFE5571888A7BD00165839 /* iOCNotesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOCNotesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0CFE5581888A7BD00165839 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		D0CFE5601888A7BD00165839 /* iOCNotesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iOCNotesTests-Info.plist"; sourceTree = "<group>"; };
 		D0CFE5621888A7BD00165839 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -252,7 +238,6 @@
 		D0E60F75277FB0A5009CF78F /* Themes.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Themes.bundle; sourceTree = "<group>"; };
 		F770842429C45BD000367DBD /* NCService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCService.swift; sourceTree = "<group>"; };
 		F770842629C462C700367DBD /* NCNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCNetworking.swift; sourceTree = "<group>"; };
-		F770842929C4683000367DBD /* NCElementsJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NCElementsJSON.swift; sourceTree = "<group>"; };
 		F77B57022993E32100A23E76 /* NCShareAccounts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NCShareAccounts.storyboard; sourceTree = "<group>"; };
 		F77B57032993E32100A23E76 /* NCShareAccounts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NCShareAccounts.swift; sourceTree = "<group>"; };
 		F77B57072993E39500A23E76 /* NCPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NCPopupViewController.swift; sourceTree = "<group>"; };
@@ -287,16 +272,6 @@
 				D0CFE5371888A7BD00165839 /* Foundation.framework in Frameworks */,
 				D0CAFF092533E7FB00C47FA0 /* SwiftMessages in Frameworks */,
 				D078A1C4239C8A2000E1A004 /* CoreServices.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D0CFE5541888A7BD00165839 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D0CFE5591888A7BD00165839 /* XCTest.framework in Frameworks */,
-				D0CFE55B1888A7BD00165839 /* UIKit.framework in Frameworks */,
-				D0CFE55A1888A7BD00165839 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,7 +354,6 @@
 			isa = PBXGroup;
 			children = (
 				D0CFE5331888A7BD00165839 /* Nextcloud Notes.app */,
-				D0CFE5571888A7BD00165839 /* iOCNotesTests.xctest */,
 				D0AB0E782470B74D00D3E6B6 /* ActionExtension.appex */,
 			);
 			name = Products;
@@ -506,18 +480,9 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
-		F770842829C467FE00367DBD /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				F770842929C4683000367DBD /* NCElementsJSON.swift */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
 		F77B57002993E32100A23E76 /* Nextcloud */ = {
 			isa = PBXGroup;
 			children = (
-				F770842829C467FE00367DBD /* Data */,
 				F770842329C45BB900367DBD /* Networking */,
 				F77B57012993E32100A23E76 /* Account Request */,
 				F77B57062993E39500A23E76 /* Utility */,
@@ -610,24 +575,6 @@
 			productReference = D0CFE5331888A7BD00165839 /* Nextcloud Notes.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D0CFE5561888A7BD00165839 /* iOCNotesTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D0CFE56B1888A7BD00165839 /* Build configuration list for PBXNativeTarget "iOCNotesTests" */;
-			buildPhases = (
-				D0CFE5531888A7BD00165839 /* Sources */,
-				D0CFE5541888A7BD00165839 /* Frameworks */,
-				D0CFE5551888A7BD00165839 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D0CFE55D1888A7BD00165839 /* PBXTargetDependency */,
-			);
-			name = iOCNotesTests;
-			productName = iOCNotesTests;
-			productReference = D0CFE5571888A7BD00165839 /* iOCNotesTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -644,10 +591,6 @@
 					};
 					D0CFE5321888A7BD00165839 = {
 						LastSwiftMigration = 0810;
-					};
-					D0CFE5561888A7BD00165839 = {
-						LastSwiftMigration = 1110;
-						TestTargetID = D0CFE5321888A7BD00165839;
 					};
 				};
 			};
@@ -681,7 +624,6 @@
 			targets = (
 				D0CFE5321888A7BD00165839 /* iOCNotes */,
 				D0AB0E772470B74D00D3E6B6 /* ActionExtension */,
-				D0CFE5561888A7BD00165839 /* iOCNotesTests */,
 			);
 		};
 /* End PBXProject section */
@@ -715,14 +657,6 @@
 				D0E60F76277FB0A5009CF78F /* Themes.bundle in Resources */,
 				D0BCFE6A2454BF40007C4CA3 /* Categories.storyboard in Resources */,
 				D0CFE5411888A7BD00165839 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D0CFE5551888A7BD00165839 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D0CFE5631888A7BD00165839 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -777,7 +711,6 @@
 				D0E60F59277FADD5009CF78F /* Style.swift in Sources */,
 				D03493B722F2837500E1A9B0 /* NoteTableViewCell.swift in Sources */,
 				D01067E22213BB5E0047E090 /* NoteProtocol.swift in Sources */,
-				F770842A29C4683000367DBD /* NCElementsJSON.swift in Sources */,
 				D059F7DB1D40596D00C252F2 /* NoteExporter.swift in Sources */,
 				D07F5E872207B1DF00528E90 /* CDNote+CoreDataProperties.swift in Sources */,
 				F77B57082993E39500A23E76 /* NCPopupViewController.swift in Sources */,
@@ -791,14 +724,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D0CFE5531888A7BD00165839 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BDDD77A9235CDF130053DAEC /* NotesTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -806,11 +731,6 @@
 			isa = PBXTargetDependency;
 			target = D0AB0E772470B74D00D3E6B6 /* ActionExtension */;
 			targetProxy = D0AB0E822470B74D00D3E6B6 /* PBXContainerItemProxy */;
-		};
-		D0CFE55D1888A7BD00165839 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D0CFE5321888A7BD00165839 /* iOCNotes */;
-			targetProxy = D0CFE55C1888A7BD00165839 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -930,7 +850,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = NKUJUXUJ3B;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -942,7 +862,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 4.1.7;
+				MARKETING_VERSION = 4.1.8;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.peterandlinda.iOCNotes.ActionExtension;
@@ -968,7 +888,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 0;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = NKUJUXUJ3B;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -980,7 +900,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 4.1.7;
+				MARKETING_VERSION = 4.1.8;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.peterandlinda.iOCNotes.ActionExtension;
@@ -1024,6 +944,7 @@
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1080,6 +1001,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1105,7 +1027,7 @@
 				CODE_SIGN_ENTITLEMENTS = iOCNotes/iOCNotes.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 0;
+				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = NKUJUXUJ3B;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1119,7 +1041,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 4.1.7;
+				MARKETING_VERSION = 4.1.8;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.peterandlinda.${TARGET_NAME:rfc1034identifier}";
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -1141,7 +1063,7 @@
 				CODE_SIGN_ENTITLEMENTS = iOCNotes/iOCNotes.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 0;
+				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = NKUJUXUJ3B;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1155,7 +1077,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 4.1.7;
+				MARKETING_VERSION = 4.1.8;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.peterandlinda.${TARGET_NAME:rfc1034identifier}";
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -1165,67 +1087,6 @@
 				SWIFT_INCLUDE_PATHS = "$(inherited)";
 				SWIFT_VERSION = 5.0;
 				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		D0CFE56C1888A7BD00165839 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/iOCNotes.app/iOCNotes";
-				CLANG_ENABLE_MODULES = YES;
-				CURRENT_PROJECT_VERSION = 2882;
-				DEVELOPMENT_TEAM = NKUJUXUJ3B;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "iOCNotes/iOCNotes-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "iOCNotesTests/iOCNotesTests-Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.peterandlinda.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		D0CFE56D1888A7BD00165839 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/iOCNotes.app/iOCNotes";
-				CLANG_ENABLE_MODULES = YES;
-				CURRENT_PROJECT_VERSION = 2882;
-				DEVELOPMENT_TEAM = NKUJUXUJ3B;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "iOCNotes/iOCNotes-Prefix.pch";
-				INFOPLIST_FILE = "iOCNotesTests/iOCNotesTests-Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.peterandlinda.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
@@ -1255,15 +1116,6 @@
 			buildConfigurations = (
 				D0CFE5691888A7BD00165839 /* Debug */,
 				D0CFE56A1888A7BD00165839 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D0CFE56B1888A7BD00165839 /* Build configuration list for PBXNativeTarget "iOCNotesTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D0CFE56C1888A7BD00165839 /* Debug */,
-				D0CFE56D1888A7BD00165839 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1339,8 +1191,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/nextcloud/NextcloudKit";
 			requirement = {
-				branch = develop;
-				kind = branch;
+				kind = exactVersion;
+				version = 2.7.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
