@@ -71,7 +71,6 @@ class NCViewerNextcloudText: UIViewController, WKNavigationDelegate, WKScriptMes
         webView.customUserAgent = getCustomUserAgentNCText()
         webView.load(request)
 
-        guard let view = appDelegate.window?.rootViewController?.view else { return }
         hud.show(in: view)
     }
 
