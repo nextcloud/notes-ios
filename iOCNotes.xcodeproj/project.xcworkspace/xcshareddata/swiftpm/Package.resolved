@@ -37,12 +37,21 @@
       }
     },
     {
+      "identity" : "mocker",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/WeTransfer/Mocker.git",
+      "state" : {
+        "revision" : "5d86f27a8f80d4ba388bc1a379a3c2289a1f3d18",
+        "version" : "2.6.0"
+      }
+    },
+    {
       "identity" : "nextcloudkit",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/nextcloud/NextcloudKit",
       "state" : {
-        "branch" : "develop",
-        "revision" : "07b45ac0a509cfbf088e256d5b9dcab1d87d341c"
+        "revision" : "a5bad2b6238ac25b3a59c9e7d91826b4f74c16c3",
+        "version" : "2.7.0"
       }
     },
     {

@@ -32,7 +32,6 @@ class NCService: NSObject {
     }()
 
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    var jsonCapabilities: JSON?
 
     // MARK: -
 
@@ -62,19 +61,54 @@ class NCService: NSObject {
 
     private func requestServerCapabilities(completion: @escaping () -> Void) {
 
+        let capabilitiesDirectEditingSupportsFileId: Array = ["ocs", "data", "capabilities", "files", "directEditing", "supportsFileId"]
+        let capabilitiesDirectEditing: Array = ["ocs", "data", "capabilities", "richdocuments", "direct_editing"]
+        let capabilitiesNotesVersion: Array = ["ocs", "data", "capabilities", "notes", "version"]
+        let capabilitiesNotesApiVersion: Array = ["ocs", "data", "capabilities", "notes", "api_version"]
+
         NextcloudKit.shared.getCapabilities { account, data, error in
             if error == .success, let data = data {
-                self.jsonCapabilities = JSON(data)
-                if let jsonCapabilities = NCService.shared.jsonCapabilities,
-                   let version = jsonCapabilities[NCElementsJSON.shared.capabilitiesNotesVersion].string,
-                   let apiVersion = jsonCapabilities[NCElementsJSON.shared.capabilitiesNotesApiVersion].array?.last?.string {
-                    KeychainHelper.notesVersion = version
-                    KeychainHelper.notesApiVersion = apiVersion
-                }
-            }  else {
-                self.jsonCapabilities = nil
+                data.printJson()
+                let jsonCapabilities = JSON(data)
+                KeychainHelper.directEditing = jsonCapabilities[capabilitiesDirectEditing].boolValue
+                KeychainHelper.directEditingSupportsFileId = jsonCapabilities[capabilitiesDirectEditingSupportsFileId].boolValue
+                KeychainHelper.notesVersion = jsonCapabilities[capabilitiesNotesVersion].stringValue
+                KeychainHelper.notesApiVersion = jsonCapabilities[capabilitiesNotesApiVersion].array?.last?.string ?? ""
             }
             completion()
         }
     }
 }
+
+extension Data {
+
+    func printJson() {
+        do {
+            let json = try JSONSerialization.jsonObject(with: self, options: [])
+            let data = try JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
+            guard let jsonString = String(data: data, encoding: .utf8) else {
+                print("Inavlid data")
+                return
+            }
+            print(jsonString)
+        } catch {
+            print("Error: \(error.localizedDescription)")
+        }
+    }
+
+    func jsonToString() -> String {
+        do {
+            let json = try JSONSerialization.jsonObject(with: self, options: [])
+            let data = try JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
+            guard let jsonString = String(data: data, encoding: .utf8) else {
+                print("Inavlid data")
+                return ""
+            }
+            return jsonString
+        } catch {
+            print("Error: \(error.localizedDescription)")
+        }
+        return ""
+    }
+}
+

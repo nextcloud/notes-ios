@@ -358,18 +358,10 @@ class NotesTableViewController: UITableViewController {
 
     func isAvailableDirectEditing(identifier: String) -> Bool {
 
-        var supportsFileId: Bool = false
-
-        if let jsonCapabilities = NCService.shared.jsonCapabilities {
-            let capabilitie = jsonCapabilities[NCElementsJSON.shared.capabilitiesDirectEditingSupportsFileId]
-            if capabilitie.exists(), capabilitie.boolValue {
-                supportsFileId = true
-            }
-        }
-
-        if identifier == detailSegueIdentifier && supportsFileId && (appDelegate.networkReachability == NKCommon.TypeReachability.reachableCellular || appDelegate.networkReachability == NKCommon.TypeReachability.reachableEthernetOrWiFi) {
+        if !KeychainHelper.internalEditor && identifier == detailSegueIdentifier && KeychainHelper.directEditing && KeychainHelper.directEditingSupportsFileId && (appDelegate.networkReachability == NKCommon.TypeReachability.reachableCellular || appDelegate.networkReachability == NKCommon.TypeReachability.reachableEthernetOrWiFi) {
             return true
         }
+
         return false
     }
 
