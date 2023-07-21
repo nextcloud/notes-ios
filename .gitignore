@@ -2,11 +2,8 @@
 
 *.xcodeproj
 !iOCNotes.xcodeproj
-Documentation/
-Custom/
 GoogleService-Info.plist
 DevicePushKey-Info.plist
-iOSClient/Brand/Device*
 
 ## Xcode
 .DS_Store
@@ -26,6 +23,7 @@ DerivedData
 .idea/
 *.hmap
 *.xccheckout
+*.xcuserstate
 
 ## Package
 Carthage/
