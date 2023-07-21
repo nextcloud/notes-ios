@@ -27,3 +27,4 @@ Package.resolved
 
 *.generated.swift
 /.env-vars
+*.xcuserstate
