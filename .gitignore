@@ -1,10 +1,3 @@
-#
-
-*.xcodeproj
-!iOCNotes.xcodeproj
-GoogleService-Info.plist
-DevicePushKey-Info.plist
-
 ## Xcode
 .DS_Store
 */build/*
