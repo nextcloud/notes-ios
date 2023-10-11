@@ -388,7 +388,9 @@ extension EditorViewController: UITextViewDelegate {
             var lineRemainder = ""
             let precedingLineIndex = allLines.firstIndex { line in
                 if line.hasPrefix(precedingLineString) {
-                    lineRemainder = String(line.suffix(from: precedingLineString.endIndex))
+                    let distance = precedingLineString.distance(from: precedingLineString.startIndex, to: precedingLineString.endIndex)
+                    let indexSuffix = line.count - distance
+                    lineRemainder = String(line.suffix(indexSuffix))
                     return true
                 }
                 return false
