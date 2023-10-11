@@ -33,6 +33,26 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "closure #2 in EditorViewController.textView(_:shouldChangeTextIn:replacementText:):EditorViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "line.suffix(from: precedingLineString.endIndex)">
+            </PersistentString>
+            <PersistentString
+               value = "line.suffix">
+            </PersistentString>
+            <PersistentString
+               value = "line.count">
+            </PersistentString>
+            <PersistentString
+               value = "precedingLineString.endIndex">
+            </PersistentString>
+            <PersistentString
+               value = "(line.suffix(from: precedingLineString.endIndex))">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "NotesTableViewController.shouldPerformSegue(withIdentifier:sender:):NotesTableViewController.swift">
          <PersistentStrings>
             <PersistentString

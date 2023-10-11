@@ -5,3 +5,5 @@
 Carthage/Checkouts
 Carthage/Build
 MacDist/*
+.DS_Store
+*.xcuserstate
