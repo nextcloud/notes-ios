@@ -14,6 +14,7 @@ import UIKit
 import NextcloudKit
 import SwiftyJSON
 import Alamofire
+import SwiftUI
 
 let detailSegueIdentifier = "showDetail"
 let categorySegueIdentifier = "SelectCategorySegue"
@@ -731,4 +732,18 @@ extension NSPredicate {
         return NSPredicate(format: "cdDeleteNeeded == %@", NSNumber(value: false))
     }
     
+}
+
+struct NotesTableViewControllerRepresentable: UIViewControllerRepresentable {
+    func makeUIViewController(context: Context) -> UIViewController {
+        let storyboard = UIStoryboard(name: "Main_iPhone", bundle: nil)
+        
+        let viewController = storyboard.instantiateViewController(withIdentifier: "Notes")
+        
+        return viewController
+    }
+    
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+        // Update the UI of the view controller if needed
+    }
 }

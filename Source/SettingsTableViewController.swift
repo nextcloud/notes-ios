@@ -9,6 +9,7 @@
 import UIKit
 import MessageUI
 import NextcloudKit
+import SwiftUI
 
 class SettingsTableViewController: UITableViewController {
 
@@ -40,7 +41,7 @@ class SettingsTableViewController: UITableViewController {
             }
         }
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.serverTextField.text = KeychainHelper.server
@@ -54,7 +55,7 @@ class SettingsTableViewController: UITableViewController {
         tableView.isScrollEnabled = false
         tableView.isScrollEnabled = true
     }
-    
+
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
@@ -67,7 +68,7 @@ class SettingsTableViewController: UITableViewController {
             return nil
         }
     }
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
@@ -155,7 +156,7 @@ class SettingsTableViewController: UITableViewController {
     @IBAction func syncOnStartChanged(_ sender: Any) {
         KeychainHelper.syncOnStart = syncOnStartSwitch.isOn
     }
-    
+
     @IBAction func offlineModeChanged(_ sender: Any) {
         KeychainHelper.offlineMode = offlineModeSwitch.isOn
     }
@@ -186,9 +187,9 @@ class SettingsTableViewController: UITableViewController {
         let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: "Caption of Cancel button"), style: .cancel, handler: nil)
         let renameAction = UIAlertAction(title: NSLocalizedString("Save", comment: "Caption of Save button"), style: .default) { _ in
             guard let newName = nameTextField?.text,
-                !newName.isEmpty,
-                newName != folderPath else {
-                    return
+                  !newName.isEmpty,
+                  newName != folderPath else {
+                return
             }
             KeychainHelper.notesPath = newName
             NoteSessionManager.shared.updateSettings { [weak self] in
@@ -202,9 +203,9 @@ class SettingsTableViewController: UITableViewController {
 
     private func updateFooter() -> String {
         guard !KeychainHelper.productName.isEmpty,
-            !KeychainHelper.productVersion.isEmpty,
-            !KeychainHelper.server.isEmpty
-            else {
+              !KeychainHelper.productVersion.isEmpty,
+              !KeychainHelper.server.isEmpty
+        else {
             return NSLocalizedString("Not logged in", comment: "Message about not being logged in")
         }
         let notesVersion = KeychainHelper.notesVersion.isEmpty ? "" : "\(KeychainHelper.notesVersion) "
@@ -246,5 +247,19 @@ extension SettingsTableViewController: NCShareAccountsDelegate {
     func selected(url: String, user: String) {
         serverTextField.text = url
         self.user = user
+    }
+}
+
+struct SettingsTableViewControllerRepresentable: UIViewControllerRepresentable {
+    func makeUIViewController(context: Context) -> UIViewController {
+        let storyboard = UIStoryboard(name: "Settings", bundle: nil)
+
+        let viewController = storyboard.instantiateViewController(withIdentifier: "login")
+
+        return viewController
+    }
+
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+        // Update the UI of the view controller if needed
     }
 }

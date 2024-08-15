@@ -9,6 +9,7 @@
 import UIKit
 import BackgroundTasks
 import NextcloudKit
+import SwiftUI
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -78,19 +79,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         UITextView.appearance().tintColor = .ph_selectedTextColor
         
-        if let splitViewController = self.window?.rootViewController as? UISplitViewController {
-            if let firstNavigationController = splitViewController.viewControllers.first as? UINavigationController {
-                notesTableViewController = firstNavigationController.topViewController as? NotesTableViewController
-                
-            }
-            if let secondNavigationController = splitViewController.viewControllers.last as? UINavigationController {
-                if #available(iOS 14.0, *) {
-                    //
-                } else {
-                    secondNavigationController.topViewController?.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
-                }
-            }
-        }
+//        if let splitViewController = self.window?.rootViewController as? UISplitViewController {
+//            if let firstNavigationController = splitViewController.viewControllers.first as? UINavigationController {
+//                notesTableViewController = firstNavigationController.topViewController as? NotesTableViewController
+//                
+//            }
+//            if let secondNavigationController = splitViewController.viewControllers.last as? UINavigationController {
+//                if #available(iOS 14.0, *) {
+//                    //
+//                } else {
+//                    secondNavigationController.topViewController?.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
+//                }
+//            }
+//        }
+
+        // Create the SwiftUI view that provides the window contents.
+               let contentView = Home()
+
+               // Use a UIHostingController as the window root view controller.
+               let window = UIWindow(frame: UIScreen.main.bounds)
+               window.rootViewController = UIHostingController(rootView: contentView)
+               self.window = window
+               window.makeKeyAndVisible()
 
         return true
     }

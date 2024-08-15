@@ -76,6 +76,9 @@
 		D0E60F71277FADD6009CF78F /* CheckBoxTapHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E60F52277FADD5009CF78F /* CheckBoxTapHandler.swift */; };
 		D0E60F74277FADD6009CF78F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E60F55277FADD5009CF78F /* Extensions.swift */; };
 		D0E60F76277FB0A5009CF78F /* Themes.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D0E60F75277FB0A5009CF78F /* Themes.bundle */; };
+		F3E3C8D52C6A60CF00A80504 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E3C8D42C6A60CF00A80504 /* Home.swift */; };
+		F3E3C8D92C6B7C2200A80504 /* NCBrand.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E3C8D82C6B7C2200A80504 /* NCBrand.swift */; };
+		F3E3C8DC2C6B7DA600A80504 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E3C8DB2C6B7DA600A80504 /* UIColor+Extension.swift */; };
 		F75D7B1229C8687C00ABD392 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = F75D7B1129C8687C00ABD392 /* JGProgressHUD */; };
 		F770842529C45BD000367DBD /* NCService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770842429C45BD000367DBD /* NCService.swift */; };
 		F770842729C462C700367DBD /* NCNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770842629C462C700367DBD /* NCNetworking.swift */; };
@@ -236,6 +239,9 @@
 		D0E60F52277FADD5009CF78F /* CheckBoxTapHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoxTapHandler.swift; sourceTree = "<group>"; };
 		D0E60F55277FADD5009CF78F /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D0E60F75277FB0A5009CF78F /* Themes.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Themes.bundle; sourceTree = "<group>"; };
+		F3E3C8D42C6A60CF00A80504 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		F3E3C8D82C6B7C2200A80504 /* NCBrand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NCBrand.swift; sourceTree = "<group>"; };
+		F3E3C8DB2C6B7DA600A80504 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		F770842429C45BD000367DBD /* NCService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCService.swift; sourceTree = "<group>"; };
 		F770842629C462C700367DBD /* NCNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCNetworking.swift; sourceTree = "<group>"; };
 		F77B57022993E32100A23E76 /* NCShareAccounts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NCShareAccounts.storyboard; sourceTree = "<group>"; };
@@ -336,13 +342,15 @@
 		D0CFE52A1888A7BD00165839 = {
 			isa = PBXGroup;
 			children = (
+				F3E3C8D72C6B7BF800A80504 /* Brand */,
 				F77B57002993E32100A23E76 /* Nextcloud */,
-				D0CFE53C1888A7BD00165839 /* iOCNotes */,
+				D0CFE53C1888A7BD00165839 /* Source */,
 				D084FB6C245A5FDC003EB6FB /* Shared */,
 				D01067DC220BCAD60047E090 /* Models */,
 				D07F5E8C2207B6D700528E90 /* Networking */,
 				D05110BE20CA1F9D00AFFDC7 /* CoreData */,
 				D0E60F35277FADA0009CF78F /* Editor */,
+				F3E3C8DA2C6B7D3B00A80504 /* Extensions */,
 				D0CFE55E1888A7BD00165839 /* iOCNotesTests */,
 				D0AB0E792470B74D00D3E6B6 /* ActionExtension */,
 				D0CFE5351888A7BD00165839 /* Frameworks */,
@@ -387,9 +395,10 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D0CFE53C1888A7BD00165839 /* iOCNotes */ = {
+		D0CFE53C1888A7BD00165839 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				F3E3C8D32C6A60C100A80504 /* Home */,
 				D01067E32213BDF20047E090 /* AppDelegate.swift */,
 				D0BCFE6C2454BF40007C4CA3 /* Categories.storyboard */,
 				D018034923B037B1001CA4FC /* CategoriesSceneDelegate.swift */,
@@ -421,7 +430,7 @@
 				D06882EB22BACDA300CEBC1F /* SettingsTableViewController.swift */,
 				D0CFE53D1888A7BD00165839 /* Supporting Files */,
 			);
-			path = iOCNotes;
+			path = Source;
 			sourceTree = "<group>";
 		};
 		D0CFE53D1888A7BD00165839 /* Supporting Files */ = {
@@ -469,6 +478,30 @@
 				D0E60F75277FB0A5009CF78F /* Themes.bundle */,
 			);
 			path = Editor;
+			sourceTree = "<group>";
+		};
+		F3E3C8D32C6A60C100A80504 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F3E3C8D42C6A60CF00A80504 /* Home.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		F3E3C8D72C6B7BF800A80504 /* Brand */ = {
+			isa = PBXGroup;
+			children = (
+				F3E3C8D82C6B7C2200A80504 /* NCBrand.swift */,
+			);
+			path = Brand;
+			sourceTree = "<group>";
+		};
+		F3E3C8DA2C6B7D3B00A80504 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F3E3C8DB2C6B7DA600A80504 /* UIColor+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		F770842329C45BB900367DBD /* Networking */ = {
@@ -675,6 +708,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3E3C8DC2C6B7DA600A80504 /* UIColor+Extension.swift in Sources */,
+				F3E3C8D92C6B7C2200A80504 /* NCBrand.swift in Sources */,
 				D095384A1D3313F8006BB78E /* PreviewViewController.swift in Sources */,
 				D0E60F1A27756608009CF78F /* LoginViewController.swift in Sources */,
 				D07F5E862207B1DF00528E90 /* CDNote+CoreDataClass.swift in Sources */,
@@ -697,6 +732,7 @@
 				D0B6D4AE22F91DDA0037E073 /* CollapsibleTableViewHeaderView.swift in Sources */,
 				BD92271B22CD3743004E2408 /* UtilityExtensions.swift in Sources */,
 				D0E60F71277FADD6009CF78F /* CheckBoxTapHandler.swift in Sources */,
+				F3E3C8D52C6A60CF00A80504 /* Home.swift in Sources */,
 				D0E60F5F277FADD5009CF78F /* Element.swift in Sources */,
 				D0C1C39F2462448D00AAC4A8 /* SyncOperation.swift in Sources */,
 				D0E60F74277FADD6009CF78F /* Extensions.swift in Sources */,
@@ -1036,7 +1072,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				INFOPLIST_FILE = "iOCNotes/iOCNotes-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1072,7 +1108,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				INFOPLIST_FILE = "iOCNotes/iOCNotes-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
