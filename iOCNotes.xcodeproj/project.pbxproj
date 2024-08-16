@@ -23,7 +23,6 @@
 		D02D15CC2905D756006ADCBB /* OpenSSL in Frameworks */ = {isa = PBXBuildFile; productRef = D02D15CB2905D756006ADCBB /* OpenSSL */; };
 		D03493B722F2837500E1A9B0 /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03493B622F2837500E1A9B0 /* NoteTableViewCell.swift */; };
 		D03493B922F3CC5700E1A9B0 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03493B822F3CC5700E1A9B0 /* CategoryTableViewController.swift */; };
-		D05110C120CA1FE000AFFDC7 /* Notes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D05110BF20CA1FE000AFFDC7 /* Notes.xcdatamodeld */; };
 		D0545F23230901D30001D165 /* PBHOpenInActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0545F22230901D30001D165 /* PBHOpenInActivity.swift */; };
 		D0595C7C238632610004C4E8 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = D0595C7B238632610004C4E8 /* KeychainAccess */; };
 		D059F7DB1D40596D00C252F2 /* NoteExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D059F7DA1D40596D00C252F2 /* NoteExporter.swift */; };
@@ -33,9 +32,6 @@
 		D075B1BC2906DDBF0085D64E /* ServerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D075B1BB2906DDBF0085D64E /* ServerStatus.swift */; };
 		D075B1BE29074E6B0085D64E /* CertificateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D075B1BD29074E6B0085D64E /* CertificateViewController.swift */; };
 		D078A1C4239C8A2000E1A004 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D078A1C3239C8A2000E1A004 /* CoreServices.framework */; };
-		D07F5E862207B1DF00528E90 /* CDNote+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07F5E842207B1DE00528E90 /* CDNote+CoreDataClass.swift */; };
-		D07F5E872207B1DF00528E90 /* CDNote+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07F5E852207B1DE00528E90 /* CDNote+CoreDataProperties.swift */; };
-		D07F5E892207B2CF00528E90 /* NotesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07F5E882207B2CF00528E90 /* NotesData.swift */; };
 		D07F5E8E2207B6FF00528E90 /* NoteRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07F5E8D2207B6FF00528E90 /* NoteRouter.swift */; };
 		D08713ED1D18DA40001EAF82 /* HeaderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08713EC1D18DA40001EAF82 /* HeaderTextView.swift */; };
 		D095384A1D3313F8006BB78E /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09538421D32A56A006BB78E /* PreviewViewController.swift */; };
@@ -79,6 +75,10 @@
 		F3E3C8D52C6A60CF00A80504 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E3C8D42C6A60CF00A80504 /* Home.swift */; };
 		F3E3C8D92C6B7C2200A80504 /* NCBrand.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E3C8D82C6B7C2200A80504 /* NCBrand.swift */; };
 		F3E3C8DC2C6B7DA600A80504 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E3C8DB2C6B7DA600A80504 /* UIColor+Extension.swift */; };
+		F3F7344E2C6FA550007C8C0B /* CDNote+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F734472C6FA550007C8C0B /* CDNote+CoreDataClass.swift */; };
+		F3F7344F2C6FA550007C8C0B /* CDNote+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F734482C6FA550007C8C0B /* CDNote+CoreDataProperties.swift */; };
+		F3F734512C6FA550007C8C0B /* Notes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F3F7344A2C6FA550007C8C0B /* Notes.xcdatamodeld */; };
+		F3F734522C6FA550007C8C0B /* NotesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F7344B2C6FA550007C8C0B /* NotesData.swift */; };
 		F75D7B1229C8687C00ABD392 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = F75D7B1129C8687C00ABD392 /* JGProgressHUD */; };
 		F770842529C45BD000367DBD /* NCService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770842429C45BD000367DBD /* NCService.swift */; };
 		F770842729C462C700367DBD /* NCNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770842629C462C700367DBD /* NCNetworking.swift */; };
@@ -156,7 +156,6 @@
 		D03E93DF2734BEF30066BC8F /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		D03E93E12734BF060066BC8F /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D05110B920C8C9FE00AFFDC7 /* KSCrash.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KSCrash.framework; path = Carthage/Build/iOS/KSCrash.framework; sourceTree = "<group>"; };
-		D05110C020CA1FE000AFFDC7 /* Notes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Notes.xcdatamodel; sourceTree = "<group>"; };
 		D0545F22230901D30001D165 /* PBHOpenInActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBHOpenInActivity.swift; sourceTree = "<group>"; };
 		D059745A18CE9E5A00867B02 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		D059F7DA1D40596D00C252F2 /* NoteExporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteExporter.swift; sourceTree = "<group>"; };
@@ -173,9 +172,6 @@
 		D076F74226BCBEC00093F22A /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D076F74526BCBEC10093F22A /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = cs; path = cs.lproj/Info.plist; sourceTree = "<group>"; };
 		D078A1C3239C8A2000E1A004 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework; sourceTree = DEVELOPER_DIR; };
-		D07F5E842207B1DE00528E90 /* CDNote+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CDNote+CoreDataClass.swift"; path = "CoreData/CDNote+CoreDataClass.swift"; sourceTree = "<group>"; };
-		D07F5E852207B1DE00528E90 /* CDNote+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CDNote+CoreDataProperties.swift"; path = "CoreData/CDNote+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		D07F5E882207B2CF00528E90 /* NotesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotesData.swift; path = CoreData/NotesData.swift; sourceTree = "<group>"; };
 		D07F5E8A2207B61500528E90 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		D07F5E8D2207B6FF00528E90 /* NoteRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteRouter.swift; sourceTree = "<group>"; };
 		D07F5E8F2207B81F00528E90 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = Carthage/Build/iOS/KeychainAccess.framework; sourceTree = "<group>"; };
@@ -242,6 +238,10 @@
 		F3E3C8D42C6A60CF00A80504 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		F3E3C8D82C6B7C2200A80504 /* NCBrand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NCBrand.swift; sourceTree = "<group>"; };
 		F3E3C8DB2C6B7DA600A80504 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		F3F734472C6FA550007C8C0B /* CDNote+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDNote+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F3F734482C6FA550007C8C0B /* CDNote+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDNote+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F3F7344B2C6FA550007C8C0B /* NotesData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesData.swift; sourceTree = "<group>"; };
+		F3F7344D2C6FA550007C8C0B /* Notes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Notes.xcdatamodel; sourceTree = "<group>"; };
 		F770842429C45BD000367DBD /* NCService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCService.swift; sourceTree = "<group>"; };
 		F770842629C462C700367DBD /* NCNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCNetworking.swift; sourceTree = "<group>"; };
 		F77B57022993E32100A23E76 /* NCShareAccounts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NCShareAccounts.storyboard; sourceTree = "<group>"; };
@@ -294,18 +294,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		D05110BE20CA1F9D00AFFDC7 /* CoreData */ = {
-			isa = PBXGroup;
-			children = (
-				D05110BF20CA1FE000AFFDC7 /* Notes.xcdatamodeld */,
-				D07F5E842207B1DE00528E90 /* CDNote+CoreDataClass.swift */,
-				D07F5E852207B1DE00528E90 /* CDNote+CoreDataProperties.swift */,
-				D07F5E882207B2CF00528E90 /* NotesData.swift */,
-			);
-			name = CoreData;
-			path = iOCNotes;
-			sourceTree = "<group>";
-		};
 		D07F5E8C2207B6D700528E90 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -348,7 +336,6 @@
 				D084FB6C245A5FDC003EB6FB /* Shared */,
 				D01067DC220BCAD60047E090 /* Models */,
 				D07F5E8C2207B6D700528E90 /* Networking */,
-				D05110BE20CA1F9D00AFFDC7 /* CoreData */,
 				D0E60F35277FADA0009CF78F /* Editor */,
 				F3E3C8DA2C6B7D3B00A80504 /* Extensions */,
 				D0CFE55E1888A7BD00165839 /* iOCNotesTests */,
@@ -428,6 +415,7 @@
 				D0BCFE632454BF0B007C4CA3 /* Settings.storyboard */,
 				D004DB82239759020080A7D1 /* SettingsSceneDelegate.swift */,
 				D06882EB22BACDA300CEBC1F /* SettingsTableViewController.swift */,
+				F3F7344C2C6FA550007C8C0B /* CoreData */,
 				D0CFE53D1888A7BD00165839 /* Supporting Files */,
 			);
 			path = Source;
@@ -502,6 +490,17 @@
 				F3E3C8DB2C6B7DA600A80504 /* UIColor+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F3F7344C2C6FA550007C8C0B /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				F3F734472C6FA550007C8C0B /* CDNote+CoreDataClass.swift */,
+				F3F734482C6FA550007C8C0B /* CDNote+CoreDataProperties.swift */,
+				F3F7344A2C6FA550007C8C0B /* Notes.xcdatamodeld */,
+				F3F7344B2C6FA550007C8C0B /* NotesData.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		F770842329C45BB900367DBD /* Networking */ = {
@@ -712,7 +711,6 @@
 				F3E3C8D92C6B7C2200A80504 /* NCBrand.swift in Sources */,
 				D095384A1D3313F8006BB78E /* PreviewViewController.swift in Sources */,
 				D0E60F1A27756608009CF78F /* LoginViewController.swift in Sources */,
-				D07F5E862207B1DF00528E90 /* CDNote+CoreDataClass.swift in Sources */,
 				D0B0F3A427360BD000E51C3F /* NotesFRCManager.swift in Sources */,
 				D06882EC22BACDA300CEBC1F /* SettingsTableViewController.swift in Sources */,
 				D0E60F152772D809009CF78F /* SettingsProtocol.swift in Sources */,
@@ -720,12 +718,13 @@
 				D0E60F1827741633009CF78F /* FileExtensionTableViewController.swift in Sources */,
 				D095AE45245BB25F00A7EF62 /* NoteSessionManager.swift in Sources */,
 				D0E60F5E277FADD5009CF78F /* Theme.swift in Sources */,
-				D05110C120CA1FE000AFFDC7 /* Notes.xcdatamodeld in Sources */,
 				D07F5E8E2207B6FF00528E90 /* NoteRouter.swift in Sources */,
 				D09E6451248B3A7C003FB4C9 /* OCSProtocol.swift in Sources */,
 				D0E60F5C277FADD5009CF78F /* AttributedStringKey.swift in Sources */,
 				BD653F88231C43FA00D59A88 /* Constants.swift in Sources */,
 				D01067E42213BDF30047E090 /* AppDelegate.swift in Sources */,
+				F3F734512C6FA550007C8C0B /* Notes.xcdatamodeld in Sources */,
+				F3F7344F2C6FA550007C8C0B /* CDNote+CoreDataProperties.swift in Sources */,
 				F7F0812B299D0B53006A2041 /* NCViewerNextcloudText.swift in Sources */,
 				D0E38B0324930C410075B7F0 /* Throttler.swift in Sources */,
 				D01067E62213C17D0047E090 /* NotesTableViewController.swift in Sources */,
@@ -736,19 +735,19 @@
 				D0E60F5F277FADD5009CF78F /* Element.swift in Sources */,
 				D0C1C39F2462448D00AAC4A8 /* SyncOperation.swift in Sources */,
 				D0E60F74277FADD6009CF78F /* Extensions.swift in Sources */,
+				F3F7344E2C6FA550007C8C0B /* CDNote+CoreDataClass.swift in Sources */,
 				D075B1BC2906DDBF0085D64E /* ServerStatus.swift in Sources */,
 				D0E60F57277FADD5009CF78F /* Storage.swift in Sources */,
 				D0545F23230901D30001D165 /* PBHOpenInActivity.swift in Sources */,
 				D06882EE22BB146200CEBC1F /* EditorViewController.swift in Sources */,
 				F77B57052993E32100A23E76 /* NCShareAccounts.swift in Sources */,
 				F770842529C45BD000367DBD /* NCService.swift in Sources */,
-				D07F5E892207B2CF00528E90 /* NotesData.swift in Sources */,
 				F770842729C462C700367DBD /* NCNetworking.swift in Sources */,
 				D0E60F59277FADD5009CF78F /* Style.swift in Sources */,
 				D03493B722F2837500E1A9B0 /* NoteTableViewCell.swift in Sources */,
+				F3F734522C6FA550007C8C0B /* NotesData.swift in Sources */,
 				D01067E22213BB5E0047E090 /* NoteProtocol.swift in Sources */,
 				D059F7DB1D40596D00C252F2 /* NoteExporter.swift in Sources */,
-				D07F5E872207B1DF00528E90 /* CDNote+CoreDataProperties.swift in Sources */,
 				F77B57082993E39500A23E76 /* NCPopupViewController.swift in Sources */,
 				BD86DD8522B9CDD500115E5D /* KeychainHelper.swift in Sources */,
 				D08713ED1D18DA40001EAF82 /* HeaderTextView.swift in Sources */,
@@ -1060,7 +1059,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = iOCNotes/iOCNotes.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Source/iOCNotes.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 0;
@@ -1071,7 +1070,7 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				INFOPLIST_FILE = "iOCNotes/iOCNotes-Info.plist";
+				INFOPLIST_FILE = "Source/iOCNotes-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1096,7 +1095,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = iOCNotes/iOCNotes.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Source/iOCNotes.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 0;
@@ -1107,7 +1106,7 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				INFOPLIST_FILE = "iOCNotes/iOCNotes-Info.plist";
+				INFOPLIST_FILE = "Source/iOCNotes-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1282,14 +1281,14 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
-		D05110BF20CA1FE000AFFDC7 /* Notes.xcdatamodeld */ = {
+		F3F7344A2C6FA550007C8C0B /* Notes.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				D05110C020CA1FE000AFFDC7 /* Notes.xcdatamodel */,
+				F3F7344D2C6FA550007C8C0B /* Notes.xcdatamodel */,
 			);
-			currentVersion = D05110C020CA1FE000AFFDC7 /* Notes.xcdatamodel */;
+			currentVersion = F3F7344D2C6FA550007C8C0B /* Notes.xcdatamodel */;
 			name = Notes.xcdatamodeld;
-			path = CoreData/Notes.xcdatamodeld;
+			path = "/Users/milen/Code/Nextcloud/notes-ios/Source/CoreData/Notes.xcdatamodeld";
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
