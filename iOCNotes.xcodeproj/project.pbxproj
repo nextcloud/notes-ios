@@ -72,7 +72,7 @@
 		D0E60F71277FADD6009CF78F /* CheckBoxTapHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E60F52277FADD5009CF78F /* CheckBoxTapHandler.swift */; };
 		D0E60F74277FADD6009CF78F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E60F55277FADD5009CF78F /* Extensions.swift */; };
 		D0E60F76277FB0A5009CF78F /* Themes.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D0E60F75277FB0A5009CF78F /* Themes.bundle */; };
-		F3E3C8D52C6A60CF00A80504 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E3C8D42C6A60CF00A80504 /* Home.swift */; };
+		F3E3C8D52C6A60CF00A80504 /* Root.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E3C8D42C6A60CF00A80504 /* Root.swift */; };
 		F3E3C8D92C6B7C2200A80504 /* NCBrand.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E3C8D82C6B7C2200A80504 /* NCBrand.swift */; };
 		F3E3C8DC2C6B7DA600A80504 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E3C8DB2C6B7DA600A80504 /* UIColor+Extension.swift */; };
 		F3F7344E2C6FA550007C8C0B /* CDNote+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F734472C6FA550007C8C0B /* CDNote+CoreDataClass.swift */; };
@@ -235,7 +235,7 @@
 		D0E60F52277FADD5009CF78F /* CheckBoxTapHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoxTapHandler.swift; sourceTree = "<group>"; };
 		D0E60F55277FADD5009CF78F /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D0E60F75277FB0A5009CF78F /* Themes.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Themes.bundle; sourceTree = "<group>"; };
-		F3E3C8D42C6A60CF00A80504 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		F3E3C8D42C6A60CF00A80504 /* Root.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Root.swift; sourceTree = "<group>"; };
 		F3E3C8D82C6B7C2200A80504 /* NCBrand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NCBrand.swift; sourceTree = "<group>"; };
 		F3E3C8DB2C6B7DA600A80504 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		F3F734472C6FA550007C8C0B /* CDNote+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDNote+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -385,7 +385,8 @@
 		D0CFE53C1888A7BD00165839 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				F3E3C8D32C6A60C100A80504 /* Home */,
+				F3F734542C6FA75A007C8C0B /* Notes */,
+				F3E3C8D32C6A60C100A80504 /* Root */,
 				D01067E32213BDF20047E090 /* AppDelegate.swift */,
 				D0BCFE6C2454BF40007C4CA3 /* Categories.storyboard */,
 				D018034923B037B1001CA4FC /* CategoriesSceneDelegate.swift */,
@@ -401,10 +402,6 @@
 				F7BB8B7129915A650010D2F7 /* Launch Screen.storyboard */,
 				D0E60F1927756608009CF78F /* LoginViewController.swift */,
 				D09E430E1E2C46930010E4B3 /* Main_iPhone.storyboard */,
-				D059F7DA1D40596D00C252F2 /* NoteExporter.swift */,
-				D0B0F3A327360BD000E51C3F /* NotesFRCManager.swift */,
-				D01067E52213C17D0047E090 /* NotesTableViewController.swift */,
-				D03493B622F2837500E1A9B0 /* NoteTableViewCell.swift */,
 				D0545F22230901D30001D165 /* PBHOpenInActivity.swift */,
 				BDD015A22353F7D4000BA001 /* PBHSplitViewController.swift */,
 				D004DB7623920E820080A7D1 /* Preview.bundle */,
@@ -468,12 +465,12 @@
 			path = Editor;
 			sourceTree = "<group>";
 		};
-		F3E3C8D32C6A60C100A80504 /* Home */ = {
+		F3E3C8D32C6A60C100A80504 /* Root */ = {
 			isa = PBXGroup;
 			children = (
-				F3E3C8D42C6A60CF00A80504 /* Home.swift */,
+				F3E3C8D42C6A60CF00A80504 /* Root.swift */,
 			);
-			path = Home;
+			path = Root;
 			sourceTree = "<group>";
 		};
 		F3E3C8D72C6B7BF800A80504 /* Brand */ = {
@@ -501,6 +498,17 @@
 				F3F7344B2C6FA550007C8C0B /* NotesData.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		F3F734542C6FA75A007C8C0B /* Notes */ = {
+			isa = PBXGroup;
+			children = (
+				D059F7DA1D40596D00C252F2 /* NoteExporter.swift */,
+				D0B0F3A327360BD000E51C3F /* NotesFRCManager.swift */,
+				D01067E52213C17D0047E090 /* NotesTableViewController.swift */,
+				D03493B622F2837500E1A9B0 /* NoteTableViewCell.swift */,
+			);
+			path = Notes;
 			sourceTree = "<group>";
 		};
 		F770842329C45BB900367DBD /* Networking */ = {
@@ -731,7 +739,7 @@
 				D0B6D4AE22F91DDA0037E073 /* CollapsibleTableViewHeaderView.swift in Sources */,
 				BD92271B22CD3743004E2408 /* UtilityExtensions.swift in Sources */,
 				D0E60F71277FADD6009CF78F /* CheckBoxTapHandler.swift in Sources */,
-				F3E3C8D52C6A60CF00A80504 /* Home.swift in Sources */,
+				F3E3C8D52C6A60CF00A80504 /* Root.swift in Sources */,
 				D0E60F5F277FADD5009CF78F /* Element.swift in Sources */,
 				D0C1C39F2462448D00AAC4A8 /* SyncOperation.swift in Sources */,
 				D0E60F74277FADD6009CF78F /* Extensions.swift in Sources */,

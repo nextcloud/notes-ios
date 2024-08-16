@@ -31,7 +31,7 @@ class NotesTableViewController: UITableViewController {
     var searchController: UISearchController?
     var editorViewController: EditorViewController?
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    
+
     private var networkHasBeenUnreachable = false
     private var searchResult: [CDNote]?
     private var launching = true
@@ -44,7 +44,7 @@ class NotesTableViewController: UITableViewController {
 
     private var contextMenuIndexPath: IndexPath?
     private var noteExporter: NoteExporter?
-    
+
     private var dateFormat: DateFormatter {
         let df = DateFormatter()
         df.dateStyle = .short
@@ -68,80 +68,80 @@ class NotesTableViewController: UITableViewController {
                                                                      object: nil,
                                                                      queue: OperationQueue.main,
                                                                      using: { [weak self] notification in
-                                                                        self?.tableView.reloadData()
+            self?.tableView.reloadData()
         }))
         self.observers.append(NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification,
                                                                      object: nil,
                                                                      queue: OperationQueue.main,
                                                                      using: { [weak self] _ in
-                                                                        self?.didBecomeActive()
+            self?.didBecomeActive()
         }))
         self.observers.append(NotificationCenter.default.addObserver(forName: .offlineModeChanged,
                                                                      object: nil,
                                                                      queue: OperationQueue.main,
                                                                      using: { [weak self] _ in
-                                                                        self?.refreshBarButton.isEnabled = NoteSessionManager.isOnline
+            self?.refreshBarButton.isEnabled = NoteSessionManager.isOnline
         }))
         self.observers.append(NotificationCenter.default.addObserver(forName: .deletingNote,
                                                                      object: nil,
                                                                      queue: OperationQueue.main,
                                                                      using: { [weak self] _ in
-                                                                        if let editor = self?.editorViewController,
-                                                                            let note = editor.note,
-                                                                           let currentIndexPath = self?.notesManager.manager.fetchedResultsController.indexPath(forObject: note), let tableView = self?.tableView {
-                                                                            self?.tableView(tableView, commit: .delete, forRowAt: currentIndexPath)
-                                                                        }
+            if let editor = self?.editorViewController,
+               let note = editor.note,
+               let currentIndexPath = self?.notesManager.manager.fetchedResultsController.indexPath(forObject: note), let tableView = self?.tableView {
+                self?.tableView(tableView, commit: .delete, forRowAt: currentIndexPath)
+            }
         }))
         self.observers.append(NotificationCenter.default.addObserver(forName: .syncNotes,
                                                                      object: nil,
                                                                      queue: OperationQueue.main,
                                                                      using: { [weak self] _ in
-                                                                        self?.onRefresh(sender: nil)
+            self?.onRefresh(sender: nil)
         }))
         self.observers.append(NotificationCenter.default.addObserver(forName: .doneSelectingCategory,
                                                                      object: nil,
                                                                      queue: OperationQueue.main,
                                                                      using: { [weak self] _ in
-                                                                        self?.tableView.reloadData()
+            self?.tableView.reloadData()
         }))
         self.observers.append(NotificationCenter.default.addObserver(forName: .networkSuccess,
                                                                      object: nil,
                                                                      queue: OperationQueue.main,
                                                                      using: { [weak self] _ in
-                                                                        HUD.hide()
-                                                                        self?.refreshBarButton.isEnabled = NoteSessionManager.isOnline
-                                                                        self?.addBarButton.isEnabled = true
-                                                                        self?.settingsBarButton.isEnabled = true
+            HUD.hide()
+            self?.refreshBarButton.isEnabled = NoteSessionManager.isOnline
+            self?.addBarButton.isEnabled = true
+            self?.settingsBarButton.isEnabled = true
         }))
         self.observers.append(NotificationCenter.default.addObserver(forName: .networkError,
                                                                      object: nil,
                                                                      queue: OperationQueue.main,
                                                                      using: { [weak self] notification in
-                                                                        HUD.hide()
-                                                                        self?.refreshBarButton.isEnabled = NoteSessionManager.isOnline
-                                                                        self?.addBarButton.isEnabled = true
-                                                                        self?.settingsBarButton.isEnabled = true
-                                                                        if let title = notification.userInfo?["Title"] as? String,
-                                                                            let message = notification.userInfo?["Message"] as? String {
-                                                                            var config = SwiftMessages.defaultConfig
-                                                                            config.interactiveHide = true
-                                                                            config.duration = .forever
-                                                                            config.preferredStatusBarStyle = .default
-                                                                            SwiftMessages.show(config: config, viewProvider: {
-                                                                                let view = MessageView.viewFromNib(layout: .cardView)
-                                                                                view.configureTheme(.error, iconStyle: .default)
-                                                                                view.configureDropShadow()
-                                                                                view.configureContent(title: title,
-                                                                                                      body: message,
-                                                                                                      iconImage: Icon.error.image,
-                                                                                                      iconText: nil,
-                                                                                                      buttonImage: nil,
-                                                                                                      buttonTitle: nil,
-                                                                                                      buttonTapHandler: nil
-                                                                                )
-                                                                                return view
-                                                                            })
-                                                                        }
+            HUD.hide()
+            self?.refreshBarButton.isEnabled = NoteSessionManager.isOnline
+            self?.addBarButton.isEnabled = true
+            self?.settingsBarButton.isEnabled = true
+            if let title = notification.userInfo?["Title"] as? String,
+               let message = notification.userInfo?["Message"] as? String {
+                var config = SwiftMessages.defaultConfig
+                config.interactiveHide = true
+                config.duration = .forever
+                config.preferredStatusBarStyle = .default
+                SwiftMessages.show(config: config, viewProvider: {
+                    let view = MessageView.viewFromNib(layout: .cardView)
+                    view.configureTheme(.error, iconStyle: .default)
+                    view.configureDropShadow()
+                    view.configureContent(title: title,
+                                          body: message,
+                                          iconImage: Icon.error.image,
+                                          iconText: nil,
+                                          buttonImage: nil,
+                                          buttonTitle: nil,
+                                          buttonTapHandler: nil
+                    )
+                    return view
+                })
+            }
         })
         )
 
@@ -183,16 +183,16 @@ class NotesTableViewController: UITableViewController {
         settingsBarButton.isEnabled = true
         refreshBarButton.isEnabled = NoteSessionManager.isOnline
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         if launching {
             didBecomeActive()
         }
         launching = false
     }
-    
+
     // MARK: - Public functions
-    
+
     func updateFrcDelegate(update: FrcDelegateUpdate) {
         switch update {
         case .disable:
@@ -256,15 +256,15 @@ class NotesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
         return 44
     }
-    
+
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 44
     }
-    
+
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return CGFloat.leastNormalMagnitude
     }
-    
+
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let label = UILabel(frame: CGRect(origin: .zero, size: CGSize(width: Int.max, height: Int.max)))
         label.text = "test"
@@ -303,7 +303,7 @@ class NotesTableViewController: UITableViewController {
         configureCell(cell, at: indexPath)
         return cell
     }
-        
+
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
@@ -316,11 +316,11 @@ class NotesTableViewController: UITableViewController {
             if note == self.editorViewController?.note {
                 self.editorViewController?.note = nil
             }
-            
+
             if let sections = notesManager.manager.fetchedResultsController.sections {
                 notesManager.manager.currentSectionObjectCount = sections[indexPath.section].numberOfObjects
             }
-            
+
             NoteSessionManager.shared.delete(note: note, completion: { [weak self] in
                 if self?.notesManager.manager.fetchedResultsController.validate(indexPath: indexPath) ?? false {
                     var newIndex = 0
@@ -329,7 +329,7 @@ class NotesTableViewController: UITableViewController {
                     }
                     var noteCount = 0
                     if let sections = self?.notesManager.manager.fetchedResultsController.sections,
-                        sections.count >= indexPath.section {
+                       sections.count >= indexPath.section {
                         noteCount = sections[indexPath.section].numberOfObjects
                     }
                     if newIndex >= noteCount {
@@ -402,7 +402,7 @@ class NotesTableViewController: UITableViewController {
                 selectedIndexPath = cellIndexPath
             }
             if let navigationController = segue.destination as? UINavigationController,
-                let editorController = navigationController.topViewController as? EditorViewController {
+               let editorController = navigationController.topViewController as? EditorViewController {
                 editorViewController = editorController
                 let note = notesManager.manager.fetchedResultsController.object(at: selectedIndexPath)
                 editorController.note = note
@@ -451,9 +451,9 @@ class NotesTableViewController: UITableViewController {
         let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: "Caption of Cancel button"), style: .cancel, handler: nil)
         let renameAction = UIAlertAction(title: NSLocalizedString("Rename", comment: "Caption of Rename button"), style: .default) { (action) in
             guard let newName = nameTextField?.text,
-                !newName.isEmpty,
-                newName != note.title else {
-                    return
+                  !newName.isEmpty,
+                  newName != note.title else {
+                return
             }
             note.title = newName
             NoteSessionManager.shared.update(note: note, completion: nil)
@@ -462,7 +462,7 @@ class NotesTableViewController: UITableViewController {
         alertController.addAction(renameAction)
         present(alertController, animated: true, completion: nil)
     }
-    
+
     public override func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         guard notesManager.manager.fetchedResultsController.validate(indexPath: indexPath) else {
             return nil
@@ -472,7 +472,7 @@ class NotesTableViewController: UITableViewController {
         var actions = [UIAction]()
 
         if isNextcloud(),
-        KeychainHelper.notesApiVersion != Router.defaultApiVersion {
+           KeychainHelper.notesApiVersion != Router.defaultApiVersion {
             let renameAction = UIAction(title: NSLocalizedString("Rename...", comment: "Action to change title of a note"), image: UIImage(systemName: "square.and.pencil")) { [weak self] action in
                 self?.showRenameAlert(for: indexPath)
             }
@@ -486,8 +486,8 @@ class NotesTableViewController: UITableViewController {
         }
         let shareAction = UIAction(title: "Share", image: UIImage(systemName: "square.and.arrow.up")) { [weak self] action in
             guard let self = self,
-                !note.content.isEmpty else {
-                    return
+                  !note.content.isEmpty else {
+                return
             }
             self.noteExporter = NoteExporter(title: note.title, text: note.content, viewController: self, from: CGRect(origin: point, size: CGSize(width: 3, height: 3)), in: tableView)
             self.noteExporter?.showMenu()
@@ -502,9 +502,9 @@ class NotesTableViewController: UITableViewController {
         return UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ -> UIMenu? in
             return UIMenu(title: "", children: actions)
         }
-        
+
     }
-    
+
     @IBAction func onPullToRefresh(_ sender: Any) {
         onRefresh(sender: sender)
     }
@@ -533,7 +533,7 @@ class NotesTableViewController: UITableViewController {
         isAddingFromButton = true
         addNote(content: "")
     }
-    
+
     func addNote(content: String) {
         guard isViewLoaded else {
             noteToAddOnViewDidLoad = content
@@ -545,7 +545,7 @@ class NotesTableViewController: UITableViewController {
                 let indexPath = IndexPath(row: 0, section: 0)
                 if self?.notesManager.manager.fetchedResultsController.validate(indexPath: indexPath) ?? false,
                    let collapsedInfo = self?.notesManager.manager.disclosureSections.first(where: { $0.title == Constants.noCategory }),
-                    !collapsedInfo.collapsed {
+                   !collapsedInfo.collapsed {
                     self?.tableView.selectRow(at: indexPath, animated: true, scrollPosition: .top)
                 }
                 self?.editorViewController?.isNewNote = true
@@ -558,7 +558,7 @@ class NotesTableViewController: UITableViewController {
             HUD.hide()
         })
     }
-    
+
     func updateSectionExpandedInfo() {
         let knownSectionTitles = Set(notesManager.manager.disclosureSections.map({ $0.title }))
         if let sections = notesManager.manager.fetchedResultsController.sections {
@@ -576,9 +576,9 @@ class NotesTableViewController: UITableViewController {
             }
         }
     }
-    
+
     // MARK:  Notification Callbacks
-    
+
     private func reachabilityChanged() {
         //
     }
@@ -598,7 +598,7 @@ class NotesTableViewController: UITableViewController {
         settingsBarButton.isEnabled = true
         refreshBarButton.isEnabled = NoteSessionManager.isOnline
     }
-    
+
     fileprivate func showCategories(indexPath: IndexPath) {
         let categories = notesManager.manager.fetchedResultsController.fetchedObjects?.compactMap({ (note) -> String? in
             return note.category
@@ -606,8 +606,8 @@ class NotesTableViewController: UITableViewController {
         //        AppDelegate.shared.changeCategory()
         let storyboard = UIStoryboard(name: "Categories", bundle: Bundle.main)
         if let navController = storyboard.instantiateViewController(withIdentifier: "CategoryNavigationController") as? UINavigationController,
-            let categoryController = navController.topViewController as? CategoryTableViewController,
-            let categories = categories {
+           let categoryController = navController.topViewController as? CategoryTableViewController,
+           let categories = categories {
             let note = notesManager.manager.fetchedResultsController.object(at: indexPath)
             categoryController.categories = categories.removingDuplicates()
             if let section = notesManager.manager.fetchedResultsController.sections?.first(where: { $0.name == note.category }) {
@@ -617,7 +617,7 @@ class NotesTableViewController: UITableViewController {
             self.present(navController, animated: true, completion: nil)
         }
     }
-    
+
 }
 
 extension NotesTableViewController: FRCManagerDelegate {
@@ -629,12 +629,12 @@ extension NotesTableViewController: FRCManagerDelegate {
 }
 
 extension NotesTableViewController: UIActionSheetDelegate {
-    
-    
+
+
 }
 
 extension NotesTableViewController: UISearchResultsUpdating {
-    
+
     func updateSearchResults(for searchController: UISearchController) {
         var predicate: NSPredicate?
         if let text = searchController.searchBar.text, !text.isEmpty {
@@ -653,19 +653,19 @@ extension NotesTableViewController: UISearchResultsUpdating {
 }
 
 extension NotesTableViewController: UISearchBarDelegate {
-    
-    
+
+
 }
 
 extension NotesTableViewController: UITableViewDropDelegate {
 
     func tableView(_ tableView: UITableView, canHandle session: UIDropSession) -> Bool {
         if !session.items.isEmpty,
-            session.hasItemsConforming(toTypeIdentifiers: [kUTTypeText as String,
-                                                           kUTTypeXML as String,
-                                                           kUTTypeHTML as String,
-                                                           kUTTypeJSON as String,
-                                                           kUTTypePlainText as String]) {
+           session.hasItemsConforming(toTypeIdentifiers: [kUTTypeText as String,
+                                                          kUTTypeXML as String,
+                                                          kUTTypeHTML as String,
+                                                          kUTTypeJSON as String,
+                                                          kUTTypePlainText as String]) {
             return true
         }
         return false
@@ -683,8 +683,8 @@ extension NotesTableViewController: UITableViewDropDelegate {
         for item in coordinator.session.items {
             item.itemProvider.loadDataRepresentation(forTypeIdentifier: kUTTypeText as String) { (data, _) in
                 if let contentData = data,
-                    let content = String(bytes: contentData, encoding: .utf8) {
-                        NoteSessionManager.shared.add(content: content, category: "")
+                   let content = String(bytes: contentData, encoding: .utf8) {
+                    NoteSessionManager.shared.add(content: content, category: "")
                 }
             }
         }
@@ -727,22 +727,22 @@ extension Array where Element: Equatable {
 }
 
 extension NSPredicate {
-    
+
     static var allNotes: NSPredicate {
         return NSPredicate(format: "cdDeleteNeeded == %@", NSNumber(value: false))
     }
-    
+
 }
 
 struct NotesTableViewControllerRepresentable: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> UIViewController {
         let storyboard = UIStoryboard(name: "Main_iPhone", bundle: nil)
-        
+
         let viewController = storyboard.instantiateViewController(withIdentifier: "Notes")
-        
+
         return viewController
     }
-    
+
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
         // Update the UI of the view controller if needed
     }
