@@ -58,12 +58,6 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Notes" id="qfr-a2-foZ">
-                        <barButtonItem key="leftBarButtonItem" image="gear" id="Ehu-4h-6IO">
-                            <color key="tintColor" name="PHWhiteIcon"/>
-                            <connections>
-                                <segue destination="JBc-8M-sq7" kind="presentation" identifier="ShowSettings" id="84a-UW-Z90"/>
-                            </connections>
-                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="add" id="MOs-yv-oce">
                                 <color key="tintColor" name="PHWhiteIcon"/>
@@ -89,7 +83,6 @@
                     <connections>
                         <outlet property="addBarButton" destination="MOs-yv-oce" id="KfS-dy-ASJ"/>
                         <outlet property="refreshBarButton" destination="Vq9-nq-q23" id="MIf-rO-5SM"/>
-                        <outlet property="settingsBarButton" destination="Ehu-4h-6IO" id="qQP-ED-FEw"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2nj-I5-PGU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -255,7 +248,6 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="doc.text.magnifyingglass" catalog="system" width="110" height="128"/>
-        <image name="gear" width="24" height="44"/>
         <namedColor name="PHWhiteBackground">
             <color red="0.97000002861022949" green="0.97000002861022949" blue="0.97000002861022949" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

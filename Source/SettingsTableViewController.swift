@@ -165,14 +165,6 @@ class SettingsTableViewController: UITableViewController {
         KeychainHelper.internalEditor = internalEditorSwitch.isOn
     }
 
-    @IBAction func onDone(_ sender: Any) {
-        dismiss(animated: true) {
-            if let presentationController = self.presentationController {
-                presentationController.delegate?.presentationControllerDidDismiss?(presentationController)
-            }
-        }
-    }
-
     private func showNotesFolderAlert() {
         var nameTextField: UITextField?
         let folderPath = KeychainHelper.notesPath

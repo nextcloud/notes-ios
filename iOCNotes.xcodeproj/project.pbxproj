@@ -79,6 +79,8 @@
 		F3F7344F2C6FA550007C8C0B /* CDNote+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F734482C6FA550007C8C0B /* CDNote+CoreDataProperties.swift */; };
 		F3F734512C6FA550007C8C0B /* Notes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F3F7344A2C6FA550007C8C0B /* Notes.xcdatamodeld */; };
 		F3F734522C6FA550007C8C0B /* NotesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F7344B2C6FA550007C8C0B /* NotesData.swift */; };
+		F3F734582C6FAC17007C8C0B /* Theming.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F734572C6FAC17007C8C0B /* Theming.swift */; };
+		F3F7345B2C6FAD80007C8C0B /* BaseUIVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F7345A2C6FAD80007C8C0B /* BaseUIVIewController.swift */; };
 		F75D7B1229C8687C00ABD392 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = F75D7B1129C8687C00ABD392 /* JGProgressHUD */; };
 		F770842529C45BD000367DBD /* NCService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770842429C45BD000367DBD /* NCService.swift */; };
 		F770842729C462C700367DBD /* NCNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770842629C462C700367DBD /* NCNetworking.swift */; };
@@ -242,6 +244,8 @@
 		F3F734482C6FA550007C8C0B /* CDNote+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDNote+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F3F7344B2C6FA550007C8C0B /* NotesData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesData.swift; sourceTree = "<group>"; };
 		F3F7344D2C6FA550007C8C0B /* Notes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Notes.xcdatamodel; sourceTree = "<group>"; };
+		F3F734572C6FAC17007C8C0B /* Theming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theming.swift; sourceTree = "<group>"; };
+		F3F7345A2C6FAD80007C8C0B /* BaseUIVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUIVIewController.swift; sourceTree = "<group>"; };
 		F770842429C45BD000367DBD /* NCService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCService.swift; sourceTree = "<group>"; };
 		F770842629C462C700367DBD /* NCNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCNetworking.swift; sourceTree = "<group>"; };
 		F77B57022993E32100A23E76 /* NCShareAccounts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NCShareAccounts.storyboard; sourceTree = "<group>"; };
@@ -385,8 +389,8 @@
 		D0CFE53C1888A7BD00165839 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				F3F734542C6FA75A007C8C0B /* Notes */,
-				F3E3C8D32C6A60C100A80504 /* Root */,
+				F3F734562C6FABF4007C8C0B /* Theming */,
+				F3F734552C6FABEA007C8C0B /* Main */,
 				D01067E32213BDF20047E090 /* AppDelegate.swift */,
 				D0BCFE6C2454BF40007C4CA3 /* Categories.storyboard */,
 				D018034923B037B1001CA4FC /* CategoriesSceneDelegate.swift */,
@@ -509,6 +513,32 @@
 				D03493B622F2837500E1A9B0 /* NoteTableViewCell.swift */,
 			);
 			path = Notes;
+			sourceTree = "<group>";
+		};
+		F3F734552C6FABEA007C8C0B /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				F3F734592C6FAD70007C8C0B /* Base */,
+				F3F734542C6FA75A007C8C0B /* Notes */,
+				F3E3C8D32C6A60C100A80504 /* Root */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		F3F734562C6FABF4007C8C0B /* Theming */ = {
+			isa = PBXGroup;
+			children = (
+				F3F734572C6FAC17007C8C0B /* Theming.swift */,
+			);
+			path = Theming;
+			sourceTree = "<group>";
+		};
+		F3F734592C6FAD70007C8C0B /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				F3F7345A2C6FAD80007C8C0B /* BaseUIVIewController.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		F770842329C45BB900367DBD /* Networking */ = {
@@ -747,6 +777,7 @@
 				D075B1BC2906DDBF0085D64E /* ServerStatus.swift in Sources */,
 				D0E60F57277FADD5009CF78F /* Storage.swift in Sources */,
 				D0545F23230901D30001D165 /* PBHOpenInActivity.swift in Sources */,
+				F3F734582C6FAC17007C8C0B /* Theming.swift in Sources */,
 				D06882EE22BB146200CEBC1F /* EditorViewController.swift in Sources */,
 				F77B57052993E32100A23E76 /* NCShareAccounts.swift in Sources */,
 				F770842529C45BD000367DBD /* NCService.swift in Sources */,
@@ -758,6 +789,7 @@
 				D059F7DB1D40596D00C252F2 /* NoteExporter.swift in Sources */,
 				F77B57082993E39500A23E76 /* NCPopupViewController.swift in Sources */,
 				BD86DD8522B9CDD500115E5D /* KeychainHelper.swift in Sources */,
+				F3F7345B2C6FAD80007C8C0B /* BaseUIVIewController.swift in Sources */,
 				D08713ED1D18DA40001EAF82 /* HeaderTextView.swift in Sources */,
 				D0E60F5A277FADD5009CF78F /* UniversalTypes.swift in Sources */,
 				D0E60F28277801F8009CF78F /* PreviewWebView.swift in Sources */,

@@ -19,13 +19,11 @@ import SwiftUI
 let detailSegueIdentifier = "showDetail"
 let categorySegueIdentifier = "SelectCategorySegue"
 let settingsSegueIdentifier = "ShowSettings"
-let directeditingSegueIdentifier = "directEditing"
+let directeditingSe6436gueIdentifier = "directEditing"
 
-class NotesTableViewController: UITableViewController {
-
+class NotesTableViewController: BaseUITableViewController {
     @IBOutlet var addBarButton: UIBarButtonItem!
     @IBOutlet weak var refreshBarButton: UIBarButtonItem!
-    @IBOutlet var settingsBarButton: UIBarButtonItem!
 
     var notes: [CDNote]?
     var searchController: UISearchController?
@@ -111,7 +109,6 @@ class NotesTableViewController: UITableViewController {
             HUD.hide()
             self?.refreshBarButton.isEnabled = NoteSessionManager.isOnline
             self?.addBarButton.isEnabled = true
-            self?.settingsBarButton.isEnabled = true
         }))
         self.observers.append(NotificationCenter.default.addObserver(forName: .networkError,
                                                                      object: nil,
@@ -120,7 +117,6 @@ class NotesTableViewController: UITableViewController {
             HUD.hide()
             self?.refreshBarButton.isEnabled = NoteSessionManager.isOnline
             self?.addBarButton.isEnabled = true
-            self?.settingsBarButton.isEnabled = true
             if let title = notification.userInfo?["Title"] as? String,
                let message = notification.userInfo?["Message"] as? String {
                 var config = SwiftMessages.defaultConfig
@@ -154,7 +150,6 @@ class NotesTableViewController: UITableViewController {
         searchController?.searchResultsUpdater = self
         searchController?.obscuresBackgroundDuringPresentation = false
         searchController?.hidesNavigationBarDuringPresentation = true
-        searchController?.searchBar.delegate = self
         searchController?.searchBar.sizeToFit()
         notesManager.manager.delegate = self
         updateFrcDelegate(update: .enable(withFetch: true))
@@ -180,7 +175,6 @@ class NotesTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         addBarButton.isEnabled = true
-        settingsBarButton.isEnabled = true
         refreshBarButton.isEnabled = NoteSessionManager.isOnline
     }
 
@@ -517,12 +511,10 @@ class NotesTableViewController: UITableViewController {
 
         refreshBarButton.isEnabled = false
         addBarButton.isEnabled = false
-        settingsBarButton.isEnabled = false
         notesManager.manager.isSyncing = true
         NoteSessionManager.shared.sync { [weak self] in
             self?.notesManager.manager.isSyncing = false
             self?.addBarButton.isEnabled = true
-            self?.settingsBarButton.isEnabled = true
             self?.refreshBarButton.isEnabled = NoteSessionManager.isOnline
             self?.tableView.reloadData()
             self?.refreshControl?.endRefreshing()
@@ -595,7 +587,6 @@ class NotesTableViewController: UITableViewController {
             tableView.reloadData()
         }
         addBarButton.isEnabled = true
-        settingsBarButton.isEnabled = true
         refreshBarButton.isEnabled = NoteSessionManager.isOnline
     }
 
@@ -603,7 +594,6 @@ class NotesTableViewController: UITableViewController {
         let categories = notesManager.manager.fetchedResultsController.fetchedObjects?.compactMap({ (note) -> String? in
             return note.category
         })
-        //        AppDelegate.shared.changeCategory()
         let storyboard = UIStoryboard(name: "Categories", bundle: Bundle.main)
         if let navController = storyboard.instantiateViewController(withIdentifier: "CategoryNavigationController") as? UINavigationController,
            let categoryController = navController.topViewController as? CategoryTableViewController,
@@ -618,23 +608,19 @@ class NotesTableViewController: UITableViewController {
         }
     }
 
+    override func applyTheme(brandColor: UIColor, brandTextColor: UIColor) {
+        addBarButton.tintColor = brandColor
+        refreshBarButton.tintColor = brandColor
+    }
 }
 
 extension NotesTableViewController: FRCManagerDelegate {
-
     func managerDidChangeContent(_ controller: NSObject, change: NotesFRCManagerChange) {
         change.applyChanges(tableView: tableView, animation: .fade)
     }
-
-}
-
-extension NotesTableViewController: UIActionSheetDelegate {
-
-
 }
 
 extension NotesTableViewController: UISearchResultsUpdating {
-
     func updateSearchResults(for searchController: UISearchController) {
         var predicate: NSPredicate?
         if let text = searchController.searchBar.text, !text.isEmpty {
@@ -652,13 +638,7 @@ extension NotesTableViewController: UISearchResultsUpdating {
 
 }
 
-extension NotesTableViewController: UISearchBarDelegate {
-
-
-}
-
 extension NotesTableViewController: UITableViewDropDelegate {
-
     func tableView(_ tableView: UITableView, canHandle session: UIDropSession) -> Bool {
         if !session.items.isEmpty,
            session.hasItemsConforming(toTypeIdentifiers: [kUTTypeText as String,
@@ -708,10 +688,8 @@ extension NotesTableViewController: CollapsibleTableViewHeaderViewDelegate {
 }
 
 extension NotesTableViewController: UIAdaptivePresentationControllerDelegate {
-
     func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
         addBarButton.isEnabled = true
-        settingsBarButton.isEnabled = true
         refreshBarButton.isEnabled = NoteSessionManager.isOnline
     }
 }
@@ -727,7 +705,6 @@ extension Array where Element: Equatable {
 }
 
 extension NSPredicate {
-
     static var allNotes: NSPredicate {
         return NSPredicate(format: "cdDeleteNeeded == %@", NSNumber(value: false))
     }

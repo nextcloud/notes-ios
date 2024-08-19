@@ -131,9 +131,9 @@ class NCBrandColor: NSObject {
     let customer: UIColor = UIColor(red: 0.0 / 255.0, green: 130.0 / 255.0, blue: 201.0 / 255.0, alpha: 1.0)         // BLU NC : #0082c9
 //    var customerText: UIColor = .white
     
-    var brand: UIColor = UIColor(red: 0.0 / 255.0, green: 130.0 / 255.0, blue: 201.0 / 255.0, alpha: 1.0)                                                                                       // don't touch me
+//    var brand: UIColor = UIColor(red: 0.0 / 255.0, green: 130.0 / 255.0, blue: 201.0 / 255.0, alpha: 1.0)                                                                                       // don't touch me
 //    var brandElement: UIColor                                                                                  // don't touch me
-//    var brandText: UIColor = .white                                                                                     // don't touch me
+    var brandText: UIColor = .white                                                                                     // don't touch me
 
     let nextcloud: UIColor = UIColor(red: 0.0 / 255.0, green: 130.0 / 255.0, blue: 201.0 / 255.0, alpha: 1.0)
     let yellowFavorite: UIColor = UIColor(red: 248.0 / 255.0, green: 205.0 / 255.0, blue: 70.0 / 255.0, alpha: 1.0)
