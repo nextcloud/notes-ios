@@ -3,4 +3,316 @@
    uuid = "B32CA09A-A5AD-43B0-A5CC-3160BB584997"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CEC763D3-417A-4046-BABF-7BF110B2E811"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Source/Screens/Notes/NotesTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "748"
+            endingLineNumber = "748"
+            landmarkName = "updateUIViewController(_:context:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "CEC763D3-417A-4046-BABF-7BF110B2E811 - 7e2f1c6cbc68c57e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iOCNotes.NotesTableViewControllerRepresentable.updateUIViewController(_: __C.UIViewController, context: SwiftUI.UIViewControllerRepresentableContext&lt;iOCNotes.NotesTableViewControllerRepresentable&gt;) -&gt; ()"
+                  moduleName = "Nextcloud Notes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/milen/Code/Nextcloud/notes-ios/Source/Screens/Notes/NotesTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "749"
+                  endingLineNumber = "749">
+               </Location>
+               <Location
+                  uuid = "CEC763D3-417A-4046-BABF-7BF110B2E811 - 7e2f1c6cbc68c51d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iOCNotes.NotesTableViewControllerRepresentable.updateUIViewController(_: __C.UIViewController, context: SwiftUI.UIViewControllerRepresentableContext&lt;iOCNotes.NotesTableViewControllerRepresentable&gt;) -&gt; ()"
+                  moduleName = "Nextcloud Notes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/milen/Code/Nextcloud/notes-ios/Source/Screens/Notes/NotesTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "750"
+                  endingLineNumber = "750">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "13A0EC2F-C60F-4FE6-9289-B6F001AB5E0D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Source/Screens/Notes/NotesTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "729"
+            endingLineNumber = "729"
+            landmarkName = "addNote()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C2BCAD84-6E96-46AF-BDF6-6324BF15A69A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Source/Screens/Notes/NotesTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "728"
+            endingLineNumber = "728"
+            landmarkName = "addNote()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B5B5CC0D-4638-4455-B47E-2651AF4CB060"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Source/Screens/Notes/NotesScreen.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CAFACDD5-EFCE-449B-A5DB-FF2602201882"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Source/Screens/Notes/NotesTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "747"
+            endingLineNumber = "747"
+            landmarkName = "updateUIViewController(_:context:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "CAFACDD5-EFCE-449B-A5DB-FF2602201882 - 7e2f1c6cbc68c57e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iOCNotes.NotesTableViewControllerRepresentable.updateUIViewController(_: __C.UIViewController, context: SwiftUI.UIViewControllerRepresentableContext&lt;iOCNotes.NotesTableViewControllerRepresentable&gt;) -&gt; ()"
+                  moduleName = "Nextcloud Notes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/milen/Code/Nextcloud/notes-ios/Source/Screens/Notes/NotesTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "749"
+                  endingLineNumber = "749">
+               </Location>
+               <Location
+                  uuid = "CAFACDD5-EFCE-449B-A5DB-FF2602201882 - 7e2f1c6cbc68c51d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iOCNotes.NotesTableViewControllerRepresentable.updateUIViewController(_: __C.UIViewController, context: SwiftUI.UIViewControllerRepresentableContext&lt;iOCNotes.NotesTableViewControllerRepresentable&gt;) -&gt; ()"
+                  moduleName = "Nextcloud Notes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/milen/Code/Nextcloud/notes-ios/Source/Screens/Notes/NotesTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "750"
+                  endingLineNumber = "750">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9F4DFE8E-AA4F-4BBC-98B4-523DAE627E9B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Source/Screens/Notes/NotesTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "733"
+            endingLineNumber = "733"
+            landmarkName = "makeCoordinator()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "356C2029-08FE-4878-9FB3-01256E1F418E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Source/Screens/Notes/NotesTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "750"
+            endingLineNumber = "750"
+            landmarkName = "updateUIViewController(_:context:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "356C2029-08FE-4878-9FB3-01256E1F418E - 7e2f1c6cbc68c53c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iOCNotes.NotesTableViewControllerRepresentable.updateUIViewController(_: __C.UIViewController, context: SwiftUI.UIViewControllerRepresentableContext&lt;iOCNotes.NotesTableViewControllerRepresentable&gt;) -&gt; ()"
+                  moduleName = "Nextcloud Notes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/milen/Code/Nextcloud/notes-ios/Source/Screens/Notes/NotesTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "751"
+                  endingLineNumber = "751">
+               </Location>
+               <Location
+                  uuid = "356C2029-08FE-4878-9FB3-01256E1F418E - 7e2f1c6cbc68c51d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iOCNotes.NotesTableViewControllerRepresentable.updateUIViewController(_: __C.UIViewController, context: SwiftUI.UIViewControllerRepresentableContext&lt;iOCNotes.NotesTableViewControllerRepresentable&gt;) -&gt; ()"
+                  moduleName = "Nextcloud Notes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/milen/Code/Nextcloud/notes-ios/Source/Screens/Notes/NotesTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "750"
+                  endingLineNumber = "750">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E7FAD7BB-D1E2-47B4-83C7-011BCB32DBBD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Source/Screens/Notes/NotesTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "751"
+            endingLineNumber = "751"
+            landmarkName = "updateUIViewController(_:context:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E7FAD7BB-D1E2-47B4-83C7-011BCB32DBBD - 7e2f1c6cbc68c53c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iOCNotes.NotesTableViewControllerRepresentable.updateUIViewController(_: __C.UIViewController, context: SwiftUI.UIViewControllerRepresentableContext&lt;iOCNotes.NotesTableViewControllerRepresentable&gt;) -&gt; ()"
+                  moduleName = "Nextcloud Notes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/milen/Code/Nextcloud/notes-ios/Source/Screens/Notes/NotesTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "751"
+                  endingLineNumber = "751">
+               </Location>
+               <Location
+                  uuid = "E7FAD7BB-D1E2-47B4-83C7-011BCB32DBBD - 7e2f1c6cbc68dac3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iOCNotes.NotesTableViewControllerRepresentable.updateUIViewController(_: __C.UIViewController, context: SwiftUI.UIViewControllerRepresentableContext&lt;iOCNotes.NotesTableViewControllerRepresentable&gt;) -&gt; ()"
+                  moduleName = "Nextcloud Notes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/milen/Code/Nextcloud/notes-ios/Source/Screens/Notes/NotesTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "752"
+                  endingLineNumber = "752">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F2D47D88-89EA-45C9-9088-36B083122A89"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Source/Screens/Notes/NotesTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "753"
+            endingLineNumber = "753"
+            landmarkName = "updateUIViewController(_:context:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "40A13A6F-06BB-4C14-AFBC-CD0206A70ECF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Source/Screens/Notes/NotesTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "741"
+            endingLineNumber = "741"
+            landmarkName = "makeUIViewController(context:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "40A13A6F-06BB-4C14-AFBC-CD0206A70ECF - c0d0127fc9b9e2da"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iOCNotes.NotesTableViewControllerRepresentable.makeUIViewController(context: SwiftUI.UIViewControllerRepresentableContext&lt;iOCNotes.NotesTableViewControllerRepresentable&gt;) -&gt; __C.UIViewController"
+                  moduleName = "Nextcloud Notes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/milen/Code/Nextcloud/notes-ios/Source/Screens/Notes/NotesTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "742"
+                  endingLineNumber = "742">
+               </Location>
+               <Location
+                  uuid = "40A13A6F-06BB-4C14-AFBC-CD0206A70ECF - c0d0127fc9b9e2b9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iOCNotes.NotesTableViewControllerRepresentable.makeUIViewController(context: SwiftUI.UIViewControllerRepresentableContext&lt;iOCNotes.NotesTableViewControllerRepresentable&gt;) -&gt; __C.UIViewController"
+                  moduleName = "Nextcloud Notes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/milen/Code/Nextcloud/notes-ios/Source/Screens/Notes/NotesTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "741"
+                  endingLineNumber = "741">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

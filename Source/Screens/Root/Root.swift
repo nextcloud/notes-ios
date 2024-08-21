@@ -12,7 +12,7 @@ struct Root: View {
     var body: some View {
         TabView {
             NavigationStack {
-                NotesTableViewControllerRepresentable()
+                NotesScreen()
             }
             .tabItem {
                 Label(

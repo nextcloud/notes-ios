@@ -18,7 +18,6 @@ import SwiftUI
 
 let detailSegueIdentifier = "showDetail"
 let categorySegueIdentifier = "SelectCategorySegue"
-let settingsSegueIdentifier = "ShowSettings"
 let directeditingSe6436gueIdentifier = "directEditing"
 
 class NotesTableViewController: BaseUITableViewController {
@@ -38,7 +37,7 @@ class NotesTableViewController: BaseUITableViewController {
 
     private var observers = [NSObjectProtocol]()
     private var noteToAddOnViewDidLoad: String?
-    private var isAddingFromButton = false
+    var isAddingFromButton = false
 
     private var contextMenuIndexPath: IndexPath?
     private var noteExporter: NoteExporter?
@@ -415,12 +414,12 @@ class NotesTableViewController: BaseUITableViewController {
                     }, completion: nil)
                 }
             }
-        case settingsSegueIdentifier:
-            if let navigationController = segue.destination as? UINavigationController,
-               let controller = navigationController.topViewController as? SettingsTableViewController {
-                controller.presentationController?.delegate = self
-                navigationController.presentationController?.delegate = self
-            }
+//        case settingsSegueIdentifier:
+//            if let navigationController = segue.destination as? UINavigationController,
+//               let controller = navigationController.topViewController as? SettingsTableViewController {
+//                controller.presentationController?.delegate = self
+//                navigationController.presentationController?.delegate = self
+//            }
         default:
             break
         }
@@ -577,7 +576,7 @@ class NotesTableViewController: BaseUITableViewController {
 
     private func didBecomeActive() {
         if KeychainHelper.server.isEmpty {
-            performSegue(withIdentifier: "ShowSettings", sender: self)
+//            performSegue(withIdentifier: "ShowSettings", sender: self)
         } else if KeychainHelper.syncOnStart {
             onRefresh(sender: nil)
         } else if KeychainHelper.dbReset {
@@ -712,15 +711,45 @@ extension NSPredicate {
 }
 
 struct NotesTableViewControllerRepresentable: UIViewControllerRepresentable {
+    @Binding var addNote: Bool
+
+    class Coordinator: NSObject {
+        var parent: NotesTableViewControllerRepresentable
+        weak var viewController: NotesTableViewController?
+
+        init(_ parent: NotesTableViewControllerRepresentable) {
+            self.parent = parent
+        }
+
+        func addNote() {
+            viewController?.isAddingFromButton = true
+            viewController?.addNote(content: "")
+
+            parent.addNote = false
+        }
+    }
+
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
+
     func makeUIViewController(context: Context) -> UIViewController {
         let storyboard = UIStoryboard(name: "Main_iPhone", bundle: nil)
 
-        let viewController = storyboard.instantiateViewController(withIdentifier: "Notes")
+        let viewControllerNew = storyboard.instantiateViewController(withIdentifier: "Notes")
+        let viewController = viewControllerNew as? NotesTableViewController
+        context.coordinator.viewController = viewController
 
-        return viewController
+        return viewController ?? UIViewController()
     }
 
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
-        // Update the UI of the view controller if needed
+//        print("TEST")
+//        guard let notesVC = uiViewController as? NotesTableViewController else { return }
+
+        if addNote {
+//            print("TEST")
+            context.coordinator.addNote()
+        }
     }
 }

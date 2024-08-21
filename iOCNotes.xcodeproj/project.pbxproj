@@ -72,6 +72,8 @@
 		D0E60F71277FADD6009CF78F /* CheckBoxTapHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E60F52277FADD5009CF78F /* CheckBoxTapHandler.swift */; };
 		D0E60F74277FADD6009CF78F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E60F55277FADD5009CF78F /* Extensions.swift */; };
 		D0E60F76277FB0A5009CF78F /* Themes.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D0E60F75277FB0A5009CF78F /* Themes.bundle */; };
+		F36ED29A2C762A9500EC29B0 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36ED2992C762A9500EC29B0 /* Settings.swift */; };
+		F36ED29C2C762C3700EC29B0 /* NotesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36ED29B2C762C3700EC29B0 /* NotesScreen.swift */; };
 		F3E3C8D52C6A60CF00A80504 /* Root.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E3C8D42C6A60CF00A80504 /* Root.swift */; };
 		F3E3C8D92C6B7C2200A80504 /* NCBrand.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E3C8D82C6B7C2200A80504 /* NCBrand.swift */; };
 		F3E3C8DC2C6B7DA600A80504 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E3C8DB2C6B7DA600A80504 /* UIColor+Extension.swift */; };
@@ -237,6 +239,8 @@
 		D0E60F52277FADD5009CF78F /* CheckBoxTapHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoxTapHandler.swift; sourceTree = "<group>"; };
 		D0E60F55277FADD5009CF78F /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D0E60F75277FB0A5009CF78F /* Themes.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Themes.bundle; sourceTree = "<group>"; };
+		F36ED2992C762A9500EC29B0 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		F36ED29B2C762C3700EC29B0 /* NotesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesScreen.swift; sourceTree = "<group>"; };
 		F3E3C8D42C6A60CF00A80504 /* Root.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Root.swift; sourceTree = "<group>"; };
 		F3E3C8D82C6B7C2200A80504 /* NCBrand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NCBrand.swift; sourceTree = "<group>"; };
 		F3E3C8DB2C6B7DA600A80504 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -390,7 +394,7 @@
 			isa = PBXGroup;
 			children = (
 				F3F734562C6FABF4007C8C0B /* Theming */,
-				F3F734552C6FABEA007C8C0B /* Main */,
+				F3F734552C6FABEA007C8C0B /* Screens */,
 				D01067E32213BDF20047E090 /* AppDelegate.swift */,
 				D0BCFE6C2454BF40007C4CA3 /* Categories.storyboard */,
 				D018034923B037B1001CA4FC /* CategoriesSceneDelegate.swift */,
@@ -469,6 +473,14 @@
 			path = Editor;
 			sourceTree = "<group>";
 		};
+		F36ED2982C762A8800EC29B0 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				F36ED2992C762A9500EC29B0 /* Settings.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		F3E3C8D32C6A60C100A80504 /* Root */ = {
 			isa = PBXGroup;
 			children = (
@@ -507,6 +519,7 @@
 		F3F734542C6FA75A007C8C0B /* Notes */ = {
 			isa = PBXGroup;
 			children = (
+				F36ED29B2C762C3700EC29B0 /* NotesScreen.swift */,
 				D059F7DA1D40596D00C252F2 /* NoteExporter.swift */,
 				D0B0F3A327360BD000E51C3F /* NotesFRCManager.swift */,
 				D01067E52213C17D0047E090 /* NotesTableViewController.swift */,
@@ -515,14 +528,15 @@
 			path = Notes;
 			sourceTree = "<group>";
 		};
-		F3F734552C6FABEA007C8C0B /* Main */ = {
+		F3F734552C6FABEA007C8C0B /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				F36ED2982C762A8800EC29B0 /* Settings */,
 				F3F734592C6FAD70007C8C0B /* Base */,
 				F3F734542C6FA75A007C8C0B /* Notes */,
 				F3E3C8D32C6A60C100A80504 /* Root */,
 			);
-			path = Main;
+			path = Screens;
 			sourceTree = "<group>";
 		};
 		F3F734562C6FABF4007C8C0B /* Theming */ = {
@@ -747,6 +761,7 @@
 			files = (
 				F3E3C8DC2C6B7DA600A80504 /* UIColor+Extension.swift in Sources */,
 				F3E3C8D92C6B7C2200A80504 /* NCBrand.swift in Sources */,
+				F36ED29A2C762A9500EC29B0 /* Settings.swift in Sources */,
 				D095384A1D3313F8006BB78E /* PreviewViewController.swift in Sources */,
 				D0E60F1A27756608009CF78F /* LoginViewController.swift in Sources */,
 				D0B0F3A427360BD000E51C3F /* NotesFRCManager.swift in Sources */,
@@ -760,6 +775,7 @@
 				D09E6451248B3A7C003FB4C9 /* OCSProtocol.swift in Sources */,
 				D0E60F5C277FADD5009CF78F /* AttributedStringKey.swift in Sources */,
 				BD653F88231C43FA00D59A88 /* Constants.swift in Sources */,
+				F36ED29C2C762C3700EC29B0 /* NotesScreen.swift in Sources */,
 				D01067E42213BDF30047E090 /* AppDelegate.swift in Sources */,
 				F3F734512C6FA550007C8C0B /* Notes.xcdatamodeld in Sources */,
 				F3F7344F2C6FA550007C8C0B /* CDNote+CoreDataProperties.swift in Sources */,
