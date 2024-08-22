@@ -242,24 +242,24 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Information" footerTitle="These settings only affect how notes are managed on the server. NextcloudNotes does not handle any files." id="a9h-PU-707">
+                            <tableViewSection headerTitle="Information" id="non-OM-gIT">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="ULL-l7-RtA" detailTextLabel="UzR-AT-XbF" style="IBUITableViewCellStyleValue1" id="f30-KY-HZk">
-                                        <rect key="frame" x="0.0" y="606" width="375" height="44"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="yi3-0y-GWm" detailTextLabel="Pim-Eg-vve" style="IBUITableViewCellStyleValue1" id="LGp-ay-xM3">
+                                        <rect key="frame" x="0.0" y="598.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f30-KY-HZk" id="Gkc-sP-nY8">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LGp-ay-xM3" id="JFm-sF-RVc">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Notes Folder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ULL-l7-RtA">
-                                                    <rect key="frame" x="16" y="12" width="98" height="20.5"/>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Privacy and Legal Policy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yi3-0y-GWm">
+                                                    <rect key="frame" x="16" y="12" width="183.5" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Notes" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UzR-AT-XbF">
-                                                    <rect key="frame" x="318" y="14" width="41" height="18"/>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="left" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Pim-Eg-vve">
+                                                    <rect key="frame" x="319.5" y="14" width="39.5" height="18"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -268,54 +268,22 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Vfx-CA-Wz6">
-                                        <rect key="frame" x="0.0" y="650" width="375" height="44"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Yoc-UG-LbO" detailTextLabel="CN3-k7-pGo" style="IBUITableViewCellStyleValue1" id="PGc-Ap-dZq">
+                                        <rect key="frame" x="0.0" y="642.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vfx-CA-Wz6" id="Zwr-K3-6Uy">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PGc-Ap-dZq" id="jKo-gg-QCB">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Internal editor" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tHD-Q6-tYa">
-                                                    <rect key="frame" x="16" y="0.5" width="284" height="43"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="43" id="VqW-oA-FxL"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="D6i-I8-GQ5">
-                                                    <rect key="frame" x="310" y="6.5" width="51" height="31"/>
-                                                    <connections>
-                                                        <action selector="internalEditorChanged:" destination="F8m-nl-oCR" eventType="valueChanged" id="6bN-3s-YMg"/>
-                                                    </connections>
-                                                </switch>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="D6i-I8-GQ5" firstAttribute="leading" secondItem="tHD-Q6-tYa" secondAttribute="trailing" constant="10" id="6Ja-Ve-ds1"/>
-                                                <constraint firstAttribute="centerY" secondItem="D6i-I8-GQ5" secondAttribute="centerY" constant="0.25" id="BeU-c3-k3g"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="D6i-I8-GQ5" secondAttribute="trailing" id="Dno-gb-TEk"/>
-                                                <constraint firstItem="tHD-Q6-tYa" firstAttribute="centerY" secondItem="Zwr-K3-6Uy" secondAttribute="centerY" id="GaX-1a-3By"/>
-                                                <constraint firstItem="tHD-Q6-tYa" firstAttribute="leading" secondItem="Zwr-K3-6Uy" secondAttribute="leadingMargin" id="rG0-l4-nkz"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="rF9-le-sbR" detailTextLabel="FVN-gb-1PD" style="IBUITableViewCellStyleValue1" id="SH9-Ls-Qx9">
-                                        <rect key="frame" x="0.0" y="694" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SH9-Ls-Qx9" id="HvS-Z7-BMS">
-                                            <rect key="frame" x="0.0" y="0.0" width="348.5" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" ambiguous="YES" text="File Extension" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rF9-le-sbR">
-                                                    <rect key="frame" x="16" y="12" width="104.5" height="20.5"/>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Get source code" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Yoc-UG-LbO">
+                                                    <rect key="frame" x="16" y="12" width="126" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" ambiguous="YES" text="Plain Text (.txt)" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FVN-gb-1PD">
-                                                    <rect key="frame" x="237.5" y="14" width="103" height="18"/>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="left" text="Plain Text (.txt)" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CN3-k7-pGo">
+                                                    <rect key="frame" x="256" y="14" width="103" height="18"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
