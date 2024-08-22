@@ -2,8 +2,8 @@
 //  Theming.swift
 //  iOCNotes
 //
-//  Created by Milen on 16.08.24.
-//  Copyright © 2024 Peter Hedlund. All rights reserved.
+//  Created by Milen Pivchev on 16.08.24.
+//  Copyright © 2024 Milen Pivchev. All rights reserved.
 //
 
 import Foundation

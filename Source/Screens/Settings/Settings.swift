@@ -2,8 +2,8 @@
 //  Settings.swift
 //  iOCNotes
 //
-//  Created by Milen on 21.08.24.
-//  Copyright © 2024 Peter Hedlund. All rights reserved.
+//  Created by Milen Pivchev on 21.08.24.
+//  Copyright © 2024 Milen Pivchev. All rights reserved.
 //
 
 import SwiftUI

@@ -665,10 +665,10 @@
 		D0CFE52B1888A7BD00165839 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = OC;
+				CLASSPREFIX = "";
 				LastSwiftUpdateCheck = 1140;
 				LastUpgradeCheck = 1200;
-				ORGANIZATIONNAME = "Peter Hedlund";
+				ORGANIZATIONNAME = "Milen Pivchev";
 				TargetAttributes = {
 					D0AB0E772470B74D00D3E6B6 = {
 						CreatedOnToolsVersion = 11.4.1;
