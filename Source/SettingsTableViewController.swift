@@ -26,6 +26,10 @@ class SettingsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        syncOnStartSwitch.onTintColor = NCBrandColor.shared.brandColor
+        offlineModeSwitch.onTintColor = NCBrandColor.shared.brandColor
+        internalEditorSwitch.onTintColor = NCBrandColor.shared.brandColor
+
         if let dirGroupApps = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.nextcloud.apps") {
             if let shareAccounts = NKShareAccounts().getShareAccount(at: dirGroupApps, application: UIApplication.shared) {
                 var accountTemp = [NKShareAccounts.DataAccounts]()
@@ -44,7 +48,7 @@ class SettingsTableViewController: UITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.serverTextField.text = KeychainHelper.server
+        self.serverTextField.text = NCBrandOptions.shared.loginBaseUrl
         self.user = nil
         self.syncOnStartSwitch.isOn = KeychainHelper.syncOnStart
         offlineModeSwitch.isOn = KeychainHelper.offlineMode
@@ -54,6 +58,8 @@ class SettingsTableViewController: UITableViewController {
         tableView.reloadData()
         tableView.isScrollEnabled = false
         tableView.isScrollEnabled = true
+
+        serverTextField.isEnabled = !NCBrandOptions.shared.disableCustomLoginUrl
     }
 
     // MARK: - Table view data source

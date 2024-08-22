@@ -246,5 +246,6 @@
 "Yes" = "Yes";
 
 // NEXTCLOUD
-"_account_select_to_add_"   = "Select the account to add";
+"Select the account to add"   = "Select the account to add";
 
+"Notes" = "Notes";

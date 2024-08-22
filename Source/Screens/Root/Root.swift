@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct Root: View {
+
+
     var body: some View {
         TabView {
             NavigationStack {
@@ -31,6 +33,8 @@ struct Root: View {
                 )
             }
         }
+        .tint(Color(NCBrandColor.shared.brandColor))
+        .toolbarBackground(.hidden, for: .navigationBar)
     }
 }
 

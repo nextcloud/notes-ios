@@ -169,6 +169,8 @@ class NotesTableViewController: BaseUITableViewController {
         if let splitVC = splitViewController as? PBHSplitViewController {
             splitVC.notesTableViewController = self
         }
+
+        view.backgroundColor = .white
     }
 
     override func viewWillAppear(_ animated: Bool) {

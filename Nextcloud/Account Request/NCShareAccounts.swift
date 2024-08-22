@@ -49,7 +49,7 @@ class NCShareAccounts: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        titleLabel.text = NSLocalizedString("_account_select_to_add_", comment: "")
+        titleLabel.text = NSLocalizedString("Select the account to add", comment: "")
 
         tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 1))
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none

@@ -12,17 +12,18 @@ struct NotesScreen: View {
     @State private var addNote = false
 
     var body: some View {
-//        NavigationStack {
-            NotesTableViewControllerRepresentable(addNote: $addNote)
-                .toolbar {
-                    Button {
-                        addNote = true
-                    } label: {
-                        Image(systemName: "plus")
-                    }
-
-//                }
-        }
+        NotesTableViewControllerRepresentable(addNote: $addNote)
+            .ignoresSafeArea(.all)
+            .toolbar {
+                Button {
+                    addNote = true
+                } label: {
+                    Image(systemName: "plus")
+                }
+            }
+            .toolbarTitleDisplayMode(.inline)
+            .navigationTitle(NSLocalizedString("Notes", comment: ""))
+            .toolbarBackground(.bar, for: .navigationBar)
     }
 }
 

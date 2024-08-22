@@ -11,7 +11,7 @@ import UIKit
 
 class BaseUIViewController: UIViewController, Theming {
     override func viewDidLoad() {
-        applyTheme(brandColor: NCBrandColor.shared.customer, brandTextColor: NCBrandColor.shared.brandText)
+        applyTheme(brandColor: NCBrandColor.shared.brandColor, brandTextColor: NCBrandColor.shared.brandTextColor)
     }
 
     func applyTheme(brandColor: UIColor, brandTextColor: UIColor) {}
@@ -19,7 +19,7 @@ class BaseUIViewController: UIViewController, Theming {
 
 class BaseUITableViewController: UITableViewController, Theming {
     override func viewDidLoad() {
-        applyTheme(brandColor: NCBrandColor.shared.customer, brandTextColor: NCBrandColor.shared.brandText)
+        applyTheme(brandColor: NCBrandColor.shared.brandColor, brandTextColor: NCBrandColor.shared.brandTextColor)
     }
 
     func applyTheme(brandColor: UIColor, brandTextColor: UIColor) {}
