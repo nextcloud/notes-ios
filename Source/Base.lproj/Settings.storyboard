@@ -69,7 +69,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dUo-KO-48Z">
-                                                    <rect key="frame" x="16" y="4" width="71" height="36"/>
+                                                    <rect key="frame" x="16" y="18" width="71" height="8"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="gray" title="Log In"/>
                                                     <connections>
@@ -244,7 +244,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Information" id="non-OM-gIT">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="yi3-0y-GWm" detailTextLabel="Pim-Eg-vve" style="IBUITableViewCellStyleValue1" id="LGp-ay-xM3">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="privacy" textLabel="yi3-0y-GWm" detailTextLabel="Pim-Eg-vve" style="IBUITableViewCellStyleValue1" id="LGp-ay-xM3">
                                         <rect key="frame" x="0.0" y="598.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LGp-ay-xM3" id="JFm-sF-RVc">
@@ -268,7 +268,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Yoc-UG-LbO" detailTextLabel="CN3-k7-pGo" style="IBUITableViewCellStyleValue1" id="PGc-Ap-dZq">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="source" textLabel="Yoc-UG-LbO" detailTextLabel="CN3-k7-pGo" style="IBUITableViewCellStyleValue1" id="PGc-Ap-dZq">
                                         <rect key="frame" x="0.0" y="642.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PGc-Ap-dZq" id="jKo-gg-QCB">

@@ -19,7 +19,9 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet var extensionLabel: UILabel!
     @IBOutlet var folderLabel: UILabel!
     @IBOutlet weak var internalEditorSwitch: UISwitch!
-
+    @IBOutlet weak var privacyButton: UITableViewCell!
+    @IBOutlet weak var soureCodeButton: UITableViewCell!
+    
     private var shareAccounts: [NKShareAccounts.DataAccounts]?
     private var user: String?
 
@@ -84,6 +86,12 @@ class SettingsTableViewController: UITableViewController {
         case 2:
             if indexPath.row == 1 {
                 showNotesFolderAlert()
+            }
+        case 3:
+            if indexPath.row == 0 {
+                openPrivacy()
+            } else {
+                openSourceCode()
             }
         default:
             break
@@ -169,6 +177,18 @@ class SettingsTableViewController: UITableViewController {
 
     @IBAction func internalEditorChanged(_ sender: Any) {
         KeychainHelper.internalEditor = internalEditorSwitch.isOn
+    }
+
+    private func openPrivacy() {
+        if let url = URL(string: NCBrandOptions.shared.privacyUrl) {
+            UIApplication.shared.open(url)
+        }
+    }
+
+    private func openSourceCode() {
+        if let url = URL(string: NCBrandOptions.shared.sourceCodeUrl) {
+            UIApplication.shared.open(url)
+        }
     }
 
     private func showNotesFolderAlert() {
