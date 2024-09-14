@@ -72,6 +72,7 @@
 		D0E60F71277FADD6009CF78F /* CheckBoxTapHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E60F52277FADD5009CF78F /* CheckBoxTapHandler.swift */; };
 		D0E60F74277FADD6009CF78F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E60F55277FADD5009CF78F /* Extensions.swift */; };
 		D0E60F76277FB0A5009CF78F /* Themes.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D0E60F75277FB0A5009CF78F /* Themes.bundle */; };
+		F313E2382C959CFE0065F109 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F313E2372C959CFE0065F109 /* SettingsScreen.swift */; };
 		F36ED29C2C762C3700EC29B0 /* NotesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36ED29B2C762C3700EC29B0 /* NotesScreen.swift */; };
 		F3E3C8D52C6A60CF00A80504 /* Root.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E3C8D42C6A60CF00A80504 /* Root.swift */; };
 		F3E3C8D92C6B7C2200A80504 /* NCBrand.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E3C8D82C6B7C2200A80504 /* NCBrand.swift */; };
@@ -130,7 +131,6 @@
 		BDD015A22353F7D4000BA001 /* PBHSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBHSplitViewController.swift; sourceTree = "<group>"; };
 		BDDD77A8235CDF130053DAEC /* NotesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTests.swift; sourceTree = "<group>"; };
 		D004DB652391EBA70080A7D1 /* SwiftMessages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftMessages.framework; path = Carthage/Build/macCatalyst/SwiftMessages.framework; sourceTree = "<group>"; };
-		D004DB692391EC200080A7D1 /* iOCNotes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOCNotes.entitlements; sourceTree = "<group>"; };
 		D004DB7623920E820080A7D1 /* Preview.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Preview.bundle; sourceTree = "<group>"; };
 		D004DB7E23948F3D0080A7D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D004DB82239759020080A7D1 /* SettingsSceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSceneDelegate.swift; sourceTree = "<group>"; };
@@ -215,7 +215,6 @@
 		D0CFE5361888A7BD00165839 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D0CFE5381888A7BD00165839 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		D0CFE53A1888A7BD00165839 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		D0CFE53E1888A7BD00165839 /* iOCNotes-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iOCNotes-Info.plist"; sourceTree = "<group>"; };
 		D0CFE5401888A7BD00165839 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D0CFE5511888A7BD00165839 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D0CFE5581888A7BD00165839 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -238,6 +237,7 @@
 		D0E60F52277FADD5009CF78F /* CheckBoxTapHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoxTapHandler.swift; sourceTree = "<group>"; };
 		D0E60F55277FADD5009CF78F /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D0E60F75277FB0A5009CF78F /* Themes.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Themes.bundle; sourceTree = "<group>"; };
+		F313E2372C959CFE0065F109 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 		F36ED29B2C762C3700EC29B0 /* NotesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesScreen.swift; sourceTree = "<group>"; };
 		F3E3C8D42C6A60CF00A80504 /* Root.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Root.swift; sourceTree = "<group>"; };
 		F3E3C8D82C6B7C2200A80504 /* NCBrand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NCBrand.swift; sourceTree = "<group>"; };
@@ -404,7 +404,6 @@
 				D06882ED22BB146200CEBC1F /* EditorViewController.swift */,
 				D0E60F1727741633009CF78F /* FileExtensionTableViewController.swift */,
 				D0CFE5511888A7BD00165839 /* Images.xcassets */,
-				D004DB692391EC200080A7D1 /* iOCNotes.entitlements */,
 				F7BB8B7129915A650010D2F7 /* Launch Screen.storyboard */,
 				D0E60F1927756608009CF78F /* LoginViewController.swift */,
 				D09E430E1E2C46930010E4B3 /* Main_iPhone.storyboard */,
@@ -415,9 +414,6 @@
 				D0E60F27277801F8009CF78F /* PreviewWebView.swift */,
 				D004DB7E23948F3D0080A7D1 /* SceneDelegate.swift */,
 				D0225708189745C40038232A /* Settings.bundle */,
-				D0BCFE632454BF0B007C4CA3 /* Settings.storyboard */,
-				D004DB82239759020080A7D1 /* SettingsSceneDelegate.swift */,
-				D06882EB22BACDA300CEBC1F /* SettingsTableViewController.swift */,
 				F3F7344C2C6FA550007C8C0B /* CoreData */,
 				D0CFE53D1888A7BD00165839 /* Supporting Files */,
 			);
@@ -428,7 +424,6 @@
 			isa = PBXGroup;
 			children = (
 				D00CDFC1194E65B4007505E9 /* Localizable.strings */,
-				D0CFE53E1888A7BD00165839 /* iOCNotes-Info.plist */,
 				D0CFE53F1888A7BD00165839 /* InfoPlist.strings */,
 				D02256C61891FD7C0038232A /* defaults.plist */,
 			);
@@ -469,6 +464,17 @@
 				D0E60F75277FB0A5009CF78F /* Themes.bundle */,
 			);
 			path = Editor;
+			sourceTree = "<group>";
+		};
+		F313E2362C959B800065F109 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				D0BCFE632454BF0B007C4CA3 /* Settings.storyboard */,
+				D004DB82239759020080A7D1 /* SettingsSceneDelegate.swift */,
+				D06882EB22BACDA300CEBC1F /* SettingsTableViewController.swift */,
+				F313E2372C959CFE0065F109 /* SettingsScreen.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		F3E3C8D32C6A60C100A80504 /* Root */ = {
@@ -521,6 +527,7 @@
 		F3F734552C6FABEA007C8C0B /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				F313E2362C959B800065F109 /* Settings */,
 				F3F734592C6FAD70007C8C0B /* Base */,
 				F3F734542C6FA75A007C8C0B /* Notes */,
 				F3E3C8D32C6A60C100A80504 /* Root */,
@@ -795,6 +802,7 @@
 				BD86DD8522B9CDD500115E5D /* KeychainHelper.swift in Sources */,
 				F3F7345B2C6FAD80007C8C0B /* BaseUIVIewController.swift in Sources */,
 				D08713ED1D18DA40001EAF82 /* HeaderTextView.swift in Sources */,
+				F313E2382C959CFE0065F109 /* SettingsScreen.swift in Sources */,
 				D0E60F5A277FADD5009CF78F /* UniversalTypes.swift in Sources */,
 				D0E60F28277801F8009CF78F /* PreviewWebView.swift in Sources */,
 				D03493B922F3CC5700E1A9B0 /* CategoryTableViewController.swift in Sources */,

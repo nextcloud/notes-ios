@@ -46,7 +46,7 @@ class NCBrandOptions: NSObject {
     var capabilitiesGroup: String = "group.it.twsweb.Crypto-Cloud"
     var capabilitiesGroupApps: String = "group.com.nextcloud.apps"
 
-    var disableCustomLoginUrl: Bool = true
+    var disableCustomLoginUrl: Bool = false
     var disableMultiAccount: Bool = false
 }
 

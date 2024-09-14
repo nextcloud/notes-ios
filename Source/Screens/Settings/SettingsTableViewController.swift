@@ -269,15 +269,42 @@ extension SettingsTableViewController: NCShareAccountsDelegate {
 }
 
 struct SettingsTableViewControllerRepresentable: UIViewControllerRepresentable {
+    @Binding var addAccount: Bool
+
+    class Coordinator: NSObject {
+        var parent: SettingsTableViewControllerRepresentable
+        weak var viewController: SettingsTableViewController?
+
+        init(_ parent: SettingsTableViewControllerRepresentable) {
+            self.parent = parent
+        }
+
+        func addAccount() {
+            viewController?.openShareAccountsViewController()
+            
+            parent.addAccount = false
+        }
+    }
+
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
+
     func makeUIViewController(context: Context) -> UIViewController {
         let storyboard = UIStoryboard(name: "Settings", bundle: nil)
 
-        let viewController = storyboard.instantiateViewController(withIdentifier: "login")
+        let viewController = storyboard.instantiateViewController(withIdentifier: "SettingsTableViewController") as? SettingsTableViewController
+        context.coordinator.viewController = viewController
 
-        return viewController
+
+        return viewController ?? UIViewController()
     }
 
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+
+        if addAccount {
+            context.coordinator.addAccount()
+        }
         // Update the UI of the view controller if needed
     }
 }

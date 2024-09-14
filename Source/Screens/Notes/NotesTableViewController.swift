@@ -741,19 +741,15 @@ struct NotesTableViewControllerRepresentable: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> UIViewController {
         let storyboard = UIStoryboard(name: "Main_iPhone", bundle: nil)
 
-        let viewControllerNew = storyboard.instantiateViewController(withIdentifier: "Notes")
-        let viewController = viewControllerNew as? NotesTableViewController
+        let viewController = storyboard.instantiateViewController(withIdentifier: "Notes") as? NotesTableViewController
         context.coordinator.viewController = viewController
 
         return viewController ?? UIViewController()
     }
 
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
-//        print("TEST")
-//        guard let notesVC = uiViewController as? NotesTableViewController else { return }
 
         if addNote {
-//            print("TEST")
             context.coordinator.addNote()
         }
     }
