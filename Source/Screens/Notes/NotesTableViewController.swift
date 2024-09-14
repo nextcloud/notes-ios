@@ -147,14 +147,15 @@ class NotesTableViewController: BaseUITableViewController {
         navigationController?.toolbar.clipsToBounds = true
         searchController = UISearchController(searchResultsController: nil)
         searchController?.searchResultsUpdater = self
-        searchController?.obscuresBackgroundDuringPresentation = false
-        searchController?.hidesNavigationBarDuringPresentation = true
-        searchController?.searchBar.sizeToFit()
+//        searchController?.obscuresBackgroundDuringPresentation = false
+//        searchController?.hidesNavigationBarDuringPresentation = true
+        searchController?.searchBar.directionalLayoutMargins = .init(top: 0, leading: 15, bottom: 0, trailing: 15)
         notesManager.manager.delegate = self
         updateFrcDelegate(update: .enable(withFetch: true))
         tableView.tableHeaderView = searchController?.searchBar
+        searchController?.searchBar.layer.borderWidth = 0
 
-        tableView.contentOffset = CGPoint(x: 0, y: searchController?.searchBar.frame.size.height ?? 0.0 + tableView.contentOffset.y)
+//        tableView.contentOffset = CGPoint(x: 0, y: searchController?.searchBar.frame.size.height ?? 0.0 + tableView.contentOffset.y)
         tableView.backgroundView = UIView()
         tableView.dropDelegate = self
         updateSectionExpandedInfo()
@@ -278,7 +279,8 @@ class NotesTableViewController: BaseUITableViewController {
         guard notesManager.manager.fetchedResultsController.validate(indexPath: indexPath) else {
             return
         }
-        cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
+
+        cell.textLabel?.font = .systemFont(ofSize: 17, weight: .medium)
         cell.backgroundColor = .ph_cellBackgroundColor
         cell.contentView.backgroundColor = .ph_cellBackgroundColor
         let selectedBackgroundView = UIView(frame: cell.frame)
@@ -291,6 +293,7 @@ class NotesTableViewController: BaseUITableViewController {
         let date = Date(timeIntervalSince1970: note.modified)
         cell.detailTextLabel?.text = dateFormat.string(from: date as Date)
         cell.detailTextLabel?.font = UIFont.preferredFont(forTextStyle: .footnote)
+        cell.detailTextLabel?.textColor = .secondaryLabel
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

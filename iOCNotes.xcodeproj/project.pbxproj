@@ -72,7 +72,6 @@
 		D0E60F71277FADD6009CF78F /* CheckBoxTapHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E60F52277FADD5009CF78F /* CheckBoxTapHandler.swift */; };
 		D0E60F74277FADD6009CF78F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E60F55277FADD5009CF78F /* Extensions.swift */; };
 		D0E60F76277FB0A5009CF78F /* Themes.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D0E60F75277FB0A5009CF78F /* Themes.bundle */; };
-		F36ED29A2C762A9500EC29B0 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36ED2992C762A9500EC29B0 /* Settings.swift */; };
 		F36ED29C2C762C3700EC29B0 /* NotesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36ED29B2C762C3700EC29B0 /* NotesScreen.swift */; };
 		F3E3C8D52C6A60CF00A80504 /* Root.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E3C8D42C6A60CF00A80504 /* Root.swift */; };
 		F3E3C8D92C6B7C2200A80504 /* NCBrand.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E3C8D82C6B7C2200A80504 /* NCBrand.swift */; };
@@ -239,7 +238,6 @@
 		D0E60F52277FADD5009CF78F /* CheckBoxTapHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoxTapHandler.swift; sourceTree = "<group>"; };
 		D0E60F55277FADD5009CF78F /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D0E60F75277FB0A5009CF78F /* Themes.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Themes.bundle; sourceTree = "<group>"; };
-		F36ED2992C762A9500EC29B0 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		F36ED29B2C762C3700EC29B0 /* NotesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesScreen.swift; sourceTree = "<group>"; };
 		F3E3C8D42C6A60CF00A80504 /* Root.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Root.swift; sourceTree = "<group>"; };
 		F3E3C8D82C6B7C2200A80504 /* NCBrand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NCBrand.swift; sourceTree = "<group>"; };
@@ -473,14 +471,6 @@
 			path = Editor;
 			sourceTree = "<group>";
 		};
-		F36ED2982C762A8800EC29B0 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				F36ED2992C762A9500EC29B0 /* Settings.swift */,
-			);
-			path = Settings;
-			sourceTree = "<group>";
-		};
 		F3E3C8D32C6A60C100A80504 /* Root */ = {
 			isa = PBXGroup;
 			children = (
@@ -531,7 +521,6 @@
 		F3F734552C6FABEA007C8C0B /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				F36ED2982C762A8800EC29B0 /* Settings */,
 				F3F734592C6FAD70007C8C0B /* Base */,
 				F3F734542C6FA75A007C8C0B /* Notes */,
 				F3E3C8D32C6A60C100A80504 /* Root */,
@@ -761,7 +750,6 @@
 			files = (
 				F3E3C8DC2C6B7DA600A80504 /* UIColor+Extension.swift in Sources */,
 				F3E3C8D92C6B7C2200A80504 /* NCBrand.swift in Sources */,
-				F36ED29A2C762A9500EC29B0 /* Settings.swift in Sources */,
 				D095384A1D3313F8006BB78E /* PreviewViewController.swift in Sources */,
 				D0E60F1A27756608009CF78F /* LoginViewController.swift in Sources */,
 				D0B0F3A427360BD000E51C3F /* NotesFRCManager.swift in Sources */,
