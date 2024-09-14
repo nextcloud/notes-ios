@@ -84,7 +84,7 @@ class SettingsTableViewController: UITableViewController {
         case 1:
             break
         case 2:
-            if indexPath.row == 1 {
+            if indexPath.row == 0 {
                 showNotesFolderAlert()
             }
         case 3:

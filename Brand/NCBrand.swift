@@ -34,7 +34,9 @@ class NCBrandOptions: NSObject {
         let instance = NCBrandOptions()
         return instance
     }()
-    
+
+    private override init() {}
+
     var brand: String = "Nextcloud"
     var textCopyrightNextcloudiOS: String = "Nextcloud Hydrogen for iOS %@ © 2024"
     var textCopyrightNextcloudServer: String = "Nextcloud Server %@"
