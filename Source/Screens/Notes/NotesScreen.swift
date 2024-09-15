@@ -23,7 +23,8 @@ struct NotesScreen: View {
             }
             .toolbarTitleDisplayMode(.inline)
             .navigationTitle(NSLocalizedString("Notes", comment: ""))
-            .toolbarBackground(.bar, for: .navigationBar)
+            .toolbarBackground(.visible, for: .navigationBar)
+            .toolbarBackground(.visible, for: .tabBar)
     }
 }
 
