@@ -73,6 +73,7 @@
 		D0E60F74277FADD6009CF78F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E60F55277FADD5009CF78F /* Extensions.swift */; };
 		D0E60F76277FB0A5009CF78F /* Themes.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D0E60F75277FB0A5009CF78F /* Themes.bundle */; };
 		F313E2382C959CFE0065F109 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F313E2372C959CFE0065F109 /* SettingsScreen.swift */; };
+		F32A39462C99A40D008EE8DC /* iOCNotes.plist in Resources */ = {isa = PBXBuildFile; fileRef = F32A39452C99A40D008EE8DC /* iOCNotes.plist */; };
 		F36ED29C2C762C3700EC29B0 /* NotesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36ED29B2C762C3700EC29B0 /* NotesScreen.swift */; };
 		F3E3C8D52C6A60CF00A80504 /* Root.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E3C8D42C6A60CF00A80504 /* Root.swift */; };
 		F3E3C8D92C6B7C2200A80504 /* NCBrand.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E3C8D82C6B7C2200A80504 /* NCBrand.swift */; };
@@ -238,6 +239,8 @@
 		D0E60F55277FADD5009CF78F /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D0E60F75277FB0A5009CF78F /* Themes.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Themes.bundle; sourceTree = "<group>"; };
 		F313E2372C959CFE0065F109 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
+		F32A39442C99A40D008EE8DC /* iOCNotes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOCNotes.entitlements; sourceTree = "<group>"; };
+		F32A39452C99A40D008EE8DC /* iOCNotes.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = iOCNotes.plist; sourceTree = "<group>"; };
 		F36ED29B2C762C3700EC29B0 /* NotesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesScreen.swift; sourceTree = "<group>"; };
 		F3E3C8D42C6A60CF00A80504 /* Root.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Root.swift; sourceTree = "<group>"; };
 		F3E3C8D82C6B7C2200A80504 /* NCBrand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NCBrand.swift; sourceTree = "<group>"; };
@@ -404,7 +407,6 @@
 				D06882ED22BB146200CEBC1F /* EditorViewController.swift */,
 				D0E60F1727741633009CF78F /* FileExtensionTableViewController.swift */,
 				D0CFE5511888A7BD00165839 /* Images.xcassets */,
-				F7BB8B7129915A650010D2F7 /* Launch Screen.storyboard */,
 				D0E60F1927756608009CF78F /* LoginViewController.swift */,
 				D09E430E1E2C46930010E4B3 /* Main_iPhone.storyboard */,
 				D0545F22230901D30001D165 /* PBHOpenInActivity.swift */,
@@ -488,6 +490,9 @@
 		F3E3C8D72C6B7BF800A80504 /* Brand */ = {
 			isa = PBXGroup;
 			children = (
+				F32A39442C99A40D008EE8DC /* iOCNotes.entitlements */,
+				F32A39452C99A40D008EE8DC /* iOCNotes.plist */,
+				F7BB8B7129915A650010D2F7 /* Launch Screen.storyboard */,
 				F3E3C8D82C6B7C2200A80504 /* NCBrand.swift */,
 			);
 			path = Brand;
@@ -734,6 +739,7 @@
 				D09E430C1E2C46930010E4B3 /* Main_iPhone.storyboard in Resources */,
 				D0225709189745C40038232A /* Settings.bundle in Resources */,
 				F77B57042993E32100A23E76 /* NCShareAccounts.storyboard in Resources */,
+				F32A39462C99A40D008EE8DC /* iOCNotes.plist in Resources */,
 				D0E60F76277FB0A5009CF78F /* Themes.bundle in Resources */,
 				D0BCFE6A2454BF40007C4CA3 /* Categories.storyboard in Resources */,
 				D0CFE5411888A7BD00165839 /* InfoPlist.strings in Resources */,
