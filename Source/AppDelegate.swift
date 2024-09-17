@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
 
         let appVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
-        let appName = "NextcloudNotes" // Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String
+        let appName = Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String
         let userAgent = "Mozilla/5.0 (iOS) \(appName)/\(appVersion ?? "")"
 
         NextcloudKit.shared.setup(delegate: NCNetworking.shared)
