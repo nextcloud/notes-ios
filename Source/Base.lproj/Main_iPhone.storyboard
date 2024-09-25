@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Hnc-wc-q9I">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Notes-->
+        <scene sceneID="rtV-CN-b4x">
+            <objects>
+                <tableViewController storyboardIdentifier="Notes" id="DXe-Iw-CcD" customClass="NotesTableViewController" customModule="iOCNotes" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="K35-HQ-LQQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
+                        <color key="separatorColor" name="PHWhiteReadText"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="PUY-jA-gLM">
+                            <rect key="frame" x="0.0" y="117.5" width="414" height="1"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NoteCell" textLabel="1Q3-he-nuB" detailTextLabel="x61-QN-GPh" style="IBUITableViewCellStyleSubtitle" id="kka-p9-Iaq" customClass="NoteTableViewCell" customModule="iOCNotes" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="55.5" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kka-p9-Iaq" id="bx6-5a-S9d">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1Q3-he-nuB">
+                                            <rect key="frame" x="20" y="4" width="35" height="21.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" name="PHWhiteText"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="x61-QN-GPh">
+                                            <rect key="frame" x="20" y="25.5" width="44" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="R1o-2G-Lxf" kind="showDetail" identifier="showDetail" id="RCf-VZ-GG6"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="DXe-Iw-CcD" id="6Yr-UO-Tnt"/>
+                            <outlet property="delegate" destination="DXe-Iw-CcD" id="lTT-Wj-gfA"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Notes" id="qfr-a2-foZ">
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="MOs-yv-oce">
+                                <color key="tintColor" name="PHWhiteIcon"/>
+                                <connections>
+                                    <action selector="onAddWithSender:" destination="DXe-Iw-CcD" id="8El-Gc-220"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="refresh" id="Vq9-nq-q23">
+                                <color key="tintColor" name="PHWhiteIcon"/>
+                                <connections>
+                                    <action selector="onRefreshWithSender:" destination="DXe-Iw-CcD" id="2sU-BA-2fZ"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="KYs-2X-3jY">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <action selector="onPullToRefresh:" destination="DXe-Iw-CcD" eventType="valueChanged" id="jv8-Ub-JzR"/>
+                        </connections>
+                    </refreshControl>
+                    <connections>
+                        <outlet property="addBarButton" destination="MOs-yv-oce" id="KfS-dy-ASJ"/>
+                        <outlet property="refreshBarButton" destination="Vq9-nq-q23" id="MIf-rO-5SM"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2nj-I5-PGU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1487" y="-1235"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="clz-zK-6Sc">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Settings" id="JBc-8M-sq7" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nya-es-Ato" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2027" y="-1456"/>
+        </scene>
+        <!--Split View Controller-->
+        <scene sceneID="T5b-rp-L4S">
+            <objects>
+                <splitViewController allowDoubleColumnStyle="YES" id="Hnc-wc-q9I" customClass="PBHSplitViewController" customModule="iOCNotes" customModuleProvider="target" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="RQg-o0-i6F" kind="relationship" relationship="masterViewController" id="kQb-cu-1IE"/>
+                        <segue destination="R1o-2G-Lxf" kind="relationship" relationship="detailViewController" id="2gj-xK-JEy"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Omp-bX-sKi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-62" y="-978"/>
+        </scene>
+        <!--Editor View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="EditorViewController" customModule="iOCNotes" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ate-YD-PfH"/>
+                        <viewControllerLayoutGuide type="bottom" id="2tF-Ws-VkG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" name="PHWhiteBackground"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="dEj-4d-nDe"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="activityButton" destination="pXa-gb-ki1" id="fMm-Yj-DYc"/>
+                        <outlet property="deleteButton" destination="aql-su-dTG" id="aZw-En-uzG"/>
+                        <outlet property="doneButton" destination="1qk-bQ-vnb" id="t3C-JM-SAg"/>
+                        <outlet property="fixedSpace" destination="thB-y7-Xbs" id="6iI-ez-fg4"/>
+                        <outlet property="previewButton" destination="3f2-rn-lgQ" id="q8D-CE-LGd"/>
+                        <outlet property="redoButton" destination="T7C-FW-CGQ" id="FeB-EW-iqa"/>
+                        <outlet property="undoButton" destination="6bO-Ah-TJ8" id="jZs-pU-qIb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <barButtonItem systemItem="action" id="pXa-gb-ki1">
+                    <color key="tintColor" name="PHWhiteIcon"/>
+                    <connections>
+                        <action selector="onActivities:" destination="vXZ-lx-hvc" id="oex-S6-Eng"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem systemItem="trash" id="aql-su-dTG">
+                    <color key="tintColor" name="PHWhiteIcon"/>
+                    <connections>
+                        <action selector="onDelete:" destination="vXZ-lx-hvc" id="UNY-4r-5qs"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem image="doc.text.magnifyingglass" catalog="system" id="3f2-rn-lgQ" userLabel="Preview">
+                    <color key="tintColor" name="PHWhiteIcon"/>
+                    <connections>
+                        <segue destination="7xC-ZL-ULJ" kind="show" identifier="showPreview" id="2yM-1x-su8"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem systemItem="undo" id="6bO-Ah-TJ8">
+                    <color key="tintColor" name="PHWhiteIcon"/>
+                    <connections>
+                        <action selector="onUndo:" destination="vXZ-lx-hvc" id="JwM-xg-ZsU"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem systemItem="redo" id="T7C-FW-CGQ">
+                    <color key="tintColor" name="PHWhiteIcon"/>
+                    <connections>
+                        <action selector="onRedo:" destination="vXZ-lx-hvc" id="dEX-CR-Yww"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem systemItem="done" id="1qk-bQ-vnb">
+                    <color key="tintColor" name="PHWhiteIcon"/>
+                    <connections>
+                        <action selector="onDone:" destination="vXZ-lx-hvc" id="ZSg-Vw-aPw"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem width="10" style="plain" systemItem="fixedSpace" id="thB-y7-Xbs"/>
+            </objects>
+            <point key="canvasLocation" x="1417" y="-485"/>
+        </scene>
+        <!--Preview View Controller-->
+        <scene sceneID="zMG-OD-d12">
+            <objects>
+                <viewController storyboardIdentifier="PreviewController" id="7xC-ZL-ULJ" customClass="PreviewViewController" customModule="iOCNotes" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hdL-0d-TTy"/>
+                        <viewControllerLayoutGuide type="bottom" id="bpa-Yz-xfN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8k1-Ib-19a">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="vsb-LD-pwS"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IYG-2G-Yb7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2154" y="-485"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="fMS-Gw-CfY">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NPZ-9D-o3J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="RQg-o0-i6F" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fRT-Hm-h30">
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" name="PHWhiteIcon"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="p4w-cm-yXR">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="DXe-Iw-CcD" kind="relationship" relationship="rootViewController" id="N2U-Wk-XGw"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="733" y="-1235"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="1o0-w2-ASY">
+            <objects>
+                <navigationController storyboardIdentifier="Editor" automaticallyAdjustsScrollViewInsets="NO" id="R1o-2G-Lxf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="fUW-Ps-K5E"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Kus-pY-rHi">
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.1176470588" green="0.1764705882" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="WOe-49-Vig"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bF7-Sg-WkW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="703" y="-485"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="RCf-VZ-GG6"/>
+    </inferredMetricsTieBreakers>
+    <resources>
+        <image name="doc.text.magnifyingglass" catalog="system" width="110" height="128"/>
+        <namedColor name="PHWhiteBackground">
+            <color red="0.97000002861022949" green="0.97000002861022949" blue="0.97000002861022949" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PHWhiteIcon">
+            <color red="0.10000000149011612" green="0.10000000149011612" blue="0.10000000149011612" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PHWhiteReadText">
+            <color red="0.61000001430511475" green="0.61000001430511475" blue="0.61000001430511475" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PHWhiteText">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="groupTableViewBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
