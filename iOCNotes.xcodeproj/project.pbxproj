@@ -1358,8 +1358,7 @@
 				F3F7344D2C6FA550007C8C0B /* Notes.xcdatamodel */,
 			);
 			currentVersion = F3F7344D2C6FA550007C8C0B /* Notes.xcdatamodel */;
-			name = Notes.xcdatamodeld;
-			path = "/Users/milen/Code/Nextcloud/notes-ios/Source/CoreData/Notes.xcdatamodeld";
+			path = Notes.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
