@@ -469,13 +469,13 @@ class NotesTableViewController: BaseUITableViewController {
 
         if isNextcloud(),
            KeychainHelper.notesApiVersion != Router.defaultApiVersion {
-            let renameAction = UIAction(title: NSLocalizedString("Rename...", comment: "Action to change title of a note"), image: UIImage(systemName: "square.and.pencil")) { [weak self] action in
+            let renameAction = UIAction(title: NSLocalizedString("Rename…", comment: "Action to change title of a note"), image: UIImage(systemName: "square.and.pencil")) { [weak self] action in
                 self?.showRenameAlert(for: indexPath)
             }
             actions.append(renameAction)
         }
         if isNextcloud() {
-            let categoryAction = UIAction(title: NSLocalizedString("Category...", comment: "Action to change category of a note"), image: UIImage(named: "categories")) { [weak self] _ in
+            let categoryAction = UIAction(title: NSLocalizedString("Category…", comment: "Action to change category of a note"), image: UIImage(named: "categories")) { [weak self] _ in
                 self?.showCategories(indexPath: indexPath)
             }
             actions.append(categoryAction)
