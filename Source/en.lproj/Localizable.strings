@@ -2,7 +2,7 @@
 "<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Please provide as much details as possible about what you were doing when the crash occurred.>";
 
 /* Support email body placeholder */
-"<Please state your question or problem here>" = "<Please state your question or problem here>";
+"<Please state your question or problem here>" = "Please state your question or problem here";
 
 /* An error message */
 "A server installation could not be found. Check the server address." = "A server installation could not be found. Check the server address.";
