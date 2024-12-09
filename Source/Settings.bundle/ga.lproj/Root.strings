@@ -1,0 +1,20 @@
+/* 
+  Root.strings
+  iOCNotes
+
+  Created by Peter Hedlund on 6/22/14.
+  Copyright (c) 2014 Peter Hedlund. All rights reserved.
+*/
+"About" = "Faoi";
+
+"Acknowledgements" = "Buíochas";
+
+"Advanced Settings" = "Ardsocruithe";
+
+"Caution: Turning the switch on will remove all notes locally. Unsynced changes will be lost. Use only if you are experiencing problems." = "Aire: Má chuirtear an lasc ar siúl bainfear na nótaí go léir go háitiúil. Caillfear athruithe gan sioncronaithe. Bain úsáid as ach amháin má tá fadhbanna agat.";
+
+"Reset local notes database" = "Athshocraigh bunachar sonraí nótaí logánta";
+
+"Third-party licenses" = "Ceadúnais tríú páirtí";
+
+"Version" = "Leagan";

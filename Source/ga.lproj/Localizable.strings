@@ -1,0 +1,251 @@
+/* Crash report email body placeholder */
+"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Cuir an oiread sonraí agus is féidir ar fáil faoin méid a bhí á dhéanamh agat nuair a tharla an timpiste.>";
+
+/* Support email body placeholder */
+"<Please state your question or problem here>" = "Please state your question or problem here";
+
+/* An error message */
+"A server installation could not be found. Check the server address." = "Níorbh fhéidir suiteáil freastalaí a aimsiú. Seiceáil an seoladh freastalaí.";
+
+/* Acknowledgements */
+"Acknowledgements" = "Buíochas";
+
+/* Title of alert for adding a category */
+"Add Category" = "Cuir Catagóir leis";
+
+/* Item to show all notes */
+"All" = "Gach";
+
+/* A menu action
+   A menu option for cancelling */
+"Cancel" = "Cealaigh";
+
+/* Header title, categories */
+"CATEGORIES" = "CATAGÓIRÍ";
+
+/* 'Category' menu item */
+"Category" = "Catagóir";
+
+/* Action to change category of a note */
+"Category..." = "Catagóir...";
+
+/* Action to change category of a note */
+"Change Category..." = "Athraigh Catagóir...";
+
+/* An error message */
+"Check username and password." = "Seiceáil ainm úsáideora agus pasfhocal.";
+
+/* Title of a button allowing the user to close the login screen and sync with the server */
+"Close & Sync" = "Dún & Sioncronaigh";
+
+/* Crash report email subject */
+"NextcloudNotes Crash Report" = "Tuairisc Tuairteála NextcloudNotes";
+
+/* No comment provided by engineer. */
+"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "Thuar NextcloudNotes an uair dheireanach a seoladh é. Ar mhaith leat tuairisc a sheoladh chuig an bhforbróir?";
+
+/* Support email subject */
+"NextcloudNotes Support Request" = "Iarratas Tacaíochta NextcloudNotes";
+
+/* A button title */
+"Connect" = "Ceangail";
+
+/* Status information, connected */
+"Connected to Notes on the server" = "Ceangailte le Nótaí ar an bhfreastalaí";
+
+/* An error message title */
+"Connection failure" = "Teip ceangail";
+
+/* Alert view title */
+"Crash Detected" = "Tuairt Braite";
+
+/* Action to delete a note */
+"Delete" = "Scrios";
+
+/* A menu action */
+"Delete Note" = "Scrios Nóta";
+
+/* Prompt on alert for adding a category */
+"Enter a name for the new category" = "Cuir isteach ainm don chatagóir nua";
+
+/* The title of an error message */
+"Error Adding Note" = "Earráid agus Nóta á Chur Leis";
+
+/* The title of an error message */
+"Error Deleting Note" = "Earráid agus Nóta á scriosadh";
+
+/* The title of an error message */
+"Error Getting Note" = "Earráid agus Nóta á Fháil";
+
+/* The title of an error message */
+"Error Syncing Notes" = "Earráid agus Nótaí á Sioncronú";
+
+/* The title of an error message */
+"Error Updating Note" = "Earráid agus Nóta á Nuashonrú";
+
+/* The title of an error message */
+"Error Updating Notes" = "Earráid agus Nótaí á Nuashonrú";
+
+/* An error message */
+"Failed to connect to a server. Check your settings." = "Theip ar nascadh le freastalaí. Seiceáil do shocruithe.";
+
+/* Item to show favorite notes */
+"Favorites" = "Ceanáin";
+
+/* A menu option for plain sharing in html format */
+"HTML" = "HTML";
+
+/* A status label indicating that the user is logged in */
+"Logged In" = "Logáilte Isteach";
+
+/* Header title, main */
+"MAIN" = "PRÍOMH";
+
+/* A menu option for sharing in markdown format */
+"Markdown" = "Marcáil síos";
+
+/* The title of a new note */
+"New note" = "Nóta nua";
+
+/* No comment provided by engineer. */
+"No thanks" = "Níl go raibh maith agat";
+
+/* Status information, not connected */
+"Not connected to Notes on a server" = "Níl sé ceangailte le Nótaí ar fhreastalaí";
+
+/* A status label indicating that the user is not logged in */
+"Not Logged In" = "Gan Logáil Isteach";
+
+/* Message about not being logged in */
+"Not logged in" = "Gan logáil isteach";
+
+/* Title of alert to change title */
+"Note Title" = "Nóta Teideal";
+
+/* An error message */
+"Notes could not be found on your server. Make sure it is installed and enabled" = "Níorbh fhéidir nótaí a aimsiú ar do fhreastalaí. Déan cinnte go bhfuil sé suiteáilte agus cumasaithe";
+
+/* An error message title */
+"Notes not found" = "Nótaí gan aimsiú";
+
+/* Button, OK */
+"OK" = "ceart go leor";
+
+/* Title for Open In activity */
+"Open In..." = "Oscail i...";
+
+/* A menu option for sharing in plain text format */
+"Plain Text" = "Gnáth-théacs";
+
+/* A message
+   A message to check network connection */
+"Please check network connection and login." = "Seiceáil le do thoil nasc líonra agus logáil isteach.";
+
+/* A button title */
+"Reconnect" = "Athcheangail";
+
+/* Action to change title of a note
+   Caption of Rename button */
+"Rename" = "Athainmnigh";
+
+/* Message of alert to change title */
+"Rename the note" = "Athainmnigh an nóta";
+
+/* Action to change title of a note */
+"Rename..." = "Athainmnigh...";
+
+/* A menu option for sharing in rich text format */
+"Rich Text" = "Téacs Saibhir";
+
+/* Placeholder text when no note is selected */
+"Select or create a note." = "Roghnaigh nó cruthaigh nóta.";
+
+/* Alert title for selecting server brand */
+"Server" = "Freastalaí";
+
+/* An error message title */
+"Server not found" = "Freastalaí gan aimsiú";
+
+/* A message title */
+"Server Reachable" = "Freastalaí Insroichte";
+
+/* Title of a menu with sharing options */
+"Share Note As" = "Comhroinn Nóta Mar";
+
+/* A message title */
+"Success" = "Rath";
+
+/* A message */
+"The network connection is working properly." = "Tá an nasc líonra ag obair i gceart.";
+
+/* An error message */
+"The note does not exist" = "Níl an nóta ann";
+
+/* Alert message for selecting server brand */
+"Unable to automatically detect type of server.\nPlease select:" = "Ní féidir an cineál freastalaí a bhrath go huathoibríoch.\nRoghnaigh le do thoil:";
+
+/* A message title
+   The title of an error message */
+"Unable to Reach Server" = "Ní féidir an freastalaí a shroicheadh";
+
+/* An error message title */
+"Unauthorized" = "Neamhúdaraithe";
+
+/* Text displayed for notes not assigned to a category */
+"Uncategorized" = "Gan catagóir";
+
+/* Message with Notes version, product name and version */
+"Using Notes %@on %@ %@." = "Ag Úsáid Nótaí % @ ar %@ %@.";
+
+/* No comment provided by engineer. */
+"Yes, please!" = "Sea, le do thoil!";
+
+/* A message */
+"You are now connected to Notes on your server" = "Tá tú ceangailte anois le Nótaí ar do fhreastalaí";
+
+/* HUD subtitle when checking server capabilities */
+"Checking server capabilities" = "Cumais an fhreastalaí á seiceáil";
+
+/* HUD subtitle when checking server settings */
+"Checking server settings" = "Socruithe freastalaí á seiceáil";
+
+/* HUD subtitle when checking server status */
+"Checking server status" = "Stádas an fhreastalaí á sheiceáil";
+
+/* No comment provided by engineer. */
+"Connection error" = "Earráid ceangail";
+
+/* No comment provided by engineer. */
+"Do you want to connect to the server anyway?" = "Ar mhaith leat ceangal leis an bhfreastalaí ar aon nós?";
+
+/* Message of alert to change notes folder */
+"Enter a name for the folder where notes should be saved on the server" = "Cuir isteach ainm don fhillteán inar cheart nótaí a shábháil ar an bhfreastalaí";
+
+/* An error message title */
+"Error" = "Earráid";
+
+/* No comment provided by engineer. */
+"No" = "Níl";
+
+/* Title of alert to change notes folder */
+"Notes Folder" = "Fillteán Nótaí";
+
+/* A menu option for sharing in pdf format */
+"PDF" = "PDF";
+
+/* Caption of Save button */
+"Save" = "Sábháil";
+
+/* No comment provided by engineer. */
+"The certificate for this server is invalid" = "Tá teastas an fhreastalaí seo neamhbhailí";
+
+/* No comment provided by engineer. */
+"View Certificate" = "Féach ar an Teastas";
+
+/* No comment provided by engineer. */
+"Yes" = "Tá";
+
+// NEXTCLOUD
+"Select the account to add"   = "Roghnaigh an cuntas le cur leis";
+
+"Notes" = "Nótaí";

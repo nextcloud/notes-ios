@@ -1,0 +1,251 @@
+/* Crash report email body placeholder */
+"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<يرجى تقديم أكبر قدر ممكن من التفاصيل حول ما كنت تفعله عند وقوع الحادث.>";
+
+/* Support email body placeholder */
+"<Please state your question or problem here>" = "Please state your question or problem here";
+
+/* An error message */
+"A server installation could not be found. Check the server address." = "تعذّر العثور على الخادوم. رجاءً، تأكّد من عنوان الخادوم.";
+
+/* Acknowledgements */
+"Acknowledgements" = "شكرٌ و تقديرٌ";
+
+/* Title of alert for adding a category */
+"Add Category" = "إضافة تصنيف";
+
+/* Item to show all notes */
+"All" = "الكل";
+
+/* A menu action
+   A menu option for cancelling */
+"Cancel" = "إلغاء";
+
+/* Header title, categories */
+"CATEGORIES" = "التصنيفات";
+
+/* 'Category' menu item */
+"Category" = "التصنيف";
+
+/* Action to change category of a note */
+"Category..." = "تصنيف ...";
+
+/* Action to change category of a note */
+"Change Category..." = "تغيير التصنيف...";
+
+/* An error message */
+"Check username and password." = "التحقُّق من المستخدِم و كلمة المرور.";
+
+/* Title of a button allowing the user to close the login screen and sync with the server */
+"Close & Sync" = "أغلِق و زامِن";
+
+/* Crash report email subject */
+"NextcloudNotes Crash Report" = "تقرير بتوقف تطبيق ملاحظات نكست كلاود Nextcloud Notes عن العمل";
+
+/* No comment provided by engineer. */
+"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "تطبيق الملاحظات Nextcloud Notes تعطّل عند تشغيله المرة السابقة. هل ترغب في إرسال تقرير بذلك إلى مطوري التطبيق؟";
+
+/* Support email subject */
+"NextcloudNotes Support Request" = "طلب دعم لتطبيق الملاحظات Nextcloud Notes";
+
+/* A button title */
+"Connect" = "توصيل";
+
+/* Status information, connected */
+"Connected to Notes on the server" = "تمّ التوصيل مع الملاحظات على الخادوم";
+
+/* An error message title */
+"Connection failure" = "فشل التوصيل";
+
+/* Alert view title */
+"Crash Detected" = "تمّ اكتشاف إخفاق";
+
+/* Action to delete a note */
+"Delete" = "حذف";
+
+/* A menu action */
+"Delete Note" = "حذف ملاحظة";
+
+/* Prompt on alert for adding a category */
+"Enter a name for the new category" = "أدخل اسم التصنيف الجديد";
+
+/* The title of an error message */
+"Error Adding Note" = "خطأ في إضافة الملاحظة";
+
+/* The title of an error message */
+"Error Deleting Note" = "خطأ في حذف ملاحظة";
+
+/* The title of an error message */
+"Error Getting Note" = "خطأ في الحصول على الملاحظة";
+
+/* The title of an error message */
+"Error Syncing Notes" = "خطأ في مزامنة الملاحظات";
+
+/* The title of an error message */
+"Error Updating Note" = "خطأ في تحديث الملاحظة";
+
+/* The title of an error message */
+"Error Updating Notes" = "خطأ في تحديث الملاحظات";
+
+/* An error message */
+"Failed to connect to a server. Check your settings." = "فشل في التوصيل مع الخادوم. تحقَّق من إعداداتك.";
+
+/* Item to show favorite notes */
+"Favorites" = "المفضلة";
+
+/* A menu option for plain sharing in html format */
+"HTML" = "HTML";
+
+/* A status label indicating that the user is logged in */
+"Logged In" = "تمّ تسجيل الدخول";
+
+/* Header title, main */
+"MAIN" = "الرئيسي";
+
+/* A menu option for sharing in markdown format */
+"Markdown" = "ماركداون";
+
+/* The title of a new note */
+"New note" = "ملاحظة جديدة ";
+
+/* No comment provided by engineer. */
+"No thanks" = "لا؛ مع الشكر";
+
+/* Status information, not connected */
+"Not connected to Notes on a server" = "غير متصل بالملاحظات على الخادوم";
+
+/* A status label indicating that the user is not logged in */
+"Not Logged In" = "لم يتم تسجيل الدخول";
+
+/* Message about not being logged in */
+"Not logged in" = "لم يتم تسجيل الدخول";
+
+/* Title of alert to change title */
+"Note Title" = "عنوان الملاحظة";
+
+/* An error message */
+"Notes could not be found on your server. Make sure it is installed and enabled" = "تعذّر العثور على ملاحظات على خادومك. تأكد من تثبيت التطبيق و تمكينه";
+
+/* An error message title */
+"Notes not found" = "لا توجد أي ملاحظات";
+
+/* Button, OK */
+"OK" = "تم";
+
+/* Title for Open In activity */
+"Open In..." = "فتح في ...";
+
+/* A menu option for sharing in plain text format */
+"Plain Text" = "نص واضح";
+
+/* A message
+   A message to check network connection */
+"Please check network connection and login." = "رجاءً، تأكد من الاتصال بالشبكة و سجّل دخولك.";
+
+/* A button title */
+"Reconnect" = "إعادة الاتصال";
+
+/* Action to change title of a note
+   Caption of Rename button */
+"Rename" = "تغيير الاسم";
+
+/* Message of alert to change title */
+"Rename the note" = "تغيير اسم الملاحظة";
+
+/* Action to change title of a note */
+"Rename..." = "تغيير الاسم جارٍ ...";
+
+/* A menu option for sharing in rich text format */
+"Rich Text" = "نص مُنسّق";
+
+/* Placeholder text when no note is selected */
+"Select or create a note." = "إختَر أو إنشيء ملاحظةً";
+
+/* Alert title for selecting server brand */
+"Server" = "الخادوم";
+
+/* An error message title */
+"Server not found" = "الخادوم غير موجود";
+
+/* A message title */
+"Server Reachable" = "يمكن الوصول للخادوم";
+
+/* Title of a menu with sharing options */
+"Share Note As" = "مشاركة الملاحظة كـ";
+
+/* A message title */
+"Success" = "نجاح";
+
+/* A message */
+"The network connection is working properly." = "اتصال الشبكة يعمل بشكل صحيح";
+
+/* An error message */
+"The note does not exist" = "الملاحظة غير موجودة";
+
+/* Alert message for selecting server brand */
+"Unable to automatically detect type of server.\nPlease select:" = "تعذّر التعرُّف على نوع الخادوم بصورة آلية. رجاءً، حدِّد النوع:";
+
+/* A message title
+   The title of an error message */
+"Unable to Reach Server" = "تعذّر الوصول إلى الخادوم";
+
+/* An error message title */
+"Unauthorized" = "غير مأذون به";
+
+/* Text displayed for notes not assigned to a category */
+"Uncategorized" = "غير مصنف";
+
+/* Message with Notes version, product name and version */
+"Using Notes %@on %@ %@." = "استعمال الملاحظات %@on %@ %@.";
+
+/* No comment provided by engineer. */
+"Yes, please!" = "نعم، من فضلك!";
+
+/* A message */
+"You are now connected to Notes on your server" = "أنت الآن متصل بتطبيق الملاحظات على خادومك";
+
+/* HUD subtitle when checking server capabilities */
+"Checking server capabilities" = "فحص قدرات الخادوم";
+
+/* HUD subtitle when checking server settings */
+"Checking server settings" = "فحص إعدادات الخادوم";
+
+/* HUD subtitle when checking server status */
+"Checking server status" = "فحص حالة الخادوم";
+
+/* No comment provided by engineer. */
+"Connection error" = "خطأٌ في الاتصال";
+
+/* No comment provided by engineer. */
+"Do you want to connect to the server anyway?" = "هل تريد الاتصال بالخادوم على كل حال؟";
+
+/* Message of alert to change notes folder */
+"Enter a name for the folder where notes should be saved on the server" = "أدخِل اسماً للمجلد الذي تحفظ فيه الملاحظات على الخادوم";
+
+/* An error message title */
+"Error" = "خطأٌ";
+
+/* No comment provided by engineer. */
+"No" = "لا";
+
+/* Title of alert to change notes folder */
+"Notes Folder" = "مجلد الملاحظات";
+
+/* A menu option for sharing in pdf format */
+"PDF" = "\"بي دي إف\"";
+
+/* Caption of Save button */
+"Save" = "حفظ";
+
+/* No comment provided by engineer. */
+"The certificate for this server is invalid" = "شهادة مصادقة الخادوم غير صالحة";
+
+/* No comment provided by engineer. */
+"View Certificate" = "شهادة مصادقة جديدة";
+
+/* No comment provided by engineer. */
+"Yes" = "نعم";
+
+// NEXTCLOUD
+"Select the account to add"   = "إختَر الحساب لإضافته";
+
+"Notes" = "الملاحظات";

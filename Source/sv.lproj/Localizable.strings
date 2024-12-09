@@ -1,0 +1,251 @@
+/* Crash report email body placeholder */
+"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Ange så mycket information som möjligt om vad du gjorde när kraschen inträffade.>";
+
+/* Support email body placeholder */
+"<Please state your question or problem here>" = "Please state your question or problem here";
+
+/* An error message */
+"A server installation could not be found. Check the server address." = "Det gick inte att hitta en serverinstallation. Kontrollera serveradressen.";
+
+/* Acknowledgements */
+"Acknowledgements" = "Erkännanden";
+
+/* Title of alert for adding a category */
+"Add Category" = "Lägg till kategori";
+
+/* Item to show all notes */
+"All" = "Alla";
+
+/* A menu action
+   A menu option for cancelling */
+"Cancel" = "Cancel";
+
+/* Header title, categories */
+"CATEGORIES" = "KATEGORIER";
+
+/* 'Category' menu item */
+"Category" = "Kategori";
+
+/* Action to change category of a note */
+"Category..." = "Kategori...";
+
+/* Action to change category of a note */
+"Change Category..." = "Ändra kategori...";
+
+/* An error message */
+"Check username and password." = "Kontrollera användarnamn och lösenord.";
+
+/* Title of a button allowing the user to close the login screen and sync with the server */
+"Close & Sync" = "Stäng & synka";
+
+/* Crash report email subject */
+"NextcloudNotes Crash Report" = "NextcloudNotes kraschrapport";
+
+/* No comment provided by engineer. */
+"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "NextcloudNotes kraschade förra gången det startades. Vill du skicka en rapport till utvecklaren?";
+
+/* Support email subject */
+"NextcloudNotes Support Request" = "NextcloudNotes supportförfrågan";
+
+/* A button title */
+"Connect" = "Anslut";
+
+/* Status information, connected */
+"Connected to Notes on the server" = "Ansluten till Notes på servern";
+
+/* An error message title */
+"Connection failure" = "Anslutningsfel";
+
+/* Alert view title */
+"Crash Detected" = "Krasch upptäckt";
+
+/* Action to delete a note */
+"Delete" = "Ta bort";
+
+/* A menu action */
+"Delete Note" = "Ta bort anteckning";
+
+/* Prompt on alert for adding a category */
+"Enter a name for the new category" = "Ange ett namn för den nya kategorin";
+
+/* The title of an error message */
+"Error Adding Note" = "Det gick inte att lägga till anteckning";
+
+/* The title of an error message */
+"Error Deleting Note" = "Det gick inte att ta bort anteckning";
+
+/* The title of an error message */
+"Error Getting Note" = "Det gick inte att hämta anteckning";
+
+/* The title of an error message */
+"Error Syncing Notes" = "Det gick inte att synka anteckningar";
+
+/* The title of an error message */
+"Error Updating Note" = "Det gick inte att uppdatera anteckning";
+
+/* The title of an error message */
+"Error Updating Notes" = "Det gick inte att uppdatera anteckningar";
+
+/* An error message */
+"Failed to connect to a server. Check your settings." = "Det gick inte att ansluta till en server. Kontrollera dina inställningar.";
+
+/* Item to show favorite notes */
+"Favorites" = "Favoriter";
+
+/* A menu option for plain sharing in html format */
+"HTML" = "HTML";
+
+/* A status label indicating that the user is logged in */
+"Logged In" = "Inloggad";
+
+/* Header title, main */
+"MAIN" = "MAIN";
+
+/* A menu option for sharing in markdown format */
+"Markdown" = "Markdown";
+
+/* The title of a new note */
+"New note" = "Ny anteckning";
+
+/* No comment provided by engineer. */
+"No thanks" = "Nej tack";
+
+/* Status information, not connected */
+"Not connected to Notes on a server" = "Inte ansluten till Notes på en server";
+
+/* A status label indicating that the user is not logged in */
+"Not Logged In" = "Inte inloggad";
+
+/* Message about not being logged in */
+"Not logged in" = "Inte inloggad";
+
+/* Title of alert to change title */
+"Note Title" = "Anteckningens titel";
+
+/* An error message */
+"Notes could not be found on your server. Make sure it is installed and enabled" = "Det gick inte att hitta Notes på din server. Se till att den är installerad och aktiverad";
+
+/* An error message title */
+"Notes not found" = "Notes hittades inte";
+
+/* Button, OK */
+"OK" = "OK";
+
+/* Title for Open In activity */
+"Open In..." = "Öppna i...";
+
+/* A menu option for sharing in plain text format */
+"Plain Text" = "Oformaterad text";
+
+/* A message
+   A message to check network connection */
+"Please check network connection and login." = "Kontrollera nätverksanslutningen och logga in.";
+
+/* A button title */
+"Reconnect" = "Återanslut";
+
+/* Action to change title of a note
+   Caption of Rename button */
+"Rename" = "Byt namn";
+
+/* Message of alert to change title */
+"Rename the note" = "Byt namn på anteckningen";
+
+/* Action to change title of a note */
+"Rename..." = "Byt namn...";
+
+/* A menu option for sharing in rich text format */
+"Rich Text" = "Formaterad text";
+
+/* Placeholder text when no note is selected */
+"Select or create a note." = "Välj eller skapa en anteckning.";
+
+/* Alert title for selecting server brand */
+"Server" = "Server";
+
+/* An error message title */
+"Server not found" = "Server kunde inte hittas";
+
+/* A message title */
+"Server Reachable" = "Server nåbar";
+
+/* Title of a menu with sharing options */
+"Share Note As" = "Dela anteckning som";
+
+/* A message title */
+"Success" = "Lyckades";
+
+/* A message */
+"The network connection is working properly." = "Nätverksanslutningen fungerar korrekt.";
+
+/* An error message */
+"The note does not exist" = "Anteckningen finns inte";
+
+/* Alert message for selecting server brand */
+"Unable to automatically detect type of server.\nPlease select:" = "Det går inte att automatiskt identifiera typ av server.\nVälj:";
+
+/* A message title
+   The title of an error message */
+"Unable to Reach Server" = "Kan inte nå servern";
+
+/* An error message title */
+"Unauthorized" = "Obehörig";
+
+/* Text displayed for notes not assigned to a category */
+"Uncategorized" = "Okategoriserad";
+
+/* Message with Notes version, product name and version */
+"Using Notes %@on %@ %@." = "Använder Notes %@på %@ %@.";
+
+/* No comment provided by engineer. */
+"Yes, please!" = "Ja tack!";
+
+/* A message */
+"You are now connected to Notes on your server" = "Du är nu ansluten till Notes på din server";
+
+/* HUD subtitle when checking server capabilities */
+"Checking server capabilities" = "Kontrollera serverns kapacitet";
+
+/* HUD subtitle when checking server settings */
+"Checking server settings" = "Kontrollerar serverinställningar";
+
+/* HUD subtitle when checking server status */
+"Checking server status" = "Kontrollerar serverstatus";
+
+/* No comment provided by engineer. */
+"Connection error" = "Anslutningsfel";
+
+/* No comment provided by engineer. */
+"Do you want to connect to the server anyway?" = "Vill du ansluta till servern ändå?";
+
+/* Message of alert to change notes folder */
+"Enter a name for the folder where notes should be saved on the server" = "Ange ett namn för mappen där anteckningar ska sparas på servern";
+
+/* An error message title */
+"Error" = "Fel";
+
+/* No comment provided by engineer. */
+"No" = "Nej";
+
+/* Title of alert to change notes folder */
+"Notes Folder" = "Anteckningsmapp";
+
+/* A menu option for sharing in pdf format */
+"PDF" = "PDF";
+
+/* Caption of Save button */
+"Save" = "Spara";
+
+/* No comment provided by engineer. */
+"The certificate for this server is invalid" = "Certifikatet för denna server är ogiltigt";
+
+/* No comment provided by engineer. */
+"View Certificate" = "Visa certifikat";
+
+/* No comment provided by engineer. */
+"Yes" = "Ja";
+
+// NEXTCLOUD
+"Select the account to add"   = "Välj konto att lägga till";
+
+"Notes" = "Anteckningar";
