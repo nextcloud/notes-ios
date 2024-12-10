@@ -2,7 +2,7 @@
 "<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<請提供盡可能多的詳細信息，描述死機發生時您正在進行的操作。>";
 
 /* Support email body placeholder */
-"<Please state your question or problem here>" = "Please state your question or problem here";
+"<Please state your question or problem here>" = "請在此處陳述您的問題或疑問";
 
 /* An error message */
 "A server installation could not be found. Check the server address." = "找不到伺服器安裝。請確認伺服器地址是否正確。";

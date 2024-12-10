@@ -2,7 +2,7 @@
 "<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Geben Sie bitte möglichst viele Einzelheiten darüber an, was Sie getan haben, als der Absturz passierte.>";
 
 /* Support email body placeholder */
-"<Please state your question or problem here>" = "Please state your question or problem here";
+"<Please state your question or problem here>" = "Bitte schildern Sie hier Ihre Frage oder Ihr Problem";
 
 /* An error message */
 "A server installation could not be found. Check the server address." = "Eine Serverinstallation konnte nicht gefunden werden. Überprüfen Sie die Serveradresse.";

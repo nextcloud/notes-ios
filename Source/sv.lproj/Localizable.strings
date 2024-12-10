@@ -2,7 +2,7 @@
 "<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Ange så mycket information som möjligt om vad du gjorde när kraschen inträffade.>";
 
 /* Support email body placeholder */
-"<Please state your question or problem here>" = "Please state your question or problem here";
+"<Please state your question or problem here>" = "Ange din fråga eller ditt problem här";
 
 /* An error message */
 "A server installation could not be found. Check the server address." = "Det gick inte att hitta en serverinstallation. Kontrollera serveradressen.";
