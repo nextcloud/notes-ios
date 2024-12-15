@@ -2,7 +2,7 @@
 "<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Cuir an oiread sonraí agus is féidir ar fáil faoin méid a bhí á dhéanamh agat nuair a tharla an timpiste.>";
 
 /* Support email body placeholder */
-"<Please state your question or problem here>" = "Please state your question or problem here";
+"<Please state your question or problem here>" = "Luaigh do cheist nó do fhadhb anseo";
 
 /* An error message */
 "A server installation could not be found. Check the server address." = "Níorbh fhéidir suiteáil freastalaí a aimsiú. Seiceáil an seoladh freastalaí.";
