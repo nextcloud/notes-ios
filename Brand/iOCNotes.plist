@@ -88,7 +88,7 @@
 		<true/>
 	</dict>
 	<key>NSLocalNetworkUsageDescription</key>
-	<string>NextcloudNotes needs local network access if your server is hosted locally</string>
+	<string>Nextcloud Notes needs local network access if your server is hosted locally</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>

@@ -1,0 +1,20 @@
+/* 
+  Root.strings
+  iOCNotes
+
+  Created by Peter Hedlund on 6/22/14.
+  Copyright (c) 2014 Peter Hedlund. All rights reserved.
+*/
+"About" = "Sobre";
+
+"Acknowledgements" = "Reconhecimentos";
+
+"Advanced Settings" = "Configurações avançadas ";
+
+"Caution: Turning the switch on will remove all notes locally. Unsynced changes will be lost. Use only if you are experiencing problems." = "Cuidado: Ligar o switch removerá todas as notas localmente. Alterações não sincronizadas serão perdidas. Use somente se estiver com problemas.";
+
+"Reset local notes database" = "Redefinir banco de dados local de notas";
+
+"Third-party licenses" = "Licenças de terceiros";
+
+"Version" = "Versão";

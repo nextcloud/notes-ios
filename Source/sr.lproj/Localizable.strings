@@ -1,0 +1,251 @@
+/* Crash report email body placeholder */
+"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Молимо вас да наведете што је могуће више детаља у вези са оним што сте радили пре краха.>";
+
+/* Support email body placeholder */
+"<Please state your question or problem here>" = "Молимо вас да овде унесете своје питање или проблем";
+
+/* An error message */
+"A server installation could not be found. Check the server address." = "Није могла да се пронађе инсталација сервера. Проверите адресу сервера.";
+
+/* Acknowledgements */
+"Acknowledgements" = "Признања";
+
+/* Title of alert for adding a category */
+"Add Category" = "Додај категорију";
+
+/* Item to show all notes */
+"All" = "Све";
+
+/* A menu action
+   A menu option for cancelling */
+"Cancel" = "Поништи";
+
+/* Header title, categories */
+"CATEGORIES" = "КАТЕГОРИЈЕ";
+
+/* 'Category' menu item */
+"Category" = "Категорија";
+
+/* Action to change category of a note */
+"Category..." = "Категорија";
+
+/* Action to change category of a note */
+"Change Category..." = "Промените категорију";
+
+/* An error message */
+"Check username and password." = "Провера корисничког имена и лозинке.";
+
+/* Title of a button allowing the user to close the login screen and sync with the server */
+"Close & Sync" = "Затвори и синхронизуј";
+
+/* Crash report email subject */
+"NextcloudNotes Crash Report" = "NextcloudNotes извештај о краху";
+
+/* No comment provided by engineer. */
+"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "Када је последњи пи покренут, NextcloudNotes се срушио. Желите ли да програмеру пошаљете извештај?";
+
+/* Support email subject */
+"NextcloudNotes Support Request" = "NextcloudNotes захтев за подршком";
+
+/* A button title */
+"Connect" = "Повежи се";
+
+/* Status information, connected */
+"Connected to Notes on the server" = "Повезано са Белешкама на серверу";
+
+/* An error message title */
+"Connection failure" = "Није успело повезивање";
+
+/* Alert view title */
+"Crash Detected" = "Откривен је крах";
+
+/* Action to delete a note */
+"Delete" = "Delete";
+
+/* A menu action */
+"Delete Note" = "Обриши белешку";
+
+/* Prompt on alert for adding a category */
+"Enter a name for the new category" = "Унесите име нове категорије";
+
+/* The title of an error message */
+"Error Adding Note" = "Грешка приликом додавања белешке";
+
+/* The title of an error message */
+"Error Deleting Note" = "Грешка приликом брисања белешке";
+
+/* The title of an error message */
+"Error Getting Note" = "Грешка приликом преузимања белешке";
+
+/* The title of an error message */
+"Error Syncing Notes" = "Грешка приликом синхронизације белешки";
+
+/* The title of an error message */
+"Error Updating Note" = "Грешка приликом ажурирања белешке";
+
+/* The title of an error message */
+"Error Updating Notes" = "Грешка приликом ажурирања белешки";
+
+/* An error message */
+"Failed to connect to a server. Check your settings." = "Није успело повезивање са сервером. Проверите подешавања.";
+
+/* Item to show favorite notes */
+"Favorites" = "Favorites";
+
+/* A menu option for plain sharing in html format */
+"HTML" = "HTML";
+
+/* A status label indicating that the user is logged in */
+"Logged In" = "Пријављен";
+
+/* Header title, main */
+"MAIN" = "ГЛАВНО";
+
+/* A menu option for sharing in markdown format */
+"Markdown" = "Markdown";
+
+/* The title of a new note */
+"New note" = "Нова белешка";
+
+/* No comment provided by engineer. */
+"No thanks" = "Не хвала";
+
+/* Status information, not connected */
+"Not connected to Notes on a server" = "Није повезано са Белешкама на серверу";
+
+/* A status label indicating that the user is not logged in */
+"Not Logged In" = "Није пријављен";
+
+/* Message about not being logged in */
+"Not logged in" = "Није пријављено";
+
+/* Title of alert to change title */
+"Note Title" = "Наслов белешке";
+
+/* An error message */
+"Notes could not be found on your server. Make sure it is installed and enabled" = "На вашем серверу није пронађена апликација Белешке. Обезбедите да ја инсталирана и укључена";
+
+/* An error message title */
+"Notes not found" = "Белешке није пронађена";
+
+/* Button, OK */
+"OK" = "У реду";
+
+/* Title for Open In activity */
+"Open In..." = "Отвори у %@";
+
+/* A menu option for sharing in plain text format */
+"Plain Text" = "Прости текст";
+
+/* A message
+   A message to check network connection */
+"Please check network connection and login." = "Молимо вас да проверите везу са мрежом и пријавите се.";
+
+/* A button title */
+"Reconnect" = "Повежи се поново";
+
+/* Action to change title of a note
+   Caption of Rename button */
+"Rename" = "Rename";
+
+/* Message of alert to change title */
+"Rename the note" = "Промени назив белешке";
+
+/* Action to change title of a note */
+"Rename..." = "Преименуј";
+
+/* A menu option for sharing in rich text format */
+"Rich Text" = "Обогаћени текст";
+
+/* Placeholder text when no note is selected */
+"Select or create a note." = "Избор или креирање белешке.";
+
+/* Alert title for selecting server brand */
+"Server" = "Сервер";
+
+/* An error message title */
+"Server not found" = "Није пронађен сервер";
+
+/* A message title */
+"Server Reachable" = "Сервер је доступан";
+
+/* Title of a menu with sharing options */
+"Share Note As" = "Дели белешку као";
+
+/* A message title */
+"Success" = "Успешно";
+
+/* A message */
+"The network connection is working properly." = "Веза са мрежом не функционише како треба.";
+
+/* An error message */
+"The note does not exist" = "Белешка не постоји";
+
+/* Alert message for selecting server brand */
+"Unable to automatically detect type of server.\nPlease select:" = "Не може аутоматски да се открије тип сервера.\nМолимо вас изаберите:";
+
+/* A message title
+   The title of an error message */
+"Unable to Reach Server" = "Не може да се приступи серверу";
+
+/* An error message title */
+"Unauthorized" = "Неовлашћено";
+
+/* Text displayed for notes not assigned to a category */
+"Uncategorized" = "Некатегоризовано";
+
+/* Message with Notes version, product name and version */
+"Using Notes %@on %@ %@." = "Користе се Белешке %@на %@ %@.";
+
+/* No comment provided by engineer. */
+"Yes, please!" = "Да, хвала!";
+
+/* A message */
+"You are now connected to Notes on your server" = "Сада сте повезани са Белешке на свом серверу";
+
+/* HUD subtitle when checking server capabilities */
+"Checking server capabilities" = "Проверавају се могућности сервера";
+
+/* HUD subtitle when checking server settings */
+"Checking server settings" = "Проверавају се подешавања сервера";
+
+/* HUD subtitle when checking server status */
+"Checking server status" = "Проверава се статус сервера";
+
+/* No comment provided by engineer. */
+"Connection error" = "Грешка у конекцији";
+
+/* No comment provided by engineer. */
+"Do you want to connect to the server anyway?" = "Да ли ипак желите да се повежете са сервером?";
+
+/* Message of alert to change notes folder */
+"Enter a name for the folder where notes should be saved on the server" = "Унесите име фолдера на серверу у којем би требало да се чувају белешке";
+
+/* An error message title */
+"Error" = "Грешка";
+
+/* No comment provided by engineer. */
+"No" = "Не";
+
+/* Title of alert to change notes folder */
+"Notes Folder" = "Фолдер за Белешке";
+
+/* A menu option for sharing in pdf format */
+"PDF" = "PDF";
+
+/* Caption of Save button */
+"Save" = "Save";
+
+/* No comment provided by engineer. */
+"The certificate for this server is invalid" = "Сертификат овог сервера је неисправан";
+
+/* No comment provided by engineer. */
+"View Certificate" = "Прикажи сертификат";
+
+/* No comment provided by engineer. */
+"Yes" = "Да";
+
+// NEXTCLOUD
+"Select the account to add"   = "Избор налога који треба да се дода";
+
+"Notes" = "Белешке";

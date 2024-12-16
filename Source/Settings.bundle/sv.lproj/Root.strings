@@ -1,0 +1,20 @@
+/* 
+  Root.strings
+  iOCNotes
+
+  Created by Peter Hedlund on 6/22/14.
+  Copyright (c) 2014 Peter Hedlund. All rights reserved.
+*/
+"About" = "Om";
+
+"Acknowledgements" = "Tredjepartslicenser";
+
+"Advanced Settings" = "Avancerade inställningar";
+
+"Caution: Turning the switch on will remove all notes locally. Unsynced changes will be lost. Use only if you are experiencing problems." = "Varning: Om du aktiverar så tas alla anteckningar bort lokalt. Osynkroniserade ändringar kommer att gå förlorade. Använd endast om du har problem.";
+
+"Reset local notes database" = "Återställ lokal databas för anteckningar";
+
+"Third-party licenses" = "Tredjepartslicenser";
+
+"Version" = "Version";

@@ -31,7 +31,7 @@ class PBHOpenInActivity: UIActivity {
     }
 
     override var activityTitle: String {
-        return NSLocalizedString("Open In...", comment: "Title for Open In activity")
+        return NSLocalizedString("Open in…", comment: "Title for Open In activity")
     }
 
     override var activityImage: UIImage {

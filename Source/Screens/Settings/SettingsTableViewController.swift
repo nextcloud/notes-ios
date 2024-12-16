@@ -227,7 +227,7 @@ class SettingsTableViewController: UITableViewController {
             return NSLocalizedString("Not logged in", comment: "Message about not being logged in")
         }
         let notesVersion = KeychainHelper.notesVersion.isEmpty ? "" : "\(KeychainHelper.notesVersion) "
-        let format = NSLocalizedString("Using Notes %@on %@ %@.", comment:"Message with Notes version, product name and version")
+        let format = NSLocalizedString("Using Notes %1$@ on %2$@ %3$@.", comment:"Message with Notes version, product name and version")
         return String.localizedStringWithFormat(format, notesVersion, KeychainHelper.productName, KeychainHelper.productVersion)
     }
 }

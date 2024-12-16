@@ -1,11 +1,11 @@
 /* Crash report email body placeholder */
-"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Veuillez fournir autant de détails que possible sur ce que vous faisiez lorsque le crash s'est produit.>";
+"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Fournissez autant de détails que possible sur ce que vous faisiez lorsque le plantage s'est produit.>";
 
 /* Support email body placeholder */
-"<Please state your question or problem here>" = "<Veuillez indiquer votre question ou problème ici>";
+"<Please state your question or problem here>" = "Please state your question or problem here";
 
 /* An error message */
-"A server installation could not be found. Check the server address." = "Une installation de serveur est introuvable. Vérifiez l'adresse du serveur.";
+"A server installation could not be found. Check the server address." = "Le serveur d'installation n'a pas été trouvé. Vérifiez l'adresse du serveur.";
 
 /* Acknowledgements */
 "Acknowledgements" = "Remerciements";
@@ -14,11 +14,11 @@
 "Add Category" = "Ajouter une catégorie";
 
 /* Item to show all notes */
-"All" = "Toutes";
+"All" = "Tout";
 
 /* A menu action
    A menu option for cancelling */
-"Cancel" = "Annuler";
+"Cancel" = "Cancel";
 
 /* Header title, categories */
 "CATEGORIES" = "CATEGORIES";
@@ -27,67 +27,67 @@
 "Category" = "Catégorie";
 
 /* Action to change category of a note */
-"Category..." = "Catégorie...";
+"Category..." = "Catégorie";
 
 /* Action to change category of a note */
-"Change Category..." = "Changer de Catégorie";
+"Change Category..." = "Changer la catégorie";
 
 /* An error message */
-"Check username and password." = "Vérifiez le nom d'utilisateur et le mot de passe.";
+"Check username and password." = "Vérifier l'identifiant et le mot de passe.";
 
 /* Title of a button allowing the user to close the login screen and sync with the server */
 "Close & Sync" = "Fermer et synchroniser";
 
 /* Crash report email subject */
-"NextcloudNotes Crash Report" = "Rapport de crash NextcloudNotes";
+"NextcloudNotes Crash Report" = "NextcloudNotes Crash Report";
 
 /* No comment provided by engineer. */
-"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "NextcloudNotes s'est crashé la dernière fois qu'il a été lancé. Voulez-vous envoyer un rapport au développeur?";
+"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?";
 
 /* Support email subject */
-"NextcloudNotes Support Request" = "Demande d'assistance NextcloudNotes";
+"NextcloudNotes Support Request" = "NextcloudNotes Support Request";
 
 /* A button title */
-"Connect" = "Connexion";
+"Connect" = " Se connecter";
 
 /* Status information, connected */
-"Connected to Notes on the server" = "Connecté au serveur";
+"Connected to Notes on the server" = "Connected to Notes on the server";
 
 /* An error message title */
-"Connection failure" = "Échec de connexion";
+"Connection failure" = "Échec de la connexion";
 
 /* Alert view title */
-"Crash Detected" = "Crash détecté";
+"Crash Detected" = "Crash Detected";
 
 /* Action to delete a note */
-"Delete" = "Supprimer";
+"Delete" = "Supprimé";
 
 /* A menu action */
 "Delete Note" = "Supprimer la note";
 
 /* Prompt on alert for adding a category */
-"Enter a name for the new category" = "Saisissez un nom pour la nouvelle catégorie";
+"Enter a name for the new category" = "Enter a name for the new category";
 
 /* The title of an error message */
-"Error Adding Note" = "Erreur lors de l'ajout de la note";
+"Error Adding Note" = "Erreur lors de l'ajout de la Note";
 
 /* The title of an error message */
-"Error Deleting Note" = "Erreur lors de la suppression de la note";
+"Error Deleting Note" = "Erreur lors de la suppression de la Note";
 
 /* The title of an error message */
-"Error Getting Note" = "Erreur lors de l'obtention de la note";
+"Error Getting Note" = "Error Getting Note";
 
 /* The title of an error message */
-"Error Syncing Notes" = "Erreur de synchronisation des notes";
+"Error Syncing Notes" = "Error Syncing Notes";
 
 /* The title of an error message */
-"Error Updating Note" = "Erreur lors de la mise à jour de la note";
+"Error Updating Note" = "Error Updating Note";
 
 /* The title of an error message */
-"Error Updating Notes" = "Erreur lors de la mise à jour des notes";
+"Error Updating Notes" = "Error Updating Notes";
 
 /* An error message */
-"Failed to connect to a server. Check your settings." = "Échec de la connexion à un serveur. Vérifiez vos paramètres.";
+"Failed to connect to a server. Check your settings." = "Failed to connect to a server. Check your settings.";
 
 /* Item to show favorite notes */
 "Favorites" = "Favoris";
@@ -111,25 +111,25 @@
 "No thanks" = "Non merci";
 
 /* Status information, not connected */
-"Not connected to Notes on a server" = "Déconnecté du serveur";
+"Not connected to Notes on a server" = "Not connected to Notes on a server";
 
 /* A status label indicating that the user is not logged in */
-"Not Logged In" = "Pas connecté";
+"Not Logged In" = "Non connecté";
 
 /* Message about not being logged in */
-"Not logged in" = "Utilisateur non connecté";
+"Not logged in" = "Non connecté";
 
 /* Title of alert to change title */
 "Note Title" = "Titre de la note";
 
 /* An error message */
-"Notes could not be found on your server. Make sure it is installed and enabled" = "L'application Notes est introuvable sur votre serveur. Assurez-vous qu'elle est installée et activée";
+"Notes could not be found on your server. Make sure it is installed and enabled" = "Notes could not be found on your server. Make sure it is installed and enabled";
 
 /* An error message title */
-"Notes not found" = "Notes non trouvée";
+"Notes not found" = "Note non trouvée";
 
 /* Button, OK */
-"OK" = "OK";
+"OK" = "Ok";
 
 /* Title for Open In activity */
 "Open In..." = "Ouvrir dans...";
@@ -139,10 +139,10 @@
 
 /* A message
    A message to check network connection */
-"Please check network connection and login." = "Veuillez vérifier la connexion réseau et re-connectez vous.";
+"Please check network connection and login." = "Please check network connection and login.";
 
 /* A button title */
-"Reconnect" = "Se Reconnecter";
+"Reconnect" = "Se reconnecter";
 
 /* Action to change title of a note
    Caption of Rename button */
@@ -155,62 +155,62 @@
 "Rename..." = "Renommer...";
 
 /* A menu option for sharing in rich text format */
-"Rich Text" = "Texte riche";
+"Rich Text" = "Texte enrichi";
 
 /* Placeholder text when no note is selected */
-"Select or create a note." = "Sélectionnez ou créez une note.";
+"Select or create a note." = "Sélectionner ou créer une  note";
 
 /* Alert title for selecting server brand */
 "Server" = "Serveur";
 
 /* An error message title */
-"Server not found" = "Serveur introuvable";
+"Server not found" = "Serveur non trouvé";
 
 /* A message title */
 "Server Reachable" = "Serveur accessible";
 
 /* Title of a menu with sharing options */
-"Share Note As" = "Partager la note en tant que";
+"Share Note As" = "Partager la note comme";
 
 /* A message title */
-"Success" = "Succès";
+"Success" = "Réussite";
 
 /* A message */
 "The network connection is working properly." = "La connexion réseau fonctionne correctement.";
 
 /* An error message */
-"The note does not exist" = "The note does not exist";
+"The note does not exist" = "La note n'existes pas";
 
 /* Alert message for selecting server brand */
 "Unable to automatically detect type of server.\nPlease select:" = "Impossible de détecter automatiquement le type de serveur.\nVeuillez sélectionner:";
 
 /* A message title
    The title of an error message */
-"Unable to Reach Server" = "Impossible d'accéder au serveur";
+"Unable to Reach Server" = "Impossible d'atteindre le serveur";
 
 /* An error message title */
-"Unauthorized" = "Non autorisé";
+"Unauthorized" = "Interdit";
 
 /* Text displayed for notes not assigned to a category */
 "Uncategorized" = "Non catégorisé";
 
 /* Message with Notes version, product name and version */
-"Using Notes %@on %@ %@." = "Utilise Notes %@ sur %@ %@.";
+"Using Notes %1$@ on %2$@ %3$@." = "Using Notes %1$@ on %2$@ %3$@.";
 
 /* No comment provided by engineer. */
-"Yes, please!" = "Oui s'il vous plaît!";
+"Yes, please!" = "Oui, s'il vous plaît!";
 
 /* A message */
-"You are now connected to Notes on your server" = "Vous êtes maintenant connecté à Notes sur votre serveur";
+"You are now connected to Notes on your server" = "Vous êtes désormais connecté à Notes sur votre serveur";
 
 /* HUD subtitle when checking server capabilities */
-"Checking server capabilities" = "Checking server capabilities";
+"Checking server capabilities" = "Vérification des capacités serveur";
 
 /* HUD subtitle when checking server settings */
-"Checking server settings" = "Checking server settings";
+"Checking server settings" = "Vérification des paramètres du serveur";
 
 /* HUD subtitle when checking server status */
-"Checking server status" = "Checking server status";
+"Checking server status" = "Vérification de l'état du serveur";
 
 /* No comment provided by engineer. */
 "Connection error" = "Erreur de connexion";
@@ -219,7 +219,7 @@
 "Do you want to connect to the server anyway?" = "Souhaitez-vous quand même vous connecter au serveur ?";
 
 /* Message of alert to change notes folder */
-"Enter a name for the folder where notes should be saved on the server" = "Enter a name for the folder where notes should be saved on the server";
+"Enter a name for the folder where notes should be saved on the server" = "Entrez un nom pour le dossier où les notes seront sauvegardées sur le serveur.";
 
 /* An error message title */
 "Error" = "Erreur";
@@ -228,7 +228,7 @@
 "No" = "Non";
 
 /* Title of alert to change notes folder */
-"Notes Folder" = "Notes Folder";
+"Notes Folder" = "Dossier des Notes";
 
 /* A menu option for sharing in pdf format */
 "PDF" = "PDF";
@@ -237,13 +237,15 @@
 "Save" = "Enregistrer";
 
 /* No comment provided by engineer. */
-"The certificate for this server is invalid" = "Le certificat pour ce serveur n'est pas valable";
+"The certificate for this server is invalid" = "Le certificat pour ce serveur n’est pas valable";
 
 /* No comment provided by engineer. */
-"View Certificate" = "View Certificate";
+"View Certificate" = "Voir le certificat";
 
 /* No comment provided by engineer. */
 "Yes" = "Oui";
 
 // NEXTCLOUD
-"_account_select_to_add_"   = "Sélectionner le compte à ajouter";
+"Select the account to add"   = "Sélectionner le compte à ajouter";
+
+"Notes" = "Notes";

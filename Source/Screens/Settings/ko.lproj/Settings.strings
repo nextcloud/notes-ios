@@ -1,29 +1,29 @@
 /* Class = "UILabel"; text = "Notes"; ObjectID = "1jH-jZ-oMs"; */
-"1jH-jZ-oMs.text" = "Notes";
+"1jH-jZ-oMs.text" = "메모";
 
 /* Class = "UILabel"; text = "Markdown (.md)"; ObjectID = "51F-pD-XNv"; */
-"51F-pD-XNv.text" = "Markdown (.md)";
+"51F-pD-XNv.text" = "마크다운 (.md)";
 
 /* Class = "UITextField"; placeholder = "Server Password"; ObjectID = "69R-CL-ITG"; */
-"69R-CL-ITG.placeholder" = "Server Password";
+"69R-CL-ITG.placeholder" = "서버 암호";
 
 /* Class = "UILabel"; text = "Web Site"; ObjectID = "6So-Rg-NhZ"; */
-"6So-Rg-NhZ.text" = "Web Site";
+"6So-Rg-NhZ.text" = "웹 사이트";
 
 /* Class = "UITableViewController"; title = "File Extension"; ObjectID = "7HO-9G-Wem"; */
-"7HO-9G-Wem.title" = "File Extension";
+"7HO-9G-Wem.title" = "파일 확장자";
 
 /* Class = "UILabel"; text = "Username"; ObjectID = "A4w-6q-Hcy"; */
-"A4w-6q-Hcy.text" = "유저 이름";
+"A4w-6q-Hcy.text" = "Username";
 
 /* Class = "UILabel"; text = "Allow Untrusted SSL Certificate"; ObjectID = "AKl-Ep-y3W"; */
-"AKl-Ep-y3W.text" = "신뢰되지 않은 SSL 인증서 허용";
+"AKl-Ep-y3W.text" = "신뢰할 수 없는 SSL 인증서 허용";
 
 /* Class = "UILabel"; text = "Offline Mode"; ObjectID = "B8W-f5-T18"; */
 "B8W-f5-T18.text" = "오프라인 모드";
 
 /* Class = "UILabel"; text = "Password"; ObjectID = "CrO-Ue-LFh"; */
-"CrO-Ue-LFh.text" = "비밀번호";
+"CrO-Ue-LFh.text" = "암호";
 
 /* Class = "UIButton"; configuration.title = "Log In"; ObjectID = "dUo-KO-48Z"; */
 "dUo-KO-48Z.configuration.title" = "로그인";
@@ -41,13 +41,13 @@
 "fKh-As-T79.placeholder" = "https://example.com/cloud";
 
 /* Class = "UINavigationItem"; title = "Login"; ObjectID = "FvN-vM-GK3"; */
-"FvN-vM-GK3.title" = "Login";
+"FvN-vM-GK3.title" = "로그인";
 
 /* Class = "UITableViewSection"; footerTitle = " "; ObjectID = "FVp-Pj-Gyn"; */
 "FVp-Pj-Gyn.footerTitle" = " ";
 
 /* Class = "UILabel"; text = "Contact"; ObjectID = "fwh-Xy-h5M"; */
-"fwh-Xy-h5M.text" = "연락";
+"fwh-Xy-h5M.text" = "연락처";
 
 /* Class = "UITableViewSection"; footerTitle = "     "; ObjectID = "gZE-6O-8CL"; */
 "gZE-6O-8CL.footerTitle" = "     ";
@@ -59,49 +59,49 @@
 "GZX-DC-7iv.text" = "URL";
 
 /* Class = "UILabel"; text = "Sync on Start"; ObjectID = "hVU-Ed-KYm"; */
-"hVU-Ed-KYm.text" = "시작할 때 동기화";
+"hVU-Ed-KYm.text" = "시작 시 동기화";
 
 /* Class = "UITextField"; placeholder = "https://example.com/nextcloud"; ObjectID = "hYn-5e-22n"; */
 "hYn-5e-22n.placeholder" = "https://example.com/nextcloud";
 
 /* Class = "UINavigationItem"; title = "File Extension"; ObjectID = "J4w-vK-nRA"; */
-"J4w-vK-nRA.title" = "File Extension";
+"J4w-vK-nRA.title" = "파일 확장자";
 
 /* Class = "UITextField"; placeholder = "Server Username"; ObjectID = "KPV-Zj-4Ps"; */
-"KPV-Zj-4Ps.placeholder" = "서버 유저 이름";
+"KPV-Zj-4Ps.placeholder" = "서버 사용자 이름";
 
 /* Class = "UILabel"; text = "Notes Folder"; ObjectID = "ltN-gF-yom"; */
-"ltN-gF-yom.text" = "Notes Folder";
+"ltN-gF-yom.text" = "메모 폴더";
 
 /* Class = "UILabel"; text = "File Extension"; ObjectID = "Pvp-6i-NLV"; */
-"Pvp-6i-NLV.text" = "File Extension";
+"Pvp-6i-NLV.text" = "파일 확장자";
 
 /* Class = "UILabel"; text = "Connect"; ObjectID = "qxi-YY-hPn"; */
 "qxi-YY-hPn.text" = "연결";
 
 /* Class = "UITableViewSection"; headerTitle = "Extension"; ObjectID = "Rfx-NI-FZ4"; */
-"Rfx-NI-FZ4.headerTitle" = "Extension";
+"Rfx-NI-FZ4.headerTitle" = "확장";
 
 /* Class = "UITableViewSection"; footerTitle = "These settings only affect how notes are managed on the server. NextcloudNotes does not handle any files."; ObjectID = "RvH-hn-Sfv"; */
-"RvH-hn-Sfv.footerTitle" = "These settings only affect how notes are managed on the server. NextcloudNotes does not handle any files.";
+"RvH-hn-Sfv.footerTitle" = "이러한 설정은 서버 상에서 어떻게 메모가 관리되는지에만 영향을 줍니다. NextcloudNotes 은 어떠한 파일도 처리하지 않습니다.";
 
 /* Class = "UITableViewSection"; headerTitle = "SERVER SETTINGS"; ObjectID = "RvH-hn-Sfv"; */
-"RvH-hn-Sfv.headerTitle" = "SERVER SETTINGS";
+"RvH-hn-Sfv.headerTitle" = "서버 설정";
 
 /* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "smL-9H-BiT"; */
 "smL-9H-BiT.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
 
 /* Class = "UITableViewSection"; footerTitle = "Not logged in"; ObjectID = "Svh-OV-bUr"; */
-"Svh-OV-bUr.footerTitle" = "Not logged in";
+"Svh-OV-bUr.footerTitle" = "로그인 되지 않음";
 
 /* Class = "UITableViewSection"; headerTitle = "SERVER"; ObjectID = "Svh-OV-bUr"; */
-"Svh-OV-bUr.headerTitle" = "SERVER";
+"Svh-OV-bUr.headerTitle" = "서버";
 
 /* Class = "UILabel"; text = "Plain Text (.txt)"; ObjectID = "SyJ-AC-m5H"; */
-"SyJ-AC-m5H.text" = "Plain Text (.txt)";
+"SyJ-AC-m5H.text" = "일반 텍스트 (.txt)";
 
 /* Class = "UILabel"; text = "Plain Text (.txt)"; ObjectID = "uVd-ib-jy0"; */
-"uVd-ib-jy0.text" = "Plain Text (.txt)";
+"uVd-ib-jy0.text" = "일반 텍스트 (.txt)";
 
 /* Class = "UITableViewSection"; footerTitle = " "; ObjectID = "Uwy-jB-bpa"; */
 "Uwy-jB-bpa.footerTitle" = " ";
@@ -116,4 +116,4 @@
 "ZPa-hv-oSb.title" = "로그인 정보";
 
 /* Class = "UILabel"; text = "Sync on Start"; ObjectID = "9Dd-Vq-hcz"; */
-"9Dd-Vq-hcz.text" = "내부 편집자";
+"9Dd-Vq-hcz.text" = "내부 편집기";

@@ -1,0 +1,251 @@
+/* Crash report email body placeholder */
+"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<請提供盡可能多的詳細信息，描述死機發生時您正在進行的操作。>";
+
+/* Support email body placeholder */
+"<Please state your question or problem here>" = "請在此處陳述您的問題或疑問";
+
+/* An error message */
+"A server installation could not be found. Check the server address." = "找不到伺服器安裝。請確認伺服器地址是否正確。";
+
+/* Acknowledgements */
+"Acknowledgements" = "致謝";
+
+/* Title of alert for adding a category */
+"Add Category" = "添加分類";
+
+/* Item to show all notes */
+"All" = "全部";
+
+/* A menu action
+   A menu option for cancelling */
+"Cancel" = "取消";
+
+/* Header title, categories */
+"CATEGORIES" = "分類";
+
+/* 'Category' menu item */
+"Category" = "分類";
+
+/* Action to change category of a note */
+"Category..." = "分類 ...";
+
+/* Action to change category of a note */
+"Change Category..." = "更新分類 ...";
+
+/* An error message */
+"Check username and password." = "檢查用戶名和密碼。";
+
+/* Title of a button allowing the user to close the login screen and sync with the server */
+"Close & Sync" = "關閉 & 同步";
+
+/* Crash report email subject */
+"NextcloudNotes Crash Report" = "NextcloudNotes 死機報告";
+
+/* No comment provided by engineer. */
+"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "NextcloudNotes 上次啟動時死機。您想將報告發送給開發者嗎？";
+
+/* Support email subject */
+"NextcloudNotes Support Request" = "NextcloudNotes 支援請求";
+
+/* A button title */
+"Connect" = "連線";
+
+/* Status information, connected */
+"Connected to Notes on the server" = "已連接到伺服器上的 Notes";
+
+/* An error message title */
+"Connection failure" = "連線失敗";
+
+/* Alert view title */
+"Crash Detected" = "檢測到死機";
+
+/* Action to delete a note */
+"Delete" = "移除";
+
+/* A menu action */
+"Delete Note" = "刪除筆記";
+
+/* Prompt on alert for adding a category */
+"Enter a name for the new category" = "輸入新分類名稱";
+
+/* The title of an error message */
+"Error Adding Note" = "添加筆記時發生錯誤";
+
+/* The title of an error message */
+"Error Deleting Note" = "刪除筆記時發生錯誤";
+
+/* The title of an error message */
+"Error Getting Note" = "取得筆記時發生錯誤";
+
+/* The title of an error message */
+"Error Syncing Notes" = "同步筆記時發生錯誤";
+
+/* The title of an error message */
+"Error Updating Note" = "更新筆記時發生錯誤";
+
+/* The title of an error message */
+"Error Updating Notes" = "更新筆記時發生錯誤";
+
+/* An error message */
+"Failed to connect to a server. Check your settings." = "無法連接到伺服器。請檢查您的設置。";
+
+/* Item to show favorite notes */
+"Favorites" = "Favorites";
+
+/* A menu option for plain sharing in html format */
+"HTML" = "HTML";
+
+/* A status label indicating that the user is logged in */
+"Logged In" = "已登入";
+
+/* Header title, main */
+"MAIN" = "主標題";
+
+/* A menu option for sharing in markdown format */
+"Markdown" = "Markdown";
+
+/* The title of a new note */
+"New note" = "新筆記";
+
+/* No comment provided by engineer. */
+"No thanks" = "不需要，謝謝";
+
+/* Status information, not connected */
+"Not connected to Notes on a server" = "未連接到伺服器上的 Notes";
+
+/* A status label indicating that the user is not logged in */
+"Not Logged In" = "未登入";
+
+/* Message about not being logged in */
+"Not logged in" = "未登入";
+
+/* Title of alert to change title */
+"Note Title" = "筆記標題";
+
+/* An error message */
+"Notes could not be found on your server. Make sure it is installed and enabled" = "未在您的伺服器上找到 Notes。請確保已安裝並啟用該功能。";
+
+/* An error message title */
+"Notes not found" = "找不到筆記";
+
+/* Button, OK */
+"OK" = "確認";
+
+/* Title for Open In activity */
+"Open In..." = "在 ... 中打開";
+
+/* A menu option for sharing in plain text format */
+"Plain Text" = "純文字";
+
+/* A message
+   A message to check network connection */
+"Please check network connection and login." = "請檢查網絡連接和登入。";
+
+/* A button title */
+"Reconnect" = "重新連接";
+
+/* Action to change title of a note
+   Caption of Rename button */
+"Rename" = "Rename";
+
+/* Message of alert to change title */
+"Rename the note" = "重新命名筆記";
+
+/* Action to change title of a note */
+"Rename..." = "重新命名 ...";
+
+/* A menu option for sharing in rich text format */
+"Rich Text" = "富文本";
+
+/* Placeholder text when no note is selected */
+"Select or create a note." = "選擇或創建筆記。";
+
+/* Alert title for selecting server brand */
+"Server" = "伺服器";
+
+/* An error message title */
+"Server not found" = "找不到伺服器";
+
+/* A message title */
+"Server Reachable" = "伺服器可用";
+
+/* Title of a menu with sharing options */
+"Share Note As" = "以以下方式分享筆記";
+
+/* A message title */
+"Success" = "成功";
+
+/* A message */
+"The network connection is working properly." = "網絡連接正常運作。";
+
+/* An error message */
+"The note does not exist" = "該筆記不存在";
+
+/* Alert message for selecting server brand */
+"Unable to automatically detect type of server.\nPlease select:" = "無法自動檢測伺服器類型。請選擇：";
+
+/* A message title
+   The title of an error message */
+"Unable to Reach Server" = "無法連接到伺服器";
+
+/* An error message title */
+"Unauthorized" = "未授權";
+
+/* Text displayed for notes not assigned to a category */
+"Uncategorized" = "未分類";
+
+/* Message with Notes version, product name and version */
+"Using Notes %@on %@ %@." = "使用 Notes %@ 在 %@ %@ 上。";
+
+/* No comment provided by engineer. */
+"Yes, please!" = "是的，請這樣做！";
+
+/* A message */
+"You are now connected to Notes on your server" = "您已連接到您伺服器上的 Notes";
+
+/* HUD subtitle when checking server capabilities */
+"Checking server capabilities" = "檢查伺服器功能";
+
+/* HUD subtitle when checking server settings */
+"Checking server settings" = "檢查伺服器設定";
+
+/* HUD subtitle when checking server status */
+"Checking server status" = "檢查伺服器狀態";
+
+/* No comment provided by engineer. */
+"Connection error" = "連線錯誤";
+
+/* No comment provided by engineer. */
+"Do you want to connect to the server anyway?" = "無論如何都要連接該伺服器嗎？";
+
+/* Message of alert to change notes folder */
+"Enter a name for the folder where notes should be saved on the server" = "輸入要在伺服器上保存筆記的資料夾名稱";
+
+/* An error message title */
+"Error" = "Error";
+
+/* No comment provided by engineer. */
+"No" = "No";
+
+/* Title of alert to change notes folder */
+"Notes Folder" = "Notes 資料夾";
+
+/* A menu option for sharing in pdf format */
+"PDF" = "PDF";
+
+/* Caption of Save button */
+"Save" = "Save";
+
+/* No comment provided by engineer. */
+"The certificate for this server is invalid" = "此伺服器憑證無效";
+
+/* No comment provided by engineer. */
+"View Certificate" = "檢視證書";
+
+/* No comment provided by engineer. */
+"Yes" = "Yes";
+
+// NEXTCLOUD
+"Select the account to add"   = "選擇要添加的帳戶";
+
+"Notes" = "備忘";

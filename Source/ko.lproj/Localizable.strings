@@ -1,17 +1,17 @@
 /* Crash report email body placeholder */
-"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Please provide as much details as possible about what you were doing when the crash occurred.>";
+"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<충돌이 발생 했을 때 무엇을 하고 있었는지 최대한 자세히 설명해주시기 바랍니다.>";
 
 /* Support email body placeholder */
-"<Please state your question or problem here>" = "<Please state your question or problem here>";
+"<Please state your question or problem here>" = "Please state your question or problem here";
 
 /* An error message */
-"A server installation could not be found. Check the server address." = "A server installation could not be found. Check the server address.";
+"A server installation could not be found. Check the server address." = "서버 설치를 찾을 수 없습니다. 서버 주소를 확인하시기 바랍니다.";
 
 /* Acknowledgements */
-"Acknowledgements" = "Acknowledgements";
+"Acknowledgements" = "감사의 글";
 
 /* Title of alert for adding a category */
-"Add Category" = "카테고리 추가";
+"Add Category" = "분류 추가";
 
 /* Item to show all notes */
 "All" = "모두";
@@ -21,28 +21,28 @@
 "Cancel" = "취소";
 
 /* Header title, categories */
-"CATEGORIES" = "CATEGORIES";
+"CATEGORIES" = "분류";
 
 /* 'Category' menu item */
-"Category" = "카테고리";
+"Category" = "분류";
 
 /* Action to change category of a note */
-"Category..." = "카테고리...";
+"Category..." = "분류...";
 
 /* Action to change category of a note */
-"Change Category..." = "카테고리 변경...";
+"Change Category..." = "분류 변경...";
 
 /* An error message */
-"Check username and password." = "유저 이름과 비밀번호를 확인하세요.";
+"Check username and password." = "사용자 이름과 암호를 검사.";
 
 /* Title of a button allowing the user to close the login screen and sync with the server */
-"Close & Sync" = "닫고 & 동기화";
+"Close & Sync" = "닫기 & 동기화";
 
 /* Crash report email subject */
-"NextcloudNotes Crash Report" = "NextcloudNotes Crash Report";
+"NextcloudNotes Crash Report" = "NextcloudNotes 충돌 보고서";
 
 /* No comment provided by engineer. */
-"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "NextcloudNotes 가 저번 실행되었을 때 문제가 발생했습니다. 개발자에게 제보하시겠습니까?";
+"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "NextcloudNotes 가 마지막 실행 시 충돌되었습니다. 개발자에게 보고서를 보내겠습니까?";
 
 /* Support email subject */
 "NextcloudNotes Support Request" = "NextcloudNotes 지원 요청";
@@ -51,43 +51,43 @@
 "Connect" = "연결";
 
 /* Status information, connected */
-"Connected to Notes on the server" = "서버의 노트에 연결됨";
+"Connected to Notes on the server" = "서버 상의 메모에 연결됨";
 
 /* An error message title */
 "Connection failure" = "연결 실패";
 
 /* Alert view title */
-"Crash Detected" = "충돌 확인됨";
+"Crash Detected" = "충돌 감지됨";
 
 /* Action to delete a note */
 "Delete" = "삭제";
 
 /* A menu action */
-"Delete Note" = "노트 삭제";
+"Delete Note" = "메모 삭제";
 
 /* Prompt on alert for adding a category */
-"Enter a name for the new category" = "새 카테고리의 이름을 입력하세요";
+"Enter a name for the new category" = "새 분류에 대하여 이름을 입력하십시오.";
 
 /* The title of an error message */
-"Error Adding Note" = "노트 추가 오류";
+"Error Adding Note" = "메모 추가 오류";
 
 /* The title of an error message */
-"Error Deleting Note" = "노트 삭제 오류";
+"Error Deleting Note" = "메모 삭제 오류";
 
 /* The title of an error message */
-"Error Getting Note" = "노트 가져오기 오류";
+"Error Getting Note" = "메모 가져오기 오류";
 
 /* The title of an error message */
-"Error Syncing Notes" = "노트 동기화 오류";
+"Error Syncing Notes" = "메모 동기화 오류";
 
 /* The title of an error message */
-"Error Updating Note" = "노트 업데이트 오류";
+"Error Updating Note" = "메모 갱신 오류";
 
 /* The title of an error message */
-"Error Updating Notes" = "노트 업데이트 오류";
+"Error Updating Notes" = "메모 갱신 오류";
 
 /* An error message */
-"Failed to connect to a server. Check your settings." = "서버 연결에 실패했습니다. 설정을 확인하세요.";
+"Failed to connect to a server. Check your settings." = "서버에 연결하는데 실패했습니다. 설정을 확인하십시오.";
 
 /* Item to show favorite notes */
 "Favorites" = "즐겨찾기";
@@ -99,118 +99,118 @@
 "Logged In" = "로그인됨";
 
 /* Header title, main */
-"MAIN" = "MAIN";
+"MAIN" = "메인";
 
 /* A menu option for sharing in markdown format */
 "Markdown" = "마크다운";
 
 /* The title of a new note */
-"New note" = "새 노트";
+"New note" = "새 메모";
 
 /* No comment provided by engineer. */
 "No thanks" = "No thanks";
 
 /* Status information, not connected */
-"Not connected to Notes on a server" = "서버의 노트에 연결되지 않음";
+"Not connected to Notes on a server" = "서버 상의 메모와 연결되지 않음";
 
 /* A status label indicating that the user is not logged in */
-"Not Logged In" = "로그인되지 않음";
+"Not Logged In" = "로그인 되지 않음";
 
 /* Message about not being logged in */
-"Not logged in" = "로그인되지 않음";
+"Not logged in" = "로그인 되지 않음";
 
 /* Title of alert to change title */
-"Note Title" = "노트 제목";
+"Note Title" = "메모 제목";
 
 /* An error message */
-"Notes could not be found on your server. Make sure it is installed and enabled" = "노트를 서버에서 찾을 수 없습니다. 설치되었고 활성화되었는지 확인해주세요";
+"Notes could not be found on your server. Make sure it is installed and enabled" = "서버에서 메모를 찾을 수 없습니다. 설치가 되고 활성화되었는지 확인하십시오.";
 
 /* An error message title */
-"Notes not found" = "노트 발견되지 않음";
+"Notes not found" = "메모 없음";
 
 /* Button, OK */
 "OK" = "OK";
 
 /* Title for Open In activity */
-"Open In..." = "Open In...";
+"Open In..." = "다음으로 열기…";
 
 /* A menu option for sharing in plain text format */
-"Plain Text" = "평문";
+"Plain Text" = "일반 텍스트";
 
 /* A message
    A message to check network connection */
-"Please check network connection and login." = "네트워크 연결을 확인하고 로그인해주세요.";
+"Please check network connection and login." = "네트워크 연결과 로그인을 확인하십시오.";
 
 /* A button title */
-"Reconnect" = "다시 연결";
+"Reconnect" = "재연결";
 
 /* Action to change title of a note
    Caption of Rename button */
-"Rename" = "이름 변경";
+"Rename" = "이름 바꾸기";
 
 /* Message of alert to change title */
-"Rename the note" = "노트 이름 바꾸기";
+"Rename the note" = "메모 이름 바꾸기";
 
 /* Action to change title of a note */
-"Rename..." = "이름 변경...";
+"Rename..." = "이름 바꾸기..";
 
 /* A menu option for sharing in rich text format */
-"Rich Text" = "형식 있는 텍스트";
+"Rich Text" = "서식 있는 텍스트";
 
 /* Placeholder text when no note is selected */
-"Select or create a note." = "선택하거나 노트를 생성하세요.";
+"Select or create a note." = "메모를 선택하거나 생성하기";
 
 /* Alert title for selecting server brand */
-"Server" = "Server";
+"Server" = "서버";
 
 /* An error message title */
-"Server not found" = "서버 발견되지 않음";
+"Server not found" = "서버를 찾을 수 없음";
 
 /* A message title */
-"Server Reachable" = "서버 연결 가능";
+"Server Reachable" = "서버 연결불가";
 
 /* Title of a menu with sharing options */
-"Share Note As" = "노트 공유하기";
+"Share Note As" = "다른 이름으로 메모 공유";
 
 /* A message title */
 "Success" = "성공";
 
 /* A message */
-"The network connection is working properly." = "네트워크 연결이 정상적으로 작동하고 있습니다.";
+"The network connection is working properly." = "네트워크 연결이 원활히 동작 중입니다.";
 
 /* An error message */
-"The note does not exist" = "노트가 존재하지 않음";
+"The note does not exist" = "메모가 존재하지 않음";
 
 /* Alert message for selecting server brand */
-"Unable to automatically detect type of server.\nPlease select:" = "Unable to automatically detect type of server.\nPlease select:";
+"Unable to automatically detect type of server.\nPlease select:" = "서버 종류를 자동적으로 감지할 수 없습니다.\n선택하십시오:";
 
 /* A message title
    The title of an error message */
-"Unable to Reach Server" = "서버에 연결할 수 없음";
+"Unable to Reach Server" = "서버에 도달할 수 없음";
 
 /* An error message title */
-"Unauthorized" = "Unauthorized";
+"Unauthorized" = "권한 없음";
 
 /* Text displayed for notes not assigned to a category */
-"Uncategorized" = "카테고리 없음";
+"Uncategorized" = "분류되지 않음";
 
 /* Message with Notes version, product name and version */
-"Using Notes %@on %@ %@." = "%@on %@ %@ 에서 노트 사용 중.";
+"Using Notes %1$@ on %2$@ %3$@." = "Using Notes %1$@ on %2$@ %3$@.";
 
 /* No comment provided by engineer. */
 "Yes, please!" = "Yes, please!";
 
 /* A message */
-"You are now connected to Notes on your server" = "당신의 서버의 노트에 연결되었습니다";
+"You are now connected to Notes on your server" = "서버 상의 메모와 연결되었습니다.";
 
 /* HUD subtitle when checking server capabilities */
-"Checking server capabilities" = "Checking server capabilities";
+"Checking server capabilities" = "서버 기능 확인";
 
 /* HUD subtitle when checking server settings */
-"Checking server settings" = "Checking server settings";
+"Checking server settings" = "서버 설정 확인";
 
 /* HUD subtitle when checking server status */
-"Checking server status" = "Checking server status";
+"Checking server status" = "서버 상태 확인";
 
 /* No comment provided by engineer. */
 "Connection error" = "연결 오류";
@@ -219,7 +219,7 @@
 "Do you want to connect to the server anyway?" = "그래도 서버에 연결하시겠습니까?";
 
 /* Message of alert to change notes folder */
-"Enter a name for the folder where notes should be saved on the server" = "Enter a name for the folder where notes should be saved on the server";
+"Enter a name for the folder where notes should be saved on the server" = "메모가 서버상에 저장되어야 할 폴더의 이름을 입력하십시오.";
 
 /* An error message title */
 "Error" = "오류";
@@ -228,7 +228,7 @@
 "No" = "아니요";
 
 /* Title of alert to change notes folder */
-"Notes Folder" = "Notes Folder";
+"Notes Folder" = "메모 폴더";
 
 /* A menu option for sharing in pdf format */
 "PDF" = "PDF";
@@ -240,10 +240,12 @@
 "The certificate for this server is invalid" = "이 서버의 인증서가 잘못됨";
 
 /* No comment provided by engineer. */
-"View Certificate" = "View Certificate";
+"View Certificate" = "인증서 보기";
 
 /* No comment provided by engineer. */
 "Yes" = "예";
 
 // NEXTCLOUD
-"_account_select_to_add_"   = "추가할 계정을 선택하십시오";
+"Select the account to add"   = "추가할 계정을 선택하세요.";
+
+"Notes" = "메모";
