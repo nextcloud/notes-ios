@@ -195,7 +195,7 @@
 "Uncategorized" = "분류되지 않음";
 
 /* Message with Notes version, product name and version */
-"Using Notes %@on %@ %@." = "메모 사용 %@ - %@ %@.";
+"Using Notes %1$@ on %2$@ %3$@." = "Using Notes %1$@ on %2$@ %3$@.";
 
 /* No comment provided by engineer. */
 "Yes, please!" = "Yes, please!";

@@ -195,7 +195,7 @@
 "Uncategorized" = "Non catégorisé";
 
 /* Message with Notes version, product name and version */
-"Using Notes %@on %@ %@." = "Utilisant Notes %@sur %@ %@.";
+"Using Notes %1$@ on %2$@ %3$@." = "Using Notes %1$@ on %2$@ %3$@.";
 
 /* No comment provided by engineer. */
 "Yes, please!" = "Oui, s'il vous plaît!";
