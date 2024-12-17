@@ -11,7 +11,7 @@
 "Acknowledgements" = "Erkännanden";
 
 /* Title of alert for adding a category */
-"Add Category" = "Lägg till kategori";
+"Add Category" = "Add category";
 
 /* Item to show all notes */
 "All" = "Alla";
@@ -27,10 +27,10 @@
 "Category" = "Kategori";
 
 /* Action to change category of a note */
-"Category..." = "Kategori...";
+"Category…" = "Category…";
 
 /* Action to change category of a note */
-"Change Category..." = "Ändra kategori...";
+"Change Category…" = "Change category…";
 
 /* An error message */
 "Check username and password." = "Kontrollera användarnamn och lösenord.";
@@ -57,34 +57,34 @@
 "Connection failure" = "Anslutningsfel";
 
 /* Alert view title */
-"Crash Detected" = "Krasch upptäckt";
+"Crash Detected" = "Crash detected";
 
 /* Action to delete a note */
 "Delete" = "Ta bort";
 
 /* A menu action */
-"Delete Note" = "Ta bort anteckning";
+"Delete Note" = "Delete cote";
 
 /* Prompt on alert for adding a category */
 "Enter a name for the new category" = "Ange ett namn för den nya kategorin";
 
 /* The title of an error message */
-"Error Adding Note" = "Det gick inte att lägga till anteckning";
+"Error Adding Note" = "Error adding note";
 
 /* The title of an error message */
-"Error Deleting Note" = "Det gick inte att ta bort anteckning";
+"Error Deleting Note" = "Error deleting note";
 
 /* The title of an error message */
-"Error Getting Note" = "Det gick inte att hämta anteckning";
+"Error Getting Note" = "Error getting note";
 
 /* The title of an error message */
-"Error Syncing Notes" = "Det gick inte att synka anteckningar";
+"Error Syncing Notes" = "Error syncing notes";
 
 /* The title of an error message */
-"Error Updating Note" = "Det gick inte att uppdatera anteckning";
+"Error Updating Note" = "Error updating note";
 
 /* The title of an error message */
-"Error Updating Notes" = "Det gick inte att uppdatera anteckningar";
+"Error Updating Notes" = "Error updating notes";
 
 /* An error message */
 "Failed to connect to a server. Check your settings." = "Det gick inte att ansluta till en server. Kontrollera dina inställningar.";
@@ -96,7 +96,7 @@
 "HTML" = "HTML";
 
 /* A status label indicating that the user is logged in */
-"Logged In" = "Inloggad";
+"Logged In" = "Logged in";
 
 /* Header title, main */
 "MAIN" = "MAIN";
@@ -120,7 +120,7 @@
 "Not logged in" = "Inte inloggad";
 
 /* Title of alert to change title */
-"Note Title" = "Anteckningens titel";
+"Note Title" = "Note title";
 
 /* An error message */
 "Notes could not be found on your server. Make sure it is installed and enabled" = "Det gick inte att hitta Notes på din server. Se till att den är installerad och aktiverad";
@@ -132,10 +132,10 @@
 "OK" = "OK";
 
 /* Title for Open In activity */
-"Open In..." = "Öppna i...";
+"Open in…" = "Open in…";
 
 /* A menu option for sharing in plain text format */
-"Plain Text" = "Oformaterad text";
+"Plain Text" = "Plain text";
 
 /* A message
    A message to check network connection */
@@ -152,10 +152,10 @@
 "Rename the note" = "Byt namn på anteckningen";
 
 /* Action to change title of a note */
-"Rename..." = "Byt namn...";
+"Rename…" = "Rename…";
 
 /* A menu option for sharing in rich text format */
-"Rich Text" = "Formaterad text";
+"Rich Text" = "Rich text";
 
 /* Placeholder text when no note is selected */
 "Select or create a note." = "Välj eller skapa en anteckning.";
@@ -167,10 +167,10 @@
 "Server not found" = "Server kunde inte hittas";
 
 /* A message title */
-"Server Reachable" = "Server nåbar";
+"Server Reachable" = "Server reachable";
 
 /* Title of a menu with sharing options */
-"Share Note As" = "Dela anteckning som";
+"Share Note As" = "Share note as";
 
 /* A message title */
 "Success" = "Lyckades";
@@ -186,7 +186,7 @@
 
 /* A message title
    The title of an error message */
-"Unable to Reach Server" = "Kan inte nå servern";
+"Unable to Reach Server" = "Unable to reach server";
 
 /* An error message title */
 "Unauthorized" = "Obehörig";
@@ -228,7 +228,7 @@
 "No" = "Nej";
 
 /* Title of alert to change notes folder */
-"Notes Folder" = "Anteckningsmapp";
+"Notes Folder" = "Notes folder";
 
 /* A menu option for sharing in pdf format */
 "PDF" = "PDF";
@@ -240,7 +240,7 @@
 "The certificate for this server is invalid" = "Certifikatet för denna server är ogiltigt";
 
 /* No comment provided by engineer. */
-"View Certificate" = "Visa certifikat";
+"View Certificate" = "View certificate";
 
 /* No comment provided by engineer. */
 "Yes" = "Ja";

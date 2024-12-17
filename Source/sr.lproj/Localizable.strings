@@ -11,7 +11,7 @@
 "Acknowledgements" = "Признања";
 
 /* Title of alert for adding a category */
-"Add Category" = "Додај категорију";
+"Add Category" = "Add category";
 
 /* Item to show all notes */
 "All" = "Све";
@@ -27,10 +27,10 @@
 "Category" = "Категорија";
 
 /* Action to change category of a note */
-"Category..." = "Категорија";
+"Category…" = "Category…";
 
 /* Action to change category of a note */
-"Change Category..." = "Промените категорију";
+"Change Category…" = "Change category…";
 
 /* An error message */
 "Check username and password." = "Провера корисничког имена и лозинке.";
@@ -57,34 +57,34 @@
 "Connection failure" = "Није успело повезивање";
 
 /* Alert view title */
-"Crash Detected" = "Откривен је крах";
+"Crash Detected" = "Crash detected";
 
 /* Action to delete a note */
 "Delete" = "Delete";
 
 /* A menu action */
-"Delete Note" = "Обриши белешку";
+"Delete Note" = "Delete cote";
 
 /* Prompt on alert for adding a category */
 "Enter a name for the new category" = "Унесите име нове категорије";
 
 /* The title of an error message */
-"Error Adding Note" = "Грешка приликом додавања белешке";
+"Error Adding Note" = "Error adding note";
 
 /* The title of an error message */
-"Error Deleting Note" = "Грешка приликом брисања белешке";
+"Error Deleting Note" = "Error deleting note";
 
 /* The title of an error message */
-"Error Getting Note" = "Грешка приликом преузимања белешке";
+"Error Getting Note" = "Error getting note";
 
 /* The title of an error message */
-"Error Syncing Notes" = "Грешка приликом синхронизације белешки";
+"Error Syncing Notes" = "Error syncing notes";
 
 /* The title of an error message */
-"Error Updating Note" = "Грешка приликом ажурирања белешке";
+"Error Updating Note" = "Error updating note";
 
 /* The title of an error message */
-"Error Updating Notes" = "Грешка приликом ажурирања белешки";
+"Error Updating Notes" = "Error updating notes";
 
 /* An error message */
 "Failed to connect to a server. Check your settings." = "Није успело повезивање са сервером. Проверите подешавања.";
@@ -96,7 +96,7 @@
 "HTML" = "HTML";
 
 /* A status label indicating that the user is logged in */
-"Logged In" = "Пријављен";
+"Logged In" = "Logged in";
 
 /* Header title, main */
 "MAIN" = "ГЛАВНО";
@@ -114,13 +114,13 @@
 "Not connected to Notes on a server" = "Није повезано са Белешкама на серверу";
 
 /* A status label indicating that the user is not logged in */
-"Not Logged In" = "Није пријављен";
+"Not Logged In" = "Није пријављено";
 
 /* Message about not being logged in */
 "Not logged in" = "Није пријављено";
 
 /* Title of alert to change title */
-"Note Title" = "Наслов белешке";
+"Note Title" = "Note title";
 
 /* An error message */
 "Notes could not be found on your server. Make sure it is installed and enabled" = "На вашем серверу није пронађена апликација Белешке. Обезбедите да ја инсталирана и укључена";
@@ -132,10 +132,10 @@
 "OK" = "У реду";
 
 /* Title for Open In activity */
-"Open In..." = "Отвори у %@";
+"Open in…" = "Отвори у…";
 
 /* A menu option for sharing in plain text format */
-"Plain Text" = "Прости текст";
+"Plain Text" = "Plain text";
 
 /* A message
    A message to check network connection */
@@ -152,10 +152,10 @@
 "Rename the note" = "Промени назив белешке";
 
 /* Action to change title of a note */
-"Rename..." = "Преименуј";
+"Rename…" = "Rename…";
 
 /* A menu option for sharing in rich text format */
-"Rich Text" = "Обогаћени текст";
+"Rich Text" = "Rich text";
 
 /* Placeholder text when no note is selected */
 "Select or create a note." = "Избор или креирање белешке.";
@@ -167,10 +167,10 @@
 "Server not found" = "Није пронађен сервер";
 
 /* A message title */
-"Server Reachable" = "Сервер је доступан";
+"Server Reachable" = "Server reachable";
 
 /* Title of a menu with sharing options */
-"Share Note As" = "Дели белешку као";
+"Share Note As" = "Share note as";
 
 /* A message title */
 "Success" = "Успешно";
@@ -186,7 +186,7 @@
 
 /* A message title
    The title of an error message */
-"Unable to Reach Server" = "Не може да се приступи серверу";
+"Unable to Reach Server" = "Unable to reach server";
 
 /* An error message title */
 "Unauthorized" = "Неовлашћено";
@@ -228,7 +228,7 @@
 "No" = "Не";
 
 /* Title of alert to change notes folder */
-"Notes Folder" = "Фолдер за Белешке";
+"Notes Folder" = "Notes folder";
 
 /* A menu option for sharing in pdf format */
 "PDF" = "PDF";
@@ -240,7 +240,7 @@
 "The certificate for this server is invalid" = "Сертификат овог сервера је неисправан";
 
 /* No comment provided by engineer. */
-"View Certificate" = "Прикажи сертификат";
+"View Certificate" = "View certificate";
 
 /* No comment provided by engineer. */
 "Yes" = "Да";

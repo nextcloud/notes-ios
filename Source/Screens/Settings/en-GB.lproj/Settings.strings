@@ -5,31 +5,31 @@
 "51F-pD-XNv.text" = "Markdown (.md)";
 
 /* Class = "UITextField"; placeholder = "Server Password"; ObjectID = "69R-CL-ITG"; */
-"69R-CL-ITG.placeholder" = "Server Password";
+"69R-CL-ITG.placeholder" = "Server password";
 
 /* Class = "UILabel"; text = "Web Site"; ObjectID = "6So-Rg-NhZ"; */
-"6So-Rg-NhZ.text" = "Web Site";
+"6So-Rg-NhZ.text" = "Website";
 
 /* Class = "UITableViewController"; title = "File Extension"; ObjectID = "7HO-9G-Wem"; */
-"7HO-9G-Wem.title" = "File Extension";
+"7HO-9G-Wem.title" = "File extension";
 
 /* Class = "UILabel"; text = "Username"; ObjectID = "A4w-6q-Hcy"; */
 "A4w-6q-Hcy.text" = "Username";
 
 /* Class = "UILabel"; text = "Allow Untrusted SSL Certificate"; ObjectID = "AKl-Ep-y3W"; */
-"AKl-Ep-y3W.text" = "Allow Untrusted SSL Certificate";
+"AKl-Ep-y3W.text" = "Allow untrusted SSL certificate";
 
 /* Class = "UILabel"; text = "Offline Mode"; ObjectID = "B8W-f5-T18"; */
-"B8W-f5-T18.text" = "Offline Mode";
+"B8W-f5-T18.text" = "Offline mode";
 
 /* Class = "UILabel"; text = "Password"; ObjectID = "CrO-Ue-LFh"; */
 "CrO-Ue-LFh.text" = "Password";
 
 /* Class = "UIButton"; configuration.title = "Log In"; ObjectID = "dUo-KO-48Z"; */
-"dUo-KO-48Z.configuration.title" = "Log In";
+"dUo-KO-48Z.configuration.title" = "Log in";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "dUo-KO-48Z"; */
-"dUo-KO-48Z.normalTitle" = "Log In";
+"dUo-KO-48Z.normalTitle" = "Log in";
 
 /* Class = "UITableViewSection"; headerTitle = "SUPPORT"; ObjectID = "ENv-ON-tbr"; */
 "ENv-ON-tbr.headerTitle" = "SUPPORT";
@@ -59,22 +59,22 @@
 "GZX-DC-7iv.text" = "Url";
 
 /* Class = "UILabel"; text = "Sync on Start"; ObjectID = "hVU-Ed-KYm"; */
-"hVU-Ed-KYm.text" = "Sync on Start";
+"hVU-Ed-KYm.text" = "Sync on start";
 
 /* Class = "UITextField"; placeholder = "https://example.com/nextcloud"; ObjectID = "hYn-5e-22n"; */
 "hYn-5e-22n.placeholder" = "https://example.com/nextcloud";
 
 /* Class = "UINavigationItem"; title = "File Extension"; ObjectID = "J4w-vK-nRA"; */
-"J4w-vK-nRA.title" = "File Extension";
+"J4w-vK-nRA.title" = "File extension";
 
 /* Class = "UITextField"; placeholder = "Server Username"; ObjectID = "KPV-Zj-4Ps"; */
-"KPV-Zj-4Ps.placeholder" = "Server Username";
+"KPV-Zj-4Ps.placeholder" = "Server username";
 
 /* Class = "UILabel"; text = "Notes Folder"; ObjectID = "ltN-gF-yom"; */
-"ltN-gF-yom.text" = "Notes Folder";
+"ltN-gF-yom.text" = "Notes folder";
 
 /* Class = "UILabel"; text = "File Extension"; ObjectID = "Pvp-6i-NLV"; */
-"Pvp-6i-NLV.text" = "File Extension";
+"Pvp-6i-NLV.text" = "File extension";
 
 /* Class = "UILabel"; text = "Connect"; ObjectID = "qxi-YY-hPn"; */
 "qxi-YY-hPn.text" = "Connect";
@@ -98,10 +98,10 @@
 "Svh-OV-bUr.headerTitle" = "SERVER";
 
 /* Class = "UILabel"; text = "Plain Text (.txt)"; ObjectID = "SyJ-AC-m5H"; */
-"SyJ-AC-m5H.text" = "Plain Text (.txt)";
+"SyJ-AC-m5H.text" = "Plain text (.txt)";
 
 /* Class = "UILabel"; text = "Plain Text (.txt)"; ObjectID = "uVd-ib-jy0"; */
-"uVd-ib-jy0.text" = "Plain Text (.txt)";
+"uVd-ib-jy0.text" = "Plain text (.txt)";
 
 /* Class = "UITableViewSection"; footerTitle = " "; ObjectID = "Uwy-jB-bpa"; */
 "Uwy-jB-bpa.footerTitle" = " ";
@@ -113,7 +113,7 @@
 "waZ-N6-59b.title" = "Settings";
 
 /* Class = "UINavigationItem"; title = "Login Information"; ObjectID = "ZPa-hv-oSb"; */
-"ZPa-hv-oSb.title" = "Login Information";
+"ZPa-hv-oSb.title" = "Login information";
 
 /* Class = "UILabel"; text = "Sync on Start"; ObjectID = "9Dd-Vq-hcz"; */
 "9Dd-Vq-hcz.text" = "Internal editor";

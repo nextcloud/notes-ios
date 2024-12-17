@@ -11,7 +11,7 @@
 "Acknowledgements" = "감사의 글";
 
 /* Title of alert for adding a category */
-"Add Category" = "분류 추가";
+"Add Category" = "Add category";
 
 /* Item to show all notes */
 "All" = "모두";
@@ -27,10 +27,10 @@
 "Category" = "분류";
 
 /* Action to change category of a note */
-"Category..." = "분류...";
+"Category…" = "Category…";
 
 /* Action to change category of a note */
-"Change Category..." = "분류 변경...";
+"Change Category…" = "Change category…";
 
 /* An error message */
 "Check username and password." = "사용자 이름과 암호를 검사.";
@@ -57,34 +57,34 @@
 "Connection failure" = "연결 실패";
 
 /* Alert view title */
-"Crash Detected" = "충돌 감지됨";
+"Crash Detected" = "Crash detected";
 
 /* Action to delete a note */
 "Delete" = "삭제";
 
 /* A menu action */
-"Delete Note" = "메모 삭제";
+"Delete Note" = "Delete cote";
 
 /* Prompt on alert for adding a category */
 "Enter a name for the new category" = "새 분류에 대하여 이름을 입력하십시오.";
 
 /* The title of an error message */
-"Error Adding Note" = "메모 추가 오류";
+"Error Adding Note" = "Error adding note";
 
 /* The title of an error message */
-"Error Deleting Note" = "메모 삭제 오류";
+"Error Deleting Note" = "Error deleting note";
 
 /* The title of an error message */
-"Error Getting Note" = "메모 가져오기 오류";
+"Error Getting Note" = "Error getting note";
 
 /* The title of an error message */
-"Error Syncing Notes" = "메모 동기화 오류";
+"Error Syncing Notes" = "Error syncing notes";
 
 /* The title of an error message */
-"Error Updating Note" = "메모 갱신 오류";
+"Error Updating Note" = "Error updating note";
 
 /* The title of an error message */
-"Error Updating Notes" = "메모 갱신 오류";
+"Error Updating Notes" = "Error updating notes";
 
 /* An error message */
 "Failed to connect to a server. Check your settings." = "서버에 연결하는데 실패했습니다. 설정을 확인하십시오.";
@@ -96,7 +96,7 @@
 "HTML" = "HTML";
 
 /* A status label indicating that the user is logged in */
-"Logged In" = "로그인됨";
+"Logged In" = "Logged in";
 
 /* Header title, main */
 "MAIN" = "메인";
@@ -120,7 +120,7 @@
 "Not logged in" = "로그인 되지 않음";
 
 /* Title of alert to change title */
-"Note Title" = "메모 제목";
+"Note Title" = "Note title";
 
 /* An error message */
 "Notes could not be found on your server. Make sure it is installed and enabled" = "서버에서 메모를 찾을 수 없습니다. 설치가 되고 활성화되었는지 확인하십시오.";
@@ -132,10 +132,10 @@
 "OK" = "OK";
 
 /* Title for Open In activity */
-"Open In..." = "다음으로 열기…";
+"Open in…" = "Open in…";
 
 /* A menu option for sharing in plain text format */
-"Plain Text" = "일반 텍스트";
+"Plain Text" = "Plain text";
 
 /* A message
    A message to check network connection */
@@ -152,10 +152,10 @@
 "Rename the note" = "메모 이름 바꾸기";
 
 /* Action to change title of a note */
-"Rename..." = "이름 바꾸기..";
+"Rename…" = "Rename…";
 
 /* A menu option for sharing in rich text format */
-"Rich Text" = "서식 있는 텍스트";
+"Rich Text" = "Rich text";
 
 /* Placeholder text when no note is selected */
 "Select or create a note." = "메모를 선택하거나 생성하기";
@@ -167,10 +167,10 @@
 "Server not found" = "서버를 찾을 수 없음";
 
 /* A message title */
-"Server Reachable" = "서버 연결불가";
+"Server Reachable" = "Server reachable";
 
 /* Title of a menu with sharing options */
-"Share Note As" = "다른 이름으로 메모 공유";
+"Share Note As" = "Share note as";
 
 /* A message title */
 "Success" = "성공";
@@ -186,7 +186,7 @@
 
 /* A message title
    The title of an error message */
-"Unable to Reach Server" = "서버에 도달할 수 없음";
+"Unable to Reach Server" = "Unable to reach server";
 
 /* An error message title */
 "Unauthorized" = "권한 없음";
@@ -228,7 +228,7 @@
 "No" = "아니요";
 
 /* Title of alert to change notes folder */
-"Notes Folder" = "메모 폴더";
+"Notes Folder" = "Notes folder";
 
 /* A menu option for sharing in pdf format */
 "PDF" = "PDF";
@@ -240,7 +240,7 @@
 "The certificate for this server is invalid" = "이 서버의 인증서가 잘못됨";
 
 /* No comment provided by engineer. */
-"View Certificate" = "인증서 보기";
+"View Certificate" = "View certificate";
 
 /* No comment provided by engineer. */
 "Yes" = "예";

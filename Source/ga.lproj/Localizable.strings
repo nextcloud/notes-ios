@@ -11,7 +11,7 @@
 "Acknowledgements" = "Buíochas";
 
 /* Title of alert for adding a category */
-"Add Category" = "Cuir Catagóir leis";
+"Add Category" = "Add category";
 
 /* Item to show all notes */
 "All" = "Gach";
@@ -27,10 +27,10 @@
 "Category" = "Catagóir";
 
 /* Action to change category of a note */
-"Category..." = "Catagóir...";
+"Category…" = "Category…";
 
 /* Action to change category of a note */
-"Change Category..." = "Athraigh Catagóir...";
+"Change Category…" = "Change category…";
 
 /* An error message */
 "Check username and password." = "Seiceáil ainm úsáideora agus pasfhocal.";
@@ -57,34 +57,34 @@
 "Connection failure" = "Teip ceangail";
 
 /* Alert view title */
-"Crash Detected" = "Tuairt Braite";
+"Crash Detected" = "Crash detected";
 
 /* Action to delete a note */
 "Delete" = "Scrios";
 
 /* A menu action */
-"Delete Note" = "Scrios Nóta";
+"Delete Note" = "Delete cote";
 
 /* Prompt on alert for adding a category */
 "Enter a name for the new category" = "Cuir isteach ainm don chatagóir nua";
 
 /* The title of an error message */
-"Error Adding Note" = "Earráid agus Nóta á Chur Leis";
+"Error Adding Note" = "Error adding note";
 
 /* The title of an error message */
-"Error Deleting Note" = "Earráid agus Nóta á scriosadh";
+"Error Deleting Note" = "Error deleting note";
 
 /* The title of an error message */
-"Error Getting Note" = "Earráid agus Nóta á Fháil";
+"Error Getting Note" = "Error getting note";
 
 /* The title of an error message */
-"Error Syncing Notes" = "Earráid agus Nótaí á Sioncronú";
+"Error Syncing Notes" = "Error syncing notes";
 
 /* The title of an error message */
-"Error Updating Note" = "Earráid agus Nóta á Nuashonrú";
+"Error Updating Note" = "Error updating note";
 
 /* The title of an error message */
-"Error Updating Notes" = "Earráid agus Nótaí á Nuashonrú";
+"Error Updating Notes" = "Error updating notes";
 
 /* An error message */
 "Failed to connect to a server. Check your settings." = "Theip ar nascadh le freastalaí. Seiceáil do shocruithe.";
@@ -96,7 +96,7 @@
 "HTML" = "HTML";
 
 /* A status label indicating that the user is logged in */
-"Logged In" = "Logáilte Isteach";
+"Logged In" = "Logged in";
 
 /* Header title, main */
 "MAIN" = "PRÍOMH";
@@ -114,13 +114,13 @@
 "Not connected to Notes on a server" = "Níl sé ceangailte le Nótaí ar fhreastalaí";
 
 /* A status label indicating that the user is not logged in */
-"Not Logged In" = "Gan Logáil Isteach";
+"Not Logged In" = "Gan logáil isteach";
 
 /* Message about not being logged in */
 "Not logged in" = "Gan logáil isteach";
 
 /* Title of alert to change title */
-"Note Title" = "Nóta Teideal";
+"Note Title" = "Note title";
 
 /* An error message */
 "Notes could not be found on your server. Make sure it is installed and enabled" = "Níorbh fhéidir nótaí a aimsiú ar do fhreastalaí. Déan cinnte go bhfuil sé suiteáilte agus cumasaithe";
@@ -132,10 +132,10 @@
 "OK" = "ceart go leor";
 
 /* Title for Open In activity */
-"Open In..." = "Oscail i...";
+"Open in…" = "Open in…";
 
 /* A menu option for sharing in plain text format */
-"Plain Text" = "Gnáth-théacs";
+"Plain Text" = "Plain text";
 
 /* A message
    A message to check network connection */
@@ -152,10 +152,10 @@
 "Rename the note" = "Athainmnigh an nóta";
 
 /* Action to change title of a note */
-"Rename..." = "Athainmnigh...";
+"Rename…" = "Rename…";
 
 /* A menu option for sharing in rich text format */
-"Rich Text" = "Téacs Saibhir";
+"Rich Text" = "Rich text";
 
 /* Placeholder text when no note is selected */
 "Select or create a note." = "Roghnaigh nó cruthaigh nóta.";
@@ -167,10 +167,10 @@
 "Server not found" = "Freastalaí gan aimsiú";
 
 /* A message title */
-"Server Reachable" = "Freastalaí Insroichte";
+"Server Reachable" = "Server reachable";
 
 /* Title of a menu with sharing options */
-"Share Note As" = "Comhroinn Nóta Mar";
+"Share Note As" = "Share note as";
 
 /* A message title */
 "Success" = "Rath";
@@ -186,7 +186,7 @@
 
 /* A message title
    The title of an error message */
-"Unable to Reach Server" = "Ní féidir an freastalaí a shroicheadh";
+"Unable to Reach Server" = "Unable to reach server";
 
 /* An error message title */
 "Unauthorized" = "Neamhúdaraithe";
@@ -228,7 +228,7 @@
 "No" = "Níl";
 
 /* Title of alert to change notes folder */
-"Notes Folder" = "Fillteán Nótaí";
+"Notes Folder" = "Notes folder";
 
 /* A menu option for sharing in pdf format */
 "PDF" = "PDF";
@@ -240,7 +240,7 @@
 "The certificate for this server is invalid" = "Tá teastas an fhreastalaí seo neamhbhailí";
 
 /* No comment provided by engineer. */
-"View Certificate" = "Féach ar an Teastas";
+"View Certificate" = "View certificate";
 
 /* No comment provided by engineer. */
 "Yes" = "Tá";

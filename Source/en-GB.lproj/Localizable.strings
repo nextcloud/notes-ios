@@ -11,7 +11,7 @@
 "Acknowledgements" = "Acknowledgements";
 
 /* Title of alert for adding a category */
-"Add Category" = "Add Category";
+"Add Category" = "Add category";
 
 /* Item to show all notes */
 "All" = "All";
@@ -27,10 +27,10 @@
 "Category" = "Category";
 
 /* Action to change category of a note */
-"Category..." = "Category...";
+"Category…" = "Category…";
 
 /* Action to change category of a note */
-"Change Category..." = "Change Category...";
+"Change Category…" = "Change category…";
 
 /* An error message */
 "Check username and password." = "Check username and password.";
@@ -57,34 +57,34 @@
 "Connection failure" = "Connection failure";
 
 /* Alert view title */
-"Crash Detected" = "Crash Detected";
+"Crash Detected" = "Crash detected";
 
 /* Action to delete a note */
 "Delete" = "Delete";
 
 /* A menu action */
-"Delete Note" = "Delete Note";
+"Delete Note" = "Delete cote";
 
 /* Prompt on alert for adding a category */
 "Enter a name for the new category" = "Enter a name for the new category";
 
 /* The title of an error message */
-"Error Adding Note" = "Error Adding Note";
+"Error Adding Note" = "Error adding note";
 
 /* The title of an error message */
-"Error Deleting Note" = "Error Deleting Note";
+"Error Deleting Note" = "Error deleting note";
 
 /* The title of an error message */
-"Error Getting Note" = "Error Getting Note";
+"Error Getting Note" = "Error getting note";
 
 /* The title of an error message */
-"Error Syncing Notes" = "Error Syncing Notes";
+"Error Syncing Notes" = "Error syncing notes";
 
 /* The title of an error message */
-"Error Updating Note" = "Error Updating Note";
+"Error Updating Note" = "Error updating note";
 
 /* The title of an error message */
-"Error Updating Notes" = "Error Updating Notes";
+"Error Updating Notes" = "Error updating notes";
 
 /* An error message */
 "Failed to connect to a server. Check your settings." = "Failed to connect to a server. Check your settings.";
@@ -96,7 +96,7 @@
 "HTML" = "HTML";
 
 /* A status label indicating that the user is logged in */
-"Logged In" = "Logged In";
+"Logged In" = "Logged in";
 
 /* Header title, main */
 "MAIN" = "MAIN";
@@ -114,13 +114,13 @@
 "Not connected to Notes on a server" = "Not connected to Notes on a server";
 
 /* A status label indicating that the user is not logged in */
-"Not Logged In" = "Not Logged In";
+"Not Logged In" = "Not logged in";
 
 /* Message about not being logged in */
 "Not logged in" = "Not logged in";
 
 /* Title of alert to change title */
-"Note Title" = "Note Title";
+"Note Title" = "Note title";
 
 /* An error message */
 "Notes could not be found on your server. Make sure it is installed and enabled" = "Notes could not be found on your server. Make sure it is installed and enabled";
@@ -132,10 +132,10 @@
 "OK" = "OK";
 
 /* Title for Open In activity */
-"Open In..." = "Open In...";
+"Open in…" = "Open in…";
 
 /* A menu option for sharing in plain text format */
-"Plain Text" = "Plain Text";
+"Plain Text" = "Plain text";
 
 /* A message
    A message to check network connection */
@@ -152,10 +152,10 @@
 "Rename the note" = "Rename the note";
 
 /* Action to change title of a note */
-"Rename..." = "Rename...";
+"Rename…" = "Rename…";
 
 /* A menu option for sharing in rich text format */
-"Rich Text" = "Rich Text";
+"Rich Text" = "Rich text";
 
 /* Placeholder text when no note is selected */
 "Select or create a note." = "Select or create a note.";
@@ -167,10 +167,10 @@
 "Server not found" = "Server not found";
 
 /* A message title */
-"Server Reachable" = "Server Reachable";
+"Server Reachable" = "Server reachable";
 
 /* Title of a menu with sharing options */
-"Share Note As" = "Share Note As";
+"Share Note As" = "Share note as";
 
 /* A message title */
 "Success" = "Success";
@@ -186,7 +186,7 @@
 
 /* A message title
    The title of an error message */
-"Unable to Reach Server" = "Unable to Reach Server";
+"Unable to Reach Server" = "Unable to reach server";
 
 /* An error message title */
 "Unauthorized" = "Unauthorised";
@@ -228,7 +228,7 @@
 "No" = "No";
 
 /* Title of alert to change notes folder */
-"Notes Folder" = "Notes Folder";
+"Notes Folder" = "Notes folder";
 
 /* A menu option for sharing in pdf format */
 "PDF" = "PDF";
@@ -240,7 +240,7 @@
 "The certificate for this server is invalid" = "The certificate for this server is invalid";
 
 /* No comment provided by engineer. */
-"View Certificate" = "View Certificate";
+"View Certificate" = "View certificate";
 
 /* No comment provided by engineer. */
 "Yes" = "Yes";

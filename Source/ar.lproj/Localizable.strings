@@ -11,7 +11,7 @@
 "Acknowledgements" = "شكرٌ و تقديرٌ";
 
 /* Title of alert for adding a category */
-"Add Category" = "إضافة تصنيف";
+"Add Category" = "Add category";
 
 /* Item to show all notes */
 "All" = "الكل";
@@ -27,10 +27,10 @@
 "Category" = "التصنيف";
 
 /* Action to change category of a note */
-"Category..." = "تصنيف ...";
+"Category…" = "Category…";
 
 /* Action to change category of a note */
-"Change Category..." = "تغيير التصنيف...";
+"Change Category…" = "Change category…";
 
 /* An error message */
 "Check username and password." = "التحقُّق من المستخدِم و كلمة المرور.";
@@ -57,34 +57,34 @@
 "Connection failure" = "فشل التوصيل";
 
 /* Alert view title */
-"Crash Detected" = "تمّ اكتشاف إخفاق";
+"Crash Detected" = "Crash detected";
 
 /* Action to delete a note */
 "Delete" = "حذف";
 
 /* A menu action */
-"Delete Note" = "حذف ملاحظة";
+"Delete Note" = "Delete cote";
 
 /* Prompt on alert for adding a category */
 "Enter a name for the new category" = "أدخل اسم التصنيف الجديد";
 
 /* The title of an error message */
-"Error Adding Note" = "خطأ في إضافة الملاحظة";
+"Error Adding Note" = "Error adding note";
 
 /* The title of an error message */
-"Error Deleting Note" = "خطأ في حذف ملاحظة";
+"Error Deleting Note" = "Error deleting note";
 
 /* The title of an error message */
-"Error Getting Note" = "خطأ في الحصول على الملاحظة";
+"Error Getting Note" = "Error getting note";
 
 /* The title of an error message */
-"Error Syncing Notes" = "خطأ في مزامنة الملاحظات";
+"Error Syncing Notes" = "Error syncing notes";
 
 /* The title of an error message */
-"Error Updating Note" = "خطأ في تحديث الملاحظة";
+"Error Updating Note" = "Error updating note";
 
 /* The title of an error message */
-"Error Updating Notes" = "خطأ في تحديث الملاحظات";
+"Error Updating Notes" = "Error updating notes";
 
 /* An error message */
 "Failed to connect to a server. Check your settings." = "فشل في التوصيل مع الخادوم. تحقَّق من إعداداتك.";
@@ -96,7 +96,7 @@
 "HTML" = "HTML";
 
 /* A status label indicating that the user is logged in */
-"Logged In" = "تمّ تسجيل الدخول";
+"Logged In" = "Logged in";
 
 /* Header title, main */
 "MAIN" = "الرئيسي";
@@ -120,7 +120,7 @@
 "Not logged in" = "لم يتم تسجيل الدخول";
 
 /* Title of alert to change title */
-"Note Title" = "عنوان الملاحظة";
+"Note Title" = "Note title";
 
 /* An error message */
 "Notes could not be found on your server. Make sure it is installed and enabled" = "تعذّر العثور على ملاحظات على خادومك. تأكد من تثبيت التطبيق و تمكينه";
@@ -132,10 +132,10 @@
 "OK" = "تم";
 
 /* Title for Open In activity */
-"Open In..." = "فتح في ...";
+"Open in…" = "فتح في…";
 
 /* A menu option for sharing in plain text format */
-"Plain Text" = "نص واضح";
+"Plain Text" = "Plain text";
 
 /* A message
    A message to check network connection */
@@ -152,10 +152,10 @@
 "Rename the note" = "تغيير اسم الملاحظة";
 
 /* Action to change title of a note */
-"Rename..." = "تغيير الاسم جارٍ ...";
+"Rename…" = "Rename…";
 
 /* A menu option for sharing in rich text format */
-"Rich Text" = "نص مُنسّق";
+"Rich Text" = "Rich text";
 
 /* Placeholder text when no note is selected */
 "Select or create a note." = "إختَر أو إنشيء ملاحظةً";
@@ -167,10 +167,10 @@
 "Server not found" = "الخادوم غير موجود";
 
 /* A message title */
-"Server Reachable" = "يمكن الوصول للخادوم";
+"Server Reachable" = "Server reachable";
 
 /* Title of a menu with sharing options */
-"Share Note As" = "مشاركة الملاحظة كـ";
+"Share Note As" = "Share note as";
 
 /* A message title */
 "Success" = "نجاح";
@@ -186,7 +186,7 @@
 
 /* A message title
    The title of an error message */
-"Unable to Reach Server" = "تعذّر الوصول إلى الخادوم";
+"Unable to Reach Server" = "Unable to reach server";
 
 /* An error message title */
 "Unauthorized" = "غير مأذون به";
@@ -228,7 +228,7 @@
 "No" = "لا";
 
 /* Title of alert to change notes folder */
-"Notes Folder" = "مجلد الملاحظات";
+"Notes Folder" = "Notes folder";
 
 /* A menu option for sharing in pdf format */
 "PDF" = "\"بي دي إف\"";
@@ -240,7 +240,7 @@
 "The certificate for this server is invalid" = "شهادة مصادقة الخادوم غير صالحة";
 
 /* No comment provided by engineer. */
-"View Certificate" = "شهادة مصادقة جديدة";
+"View Certificate" = "View certificate";
 
 /* No comment provided by engineer. */
 "Yes" = "نعم";

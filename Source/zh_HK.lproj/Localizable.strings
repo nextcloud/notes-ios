@@ -11,7 +11,7 @@
 "Acknowledgements" = "致謝";
 
 /* Title of alert for adding a category */
-"Add Category" = "添加分類";
+"Add Category" = "Add category";
 
 /* Item to show all notes */
 "All" = "全部";
@@ -27,10 +27,10 @@
 "Category" = "分類";
 
 /* Action to change category of a note */
-"Category..." = "分類 ...";
+"Category…" = "Category…";
 
 /* Action to change category of a note */
-"Change Category..." = "更新分類 ...";
+"Change Category…" = "Change category…";
 
 /* An error message */
 "Check username and password." = "檢查用戶名和密碼。";
@@ -57,34 +57,34 @@
 "Connection failure" = "連線失敗";
 
 /* Alert view title */
-"Crash Detected" = "檢測到死機";
+"Crash Detected" = "Crash detected";
 
 /* Action to delete a note */
 "Delete" = "移除";
 
 /* A menu action */
-"Delete Note" = "刪除筆記";
+"Delete Note" = "Delete cote";
 
 /* Prompt on alert for adding a category */
 "Enter a name for the new category" = "輸入新分類名稱";
 
 /* The title of an error message */
-"Error Adding Note" = "添加筆記時發生錯誤";
+"Error Adding Note" = "Error adding note";
 
 /* The title of an error message */
-"Error Deleting Note" = "刪除筆記時發生錯誤";
+"Error Deleting Note" = "Error deleting note";
 
 /* The title of an error message */
-"Error Getting Note" = "取得筆記時發生錯誤";
+"Error Getting Note" = "Error getting note";
 
 /* The title of an error message */
-"Error Syncing Notes" = "同步筆記時發生錯誤";
+"Error Syncing Notes" = "Error syncing notes";
 
 /* The title of an error message */
-"Error Updating Note" = "更新筆記時發生錯誤";
+"Error Updating Note" = "Error updating note";
 
 /* The title of an error message */
-"Error Updating Notes" = "更新筆記時發生錯誤";
+"Error Updating Notes" = "Error updating notes";
 
 /* An error message */
 "Failed to connect to a server. Check your settings." = "無法連接到伺服器。請檢查您的設置。";
@@ -96,7 +96,7 @@
 "HTML" = "HTML";
 
 /* A status label indicating that the user is logged in */
-"Logged In" = "已登入";
+"Logged In" = "Logged in";
 
 /* Header title, main */
 "MAIN" = "主標題";
@@ -120,7 +120,7 @@
 "Not logged in" = "未登入";
 
 /* Title of alert to change title */
-"Note Title" = "筆記標題";
+"Note Title" = "Note title";
 
 /* An error message */
 "Notes could not be found on your server. Make sure it is installed and enabled" = "未在您的伺服器上找到 Notes。請確保已安裝並啟用該功能。";
@@ -132,10 +132,10 @@
 "OK" = "確認";
 
 /* Title for Open In activity */
-"Open In..." = "在 ... 中打開";
+"Open in…" = "開啟在。。。";
 
 /* A menu option for sharing in plain text format */
-"Plain Text" = "純文字";
+"Plain Text" = "Plain text";
 
 /* A message
    A message to check network connection */
@@ -152,10 +152,10 @@
 "Rename the note" = "重新命名筆記";
 
 /* Action to change title of a note */
-"Rename..." = "重新命名 ...";
+"Rename…" = "Rename…";
 
 /* A menu option for sharing in rich text format */
-"Rich Text" = "富文本";
+"Rich Text" = "Rich text";
 
 /* Placeholder text when no note is selected */
 "Select or create a note." = "選擇或創建筆記。";
@@ -167,10 +167,10 @@
 "Server not found" = "找不到伺服器";
 
 /* A message title */
-"Server Reachable" = "伺服器可用";
+"Server Reachable" = "Server reachable";
 
 /* Title of a menu with sharing options */
-"Share Note As" = "以以下方式分享筆記";
+"Share Note As" = "Share note as";
 
 /* A message title */
 "Success" = "成功";
@@ -186,7 +186,7 @@
 
 /* A message title
    The title of an error message */
-"Unable to Reach Server" = "無法連接到伺服器";
+"Unable to Reach Server" = "Unable to reach server";
 
 /* An error message title */
 "Unauthorized" = "未授權";
@@ -228,7 +228,7 @@
 "No" = "No";
 
 /* Title of alert to change notes folder */
-"Notes Folder" = "Notes 資料夾";
+"Notes Folder" = "Notes folder";
 
 /* A menu option for sharing in pdf format */
 "PDF" = "PDF";
@@ -240,7 +240,7 @@
 "The certificate for this server is invalid" = "此伺服器憑證無效";
 
 /* No comment provided by engineer. */
-"View Certificate" = "檢視證書";
+"View Certificate" = "View certificate";
 
 /* No comment provided by engineer. */
 "Yes" = "Yes";
