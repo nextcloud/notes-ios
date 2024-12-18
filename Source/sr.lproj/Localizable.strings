@@ -11,7 +11,7 @@
 "Acknowledgements" = "Признања";
 
 /* Title of alert for adding a category */
-"Add Category" = "Add category";
+"Add Category" = "Додај категорију";
 
 /* Item to show all notes */
 "All" = "Све";
@@ -27,10 +27,10 @@
 "Category" = "Категорија";
 
 /* Action to change category of a note */
-"Category…" = "Category…";
+"Category…" = "Категорија";
 
 /* Action to change category of a note */
-"Change Category…" = "Change category…";
+"Change Category…" = "Промени категорију";
 
 /* An error message */
 "Check username and password." = "Провера корисничког имена и лозинке.";
@@ -57,34 +57,34 @@
 "Connection failure" = "Није успело повезивање";
 
 /* Alert view title */
-"Crash Detected" = "Crash detected";
+"Crash Detected" = "Откривен је крах";
 
 /* Action to delete a note */
 "Delete" = "Delete";
 
 /* A menu action */
-"Delete Note" = "Delete cote";
+"Delete Note" = "Обриши белешку";
 
 /* Prompt on alert for adding a category */
 "Enter a name for the new category" = "Унесите име нове категорије";
 
 /* The title of an error message */
-"Error Adding Note" = "Error adding note";
+"Error Adding Note" = "Грешка приликом додавања белешке";
 
 /* The title of an error message */
-"Error Deleting Note" = "Error deleting note";
+"Error Deleting Note" = "Грешка приликом брисања белешке";
 
 /* The title of an error message */
-"Error Getting Note" = "Error getting note";
+"Error Getting Note" = "Грешка приликом преузимања белешке";
 
 /* The title of an error message */
-"Error Syncing Notes" = "Error syncing notes";
+"Error Syncing Notes" = "Грешка приликом синхронизације белешки";
 
 /* The title of an error message */
-"Error Updating Note" = "Error updating note";
+"Error Updating Note" = "Грешка приликом ажурирања белешке";
 
 /* The title of an error message */
-"Error Updating Notes" = "Error updating notes";
+"Error Updating Notes" = "Грешка приликом ажурирања белешки";
 
 /* An error message */
 "Failed to connect to a server. Check your settings." = "Није успело повезивање са сервером. Проверите подешавања.";
@@ -96,7 +96,7 @@
 "HTML" = "HTML";
 
 /* A status label indicating that the user is logged in */
-"Logged In" = "Logged in";
+"Logged In" = "Пријављен";
 
 /* Header title, main */
 "MAIN" = "ГЛАВНО";
@@ -120,7 +120,7 @@
 "Not logged in" = "Није пријављено";
 
 /* Title of alert to change title */
-"Note Title" = "Note title";
+"Note Title" = "Наслов белешке";
 
 /* An error message */
 "Notes could not be found on your server. Make sure it is installed and enabled" = "На вашем серверу није пронађена апликација Белешке. Обезбедите да ја инсталирана и укључена";
@@ -135,7 +135,7 @@
 "Open in…" = "Отвори у…";
 
 /* A menu option for sharing in plain text format */
-"Plain Text" = "Plain text";
+"Plain Text" = "Прости текст";
 
 /* A message
    A message to check network connection */
@@ -152,10 +152,10 @@
 "Rename the note" = "Промени назив белешке";
 
 /* Action to change title of a note */
-"Rename…" = "Rename…";
+"Rename…" = "Промени назив";
 
 /* A menu option for sharing in rich text format */
-"Rich Text" = "Rich text";
+"Rich Text" = "Обогаћени текст";
 
 /* Placeholder text when no note is selected */
 "Select or create a note." = "Избор или креирање белешке.";
@@ -167,10 +167,10 @@
 "Server not found" = "Није пронађен сервер";
 
 /* A message title */
-"Server Reachable" = "Server reachable";
+"Server Reachable" = "Сервер је доступан";
 
 /* Title of a menu with sharing options */
-"Share Note As" = "Share note as";
+"Share Note As" = "Дели белешку као";
 
 /* A message title */
 "Success" = "Успешно";
@@ -186,7 +186,7 @@
 
 /* A message title
    The title of an error message */
-"Unable to Reach Server" = "Unable to reach server";
+"Unable to Reach Server" = "Не може да се приступи серверу";
 
 /* An error message title */
 "Unauthorized" = "Неовлашћено";
@@ -228,7 +228,7 @@
 "No" = "Не";
 
 /* Title of alert to change notes folder */
-"Notes Folder" = "Notes folder";
+"Notes Folder" = "Фолдер за Белешке";
 
 /* A menu option for sharing in pdf format */
 "PDF" = "PDF";
@@ -240,7 +240,7 @@
 "The certificate for this server is invalid" = "Сертификат овог сервера је неисправан";
 
 /* No comment provided by engineer. */
-"View Certificate" = "View certificate";
+"View Certificate" = "Прикажи сертификат";
 
 /* No comment provided by engineer. */
 "Yes" = "Да";

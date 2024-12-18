@@ -11,7 +11,7 @@
 "Acknowledgements" = "Recoñecementos";
 
 /* Title of alert for adding a category */
-"Add Category" = "Add category";
+"Add Category" = "Engadir categoría";
 
 /* Item to show all notes */
 "All" = "Todo";
@@ -27,10 +27,10 @@
 "Category" = "Categoría";
 
 /* Action to change category of a note */
-"Category…" = "Category…";
+"Category…" = "Categoría…";
 
 /* Action to change category of a note */
-"Change Category…" = "Change category…";
+"Change Category…" = "Cambiar a categoría…";
 
 /* An error message */
 "Check username and password." = "Comprobar o nome de usuario e o contrasinal.";
@@ -57,34 +57,34 @@
 "Connection failure" = "Produciuse un fallo de conexión";
 
 /* Alert view title */
-"Crash Detected" = "Crash detected";
+"Crash Detected" = "Detectouse unha creba";
 
 /* Action to delete a note */
 "Delete" = "Eliminar";
 
 /* A menu action */
-"Delete Note" = "Delete cote";
+"Delete Note" = "Eliminar a nota";
 
 /* Prompt on alert for adding a category */
 "Enter a name for the new category" = "Introduza o nome da nova categoría";
 
 /* The title of an error message */
-"Error Adding Note" = "Error adding note";
+"Error Adding Note" = "Produciuse un erro ao engadir a nota";
 
 /* The title of an error message */
-"Error Deleting Note" = "Error deleting note";
+"Error Deleting Note" = "Produciuse un erro ao eliminar a nota";
 
 /* The title of an error message */
-"Error Getting Note" = "Error getting note";
+"Error Getting Note" = "Produciuse un erro ao obter a nota";
 
 /* The title of an error message */
-"Error Syncing Notes" = "Error syncing notes";
+"Error Syncing Notes" = "Produciuse un erro ao sincronizar as notas";
 
 /* The title of an error message */
-"Error Updating Note" = "Error updating note";
+"Error Updating Note" = "Produciuse un erro ao actualizar a nota";
 
 /* The title of an error message */
-"Error Updating Notes" = "Error updating notes";
+"Error Updating Notes" = "Produciuse un erro ao actualizar as notas";
 
 /* An error message */
 "Failed to connect to a server. Check your settings." = "Produciuse un fallo ao conectar co servidor. Comprobe os axustes.";
@@ -96,7 +96,7 @@
 "HTML" = "HTML";
 
 /* A status label indicating that the user is logged in */
-"Logged In" = "Logged in";
+"Logged In" = "Conectado";
 
 /* Header title, main */
 "MAIN" = "PRINCIPAL";
@@ -120,7 +120,7 @@
 "Not logged in" = "Non accedeu";
 
 /* Title of alert to change title */
-"Note Title" = "Note title";
+"Note Title" = "Título da nota";
 
 /* An error message */
 "Notes could not be found on your server. Make sure it is installed and enabled" = "Non foi posíbel atopar Notas no seu servidor. Asegúrese de que está instalado e activado";
@@ -135,7 +135,7 @@
 "Open in…" = "Abrir en…";
 
 /* A menu option for sharing in plain text format */
-"Plain Text" = "Plain text";
+"Plain Text" = "Texto simple";
 
 /* A message
    A message to check network connection */
@@ -152,10 +152,10 @@
 "Rename the note" = "Cambiar o nome da nota";
 
 /* Action to change title of a note */
-"Rename…" = "Rename…";
+"Rename…" = "Cambiar o nome…";
 
 /* A menu option for sharing in rich text format */
-"Rich Text" = "Rich text";
+"Rich Text" = "Texto mellorado";
 
 /* Placeholder text when no note is selected */
 "Select or create a note." = "Seleccionar ou crear unha nota";
@@ -167,10 +167,10 @@
 "Server not found" = "Non se atopou o servidor";
 
 /* A message title */
-"Server Reachable" = "Server reachable";
+"Server Reachable" = "Servidor accesíbel";
 
 /* Title of a menu with sharing options */
-"Share Note As" = "Share note as";
+"Share Note As" = "Compartir nota como";
 
 /* A message title */
 "Success" = "Correcto";
@@ -186,7 +186,7 @@
 
 /* A message title
    The title of an error message */
-"Unable to Reach Server" = "Unable to reach server";
+"Unable to Reach Server" = "Non é posíbel acadar o servidor";
 
 /* An error message title */
 "Unauthorized" = "Non autorizado";
@@ -228,7 +228,7 @@
 "No" = "Non";
 
 /* Title of alert to change notes folder */
-"Notes Folder" = "Notes folder";
+"Notes Folder" = "Cartafol de notas";
 
 /* A menu option for sharing in pdf format */
 "PDF" = "PDF";
@@ -240,7 +240,7 @@
 "The certificate for this server is invalid" = "O certificado para este servidor non é válido";
 
 /* No comment provided by engineer. */
-"View Certificate" = "View certificate";
+"View Certificate" = "Ver o certificado";
 
 /* No comment provided by engineer. */
 "Yes" = "Si";
