@@ -1,0 +1,251 @@
+/* Crash report email body placeholder */
+"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Lütfen çökme sırasında ne yaptığınızla ilgili olabildiğince fazla ayrıntı verin.>";
+
+/* Support email body placeholder */
+"<Please state your question or problem here>" = "Lütfen sorunuzu ya da sorununuzu buraya yazın";
+
+/* An error message */
+"A server installation could not be found. Check the server address." = "Bir sunucu kurulumu bulunamadı. Lütfen sunucu adresini denetleyin.";
+
+/* Acknowledgements */
+"Acknowledgements" = "Onaylar";
+
+/* Title of alert for adding a category */
+"Add Category" = "Kategori ekle";
+
+/* Item to show all notes */
+"All" = "Tümü";
+
+/* A menu action
+   A menu option for cancelling */
+"Cancel" = "Cancel";
+
+/* Header title, categories */
+"CATEGORIES" = "KATEGORİLER";
+
+/* 'Category' menu item */
+"Category" = "Kategori";
+
+/* Action to change category of a note */
+"Category…" = "Kategori…";
+
+/* Action to change category of a note */
+"Change Category…" = "Kategoriyi değiştir…";
+
+/* An error message */
+"Check username and password." = "Kullanıcı adını ya da parolayı denetleyin.";
+
+/* Title of a button allowing the user to close the login screen and sync with the server */
+"Close & Sync" = "Kapat ve eşitle";
+
+/* Crash report email subject */
+"NextcloudNotes Crash Report" = "NextcloudNotes çökme bildirimi";
+
+/* No comment provided by engineer. */
+"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "NextcloudNotes son kez başlatıldığında çöktü. Geliştiriciye bir bildirim göndermek ister misiniz?";
+
+/* Support email subject */
+"NextcloudNotes Support Request" = "NextcloudNotes destek isteği";
+
+/* A button title */
+"Connect" = "Bağlan";
+
+/* Status information, connected */
+"Connected to Notes on the server" = "Sunucudaki Notlar ile bağlantı kuruldu";
+
+/* An error message title */
+"Connection failure" = "Bağlantı kurulamadı";
+
+/* Alert view title */
+"Crash Detected" = "Çökme algılandı";
+
+/* Action to delete a note */
+"Delete" = "Sil";
+
+/* A menu action */
+"Delete Note" = "Notu sil";
+
+/* Prompt on alert for adding a category */
+"Enter a name for the new category" = "Yeni kategori için bir ad yazın";
+
+/* The title of an error message */
+"Error Adding Note" = "Not eklenirken sorun çıktı";
+
+/* The title of an error message */
+"Error Deleting Note" = "Not silinirken sorun çıktı";
+
+/* The title of an error message */
+"Error Getting Note" = "Not alınırken sorun çıktı";
+
+/* The title of an error message */
+"Error Syncing Notes" = "Notlar eşitlenirken sorun çıktı";
+
+/* The title of an error message */
+"Error Updating Note" = "Not güncellenirken sorun çıktı";
+
+/* The title of an error message */
+"Error Updating Notes" = "Notlar güncellenirken sorun çıktı";
+
+/* An error message */
+"Failed to connect to a server. Check your settings." = "Bir sunucu ile bağlantı kurulamadı. Ayarlarınızı denetleyin.";
+
+/* Item to show favorite notes */
+"Favorites" = "Sık kullanılanlar";
+
+/* A menu option for plain sharing in html format */
+"HTML" = "HTML";
+
+/* A status label indicating that the user is logged in */
+"Logged In" = "Oturum açıldı";
+
+/* Header title, main */
+"MAIN" = "ANA";
+
+/* A menu option for sharing in markdown format */
+"Markdown" = "Markdown";
+
+/* The title of a new note */
+"New note" = "Not ekle";
+
+/* No comment provided by engineer. */
+"No thanks" = "Hayır teşekkürler";
+
+/* Status information, not connected */
+"Not connected to Notes on a server" = "Bir sunucu üzerindeki Notlar ile bağlantı kurulmamış";
+
+/* A status label indicating that the user is not logged in */
+"Not Logged In" = "Oturum açılmamış";
+
+/* Message about not being logged in */
+"Not logged in" = "Oturum açılmamış";
+
+/* Title of alert to change title */
+"Note Title" = "Not başlığı";
+
+/* An error message */
+"Notes could not be found on your server. Make sure it is installed and enabled" = "Sunucunuzda Notlar uygulaması bulunamadı. Lütfen kurulmuş ve kullanıma alınmış olduğundan emin olun.";
+
+/* An error message title */
+"Notes not found" = "Notlar uygulaması bulunamadı";
+
+/* Button, OK */
+"OK" = "Tamam";
+
+/* Title for Open In activity */
+"Open in…" = "Şununla aç…";
+
+/* A menu option for sharing in plain text format */
+"Plain Text" = "Düz metin";
+
+/* A message
+   A message to check network connection */
+"Please check network connection and login." = "Lütfen ağ bağlantısını denetleyip oturum açın.";
+
+/* A button title */
+"Reconnect" = "Yeniden bağlantı kur";
+
+/* Action to change title of a note
+   Caption of Rename button */
+"Rename" = "Yeniden adlandır";
+
+/* Message of alert to change title */
+"Rename the note" = "Notu yeniden adlandır";
+
+/* Action to change title of a note */
+"Rename…" = "Yeniden adlandır…";
+
+/* A menu option for sharing in rich text format */
+"Rich Text" = "Zengin metin";
+
+/* Placeholder text when no note is selected */
+"Select or create a note." = "Bir not seçin ya da ekleyin.";
+
+/* Alert title for selecting server brand */
+"Server" = "Sunucu";
+
+/* An error message title */
+"Server not found" = "Sunucu bulunamadı";
+
+/* A message title */
+"Server Reachable" = "Sunucuya erişilebiliyor";
+
+/* Title of a menu with sharing options */
+"Share Note As" = "Notu farklı paylaş";
+
+/* A message title */
+"Success" = "Başarılı";
+
+/* A message */
+"The network connection is working properly." = "Ağ bağlantısı sorunsuz çalışıyor.";
+
+/* An error message */
+"The note does not exist" = "Not bulunamadı";
+
+/* Alert message for selecting server brand */
+"Unable to automatically detect type of server.\nPlease select:" = "Sunucu türü otomatik olarak algılanamadı.\nLütfen seçin:";
+
+/* A message title
+   The title of an error message */
+"Unable to Reach Server" = "Sunucuya erişilemedi";
+
+/* An error message title */
+"Unauthorized" = "Kimliği doğrulanmamış";
+
+/* Text displayed for notes not assigned to a category */
+"Uncategorized" = "Kategorisiz";
+
+/* Message with Notes version, product name and version */
+"Using Notes %@on %@ %@." = "Notes %@üzerinde %@ %@.";
+
+/* No comment provided by engineer. */
+"Yes, please!" = "Evet, lütfen!";
+
+/* A message */
+"You are now connected to Notes on your server" = "Sunucunuzdaki Notlar uygulaması ile bağlantı kurdunuz";
+
+/* HUD subtitle when checking server capabilities */
+"Checking server capabilities" = "Sunucu yeterlilikleri denetleniyor";
+
+/* HUD subtitle when checking server settings */
+"Checking server settings" = "Sunucu ayarları denetleniyor";
+
+/* HUD subtitle when checking server status */
+"Checking server status" = "Sunucu durumu denetleniyor";
+
+/* No comment provided by engineer. */
+"Connection error" = "Bağlantı sorunu";
+
+/* No comment provided by engineer. */
+"Do you want to connect to the server anyway?" = "Yine de sunucu ile bağlantı kurulsun mu?";
+
+/* Message of alert to change notes folder */
+"Enter a name for the folder where notes should be saved on the server" = "Notların sunucuda kaydedileceği klasörün adını yazın";
+
+/* An error message title */
+"Error" = "Hata";
+
+/* No comment provided by engineer. */
+"No" = "Hayır";
+
+/* Title of alert to change notes folder */
+"Notes Folder" = "Notlar klasörü";
+
+/* A menu option for sharing in pdf format */
+"PDF" = "PDF";
+
+/* Caption of Save button */
+"Save" = "Kaydet";
+
+/* No comment provided by engineer. */
+"The certificate for this server is invalid" = "Bu sunucu üzerindeki sertifika geçersiz";
+
+/* No comment provided by engineer. */
+"View Certificate" = "Sertifikayı görüntüle";
+
+/* No comment provided by engineer. */
+"Yes" = "Evet";
+
+// NEXTCLOUD
+"Select the account to add"   = "Eklenecek hesabı seçin";
+
+"Notes" = "Notlar";
