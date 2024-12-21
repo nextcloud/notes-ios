@@ -41,7 +41,7 @@
 "fKh-As-T79.placeholder" = "https://example.com/cloud";
 
 /* Class = "UINavigationItem"; title = "Login"; ObjectID = "FvN-vM-GK3"; */
-"FvN-vM-GK3.title" = "Login";
+"FvN-vM-GK3.title" = "登录";
 
 /* Class = "UITableViewSection"; footerTitle = " "; ObjectID = "FVp-Pj-Gyn"; */
 "FVp-Pj-Gyn.footerTitle" = " ";
@@ -56,7 +56,7 @@
 "gZE-6O-8CL.headerTitle" = "SYNCING";
 
 /* Class = "UILabel"; text = "URL"; ObjectID = "GZX-DC-7iv"; */
-"GZX-DC-7iv.text" = "超链接";
+"GZX-DC-7iv.text" = "网址";
 
 /* Class = "UILabel"; text = "Sync on Start"; ObjectID = "hVU-Ed-KYm"; */
 "hVU-Ed-KYm.text" = "Sync on start";
