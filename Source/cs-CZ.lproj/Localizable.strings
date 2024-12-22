@@ -1,11 +1,11 @@
 /* Crash report email body placeholder */
-"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Please provide as much details as possible about what you were doing when the crash occurred.>";
+"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Poskytněte co možná nejvíce podrobností o tom, co jste v okamžiku pádu v aplikaci dělali>";
 
 /* Support email body placeholder */
-"<Please state your question or problem here>" = "Please state your question or problem here";
+"<Please state your question or problem here>" = "Sem zadejte svůj dotaz nebo problém";
 
 /* An error message */
-"A server installation could not be found. Check the server address." = "A server installation could not be found. Check the server address.";
+"A server installation could not be found. Check the server address." = "Instalaci serveru se nepodařilo nalézt. Zkontrolujte adresu serveru.";
 
 /* Acknowledgements */
 "Acknowledgements" = "Poděkování";
@@ -18,7 +18,7 @@
 
 /* A menu action
    A menu option for cancelling */
-"Cancel" = "Kopírujte fotografii nebo video do fotoalba";
+"Cancel" = "Storno";
 
 /* Header title, categories */
 "CATEGORIES" = "KATEGORIE";
@@ -42,7 +42,7 @@
 "NextcloudNotes Crash Report" = "Hlášení o pádu Nextlcloud Poznámky";
 
 /* No comment provided by engineer. */
-"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?";
+"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "NextcloudNotes při minulém spouštění zhavarovalo. Chcete to nahlásit vývojářům?";
 
 /* Support email subject */
 "NextcloudNotes Support Request" = "Požadavek na podporu pro Nextcloud Notes";
@@ -66,7 +66,7 @@
 "Delete Note" = "Smazat poznámku";
 
 /* Prompt on alert for adding a category */
-"Enter a name for the new category" = "Enter a name for the new category";
+"Enter a name for the new category" = "Zadejte název pro novou kategirii";
 
 /* The title of an error message */
 "Error Adding Note" = "Chyba při přidávání poznámky";
@@ -87,7 +87,7 @@
 "Error Updating Notes" = "Chyba při aktualizaci poznámek";
 
 /* An error message */
-"Failed to connect to a server. Check your settings." = "Failed to connect to a server. Check your settings.";
+"Failed to connect to a server. Check your settings." = "Nepodařilo se spojit se serverem. Zkontrolujte nastavení.";
 
 /* Item to show favorite notes */
 "Favorites" = "Oblíbené";
@@ -111,7 +111,7 @@
 "No thanks" = "Ne děkuji";
 
 /* Status information, not connected */
-"Not connected to Notes on a server" = "Not connected to Notes on a server";
+"Not connected to Notes on a server" = "Připojeno k Poznámkám na serveru";
 
 /* A status label indicating that the user is not logged in */
 "Not Logged In" = "Nepřihlášeni";
@@ -123,7 +123,7 @@
 "Note Title" = "Nadpis poznámky";
 
 /* An error message */
-"Notes could not be found on your server. Make sure it is installed and enabled" = "Notes could not be found on your server. Make sure it is installed and enabled";
+"Notes could not be found on your server. Make sure it is installed and enabled" = "Aplikaci Poznámky se na serveru nepodařilo najít. Ověřte, že je nainstalovaná a zapnutá";
 
 /* An error message title */
 "Notes not found" = "Poznámky nenalezeny";
@@ -182,7 +182,7 @@
 "The note does not exist" = "Poznámka neexistuje";
 
 /* Alert message for selecting server brand */
-"Unable to automatically detect type of server.\nPlease select:" = "Unable to automatically detect type of server.\nPlease select:";
+"Unable to automatically detect type of server.\nPlease select:" = "Nedaří se automaticky zjistit typ serveru.\nVyberte:";
 
 /* A message title
    The title of an error message */
@@ -201,7 +201,7 @@
 "Yes, please!" = "Ano prosím!";
 
 /* A message */
-"You are now connected to Notes on your server" = "You are now connected to Notes on your server";
+"You are now connected to Notes on your server" = "Nyní jste připojeni k Poznámkám na serveru";
 
 /* HUD subtitle when checking server capabilities */
 "Checking server capabilities" = "Zjišťování schopností serveru";
@@ -219,7 +219,7 @@
 "Do you want to connect to the server anyway?" = "Chcete se k tomuto serveru připojit i tak?";
 
 /* Message of alert to change notes folder */
-"Enter a name for the folder where notes should be saved on the server" = "Enter a name for the folder where notes should be saved on the server";
+"Enter a name for the folder where notes should be saved on the server" = "Zadejte název složky do které mají být poznámky ukládány na serveru";
 
 /* An error message title */
 "Error" = "Error";

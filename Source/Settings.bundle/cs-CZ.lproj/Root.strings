@@ -11,7 +11,7 @@
 
 "Advanced Settings" = "Pokročilá nastavení";
 
-"Caution: Turning the switch on will remove all notes locally. Unsynced changes will be lost. Use only if you are experiencing problems." = "Caution: Turning the switch on will remove all notes locally. Unsynced changes will be lost. Use only if you are experiencing problems.";
+"Caution: Turning the switch on will remove all notes locally. Unsynced changes will be lost. Use only if you are experiencing problems." = "Upozornění: Zapnutí tohoto odebere veškeré lokální poznámky. Nesesyncrhonizované změny budou ztraceny. Použijte pouze pokud se potýkáte s problémy.";
 
 "Reset local notes database" = "Resetovat lokální databázi poznámek";
 
