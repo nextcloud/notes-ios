@@ -14,7 +14,7 @@
 "7HO-9G-Wem.title" = "Přípona souboru";
 
 /* Class = "UILabel"; text = "Username"; ObjectID = "A4w-6q-Hcy"; */
-"A4w-6q-Hcy.text" = "Username";
+"A4w-6q-Hcy.text" = "Uživatelské jméno";
 
 /* Class = "UILabel"; text = "Allow Untrusted SSL Certificate"; ObjectID = "AKl-Ep-y3W"; */
 "AKl-Ep-y3W.text" = "Umožnit nedůvěryhodný SSL certifikát";
@@ -23,7 +23,7 @@
 "B8W-f5-T18.text" = "Režim bez připojení";
 
 /* Class = "UILabel"; text = "Password"; ObjectID = "CrO-Ue-LFh"; */
-"CrO-Ue-LFh.text" = "Password";
+"CrO-Ue-LFh.text" = "Heslo";
 
 /* Class = "UIButton"; configuration.title = "Log In"; ObjectID = "dUo-KO-48Z"; */
 "dUo-KO-48Z.configuration.title" = "Přihlásit";
@@ -56,7 +56,7 @@
 "gZE-6O-8CL.headerTitle" = "SYNCHRONIZUJE SE";
 
 /* Class = "UILabel"; text = "URL"; ObjectID = "GZX-DC-7iv"; */
-"GZX-DC-7iv.text" = "Url";
+"GZX-DC-7iv.text" = "URL";
 
 /* Class = "UILabel"; text = "Sync on Start"; ObjectID = "hVU-Ed-KYm"; */
 "hVU-Ed-KYm.text" = "Synchronizovat při spuštění";
