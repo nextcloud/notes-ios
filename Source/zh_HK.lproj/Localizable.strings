@@ -63,7 +63,7 @@
 "Delete" = "移除";
 
 /* A menu action */
-"Delete Note" = "Delete cote";
+"Delete Note" = "刪除筆記";
 
 /* Prompt on alert for adding a category */
 "Enter a name for the new category" = "輸入新分類名稱";
