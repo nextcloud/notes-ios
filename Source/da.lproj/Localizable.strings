@@ -1,27 +1,27 @@
 /* Crash report email body placeholder */
-"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Please provide as much details as possible about what you were doing when the crash occurred.>";
+"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Angiv så mange detaljer som muligt om, hvad du lavede, da nedbrudet opstod.>";
 
 /* Support email body placeholder */
-"<Please state your question or problem here>" = "Please state your question or problem here";
+"<Please state your question or problem here>" = "Angiv venligst dit spørgsmål eller problem her";
 
 /* An error message */
-"A server installation could not be found. Check the server address." = "A server installation could not be found. Check the server address.";
+"A server installation could not be found. Check the server address." = "En serverinstallation kunne ikke findes. Tjek serveradressen.";
 
 /* Acknowledgements */
 "Acknowledgements" = "Acknowledgements";
 
 /* Title of alert for adding a category */
-"Add Category" = "Add category";
+"Add Category" = "Tilføj kategori";
 
 /* Item to show all notes */
-"All" = "All";
+"All" = "Alle";
 
 /* A menu action
    A menu option for cancelling */
 "Cancel" = "Annullér";
 
 /* Header title, categories */
-"CATEGORIES" = "CATEGORIES";
+"CATEGORIES" = "KATEGORIER";
 
 /* 'Category' menu item */
 "Category" = "Kategori";
@@ -39,13 +39,13 @@
 "Close & Sync" = "Luk & synkroniser";
 
 /* Crash report email subject */
-"NextcloudNotes Crash Report" = "NextcloudNotes Crash Report";
+"NextcloudNotes Crash Report" = "NextcloudNotes-nedbrudsrapport";
 
 /* No comment provided by engineer. */
-"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?";
+"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "NextcloudNotes gik ned, sidste gang det blev lanceret. Vil du sende en rapport til udvikleren?";
 
 /* Support email subject */
-"NextcloudNotes Support Request" = "NextcloudNotes Support Request";
+"NextcloudNotes Support Request" = "NextcloudNotes-supportanmodning";
 
 /* A button title */
 "Connect" = "Forbind";
@@ -164,7 +164,7 @@
 "Server" = "Server";
 
 /* An error message title */
-"Server not found" = "Server not found";
+"Server not found" = "Server ikke fundet";
 
 /* A message title */
 "Server Reachable" = "Server reachable";
