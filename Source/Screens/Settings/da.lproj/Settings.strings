@@ -8,13 +8,13 @@
 "69R-CL-ITG.placeholder" = "Server password";
 
 /* Class = "UILabel"; text = "Web Site"; ObjectID = "6So-Rg-NhZ"; */
-"6So-Rg-NhZ.text" = "Hjemmeside";
+"6So-Rg-NhZ.text" = "Websted";
 
 /* Class = "UITableViewController"; title = "File Extension"; ObjectID = "7HO-9G-Wem"; */
 "7HO-9G-Wem.title" = "Filendelse";
 
 /* Class = "UILabel"; text = "Username"; ObjectID = "A4w-6q-Hcy"; */
-"A4w-6q-Hcy.text" = "Username";
+"A4w-6q-Hcy.text" = "Brugernavn";
 
 /* Class = "UILabel"; text = "Allow Untrusted SSL Certificate"; ObjectID = "AKl-Ep-y3W"; */
 "AKl-Ep-y3W.text" = "Allow untrusted SSL certificate";
@@ -56,7 +56,7 @@
 "gZE-6O-8CL.headerTitle" = "SYNKRONISERER";
 
 /* Class = "UILabel"; text = "URL"; ObjectID = "GZX-DC-7iv"; */
-"GZX-DC-7iv.text" = "Url";
+"GZX-DC-7iv.text" = "URL";
 
 /* Class = "UILabel"; text = "Sync on Start"; ObjectID = "hVU-Ed-KYm"; */
 "hVU-Ed-KYm.text" = "Synkroniser ved start";
@@ -92,7 +92,7 @@
 "smL-9H-BiT.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
 
 /* Class = "UITableViewSection"; footerTitle = "Not logged in"; ObjectID = "Svh-OV-bUr"; */
-"Svh-OV-bUr.footerTitle" = "Not logged in";
+"Svh-OV-bUr.footerTitle" = "Ikke logget på";
 
 /* Class = "UITableViewSection"; headerTitle = "SERVER"; ObjectID = "Svh-OV-bUr"; */
 "Svh-OV-bUr.headerTitle" = "SERVER";
@@ -110,7 +110,7 @@
 "Uwy-jB-bpa.headerTitle" = "Server";
 
 /* Class = "UINavigationItem"; title = "Settings"; ObjectID = "waZ-N6-59b"; */
-"waZ-N6-59b.title" = "Settings";
+"waZ-N6-59b.title" = "Indstillinger";
 
 /* Class = "UINavigationItem"; title = "Login Information"; ObjectID = "ZPa-hv-oSb"; */
 "ZPa-hv-oSb.title" = "Login information";

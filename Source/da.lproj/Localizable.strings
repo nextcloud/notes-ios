@@ -54,10 +54,10 @@
 "Connected to Notes on the server" = "Connected to Notes on the server";
 
 /* An error message title */
-"Connection failure" = "Connection failure";
+"Connection failure" = "Forbindelsesfejl";
 
 /* Alert view title */
-"Crash Detected" = "Crash detected";
+"Crash Detected" = "Nedbrud registreret";
 
 /* Action to delete a note */
 "Delete" = "Delete";
@@ -66,7 +66,7 @@
 "Delete Note" = "Delete cote";
 
 /* Prompt on alert for adding a category */
-"Enter a name for the new category" = "Enter a name for the new category";
+"Enter a name for the new category" = "Indtast et navn på den nye kategori";
 
 /* The title of an error message */
 "Error Adding Note" = "Error adding note";
@@ -87,16 +87,16 @@
 "Error Updating Notes" = "Error updating notes";
 
 /* An error message */
-"Failed to connect to a server. Check your settings." = "Failed to connect to a server. Check your settings.";
+"Failed to connect to a server. Check your settings." = "Kunne ikke oprette forbindelse til en server. Kontroller dine indstillinger.";
 
 /* Item to show favorite notes */
-"Favorites" = "Favorites";
+"Favorites" = "Favoritter";
 
 /* A menu option for plain sharing in html format */
 "HTML" = "HTML";
 
 /* A status label indicating that the user is logged in */
-"Logged In" = "Logged in";
+"Logged In" = "Logget på";
 
 /* Header title, main */
 "MAIN" = "MAIN";
@@ -108,16 +108,16 @@
 "New note" = "Ny note";
 
 /* No comment provided by engineer. */
-"No thanks" = "No thanks";
+"No thanks" = "Nej tak";
 
 /* Status information, not connected */
 "Not connected to Notes on a server" = "Not connected to Notes on a server";
 
 /* A status label indicating that the user is not logged in */
-"Not Logged In" = "Not logged in";
+"Not Logged In" = "Ikke logget på";
 
 /* Message about not being logged in */
-"Not logged in" = "Not logged in";
+"Not logged in" = "Ikke logget på";
 
 /* Title of alert to change title */
 "Note Title" = "Note title";
@@ -139,10 +139,10 @@
 
 /* A message
    A message to check network connection */
-"Please check network connection and login." = "Please check network connection and login.";
+"Please check network connection and login." = "Tjek venligst netværksforbindelsen og log på.";
 
 /* A button title */
-"Reconnect" = "Reconnect";
+"Reconnect" = "Tilslut igen";
 
 /* Action to change title of a note
    Caption of Rename button */
@@ -155,7 +155,7 @@
 "Rename…" = "Omdøb...";
 
 /* A menu option for sharing in rich text format */
-"Rich Text" = "Rich text";
+"Rich Text" = "Formateret tekst";
 
 /* Placeholder text when no note is selected */
 "Select or create a note." = "Select or create a note.";
@@ -167,7 +167,7 @@
 "Server not found" = "Server ikke fundet";
 
 /* A message title */
-"Server Reachable" = "Server reachable";
+"Server Reachable" = "Server tilgængelig";
 
 /* Title of a menu with sharing options */
 "Share Note As" = "Share note as";
@@ -176,7 +176,7 @@
 "Success" = "Succes";
 
 /* A message */
-"The network connection is working properly." = "The network connection is working properly.";
+"The network connection is working properly." = "Netværksforbindelsen fungerer korrekt.";
 
 /* An error message */
 "The note does not exist" = "The note does not exist";
@@ -189,28 +189,28 @@
 "Unable to Reach Server" = "Unable to reach server";
 
 /* An error message title */
-"Unauthorized" = "Unauthorized";
+"Unauthorized" = "Ikke autoriseret";
 
 /* Text displayed for notes not assigned to a category */
-"Uncategorized" = "Uncategorized";
+"Uncategorized" = "Ikke kategoriseret";
 
 /* Message with Notes version, product name and version */
-"Using Notes %@on %@ %@." = "Using Notes %@on %@ %@.";
+"Using Notes %@on %@ %@." = "Anvender noter %@on %@ %@.";
 
 /* No comment provided by engineer. */
-"Yes, please!" = "Yes, please!";
+"Yes, please!" = "Ja tak!";
 
 /* A message */
 "You are now connected to Notes on your server" = "You are now connected to Notes on your server";
 
 /* HUD subtitle when checking server capabilities */
-"Checking server capabilities" = "Checking server capabilities";
+"Checking server capabilities" = "Kontroller serverens muligheder";
 
 /* HUD subtitle when checking server settings */
-"Checking server settings" = "Checking server settings";
+"Checking server settings" = "Kontroller serverindstillinger";
 
 /* HUD subtitle when checking server status */
-"Checking server status" = "Checking server status";
+"Checking server status" = "Kontroller serverstatus";
 
 /* No comment provided by engineer. */
 "Connection error" = "Forbindelses fejl";
@@ -240,7 +240,7 @@
 "The certificate for this server is invalid" = "Certefikatet for denne server er ikke korrekt";
 
 /* No comment provided by engineer. */
-"View Certificate" = "View certificate";
+"View Certificate" = "Se certifikat";
 
 /* No comment provided by engineer. */
 "Yes" = "Ja";
