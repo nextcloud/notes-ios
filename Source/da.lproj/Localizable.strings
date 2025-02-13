@@ -51,7 +51,7 @@
 "Connect" = "Forbind";
 
 /* Status information, connected */
-"Connected to Notes on the server" = "Connected to Notes on the server";
+"Connected to Notes on the server" = "Forbundet til noter på serveren";
 
 /* An error message title */
 "Connection failure" = "Forbindelsesfejl";
@@ -63,28 +63,28 @@
 "Delete" = "Delete";
 
 /* A menu action */
-"Delete Note" = "Delete cote";
+"Delete Note" = "Slet note";
 
 /* Prompt on alert for adding a category */
 "Enter a name for the new category" = "Indtast et navn på den nye kategori";
 
 /* The title of an error message */
-"Error Adding Note" = "Error adding note";
+"Error Adding Note" = "Fejl ved tilføjelse af note";
 
 /* The title of an error message */
-"Error Deleting Note" = "Error deleting note";
+"Error Deleting Note" = "Fejl ved sletning af note";
 
 /* The title of an error message */
-"Error Getting Note" = "Error getting note";
+"Error Getting Note" = "Fejl ved at få note";
 
 /* The title of an error message */
-"Error Syncing Notes" = "Error syncing notes";
+"Error Syncing Notes" = "Fejl ved synkronisering af noter";
 
 /* The title of an error message */
-"Error Updating Note" = "Error updating note";
+"Error Updating Note" = "Fejl under opdatering af note";
 
 /* The title of an error message */
-"Error Updating Notes" = "Error updating notes";
+"Error Updating Notes" = "Fejl ved opdatering af noter";
 
 /* An error message */
 "Failed to connect to a server. Check your settings." = "Kunne ikke oprette forbindelse til en server. Kontroller dine indstillinger.";
@@ -111,7 +111,7 @@
 "No thanks" = "Nej tak";
 
 /* Status information, not connected */
-"Not connected to Notes on a server" = "Not connected to Notes on a server";
+"Not connected to Notes on a server" = "Ikke forbundet til Noter på en server";
 
 /* A status label indicating that the user is not logged in */
 "Not Logged In" = "Ikke logget på";
@@ -120,13 +120,13 @@
 "Not logged in" = "Ikke logget på";
 
 /* Title of alert to change title */
-"Note Title" = "Note title";
+"Note Title" = "Note titel";
 
 /* An error message */
-"Notes could not be found on your server. Make sure it is installed and enabled" = "Notes could not be found on your server. Make sure it is installed and enabled";
+"Notes could not be found on your server. Make sure it is installed and enabled" = "Noter kunne ikke findes på din server. Sørg for at den er installeret og aktiveret";
 
 /* An error message title */
-"Notes not found" = "Notes not found";
+"Notes not found" = "Noter ikke fundet";
 
 /* Button, OK */
 "OK" = "OK";
@@ -149,7 +149,7 @@
 "Rename" = "Rename";
 
 /* Message of alert to change title */
-"Rename the note" = "Rename the note";
+"Rename the note" = "Omdøb noten";
 
 /* Action to change title of a note */
 "Rename…" = "Omdøb...";
@@ -158,7 +158,7 @@
 "Rich Text" = "Formateret tekst";
 
 /* Placeholder text when no note is selected */
-"Select or create a note." = "Select or create a note.";
+"Select or create a note." = "Vælg eller opret en note.";
 
 /* Alert title for selecting server brand */
 "Server" = "Server";
@@ -170,7 +170,7 @@
 "Server Reachable" = "Server tilgængelig";
 
 /* Title of a menu with sharing options */
-"Share Note As" = "Share note as";
+"Share Note As" = "Del note som";
 
 /* A message title */
 "Success" = "Succes";
@@ -179,14 +179,14 @@
 "The network connection is working properly." = "Netværksforbindelsen fungerer korrekt.";
 
 /* An error message */
-"The note does not exist" = "The note does not exist";
+"The note does not exist" = "Noten findes ikke";
 
 /* Alert message for selecting server brand */
-"Unable to automatically detect type of server.\nPlease select:" = "Unable to automatically detect type of server.\nPlease select:";
+"Unable to automatically detect type of server.\nPlease select:" = "Kan ikke automatisk detektere type server.\nVenligst vælg:";
 
 /* A message title
    The title of an error message */
-"Unable to Reach Server" = "Unable to reach server";
+"Unable to Reach Server" = "Kan ikke nå server";
 
 /* An error message title */
 "Unauthorized" = "Ikke autoriseret";
@@ -201,7 +201,7 @@
 "Yes, please!" = "Ja tak!";
 
 /* A message */
-"You are now connected to Notes on your server" = "You are now connected to Notes on your server";
+"You are now connected to Notes on your server" = "Du er nu forbundet til Noter på din server";
 
 /* HUD subtitle when checking server capabilities */
 "Checking server capabilities" = "Kontroller serverens muligheder";
@@ -219,7 +219,7 @@
 "Do you want to connect to the server anyway?" = "Vil du alligevel oprette forbindelse til serveren?";
 
 /* Message of alert to change notes folder */
-"Enter a name for the folder where notes should be saved on the server" = "Enter a name for the folder where notes should be saved on the server";
+"Enter a name for the folder where notes should be saved on the server" = "Indtast et navn for mappen hvor noter skal gemmes på serveren";
 
 /* An error message title */
 "Error" = "Error";

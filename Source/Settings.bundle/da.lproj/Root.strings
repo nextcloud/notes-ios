@@ -11,10 +11,10 @@
 
 "Advanced Settings" = "Avancerede indstillinger";
 
-"Caution: Turning the switch on will remove all notes locally. Unsynced changes will be lost. Use only if you are experiencing problems." = "Caution: Turning the switch on will remove all notes locally. Unsynced changes will be lost. Use only if you are experiencing problems.";
+"Caution: Turning the switch on will remove all notes locally. Unsynced changes will be lost. Use only if you are experiencing problems." = "Forsigtig: Hvis du tænder for kontakten, fjernes alle noter lokalt. Usynkroniserede ændringer vil gå tabt. Brug kun, hvis du oplever problemer.";
 
-"Reset local notes database" = "Reset local notes database";
+"Reset local notes database" = "Nulstil lokal notedatabase";
 
-"Third-party licenses" = "Third-party licenses";
+"Third-party licenses" = "Tredjepartslicenser";
 
 "Version" = "Version";
