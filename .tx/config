@@ -6,7 +6,7 @@ file_filter            = Source/<lang>.lproj/Categories.strings
 source_file            = Source/en.lproj/Categories.strings
 source_lang            = en
 type                   = STRINGS
-lang_map               = zh_CN: zh-Hans, nb_NO: nb-NO, es_HN: es-HN, es_UY: es-UY, pt_PT: pt-PT, hu_HU: hu, es_CL: es-CL, es_EC: es-EC, es_CO: es-CO, es_PY: es-PY, es_SV: es-SV, es_419: es-419, fi_FI: fi-FI, es_AR: es-AR, sk_SK: sk-SK, es_MX: es-MX, es_CR: es-CR, es_PA: es-PA, es_GT: es-GT, es_NI: es-NI, es_PR: es-PR, ja_JP: ja-JP, pt_BR: pt-BR, cs_CZ: cs-CZ, ka_GE: ka-GE, es_PE: es-PE, en_GB: en-GB, zh_TW: zh-Hant-TW, es_DO: es-DO
+lang_map               = zh_CN: zh-Hans, nb_NO: nb-NO, es_HN: es-HN, es_UY: es-UY, pt_PT: pt-PT, hu_HU: hu, es_CL: es-CL, es_EC: es-EC, es_CO: es-CO, es_PY: es-PY, es_SV: es-SV, es_419: es-419, fi_FI: fi-FI, es_AR: es-AR, sk_SK: sk-SK, es_MX: es-MX, es_CR: es-CR, es_PA: es-PA, es_GT: es-GT, es_NI: es-NI, es_PR: es-PR, ja_JP: ja-JP, pt_BR: pt-BR, cs_CZ: cs, ka_GE: ka-GE, es_PE: es-PE, en_GB: en-GB, zh_TW: zh-Hant-TW, es_DO: es-DO
 replace_edited_strings = false
 keep_translations      = false
 
@@ -15,7 +15,7 @@ file_filter            = Source/<lang>.lproj/Localizable.strings
 source_file            = Source/en.lproj/Localizable.strings
 source_lang            = en
 type                   = STRINGS
-lang_map               = pt_BR: pt-BR, cs_CZ: cs-CZ, es_AR: es-AR, es_EC: es-EC, es_GT: es-GT, nb_NO: nb-NO, hu_HU: hu, es_419: es-419, sk_SK: sk-SK, ka_GE: ka-GE, es_PE: es-PE, es_PR: es-PR, es_PY: es-PY, ja_JP: ja-JP, es_MX: es-MX, es_CL: es-CL, es_CO: es-CO, es_PA: es-PA, es_HN: es-HN, es_UY: es-UY, zh_CN: zh-Hans, fi_FI: fi-FI, es_CR: es-CR, es_NI: es-NI, es_SV: es-SV, pt_PT: pt-PT, en_GB: en-GB, zh_TW: zh-Hant-TW, es_DO: es-DO
+lang_map               = pt_BR: pt-BR, cs_CZ: cs, es_AR: es-AR, es_EC: es-EC, es_GT: es-GT, nb_NO: nb-NO, hu_HU: hu, es_419: es-419, sk_SK: sk-SK, ka_GE: ka-GE, es_PE: es-PE, es_PR: es-PR, es_PY: es-PY, ja_JP: ja-JP, es_MX: es-MX, es_CL: es-CL, es_CO: es-CO, es_PA: es-PA, es_HN: es-HN, es_UY: es-UY, zh_CN: zh-Hans, fi_FI: fi-FI, es_CR: es-CR, es_NI: es-NI, es_SV: es-SV, pt_PT: pt-PT, en_GB: en-GB, zh_TW: zh-Hant-TW, es_DO: es-DO
 replace_edited_strings = false
 keep_translations      = false
 
@@ -24,7 +24,7 @@ file_filter            = Source/<lang>.lproj/Main_iPhone.strings
 source_file            = Source/en.lproj/Main_iPhone.strings
 source_lang            = en
 type                   = STRINGS
-lang_map               = zh_CN: zh-Hans, sk_SK: sk-SK, es_PE: es-PE, es_PY: es-PY, ja_JP: ja-JP, es_EC: es-EC, es_PA: es-PA, es_AR: es-AR, ka_GE: ka-GE, es_NI: es-NI, es_PR: es-PR, es_SV: es-SV, es_UY: es-UY, cs_CZ: cs-CZ, en_GB: en-GB, hu_HU: hu, es_CO: es-CO, es_GT: es-GT, pt_PT: pt-PT, es_HN: es-HN, nb_NO: nb-NO, es_CL: es-CL, es_DO: es-DO, es_419: es-419, pt_BR: pt-BR, fi_FI: fi-FI, es_MX: es-MX, zh_TW: zh-Hant-TW, es_CR: es-CR
+lang_map               = zh_CN: zh-Hans, sk_SK: sk-SK, es_PE: es-PE, es_PY: es-PY, ja_JP: ja-JP, es_EC: es-EC, es_PA: es-PA, es_AR: es-AR, ka_GE: ka-GE, es_NI: es-NI, es_PR: es-PR, es_SV: es-SV, es_UY: es-UY, cs_CZ: cs, en_GB: en-GB, hu_HU: hu, es_CO: es-CO, es_GT: es-GT, pt_PT: pt-PT, es_HN: es-HN, nb_NO: nb-NO, es_CL: es-CL, es_DO: es-DO, es_419: es-419, pt_BR: pt-BR, fi_FI: fi-FI, es_MX: es-MX, zh_TW: zh-Hant-TW, es_CR: es-CR
 replace_edited_strings = false
 keep_translations      = false
 
@@ -33,7 +33,7 @@ file_filter            = Source/Screens/Settings/<lang>.lproj/Settings.strings
 source_file            = Source/Screens/Settings/en.lproj/Settings.strings
 source_lang            = en
 type                   = STRINGS
-lang_map               = fi_FI: fi-FI, hu_HU: hu, zh_TW: zh-Hant-TW, es_GT: es-GT, es_HN: es-HN, es_PR: es-PR, ja_JP: ja-JP, es_MX: es-MX, en_GB: en-GB, es_CR: es-CR, es_419: es-419, zh_CN: zh-Hans, es_NI: es-NI, cs_CZ: cs-CZ, sk_SK: sk-SK, es_CO: es-CO, es_DO: es-DO, pt_BR: pt-BR, es_AR: es-AR, ka_GE: ka-GE, es_SV: es-SV, es_UY: es-UY, pt_PT: pt-PT, es_PE: es-PE, es_PY: es-PY, es_CL: es-CL, nb_NO: nb-NO, es_EC: es-EC, es_PA: es-PA
+lang_map               = fi_FI: fi-FI, hu_HU: hu, zh_TW: zh-Hant-TW, es_GT: es-GT, es_HN: es-HN, es_PR: es-PR, ja_JP: ja-JP, es_MX: es-MX, en_GB: en-GB, es_CR: es-CR, es_419: es-419, zh_CN: zh-Hans, es_NI: es-NI, cs_CZ: cs, sk_SK: sk-SK, es_CO: es-CO, es_DO: es-DO, pt_BR: pt-BR, es_AR: es-AR, ka_GE: ka-GE, es_SV: es-SV, es_UY: es-UY, pt_PT: pt-PT, es_PE: es-PE, es_PY: es-PY, es_CL: es-CL, nb_NO: nb-NO, es_EC: es-EC, es_PA: es-PA
 replace_edited_strings = false
 keep_translations      = false
 
@@ -42,7 +42,7 @@ file_filter            = Source/Settings.bundle/<lang>.lproj/Root.strings
 source_file            = Source/Settings.bundle/en.lproj/Root.strings
 source_lang            = en
 type                   = STRINGS
-lang_map               = zh_CN: zh-Hans, en_GB: en-GB, hu_HU: hu, ka_GE: ka-GE, es_PE: es-PE, es_419: es-419, pt_BR: pt-BR, es_CO: es-CO, fi_FI: fi-FI, es_CL: es-CL, es_NI: es-NI, es_SV: es-SV, nb_NO: nb-NO, sk_SK: sk-SK, es_PR: es-PR, es_PY: es-PY, es_PA: es-PA, es_AR: es-AR, es_GT: es-GT, es_UY: es-UY, cs_CZ: cs-CZ, es_DO: es-DO, es_EC: es-EC, es_HN: es-HN, pt_PT: pt-PT, ja_JP: ja-JP, es_MX: es-MX, zh_TW: zh-Hant-TW, es_CR: es-CR
+lang_map               = zh_CN: zh-Hans, en_GB: en-GB, hu_HU: hu, ka_GE: ka-GE, es_PE: es-PE, es_419: es-419, pt_BR: pt-BR, es_CO: es-CO, fi_FI: fi-FI, es_CL: es-CL, es_NI: es-NI, es_SV: es-SV, nb_NO: nb-NO, sk_SK: sk-SK, es_PR: es-PR, es_PY: es-PY, es_PA: es-PA, es_AR: es-AR, es_GT: es-GT, es_UY: es-UY, cs_CZ: cs, es_DO: es-DO, es_EC: es-EC, es_HN: es-HN, pt_PT: pt-PT, ja_JP: ja-JP, es_MX: es-MX, zh_TW: zh-Hant-TW, es_CR: es-CR
 replace_edited_strings = false
 keep_translations      = false
 

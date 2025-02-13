@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -263,6 +263,10 @@
 		F7F08129299D0B53006A2041 /* NCViewerNextcloudText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NCViewerNextcloudText.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		AA62DF642D5DFC48009E8894 /* .tx */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = .tx; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		D0AB0E752470B74D00D3E6B6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -341,6 +345,7 @@
 		D0CFE52A1888A7BD00165839 = {
 			isa = PBXGroup;
 			children = (
+				AA62DF642D5DFC48009E8894 /* .tx */,
 				F3E3C8D72C6B7BF800A80504 /* Brand */,
 				F77B57002993E32100A23E76 /* Nextcloud */,
 				D0CFE53C1888A7BD00165839 /* Source */,
