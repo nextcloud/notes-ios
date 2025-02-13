@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let appVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
         let appName = Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String
-        let userAgent = "Mozilla/5.0 (iOS) \(appName)/\(appVersion ?? "")"
+        let userAgent = "Mozilla/5.0 (iOS) \(appName ?? "")/\(appVersion ?? "")"
 
         NextcloudKit.shared.setup(delegate: NCNetworking.shared)
         NextcloudKit.shared.setup(userAgent: userAgent)
@@ -48,6 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UINavigationBar.appearance().standardAppearance = appearance
             UINavigationBar.appearance().scrollEdgeAppearance = appearance
         }
+
         UINavigationBar.appearance().barTintColor = .ph_popoverButtonColor
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().tintColor = .ph_iconColor
