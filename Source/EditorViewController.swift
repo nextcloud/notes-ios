@@ -17,6 +17,7 @@ class EditorViewController: UIViewController {
     @IBOutlet var undoButton: UIBarButtonItem!
     @IBOutlet var redoButton: UIBarButtonItem!
     @IBOutlet var doneButton: UIBarButtonItem!
+    @IBOutlet var dismissButton: UIBarButtonItem!
     @IBOutlet var fixedSpace: UIBarButtonItem!
     
     var updatedByEditing = false
@@ -83,12 +84,18 @@ class EditorViewController: UIViewController {
             noteView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
             bottomConstraint,
         ])
-        navigationItem.rightBarButtonItems = [fixedSpace, activityButton, fixedSpace, deleteButton, fixedSpace, previewButton]
-        if #available(iOS 14.0, *) {
-            //
-        } else {
-            navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-        }
+
+        navigationItem.rightBarButtonItems = [
+            fixedSpace,
+            dismissButton,
+            fixedSpace,
+            activityButton,
+            fixedSpace,
+            deleteButton,
+            fixedSpace,
+            previewButton,
+        ]
+
         navigationItem.leftItemsSupplementBackButton = true
 
         if let note = note {
@@ -286,10 +293,21 @@ class EditorViewController: UIViewController {
         noteView.endEditing(true)
     }
 
+    @IBAction func onDismiss(_ sender: Any) {
+        dismiss(animated: true)
+    }
+
     func keyboardWillShow(notification: Notification) {
         if self.traitCollection.userInterfaceIdiom == .phone {
-            self.navigationItem.rightBarButtonItems = [self.doneButton, self.fixedSpace, self.redoButton, self.fixedSpace, self.undoButton]
+            self.navigationItem.rightBarButtonItems = [
+                doneButton,
+                fixedSpace,
+                redoButton,
+                fixedSpace,
+                undoButton
+            ]
         }
+
         if let info = notification.userInfo,
            let rect: CGRect = info[UIWindow.keyboardFrameEndUserInfoKey] as? CGRect,
            let ar = self.view?.convert(rect, from: nil),
@@ -309,8 +327,17 @@ class EditorViewController: UIViewController {
 
     func keyboardWillHide(notification: Notification) {
         if self.traitCollection.userInterfaceIdiom == .phone {
-            self.navigationItem.rightBarButtonItems = [self.activityButton, self.fixedSpace, self.deleteButton, self.fixedSpace, self.previewButton];
+            self.navigationItem.rightBarButtonItems = [
+                dismissButton,
+                fixedSpace,
+                activityButton,
+                fixedSpace,
+                deleteButton,
+                fixedSpace,
+                previewButton
+            ]
         }
+
         if let info = notification.userInfo,
            let animationDuration: TimeInterval = info[UIWindow.keyboardAnimationDurationUserInfoKey] as? TimeInterval {
 
@@ -329,14 +356,6 @@ class EditorViewController: UIViewController {
         self.noteView.font = UIFont.preferredFont(forTextStyle: .body)
         self.noteView.headerLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)
     }
-
-    /*
-     - (void)noteAdded:(NSNotification*)notification {
-     [self noteUpdated:notification];
-     }
-     
-     */
-    
 }
 
 extension EditorViewController: UITextViewDelegate {
