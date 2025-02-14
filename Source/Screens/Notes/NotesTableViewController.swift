@@ -404,11 +404,6 @@ class NotesTableViewController: BaseUITableViewController {
                 editorController.note = note
                 editorController.isNewNote = isAddingFromButton
                 isAddingFromButton = false
-                if #available(iOS 14.0, *) {
-                    //
-                } else {
-                    editorController.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-                }
                 editorController.navigationItem.leftItemsSupplementBackButton = true
                 editorController.navigationItem.title = note.title
                 if splitViewController?.displayMode == .allVisible || splitViewController?.displayMode == .primaryOverlay {
