@@ -75,7 +75,7 @@
 "Error Deleting Note" = "Fejl ved sletning af note";
 
 /* The title of an error message */
-"Error Getting Note" = "Fejl ved at få note";
+"Error Getting Note" = "Fejl ved hentning af note";
 
 /* The title of an error message */
 "Error Syncing Notes" = "Fejl ved synkronisering af noter";
@@ -182,7 +182,7 @@
 "The note does not exist" = "Noten findes ikke";
 
 /* Alert message for selecting server brand */
-"Unable to automatically detect type of server.\nPlease select:" = "Kan ikke automatisk detektere type server.\nVenligst vælg:";
+"Unable to automatically detect type of server.\nPlease select:" = "Kan ikke automatisk detektere servertype.\nVælg venligst:";
 
 /* A message title
    The title of an error message */

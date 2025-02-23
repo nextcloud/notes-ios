@@ -17,7 +17,7 @@
 "A4w-6q-Hcy.text" = "Brugernavn";
 
 /* Class = "UILabel"; text = "Allow Untrusted SSL Certificate"; ObjectID = "AKl-Ep-y3W"; */
-"AKl-Ep-y3W.text" = "Tillad SSL-certifikat, der ikke er tillid til";
+"AKl-Ep-y3W.text" = "Tillad SSL certifikat, der ikke er tillid til";
 
 /* Class = "UILabel"; text = "Offline Mode"; ObjectID = "B8W-f5-T18"; */
 "B8W-f5-T18.text" = "Offline tilstand";
