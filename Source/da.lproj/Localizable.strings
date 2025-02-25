@@ -18,7 +18,7 @@
 
 /* A menu action
    A menu option for cancelling */
-"Cancel" = "Annullér";
+"Cancel" = "Annuller";
 
 /* Header title, categories */
 "CATEGORIES" = "KATEGORIER";
