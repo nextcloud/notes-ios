@@ -204,13 +204,13 @@
 "You are now connected to Notes on your server" = "Sie sind jetzt mit Notes auf Ihrem Server verbunden";
 
 /* HUD subtitle when checking server capabilities */
-"Checking server capabilities" = "Server-Fähigkeiten überprüfen";
+"Checking server capabilities" = "Serverfähigkeiten überprüfen";
 
 /* HUD subtitle when checking server settings */
 "Checking server settings" = "Servereinstellungen überprüfen";
 
 /* HUD subtitle when checking server status */
-"Checking server status" = "Server-Status überprüfen";
+"Checking server status" = "Serverstatus überprüfen";
 
 /* No comment provided by engineer. */
 "Connection error" = "Verbindungsfehler";

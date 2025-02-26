@@ -5,7 +5,7 @@
 "51F-pD-XNv.text" = "Markdown (.md)";
 
 /* Class = "UITextField"; placeholder = "Server Password"; ObjectID = "69R-CL-ITG"; */
-"69R-CL-ITG.placeholder" = "Server-Passwort";
+"69R-CL-ITG.placeholder" = "Serverpasswort";
 
 /* Class = "UILabel"; text = "Web Site"; ObjectID = "6So-Rg-NhZ"; */
 "6So-Rg-NhZ.text" = "Webseite";
@@ -86,7 +86,7 @@
 "RvH-hn-Sfv.footerTitle" = "Diese Einstellungen wirken sich nur darauf aus, wie Notizen auf dem Server verwaltet werden. NextcloudNotes verarbeitet keine Dateien.";
 
 /* Class = "UITableViewSection"; headerTitle = "SERVER SETTINGS"; ObjectID = "RvH-hn-Sfv"; */
-"RvH-hn-Sfv.headerTitle" = "SERVER-EINSTELLUNGEN";
+"RvH-hn-Sfv.headerTitle" = "SERVEREINSTELLUNGEN";
 
 /* Class = "UITextView"; text = ""; ObjectID = "smL-9H-BiT"; */
 "smL-9H-BiT.text" = "";
