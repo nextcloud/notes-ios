@@ -1,0 +1,4 @@
+// Build settings for the whole project.
+
+MARKETING_VERSION = 4.3.1
+CURRENT_PROJECT_VERSION = 1
