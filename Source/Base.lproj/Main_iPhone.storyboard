@@ -150,7 +150,7 @@
                         <action selector="onDelete:" destination="vXZ-lx-hvc" id="UNY-4r-5qs"/>
                     </connections>
                 </barButtonItem>
-                <barButtonItem title="Preview" image="doc.text.magnifyingglass" catalog="system" id="3f2-rn-lgQ" userLabel="Preview">
+                <barButtonItem title="Preview" image="text.page.badge.magnifyingglass" catalog="system" id="3f2-rn-lgQ" userLabel="Preview">
                     <color key="tintColor" name="PHWhiteIcon"/>
                     <connections>
                         <segue destination="7xC-ZL-ULJ" kind="show" identifier="showPreview" id="2yM-1x-su8"/>
@@ -258,7 +258,7 @@
         <image name="arrow.uturn.backward.circle" catalog="system" width="128" height="123"/>
         <image name="arrow.uturn.forward.circle" catalog="system" width="128" height="123"/>
         <image name="checkmark" catalog="system" width="128" height="114"/>
-        <image name="doc.text.magnifyingglass" catalog="system" width="106" height="128"/>
+        <image name="text.page.badge.magnifyingglass" catalog="system" width="106" height="128"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <namedColor name="PHWhiteBackground">
             <color red="0.97000002861022949" green="0.97000002861022949" blue="0.97000002861022949" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
