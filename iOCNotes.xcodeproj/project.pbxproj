@@ -54,7 +54,6 @@
 		D0CFE5371888A7BD00165839 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CFE5361888A7BD00165839 /* Foundation.framework */; };
 		D0CFE53B1888A7BD00165839 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CFE53A1888A7BD00165839 /* UIKit.framework */; };
 		D0CFE5411888A7BD00165839 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D0CFE53F1888A7BD00165839 /* InfoPlist.strings */; };
-		D0CFE5521888A7BD00165839 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0CFE5511888A7BD00165839 /* Images.xcassets */; };
 		D0CFE5AD1890659600165839 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CFE5AC1890659600165839 /* QuartzCore.framework */; };
 		D0E38B0324930C410075B7F0 /* Throttler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09E644E248ABAEB003FB4C9 /* Throttler.swift */; };
 		D0E60F152772D809009CF78F /* SettingsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E60F142772D809009CF78F /* SettingsProtocol.swift */; };
@@ -219,7 +218,6 @@
 		D0CFE5381888A7BD00165839 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		D0CFE53A1888A7BD00165839 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D0CFE5401888A7BD00165839 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		D0CFE5511888A7BD00165839 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D0CFE5581888A7BD00165839 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		D0CFE5601888A7BD00165839 /* iOCNotesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iOCNotesTests-Info.plist"; sourceTree = "<group>"; };
 		D0CFE5621888A7BD00165839 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -415,7 +413,6 @@
 				BDD015A0234CEF86000BA001 /* Colors.xcassets */,
 				D06882ED22BB146200CEBC1F /* EditorViewController.swift */,
 				D0E60F1727741633009CF78F /* FileExtensionTableViewController.swift */,
-				D0CFE5511888A7BD00165839 /* Images.xcassets */,
 				D0E60F1927756608009CF78F /* LoginViewController.swift */,
 				D09E430E1E2C46930010E4B3 /* Main_iPhone.storyboard */,
 				D0545F22230901D30001D165 /* PBHOpenInActivity.swift */,
@@ -739,7 +736,6 @@
 			files = (
 				F389ABFF2C9C40210056C059 /* Custom.xcassets in Resources */,
 				BDD015A1234CF551000BA001 /* Colors.xcassets in Resources */,
-				D0CFE5521888A7BD00165839 /* Images.xcassets in Resources */,
 				F7F0812A299D0B53006A2041 /* NCViewerNextcloudText.storyboard in Resources */,
 				D0BCFE612454BF0B007C4CA3 /* Settings.storyboard in Resources */,
 				D00CDFBF194E65B3007505E9 /* Localizable.strings in Resources */,
