@@ -2,7 +2,7 @@
 "<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Fournissez autant de détails que possible sur ce que vous faisiez lorsque le plantage s'est produit.>";
 
 /* Support email body placeholder */
-"<Please state your question or problem here>" = "Please state your question or problem here";
+"<Please state your question or problem here>" = "Veuillez formuler votre question ou votre problème ici";
 
 /* An error message */
 "A server installation could not be found. Check the server address." = "Le serveur d'installation n'a pas été trouvé. Vérifiez l'adresse du serveur.";
@@ -11,7 +11,7 @@
 "Acknowledgements" = "Remerciements";
 
 /* Title of alert for adding a category */
-"Add Category" = "Add category";
+"Add Category" = "Ajouter une catégorie";
 
 /* Item to show all notes */
 "All" = "Tout";
@@ -27,10 +27,10 @@
 "Category" = "Catégorie";
 
 /* Action to change category of a note */
-"Category…" = "Category…";
+"Category…" = "Catégorie...";
 
 /* Action to change category of a note */
-"Change Category…" = "Change category…";
+"Change Category…" = "Changer la catégorie";
 
 /* An error message */
 "Check username and password." = "Vérifier l'identifiant et le mot de passe.";
@@ -39,19 +39,19 @@
 "Close & Sync" = "Fermer et synchroniser";
 
 /* Crash report email subject */
-"NextcloudNotes Crash Report" = "NextcloudNotes Crash Report";
+"NextcloudNotes Crash Report" = "Rapport d'incident de NextcloudNotes";
 
 /* No comment provided by engineer. */
-"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?";
+"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "NextcloudNotes a planté la dernière fois qu'il a été lancé. Voulez-vous envoyer un rapport au développeur ?";
 
 /* Support email subject */
-"NextcloudNotes Support Request" = "NextcloudNotes Support Request";
+"NextcloudNotes Support Request" = "Demande de support NextcloudNotes";
 
 /* A button title */
 "Connect" = " Se connecter";
 
 /* Status information, connected */
-"Connected to Notes on the server" = "Connected to Notes on the server";
+"Connected to Notes on the server" = "Connecté à Notes sur le serveur";
 
 /* An error message title */
 "Connection failure" = "Échec de la connexion";
@@ -66,28 +66,28 @@
 "Delete Note" = "Delete cote";
 
 /* Prompt on alert for adding a category */
-"Enter a name for the new category" = "Enter a name for the new category";
+"Enter a name for the new category" = "Saisir un nom pour la nouvelle catégorie";
 
 /* The title of an error message */
-"Error Adding Note" = "Error adding note";
+"Error Adding Note" = "Erreur lors de l'ajout de la note";
 
 /* The title of an error message */
-"Error Deleting Note" = "Error deleting note";
+"Error Deleting Note" = "Erreur lors de la suppression de la note";
 
 /* The title of an error message */
 "Error Getting Note" = "Error getting note";
 
 /* The title of an error message */
-"Error Syncing Notes" = "Error syncing notes";
+"Error Syncing Notes" = "Erreur lors de la synchronisation des notes";
 
 /* The title of an error message */
-"Error Updating Note" = "Error updating note";
+"Error Updating Note" = "Erreur lors de la mise à jour de la note";
 
 /* The title of an error message */
-"Error Updating Notes" = "Error updating notes";
+"Error Updating Notes" = "Erreur lors de la mise à jour des notes";
 
 /* An error message */
-"Failed to connect to a server. Check your settings." = "Failed to connect to a server. Check your settings.";
+"Failed to connect to a server. Check your settings." = "Impossible de se connecter au serveur. Veuillez vérifier vos paramètres.";
 
 /* Item to show favorite notes */
 "Favorites" = "Favoris";
@@ -96,7 +96,7 @@
 "HTML" = "HTML";
 
 /* A status label indicating that the user is logged in */
-"Logged In" = "Logged in";
+"Logged In" = "Connecté";
 
 /* Header title, main */
 "MAIN" = "PRINCIPAL";
@@ -120,7 +120,7 @@
 "Not logged in" = "Non connecté";
 
 /* Title of alert to change title */
-"Note Title" = "Note title";
+"Note Title" = "Titre de la note";
 
 /* An error message */
 "Notes could not be found on your server. Make sure it is installed and enabled" = "Notes could not be found on your server. Make sure it is installed and enabled";
@@ -135,7 +135,7 @@
 "Open in…" = "Ouvrir avec...";
 
 /* A menu option for sharing in plain text format */
-"Plain Text" = "Plain text";
+"Plain Text" = "Texte brut";
 
 /* A message
    A message to check network connection */
@@ -152,10 +152,10 @@
 "Rename the note" = "Renommer la note";
 
 /* Action to change title of a note */
-"Rename…" = "Rename…";
+"Rename…" = "Renommer...";
 
 /* A menu option for sharing in rich text format */
-"Rich Text" = "Rich text";
+"Rich Text" = "Texte riche";
 
 /* Placeholder text when no note is selected */
 "Select or create a note." = "Sélectionner ou créer une  note";
@@ -167,10 +167,10 @@
 "Server not found" = "Serveur non trouvé";
 
 /* A message title */
-"Server Reachable" = "Server reachable";
+"Server Reachable" = "Serveur accessible";
 
 /* Title of a menu with sharing options */
-"Share Note As" = "Share note as";
+"Share Note As" = "Partager la note comme";
 
 /* A message title */
 "Success" = "Réussite";
@@ -186,7 +186,7 @@
 
 /* A message title
    The title of an error message */
-"Unable to Reach Server" = "Unable to reach server";
+"Unable to Reach Server" = "Impossible d'atteindre le serveur";
 
 /* An error message title */
 "Unauthorized" = "Interdit";
@@ -228,7 +228,7 @@
 "No" = "Non";
 
 /* Title of alert to change notes folder */
-"Notes Folder" = "Notes folder";
+"Notes Folder" = "Dossier des Notes";
 
 /* A menu option for sharing in pdf format */
 "PDF" = "PDF";
@@ -240,7 +240,7 @@
 "The certificate for this server is invalid" = "Le certificat pour ce serveur n’est pas valable";
 
 /* No comment provided by engineer. */
-"View Certificate" = "View certificate";
+"View Certificate" = "Voir le certificat";
 
 /* No comment provided by engineer. */
 "Yes" = "Oui";

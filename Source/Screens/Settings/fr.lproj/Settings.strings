@@ -5,10 +5,10 @@
 "51F-pD-XNv.text" = "Markdown (.md)";
 
 /* Class = "UITextField"; placeholder = "Server Password"; ObjectID = "69R-CL-ITG"; */
-"69R-CL-ITG.placeholder" = "Server password";
+"69R-CL-ITG.placeholder" = "Mot de passe du serveur";
 
 /* Class = "UILabel"; text = "Web Site"; ObjectID = "6So-Rg-NhZ"; */
-"6So-Rg-NhZ.text" = "Website";
+"6So-Rg-NhZ.text" = "Site web";
 
 /* Class = "UITableViewController"; title = "File Extension"; ObjectID = "7HO-9G-Wem"; */
 "7HO-9G-Wem.title" = "Extension des fichiers";
@@ -17,10 +17,10 @@
 "A4w-6q-Hcy.text" = "Nom d'utilisateur";
 
 /* Class = "UILabel"; text = "Allow Untrusted SSL Certificate"; ObjectID = "AKl-Ep-y3W"; */
-"AKl-Ep-y3W.text" = "Allow untrusted SSL certificate";
+"AKl-Ep-y3W.text" = "Permettre un certificat SSL non approuvé";
 
 /* Class = "UILabel"; text = "Offline Mode"; ObjectID = "B8W-f5-T18"; */
-"B8W-f5-T18.text" = "Offline mode";
+"B8W-f5-T18.text" = "Mode hors-ligne";
 
 /* Class = "UILabel"; text = "Password"; ObjectID = "CrO-Ue-LFh"; */
 "CrO-Ue-LFh.text" = "Password";
@@ -59,7 +59,7 @@
 "GZX-DC-7iv.text" = "Url";
 
 /* Class = "UILabel"; text = "Sync on Start"; ObjectID = "hVU-Ed-KYm"; */
-"hVU-Ed-KYm.text" = "Sync on start";
+"hVU-Ed-KYm.text" = "Synchroniser au démarrage";
 
 /* Class = "UITextField"; placeholder = "https://example.com/nextcloud"; ObjectID = "hYn-5e-22n"; */
 "hYn-5e-22n.placeholder" = "https://example.com/nextcloud";
@@ -68,10 +68,10 @@
 "J4w-vK-nRA.title" = "Extension des fichiers";
 
 /* Class = "UITextField"; placeholder = "Server Username"; ObjectID = "KPV-Zj-4Ps"; */
-"KPV-Zj-4Ps.placeholder" = "Server username";
+"KPV-Zj-4Ps.placeholder" = "Nom d'utilisateur sur ce serveur";
 
 /* Class = "UILabel"; text = "Notes Folder"; ObjectID = "ltN-gF-yom"; */
-"ltN-gF-yom.text" = "Notes folder";
+"ltN-gF-yom.text" = "Dossier des Notes";
 
 /* Class = "UILabel"; text = "File Extension"; ObjectID = "Pvp-6i-NLV"; */
 "Pvp-6i-NLV.text" = "Extension des fichiers";
@@ -83,7 +83,7 @@
 "Rfx-NI-FZ4.headerTitle" = "Extension";
 
 /* Class = "UITableViewSection"; footerTitle = "These settings only affect how notes are managed on the server. NextcloudNotes does not handle any files."; ObjectID = "RvH-hn-Sfv"; */
-"RvH-hn-Sfv.footerTitle" = "These settings only affect how notes are managed on the server. NextcloudNotes does not handle any files.";
+"RvH-hn-Sfv.footerTitle" = "Ces paramètres affectent uniquement la façon dont les notes sont gérées sur le serveur. NextcloudNotes ne gère aucun fichier.";
 
 /* Class = "UITableViewSection"; headerTitle = "SERVER SETTINGS"; ObjectID = "RvH-hn-Sfv"; */
 "RvH-hn-Sfv.headerTitle" = "PARAMETRES DE SERVEUR";
@@ -98,10 +98,10 @@
 "Svh-OV-bUr.headerTitle" = "SERVEUR";
 
 /* Class = "UILabel"; text = "Plain Text (.txt)"; ObjectID = "SyJ-AC-m5H"; */
-"SyJ-AC-m5H.text" = "Plain text (.txt)";
+"SyJ-AC-m5H.text" = "Texte brut (.txt)";
 
 /* Class = "UILabel"; text = "Plain Text (.txt)"; ObjectID = "uVd-ib-jy0"; */
-"uVd-ib-jy0.text" = "Plain text (.txt)";
+"uVd-ib-jy0.text" = "Texte brut (.txt)";
 
 /* Class = "UITableViewSection"; footerTitle = " "; ObjectID = "Uwy-jB-bpa"; */
 "Uwy-jB-bpa.footerTitle" = " ";
@@ -113,7 +113,7 @@
 "waZ-N6-59b.title" = "Paramètres";
 
 /* Class = "UINavigationItem"; title = "Login Information"; ObjectID = "ZPa-hv-oSb"; */
-"ZPa-hv-oSb.title" = "Login information";
+"ZPa-hv-oSb.title" = "Informations de connexion";
 
 /* Class = "UILabel"; text = "Sync on Start"; ObjectID = "9Dd-Vq-hcz"; */
 "9Dd-Vq-hcz.text" = "Editeur interne";
