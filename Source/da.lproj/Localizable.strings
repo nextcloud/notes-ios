@@ -1,0 +1,251 @@
+/* Crash report email body placeholder */
+"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Angiv så mange detaljer som muligt om, hvad du lavede, da nedbrudet opstod.>";
+
+/* Support email body placeholder */
+"<Please state your question or problem here>" = "Angiv venligst dit spørgsmål eller problem her";
+
+/* An error message */
+"A server installation could not be found. Check the server address." = "En serverinstallation kunne ikke findes. Tjek serveradressen.";
+
+/* Acknowledgements */
+"Acknowledgements" = "Acknowledgements";
+
+/* Title of alert for adding a category */
+"Add Category" = "Tilføj kategori";
+
+/* Item to show all notes */
+"All" = "Alle";
+
+/* A menu action
+   A menu option for cancelling */
+"Cancel" = "Annuller";
+
+/* Header title, categories */
+"CATEGORIES" = "KATEGORIER";
+
+/* 'Category' menu item */
+"Category" = "Kategori";
+
+/* Action to change category of a note */
+"Category…" = "Kategori...";
+
+/* Action to change category of a note */
+"Change Category…" = "Skift kategori...";
+
+/* An error message */
+"Check username and password." = "Kontroller brugernavn og adgangskode.";
+
+/* Title of a button allowing the user to close the login screen and sync with the server */
+"Close & Sync" = "Luk & synkroniser";
+
+/* Crash report email subject */
+"NextcloudNotes Crash Report" = "NextcloudNotes-nedbrudsrapport";
+
+/* No comment provided by engineer. */
+"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "NextcloudNotes gik ned, sidste gang det blev lanceret. Vil du sende en rapport til udvikleren?";
+
+/* Support email subject */
+"NextcloudNotes Support Request" = "NextcloudNotes-supportanmodning";
+
+/* A button title */
+"Connect" = "Forbind";
+
+/* Status information, connected */
+"Connected to Notes on the server" = "Forbundet til noter på serveren";
+
+/* An error message title */
+"Connection failure" = "Forbindelsesfejl";
+
+/* Alert view title */
+"Crash Detected" = "Nedbrud registreret";
+
+/* Action to delete a note */
+"Delete" = "Delete";
+
+/* A menu action */
+"Delete Note" = "Slet note";
+
+/* Prompt on alert for adding a category */
+"Enter a name for the new category" = "Indtast et navn på den nye kategori";
+
+/* The title of an error message */
+"Error Adding Note" = "Fejl ved tilføjelse af note";
+
+/* The title of an error message */
+"Error Deleting Note" = "Fejl ved sletning af note";
+
+/* The title of an error message */
+"Error Getting Note" = "Fejl ved hentning af note";
+
+/* The title of an error message */
+"Error Syncing Notes" = "Fejl ved synkronisering af noter";
+
+/* The title of an error message */
+"Error Updating Note" = "Fejl under opdatering af note";
+
+/* The title of an error message */
+"Error Updating Notes" = "Fejl ved opdatering af noter";
+
+/* An error message */
+"Failed to connect to a server. Check your settings." = "Kunne ikke oprette forbindelse til en server. Kontroller dine indstillinger.";
+
+/* Item to show favorite notes */
+"Favorites" = "Favoritter";
+
+/* A menu option for plain sharing in html format */
+"HTML" = "HTML";
+
+/* A status label indicating that the user is logged in */
+"Logged In" = "Logget på";
+
+/* Header title, main */
+"MAIN" = "MAIN";
+
+/* A menu option for sharing in markdown format */
+"Markdown" = "Markdown";
+
+/* The title of a new note */
+"New note" = "Ny note";
+
+/* No comment provided by engineer. */
+"No thanks" = "Nej tak";
+
+/* Status information, not connected */
+"Not connected to Notes on a server" = "Ikke forbundet til Noter på en server";
+
+/* A status label indicating that the user is not logged in */
+"Not Logged In" = "Ikke logget på";
+
+/* Message about not being logged in */
+"Not logged in" = "Ikke logget på";
+
+/* Title of alert to change title */
+"Note Title" = "Note titel";
+
+/* An error message */
+"Notes could not be found on your server. Make sure it is installed and enabled" = "Noter kunne ikke findes på din server. Sørg for at den er installeret og aktiveret";
+
+/* An error message title */
+"Notes not found" = "Noter ikke fundet";
+
+/* Button, OK */
+"OK" = "OK";
+
+/* Title for Open In activity */
+"Open in…" = "Åben i...";
+
+/* A menu option for sharing in plain text format */
+"Plain Text" = "Rå tekst";
+
+/* A message
+   A message to check network connection */
+"Please check network connection and login." = "Tjek venligst netværksforbindelsen og log på.";
+
+/* A button title */
+"Reconnect" = "Tilslut igen";
+
+/* Action to change title of a note
+   Caption of Rename button */
+"Rename" = "Rename";
+
+/* Message of alert to change title */
+"Rename the note" = "Omdøb noten";
+
+/* Action to change title of a note */
+"Rename…" = "Omdøb...";
+
+/* A menu option for sharing in rich text format */
+"Rich Text" = "Formateret tekst";
+
+/* Placeholder text when no note is selected */
+"Select or create a note." = "Vælg eller opret en note.";
+
+/* Alert title for selecting server brand */
+"Server" = "Server";
+
+/* An error message title */
+"Server not found" = "Server ikke fundet";
+
+/* A message title */
+"Server Reachable" = "Server tilgængelig";
+
+/* Title of a menu with sharing options */
+"Share Note As" = "Del note som";
+
+/* A message title */
+"Success" = "Succes";
+
+/* A message */
+"The network connection is working properly." = "Netværksforbindelsen fungerer korrekt.";
+
+/* An error message */
+"The note does not exist" = "Noten findes ikke";
+
+/* Alert message for selecting server brand */
+"Unable to automatically detect type of server.\nPlease select:" = "Kan ikke automatisk detektere servertype.\nVælg venligst:";
+
+/* A message title
+   The title of an error message */
+"Unable to Reach Server" = "Kan ikke nå server";
+
+/* An error message title */
+"Unauthorized" = "Ikke autoriseret";
+
+/* Text displayed for notes not assigned to a category */
+"Uncategorized" = "Ikke kategoriseret";
+
+/* Message with Notes version, product name and version */
+"Using Notes %@on %@ %@." = "Anvender noter %@on %@ %@.";
+
+/* No comment provided by engineer. */
+"Yes, please!" = "Ja tak!";
+
+/* A message */
+"You are now connected to Notes on your server" = "Du er nu forbundet til Noter på din server";
+
+/* HUD subtitle when checking server capabilities */
+"Checking server capabilities" = "Kontroller serverens muligheder";
+
+/* HUD subtitle when checking server settings */
+"Checking server settings" = "Kontroller serverindstillinger";
+
+/* HUD subtitle when checking server status */
+"Checking server status" = "Kontroller serverstatus";
+
+/* No comment provided by engineer. */
+"Connection error" = "Forbindelses fejl";
+
+/* No comment provided by engineer. */
+"Do you want to connect to the server anyway?" = "Vil du alligevel oprette forbindelse til serveren?";
+
+/* Message of alert to change notes folder */
+"Enter a name for the folder where notes should be saved on the server" = "Indtast et navn for mappen hvor noter skal gemmes på serveren";
+
+/* An error message title */
+"Error" = "Error";
+
+/* No comment provided by engineer. */
+"No" = "Nej";
+
+/* Title of alert to change notes folder */
+"Notes Folder" = "Noter mappe";
+
+/* A menu option for sharing in pdf format */
+"PDF" = "PDF";
+
+/* Caption of Save button */
+"Save" = "Save";
+
+/* No comment provided by engineer. */
+"The certificate for this server is invalid" = "Certefikatet for denne server er ikke korrekt";
+
+/* No comment provided by engineer. */
+"View Certificate" = "Se certifikat";
+
+/* No comment provided by engineer. */
+"Yes" = "Ja";
+
+// NEXTCLOUD
+"Select the account to add"   = "Vælg den konto, der skal tilføjes";
+
+"Notes" = "Noter";

@@ -45,7 +45,12 @@ class NCService: NSObject {
               let host = server.host
         else { return }
 
-        let urlBase = scheme + "://" + host
+        var urlBase = scheme + "://" + host
+
+        if let port = server.port {
+            urlBase = "\(urlBase):\(port)"
+        }
+
         let user = KeychainHelper.username
         let password = KeychainHelper.password
         let account: String = "\(user) \(urlBase)"

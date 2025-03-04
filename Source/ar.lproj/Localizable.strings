@@ -27,10 +27,10 @@
 "Category" = "التصنيف";
 
 /* Action to change category of a note */
-"Category..." = "تصنيف ...";
+"Category…" = "التصنيف ...";
 
 /* Action to change category of a note */
-"Change Category..." = "تغيير التصنيف...";
+"Change Category…" = "تغيير التصنيف ...";
 
 /* An error message */
 "Check username and password." = "التحقُّق من المستخدِم و كلمة المرور.";
@@ -57,25 +57,25 @@
 "Connection failure" = "فشل التوصيل";
 
 /* Alert view title */
-"Crash Detected" = "تمّ اكتشاف إخفاق";
+"Crash Detected" = "تم اكتشاف عطل";
 
 /* Action to delete a note */
 "Delete" = "حذف";
 
 /* A menu action */
-"Delete Note" = "حذف ملاحظة";
+"Delete Note" = "حذف الملاحظة";
 
 /* Prompt on alert for adding a category */
 "Enter a name for the new category" = "أدخل اسم التصنيف الجديد";
 
 /* The title of an error message */
-"Error Adding Note" = "خطأ في إضافة الملاحظة";
+"Error Adding Note" = "خطأ عند إضافة ملاحظة";
 
 /* The title of an error message */
-"Error Deleting Note" = "خطأ في حذف ملاحظة";
+"Error Deleting Note" = "خطأ عند حذف ملاحظة";
 
 /* The title of an error message */
-"Error Getting Note" = "خطأ في الحصول على الملاحظة";
+"Error Getting Note" = "خطأ في الحصول على ملاحظة";
 
 /* The title of an error message */
 "Error Syncing Notes" = "خطأ في مزامنة الملاحظات";
@@ -96,7 +96,7 @@
 "HTML" = "HTML";
 
 /* A status label indicating that the user is logged in */
-"Logged In" = "تمّ تسجيل الدخول";
+"Logged In" = "الدخول";
 
 /* Header title, main */
 "MAIN" = "الرئيسي";
@@ -132,10 +132,10 @@
 "OK" = "تم";
 
 /* Title for Open In activity */
-"Open In..." = "فتح في ...";
+"Open in…" = "فتح في…";
 
 /* A menu option for sharing in plain text format */
-"Plain Text" = "نص واضح";
+"Plain Text" = "نص عادي";
 
 /* A message
    A message to check network connection */
@@ -152,7 +152,7 @@
 "Rename the note" = "تغيير اسم الملاحظة";
 
 /* Action to change title of a note */
-"Rename..." = "تغيير الاسم جارٍ ...";
+"Rename…" = "تغيير الاسم ...";
 
 /* A menu option for sharing in rich text format */
 "Rich Text" = "نص مُنسّق";
@@ -167,10 +167,10 @@
 "Server not found" = "الخادوم غير موجود";
 
 /* A message title */
-"Server Reachable" = "يمكن الوصول للخادوم";
+"Server Reachable" = "الخادوم متاح الوصول";
 
 /* Title of a menu with sharing options */
-"Share Note As" = "مشاركة الملاحظة كـ";
+"Share Note As" = "شارك الملاحظة كـ";
 
 /* A message title */
 "Success" = "نجاح";
@@ -186,7 +186,7 @@
 
 /* A message title
    The title of an error message */
-"Unable to Reach Server" = "تعذّر الوصول إلى الخادوم";
+"Unable to Reach Server" = "تمكين الوصول للخادوم";
 
 /* An error message title */
 "Unauthorized" = "غير مأذون به";
@@ -240,7 +240,7 @@
 "The certificate for this server is invalid" = "شهادة مصادقة الخادوم غير صالحة";
 
 /* No comment provided by engineer. */
-"View Certificate" = "شهادة مصادقة جديدة";
+"View Certificate" = "عرض شهادة المصادقة";
 
 /* No comment provided by engineer. */
 "Yes" = "نعم";

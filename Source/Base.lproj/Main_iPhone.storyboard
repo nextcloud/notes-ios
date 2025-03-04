@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Hnc-wc-q9I">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Hnc-wc-q9I">
+    <device id="ipad11_0rounded" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,32 +13,32 @@
             <objects>
                 <tableViewController storyboardIdentifier="Notes" id="DXe-Iw-CcD" customClass="NotesTableViewController" customModule="iOCNotes" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="K35-HQ-LQQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="420" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                         <color key="separatorColor" name="PHWhiteReadText"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="PUY-jA-gLM">
-                            <rect key="frame" x="0.0" y="117.5" width="414" height="1"/>
+                            <rect key="frame" x="0.0" y="117.5" width="420" height="1"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NoteCell" textLabel="1Q3-he-nuB" detailTextLabel="x61-QN-GPh" style="IBUITableViewCellStyleSubtitle" id="kka-p9-Iaq" customClass="NoteTableViewCell" customModule="iOCNotes" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="55.5" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="55.5" width="420" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kka-p9-Iaq" id="bx6-5a-S9d">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <rect key="frame" x="100" y="0.0" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1Q3-he-nuB">
-                                            <rect key="frame" x="20" y="4" width="35" height="21.5"/>
+                                            <rect key="frame" x="16" y="4" width="35" height="21.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" name="PHWhiteText"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="x61-QN-GPh">
-                                            <rect key="frame" x="20" y="25.5" width="44" height="14.5"/>
+                                            <rect key="frame" x="16" y="25.5" width="44" height="14.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -119,7 +119,7 @@
                         <viewControllerLayoutGuide type="bottom" id="2tF-Ws-VkG"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1210" height="834"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" name="PHWhiteBackground"/>
                     </view>
@@ -129,6 +129,7 @@
                     <connections>
                         <outlet property="activityButton" destination="pXa-gb-ki1" id="fMm-Yj-DYc"/>
                         <outlet property="deleteButton" destination="aql-su-dTG" id="aZw-En-uzG"/>
+                        <outlet property="dismissButton" destination="4hl-CC-W27" id="OKL-CP-CGv"/>
                         <outlet property="doneButton" destination="1qk-bQ-vnb" id="t3C-JM-SAg"/>
                         <outlet property="fixedSpace" destination="thB-y7-Xbs" id="6iI-ez-fg4"/>
                         <outlet property="previewButton" destination="3f2-rn-lgQ" id="q8D-CE-LGd"/>
@@ -149,28 +150,34 @@
                         <action selector="onDelete:" destination="vXZ-lx-hvc" id="UNY-4r-5qs"/>
                     </connections>
                 </barButtonItem>
-                <barButtonItem image="doc.text.magnifyingglass" catalog="system" id="3f2-rn-lgQ" userLabel="Preview">
+                <barButtonItem title="Preview" image="text.page.badge.magnifyingglass" catalog="system" id="3f2-rn-lgQ" userLabel="Preview">
                     <color key="tintColor" name="PHWhiteIcon"/>
                     <connections>
                         <segue destination="7xC-ZL-ULJ" kind="show" identifier="showPreview" id="2yM-1x-su8"/>
                     </connections>
                 </barButtonItem>
-                <barButtonItem systemItem="undo" id="6bO-Ah-TJ8">
+                <barButtonItem title="Undo" image="arrow.uturn.backward.circle" catalog="system" id="6bO-Ah-TJ8">
                     <color key="tintColor" name="PHWhiteIcon"/>
                     <connections>
                         <action selector="onUndo:" destination="vXZ-lx-hvc" id="JwM-xg-ZsU"/>
                     </connections>
                 </barButtonItem>
-                <barButtonItem systemItem="redo" id="T7C-FW-CGQ">
+                <barButtonItem title="Redo" image="arrow.uturn.forward.circle" catalog="system" id="T7C-FW-CGQ">
                     <color key="tintColor" name="PHWhiteIcon"/>
                     <connections>
                         <action selector="onRedo:" destination="vXZ-lx-hvc" id="dEX-CR-Yww"/>
                     </connections>
                 </barButtonItem>
-                <barButtonItem systemItem="done" id="1qk-bQ-vnb">
+                <barButtonItem title="Done" image="checkmark" catalog="system" id="1qk-bQ-vnb">
                     <color key="tintColor" name="PHWhiteIcon"/>
                     <connections>
                         <action selector="onDone:" destination="vXZ-lx-hvc" id="ZSg-Vw-aPw"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem title="Dismiss" image="xmark" catalog="system" id="4hl-CC-W27">
+                    <color key="tintColor" name="PHWhiteIcon"/>
+                    <connections>
+                        <action selector="onDismiss:" destination="vXZ-lx-hvc" id="pAI-b7-Frx"/>
                     </connections>
                 </barButtonItem>
                 <barButtonItem width="10" style="plain" systemItem="fixedSpace" id="thB-y7-Xbs"/>
@@ -186,7 +193,7 @@
                         <viewControllerLayoutGuide type="bottom" id="bpa-Yz-xfN"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8k1-Ib-19a">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1210" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -199,12 +206,11 @@
         <!--Navigation Controller-->
         <scene sceneID="fMS-Gw-CfY">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NPZ-9D-o3J" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="RQg-o0-i6F" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fRT-Hm-h30">
-                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="24" width="420" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" name="PHWhiteIcon"/>
@@ -212,6 +218,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <toolbar key="toolbar" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="p4w-cm-yXR">
+                        <rect key="frame" x="100" y="0.0" width="0.0" height="0.0"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </toolbar>
@@ -219,17 +226,18 @@
                         <segue destination="DXe-Iw-CcD" kind="relationship" relationship="rootViewController" id="N2U-Wk-XGw"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NPZ-9D-o3J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="733" y="-1235"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1o0-w2-ASY">
             <objects>
-                <navigationController storyboardIdentifier="Editor" automaticallyAdjustsScrollViewInsets="NO" id="R1o-2G-Lxf" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Editor" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="R1o-2G-Lxf" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="fUW-Ps-K5E"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Kus-pY-rHi">
-                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1210" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.1176470588" green="0.1764705882" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
@@ -247,7 +255,11 @@
         <segue reference="RCf-VZ-GG6"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="doc.text.magnifyingglass" catalog="system" width="110" height="128"/>
+        <image name="arrow.uturn.backward.circle" catalog="system" width="128" height="123"/>
+        <image name="arrow.uturn.forward.circle" catalog="system" width="128" height="123"/>
+        <image name="checkmark" catalog="system" width="128" height="114"/>
+        <image name="text.page.badge.magnifyingglass" catalog="system" width="106" height="128"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
         <namedColor name="PHWhiteBackground">
             <color red="0.97000002861022949" green="0.97000002861022949" blue="0.97000002861022949" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

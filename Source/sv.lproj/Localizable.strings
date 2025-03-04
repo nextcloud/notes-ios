@@ -27,10 +27,10 @@
 "Category" = "Kategori";
 
 /* Action to change category of a note */
-"Category..." = "Kategori...";
+"Category…" = "Kategori...";
 
 /* Action to change category of a note */
-"Change Category..." = "Ändra kategori...";
+"Change Category…" = "Ändra kategori...";
 
 /* An error message */
 "Check username and password." = "Kontrollera användarnamn och lösenord.";
@@ -69,22 +69,22 @@
 "Enter a name for the new category" = "Ange ett namn för den nya kategorin";
 
 /* The title of an error message */
-"Error Adding Note" = "Det gick inte att lägga till anteckning";
+"Error Adding Note" = "Kunde inte lägga till anteckning";
 
 /* The title of an error message */
-"Error Deleting Note" = "Det gick inte att ta bort anteckning";
+"Error Deleting Note" = "Kunde inte ta bort anteckning";
 
 /* The title of an error message */
-"Error Getting Note" = "Det gick inte att hämta anteckning";
+"Error Getting Note" = "Kunde inte hämta anteckning";
 
 /* The title of an error message */
-"Error Syncing Notes" = "Det gick inte att synka anteckningar";
+"Error Syncing Notes" = "Kunde inte synka anteckningar";
 
 /* The title of an error message */
-"Error Updating Note" = "Det gick inte att uppdatera anteckning";
+"Error Updating Note" = "Kunde inte uppdatera anteckning";
 
 /* The title of an error message */
-"Error Updating Notes" = "Det gick inte att uppdatera anteckningar";
+"Error Updating Notes" = "Kunde inte uppdatera anteckningar";
 
 /* An error message */
 "Failed to connect to a server. Check your settings." = "Det gick inte att ansluta till en server. Kontrollera dina inställningar.";
@@ -132,7 +132,7 @@
 "OK" = "OK";
 
 /* Title for Open In activity */
-"Open In..." = "Öppna i...";
+"Open in…" = "Öppna i...";
 
 /* A menu option for sharing in plain text format */
 "Plain Text" = "Oformaterad text";
@@ -152,7 +152,7 @@
 "Rename the note" = "Byt namn på anteckningen";
 
 /* Action to change title of a note */
-"Rename..." = "Byt namn...";
+"Rename…" = "Byt namn...";
 
 /* A menu option for sharing in rich text format */
 "Rich Text" = "Formaterad text";

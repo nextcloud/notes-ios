@@ -27,10 +27,10 @@
 "Category" = "分類";
 
 /* Action to change category of a note */
-"Category..." = "分類 ...";
+"Category…" = "分類 ...";
 
 /* Action to change category of a note */
-"Change Category..." = "更新分類 ...";
+"Change Category…" = "更新分類 ...";
 
 /* An error message */
 "Check username and password." = "檢查用戶名和密碼。";
@@ -132,7 +132,7 @@
 "OK" = "確認";
 
 /* Title for Open In activity */
-"Open In..." = "在 ... 中打開";
+"Open in…" = "開啟在。。。";
 
 /* A menu option for sharing in plain text format */
 "Plain Text" = "純文字";
@@ -152,7 +152,7 @@
 "Rename the note" = "重新命名筆記";
 
 /* Action to change title of a note */
-"Rename..." = "重新命名 ...";
+"Rename…" = "Rename ...";
 
 /* A menu option for sharing in rich text format */
 "Rich Text" = "富文本";

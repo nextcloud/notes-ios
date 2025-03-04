@@ -5,10 +5,10 @@
 "51F-pD-XNv.text" = "Markdown (.md)";
 
 /* Class = "UITextField"; placeholder = "Server Password"; ObjectID = "69R-CL-ITG"; */
-"69R-CL-ITG.placeholder" = "Server Password";
+"69R-CL-ITG.placeholder" = "Server password";
 
 /* Class = "UILabel"; text = "Web Site"; ObjectID = "6So-Rg-NhZ"; */
-"6So-Rg-NhZ.text" = "Web Site";
+"6So-Rg-NhZ.text" = "Website";
 
 /* Class = "UITableViewController"; title = "File Extension"; ObjectID = "7HO-9G-Wem"; */
 "7HO-9G-Wem.title" = "Fitxategi-luzapena";
@@ -17,19 +17,19 @@
 "A4w-6q-Hcy.text" = "Username";
 
 /* Class = "UILabel"; text = "Allow Untrusted SSL Certificate"; ObjectID = "AKl-Ep-y3W"; */
-"AKl-Ep-y3W.text" = "Allow Untrusted SSL Certificate";
+"AKl-Ep-y3W.text" = "Allow untrusted SSL certificate";
 
 /* Class = "UILabel"; text = "Offline Mode"; ObjectID = "B8W-f5-T18"; */
-"B8W-f5-T18.text" = "Offline Mode";
+"B8W-f5-T18.text" = "Offline mode";
 
 /* Class = "UILabel"; text = "Password"; ObjectID = "CrO-Ue-LFh"; */
 "CrO-Ue-LFh.text" = "Password";
 
 /* Class = "UIButton"; configuration.title = "Log In"; ObjectID = "dUo-KO-48Z"; */
-"dUo-KO-48Z.configuration.title" = "Hasi saioa";
+"dUo-KO-48Z.configuration.title" = "Saioa hasi";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "dUo-KO-48Z"; */
-"dUo-KO-48Z.normalTitle" = "Hasi saioa";
+"dUo-KO-48Z.normalTitle" = "Saioa hasi";
 
 /* Class = "UITableViewSection"; headerTitle = "SUPPORT"; ObjectID = "ENv-ON-tbr"; */
 "ENv-ON-tbr.headerTitle" = "SUPPORT";
@@ -59,7 +59,7 @@
 "GZX-DC-7iv.text" = "Url";
 
 /* Class = "UILabel"; text = "Sync on Start"; ObjectID = "hVU-Ed-KYm"; */
-"hVU-Ed-KYm.text" = "Sync on Start";
+"hVU-Ed-KYm.text" = "Sync on start";
 
 /* Class = "UITextField"; placeholder = "https://example.com/nextcloud"; ObjectID = "hYn-5e-22n"; */
 "hYn-5e-22n.placeholder" = "https://example.com/nextcloud";
@@ -68,10 +68,10 @@
 "J4w-vK-nRA.title" = "Fitxategi-luzapena";
 
 /* Class = "UITextField"; placeholder = "Server Username"; ObjectID = "KPV-Zj-4Ps"; */
-"KPV-Zj-4Ps.placeholder" = "Server Username";
+"KPV-Zj-4Ps.placeholder" = "Server username";
 
 /* Class = "UILabel"; text = "Notes Folder"; ObjectID = "ltN-gF-yom"; */
-"ltN-gF-yom.text" = "Oharren karpeta";
+"ltN-gF-yom.text" = "Notes folder";
 
 /* Class = "UILabel"; text = "File Extension"; ObjectID = "Pvp-6i-NLV"; */
 "Pvp-6i-NLV.text" = "Fitxategi-luzapena";
@@ -88,8 +88,8 @@
 /* Class = "UITableViewSection"; headerTitle = "SERVER SETTINGS"; ObjectID = "RvH-hn-Sfv"; */
 "RvH-hn-Sfv.headerTitle" = "SERVER SETTINGS";
 
-/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "smL-9H-BiT"; */
-"smL-9H-BiT.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+/* Class = "UITextView"; text = ""; ObjectID = "smL-9H-BiT"; */
+"smL-9H-BiT.text" = "";
 
 /* Class = "UITableViewSection"; footerTitle = "Not logged in"; ObjectID = "Svh-OV-bUr"; */
 "Svh-OV-bUr.footerTitle" = "Saioa hasi gabe";
@@ -98,10 +98,10 @@
 "Svh-OV-bUr.headerTitle" = "SERVER";
 
 /* Class = "UILabel"; text = "Plain Text (.txt)"; ObjectID = "SyJ-AC-m5H"; */
-"SyJ-AC-m5H.text" = "Testu arrunta (.txt)";
+"SyJ-AC-m5H.text" = "Plain text (.txt)";
 
 /* Class = "UILabel"; text = "Plain Text (.txt)"; ObjectID = "uVd-ib-jy0"; */
-"uVd-ib-jy0.text" = "Testu arrunta (.txt)";
+"uVd-ib-jy0.text" = "Plain text (.txt)";
 
 /* Class = "UITableViewSection"; footerTitle = " "; ObjectID = "Uwy-jB-bpa"; */
 "Uwy-jB-bpa.footerTitle" = " ";
@@ -113,7 +113,7 @@
 "waZ-N6-59b.title" = "Settings";
 
 /* Class = "UINavigationItem"; title = "Login Information"; ObjectID = "ZPa-hv-oSb"; */
-"ZPa-hv-oSb.title" = "Login Information";
+"ZPa-hv-oSb.title" = "Login information";
 
 /* Class = "UILabel"; text = "Sync on Start"; ObjectID = "9Dd-Vq-hcz"; */
 "9Dd-Vq-hcz.text" = "Internal editor";

@@ -27,10 +27,10 @@
 "Category" = "Категорија";
 
 /* Action to change category of a note */
-"Category..." = "Категорија";
+"Category…" = "Категорија";
 
 /* Action to change category of a note */
-"Change Category..." = "Промените категорију";
+"Change Category…" = "Промени категорију";
 
 /* An error message */
 "Check username and password." = "Провера корисничког имена и лозинке.";
@@ -114,7 +114,7 @@
 "Not connected to Notes on a server" = "Није повезано са Белешкама на серверу";
 
 /* A status label indicating that the user is not logged in */
-"Not Logged In" = "Није пријављен";
+"Not Logged In" = "Није пријављено";
 
 /* Message about not being logged in */
 "Not logged in" = "Није пријављено";
@@ -132,7 +132,7 @@
 "OK" = "У реду";
 
 /* Title for Open In activity */
-"Open In..." = "Отвори у %@";
+"Open in…" = "Отвори у…";
 
 /* A menu option for sharing in plain text format */
 "Plain Text" = "Прости текст";
@@ -152,7 +152,7 @@
 "Rename the note" = "Промени назив белешке";
 
 /* Action to change title of a note */
-"Rename..." = "Преименуј";
+"Rename…" = "Промени назив";
 
 /* A menu option for sharing in rich text format */
 "Rich Text" = "Обогаћени текст";

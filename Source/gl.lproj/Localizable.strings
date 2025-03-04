@@ -27,10 +27,10 @@
 "Category" = "Categoría";
 
 /* Action to change category of a note */
-"Category..." = "Categoría…";
+"Category…" = "Categoría…";
 
 /* Action to change category of a note */
-"Change Category..." = "Cambiar a categoría…";
+"Change Category…" = "Cambiar a categoría…";
 
 /* An error message */
 "Check username and password." = "Comprobar o nome de usuario e o contrasinal.";
@@ -57,13 +57,13 @@
 "Connection failure" = "Produciuse un fallo de conexión";
 
 /* Alert view title */
-"Crash Detected" = "Detectouse unha crebra";
+"Crash Detected" = "Detectouse unha creba";
 
 /* Action to delete a note */
 "Delete" = "Eliminar";
 
 /* A menu action */
-"Delete Note" = "Eliminar nota";
+"Delete Note" = "Eliminar a nota";
 
 /* Prompt on alert for adding a category */
 "Enter a name for the new category" = "Introduza o nome da nova categoría";
@@ -78,13 +78,13 @@
 "Error Getting Note" = "Produciuse un erro ao obter a nota";
 
 /* The title of an error message */
-"Error Syncing Notes" = "Produciuse un erro ao sincronizar Notas";
+"Error Syncing Notes" = "Produciuse un erro ao sincronizar as notas";
 
 /* The title of an error message */
 "Error Updating Note" = "Produciuse un erro ao actualizar a nota";
 
 /* The title of an error message */
-"Error Updating Notes" = "Produciuse un erro ao actualizar Notas";
+"Error Updating Notes" = "Produciuse un erro ao actualizar as notas";
 
 /* An error message */
 "Failed to connect to a server. Check your settings." = "Produciuse un fallo ao conectar co servidor. Comprobe os axustes.";
@@ -114,7 +114,7 @@
 "Not connected to Notes on a server" = "Non está conectado a Notas no servidor";
 
 /* A status label indicating that the user is not logged in */
-"Not Logged In" = "Sen conectar";
+"Not Logged In" = "Non accedeu";
 
 /* Message about not being logged in */
 "Not logged in" = "Non accedeu";
@@ -132,7 +132,7 @@
 "OK" = "Aceptar";
 
 /* Title for Open In activity */
-"Open In..." = "Abrir en…";
+"Open in…" = "Abrir en…";
 
 /* A menu option for sharing in plain text format */
 "Plain Text" = "Texto simple";
@@ -152,7 +152,7 @@
 "Rename the note" = "Cambiar o nome da nota";
 
 /* Action to change title of a note */
-"Rename..." = "Cambiar o nome…";
+"Rename…" = "Cambiar o nome…";
 
 /* A menu option for sharing in rich text format */
 "Rich Text" = "Texto mellorado";

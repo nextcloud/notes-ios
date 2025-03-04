@@ -2,7 +2,7 @@
 "<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Fournissez autant de détails que possible sur ce que vous faisiez lorsque le plantage s'est produit.>";
 
 /* Support email body placeholder */
-"<Please state your question or problem here>" = "Please state your question or problem here";
+"<Please state your question or problem here>" = "Veuillez formuler votre question ou votre problème ici";
 
 /* An error message */
 "A server installation could not be found. Check the server address." = "Le serveur d'installation n'a pas été trouvé. Vérifiez l'adresse du serveur.";
@@ -27,10 +27,10 @@
 "Category" = "Catégorie";
 
 /* Action to change category of a note */
-"Category..." = "Catégorie";
+"Category…" = "Catégorie...";
 
 /* Action to change category of a note */
-"Change Category..." = "Changer la catégorie";
+"Change Category…" = "Changer la catégorie";
 
 /* An error message */
 "Check username and password." = "Vérifier l'identifiant et le mot de passe.";
@@ -39,55 +39,55 @@
 "Close & Sync" = "Fermer et synchroniser";
 
 /* Crash report email subject */
-"NextcloudNotes Crash Report" = "NextcloudNotes Crash Report";
+"NextcloudNotes Crash Report" = "Rapport d'incident de NextcloudNotes";
 
 /* No comment provided by engineer. */
-"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?";
+"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "NextcloudNotes a planté la dernière fois qu'il a été lancé. Voulez-vous envoyer un rapport au développeur ?";
 
 /* Support email subject */
-"NextcloudNotes Support Request" = "NextcloudNotes Support Request";
+"NextcloudNotes Support Request" = "Demande de support NextcloudNotes";
 
 /* A button title */
 "Connect" = " Se connecter";
 
 /* Status information, connected */
-"Connected to Notes on the server" = "Connected to Notes on the server";
+"Connected to Notes on the server" = "Connecté à Notes sur le serveur";
 
 /* An error message title */
 "Connection failure" = "Échec de la connexion";
 
 /* Alert view title */
-"Crash Detected" = "Crash Detected";
+"Crash Detected" = "Crash detected";
 
 /* Action to delete a note */
 "Delete" = "Supprimé";
 
 /* A menu action */
-"Delete Note" = "Supprimer la note";
+"Delete Note" = "Delete cote";
 
 /* Prompt on alert for adding a category */
-"Enter a name for the new category" = "Enter a name for the new category";
+"Enter a name for the new category" = "Saisir un nom pour la nouvelle catégorie";
 
 /* The title of an error message */
-"Error Adding Note" = "Erreur lors de l'ajout de la Note";
+"Error Adding Note" = "Erreur lors de l'ajout de la note";
 
 /* The title of an error message */
-"Error Deleting Note" = "Erreur lors de la suppression de la Note";
+"Error Deleting Note" = "Erreur lors de la suppression de la note";
 
 /* The title of an error message */
-"Error Getting Note" = "Error Getting Note";
+"Error Getting Note" = "Error getting note";
 
 /* The title of an error message */
-"Error Syncing Notes" = "Error Syncing Notes";
+"Error Syncing Notes" = "Erreur lors de la synchronisation des notes";
 
 /* The title of an error message */
-"Error Updating Note" = "Error Updating Note";
+"Error Updating Note" = "Erreur lors de la mise à jour de la note";
 
 /* The title of an error message */
-"Error Updating Notes" = "Error Updating Notes";
+"Error Updating Notes" = "Erreur lors de la mise à jour des notes";
 
 /* An error message */
-"Failed to connect to a server. Check your settings." = "Failed to connect to a server. Check your settings.";
+"Failed to connect to a server. Check your settings." = "Impossible de se connecter au serveur. Veuillez vérifier vos paramètres.";
 
 /* Item to show favorite notes */
 "Favorites" = "Favoris";
@@ -132,7 +132,7 @@
 "OK" = "Ok";
 
 /* Title for Open In activity */
-"Open In..." = "Ouvrir dans...";
+"Open in…" = "Ouvrir avec...";
 
 /* A menu option for sharing in plain text format */
 "Plain Text" = "Texte brut";
@@ -152,10 +152,10 @@
 "Rename the note" = "Renommer la note";
 
 /* Action to change title of a note */
-"Rename..." = "Renommer...";
+"Rename…" = "Renommer...";
 
 /* A menu option for sharing in rich text format */
-"Rich Text" = "Texte enrichi";
+"Rich Text" = "Texte riche";
 
 /* Placeholder text when no note is selected */
 "Select or create a note." = "Sélectionner ou créer une  note";

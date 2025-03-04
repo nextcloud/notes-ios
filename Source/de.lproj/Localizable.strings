@@ -27,10 +27,10 @@
 "Category" = "Kategorie";
 
 /* Action to change category of a note */
-"Category..." = "Kategorie…";
+"Category…" = "Kategorie…";
 
 /* Action to change category of a note */
-"Change Category..." = "Kategorie ändern…";
+"Change Category…" = "Kategorie ändern…";
 
 /* An error message */
 "Check username and password." = "Benutzername und Passwort prüfen.";
@@ -132,7 +132,7 @@
 "OK" = "Ok";
 
 /* Title for Open In activity */
-"Open In..." = "Öffnen mit…";
+"Open in…" = "Öffnen mit…";
 
 /* A menu option for sharing in plain text format */
 "Plain Text" = "Klartext";
@@ -152,7 +152,7 @@
 "Rename the note" = "Notiz umbenennen";
 
 /* Action to change title of a note */
-"Rename..." = "Umbenennen…";
+"Rename…" = "Umbenennen…";
 
 /* A menu option for sharing in rich text format */
 "Rich Text" = "Rich-Text";
@@ -204,13 +204,13 @@
 "You are now connected to Notes on your server" = "Sie sind jetzt mit Notes auf Ihrem Server verbunden";
 
 /* HUD subtitle when checking server capabilities */
-"Checking server capabilities" = "Server-Fähigkeiten überprüfen";
+"Checking server capabilities" = "Serverfähigkeiten überprüfen";
 
 /* HUD subtitle when checking server settings */
 "Checking server settings" = "Servereinstellungen überprüfen";
 
 /* HUD subtitle when checking server status */
-"Checking server status" = "Server-Status überprüfen";
+"Checking server status" = "Serverstatus überprüfen";
 
 /* No comment provided by engineer. */
 "Connection error" = "Verbindungsfehler";

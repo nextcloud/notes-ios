@@ -1,17 +1,19 @@
-Nextcloud Notes iOS App
-=======================
+<div align="center">
+    <img src="Brand/Custom.xcassets/AppIcon.appiconset/1024.png" alt="App Icon" width="256" height="256" />
+    <h1>Nextcloud Notes for iOS and iPad OS</h1>
+</div>
 
-Nextcloud Notes is an iOS client for the [NextCloud](https://nextcloud.com "NextCloud") [Notes](https://apps.nextcloud.com/apps/notes "Notes") app.
+Nextcloud Notes is a native client for the [Nextcloud](https://nextcloud.com "Nextcloud") [Notes](https://apps.nextcloud.com/apps/notes "Notes") app.
+It allows you to add, edit, and delete your notes on iPhone and iPad.
+Plain Markdown editing and rich text editing is supported.
+Notes can be exported to several formats.
+Notes can be organized in categories.
 
-It allows you to manage (add, edit, or delete) your notes on an iOS device. Markdown editing is supported. Notes can be exported to several formats. With Nextcloud Notes the notes can also be organized in categories.
+## Download on the App Store
 
-App Store download
-==================
-
-[![Available on the AppStore](https://github.com/nextcloud/talk-ios/blob/master/docs/App%20Store/Download_on_the_App_Store_Badge.svg)](https://itunes.apple.com/app/id813973264)
-
+[![Download on the App Store](./README/download-on-the-app-store.svg)](https://itunes.apple.com/app/id813973264)
 
 You can download Nextcloud Notes directly from the [App Store](https://apps.apple.com/app/nextcloud-notes/id813973264).
-If you are seeing this page on a computer, use the camera in your iPhone to scan the QR code below.
+Scan the QR code below to download the app from the App Store.
 
-<img src="./qrcode-app-store.png">
+<img src="./README/qrcode-app-store.png">
