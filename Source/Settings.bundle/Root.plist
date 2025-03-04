@@ -22,7 +22,7 @@
 		</dict>
 		<dict>
 			<key>FooterText</key>
-			<string>© 2025 Nextcloud GmbH</string>
+			<string>© 2014-2022 Peter B. Hedlund, © 2025 Nextcloud GmbH</string>
 			<key>Title</key>
 			<string>About</string>
 			<key>Type</key>
