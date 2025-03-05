@@ -17,3 +17,9 @@ You can download Nextcloud Notes directly from the [App Store](https://apps.appl
 Scan the QR code below to download the app from the App Store.
 
 <img src="./README/qrcode-app-store.png">
+
+
+## Development
+
+This repository comes with a convenience script and example data to use during development and testing.
+For further information, see [Server/README.md](Server/README.md).
