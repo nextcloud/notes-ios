@@ -1,4 +1,4 @@
-# Nextcloud Notes Server
+# Nextcloud Notes Test Server
 
 This is an optional convenience feature of the project to accelerate and simplify development.
 This isolated subdirectory ships:
@@ -19,7 +19,7 @@ Just run the shell script:
 ```
 This will:
 
-- Create a new Nextcloud Docker container named `nextcloud-notes-server` which you can reach on `localhost:8080`. The `admin` user has `admin` as the password.
+- Create a new Nextcloud Docker container named `nextcloud-notes-test-server` which you can reach on `localhost:8080`. The `admin` user has `admin` as the password.
 - Create test users with their languages set to `en` and their password to `password`.
     - `nonotes` with no content.
     - `manynotes` with the content of [Notes](Notes/) directory copied into the container.
@@ -39,7 +39,7 @@ Until then you can start or stop it with Docker Desktop.
 To quickly get rid of the container and delete all its data:
 
 ```sh
-docker rm --force --volumes nextcloud-notes-server
+docker rm --force --volumes nextcloud-notes-test-server
 ```
 
 ### A Lot Of Notes
