@@ -1,0 +1,1 @@
+This note has a "txt" file name extension instead of the expected "md".
