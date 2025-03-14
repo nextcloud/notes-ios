@@ -25,12 +25,11 @@ import UIKit
 import NextcloudKit
 import Alamofire
 
-class NCNetworking: NSObject, NKCommonDelegate {
+final class NCNetworking: NSObject, NextcloudKitDelegate {
     public static let shared: NCNetworking = {
         let instance = NCNetworking()
         return instance
     }()
-
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
     func authenticationChallenge(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {

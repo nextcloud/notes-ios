@@ -12,6 +12,64 @@ import KeychainAccess
 struct KeychainHelper {
     private static let keychain = Keychain(service: "com.peterandlinda.CloudNotes")
 
+    ///
+    /// A computed property to automatically derive the account identifier for the currently only possible account from ``server`` and ``username``.
+    ///
+    static var account: String? {
+        guard let parsedComponents = URLComponents(string: server) else {
+            return nil
+        }
+
+        guard let scheme = parsedComponents.scheme else {
+            return nil
+        }
+
+        guard let host = parsedComponents.host else {
+            return nil
+        }
+
+        var assembledComponents = URLComponents()
+        assembledComponents.scheme = scheme
+        assembledComponents.host = host
+
+        if let port = parsedComponents.port {
+            assembledComponents.port = port
+        }
+
+        guard let baseURL = assembledComponents.url?.absoluteString else {
+            return nil
+        }
+
+        return "\(username) \(baseURL)"
+    }
+
+    static var serverMajorVersion: Int {
+        get {
+            return UserDefaults.standard.integer(forKey: "ServerMajorVersion")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "ServerMajorVersion")
+        }
+    }
+
+    static var serverMinorVersion: Int {
+        get {
+            return UserDefaults.standard.integer(forKey: "ServerMinorVersion")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "ServerMinorVersion")
+        }
+    }
+
+    static var serverMicroVersion: Int {
+        get {
+            return UserDefaults.standard.integer(forKey: "ServerMicroVersion")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "ServerMicroVersion")
+        }
+    }
+
     static var username: String {
         get {
             return keychain["username"] ?? ""
