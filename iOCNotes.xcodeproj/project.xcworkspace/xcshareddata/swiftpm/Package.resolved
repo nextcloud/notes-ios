@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Alamofire/Alamofire",
       "state" : {
-        "revision" : "78424be314842833c04bc3bef5b72e85fff99204",
-        "version" : "5.6.4"
+        "revision" : "513364f870f6bfc468f9d2ff0a95caccc10044c5",
+        "version" : "5.10.2"
       }
     },
     {
@@ -38,21 +38,12 @@
       }
     },
     {
-      "identity" : "mocker",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/WeTransfer/Mocker.git",
-      "state" : {
-        "revision" : "5d86f27a8f80d4ba388bc1a379a3c2289a1f3d18",
-        "version" : "2.6.0"
-      }
-    },
-    {
       "identity" : "nextcloudkit",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/nextcloud/NextcloudKit",
       "state" : {
-        "revision" : "a5bad2b6238ac25b3a59c9e7d91826b4f74c16c3",
-        "version" : "2.7.0"
+        "revision" : "7a59ec3bcafbd88eac010b1da30c29fa7d0e9fb1",
+        "version" : "6.0.4"
       }
     },
     {
@@ -87,8 +78,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SwiftyJSON/SwiftyJSON",
       "state" : {
-        "revision" : "b3dcd7dbd0d488e1a7077cb33b00f2083e382f07",
-        "version" : "5.0.1"
+        "revision" : "af76cf3ef710b6ca5f8c05f3a31307d44a3c5828",
+        "version" : "5.0.2"
       }
     },
     {

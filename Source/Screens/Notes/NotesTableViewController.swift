@@ -363,9 +363,12 @@ class NotesTableViewController: BaseUITableViewController {
     }
 
     func openTextWebView(note: CDNote) {
+        guard let account = KeychainHelper.account else {
+            return
+        }
 
         let notesPath = KeychainHelper.notesPath
-        NextcloudKit.shared.NCTextOpenFile(fileNamePath: notesPath, fileId: String(note.cdId), editor: "text") { account, url, data, error in
+        NextcloudKit.shared.NCTextOpenFile(fileNamePath: notesPath, fileId: String(note.cdId), editor: "text", account: account) { account, url, data, error in
             if error == .success, let url = url, let viewController: NCViewerNextcloudText = UIStoryboard(name: "NCViewerNextcloudText", bundle: nil).instantiateInitialViewController() as? NCViewerNextcloudText {
                 viewController.editor = "text"
                 viewController.link = url

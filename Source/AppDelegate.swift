@@ -13,6 +13,7 @@ import SwiftUI
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    var store = Store.shared
 
     var window: UIWindow?
     var notesTableViewController: NotesTableViewController?
@@ -26,12 +27,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
 
-        let appVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
-        let appName = Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String
-        let userAgent = "Mozilla/5.0 (iOS) \(appName ?? "")/\(appVersion ?? "")"
-
-        NextcloudKit.shared.setup(delegate: NCNetworking.shared)
-        NextcloudKit.shared.setup(userAgent: userAgent)
+        for account in store.accounts {
+            NextcloudKit.shared.appendSession(
+                account: account.id,
+                urlBase: account.baseURL,
+                user: account.userId,
+                userId: account.userId,
+                password: account.password,
+                userAgent: userAgent,
+                nextcloudVersion: account.serverVersion.major,
+                groupIdentifier: NCBrandOptions.shared.capabilitiesGroup
+            )
+        }
 
         _ = BGTaskScheduler.shared.register(forTaskWithIdentifier: "com.peterandlinda.iOCNotes.Sync", using: nil) { task in
             if let task = task as? BGAppRefreshTask {

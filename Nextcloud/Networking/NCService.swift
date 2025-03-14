@@ -36,50 +36,78 @@ class NCService: NSObject {
     // MARK: -
 
     @objc public func startRequestServicesServer(completion: @escaping () -> Void) {
+        NextcloudKit.shared.setup()
 
-        guard !KeychainHelper.server.isEmpty,
-              !KeychainHelper.username.isEmpty,
-              !KeychainHelper.password.isEmpty,
-              let server = URL(string: KeychainHelper.server),
-              let scheme = server.scheme,
-              let host = server.host
-        else { return }
+        for account in Store.shared.accounts {
+            NextcloudKit.shared.appendSession(
+                account: account.id,
+                urlBase: account.baseURL,
+                user: account.userId,
+                userId: account.userId,
+                password: account.password,
+                userAgent: userAgent,
+                nextcloudVersion: account.serverVersion.major,
+                groupIdentifier: NCBrandOptions.shared.capabilitiesGroup
+            )
 
-        var urlBase = scheme + "://" + host
-
-        if let port = server.port {
-            urlBase = "\(urlBase):\(port)"
+            requestServerCapabilities(account: account.id, completion: completion)
         }
-
-        let user = KeychainHelper.username
-        let password = KeychainHelper.password
-        let account: String = "\(user) \(urlBase)"
-
-        settingAccount(account, urlBase: urlBase, user: user, userId: user, password: password)
-        requestServerCapabilities(completion: completion)
     }
 
-    private func settingAccount(_ account: String, urlBase: String, user: String, userId: String, password: String) {
+    private func requestServerCapabilities(account: String, completion: @escaping () -> Void) {
+        let capabilitiesDirectEditingSupportsFileId = [
+            "ocs",
+            "data",
+            "capabilities",
+            "files",
+            "directEditing",
+            "supportsFileId"
+        ]
 
-        NextcloudKit.shared.setup(account: account, user: user, userId: userId, password: password, urlBase: urlBase)
-    }
+        let capabilitiesDirectEditing = [
+            "ocs",
+            "data",
+            "capabilities",
+            "richdocuments",
+            "direct_editing"
+        ]
 
-    private func requestServerCapabilities(completion: @escaping () -> Void) {
+        let capabilitiesNotesVersion = [
+            "ocs",
+            "data",
+            "capabilities",
+            "notes",
+            "version"
+        ]
 
-        let capabilitiesDirectEditingSupportsFileId: Array = ["ocs", "data", "capabilities", "files", "directEditing", "supportsFileId"]
-        let capabilitiesDirectEditing: Array = ["ocs", "data", "capabilities", "richdocuments", "direct_editing"]
-        let capabilitiesNotesVersion: Array = ["ocs", "data", "capabilities", "notes", "version"]
-        let capabilitiesNotesApiVersion: Array = ["ocs", "data", "capabilities", "notes", "api_version"]
+        let capabilitiesNotesApiVersion = [
+            "ocs",
+            "data",
+            "capabilities",
+            "notes",
+            "api_version"
+        ]
 
-        NextcloudKit.shared.getCapabilities { account, data, error in
-            if error == .success, let data = data {
-                data.printJson()
+        let serverVersion = [
+            "ocs",
+            "data",
+            "version",
+        ]
+
+        NextcloudKit.shared.getCapabilities(account: account) { _, data, error in
+            if error == .success, let data = data?.data {
                 let jsonCapabilities = JSON(data)
                 KeychainHelper.directEditing = jsonCapabilities[capabilitiesDirectEditing].boolValue
                 KeychainHelper.directEditingSupportsFileId = jsonCapabilities[capabilitiesDirectEditingSupportsFileId].boolValue
                 KeychainHelper.notesVersion = jsonCapabilities[capabilitiesNotesVersion].stringValue
                 KeychainHelper.notesApiVersion = jsonCapabilities[capabilitiesNotesApiVersion].array?.last?.string ?? ""
+                KeychainHelper.serverMajorVersion = jsonCapabilities[serverVersion]["major"].int ?? 0
+                KeychainHelper.serverMinorVersion = jsonCapabilities[serverVersion]["minor"].int ?? 0
+                KeychainHelper.serverMicroVersion = jsonCapabilities[serverVersion]["micro"].int ?? 0
             }
+
+            NextcloudKit.shared.updateSession(account: account, nextcloudVersion: KeychainHelper.serverMajorVersion)
+
             completion()
         }
     }
