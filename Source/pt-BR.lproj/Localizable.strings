@@ -2,7 +2,7 @@
 "<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Por favor, forneça o máximo de detalhes possível sobre o que você estava fazendo quando o incidente ocorreu .>";
 
 /* Support email body placeholder */
-"<Please state your question or problem here>" = "Please state your question or problem here";
+"<Please state your question or problem here>" = "Por favor, informe sua pergunta ou problema aqui";
 
 /* An error message */
 "A server installation could not be found. Check the server address." = "Não foi possível encontrar uma instalação de servidor. Verifique o endereço do servidor.";
@@ -11,7 +11,7 @@
 "Acknowledgements" = "Reconhecimentos";
 
 /* Title of alert for adding a category */
-"Add Category" = "Add category";
+"Add Category" = "Adicionar categoria";
 
 /* Item to show all notes */
 "All" = "Todos";
@@ -27,10 +27,10 @@
 "Category" = "Categoria";
 
 /* Action to change category of a note */
-"Category…" = "Category…";
+"Category…" = "Categoria…";
 
 /* Action to change category of a note */
-"Change Category…" = "Change category…";
+"Change Category…" = "Mudar a categoria…";
 
 /* An error message */
 "Check username and password." = "Verifique o nome de usuário e a senha.";
@@ -57,34 +57,34 @@
 "Connection failure" = "Falha na conexão";
 
 /* Alert view title */
-"Crash Detected" = "Crash detected";
+"Crash Detected" = "Falha detectada";
 
 /* Action to delete a note */
 "Delete" = "Excluir";
 
 /* A menu action */
-"Delete Note" = "Delete cote";
+"Delete Note" = "Excluir anotação";
 
 /* Prompt on alert for adding a category */
 "Enter a name for the new category" = "Insira um nome para a nova categoria";
 
 /* The title of an error message */
-"Error Adding Note" = "Error adding note";
+"Error Adding Note" = "Erro ao adicionar anotação";
 
 /* The title of an error message */
-"Error Deleting Note" = "Error deleting note";
+"Error Deleting Note" = "Erro ao excluir anotação";
 
 /* The title of an error message */
-"Error Getting Note" = "Error getting note";
+"Error Getting Note" = "Erro ao obter anotação";
 
 /* The title of an error message */
-"Error Syncing Notes" = "Error syncing notes";
+"Error Syncing Notes" = "Erro ao sincronizar anotações";
 
 /* The title of an error message */
-"Error Updating Note" = "Error updating note";
+"Error Updating Note" = "Erro ao atualizar anotação";
 
 /* The title of an error message */
-"Error Updating Notes" = "Error updating notes";
+"Error Updating Notes" = "Erro ao atualizar anotações";
 
 /* An error message */
 "Failed to connect to a server. Check your settings." = "Falha ao conectar a um servidor. Verifique suas configurações.";
@@ -96,7 +96,7 @@
 "HTML" = "HTML";
 
 /* A status label indicating that the user is logged in */
-"Logged In" = "Logged in";
+"Logged In" = "Sessão iniciada";
 
 /* Header title, main */
 "MAIN" = "PRINCIPAL";
@@ -120,7 +120,7 @@
 "Not logged in" = "Sessão não iniciada";
 
 /* Title of alert to change title */
-"Note Title" = "Note title";
+"Note Title" = "Título da anotação";
 
 /* An error message */
 "Notes could not be found on your server. Make sure it is installed and enabled" = "O Anotações não pôde ser encontrado no seu servidor. Certifique-se de que ele esteja instalado e habilitado";
@@ -135,7 +135,7 @@
 "Open in…" = "Abra em...";
 
 /* A menu option for sharing in plain text format */
-"Plain Text" = "Plain text";
+"Plain Text" = "Texto puro";
 
 /* A message
    A message to check network connection */
@@ -152,10 +152,10 @@
 "Rename the note" = "Renomear a anotação";
 
 /* Action to change title of a note */
-"Rename…" = "Rename…";
+"Rename…" = "Renomear…";
 
 /* A menu option for sharing in rich text format */
-"Rich Text" = "Rich text";
+"Rich Text" = "Texto rich";
 
 /* Placeholder text when no note is selected */
 "Select or create a note." = "Selecione ou crie uma anotação.";
@@ -167,10 +167,10 @@
 "Server not found" = "Servidor não encontrado";
 
 /* A message title */
-"Server Reachable" = "Server reachable";
+"Server Reachable" = "Servidor acessível";
 
 /* Title of a menu with sharing options */
-"Share Note As" = "Share note as";
+"Share Note As" = "Compartilhar anotação como";
 
 /* A message title */
 "Success" = "Finalizado";
@@ -186,7 +186,7 @@
 
 /* A message title
    The title of an error message */
-"Unable to Reach Server" = "Unable to reach server";
+"Unable to Reach Server" = "Não é possível acessar o servidor";
 
 /* An error message title */
 "Unauthorized" = "Não autorizado";
@@ -228,7 +228,7 @@
 "No" = "Não";
 
 /* Title of alert to change notes folder */
-"Notes Folder" = "Notes folder";
+"Notes Folder" = "Pasta de anotações";
 
 /* A menu option for sharing in pdf format */
 "PDF" = "PDF";
@@ -240,7 +240,7 @@
 "The certificate for this server is invalid" = "O certificado deste servidor é inválido";
 
 /* No comment provided by engineer. */
-"View Certificate" = "View certificate";
+"View Certificate" = "Ver certificado";
 
 /* No comment provided by engineer. */
 "Yes" = "Sim";
