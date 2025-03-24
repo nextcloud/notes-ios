@@ -17,7 +17,7 @@
 "A4w-6q-Hcy.text" = "Nome do usuário";
 
 /* Class = "UILabel"; text = "Allow Untrusted SSL Certificate"; ObjectID = "AKl-Ep-y3W"; */
-"AKl-Ep-y3W.text" = "Allow untrusted SSL certificate";
+"AKl-Ep-y3W.text" = "Permitir certificados SSL não confiável";
 
 /* Class = "UILabel"; text = "Offline Mode"; ObjectID = "B8W-f5-T18"; */
 "B8W-f5-T18.text" = "Modo offline";
