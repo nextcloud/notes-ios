@@ -146,7 +146,7 @@
 
 /* Action to change title of a note
    Caption of Rename button */
-"Rename" = "Rename";
+"Rename" = "Pārdēvēt";
 
 /* Message of alert to change title */
 "Rename the note" = "Rename the note";
