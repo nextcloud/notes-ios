@@ -1,5 +1,5 @@
 /* Class = "UILabel"; text = "Notes"; ObjectID = "1jH-jZ-oMs"; */
-"1jH-jZ-oMs.text" = "Notes";
+"1jH-jZ-oMs.text" = "Notennoù";
 
 /* Class = "UILabel"; text = "Markdown (.md)"; ObjectID = "51F-pD-XNv"; */
 "51F-pD-XNv.text" = "Markdown (.md)";
@@ -8,7 +8,7 @@
 "69R-CL-ITG.placeholder" = "Server password";
 
 /* Class = "UILabel"; text = "Web Site"; ObjectID = "6So-Rg-NhZ"; */
-"6So-Rg-NhZ.text" = "Website";
+"6So-Rg-NhZ.text" = "Lec'hienn web";
 
 /* Class = "UITableViewController"; title = "File Extension"; ObjectID = "7HO-9G-Wem"; */
 "7HO-9G-Wem.title" = "File extension";
