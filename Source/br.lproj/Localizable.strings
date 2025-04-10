@@ -18,7 +18,7 @@
 
 /* A menu action
    A menu option for cancelling */
-"Cancel" = "Arrest";
+"Cancel" = "Nullañ";
 
 /* Header title, categories */
 "CATEGORIES" = "CATEGORIES";
@@ -60,7 +60,7 @@
 "Crash Detected" = "Crash detected";
 
 /* Action to delete a note */
-"Delete" = "Delete";
+"Delete" = "Dilemel";
 
 /* A menu action */
 "Delete Note" = "Delete cote";
