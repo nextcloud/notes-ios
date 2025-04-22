@@ -11,7 +11,7 @@
 "6So-Rg-NhZ.text" = "Veebileht";
 
 /* Class = "UITableViewController"; title = "File Extension"; ObjectID = "7HO-9G-Wem"; */
-"7HO-9G-Wem.title" = "File extension";
+"7HO-9G-Wem.title" = "Faililaiend";
 
 /* Class = "UILabel"; text = "Username"; ObjectID = "A4w-6q-Hcy"; */
 "A4w-6q-Hcy.text" = "Username";
@@ -65,7 +65,7 @@
 "hYn-5e-22n.placeholder" = "https://example.com/nextcloud";
 
 /* Class = "UINavigationItem"; title = "File Extension"; ObjectID = "J4w-vK-nRA"; */
-"J4w-vK-nRA.title" = "File extension";
+"J4w-vK-nRA.title" = "Faililaiend";
 
 /* Class = "UITextField"; placeholder = "Server Username"; ObjectID = "KPV-Zj-4Ps"; */
 "KPV-Zj-4Ps.placeholder" = "Server username";
@@ -74,7 +74,7 @@
 "ltN-gF-yom.text" = "Notes folder";
 
 /* Class = "UILabel"; text = "File Extension"; ObjectID = "Pvp-6i-NLV"; */
-"Pvp-6i-NLV.text" = "File extension";
+"Pvp-6i-NLV.text" = "Faililaiend";
 
 /* Class = "UILabel"; text = "Connect"; ObjectID = "qxi-YY-hPn"; */
 "qxi-YY-hPn.text" = "Connect";

@@ -192,7 +192,7 @@
 "Unauthorized" = "Unauthorized";
 
 /* Text displayed for notes not assigned to a category */
-"Uncategorized" = "Uncategorized";
+"Uncategorized" = "Kategooria on märkimata";
 
 /* Message with Notes version, product name and version */
 "Using Notes %@on %@ %@." = "Using Notes %@on %@ %@.";
