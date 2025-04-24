@@ -5,25 +5,25 @@
 "51F-pD-XNv.text" = "Markdown (.md)";
 
 /* Class = "UITextField"; placeholder = "Server Password"; ObjectID = "69R-CL-ITG"; */
-"69R-CL-ITG.placeholder" = "Server password";
+"69R-CL-ITG.placeholder" = "Serveri salasõna";
 
 /* Class = "UILabel"; text = "Web Site"; ObjectID = "6So-Rg-NhZ"; */
-"6So-Rg-NhZ.text" = "Veebileht";
+"6So-Rg-NhZ.text" = "Veebisait";
 
 /* Class = "UITableViewController"; title = "File Extension"; ObjectID = "7HO-9G-Wem"; */
 "7HO-9G-Wem.title" = "Faililaiend";
 
 /* Class = "UILabel"; text = "Username"; ObjectID = "A4w-6q-Hcy"; */
-"A4w-6q-Hcy.text" = "Username";
+"A4w-6q-Hcy.text" = "Kasutajanimi";
 
 /* Class = "UILabel"; text = "Allow Untrusted SSL Certificate"; ObjectID = "AKl-Ep-y3W"; */
-"AKl-Ep-y3W.text" = "Allow untrusted SSL certificate";
+"AKl-Ep-y3W.text" = "Luba mitteusaldusväärsete SSL-sertifikaatide kasutamist";
 
 /* Class = "UILabel"; text = "Offline Mode"; ObjectID = "B8W-f5-T18"; */
-"B8W-f5-T18.text" = "Offline mode";
+"B8W-f5-T18.text" = "Vallasrežiim";
 
 /* Class = "UILabel"; text = "Password"; ObjectID = "CrO-Ue-LFh"; */
-"CrO-Ue-LFh.text" = "Parool";
+"CrO-Ue-LFh.text" = "Salasõna";
 
 /* Class = "UIButton"; configuration.title = "Log In"; ObjectID = "dUo-KO-48Z"; */
 "dUo-KO-48Z.configuration.title" = "Logi sisse";
@@ -32,76 +32,76 @@
 "dUo-KO-48Z.normalTitle" = "Logi sisse";
 
 /* Class = "UITableViewSection"; headerTitle = "SUPPORT"; ObjectID = "ENv-ON-tbr"; */
-"ENv-ON-tbr.headerTitle" = "SUPPORT";
+"ENv-ON-tbr.headerTitle" = "KASUTAJATUGI";
 
 /* Class = "UIBarButtonItem"; title = "Close"; ObjectID = "fbP-uw-RUF"; */
-"fbP-uw-RUF.title" = "Close";
+"fbP-uw-RUF.title" = "Sulge";
 
 /* Class = "UITextField"; placeholder = "https://example.com/cloud"; ObjectID = "fKh-As-T79"; */
-"fKh-As-T79.placeholder" = "https://example.com/cloud";
+"fKh-As-T79.placeholder" = "https://saidinimi.com/cloud";
 
 /* Class = "UINavigationItem"; title = "Login"; ObjectID = "FvN-vM-GK3"; */
-"FvN-vM-GK3.title" = "Login";
+"FvN-vM-GK3.title" = "Logi sisse";
 
 /* Class = "UITableViewSection"; footerTitle = " "; ObjectID = "FVp-Pj-Gyn"; */
 "FVp-Pj-Gyn.footerTitle" = " ";
 
 /* Class = "UILabel"; text = "Contact"; ObjectID = "fwh-Xy-h5M"; */
-"fwh-Xy-h5M.text" = "Contact";
+"fwh-Xy-h5M.text" = "Kontakt";
 
 /* Class = "UITableViewSection"; footerTitle = "     "; ObjectID = "gZE-6O-8CL"; */
 "gZE-6O-8CL.footerTitle" = "     ";
 
 /* Class = "UITableViewSection"; headerTitle = "SYNCING"; ObjectID = "gZE-6O-8CL"; */
-"gZE-6O-8CL.headerTitle" = "SYNCING";
+"gZE-6O-8CL.headerTitle" = "SÜNKRONISEERIN";
 
 /* Class = "UILabel"; text = "URL"; ObjectID = "GZX-DC-7iv"; */
-"GZX-DC-7iv.text" = "Url";
+"GZX-DC-7iv.text" = "Võrguaadress";
 
 /* Class = "UILabel"; text = "Sync on Start"; ObjectID = "hVU-Ed-KYm"; */
-"hVU-Ed-KYm.text" = "Sync on start";
+"hVU-Ed-KYm.text" = "Sünkroniseeri käivitamisel";
 
 /* Class = "UITextField"; placeholder = "https://example.com/nextcloud"; ObjectID = "hYn-5e-22n"; */
-"hYn-5e-22n.placeholder" = "https://example.com/nextcloud";
+"hYn-5e-22n.placeholder" = "https://saidinimi.com/cloud";
 
 /* Class = "UINavigationItem"; title = "File Extension"; ObjectID = "J4w-vK-nRA"; */
 "J4w-vK-nRA.title" = "Faililaiend";
 
 /* Class = "UITextField"; placeholder = "Server Username"; ObjectID = "KPV-Zj-4Ps"; */
-"KPV-Zj-4Ps.placeholder" = "Server username";
+"KPV-Zj-4Ps.placeholder" = "Kasutajanimi serveris";
 
 /* Class = "UILabel"; text = "Notes Folder"; ObjectID = "ltN-gF-yom"; */
-"ltN-gF-yom.text" = "Notes folder";
+"ltN-gF-yom.text" = "Märkmete kaust";
 
 /* Class = "UILabel"; text = "File Extension"; ObjectID = "Pvp-6i-NLV"; */
 "Pvp-6i-NLV.text" = "Faililaiend";
 
 /* Class = "UILabel"; text = "Connect"; ObjectID = "qxi-YY-hPn"; */
-"qxi-YY-hPn.text" = "Connect";
+"qxi-YY-hPn.text" = "Ühenda";
 
 /* Class = "UITableViewSection"; headerTitle = "Extension"; ObjectID = "Rfx-NI-FZ4"; */
-"Rfx-NI-FZ4.headerTitle" = "Extension";
+"Rfx-NI-FZ4.headerTitle" = "Laiend";
 
 /* Class = "UITableViewSection"; footerTitle = "These settings only affect how notes are managed on the server. NextcloudNotes does not handle any files."; ObjectID = "RvH-hn-Sfv"; */
-"RvH-hn-Sfv.footerTitle" = "These settings only affect how notes are managed on the server. NextcloudNotes does not handle any files.";
+"RvH-hn-Sfv.footerTitle" = "Need seadistused määravad ainult seda, kuidas märkmeid serveris hallatakse. NextcloudNotes ei toimi failihaldurina.";
 
 /* Class = "UITableViewSection"; headerTitle = "SERVER SETTINGS"; ObjectID = "RvH-hn-Sfv"; */
-"RvH-hn-Sfv.headerTitle" = "SERVER SETTINGS";
+"RvH-hn-Sfv.headerTitle" = "SERVERI SEADISTUSED";
 
 /* Class = "UITextView"; text = ""; ObjectID = "smL-9H-BiT"; */
 "smL-9H-BiT.text" = "";
 
 /* Class = "UITableViewSection"; footerTitle = "Not logged in"; ObjectID = "Svh-OV-bUr"; */
-"Svh-OV-bUr.footerTitle" = "Not logged in";
+"Svh-OV-bUr.footerTitle" = "Pole sisse logitud";
 
 /* Class = "UITableViewSection"; headerTitle = "SERVER"; ObjectID = "Svh-OV-bUr"; */
 "Svh-OV-bUr.headerTitle" = "SERVER";
 
 /* Class = "UILabel"; text = "Plain Text (.txt)"; ObjectID = "SyJ-AC-m5H"; */
-"SyJ-AC-m5H.text" = "Plain text (.txt)";
+"SyJ-AC-m5H.text" = "Vormindamata tekst (.txt)";
 
 /* Class = "UILabel"; text = "Plain Text (.txt)"; ObjectID = "uVd-ib-jy0"; */
-"uVd-ib-jy0.text" = "Plain text (.txt)";
+"uVd-ib-jy0.text" = "Vormindamata tekst (.txt)";
 
 /* Class = "UITableViewSection"; footerTitle = " "; ObjectID = "Uwy-jB-bpa"; */
 "Uwy-jB-bpa.footerTitle" = " ";
@@ -110,10 +110,10 @@
 "Uwy-jB-bpa.headerTitle" = "Server";
 
 /* Class = "UINavigationItem"; title = "Settings"; ObjectID = "waZ-N6-59b"; */
-"waZ-N6-59b.title" = "Settings";
+"waZ-N6-59b.title" = "Seadistused";
 
 /* Class = "UINavigationItem"; title = "Login Information"; ObjectID = "ZPa-hv-oSb"; */
-"ZPa-hv-oSb.title" = "Login information";
+"ZPa-hv-oSb.title" = "Sisselogimise teave";
 
 /* Class = "UILabel"; text = "Sync on Start"; ObjectID = "9Dd-Vq-hcz"; */
-"9Dd-Vq-hcz.text" = "Internal editor";
+"9Dd-Vq-hcz.text" = "Sisemine toimeti";
