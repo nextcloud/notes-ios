@@ -1,14 +1,10 @@
-//
-//  Notes.swift
-//  iOCNotes
-//
-//  Created by Milen Pivchev on 21.08.24.
-//  Copyright © 2024 Milen Pivchev. All rights reserved.
-//
+// SPDX-FileCopyrightText: Nextcloud GmbH
+// SPDX-FileCopyrightText: 2025 Iva Horn
+// SPDX-License-Identifier: GPL-3.0-or-later
 
 import SwiftUI
 
-struct NotesScreen: View {
+struct NotesView: View {
     @State private var addNote = false
 
     var body: some View {
@@ -29,5 +25,5 @@ struct NotesScreen: View {
 }
 
 #Preview {
-    NotesScreen()
+    NotesView()
 }
