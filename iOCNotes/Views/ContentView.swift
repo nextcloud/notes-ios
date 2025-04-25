@@ -8,7 +8,7 @@ struct ContentView: View {
     var body: some View {
         TabView {
             NavigationStack {
-                NotesScreen()
+                NotesView()
             }
             .tabItem {
                 Label(
