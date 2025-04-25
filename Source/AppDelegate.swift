@@ -87,7 +87,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UITextView.appearance().tintColor = .ph_selectedTextColor
         
-        let contentView = Root()
+        let contentView = ContentView()
         
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.rootViewController = UIHostingController(rootView: contentView)
