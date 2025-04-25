@@ -71,7 +71,6 @@
 		D0E60F71277FADD6009CF78F /* CheckBoxTapHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E60F52277FADD5009CF78F /* CheckBoxTapHandler.swift */; };
 		D0E60F74277FADD6009CF78F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E60F55277FADD5009CF78F /* Extensions.swift */; };
 		D0E60F76277FB0A5009CF78F /* Themes.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D0E60F75277FB0A5009CF78F /* Themes.bundle */; };
-		F313E2382C959CFE0065F109 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F313E2372C959CFE0065F109 /* SettingsScreen.swift */; };
 		F32A39462C99A40D008EE8DC /* iOCNotes.plist in Resources */ = {isa = PBXBuildFile; fileRef = F32A39452C99A40D008EE8DC /* iOCNotes.plist */; };
 		F389ABFF2C9C40210056C059 /* Custom.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F389ABFE2C9C40210056C059 /* Custom.xcassets */; };
 		F3E3C8D92C6B7C2200A80504 /* NCBrand.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E3C8D82C6B7C2200A80504 /* NCBrand.swift */; };
@@ -238,7 +237,6 @@
 		D0E60F52277FADD5009CF78F /* CheckBoxTapHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoxTapHandler.swift; sourceTree = "<group>"; };
 		D0E60F55277FADD5009CF78F /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D0E60F75277FB0A5009CF78F /* Themes.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Themes.bundle; sourceTree = "<group>"; };
-		F313E2372C959CFE0065F109 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 		F32A39442C99A40D008EE8DC /* iOCNotes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOCNotes.entitlements; sourceTree = "<group>"; };
 		F32A39452C99A40D008EE8DC /* iOCNotes.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = iOCNotes.plist; sourceTree = "<group>"; };
 		F389ABFE2C9C40210056C059 /* Custom.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Custom.xcassets; sourceTree = "<group>"; };
@@ -484,7 +482,6 @@
 				D0BCFE632454BF0B007C4CA3 /* Settings.storyboard */,
 				D004DB82239759020080A7D1 /* SettingsSceneDelegate.swift */,
 				D06882EB22BACDA300CEBC1F /* SettingsTableViewController.swift */,
-				F313E2372C959CFE0065F109 /* SettingsScreen.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -834,7 +831,6 @@
 				BD86DD8522B9CDD500115E5D /* KeychainHelper.swift in Sources */,
 				F3F7345B2C6FAD80007C8C0B /* BaseUIVIewController.swift in Sources */,
 				D08713ED1D18DA40001EAF82 /* HeaderTextView.swift in Sources */,
-				F313E2382C959CFE0065F109 /* SettingsScreen.swift in Sources */,
 				D0E60F5A277FADD5009CF78F /* UniversalTypes.swift in Sources */,
 				D0E60F28277801F8009CF78F /* PreviewWebView.swift in Sources */,
 				D03493B922F3CC5700E1A9B0 /* CategoryTableViewController.swift in Sources */,

@@ -22,7 +22,7 @@ struct ContentView: View {
             }
 
             NavigationStack {
-                SettingsScreen()
+                SettingsView()
             }
             .tabItem {
                 Label(
