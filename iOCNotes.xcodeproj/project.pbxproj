@@ -75,7 +75,6 @@
 		F32A39462C99A40D008EE8DC /* iOCNotes.plist in Resources */ = {isa = PBXBuildFile; fileRef = F32A39452C99A40D008EE8DC /* iOCNotes.plist */; };
 		F36ED29C2C762C3700EC29B0 /* NotesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36ED29B2C762C3700EC29B0 /* NotesScreen.swift */; };
 		F389ABFF2C9C40210056C059 /* Custom.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F389ABFE2C9C40210056C059 /* Custom.xcassets */; };
-		F3E3C8D52C6A60CF00A80504 /* Root.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E3C8D42C6A60CF00A80504 /* Root.swift */; };
 		F3E3C8D92C6B7C2200A80504 /* NCBrand.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E3C8D82C6B7C2200A80504 /* NCBrand.swift */; };
 		F3E3C8DC2C6B7DA600A80504 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E3C8DB2C6B7DA600A80504 /* UIColor+Extension.swift */; };
 		F3F7344E2C6FA550007C8C0B /* CDNote+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F734472C6FA550007C8C0B /* CDNote+CoreDataClass.swift */; };
@@ -244,7 +243,6 @@
 		F32A39452C99A40D008EE8DC /* iOCNotes.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = iOCNotes.plist; sourceTree = "<group>"; };
 		F36ED29B2C762C3700EC29B0 /* NotesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesScreen.swift; sourceTree = "<group>"; };
 		F389ABFE2C9C40210056C059 /* Custom.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Custom.xcassets; sourceTree = "<group>"; };
-		F3E3C8D42C6A60CF00A80504 /* Root.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Root.swift; sourceTree = "<group>"; };
 		F3E3C8D82C6B7C2200A80504 /* NCBrand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NCBrand.swift; sourceTree = "<group>"; };
 		F3E3C8DB2C6B7DA600A80504 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		F3F734472C6FA550007C8C0B /* CDNote+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDNote+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -489,14 +487,6 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
-		F3E3C8D32C6A60C100A80504 /* Root */ = {
-			isa = PBXGroup;
-			children = (
-				F3E3C8D42C6A60CF00A80504 /* Root.swift */,
-			);
-			path = Root;
-			sourceTree = "<group>";
-		};
 		F3E3C8D72C6B7BF800A80504 /* Brand */ = {
 			isa = PBXGroup;
 			children = (
@@ -546,7 +536,6 @@
 				F313E2362C959B800065F109 /* Settings */,
 				F3F734592C6FAD70007C8C0B /* Base */,
 				F3F734542C6FA75A007C8C0B /* Notes */,
-				F3E3C8D32C6A60C100A80504 /* Root */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -800,7 +789,6 @@
 				D0B6D4AE22F91DDA0037E073 /* CollapsibleTableViewHeaderView.swift in Sources */,
 				BD92271B22CD3743004E2408 /* UtilityExtensions.swift in Sources */,
 				D0E60F71277FADD6009CF78F /* CheckBoxTapHandler.swift in Sources */,
-				F3E3C8D52C6A60CF00A80504 /* Root.swift in Sources */,
 				D0E60F5F277FADD5009CF78F /* Element.swift in Sources */,
 				D0C1C39F2462448D00AAC4A8 /* SyncOperation.swift in Sources */,
 				D0E60F74277FADD6009CF78F /* Extensions.swift in Sources */,
