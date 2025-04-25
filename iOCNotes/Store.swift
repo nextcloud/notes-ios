@@ -15,15 +15,15 @@ final class Store: Storing {
         // This API already decouples calling code from the underlying persistence.
         // Support for multiple accounts then will only be a matter of refactoring the data layer and having a migration for it.
 
-        guard KeychainHelper.username != "" else {
+        guard KeychainHelper.username.isEmpty == false else {
             return []
         }
 
-        guard KeychainHelper.password != "" else {
+        guard KeychainHelper.password.isEmpty == false else {
             return []
         }
 
-        guard KeychainHelper.server != "" else {
+        guard KeychainHelper.server.isEmpty == false else {
             return []
         }
 
