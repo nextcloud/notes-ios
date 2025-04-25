@@ -1,5 +1,4 @@
 {
-  "originHash" : "cd425e1a0e8e0582ca90df8aff7cddb31da87c1ae8db0bfa57956f5f52b39a27",
   "pins" : [
     {
       "identity" : "alamofire",
@@ -17,6 +16,15 @@
       "state" : {
         "branch" : "master",
         "revision" : "beb054b1f802d7aa6dad01a82df4a4ab81dda97f"
+      }
+    },
+    {
+      "identity" : "codescanner",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/twostraws/CodeScanner",
+      "state" : {
+        "revision" : "5e886430238944c7200fc9e10dbf2d9550dba865",
+        "version" : "2.5.2"
       }
     },
     {
@@ -38,12 +46,12 @@
       }
     },
     {
-      "identity" : "nextcloudkit",
+      "identity" : "mocker",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/nextcloud/NextcloudKit",
+      "location" : "https://github.com/WeTransfer/Mocker.git",
       "state" : {
-        "revision" : "7a59ec3bcafbd88eac010b1da30c29fa7d0e9fb1",
-        "version" : "6.0.4"
+        "revision" : "95fa785c751f6bc40c49e112d433c3acf8417a97",
+        "version" : "3.0.2"
       }
     },
     {
@@ -101,5 +109,5 @@
       }
     }
   ],
-  "version" : 3
+  "version" : 2
 }

@@ -121,6 +121,7 @@
 
 /* Begin PBXFileReference section */
 		AA360F442D71E6EF00BDC831 /* iOCNotes.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = iOCNotes.xcconfig; sourceTree = "<group>"; };
+		AA592A6E2DBBBA3B003A3057 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		AABD0BF82D5E08B500F009E6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BD653F87231C43FA00D59A88 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BD86DD8422B9CDD500115E5D /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
@@ -263,6 +264,7 @@
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		AA4C16BF2D8332C1006AFE8C /* iOCNotes */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = iOCNotes; sourceTree = "<group>"; };
+		AA592A6F2DBBBB04003A3057 /* .github */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = .github; sourceTree = "<group>"; };
 		AA62DF642D5DFC48009E8894 /* .tx */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = .tx; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
@@ -345,6 +347,8 @@
 			isa = PBXGroup;
 			children = (
 				AA360F442D71E6EF00BDC831 /* iOCNotes.xcconfig */,
+				AA592A6F2DBBBB04003A3057 /* .github */,
+				AA592A6E2DBBBA3B003A3057 /* .swiftlint.yml */,
 				AA62DF642D5DFC48009E8894 /* .tx */,
 				AABD0BF82D5E08B500F009E6 /* README.md */,
 				F3E3C8D72C6B7BF800A80504 /* Brand */,
@@ -634,6 +638,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D0CFE5681888A7BD00165839 /* Build configuration list for PBXNativeTarget "iOCNotes" */;
 			buildPhases = (
+				AA592A6D2DBBB97B003A3057 /* SwiftLint */,
 				D0CFE52F1888A7BD00165839 /* Sources */,
 				D0CFE5301888A7BD00165839 /* Frameworks */,
 				D0CFE5311888A7BD00165839 /* Resources */,
@@ -750,6 +755,29 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AA592A6D2DBBB97B003A3057 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/zsh;
+			shellScript = "# https://github.com/realm/SwiftLint?tab=readme-ov-file#consideration-for-apple-silicon\n\nif [[ \"$(uname -m)\" == arm64 ]]\nthen\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif command -v swiftlint >/dev/null 2>&1\nthen\n    swiftlint\nelse\n    echo \"warning: `swiftlint` command not found - See https://github.com/realm/SwiftLint#installation for installation instructions.\"\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D0AB0E742470B74D00D3E6B6 /* Sources */ = {
