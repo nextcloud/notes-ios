@@ -1,5 +1,5 @@
 /* Class = "UILabel"; text = "Notes"; ObjectID = "1jH-jZ-oMs"; */
-"1jH-jZ-oMs.text" = "Notes";
+"1jH-jZ-oMs.text" = "Eslatmalar";
 
 /* Class = "UILabel"; text = "Markdown (.md)"; ObjectID = "51F-pD-XNv"; */
 "51F-pD-XNv.text" = "Markdown (.md)";
@@ -14,7 +14,7 @@
 "7HO-9G-Wem.title" = "File extension";
 
 /* Class = "UILabel"; text = "Username"; ObjectID = "A4w-6q-Hcy"; */
-"A4w-6q-Hcy.text" = "Username";
+"A4w-6q-Hcy.text" = "Foydalanuvchi nomi";
 
 /* Class = "UILabel"; text = "Allow Untrusted SSL Certificate"; ObjectID = "AKl-Ep-y3W"; */
 "AKl-Ep-y3W.text" = "Allow untrusted SSL certificate";
@@ -23,7 +23,7 @@
 "B8W-f5-T18.text" = "Offline mode";
 
 /* Class = "UILabel"; text = "Password"; ObjectID = "CrO-Ue-LFh"; */
-"CrO-Ue-LFh.text" = "Password";
+"CrO-Ue-LFh.text" = "Parol";
 
 /* Class = "UIButton"; configuration.title = "Log In"; ObjectID = "dUo-KO-48Z"; */
 "dUo-KO-48Z.configuration.title" = "Log in";
@@ -110,7 +110,7 @@
 "Uwy-jB-bpa.headerTitle" = "Server";
 
 /* Class = "UINavigationItem"; title = "Settings"; ObjectID = "waZ-N6-59b"; */
-"waZ-N6-59b.title" = "Settings";
+"waZ-N6-59b.title" = "Sozlamalar";
 
 /* Class = "UINavigationItem"; title = "Login Information"; ObjectID = "ZPa-hv-oSb"; */
 "ZPa-hv-oSb.title" = "Login information";

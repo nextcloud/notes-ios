@@ -11,7 +11,7 @@
 
 "Advanced Settings" = "Erweiterte Einstellungen";
 
-"Caution: Turning the switch on will remove all notes locally. Unsynced changes will be lost. Use only if you are experiencing problems." = "Achtung: Wenn Sie den Schalter einschalten, werden alle Notizen lokal gelöscht. Nicht synchronisierte Änderungen gehen verloren. Verwenden Sie diesen Schalter nur, wenn Probleme auftreten.";
+"Caution: Turning the switch on will remove all notes locally. Unsynced changes will be lost. Use only if you are experiencing problems." = "Achtung: Wenn Sie den Schalter einschalten, werden alle Notizen lokal entfernt. Nicht synchronisierte Änderungen gehen verloren. Verwenden Sie diesen Schalter nur, wenn Probleme auftreten.";
 
 "Reset local notes database" = "Lokale Notizen-Datenbank zurücksetzen";
 

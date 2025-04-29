@@ -87,7 +87,7 @@
 "Error Updating Notes" = "Fehler beim Aktualisieren der Notizen";
 
 /* An error message */
-"Failed to connect to a server. Check your settings." = "Fehler beim Verbinden mit dem Server. Prüfen Sie die Einstellungen.";
+"Failed to connect to a server. Check your settings." = "Es konnte keine Verbindung zu einem Server hergestellt werden. Überprüfen Sie Ihre Einstellungen.";
 
 /* Item to show favorite notes */
 "Favorites" = "Favoriten";
