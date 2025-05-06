@@ -20,7 +20,7 @@
 "AKl-Ep-y3W.text" = "Permitir certificados SSL não confiável";
 
 /* Class = "UILabel"; text = "Offline Mode"; ObjectID = "B8W-f5-T18"; */
-"B8W-f5-T18.text" = "Modo offline";
+"B8W-f5-T18.text" = "Modo off-line";
 
 /* Class = "UILabel"; text = "Password"; ObjectID = "CrO-Ue-LFh"; */
 "CrO-Ue-LFh.text" = "Password";
