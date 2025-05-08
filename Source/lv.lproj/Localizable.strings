@@ -78,7 +78,7 @@
 "Error Getting Note" = "Error getting note";
 
 /* The title of an error message */
-"Error Syncing Notes" = "Error syncing notes";
+"Error Syncing Notes" = "Kļūda piezīmju sinhronizēšanā";
 
 /* The title of an error message */
 "Error Updating Note" = "Error updating note";
