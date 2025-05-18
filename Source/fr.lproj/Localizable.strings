@@ -1,5 +1,5 @@
 /* Crash report email body placeholder */
-"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Fournissez autant de détails que possible sur ce que vous faisiez lorsque le plantage s'est produit.>";
+"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "< Fournissez autant de détails que possible sur ce que vous faisiez lorsque le plantage s'est produit. >";
 
 /* Support email body placeholder */
 "<Please state your question or problem here>" = "Veuillez formuler votre question ou votre problème ici";
@@ -39,16 +39,16 @@
 "Close & Sync" = "Fermer et synchroniser";
 
 /* Crash report email subject */
-"NextcloudNotes Crash Report" = "Rapport d'incident de NextcloudNotes";
+"NextcloudNotes Crash Report" = "Rapport d'incident de Nextcloud Notes";
 
 /* No comment provided by engineer. */
-"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "NextcloudNotes a planté la dernière fois qu'il a été lancé. Voulez-vous envoyer un rapport au développeur ?";
+"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "Nextcloud Notes a planté la dernière fois qu'il a été lancé. Voulez-vous envoyer un rapport au développeur ?";
 
 /* Support email subject */
-"NextcloudNotes Support Request" = "Demande de support NextcloudNotes";
+"NextcloudNotes Support Request" = "Demande de support Nextcloud Notes";
 
 /* A button title */
-"Connect" = " Se connecter";
+"Connect" = "Se connecter";
 
 /* Status information, connected */
 "Connected to Notes on the server" = "Connecté à Notes sur le serveur";
@@ -57,13 +57,13 @@
 "Connection failure" = "Échec de la connexion";
 
 /* Alert view title */
-"Crash Detected" = "Crash detected";
+"Crash Detected" = "Crash détecté";
 
 /* Action to delete a note */
 "Delete" = "Supprimé";
 
 /* A menu action */
-"Delete Note" = "Delete cote";
+"Delete Note" = "Supprimer la cote";
 
 /* Prompt on alert for adding a category */
 "Enter a name for the new category" = "Saisir un nom pour la nouvelle catégorie";
@@ -75,7 +75,7 @@
 "Error Deleting Note" = "Erreur lors de la suppression de la note";
 
 /* The title of an error message */
-"Error Getting Note" = "Error getting note";
+"Error Getting Note" = "Erreur lors de l'obtention de la note";
 
 /* The title of an error message */
 "Error Syncing Notes" = "Erreur lors de la synchronisation des notes";
@@ -111,7 +111,7 @@
 "No thanks" = "Non merci";
 
 /* Status information, not connected */
-"Not connected to Notes on a server" = "Not connected to Notes on a server";
+"Not connected to Notes on a server" = "Non connecté à Notes sur un serveur";
 
 /* A status label indicating that the user is not logged in */
 "Not Logged In" = "Non connecté";
@@ -123,7 +123,7 @@
 "Note Title" = "Titre de la note";
 
 /* An error message */
-"Notes could not be found on your server. Make sure it is installed and enabled" = "Notes could not be found on your server. Make sure it is installed and enabled";
+"Notes could not be found on your server. Make sure it is installed and enabled" = "Notes est introuvable sur votre serveur. Assurez-vous qu'elle est installée et activée.";
 
 /* An error message title */
 "Notes not found" = "Note non trouvée";
@@ -139,7 +139,7 @@
 
 /* A message
    A message to check network connection */
-"Please check network connection and login." = "Please check network connection and login.";
+"Please check network connection and login." = "Veuillez vérifier la connexion réseau et la connexion.";
 
 /* A button title */
 "Reconnect" = "Se reconnecter";
@@ -158,7 +158,7 @@
 "Rich Text" = "Texte riche";
 
 /* Placeholder text when no note is selected */
-"Select or create a note." = "Sélectionner ou créer une  note";
+"Select or create a note." = "Sélectionner ou créer une note";
 
 /* Alert title for selecting server brand */
 "Server" = "Serveur";
@@ -182,7 +182,7 @@
 "The note does not exist" = "La note n'existes pas";
 
 /* Alert message for selecting server brand */
-"Unable to automatically detect type of server.\nPlease select:" = "Impossible de détecter automatiquement le type de serveur.\nVeuillez sélectionner:";
+"Unable to automatically detect type of server.\nPlease select:" = "Impossible de détecter automatiquement le type de serveur.\nVeuillez sélectionner :";
 
 /* A message title
    The title of an error message */
@@ -198,7 +198,7 @@
 "Using Notes %@on %@ %@." = "Utilisant Notes %@sur %@ %@.";
 
 /* No comment provided by engineer. */
-"Yes, please!" = "Oui, s'il vous plaît!";
+"Yes, please!" = "Oui, s'il vous plaît !";
 
 /* A message */
 "You are now connected to Notes on your server" = "Vous êtes désormais connecté à Notes sur votre serveur";

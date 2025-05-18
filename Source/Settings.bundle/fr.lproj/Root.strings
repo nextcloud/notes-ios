@@ -9,9 +9,9 @@
 
 "Acknowledgements" = "Remerciements";
 
-"Advanced Settings" = "Advanced settings";
+"Advanced Settings" = "Paramètres avancés";
 
-"Caution: Turning the switch on will remove all notes locally. Unsynced changes will be lost. Use only if you are experiencing problems." = "Caution: Turning the switch on will remove all notes locally. Unsynced changes will be lost. Use only if you are experiencing problems.";
+"Caution: Turning the switch on will remove all notes locally. Unsynced changes will be lost. Use only if you are experiencing problems." = "Attention : l'activation de ce commutateur supprimera toutes les notes locales. Les modifications non synchronisées seront perdues. À utiliser uniquement en cas de problème.";
 
 "Reset local notes database" = "Réinitialiser la base de données des notes locales";
 
