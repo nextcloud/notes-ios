@@ -72,8 +72,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             CategoryTableViewController.self,
             EditorViewController.self,
             PreviewViewController.self,
-            SettingsTableViewController.self,
-            LoginViewController.self
+            SettingsTableViewController.self
         ]
         UIScrollView.appearance(whenContainedInInstancesOf: scrollViewArray).backgroundColor = .ph_cellBackgroundColor
 
@@ -88,7 +87,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITextView.appearance().tintColor = .ph_selectedTextColor
         
         let contentView = ContentView()
-        
+            .environment(Store.shared)
+
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.rootViewController = UIHostingController(rootView: contentView)
         self.window = window

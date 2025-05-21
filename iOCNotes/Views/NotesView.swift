@@ -4,6 +4,9 @@
 
 import SwiftUI
 
+///
+/// Top-level view for the notes navigation.
+///
 struct NotesView: View {
     @State private var addNote = false
 
@@ -18,12 +21,19 @@ struct NotesView: View {
                 }
             }
             .toolbarTitleDisplayMode(.inline)
-            .navigationTitle(NSLocalizedString("Notes", comment: ""))
+            .navigationTitle(String(localized: "Notes", comment: ""))
             .toolbarBackground(.visible, for: .navigationBar)
             .toolbarBackground(.visible, for: .tabBar)
     }
 }
 
 #Preview {
-    NotesView()
+    let store = Store()
+
+    store.accounts = [
+        AccountTransferObject(baseURL: "http://localhost:8080", password: "password", serverVersion: ServerVersionTransferObject(major: 31, minor: 0, micro: 0), userId: "admin")
+    ]
+
+    return ContentView(selection: 0)
+        .environment(store)
 }

@@ -13,7 +13,10 @@ import SwiftUI
 
 class SettingsTableViewController: UITableViewController {
 
-    @IBOutlet var serverTextField: UITextField!
+    @IBOutlet var accountInformation: UITableViewCell!
+    @IBOutlet var clientVersion: UITableViewCell!
+    @IBOutlet var serverVersion: UITableViewCell!
+    
     @IBOutlet var syncOnStartSwitch: UISwitch!
     @IBOutlet weak var offlineModeSwitch: UISwitch!
     @IBOutlet var extensionLabel: UILabel!
@@ -23,7 +26,6 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var soureCodeButton: UITableViewCell!
     
     private var shareAccounts: [NKShareAccounts.DataAccounts]?
-    private var user: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,27 +33,10 @@ class SettingsTableViewController: UITableViewController {
         syncOnStartSwitch.onTintColor = NCBrandColor.shared.brandColor
         offlineModeSwitch.onTintColor = NCBrandColor.shared.brandColor
         internalEditorSwitch.onTintColor = NCBrandColor.shared.brandColor
-
-        if let dirGroupApps = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.nextcloud.apps") {
-            if let shareAccounts = NKShareAccounts().getShareAccount(at: dirGroupApps, application: UIApplication.shared) {
-                var accountTemp = [NKShareAccounts.DataAccounts]()
-                for shareAccount in shareAccounts {
-                    accountTemp.append(shareAccount)
-                }
-                if !accountTemp.isEmpty {
-                    self.shareAccounts = accountTemp
-                    let image = UIImage(systemName: "person.badge.plus")
-                    let navigationItemTalk = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(openShareAccountsViewController))
-                    self.navigationItem.leftBarButtonItem = navigationItemTalk
-                }
-            }
-        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.serverTextField.text = NCBrandOptions.shared.loginBaseUrl
-        self.user = nil
         self.syncOnStartSwitch.isOn = KeychainHelper.syncOnStart
         offlineModeSwitch.isOn = KeychainHelper.offlineMode
         extensionLabel.text = KeychainHelper.fileSuffix.description
@@ -61,20 +46,28 @@ class SettingsTableViewController: UITableViewController {
         tableView.isScrollEnabled = false
         tableView.isScrollEnabled = true
 
-        serverTextField.isEnabled = !NCBrandOptions.shared.disableCustomLoginUrl
+        // Set account information
+        var accountInformationContentConfiguration = UIListContentConfiguration.subtitleCell()
+        accountInformationContentConfiguration.text = KeychainHelper.username
+        accountInformationContentConfiguration.secondaryText = KeychainHelper.server
+        accountInformation.contentConfiguration = accountInformationContentConfiguration
+
+        // Set client version
+        var clientVersionContentConfiguration = UIListContentConfiguration.valueCell()
+        clientVersionContentConfiguration.text = NSLocalizedString("Client Version", comment: "Label")
+        clientVersionContentConfiguration.secondaryText = "\(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "nil") (\(Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "nil"))"
+        clientVersion.contentConfiguration = clientVersionContentConfiguration
+
+        // Set server version
+        var serverVersionContentConfiguration = UIListContentConfiguration.valueCell()
+        serverVersionContentConfiguration.text = NSLocalizedString("Server Version", comment: "Label")
+        serverVersionContentConfiguration.secondaryText = KeychainHelper.productVersion
+        serverVersion.contentConfiguration = serverVersionContentConfiguration
     }
 
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
-    }
-
-    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        if section == 0 {
-            return updateFooter()
-        } else {
-            return nil
-        }
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -88,10 +81,13 @@ class SettingsTableViewController: UITableViewController {
                 showNotesFolderAlert()
             }
         case 3:
-            if indexPath.row == 0 {
-                openPrivacy()
-            } else {
-                openSourceCode()
+            switch indexPath.row {
+                case 2:
+                    openPrivacy()
+                case 3:
+                    openSourceCode()
+                default:
+                    break
             }
         default:
             break
@@ -102,68 +98,11 @@ class SettingsTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination
         vc.navigationItem.rightBarButtonItem = nil
-        if segue.identifier == "loginSegue",
-           let loginWebViewController = segue.destination as? LoginViewController,
-           let serverAddress = serverTextField.text, !serverAddress.isEmpty {
-            KeychainHelper.server = ""
-            KeychainHelper.username = ""
-            KeychainHelper.password = ""
-            loginWebViewController.serverAddress = serverAddress
-            loginWebViewController.user = self.user
-        } else if segue.identifier == "showCertificate" {
+
+        if segue.identifier == "showCertificate" {
             let certificateViewController = segue.destination as? CertificateViewController
             let host = URL(string: KeychainHelper.server)?.host
             certificateViewController?.host = host ?? ""
-        }
-    }
-
-    @IBAction func onLogin(_ sender: Any) {
-        ServerStatus.shared.reset()
-        Task {
-            do {
-                if let serverAddress = serverTextField.text, !serverAddress.isEmpty {
-                    KeychainHelper.server = ""
-                    KeychainHelper.username = ""
-                    KeychainHelper.password = ""
-                    var address = serverAddress.trimmingCharacters(in: CharacterSet(charactersIn: "/ "))
-                    if !address.contains("://"),
-                       !address.hasPrefix("http") {
-                        address = "https://\(address)"
-                    }
-                    KeychainHelper.server = address
-                    try await ServerStatus.shared.check()
-                    KeychainHelper.allowUntrustedCertificate = false
-                    performSegue(withIdentifier: "loginSegue", sender: self)
-                }
-            } catch (let error as NSError) {
-                print(error.localizedDescription)
-                if error.code == NSURLErrorServerCertificateUntrusted {
-                    let alertController = UIAlertController(title: NSLocalizedString("The certificate for this server is invalid", comment: ""),
-                                                            message: NSLocalizedString("Do you want to connect to the server anyway?", comment: ""),
-                                                            preferredStyle: .alert)
-
-                    alertController.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: ""), style: .default, handler: { [weak self] _ in
-                        if let host = URL(string: KeychainHelper.server)?.host {
-                            ServerStatus.shared.writeCertificate(host: host)
-                            KeychainHelper.allowUntrustedCertificate = true
-                            self?.performSegue(withIdentifier: "loginSegue", sender: self)
-                        }
-                    }))
-
-                    alertController.addAction(UIAlertAction(title: NSLocalizedString("No", comment: ""), style: .default, handler: { _ in
-                        KeychainHelper.allowUntrustedCertificate = false
-                    }))
-
-                    alertController.addAction(UIAlertAction(title: NSLocalizedString("View Certificate", comment: ""), style: .default, handler: { [weak self] _ in
-                        self?.performSegue(withIdentifier: "showCertificate", sender: self)
-                    }))
-                    self.present(alertController, animated: true)
-                } else {
-                    let alertController = UIAlertController(title: NSLocalizedString("Connection error", comment: ""), message: error.localizedDescription, preferredStyle: .alert)
-                    alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: { _ in }))
-                    self.present(alertController, animated: true, completion: { })
-                }
-            }
         }
     }
 
@@ -179,6 +118,15 @@ class SettingsTableViewController: UITableViewController {
         KeychainHelper.internalEditor = internalEditorSwitch.isOn
     }
 
+    @IBAction func logout(_ sender: Any) {
+        let alert = UIAlertController(title: NSLocalizedString("Logout", comment: "Alert title"), message: NSLocalizedString("Are you sure you want to log out?", comment: "Alert message"), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Button label"), style: .cancel))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Log Out", comment: "Button label"), style: .destructive) { _ in
+            Store.shared.removeAccount()
+        })
+        present(alert, animated: true)
+    }
+    
     private func openPrivacy() {
         if let url = URL(string: NCBrandOptions.shared.privacyUrl) {
             UIApplication.shared.open(url)
@@ -218,18 +166,6 @@ class SettingsTableViewController: UITableViewController {
         alertController.addAction(renameAction)
         present(alertController, animated: true, completion: nil)
     }
-
-    private func updateFooter() -> String {
-        guard !KeychainHelper.productName.isEmpty,
-              !KeychainHelper.productVersion.isEmpty,
-              !KeychainHelper.server.isEmpty
-        else {
-            return NSLocalizedString("Not logged in", comment: "Message about not being logged in")
-        }
-        let notesVersion = KeychainHelper.notesVersion.isEmpty ? "" : "\(KeychainHelper.notesVersion) "
-        let format = NSLocalizedString("Using Notes %@on %@ %@.", comment:"Message with Notes version, product name and version")
-        return String.localizedStringWithFormat(format, notesVersion, KeychainHelper.productName, KeychainHelper.productVersion)
-    }
 }
 
 extension SettingsTableViewController: MFMailComposeViewControllerDelegate {
@@ -239,50 +175,13 @@ extension SettingsTableViewController: MFMailComposeViewControllerDelegate {
     }
 }
 
-extension SettingsTableViewController: NCShareAccountsDelegate {
-
-    // MARK: - Talk accounts View Controller
-
-    @objc func openShareAccountsViewController() {
-
-        if let shareAccounts = self.shareAccounts, let vc = UIStoryboard(name: "NCShareAccounts", bundle: nil).instantiateInitialViewController() as? NCShareAccounts {
-
-            vc.accounts = shareAccounts
-            vc.enableTimerProgress = false
-            vc.dismissDidEnterBackground = false
-            vc.delegate = self
-
-            let screenHeighMax = UIScreen.main.bounds.height - (UIScreen.main.bounds.height/5)
-            let numberCell = shareAccounts.count
-            let height = min(CGFloat(numberCell * Int(vc.heightCell) + 45), screenHeighMax)
-
-            let popup = NCPopupViewController(contentController: vc, popupWidth: 300, popupHeight: height+20)
-
-            self.present(popup, animated: true)
-        }
-    }
-
-    func selected(url: String, user: String) {
-        serverTextField.text = url
-        self.user = user
-    }
-}
-
 struct SettingsTableViewControllerRepresentable: UIViewControllerRepresentable {
-    @Binding var addAccount: Bool
-
     class Coordinator: NSObject {
         var parent: SettingsTableViewControllerRepresentable
         weak var viewController: SettingsTableViewController?
 
         init(_ parent: SettingsTableViewControllerRepresentable) {
             self.parent = parent
-        }
-
-        func addAccount() {
-            viewController?.openShareAccountsViewController()
-            
-            parent.addAccount = false
         }
     }
 
@@ -292,19 +191,13 @@ struct SettingsTableViewControllerRepresentable: UIViewControllerRepresentable {
 
     func makeUIViewController(context: Context) -> UIViewController {
         let storyboard = UIStoryboard(name: "Settings", bundle: nil)
-
         let viewController = storyboard.instantiateViewController(withIdentifier: "SettingsTableViewController") as? SettingsTableViewController
         context.coordinator.viewController = viewController
-
 
         return viewController ?? UIViewController()
     }
 
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
-
-        if addAccount {
-            context.coordinator.addAccount()
-        }
         // Update the UI of the view controller if needed
     }
 }
