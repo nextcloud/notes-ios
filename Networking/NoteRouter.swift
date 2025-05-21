@@ -163,16 +163,17 @@ enum Router: URLRequestConvertible {
         let server = KeychainHelper.server
         if !server.isEmpty {
             var apiVersion = Router.defaultApiVersion
+
             do {
                 let version = try Version(KeychainHelper.notesApiVersion)
                 if version.major == 1 {
                     apiVersion = "1"
                 }
-            } catch { }
+            } catch {
+                throw error
+            }
 
-            let baseURLString = "\(server)/apps/notes/api/v\(apiVersion)"
-//            let baseURLString = "\(server)/apps/notes/api/v0.2"
-//            let baseURLString = "\(server)/apps/notes/api/v1"
+            let baseURLString = "\(server)/index.php/apps/notes/api/v\(apiVersion)"
             let url = try baseURLString.asURL()
             
             var urlRequest = URLRequest(url: url.appendingPathComponent(self.path))

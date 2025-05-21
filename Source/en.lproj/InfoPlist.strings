@@ -1,1 +1,2 @@
+"NSCameraUsageDescription" = "Camera access is required to use QR codes as a login method.";
 "NSLocalNetworkUsageDescription" = "Nextcloud Notes needs local network access if your server is hosted locally";

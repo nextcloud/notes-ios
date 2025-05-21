@@ -37,8 +37,8 @@ file_header:
   severity: error
 
 large_tuple:
-  warning: 4
-  error: 6
+    warning: 4
+    error: 6
 
 switch_case_alignment:
-  indented_cases: true
+    indented_cases: true
