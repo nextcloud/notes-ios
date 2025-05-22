@@ -116,7 +116,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		AA182CFC2DDCC5230058C246 /* NextcloudKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = NextcloudKit; path = ../NextcloudKit; sourceTree = SOURCE_ROOT; };
 		AA360F442D71E6EF00BDC831 /* iOCNotes.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = iOCNotes.xcconfig; sourceTree = "<group>"; };
 		AA592A6E2DBBBA3B003A3057 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		AABD0BF82D5E08B500F009E6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -340,7 +339,6 @@
 		D0CFE52A1888A7BD00165839 = {
 			isa = PBXGroup;
 			children = (
-				AA182CFC2DDCC5230058C246 /* NextcloudKit */,
 				AA360F442D71E6EF00BDC831 /* iOCNotes.xcconfig */,
 				AA592A6F2DBBBB04003A3057 /* .github */,
 				AA592A6E2DBBBA3B003A3057 /* .swiftlint.yml */,
@@ -1303,8 +1301,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/nextcloud/NextcloudKit";
 			requirement = {
-				kind = exactVersion;
-				version = 6.0.4;
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.9;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
