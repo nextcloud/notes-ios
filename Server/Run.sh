@@ -40,4 +40,5 @@ echo "Provisioning..."
 docker cp "$SCRIPT_DIR/Provisioning.sh" "$CONTAINER_NAME":/var/www/html/Provisioning.sh
 docker exec --user=www-data "$CONTAINER_NAME" ./Provisioning.sh
 docker cp "$SCRIPT_DIR/Notes" "$CONTAINER_NAME":/var/www/html/data/manynotes/files/
+docker exec --user=root "$CONTAINER_NAME" chown -R www-data:www-data /var/www/html/data/manynotes/files/Notes
 echo "Provisioning completed!"
