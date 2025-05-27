@@ -29,16 +29,6 @@
 			<string>PSGroupSpecifier</string>
 		</dict>
 		<dict>
-			<key>DefaultValue</key>
-			<string>4.3.1 (2882)</string>
-			<key>Key</key>
-			<string>versionNumber</string>
-			<key>Title</key>
-			<string>Version</string>
-			<key>Type</key>
-			<string>PSTitleValueSpecifier</string>
-		</dict>
-		<dict>
 			<key>File</key>
 			<string>licenses</string>
 			<key>Title</key>
