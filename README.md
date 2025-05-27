@@ -1,7 +1,6 @@
-<div align="center">
-    <img src="Brand/Custom.xcassets/AppIcon.appiconset/1024.png" alt="App Icon" width="256" height="256" />
-    <h1>Nextcloud Notes for iOS and iPad OS</h1>
-</div>
+<img src="README/devices.jpg" alt="iPad and iPhone showing Nextcloud Notes" />
+
+# Nextcloud Notes for iOS and iPad OS
 
 Nextcloud Notes is a native client for the [Nextcloud](https://nextcloud.com "Nextcloud") [Notes](https://apps.nextcloud.com/apps/notes "Notes") app.
 It allows you to add, edit, and delete your notes on iPhone and iPad.
@@ -23,3 +22,16 @@ Scan the QR code below to download the app from the App Store.
 
 This repository comes with a convenience script and example data to use during development and testing.
 For further information, see [Server/README.md](Server/README.md).
+
+## Testing
+
+We occassionally use [Apple's TestFlight](https://developer.apple.com/testflight/) to make builds available for testing internally or publicly by community members.
+You can join public beta testing with the following link but note that not always a build is available.
+
+**[🛫 Join Nextcloud Notes TestFlight](https://testflight.apple.com/join/m7C1rYuN)**
+
+**Disclaimer**: Builds distributed through TestFlight are beta software and may contain bugs or unexpected behavior which may result in data loss.
+
+## License 
+
+See [LICENSE](LICENSE) file.
