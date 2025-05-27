@@ -26,7 +26,7 @@ For further information, see [Server/README.md](Server/README.md).
 ## Testing
 
 We occassionally use [Apple's TestFlight](https://developer.apple.com/testflight/) to make builds available for testing internally or publicly by community members.
-You can join public beta testing with the following link but note that not always a build is available.
+You can join public beta testing with the following link, but note that a build may not always be available.
 
 **[🛫 Join Nextcloud Notes TestFlight](https://testflight.apple.com/join/m7C1rYuN)**
 
