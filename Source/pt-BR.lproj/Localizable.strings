@@ -1,5 +1,5 @@
 /* Crash report email body placeholder */
-"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Por favor, forneça o máximo de detalhes possível sobre o que você estava fazendo quando o incidente ocorreu .>";
+"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Por favor, forneça o máximo de detalhes possível sobre o que você estava fazendo quando a falha do sistema ocorreu.>";
 
 /* Support email body placeholder */
 "<Please state your question or problem here>" = "Por favor, informe sua pergunta ou problema aqui";
@@ -14,11 +14,11 @@
 "Add Category" = "Adicionar categoria";
 
 /* Item to show all notes */
-"All" = "Todos";
+"All" = "Todas";
 
 /* A menu action
    A menu option for cancelling */
-"Cancel" = "Cancel";
+"Cancel" = "Cancelar";
 
 /* Header title, categories */
 "CATEGORIES" = "CATEGORIAS";
@@ -36,22 +36,22 @@
 "Check username and password." = "Verifique o nome de usuário e a senha.";
 
 /* Title of a button allowing the user to close the login screen and sync with the server */
-"Close & Sync" = "Fechar e sincronizar";
+"Close & Sync" = "Fechar & Sincronizar";
 
 /* Crash report email subject */
-"NextcloudNotes Crash Report" = "Relatório de falha do NextcloudAnotações";
+"NextcloudNotes Crash Report" = "Relatório de Falha do Nextcloud Notas";
 
 /* No comment provided by engineer. */
-"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "O NextcloudAnotações falhou na última vez que foi iniciado. Você quer enviar um relatório ao desenvolvedor?";
+"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "O Nextcloud Notas falhou na última vez que foi iniciado. Você quer enviar um relatório ao desenvolvedor?";
 
 /* Support email subject */
-"NextcloudNotes Support Request" = "Solicitação de Suporte do NextcloudAnotações";
+"NextcloudNotes Support Request" = "Solicitação de Suporte do Nextcloud Notas";
 
 /* A button title */
 "Connect" = "Conectar";
 
 /* Status information, connected */
-"Connected to Notes on the server" = "Conectado ao Anotações no servidor";
+"Connected to Notes on the server" = "Conectado ao aplicativo Notas no servidor";
 
 /* An error message title */
 "Connection failure" = "Falha na conexão";
@@ -63,28 +63,28 @@
 "Delete" = "Excluir";
 
 /* A menu action */
-"Delete Note" = "Excluir anotação";
+"Delete Note" = "Excluir nota";
 
 /* Prompt on alert for adding a category */
 "Enter a name for the new category" = "Insira um nome para a nova categoria";
 
 /* The title of an error message */
-"Error Adding Note" = "Erro ao adicionar anotação";
+"Error Adding Note" = "Erro ao adicionar nota";
 
 /* The title of an error message */
-"Error Deleting Note" = "Erro ao excluir anotação";
+"Error Deleting Note" = "Erro ao excluir nota";
 
 /* The title of an error message */
-"Error Getting Note" = "Erro ao obter anotação";
+"Error Getting Note" = "Erro ao obter nota";
 
 /* The title of an error message */
-"Error Syncing Notes" = "Erro ao sincronizar anotações";
+"Error Syncing Notes" = "Erro ao sincronizar notas";
 
 /* The title of an error message */
-"Error Updating Note" = "Erro ao atualizar anotação";
+"Error Updating Note" = "Erro ao atualizar nota";
 
 /* The title of an error message */
-"Error Updating Notes" = "Erro ao atualizar anotações";
+"Error Updating Notes" = "Erro ao atualizar notas";
 
 /* An error message */
 "Failed to connect to a server. Check your settings." = "Falha ao conectar a um servidor. Verifique suas configurações.";
@@ -96,7 +96,7 @@
 "HTML" = "HTML";
 
 /* A status label indicating that the user is logged in */
-"Logged In" = "Sessão iniciada";
+"Logged In" = "Logado";
 
 /* Header title, main */
 "MAIN" = "PRINCIPAL";
@@ -111,28 +111,28 @@
 "No thanks" = "Não, obrigado";
 
 /* Status information, not connected */
-"Not connected to Notes on a server" = "Não conectado ao Anotações no servidor";
+"Not connected to Notes on a server" = "Não conectado ao aplicativo Notas no servidor";
 
 /* A status label indicating that the user is not logged in */
-"Not Logged In" = "Sessão não iniciada";
+"Not Logged In" = "Não logado";
 
 /* Message about not being logged in */
-"Not logged in" = "Sessão não iniciada";
+"Not logged in" = "Não logado";
 
 /* Title of alert to change title */
-"Note Title" = "Título da anotação";
+"Note Title" = "Título da nota";
 
 /* An error message */
-"Notes could not be found on your server. Make sure it is installed and enabled" = "O Anotações não pôde ser encontrado no seu servidor. Certifique-se de que ele esteja instalado e habilitado";
+"Notes could not be found on your server. Make sure it is installed and enabled" = "O Notas não pôde ser encontrado no seu servidor. Certifique-se de que ele esteja instalado e ativado";
 
 /* An error message title */
-"Notes not found" = "Anotações não encontradas";
+"Notes not found" = "Aplicativo Notas não encontrado";
 
 /* Button, OK */
 "OK" = "OK";
 
 /* Title for Open In activity */
-"Open in…" = "Abra em...";
+"Open in…" = "Abrir em…";
 
 /* A menu option for sharing in plain text format */
 "Plain Text" = "Texto puro";
@@ -149,7 +149,7 @@
 "Rename" = "Renomear";
 
 /* Message of alert to change title */
-"Rename the note" = "Renomear a anotação";
+"Rename the note" = "Renomear a nota";
 
 /* Action to change title of a note */
 "Rename…" = "Renomear…";
@@ -158,7 +158,7 @@
 "Rich Text" = "Texto rich";
 
 /* Placeholder text when no note is selected */
-"Select or create a note." = "Selecione ou crie uma anotação.";
+"Select or create a note." = "Selecione ou crie uma nota.";
 
 /* Alert title for selecting server brand */
 "Server" = "Servidor";
@@ -170,19 +170,19 @@
 "Server Reachable" = "Servidor acessível";
 
 /* Title of a menu with sharing options */
-"Share Note As" = "Compartilhar anotação como";
+"Share Note As" = "Compartilhar nota como";
 
 /* A message title */
-"Success" = "Finalizado";
+"Success" = "Sucesso";
 
 /* A message */
 "The network connection is working properly." = "A conexão de rede está funcionando corretamente.";
 
 /* An error message */
-"The note does not exist" = "A anotação não existe";
+"The note does not exist" = "A nota não existe";
 
 /* Alert message for selecting server brand */
-"Unable to automatically detect type of server.\nPlease select:" = "Não é possível detectar automaticamente o tipo de servidor..\nPor favor selecione:";
+"Unable to automatically detect type of server.\nPlease select:" = "Não é possível detectar automaticamente o tipo de servidor.\nPor favor, selecione:";
 
 /* A message title
    The title of an error message */
@@ -195,13 +195,13 @@
 "Uncategorized" = "Não categorizado";
 
 /* Message with Notes version, product name and version */
-"Using Notes %@on %@ %@." = "Usando Anotações %@em %@ %@.";
+"Using Notes %@on %@ %@." = "Usando Notas %@ em %@ %@.";
 
 /* No comment provided by engineer. */
 "Yes, please!" = "Sim, por favor!";
 
 /* A message */
-"You are now connected to Notes on your server" = "Agora você está conectado ao Anotações no seu servidor";
+"You are now connected to Notes on your server" = "Agora você está conectado ao Notas no seu servidor";
 
 /* HUD subtitle when checking server capabilities */
 "Checking server capabilities" = "Verificando as capacidades do servidor";
@@ -228,7 +228,7 @@
 "No" = "Não";
 
 /* Title of alert to change notes folder */
-"Notes Folder" = "Pasta de anotações";
+"Notes Folder" = "Pasta de Notas";
 
 /* A menu option for sharing in pdf format */
 "PDF" = "PDF";
@@ -248,4 +248,4 @@
 // NEXTCLOUD
 "Select the account to add"   = "Selecione a conta para adicionar";
 
-"Notes" = "Anotações";
+"Notes" = "Notas";
