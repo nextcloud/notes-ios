@@ -1,6 +1,7 @@
 // Build settings for the whole project.
 
-PRODUCT_BUNDLE_IDENTIFIER = com.peterandlinda.iOCNotes
-MARKETING_VERSION = 4.3.1
 CURRENT_PROJECT_VERSION = 1
+INFOPLIST_KEY_NSHumanReadableCopyright = Copyright © 2025 Nextcloud GmbH. All rights reserved.
 IPHONEOS_DEPLOYMENT_TARGET = 17.0
+MARKETING_VERSION = 4.3.1
+PRODUCT_BUNDLE_IDENTIFIER = com.peterandlinda.iOCNotes
