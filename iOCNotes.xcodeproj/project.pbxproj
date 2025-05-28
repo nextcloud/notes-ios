@@ -683,7 +683,7 @@
 				CLASSPREFIX = "";
 				LastSwiftUpdateCheck = 1140;
 				LastUpgradeCheck = 1200;
-				ORGANIZATIONNAME = "Milen Pivchev";
+				ORGANIZATIONNAME = "Nextcloud GmbH";
 				TargetAttributes = {
 					D0AB0E772470B74D00D3E6B6 = {
 						CreatedOnToolsVersion = 11.4.1;
