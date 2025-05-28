@@ -650,7 +650,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				CLASSPREFIX = "";
-				LastSwiftUpdateCheck = 1140;
+				LastSwiftUpdateCheck = 1630;
 				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Nextcloud GmbH";
 				TargetAttributes = {
