@@ -23,7 +23,7 @@
 "B8W-f5-T18.text" = "Modo off-line";
 
 /* Class = "UILabel"; text = "Password"; ObjectID = "CrO-Ue-LFh"; */
-"CrO-Ue-LFh.text" = "Password";
+"CrO-Ue-LFh.text" = "Senha";
 
 /* Class = "UIButton"; configuration.title = "Log In"; ObjectID = "dUo-KO-48Z"; */
 "dUo-KO-48Z.configuration.title" = "Entrar";
