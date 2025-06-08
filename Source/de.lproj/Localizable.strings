@@ -250,14 +250,14 @@
 
 "Notes" = "Notizen";
 
-"Client Version" = "Client Version";
-"Server Version" = "Server Version";
-"Are you sure you want to log out?" = "Are you sure you want to log out?";
+"Client Version" = "Client-Version";
+"Server Version" = "Serverversion";
+"Are you sure you want to log out?" = "Möchten Sie sich wirklich abmelden?";
 "Cancel" = "Abbruch";
-"Scan QR Code" = "Scan QR Code";
+"Scan QR Code" = "QR-Code scannen";
 "Close" = "Schließen";
-"Server Address" = "Server Address";
-"The address of your Nextcloud web interface when you open it in your browser." = "The address of your Nextcloud web interface when you open it in your browser.";
-"The entered server address is invalid." = "The entered server address is invalid.";
-"Accounts from our other apps were found on this device. Would you like to add one of these?" = "Accounts from our other apps were found on this device. Would you like to add one of these?";
-"Shared Accounts" = "Shared Accounts";
+"Server Address" = "Serveradresse";
+"The address of your Nextcloud web interface when you open it in your browser." = "Die Adresse Ihrer Nextcloud-Weboberfläche, wenn Sie sie in Ihrem Browser öffnen.";
+"The entered server address is invalid." = "Die eingegebene Serveradresse ist ungültig.";
+"Accounts from our other apps were found on this device. Would you like to add one of these?" = "Es wurden Konten aus anderen Apps auf diesem Gerät gefunden. Soll eines davon hinzugefügt werden?";
+"Shared Accounts" = "Geteilte Konten";
