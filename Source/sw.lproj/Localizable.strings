@@ -18,7 +18,7 @@
 
 /* A menu action
    A menu option for cancelling */
-"Cancel" = "Cancel";
+"Cancel" = "Ghaili";
 
 /* Header title, categories */
 "CATEGORIES" = "CATEGORIES";
@@ -60,7 +60,7 @@
 "Crash Detected" = "Crash detected";
 
 /* Action to delete a note */
-"Delete" = "Delete";
+"Delete" = "Futa";
 
 /* A menu action */
 "Delete Note" = "Delete cote";
@@ -146,7 +146,7 @@
 
 /* Action to change title of a note
    Caption of Rename button */
-"Rename" = "Rename";
+"Rename" = "Badili jina";
 
 /* Message of alert to change title */
 "Rename the note" = "Rename the note";
@@ -234,7 +234,7 @@
 "PDF" = "PDF";
 
 /* Caption of Save button */
-"Save" = "Save";
+"Save" = "Hifadhi";
 
 /* No comment provided by engineer. */
 "The certificate for this server is invalid" = "The certificate for this server is invalid";
@@ -253,9 +253,9 @@
 "Client Version" = "Client Version";
 "Server Version" = "Server Version";
 "Are you sure you want to log out?" = "Are you sure you want to log out?";
-"Cancel" = "Cancel";
+"Cancel" = "Ghaili";
 "Scan QR Code" = "Scan QR Code";
-"Close" = "Close";
+"Close" = "Funga";
 "Server Address" = "Server Address";
 "The address of your Nextcloud web interface when you open it in your browser." = "The address of your Nextcloud web interface when you open it in your browser.";
 "The entered server address is invalid." = "The entered server address is invalid.";

@@ -69,7 +69,7 @@
 "vrs-Pz-kVO.contentConfiguration.text" = "Client Version";
 
 /* Class = "UINavigationItem"; title = "Settings"; ObjectID = "waZ-N6-59b"; */
-"waZ-N6-59b.title" = "Settings";
+"waZ-N6-59b.title" = "Mipangilio";
 
 /* Class = "UITableViewCell"; contentConfiguration.text = "Server Version"; ObjectID = "y5A-NE-V50"; */
 "y5A-NE-V50.contentConfiguration.text" = "Server Version";
