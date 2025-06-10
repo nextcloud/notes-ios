@@ -24,7 +24,7 @@
 "Rfx-NI-FZ4.headerTitle" = "Екстензија";
 
 /* Class = "UITableViewSection"; footerTitle = "These settings only affect how notes are managed on the server. Nextcloud Notes does not handle any files."; ObjectID = "RvH-hn-Sfv"; */
-"RvH-hn-Sfv.footerTitle" = "These settings only affect how notes are managed on the server. Nextcloud Notes does not handle any files.";
+"RvH-hn-Sfv.footerTitle" = "Ова подешавања утичу само на начин управљања белешкама на серверу. Nextcloud Белешке уопште не обрађују фајлове.";
 
 /* Class = "UITableViewSection"; headerTitle = "Server settings"; ObjectID = "RvH-hn-Sfv"; */
 "RvH-hn-Sfv.headerTitle" = "Поставке сервера";
@@ -36,16 +36,16 @@
 "Yoc-UG-LbO.text" = "Изворни кôд";
 
 /* Class = "UIButton"; configuration.title = "Log Out"; ObjectID = "bbf-oV-TcF"; Note = "Button label"; */
-"bbf-oV-TcF.configuration.title" = "Log Out";
+"bbf-oV-TcF.configuration.title" = "Одјави се";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "bbf-oV-TcF"; Note = "Button label"; */
-"bbf-oV-TcF.normalTitle" = "Button";
+"bbf-oV-TcF.normalTitle" = "Дугме";
 
 /* Class = "UITableViewSection"; footerTitle = "     "; ObjectID = "gZE-6O-8CL"; */
 "gZE-6O-8CL.footerTitle" = "     ";
 
 /* Class = "UITableViewSection"; headerTitle = "Syncing"; ObjectID = "gZE-6O-8CL"; */
-"gZE-6O-8CL.headerTitle" = "Syncing";
+"gZE-6O-8CL.headerTitle" = "Синхронизује се";
 
 /* Class = "UILabel"; text = "Sync on Start"; ObjectID = "hVU-Ed-KYm"; Note = "Label for switch"; */
 "hVU-Ed-KYm.text" = "Синхронизуј при покретању";
@@ -57,22 +57,22 @@
 "non-OM-gIT.headerTitle" = "Информације";
 
 /* Class = "UITableViewSection"; headerTitle = "Account"; ObjectID = "qGs-TC-y20"; */
-"qGs-TC-y20.headerTitle" = "Account";
+"qGs-TC-y20.headerTitle" = "Налог";
 
-/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "smL-9H-BiT"; */
-"smL-9H-BiT.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+/* Class = "UITextView"; accessibilityHint = "Placeholder for legal text content: Do not translate!"; ObjectID = "smL-9H-BiT"; */
+"smL-9H-BiT.accessibilityHint" = "Placeholder for legal text content: Do not translate!";
 
 /* Class = "UILabel"; text = "Plain Text (.txt)"; ObjectID = "uVd-ib-jy0"; Note = "Do not translate"; */
 "uVd-ib-jy0.text" = "Прости текст (.txt)";
 
 /* Class = "UITableViewCell"; contentConfiguration.text = "Client Version"; ObjectID = "vrs-Pz-kVO"; */
-"vrs-Pz-kVO.contentConfiguration.text" = "Client Version";
+"vrs-Pz-kVO.contentConfiguration.text" = "Верзија клијента";
 
 /* Class = "UINavigationItem"; title = "Settings"; ObjectID = "waZ-N6-59b"; */
 "waZ-N6-59b.title" = "Подешавања";
 
 /* Class = "UITableViewCell"; contentConfiguration.text = "Server Version"; ObjectID = "y5A-NE-V50"; */
-"y5A-NE-V50.contentConfiguration.text" = "Server Version";
+"y5A-NE-V50.contentConfiguration.text" = "Верзија сервера";
 
 /* Class = "UILabel"; text = "Privacy and Legal Policy"; ObjectID = "yi3-0y-GWm"; Note = "Label for link"; */
 "yi3-0y-GWm.text" = "Приватност и правна политика";

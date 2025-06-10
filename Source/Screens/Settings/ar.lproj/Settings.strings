@@ -59,8 +59,8 @@
 /* Class = "UITableViewSection"; headerTitle = "Account"; ObjectID = "qGs-TC-y20"; */
 "qGs-TC-y20.headerTitle" = "Account";
 
-/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "smL-9H-BiT"; */
-"smL-9H-BiT.text" = "هذا النص هو مجرد حشو لتجربة التطبيق و لا يعني أي شيء في الواقع. هذا النص هو مجرد حشو لتجربة التطبيق و لا يعني أي شيء في الواقع. هذا النص هو مجرد حشو لتجربة التطبيق و لا يعني أي شيء في الواقع. هذا النص هو مجرد حشو لتجربة التطبيق و لا يعني أي شيء في الواقع. هذا النص هو مجرد حشو لتجربة التطبيق و لا يعني أي شيء في الواقع. هذا النص هو مجرد حشو لتجربة التطبيق و لا يعني أي شيء في الواقع. هذا النص هو مجرد حشو لتجربة التطبيق و لا يعني أي شيء في الواقع. هذا النص هو مجرد حشو لتجربة التطبيق و لا يعني أي شيء في الواقع. هذا النص هو مجرد حشو لتجربة التطبيق و لا يعني أي شيء في الواقع. هذا النص هو مجرد حشو لتجربة التطبيق و لا يعني أي شيء في الواقع. هذا النص هو مجرد حشو لتجربة التطبيق و لا يعني أي شيء في الواقع. هذا النص هو مجرد حشو لتجربة التطبيق و لا يعني أي شيء في الواقع.";
+/* Class = "UITextView"; accessibilityHint = "Placeholder for legal text content: Do not translate!"; ObjectID = "smL-9H-BiT"; */
+"smL-9H-BiT.accessibilityHint" = "Placeholder for legal text content: Do not translate!";
 
 /* Class = "UILabel"; text = "Plain Text (.txt)"; ObjectID = "uVd-ib-jy0"; Note = "Do not translate"; */
 "uVd-ib-jy0.text" = "نص واضح (.txt)";
