@@ -10,6 +10,7 @@ import Alamofire
 import Foundation
 import UIKit
 import SwiftMessages
+import os
 
 typealias SyncCompletionBlock = () -> Void
 typealias SyncCompletionBlockWithNote = (_ note: CDNote?) -> Void
@@ -113,7 +114,8 @@ final class NoteRequestInterceptor: RequestInterceptor {
 }
 
 class NoteSessionManager {
-    
+    private let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "NoteSessionManager")
+
     struct NoteError: Error {
         var message: ErrorMessage
     }
@@ -140,7 +142,7 @@ class NoteSessionManager {
     }
 
     class var isOnline: Bool {
-        return NoteSessionManager.isConnectedToServer && !KeychainHelper.offlineMode
+        return NoteSessionManager.isConnectedToServer && !Store.shared.offlineMode
     }
     
     init() {
@@ -169,70 +171,88 @@ class NoteSessionManager {
     }
 
     func settings(completion: SyncCompletionBlock? = nil) {
+        logger.debug("Fetching notes user settings from server...")
+
         let router = Router.settings
+
         session
-            .request(router, interceptor: LoginRequestInterceptor())
-            .validate(statusCode: 200..<300)
-            .validate(contentType: [Router.applicationJson])
-            .responseDecodable(of: SettingsStruct.self) { response in
-                switch response.result {
+        .request(router, interceptor: LoginRequestInterceptor())
+        .validate(statusCode: 200..<300)
+        .validate(contentType: [Router.applicationJson])
+        .responseDecodable(of: SettingsStruct.self) { [self] response in
+            switch response.result {
                 case let .success(result):
+                    logger.debug("Successfully received settings from the server (notes path: \"\(result.notesPath)\", file suffix: \"\(result.fileSuffix)\").")
+
                     switch result.fileSuffix {
-                    case FileSuffix.md.suffix:
-                        KeychainHelper.fileSuffix = FileSuffix.md
-                    default:
-                        KeychainHelper.fileSuffix = FileSuffix.txt
+                        case FileSuffix.md.suffix:
+                            Store.shared.fileExtension = FileSuffix.md
+                        case FileSuffix.txt.suffix:
+                            Store.shared.fileExtension = FileSuffix.txt
+                        default:
+                            logger.error("Unexpected file suffix \"\(result.fileSuffix, privacy: .public)\" received in settings, falling back to plain text extension.")
+                            Store.shared.fileExtension = FileSuffix.txt
                     }
-                    KeychainHelper.notesPath = result.notesPath
+
+                    Store.shared.notesPath = result.notesPath
                 case let .failure(error):
-                    print(error.localizedDescription)
+                    logger.error("Error during settings retrieval: \(error, privacy: .public)")
+
                     if let urlResponse = response.response {
                         switch urlResponse.statusCode {
-                        case 400: // Bad request, endpoint not supported
-                            print(error)
-                        case 401:
-                            let title = NSLocalizedString("Unauthorized", comment: "An error message title")
-                            let body = NSLocalizedString("Check username and password.", comment: "An error message")
-                            NoteSessionManager.shared.showErrorMessage(message: ErrorMessage(title: title, body: body))
-                        default:
-                            let message = ErrorMessage(title: NSLocalizedString("Error Getting Settings", comment: "The title of an error message"),
-                                                       body: error.localizedDescription)
-                            self.showErrorMessage(message: message)
+                            case 400: // Bad request, endpoint not supported
+                                print(error)
+                            case 401:
+                                let title = NSLocalizedString("Unauthorized", comment: "An error message title")
+                                let body = NSLocalizedString("Check username and password.", comment: "An error message")
+                                NoteSessionManager.shared.showErrorMessage(message: ErrorMessage(title: title, body: body))
+                            default:
+                                let message = ErrorMessage(title: NSLocalizedString("Error Getting Settings", comment: "The title of an error message"),
+                                                           body: error.localizedDescription)
+                                self.showErrorMessage(message: message)
                         }
                     }
-                }
-                completion?()
             }
+
+            completion?()
+        }
     }
 
     func updateSettings(completion: SyncCompletionBlock? = nil) {
-        let router = Router.updateSettings(notesPath: KeychainHelper.notesPath, fileSuffix: KeychainHelper.fileSuffix.suffix)
+        logger.debug("Updating notes user settings on server...")
+
+        let router = Router.updateSettings(notesPath: Store.shared.notesPath, fileSuffix: Store.shared.fileExtension.suffix)
+
         session
-            .request(router)
-            .validate(statusCode: 200..<300)
-            .validate(contentType: [Router.applicationJson])
-            .responseData { response in
-                switch response.result {
+        .request(router)
+        .validate(statusCode: 200..<300)
+        .validate(contentType: [Router.applicationJson])
+        .responseData { [self] response in
+            switch response.result {
                 case .success( _):
+                    logger.debug("Successfully updated notes user settings on server.")
                     completion?()
                 case let .failure(error):
+                    logger.debug("Error while updating notes user settings on server: \(error.localizedDescription, privacy: .public)")
+
                     if let urlResponse = response.response {
                         switch urlResponse.statusCode {
-                        case 400: // Bad request, endpoint not supported
-                            print(error)
-                        case 401:
-                            let title = NSLocalizedString("Unauthorized", comment: "An error message title")
-                            let body = NSLocalizedString("Check username and password.", comment: "An error message")
-                            NoteSessionManager.shared.showErrorMessage(message: ErrorMessage(title: title, body: body))
-                        default:
-                            let message = ErrorMessage(title: NSLocalizedString("Error Updating Settings", comment: "The title of an error message"),
-                                                       body: error.localizedDescription)
-                            self.showErrorMessage(message: message)
+                            case 400: // Bad request, endpoint not supported
+                                print(error)
+                            case 401:
+                                let title = NSLocalizedString("Unauthorized", comment: "An error message title")
+                                let body = NSLocalizedString("Check username and password.", comment: "An error message")
+                                NoteSessionManager.shared.showErrorMessage(message: ErrorMessage(title: title, body: body))
+                            default:
+                                let message = ErrorMessage(title: NSLocalizedString("Error Updating Settings", comment: "The title of an error message"),
+                                                           body: error.localizedDescription)
+                                self.showErrorMessage(message: message)
                         }
                     }
+
                     completion?()
-                }
             }
+        }
     }
 
     func sync(completion: SyncCompletionBlock? = nil) {
