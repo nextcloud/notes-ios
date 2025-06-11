@@ -1,5 +1,5 @@
 {
-  "originHash" : "1658e0ccffb421f61f86533c4021dfa389b4e4f3552ab84e4ae1441892b317e0",
+  "originHash" : "cd425e1a0e8e0582ca90df8aff7cddb31da87c1ae8db0bfa57956f5f52b39a27",
   "pins" : [
     {
       "identity" : "alamofire",
@@ -17,15 +17,6 @@
       "state" : {
         "branch" : "master",
         "revision" : "beb054b1f802d7aa6dad01a82df4a4ab81dda97f"
-      }
-    },
-    {
-      "identity" : "codescanner",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/twostraws/CodeScanner",
-      "state" : {
-        "revision" : "5e886430238944c7200fc9e10dbf2d9550dba865",
-        "version" : "2.5.2"
       }
     },
     {
@@ -51,8 +42,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/nextcloud/NextcloudKit",
       "state" : {
-        "revision" : "8ac6704234f529d09b0651e4d94fdc14f8820333",
-        "version" : "6.0.9"
+        "revision" : "7a59ec3bcafbd88eac010b1da30c29fa7d0e9fb1",
+        "version" : "6.0.4"
       }
     },
     {
@@ -74,30 +65,12 @@
       }
     },
     {
-      "identity" : "swiftlintplugins",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/SimplyDanny/SwiftLintPlugins",
-      "state" : {
-        "revision" : "8545ddf4de043e6f2051c5cf204f39ef778ebf6b",
-        "version" : "0.59.1"
-      }
-    },
-    {
       "identity" : "swiftmessages",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SwiftKickMobile/SwiftMessages",
       "state" : {
         "revision" : "c544df6ce316422b9d65a571f932e800213dd09c",
         "version" : "10.0.1"
-      }
-    },
-    {
-      "identity" : "swiftnextcloudui",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/nextcloud/swiftnextcloudui",
-      "state" : {
-        "branch" : "main",
-        "revision" : "1705d796be8f76e0d229beeefc11f5ce20867d06"
       }
     },
     {
