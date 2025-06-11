@@ -355,10 +355,12 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="smL-9H-BiT">
                                 <rect key="frame" x="0.0" y="62" width="440" height="822"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <accessibility key="accessibilityConfiguration" hint="Placeholder for legal text content: Do not translate!"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                <attributedString key="userComments">
+                                    <fragment content="Placeholder for legal text content: Do not translate!"/>
+                                </attributedString>
                             </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Fm3-Sd-gDX"/>
