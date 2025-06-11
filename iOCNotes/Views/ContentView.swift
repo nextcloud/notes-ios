@@ -57,9 +57,7 @@ struct ContentView: View {
                 }
                 .tag(0)
 
-                NavigationStack {
-                    SettingsView()
-                }
+                SettingsView()
                 .tabItem {
                     Label(
                         title: {

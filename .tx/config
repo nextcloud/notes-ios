@@ -28,15 +28,6 @@ lang_map               = zh_CN: zh-Hans, sk_SK: sk-SK, es_PE: es-PE, es_PY: es-P
 replace_edited_strings = false
 keep_translations      = false
 
-[o:nextcloud:p:nextcloud:r:notes-ios-settings]
-file_filter            = Source/Screens/Settings/<lang>.lproj/Settings.strings
-source_file            = Source/Screens/Settings/en.lproj/Settings.strings
-source_lang            = en
-type                   = STRINGS
-lang_map               = fi_FI: fi-FI, hu_HU: hu, zh_TW: zh-Hant-TW, es_GT: es-GT, es_HN: es-HN, es_PR: es-PR, ja_JP: ja-JP, es_MX: es-MX, en_GB: en-GB, es_CR: es-CR, es_419: es-419, zh_CN: zh-Hans, es_NI: es-NI, cs_CZ: cs, sk_SK: sk-SK, es_CO: es-CO, es_DO: es-DO, pt_BR: pt-BR, es_AR: es-AR, ka_GE: ka-GE, es_SV: es-SV, es_UY: es-UY, pt_PT: pt-PT, es_PE: es-PE, es_PY: es-PY, es_CL: es-CL, nb_NO: nb-NO, es_EC: es-EC, es_PA: es-PA, sr@latin: sr-Latn
-replace_edited_strings = false
-keep_translations      = false
-
 [o:nextcloud:p:nextcloud:r:notes-ios-settings-root]
 file_filter            = Source/Settings.bundle/<lang>.lproj/Root.strings
 source_file            = Source/Settings.bundle/en.lproj/Root.strings
