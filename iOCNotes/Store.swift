@@ -175,7 +175,7 @@ extension Store: ServerAddressViewDelegate {
     func beginPolling(at url: URL) async throws -> URL {
         logger.debug("Beginning polling at \(url.absoluteString)")
 
-        let serverInfoResult = await NextcloudKit.shared.getServerStatus(serverUrl: url.absoluteString)
+        let (_, serverInfoResult) = await NextcloudKit.shared.getServerStatusAsync(serverUrl: url.absoluteString)
 
         switch serverInfoResult {
             case .success:
