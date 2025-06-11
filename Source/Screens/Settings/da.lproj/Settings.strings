@@ -33,7 +33,7 @@
 "SyJ-AC-m5H.text" = "Plain Text (.txt)";
 
 /* Class = "UILabel"; text = "Get source code"; ObjectID = "Yoc-UG-LbO"; Note = "Label for link"; */
-"Yoc-UG-LbO.text" = "Hent kildetekst";
+"Yoc-UG-LbO.text" = "Hent kildekode";
 
 /* Class = "UIButton"; configuration.title = "Log Out"; ObjectID = "bbf-oV-TcF"; Note = "Button label"; */
 "bbf-oV-TcF.configuration.title" = "Log Out";
