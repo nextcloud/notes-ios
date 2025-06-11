@@ -27,6 +27,35 @@ final class Store: Logging, Storing {
         reloadAccounts()
     }
 
+    // MARK: Synchronization
+
+    var isSynchronizing = false
+
+    func synchronize() {
+        guard NoteSessionManager.isOnline else {
+            logger.debug("Cancelling synchronization because device is not online.")
+            return
+        }
+
+        logger.debug("Synchronizing...")
+        isSynchronizing = true
+
+        NoteSessionManager.shared.status {
+            NCService.shared.startRequestServicesServer {
+                NoteSessionManager.shared.settings {
+                    NoteSessionManager.shared.sync { [self] in
+                        isSynchronizing = false
+                        logger.debug("Synchronization completed.")
+                    }
+                }
+            }
+        }
+    }
+
+    // MARK: Account Management
+
+    var accounts = [AccountTransferObject]()
+
     ///
     /// Loads all accounts from persistence and updates the related state of the store.
     ///
@@ -85,12 +114,6 @@ final class Store: Logging, Storing {
         logger.debug("Completed reloading accounts.")
     }
 
-    // MARK: - Storing Implementation
-
-    var accounts = [AccountTransferObject]()
-
-    var isSynchronizing = false
-
     func addAccount(host: URL, name: String, password: String) {
         logger.debug("Creating account for user \"\(name)\" on \"\(host)\"...")
 
@@ -101,6 +124,20 @@ final class Store: Logging, Storing {
         reloadAccounts()
         synchronize()
     }
+
+    func removeAccount() {
+        logger.debug("Removing account...")
+
+        KeychainHelper.server = ""
+        KeychainHelper.username = ""
+        KeychainHelper.password = ""
+        CDNote.reset()
+        reloadAccounts()
+    }
+
+    // MARK: Shared Accounts
+
+    var sharedAccounts = [NKShareAccounts.DataAccounts]()
 
     func readSharedAccounts() {
         logger.debug("Reading shared accounts...")
@@ -119,36 +156,55 @@ final class Store: Logging, Storing {
         self.sharedAccounts = sharedAccounts
     }
 
-    func removeAccount() {
-        logger.debug("Removing account...")
+    // MARK: Settings
 
-        KeychainHelper.server = ""
-        KeychainHelper.username = ""
-        KeychainHelper.password = ""
-        CDNote.reset()
-        reloadAccounts()
+    var fileExtension: FileSuffix {
+        get {
+            KeychainHelper.fileSuffix
+        }
+        set {
+            logger.debug("Setting file extension to \"\(newValue)\".")
+            KeychainHelper.fileSuffix = newValue
+        }
     }
 
-    var sharedAccounts = [NKShareAccounts.DataAccounts]()
-
-    func synchronize() {
-        guard NoteSessionManager.isOnline else {
-            logger.debug("Cancelling synchronization because device is not online.")
-            return
+    var internalEditor: Bool {
+        get {
+            KeychainHelper.internalEditor
         }
+        set {
+            logger.debug("Setting internal editor enabled to \(newValue).")
+            KeychainHelper.internalEditor = newValue
+        }
+    }
 
-        logger.debug("Synchronizing...")
-        isSynchronizing = true
+    var notesPath: String {
+        get {
+            KeychainHelper.notesPath
+        }
+        set {
+            logger.debug("Setting notes path to \"\(newValue)\".")
+            KeychainHelper.notesPath = newValue
+        }
+    }
 
-        NoteSessionManager.shared.status {
-            NCService.shared.startRequestServicesServer {
-                NoteSessionManager.shared.settings {
-                    NoteSessionManager.shared.sync { [self] in
-                        isSynchronizing = false
-                        logger.debug("Synchronization completed.")
-                    }
-                }
-            }
+    var offlineMode: Bool {
+        get {
+            KeychainHelper.offlineMode
+        }
+        set {
+            logger.debug("Setting offline mode enabled to \(newValue).")
+            KeychainHelper.offlineMode = newValue
+        }
+    }
+
+    var launchSynchronization: Bool {
+        get {
+            KeychainHelper.syncOnStart
+        }
+        set {
+            logger.debug("Setting startup synchronization enabled to \(newValue).")
+            KeychainHelper.syncOnStart = newValue
         }
     }
 }

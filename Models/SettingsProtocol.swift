@@ -8,9 +8,9 @@
 
 import Foundation
 
-enum FileSuffix: Int, CustomStringConvertible {
+enum FileSuffix: Int, CustomStringConvertible, Equatable {
     case txt = 0
-    case md
+    case md = 1
 
     var description: String {
         switch self {
