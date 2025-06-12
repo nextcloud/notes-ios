@@ -35,7 +35,7 @@ class PBHOpenInActivity: UIActivity {
     }
 
     override var activityImage: UIImage {
-        return UIImage(named: "share")!
+        return UIImage(systemName: "square.and.arrow.up")!
     }
 
     override class var activityCategory: Category {

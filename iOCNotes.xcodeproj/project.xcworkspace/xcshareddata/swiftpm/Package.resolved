@@ -1,13 +1,13 @@
 {
-  "originHash" : "cd425e1a0e8e0582ca90df8aff7cddb31da87c1ae8db0bfa57956f5f52b39a27",
+  "originHash" : "1658e0ccffb421f61f86533c4021dfa389b4e4f3552ab84e4ae1441892b317e0",
   "pins" : [
     {
       "identity" : "alamofire",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Alamofire/Alamofire",
       "state" : {
-        "revision" : "78424be314842833c04bc3bef5b72e85fff99204",
-        "version" : "5.6.4"
+        "revision" : "513364f870f6bfc468f9d2ff0a95caccc10044c5",
+        "version" : "5.10.2"
       }
     },
     {
@@ -17,6 +17,15 @@
       "state" : {
         "branch" : "master",
         "revision" : "beb054b1f802d7aa6dad01a82df4a4ab81dda97f"
+      }
+    },
+    {
+      "identity" : "codescanner",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/twostraws/CodeScanner",
+      "state" : {
+        "revision" : "5e886430238944c7200fc9e10dbf2d9550dba865",
+        "version" : "2.5.2"
       }
     },
     {
@@ -38,21 +47,12 @@
       }
     },
     {
-      "identity" : "mocker",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/WeTransfer/Mocker.git",
-      "state" : {
-        "revision" : "5d86f27a8f80d4ba388bc1a379a3c2289a1f3d18",
-        "version" : "2.6.0"
-      }
-    },
-    {
       "identity" : "nextcloudkit",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/nextcloud/NextcloudKit",
       "state" : {
-        "revision" : "a5bad2b6238ac25b3a59c9e7d91826b4f74c16c3",
-        "version" : "2.7.0"
+        "revision" : "993e62d7e1bac9119f9d7116c85f47387af9050f",
+        "version" : "6.0.10"
       }
     },
     {
@@ -60,8 +60,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/krzyzanowskim/OpenSSL",
       "state" : {
-        "revision" : "87f41bf9488e7dd2b0de2ab97cb3eafc7304e0e6",
-        "version" : "1.1.2000"
+        "revision" : "623c84da314e85363236507ca38a4bde65df21c3",
+        "version" : "3.3.3001"
       }
     },
     {
@@ -74,12 +74,30 @@
       }
     },
     {
+      "identity" : "swiftlintplugins",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SimplyDanny/SwiftLintPlugins",
+      "state" : {
+        "revision" : "8545ddf4de043e6f2051c5cf204f39ef778ebf6b",
+        "version" : "0.59.1"
+      }
+    },
+    {
       "identity" : "swiftmessages",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SwiftKickMobile/SwiftMessages",
       "state" : {
-        "revision" : "b29dd21090b708aa0ae9ecbaf6e2d0487028dc3f",
-        "version" : "9.0.6"
+        "revision" : "c544df6ce316422b9d65a571f932e800213dd09c",
+        "version" : "10.0.1"
+      }
+    },
+    {
+      "identity" : "swiftnextcloudui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/nextcloud/swiftnextcloudui",
+      "state" : {
+        "branch" : "main",
+        "revision" : "f6c68a0575f867e3bdccc5fb1e27b200ae3e2b80"
       }
     },
     {
@@ -87,8 +105,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SwiftyJSON/SwiftyJSON",
       "state" : {
-        "revision" : "b3dcd7dbd0d488e1a7077cb33b00f2083e382f07",
-        "version" : "5.0.1"
+        "revision" : "af76cf3ef710b6ca5f8c05f3a31307d44a3c5828",
+        "version" : "5.0.2"
       }
     },
     {

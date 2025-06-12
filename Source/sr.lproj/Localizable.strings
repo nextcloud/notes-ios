@@ -249,3 +249,15 @@
 "Select the account to add"   = "Избор налога који треба да се дода";
 
 "Notes" = "Белешке";
+
+"Client Version" = "Верзија клијента";
+"Server Version" = "Верзија сервера";
+"Are you sure you want to log out?" = "Да ли сте сигурни да желите да се одјавите?";
+"Cancel" = "Поништи";
+"Scan QR Code" = "Скенирај QR кôд";
+"Close" = "Затвори";
+"Server Address" = "Адреса сервера";
+"The address of your Nextcloud web interface when you open it in your browser." = "Адреса вашег Nextcloud веб интерфејса када га отворите у веб прегледачу.";
+"The entered server address is invalid." = "Унесена адреса сервера није исправна.";
+"Accounts from our other apps were found on this device. Would you like to add one of these?" = "На овом уређају су пронађени налози од наших осталих апликација. Желите ли да додате неки од њих?";
+"Shared Accounts" = "Дељени налози";

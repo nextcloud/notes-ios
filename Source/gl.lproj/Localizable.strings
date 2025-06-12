@@ -249,3 +249,15 @@
 "Select the account to add"   = "Seleccione a conta para engadir";
 
 "Notes" = "Notas";
+
+"Client Version" = "Client Version";
+"Server Version" = "Server Version";
+"Are you sure you want to log out?" = "Are you sure you want to log out?";
+"Cancel" = "Cancelar";
+"Scan QR Code" = "Scan QR Code";
+"Close" = "Pechar";
+"Server Address" = "Server Address";
+"The address of your Nextcloud web interface when you open it in your browser." = "The address of your Nextcloud web interface when you open it in your browser.";
+"The entered server address is invalid." = "The entered server address is invalid.";
+"Accounts from our other apps were found on this device. Would you like to add one of these?" = "Accounts from our other apps were found on this device. Would you like to add one of these?";
+"Shared Accounts" = "Shared Accounts";

@@ -9,7 +9,7 @@
 import SwiftUI
 import NextcloudKit
 
-struct SettingsScreen: View {
+struct SettingsView: View {
     @State private var addAccount = false
     @State private var model = SettingsModel()
 
@@ -52,5 +52,5 @@ struct SettingsScreen: View {
 }
 
 #Preview {
-    SettingsScreen()
+    SettingsView()
 }

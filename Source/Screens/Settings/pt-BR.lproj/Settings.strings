@@ -1,119 +1,78 @@
-/* Class = "UILabel"; text = "Notes"; ObjectID = "1jH-jZ-oMs"; */
-"1jH-jZ-oMs.text" = "Anotações";
+
+/* Class = "UILabel"; text = "Notes"; ObjectID = "1jH-jZ-oMs"; Note = "Do not translate"; */
+"1jH-jZ-oMs.text" = "Notas";
 
 /* Class = "UILabel"; text = "Markdown (.md)"; ObjectID = "51F-pD-XNv"; */
 "51F-pD-XNv.text" = "Markdown (.md)";
 
-/* Class = "UITextField"; placeholder = "Server Password"; ObjectID = "69R-CL-ITG"; */
-"69R-CL-ITG.placeholder" = "Server password";
-
-/* Class = "UILabel"; text = "Web Site"; ObjectID = "6So-Rg-NhZ"; */
-"6So-Rg-NhZ.text" = "Website";
-
 /* Class = "UITableViewController"; title = "File Extension"; ObjectID = "7HO-9G-Wem"; */
 "7HO-9G-Wem.title" = "Extensão de arquivo";
 
-/* Class = "UILabel"; text = "Username"; ObjectID = "A4w-6q-Hcy"; */
-"A4w-6q-Hcy.text" = "Nome do usuário";
+/* Class = "UILabel"; text = "Internal editor"; ObjectID = "9Dd-Vq-hcz"; Note = "Label for switch"; */
+"9Dd-Vq-hcz.text" = "Editor interno";
 
-/* Class = "UILabel"; text = "Allow Untrusted SSL Certificate"; ObjectID = "AKl-Ep-y3W"; */
-"AKl-Ep-y3W.text" = "Allow untrusted SSL certificate";
-
-/* Class = "UILabel"; text = "Offline Mode"; ObjectID = "B8W-f5-T18"; */
-"B8W-f5-T18.text" = "Offline mode";
-
-/* Class = "UILabel"; text = "Password"; ObjectID = "CrO-Ue-LFh"; */
-"CrO-Ue-LFh.text" = "Password";
-
-/* Class = "UIButton"; configuration.title = "Log In"; ObjectID = "dUo-KO-48Z"; */
-"dUo-KO-48Z.configuration.title" = "Entrar";
-
-/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "dUo-KO-48Z"; */
-"dUo-KO-48Z.normalTitle" = "Entrar";
-
-/* Class = "UITableViewSection"; headerTitle = "SUPPORT"; ObjectID = "ENv-ON-tbr"; */
-"ENv-ON-tbr.headerTitle" = "SUPORTE";
-
-/* Class = "UIBarButtonItem"; title = "Close"; ObjectID = "fbP-uw-RUF"; */
-"fbP-uw-RUF.title" = "Fechar";
-
-/* Class = "UITextField"; placeholder = "https://example.com/cloud"; ObjectID = "fKh-As-T79"; */
-"fKh-As-T79.placeholder" = "https://example.com/cloud";
-
-/* Class = "UINavigationItem"; title = "Login"; ObjectID = "FvN-vM-GK3"; */
-"FvN-vM-GK3.title" = "Login";
-
-/* Class = "UITableViewSection"; footerTitle = " "; ObjectID = "FVp-Pj-Gyn"; */
-"FVp-Pj-Gyn.footerTitle" = " ";
-
-/* Class = "UILabel"; text = "Contact"; ObjectID = "fwh-Xy-h5M"; */
-"fwh-Xy-h5M.text" = "Contato";
-
-/* Class = "UITableViewSection"; footerTitle = "     "; ObjectID = "gZE-6O-8CL"; */
-"gZE-6O-8CL.footerTitle" = "     ";
-
-/* Class = "UITableViewSection"; headerTitle = "SYNCING"; ObjectID = "gZE-6O-8CL"; */
-"gZE-6O-8CL.headerTitle" = "SINCRONIZANDO";
-
-/* Class = "UILabel"; text = "URL"; ObjectID = "GZX-DC-7iv"; */
-"GZX-DC-7iv.text" = "Url";
-
-/* Class = "UILabel"; text = "Sync on Start"; ObjectID = "hVU-Ed-KYm"; */
-"hVU-Ed-KYm.text" = "Sync on start";
-
-/* Class = "UITextField"; placeholder = "https://example.com/nextcloud"; ObjectID = "hYn-5e-22n"; */
-"hYn-5e-22n.placeholder" = "https://example.com/nextcloud";
+/* Class = "UILabel"; text = "Offline Mode"; ObjectID = "B8W-f5-T18"; Note = "Label for switch"; */
+"B8W-f5-T18.text" = "Modo Off-line";
 
 /* Class = "UINavigationItem"; title = "File Extension"; ObjectID = "J4w-vK-nRA"; */
 "J4w-vK-nRA.title" = "Extensão de arquivo";
 
-/* Class = "UITextField"; placeholder = "Server Username"; ObjectID = "KPV-Zj-4Ps"; */
-"KPV-Zj-4Ps.placeholder" = "Server username";
-
-/* Class = "UILabel"; text = "Notes Folder"; ObjectID = "ltN-gF-yom"; */
-"ltN-gF-yom.text" = "Notes folder";
-
-/* Class = "UILabel"; text = "File Extension"; ObjectID = "Pvp-6i-NLV"; */
+/* Class = "UILabel"; text = "File Extension"; ObjectID = "Pvp-6i-NLV"; Note = "Label for options menu"; */
 "Pvp-6i-NLV.text" = "Extensão de arquivo";
-
-/* Class = "UILabel"; text = "Connect"; ObjectID = "qxi-YY-hPn"; */
-"qxi-YY-hPn.text" = "Conectar";
 
 /* Class = "UITableViewSection"; headerTitle = "Extension"; ObjectID = "Rfx-NI-FZ4"; */
 "Rfx-NI-FZ4.headerTitle" = "Extensão";
 
-/* Class = "UITableViewSection"; footerTitle = "These settings only affect how notes are managed on the server. NextcloudNotes does not handle any files."; ObjectID = "RvH-hn-Sfv"; */
-"RvH-hn-Sfv.footerTitle" = "Essas configurações afetam apenas como as anotações são gerenciadas no servidor. O NextcloudAnotações não manipula nenhum arquivo.";
+/* Class = "UITableViewSection"; footerTitle = "These settings only affect how notes are managed on the server. Nextcloud Notes does not handle any files."; ObjectID = "RvH-hn-Sfv"; */
+"RvH-hn-Sfv.footerTitle" = "Estas configurações afetam apenas a forma como as notas são gerenciadas no servidor. O Nextcloud Notas não manipula nenhum arquivo.";
 
-/* Class = "UITableViewSection"; headerTitle = "SERVER SETTINGS"; ObjectID = "RvH-hn-Sfv"; */
-"RvH-hn-Sfv.headerTitle" = "CONFIGURAÇÕES DO SERVIDOR";
-
-/* Class = "UITextView"; text = ""; ObjectID = "smL-9H-BiT"; */
-"smL-9H-BiT.text" = "";
-
-/* Class = "UITableViewSection"; footerTitle = "Not logged in"; ObjectID = "Svh-OV-bUr"; */
-"Svh-OV-bUr.footerTitle" = "Sessão não iniciada";
-
-/* Class = "UITableViewSection"; headerTitle = "SERVER"; ObjectID = "Svh-OV-bUr"; */
-"Svh-OV-bUr.headerTitle" = "SERVIDOR";
+/* Class = "UITableViewSection"; headerTitle = "Server settings"; ObjectID = "RvH-hn-Sfv"; */
+"RvH-hn-Sfv.headerTitle" = "Configurações do servidor";
 
 /* Class = "UILabel"; text = "Plain Text (.txt)"; ObjectID = "SyJ-AC-m5H"; */
-"SyJ-AC-m5H.text" = "Plain text (.txt)";
+"SyJ-AC-m5H.text" = "Texto Puro (.txt)";
 
-/* Class = "UILabel"; text = "Plain Text (.txt)"; ObjectID = "uVd-ib-jy0"; */
-"uVd-ib-jy0.text" = "Plain text (.txt)";
+/* Class = "UILabel"; text = "Get source code"; ObjectID = "Yoc-UG-LbO"; Note = "Label for link"; */
+"Yoc-UG-LbO.text" = "Obter código-fonte";
 
-/* Class = "UITableViewSection"; footerTitle = " "; ObjectID = "Uwy-jB-bpa"; */
-"Uwy-jB-bpa.footerTitle" = " ";
+/* Class = "UIButton"; configuration.title = "Log Out"; ObjectID = "bbf-oV-TcF"; Note = "Button label"; */
+"bbf-oV-TcF.configuration.title" = "Sair";
 
-/* Class = "UITableViewSection"; headerTitle = "Server"; ObjectID = "Uwy-jB-bpa"; */
-"Uwy-jB-bpa.headerTitle" = "Servidor";
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "bbf-oV-TcF"; Note = "Button label"; */
+"bbf-oV-TcF.normalTitle" = "Botão";
+
+/* Class = "UITableViewSection"; footerTitle = "     "; ObjectID = "gZE-6O-8CL"; */
+"gZE-6O-8CL.footerTitle" = "     ";
+
+/* Class = "UITableViewSection"; headerTitle = "Syncing"; ObjectID = "gZE-6O-8CL"; */
+"gZE-6O-8CL.headerTitle" = "Sincronização";
+
+/* Class = "UILabel"; text = "Sync on Start"; ObjectID = "hVU-Ed-KYm"; Note = "Label for switch"; */
+"hVU-Ed-KYm.text" = "Sincronização na Inicialização";
+
+/* Class = "UILabel"; text = "Notes Folder"; ObjectID = "ltN-gF-yom"; Note = "Label for menu"; */
+"ltN-gF-yom.text" = "Pasta de Notas";
+
+/* Class = "UITableViewSection"; headerTitle = "Information"; ObjectID = "non-OM-gIT"; */
+"non-OM-gIT.headerTitle" = "Informações";
+
+/* Class = "UITableViewSection"; headerTitle = "Account"; ObjectID = "qGs-TC-y20"; */
+"qGs-TC-y20.headerTitle" = "Conta";
+
+/* Class = "UITextView"; accessibilityHint = "Placeholder for legal text content: Do not translate!"; ObjectID = "smL-9H-BiT"; */
+"smL-9H-BiT.accessibilityHint" = "Placeholder for legal text content: Do not translate!";
+
+/* Class = "UILabel"; text = "Plain Text (.txt)"; ObjectID = "uVd-ib-jy0"; Note = "Do not translate"; */
+"uVd-ib-jy0.text" = "Texto Puro (.txt)";
+
+/* Class = "UITableViewCell"; contentConfiguration.text = "Client Version"; ObjectID = "vrs-Pz-kVO"; */
+"vrs-Pz-kVO.contentConfiguration.text" = "Versão do Cliente";
 
 /* Class = "UINavigationItem"; title = "Settings"; ObjectID = "waZ-N6-59b"; */
 "waZ-N6-59b.title" = "Configurações";
 
-/* Class = "UINavigationItem"; title = "Login Information"; ObjectID = "ZPa-hv-oSb"; */
-"ZPa-hv-oSb.title" = "Login information";
+/* Class = "UITableViewCell"; contentConfiguration.text = "Server Version"; ObjectID = "y5A-NE-V50"; */
+"y5A-NE-V50.contentConfiguration.text" = "Versão do Servidor";
 
-/* Class = "UILabel"; text = "Sync on Start"; ObjectID = "9Dd-Vq-hcz"; */
-"9Dd-Vq-hcz.text" = "Editor Interno";
+/* Class = "UILabel"; text = "Privacy and Legal Policy"; ObjectID = "yi3-0y-GWm"; Note = "Label for link"; */
+"yi3-0y-GWm.text" = "Política de Privacidade e Legal";

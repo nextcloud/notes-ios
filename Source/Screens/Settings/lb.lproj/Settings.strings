@@ -1,0 +1,78 @@
+
+/* Class = "UILabel"; text = "Notes"; ObjectID = "1jH-jZ-oMs"; Note = "Do not translate"; */
+"1jH-jZ-oMs.text" = "Notizen";
+
+/* Class = "UILabel"; text = "Markdown (.md)"; ObjectID = "51F-pD-XNv"; */
+"51F-pD-XNv.text" = "Markdown (.md)";
+
+/* Class = "UITableViewController"; title = "File Extension"; ObjectID = "7HO-9G-Wem"; */
+"7HO-9G-Wem.title" = "File Extension";
+
+/* Class = "UILabel"; text = "Internal editor"; ObjectID = "9Dd-Vq-hcz"; Note = "Label for switch"; */
+"9Dd-Vq-hcz.text" = "Internal editor";
+
+/* Class = "UILabel"; text = "Offline Mode"; ObjectID = "B8W-f5-T18"; Note = "Label for switch"; */
+"B8W-f5-T18.text" = "Offline Mode";
+
+/* Class = "UINavigationItem"; title = "File Extension"; ObjectID = "J4w-vK-nRA"; */
+"J4w-vK-nRA.title" = "File Extension";
+
+/* Class = "UILabel"; text = "File Extension"; ObjectID = "Pvp-6i-NLV"; Note = "Label for options menu"; */
+"Pvp-6i-NLV.text" = "File Extension";
+
+/* Class = "UITableViewSection"; headerTitle = "Extension"; ObjectID = "Rfx-NI-FZ4"; */
+"Rfx-NI-FZ4.headerTitle" = "Extension";
+
+/* Class = "UITableViewSection"; footerTitle = "These settings only affect how notes are managed on the server. Nextcloud Notes does not handle any files."; ObjectID = "RvH-hn-Sfv"; */
+"RvH-hn-Sfv.footerTitle" = "These settings only affect how notes are managed on the server. Nextcloud Notes does not handle any files.";
+
+/* Class = "UITableViewSection"; headerTitle = "Server settings"; ObjectID = "RvH-hn-Sfv"; */
+"RvH-hn-Sfv.headerTitle" = "Server settings";
+
+/* Class = "UILabel"; text = "Plain Text (.txt)"; ObjectID = "SyJ-AC-m5H"; */
+"SyJ-AC-m5H.text" = "Plain Text (.txt)";
+
+/* Class = "UILabel"; text = "Get source code"; ObjectID = "Yoc-UG-LbO"; Note = "Label for link"; */
+"Yoc-UG-LbO.text" = "Get source code";
+
+/* Class = "UIButton"; configuration.title = "Log Out"; ObjectID = "bbf-oV-TcF"; Note = "Button label"; */
+"bbf-oV-TcF.configuration.title" = "Log Out";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "bbf-oV-TcF"; Note = "Button label"; */
+"bbf-oV-TcF.normalTitle" = "Button";
+
+/* Class = "UITableViewSection"; footerTitle = "     "; ObjectID = "gZE-6O-8CL"; */
+"gZE-6O-8CL.footerTitle" = "     ";
+
+/* Class = "UITableViewSection"; headerTitle = "Syncing"; ObjectID = "gZE-6O-8CL"; */
+"gZE-6O-8CL.headerTitle" = "Syncing";
+
+/* Class = "UILabel"; text = "Sync on Start"; ObjectID = "hVU-Ed-KYm"; Note = "Label for switch"; */
+"hVU-Ed-KYm.text" = "Sync on Start";
+
+/* Class = "UILabel"; text = "Notes Folder"; ObjectID = "ltN-gF-yom"; Note = "Label for menu"; */
+"ltN-gF-yom.text" = "Notes Folder";
+
+/* Class = "UITableViewSection"; headerTitle = "Information"; ObjectID = "non-OM-gIT"; */
+"non-OM-gIT.headerTitle" = "Information";
+
+/* Class = "UITableViewSection"; headerTitle = "Account"; ObjectID = "qGs-TC-y20"; */
+"qGs-TC-y20.headerTitle" = "Account";
+
+/* Class = "UITextView"; accessibilityHint = "Placeholder for legal text content: Do not translate!"; ObjectID = "smL-9H-BiT"; */
+"smL-9H-BiT.accessibilityHint" = "Placeholder for legal text content: Do not translate!";
+
+/* Class = "UILabel"; text = "Plain Text (.txt)"; ObjectID = "uVd-ib-jy0"; Note = "Do not translate"; */
+"uVd-ib-jy0.text" = "Plain Text (.txt)";
+
+/* Class = "UITableViewCell"; contentConfiguration.text = "Client Version"; ObjectID = "vrs-Pz-kVO"; */
+"vrs-Pz-kVO.contentConfiguration.text" = "Client Version";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "waZ-N6-59b"; */
+"waZ-N6-59b.title" = "Settings";
+
+/* Class = "UITableViewCell"; contentConfiguration.text = "Server Version"; ObjectID = "y5A-NE-V50"; */
+"y5A-NE-V50.contentConfiguration.text" = "Server Version";
+
+/* Class = "UILabel"; text = "Privacy and Legal Policy"; ObjectID = "yi3-0y-GWm"; Note = "Label for link"; */
+"yi3-0y-GWm.text" = "Privacy and Legal Policy";

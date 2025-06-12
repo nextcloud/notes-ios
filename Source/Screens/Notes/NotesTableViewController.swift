@@ -176,6 +176,7 @@ class NotesTableViewController: BaseUITableViewController {
         super.viewWillAppear(animated)
         addBarButton.isEnabled = true
         refreshBarButton.isEnabled = NoteSessionManager.isOnline
+        startObservingSynchronizationState()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -183,6 +184,58 @@ class NotesTableViewController: BaseUITableViewController {
             didBecomeActive()
         }
         launching = false
+    }
+
+    // MARK: - Store Observation
+
+    private var observation: NSKeyValueObservation?
+    private var trackingToken: Any?
+
+    func startObservingSynchronizationState() {
+        // Register a tracking block that re-runs when the observed value changes
+        trackingToken = withObservationTracking {
+            _ = Store.shared.isSynchronizing
+        } onChange: { [weak self] in
+            guard let self = self else {
+                return
+            }
+
+            Task { @MainActor in
+                self.handleSynchronizationStateChange()
+            }
+        }
+    }
+
+    func handleSynchronizationStateChange() {
+        if Store.shared.isSynchronizing {
+            beginRefreshing()
+        } else {
+            endRefreshing()
+        }
+    }
+
+    ///
+    /// Update the user interface to reflect the active update.
+    ///
+    /// Outsourced into dedicated methods due to multiple callers.
+    ///
+    func beginRefreshing() {
+        refreshBarButton.isEnabled = false
+        addBarButton.isEnabled = false
+        notesManager.manager.isSyncing = true
+    }
+
+    ///
+    /// Update the user interface to reflect the completed update.
+    ///
+    /// Outsourced into dedicated methods due to multiple callers.
+    ///
+    func endRefreshing() {
+        notesManager.manager.isSyncing = false
+        addBarButton.isEnabled = true
+        refreshBarButton.isEnabled = NoteSessionManager.isOnline
+        tableView.reloadData()
+        refreshControl?.endRefreshing()
     }
 
     // MARK: - Public functions
@@ -363,9 +416,12 @@ class NotesTableViewController: BaseUITableViewController {
     }
 
     func openTextWebView(note: CDNote) {
+        guard let account = KeychainHelper.account else {
+            return
+        }
 
         let notesPath = KeychainHelper.notesPath
-        NextcloudKit.shared.NCTextOpenFile(fileNamePath: notesPath, fileId: String(note.cdId), editor: "text") { account, url, data, error in
+        NextcloudKit.shared.textOpenFile(fileNamePath: notesPath, fileId: String(note.cdId), editor: "text", account: account) { account, url, data, error in
             if error == .success, let url = url, let viewController: NCViewerNextcloudText = UIStoryboard(name: "NCViewerNextcloudText", bundle: nil).instantiateInitialViewController() as? NCViewerNextcloudText {
                 viewController.editor = "text"
                 viewController.link = url
@@ -506,15 +562,10 @@ class NotesTableViewController: BaseUITableViewController {
             return
         }
 
-        refreshBarButton.isEnabled = false
-        addBarButton.isEnabled = false
-        notesManager.manager.isSyncing = true
+        beginRefreshing()
+
         NoteSessionManager.shared.sync { [weak self] in
-            self?.notesManager.manager.isSyncing = false
-            self?.addBarButton.isEnabled = true
-            self?.refreshBarButton.isEnabled = NoteSessionManager.isOnline
-            self?.tableView.reloadData()
-            self?.refreshControl?.endRefreshing()
+            self?.endRefreshing()
         }
     }
 
@@ -611,11 +662,15 @@ class NotesTableViewController: BaseUITableViewController {
     }
 }
 
+// MARK: - FRCManagerDelegate
+
 extension NotesTableViewController: FRCManagerDelegate {
     func managerDidChangeContent(_ controller: NSObject, change: NotesFRCManagerChange) {
         change.applyChanges(tableView: tableView, animation: .fade)
     }
 }
+
+// MARK: - UISearchResultsUpdating
 
 extension NotesTableViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
@@ -634,6 +689,8 @@ extension NotesTableViewController: UISearchResultsUpdating {
     }
 
 }
+
+// MARK: - UITableViewDropDelegate
 
 extension NotesTableViewController: UITableViewDropDelegate {
     func tableView(_ tableView: UITableView, canHandle session: UIDropSession) -> Bool {
@@ -669,6 +726,8 @@ extension NotesTableViewController: UITableViewDropDelegate {
 
 }
 
+// MARK: - CollapsibleTableViewHeaderViewDelegate
+
 extension NotesTableViewController: CollapsibleTableViewHeaderViewDelegate {
     func toggleSection(_ header: CollapsibleTableViewHeaderView, sectionTitle: String, sectionIndex: Int) {
         var sectionCollapsedInfo = notesManager.manager.disclosureSections
@@ -684,12 +743,16 @@ extension NotesTableViewController: CollapsibleTableViewHeaderViewDelegate {
     }
 }
 
+// MARK: - UIAdaptivePresentationControllerDelegate
+
 extension NotesTableViewController: UIAdaptivePresentationControllerDelegate {
     func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
         addBarButton.isEnabled = true
         refreshBarButton.isEnabled = NoteSessionManager.isOnline
     }
 }
+
+// MARK: - Equatable
 
 extension Array where Element: Equatable {
     func removingDuplicates() -> Array {
@@ -701,12 +764,16 @@ extension Array where Element: Equatable {
     }
 }
 
+// MARK: - allNotes
+
 extension NSPredicate {
     static var allNotes: NSPredicate {
         return NSPredicate(format: "cdDeleteNeeded == %@", NSNumber(value: false))
     }
 
 }
+
+// MARK: - UIViewControllerRepresentable
 
 struct NotesTableViewControllerRepresentable: UIViewControllerRepresentable {
     @Binding var addNote: Bool

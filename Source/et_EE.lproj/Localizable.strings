@@ -1,0 +1,263 @@
+/* Crash report email body placeholder */
+"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Palun jaga võimalikult palju teavet selle kohta, mida sa tegid kui see rakenduse kokkujooksmine juhtus.>";
+
+/* Support email body placeholder */
+"<Please state your question or problem here>" = "Palun kirjelda siin oma küsimust või probleemi";
+
+/* An error message */
+"A server installation could not be found. Check the server address." = "Serveri paigaldust ei leidu. Palun kontrolli serveri aadressi õigsust.";
+
+/* Acknowledgements */
+"Acknowledgements" = "Tänuavaldused";
+
+/* Title of alert for adding a category */
+"Add Category" = "Lisa kategooria";
+
+/* Item to show all notes */
+"All" = "Kõik";
+
+/* A menu action
+   A menu option for cancelling */
+"Cancel" = "Loobu";
+
+/* Header title, categories */
+"CATEGORIES" = "KATEGOORIAD";
+
+/* 'Category' menu item */
+"Category" = "Kategooriad";
+
+/* Action to change category of a note */
+"Category…" = "Kategooria…";
+
+/* Action to change category of a note */
+"Change Category…" = "Muuda kategooriat…";
+
+/* An error message */
+"Check username and password." = "Kontrolli kasutajanime ja salasõna.";
+
+/* Title of a button allowing the user to close the login screen and sync with the server */
+"Close & Sync" = "Sulge ja sünkroniseeri";
+
+/* Crash report email subject */
+"NextcloudNotes Crash Report" = "Kokkujooksmise aruanne: NextcloudNotes";
+
+/* No comment provided by engineer. */
+"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "NextcloudNotes ehk Märkmete rakendus jooksis viimasel käivitamisel kokku. Kas sa sooviksid arendajale selle kohta aruande saata?";
+
+/* Support email subject */
+"NextcloudNotes Support Request" = "Kasutajatoe päring: NextcloudNotes";
+
+/* A button title */
+"Connect" = "Ühenda";
+
+/* Status information, connected */
+"Connected to Notes on the server" = "Ühendatud märkmete rakendusega serveris";
+
+/* An error message title */
+"Connection failure" = "Ühenduse viga";
+
+/* Alert view title */
+"Crash Detected" = "Tuvastasin rakenduse kokkujooksmise";
+
+/* Action to delete a note */
+"Delete" = "Kustuta";
+
+/* A menu action */
+"Delete Note" = "Kustuta märge";
+
+/* Prompt on alert for adding a category */
+"Enter a name for the new category" = "Sisesta uue kategooria nimi";
+
+/* The title of an error message */
+"Error Adding Note" = "Viga märkme lisamisel";
+
+/* The title of an error message */
+"Error Deleting Note" = "Viga märkme kustutamisel";
+
+/* The title of an error message */
+"Error Getting Note" = "Viga märkme laadimisel";
+
+/* The title of an error message */
+"Error Syncing Notes" = "Viga märkmete sünkroniseerimisel";
+
+/* The title of an error message */
+"Error Updating Note" = "Viga märkme uuendamisel";
+
+/* The title of an error message */
+"Error Updating Notes" = "Viga märkmete uuendamisel";
+
+/* An error message */
+"Failed to connect to a server. Check your settings." = "Ei õnnestu luua ühendust serveriga. Palun kontrolli oma seadistusi.";
+
+/* Item to show favorite notes */
+"Favorites" = "Lemmikud";
+
+/* A menu option for plain sharing in html format */
+"HTML" = "HTML";
+
+/* A status label indicating that the user is logged in */
+"Logged In" = "Sisselogitud";
+
+/* Header title, main */
+"MAIN" = "PÕHILINE";
+
+/* A menu option for sharing in markdown format */
+"Markdown" = "Markdown";
+
+/* The title of a new note */
+"New note" = "Uus märge";
+
+/* No comment provided by engineer. */
+"No thanks" = "Tänan, ei";
+
+/* Status information, not connected */
+"Not connected to Notes on a server" = "Pole ühendatud märkmete rakendusega serveris";
+
+/* A status label indicating that the user is not logged in */
+"Not Logged In" = "Pole sisse logitud";
+
+/* Message about not being logged in */
+"Not logged in" = "Pole sisse logitud";
+
+/* Title of alert to change title */
+"Note Title" = "Märkme pealkiri";
+
+/* An error message */
+"Notes could not be found on your server. Make sure it is installed and enabled" = "Märkmete rakendust ei õnnestunud serverist leida. Palun kontrolli, et ta oleks paigaldatud ja sisse lülitatud.";
+
+/* An error message title */
+"Notes not found" = "Märkmete rakendust ei leidu";
+
+/* Button, OK */
+"OK" = "Sobib";
+
+/* Title for Open In activity */
+"Open in…" = "Ava rakenduses…";
+
+/* A menu option for sharing in plain text format */
+"Plain Text" = "Vormindamata tekst";
+
+/* A message
+   A message to check network connection */
+"Please check network connection and login." = "Palun kontrolli võrguühendust ja kasutajanime.";
+
+/* A button title */
+"Reconnect" = "Ühenda uuesti";
+
+/* Action to change title of a note
+   Caption of Rename button */
+"Rename" = "Muuda nime";
+
+/* Message of alert to change title */
+"Rename the note" = "Muuda märkme nime";
+
+/* Action to change title of a note */
+"Rename…" = "Muuda nime…";
+
+/* A menu option for sharing in rich text format */
+"Rich Text" = "Vormindatud tekst";
+
+/* Placeholder text when no note is selected */
+"Select or create a note." = "Vali või koosta märge.";
+
+/* Alert title for selecting server brand */
+"Server" = "Server";
+
+/* An error message title */
+"Server not found" = "Serverit ei leidu";
+
+/* A message title */
+"Server Reachable" = "Server on saadaval";
+
+/* Title of a menu with sharing options */
+"Share Note As" = "Jaga märget kui";
+
+/* A message title */
+"Success" = "Valmis";
+
+/* A message */
+"The network connection is working properly." = "Võrguühendus ei toimi korralikult.";
+
+/* An error message */
+"The note does not exist" = "Märget pole olemas";
+
+/* Alert message for selecting server brand */
+"Unable to automatically detect type of server.\nPlease select:" = "Pole võimalik serveri tüüpi automaatselt tuvastada.\nPalun vali:";
+
+/* A message title
+   The title of an error message */
+"Unable to Reach Server" = "Server pole saadaval";
+
+/* An error message title */
+"Unauthorized" = "Pole lubatud";
+
+/* Text displayed for notes not assigned to a category */
+"Uncategorized" = "Kategooria on märkimata";
+
+/* Message with Notes version, product name and version */
+"Using Notes %@on %@ %@." = "Kasutusel on Märkmete rakendus %@, %@, %@.";
+
+/* No comment provided by engineer. */
+"Yes, please!" = "Jah, palun!";
+
+/* A message */
+"You are now connected to Notes on your server" = "Ühendus märkmete rakendusega serveris on loodud";
+
+/* HUD subtitle when checking server capabilities */
+"Checking server capabilities" = "Kontrollin serveri võimalusi";
+
+/* HUD subtitle when checking server settings */
+"Checking server settings" = "Kontrollin serveri seadistusi";
+
+/* HUD subtitle when checking server status */
+"Checking server status" = "Kontrollin serveri olekut";
+
+/* No comment provided by engineer. */
+"Connection error" = "Ühenduse viga";
+
+/* No comment provided by engineer. */
+"Do you want to connect to the server anyway?" = "Kas sa ikkagi soovid luua ühendust serveriga?";
+
+/* Message of alert to change notes folder */
+"Enter a name for the folder where notes should be saved on the server" = "Sisesta kausta nimi, kus märkmed peaksid serveris salvestuma";
+
+/* An error message title */
+"Error" = "Viga";
+
+/* No comment provided by engineer. */
+"No" = "Ei";
+
+/* Title of alert to change notes folder */
+"Notes Folder" = "Märkmete kaust";
+
+/* A menu option for sharing in pdf format */
+"PDF" = "PDF-fail";
+
+/* Caption of Save button */
+"Save" = "Salvesta";
+
+/* No comment provided by engineer. */
+"The certificate for this server is invalid" = "Selle serveri sertifikaat pole kehtiv";
+
+/* No comment provided by engineer. */
+"View Certificate" = "Vaata sertifikaati";
+
+/* No comment provided by engineer. */
+"Yes" = "Jah";
+
+// NEXTCLOUD
+"Select the account to add"   = "Vali lisatav kasutajakonto";
+
+"Notes" = "Märkmed";
+
+"Client Version" = "Kliendi versioon";
+"Server Version" = "Serveri versioon";
+"Are you sure you want to log out?" = "Kas sa oled kindel, et soovid välja logida?";
+"Cancel" = "Loobu";
+"Scan QR Code" = "Skaneeri QR-koodi";
+"Close" = "Sulge";
+"Server Address" = "Serveri aadress";
+"The address of your Nextcloud web interface when you open it in your browser." = "Nextcloudi kasutajaliidese veebiaadress, kui sa avad ta veebibrauseris.";
+"The entered server address is invalid." = "Sisestatud serveri aadress on vigane.";
+"Accounts from our other apps were found on this device. Would you like to add one of these?" = "Selles seadmes leidub teiste rakenduste kasutajakontode andmeid. Kas sa soovid neist mõne lisada?";
+"Shared Accounts" = "Jagatud kasutajakontod";

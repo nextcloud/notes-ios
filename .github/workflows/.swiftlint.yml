@@ -1,0 +1,28 @@
+# SPDX-FileCopyrightText: Nextcloud GmbH
+# SPDX-FileCopyrightText: 2025 Iva Horn
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+name: SwiftLint
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  SwiftLint:
+    runs-on: ubuntu-latest
+    
+    steps:
+     - uses: actions/checkout@v4
+       
+     - name: GitHub Action for SwiftLint
+       uses: norio-nomura/action-swiftlint@3.2.1
+

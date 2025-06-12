@@ -1,0 +1,44 @@
+disabled_rules:
+  - line_length
+
+opt_in_rules:
+  - empty_count
+  - empty_string
+  - empty_xctest_method
+  - file_header
+  - file_name_no_space
+  - force_unwrapping
+  - implicit_return
+  - local_doc_comment
+  - missing_docs
+  - modifier_order
+  - multiline_arguments
+  - multiline_function_chains
+  - no_empty_block
+  - operator_usage_whitespace
+  - period_spacing
+  - toggle_bool
+  - sorted_enum_cases
+  - sorted_imports
+  - trailing_closure
+  - weak_delegate
+  - yoda_condition
+
+included:
+  - iOCNotes
+
+strict: true
+
+file_header:
+  required_pattern: |
+    \/\/ SPDX-FileCopyrightText: Nextcloud GmbH
+    \/\/ SPDX-FileCopyrightText: 2025 .*?
+    \/\/ SPDX-License-Identifier: GPL-3.0-or-later
+  severity: error
+
+large_tuple:
+    warning: 4
+    error: 6
+
+switch_case_alignment:
+    indented_cases: true

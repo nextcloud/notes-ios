@@ -123,7 +123,7 @@
 "Note Title" = "Not başlığı";
 
 /* An error message */
-"Notes could not be found on your server. Make sure it is installed and enabled" = "Sunucunuzda Notlar uygulaması bulunamadı. Lütfen kurulmuş ve kullanıma alınmış olduğundan emin olun.";
+"Notes could not be found on your server. Make sure it is installed and enabled" = "Sunucunuzda Notlar uygulaması bulunamadı. Lütfen kurulmuş ve etkinleştirilmiş olduğundan emin olun.";
 
 /* An error message title */
 "Notes not found" = "Notlar uygulaması bulunamadı";
@@ -249,3 +249,15 @@
 "Select the account to add"   = "Eklenecek hesabı seçin";
 
 "Notes" = "Notlar";
+
+"Client Version" = "Client Version";
+"Server Version" = "Server Version";
+"Are you sure you want to log out?" = "Are you sure you want to log out?";
+"Cancel" = "Cancel";
+"Scan QR Code" = "Scan QR Code";
+"Close" = "Kapat";
+"Server Address" = "Server Address";
+"The address of your Nextcloud web interface when you open it in your browser." = "The address of your Nextcloud web interface when you open it in your browser.";
+"The entered server address is invalid." = "The entered server address is invalid.";
+"Accounts from our other apps were found on this device. Would you like to add one of these?" = "Accounts from our other apps were found on this device. Would you like to add one of these?";
+"Shared Accounts" = "Shared Accounts";

@@ -389,7 +389,9 @@ class NoteSessionManager {
                 case .success(let newNote):
                     completion?(newNote)
                 case .failure(let error):
-                    self?.showErrorMessage(message: error.message)
+                    Task { @MainActor in
+                        self?.showErrorMessage(message: error.message)
+                    }
                     completion?(note)
                 }
             }
@@ -485,7 +487,9 @@ class NoteSessionManager {
                 case .success( _):
                     completion?()
                 case .failure(let error):
-                    self?.showErrorMessage(message: error.message)
+                    Task { @MainActor in
+                        self?.showErrorMessage(message: error.message)
+                    }
                     completion?()
                 }
             }
@@ -545,7 +549,9 @@ class NoteSessionManager {
                 case .success( _):
                     completion?()
                 case .failure(let error):
-                    self?.showErrorMessage(message: error.message)
+                    Task { @MainActor in
+                        self?.showErrorMessage(message: error.message)
+                    }
                     completion?()
                 }
             }
@@ -591,6 +597,7 @@ class NoteSessionManager {
         }
     }
 
+    @MainActor
     func showSyncMessage() {
         #if os(iOS)
         var config = SwiftMessages.defaultConfig
@@ -616,7 +623,8 @@ class NoteSessionManager {
         })
         #endif
     }
-    
+
+    @MainActor
     func showErrorMessage(message: ErrorMessage) {
         #if !os(OSX)
         var config = SwiftMessages.defaultConfig
