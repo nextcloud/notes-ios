@@ -72,7 +72,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             CategoryTableViewController.self,
             EditorViewController.self,
             PreviewViewController.self,
-            SettingsTableViewController.self
         ]
         UIScrollView.appearance(whenContainedInInstancesOf: scrollViewArray).backgroundColor = .ph_cellBackgroundColor
 
