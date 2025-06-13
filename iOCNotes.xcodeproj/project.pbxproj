@@ -10,6 +10,7 @@
 		AA182D002DDCD6520058C246 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = AA182CFF2DDCD6520058C246 /* CodeScanner */; };
 		AA83B8AA2DEF080700F35F3E /* SwiftNextcloudUI in Frameworks */ = {isa = PBXBuildFile; productRef = AA83B8A92DEF080700F35F3E /* SwiftNextcloudUI */; };
 		AAA900B42DE6F37400D3EF0F /* SwiftNextcloudUI in Frameworks */ = {isa = PBXBuildFile; productRef = AAA900B32DE6F37400D3EF0F /* SwiftNextcloudUI */; };
+		AABC95572DFC717F0023790D /* UIApplication+topViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABC95562DFC717A0023790D /* UIApplication+topViewController.swift */; };
 		BD653F88231C43FA00D59A88 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD653F87231C43FA00D59A88 /* Constants.swift */; };
 		BD86DD8522B9CDD500115E5D /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD86DD8422B9CDD500115E5D /* KeychainHelper.swift */; };
 		BD92271B22CD3743004E2408 /* UtilityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD92271A22CD3743004E2408 /* UtilityExtensions.swift */; };
@@ -99,6 +100,7 @@
 /* Begin PBXFileReference section */
 		AA360F442D71E6EF00BDC831 /* iOCNotes.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = iOCNotes.xcconfig; sourceTree = "<group>"; };
 		AA592A6E2DBBBA3B003A3057 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		AABC95562DFC717A0023790D /* UIApplication+topViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+topViewController.swift"; sourceTree = "<group>"; };
 		AABD0BF82D5E08B500F009E6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BD653F87231C43FA00D59A88 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BD86DD8422B9CDD500115E5D /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
@@ -356,6 +358,7 @@
 				D09538421D32A56A006BB78E /* PreviewViewController.swift */,
 				D0E60F27277801F8009CF78F /* PreviewWebView.swift */,
 				D004DB7E23948F3D0080A7D1 /* SceneDelegate.swift */,
+				AABC95562DFC717A0023790D /* UIApplication+topViewController.swift */,
 				D0225708189745C40038232A /* Settings.bundle */,
 				F3F7344C2C6FA550007C8C0B /* CoreData */,
 				D0CFE53D1888A7BD00165839 /* Supporting Files */,
@@ -652,6 +655,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AABC95572DFC717F0023790D /* UIApplication+topViewController.swift in Sources */,
 				F3E3C8DC2C6B7DA600A80504 /* UIColor+Extension.swift in Sources */,
 				F3E3C8D92C6B7C2200A80504 /* NCBrand.swift in Sources */,
 				D095384A1D3313F8006BB78E /* PreviewViewController.swift in Sources */,
