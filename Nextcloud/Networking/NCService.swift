@@ -36,8 +36,6 @@ class NCService: NSObject {
     // MARK: -
 
     @objc public func startRequestServicesServer(completion: @escaping () -> Void) {
-        NextcloudKit.shared.setup()
-
         for account in Store.shared.accounts {
             NextcloudKit.shared.appendSession(
                 account: account.id,
