@@ -254,7 +254,7 @@
 "Server Version" = "Versão do Servidor";
 "Are you sure you want to log out?" = "Tem certeza de que deseja sair?";
 "Cancel" = "Cancelar";
-"Scan QR Code" = "Escanear código QR";
+"Scan QR Code" = "Escanear Código QR";
 "Close" = "Fechar";
 "Server Address" = "Endereço do Servidor";
 "The address of your Nextcloud web interface when you open it in your browser." = "O endereço da interface web do Nextcloud quando você a abre no navegador.";
