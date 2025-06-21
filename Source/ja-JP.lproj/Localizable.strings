@@ -1,5 +1,5 @@
 /* Crash report email body placeholder */
-"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Please provide as much details as possible about what you were doing when the crash occurred.>";
+"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<クラッシュが起きたときに何をしていたかできるだけ詳しく教えてください。>";
 
 /* Support email body placeholder */
 "<Please state your question or problem here>" = "Please state your question or problem here";
