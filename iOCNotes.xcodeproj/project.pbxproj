@@ -77,7 +77,6 @@
 		F3F734582C6FAC17007C8C0B /* Theming.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F734572C6FAC17007C8C0B /* Theming.swift */; };
 		F3F7345B2C6FAD80007C8C0B /* BaseUIVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F7345A2C6FAD80007C8C0B /* BaseUIVIewController.swift */; };
 		F75D7B1229C8687C00ABD392 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = F75D7B1129C8687C00ABD392 /* JGProgressHUD */; };
-		F770842529C45BD000367DBD /* NCService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770842429C45BD000367DBD /* NCService.swift */; };
 		F77B56FF2993DE6300A23E76 /* NextcloudKit in Frameworks */ = {isa = PBXBuildFile; productRef = F77B56FE2993DE6300A23E76 /* NextcloudKit */; };
 		F7BB8B7229915A650010D2F7 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7BB8B7129915A650010D2F7 /* Launch Screen.storyboard */; };
 		F7F0812A299D0B53006A2041 /* NCViewerNextcloudText.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7F08128299D0B53006A2041 /* NCViewerNextcloudText.storyboard */; };
@@ -206,7 +205,6 @@
 		F3F7344D2C6FA550007C8C0B /* Notes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Notes.xcdatamodel; sourceTree = "<group>"; };
 		F3F734572C6FAC17007C8C0B /* Theming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theming.swift; sourceTree = "<group>"; };
 		F3F7345A2C6FAD80007C8C0B /* BaseUIVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUIVIewController.swift; sourceTree = "<group>"; };
-		F770842429C45BD000367DBD /* NCService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCService.swift; sourceTree = "<group>"; };
 		F7BB8B7129915A650010D2F7 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		F7F08128299D0B53006A2041 /* NCViewerNextcloudText.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NCViewerNextcloudText.storyboard; sourceTree = "<group>"; };
 		F7F08129299D0B53006A2041 /* NCViewerNextcloudText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NCViewerNextcloudText.swift; sourceTree = "<group>"; };
@@ -479,18 +477,9 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
-		F770842329C45BB900367DBD /* Networking */ = {
-			isa = PBXGroup;
-			children = (
-				F770842429C45BD000367DBD /* NCService.swift */,
-			);
-			path = Networking;
-			sourceTree = "<group>";
-		};
 		F77B57002993E32100A23E76 /* Nextcloud */ = {
 			isa = PBXGroup;
 			children = (
-				F770842329C45BB900367DBD /* Networking */,
 				F7F08126299D0B53006A2041 /* Viewer */,
 			);
 			path = Nextcloud;
@@ -686,7 +675,6 @@
 				D0545F23230901D30001D165 /* PBHOpenInActivity.swift in Sources */,
 				F3F734582C6FAC17007C8C0B /* Theming.swift in Sources */,
 				D06882EE22BB146200CEBC1F /* EditorViewController.swift in Sources */,
-				F770842529C45BD000367DBD /* NCService.swift in Sources */,
 				D0E60F59277FADD5009CF78F /* Style.swift in Sources */,
 				D03493B722F2837500E1A9B0 /* NoteTableViewCell.swift in Sources */,
 				F3F734522C6FA550007C8C0B /* NotesData.swift in Sources */,
