@@ -153,7 +153,13 @@ class NoteSessionManager {
         session = Session(configuration: configuration, serverTrustManager: NotesServerTrustPolicyManager(allHostsMustBeEvaluated: true, evaluators: [:]))
     }
 
-    func status(completion: SyncCompletionBlock? = nil) {        
+    ///
+    /// Fetch the server status.
+    ///
+    /// - Parameters:
+    ///     - completion: Optional completion handler to call afterwards.
+    ///
+    func status(completion: SyncCompletionBlock? = nil) {
         let router = StatusRouter.status
         session
             .request(router)
@@ -170,6 +176,23 @@ class NoteSessionManager {
         }
     }
 
+    ///
+    /// Asynchronous wrapper for ``status(completion:)``.
+    ///
+    func status() async {
+        await withCheckedContinuation { continuation in
+            status {
+                continuation.resume()
+            }
+        }
+    }
+
+    ///
+    /// Fetch the user settings for Nextcloud Notes from the server.
+    ///
+    /// - Parameters:
+    ///     - completion: Optional completion handler to call afterwards.
+    ///
     func settings(completion: SyncCompletionBlock? = nil) {
         logger.debug("Fetching notes user settings from server...")
 
@@ -218,6 +241,17 @@ class NoteSessionManager {
         }
     }
 
+    ///
+    /// Asynchronous wrapper for ``settings(completion:)``.
+    ///
+    func settings() async {
+        await withCheckedContinuation { continuation in
+            settings {
+                continuation.resume()
+            }
+        }
+    }
+
     func updateSettings(completion: SyncCompletionBlock? = nil) {
         logger.debug("Updating notes user settings on server...")
 
@@ -255,6 +289,9 @@ class NoteSessionManager {
         }
     }
 
+    ///
+    /// Actually synchronize the notes.
+    ///
     func sync(completion: SyncCompletionBlock? = nil) {
 
         func deleteOnServer(completion: @escaping SyncCompletionBlock) {
@@ -394,7 +431,18 @@ class NoteSessionManager {
             }
         }
     }
-    
+
+    ///
+    /// Asynchronous wrapper for ``sync(completion:)``
+    ///
+    func sync() async {
+        await withCheckedContinuation { continuation in
+            sync {
+                continuation.resume()
+            }
+        }
+    }
+
     func add(content: String, category: String, favorite: Bool? = false, completion: SyncCompletionBlockWithNote? = nil) {
         let note = NoteStruct(content: content, category: category, favorite: favorite ?? false)
         if  let incoming = CDNote.update(note: note) { //addNeeded defaults to true
