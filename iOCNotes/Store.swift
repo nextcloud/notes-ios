@@ -5,6 +5,7 @@
 import Foundation
 import NextcloudKit
 import SwiftNextcloudUI
+import SwiftyJSON
 import UIKit
 
 @Observable
@@ -31,6 +32,82 @@ final class Store: Logging, Storing {
 
     var isSynchronizing = false
 
+    // swiftlint:disable function_body_length
+
+    ///
+    /// Fetch filtered capability information from the server of the given account.
+    ///
+    private func fetchCapabilities(for account: AccountTransferObject) async {
+        logger.notice("Fetching capabilities for account \"\(account.id)\"...")
+
+        let directEditingSupportsFileIdKeyPath = [
+            "ocs",
+            "data",
+            "capabilities",
+            "files",
+            "directEditing",
+            "supportsFileId"
+        ]
+
+        let directEditingKeyPath = [
+            "ocs",
+            "data",
+            "capabilities",
+            "richdocuments",
+            "direct_editing"
+        ]
+
+        let notesVersionKeypath = [
+            "ocs",
+            "data",
+            "capabilities",
+            "notes",
+            "version"
+        ]
+
+        let notesApiVersionKeyPath = [
+            "ocs",
+            "data",
+            "capabilities",
+            "notes",
+            "api_version"
+        ]
+
+        let serverVersionKeyPath = [
+            "ocs",
+            "data",
+            "version"
+        ]
+
+        let (_, data, error) = await NextcloudKit.shared.getCapabilitiesAsync(account: account.id)
+
+        guard error == .success else {
+            logger.error("Failed to fetch capabilities: \(error.localizedDescription, privacy: .public)")
+            return
+        }
+
+        guard let data = data?.data else {
+            logger.error("No data to parse as capabilities received!")
+            return
+        }
+
+        let capabilities = JSON(data)
+
+        logger.debug("Received capabilities for account \"\(account.id)\": \(capabilities.debugDescription)")
+
+        KeychainHelper.directEditing = capabilities[directEditingKeyPath].boolValue
+        KeychainHelper.directEditingSupportsFileId = capabilities[directEditingSupportsFileIdKeyPath].boolValue
+        KeychainHelper.notesVersion = capabilities[notesVersionKeypath].stringValue
+        KeychainHelper.notesApiVersion = capabilities[notesApiVersionKeyPath].array?.last?.string ?? ""
+        KeychainHelper.serverMajorVersion = capabilities[serverVersionKeyPath]["major"].int ?? 0
+        KeychainHelper.serverMinorVersion = capabilities[serverVersionKeyPath]["minor"].int ?? 0
+        KeychainHelper.serverMicroVersion = capabilities[serverVersionKeyPath]["micro"].int ?? 0
+
+        NextcloudKit.shared.updateSession(account: account.id, nextcloudVersion: KeychainHelper.serverMajorVersion)
+    }
+
+    // swiftlint:enable function_body_length
+
     func synchronize() {
         guard NoteSessionManager.isOnline else {
             logger.debug("Cancelling synchronization because device is not online.")
@@ -40,15 +117,28 @@ final class Store: Logging, Storing {
         logger.debug("Synchronizing...")
         isSynchronizing = true
 
-        NoteSessionManager.shared.status {
-            NCService.shared.startRequestServicesServer {
-                NoteSessionManager.shared.settings {
-                    NoteSessionManager.shared.sync { [self] in
-                        isSynchronizing = false
-                        logger.debug("Synchronization completed.")
-                    }
-                }
+        Task {
+            for account in accounts {
+                NextcloudKit.shared.appendSession(
+                    account: account.id,
+                    urlBase: account.baseURL,
+                    user: account.userId,
+                    userId: account.userId,
+                    password: account.password,
+                    userAgent: userAgent,
+                    nextcloudVersion: account.serverVersion.major,
+                    groupIdentifier: NCBrandOptions.shared.capabilitiesGroup
+                )
+
+                await fetchCapabilities(for: account)
             }
+
+            await NoteSessionManager.shared.status()
+            await NoteSessionManager.shared.settings()
+            await NoteSessionManager.shared.sync()
+
+            isSynchronizing = false
+            logger.debug("Synchronization completed.")
         }
     }
 
