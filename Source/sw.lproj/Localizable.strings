@@ -8,7 +8,7 @@
 "A server installation could not be found. Check the server address." = "A server installation could not be found. Check the server address.";
 
 /* Acknowledgements */
-"Acknowledgements" = "Acknowledgements";
+"Acknowledgements" = "Shukrani";
 
 /* Title of alert for adding a category */
 "Add Category" = "Add category";
@@ -90,7 +90,7 @@
 "Failed to connect to a server. Check your settings." = "Failed to connect to a server. Check your settings.";
 
 /* Item to show favorite notes */
-"Favorites" = "Favorites";
+"Favorites" = "Vipendwa";
 
 /* A menu option for plain sharing in html format */
 "HTML" = "HTML";
@@ -129,7 +129,7 @@
 "Notes not found" = "Notes not found";
 
 /* Button, OK */
-"OK" = "OK";
+"OK" = "Sawa";
 
 /* Title for Open In activity */
 "Open in…" = "Open in…";
@@ -173,7 +173,7 @@
 "Share Note As" = "Share note as";
 
 /* A message title */
-"Success" = "Success";
+"Success" = "Mafanikio";
 
 /* A message */
 "The network connection is working properly." = "The network connection is working properly.";
@@ -213,19 +213,19 @@
 "Checking server status" = "Checking server status";
 
 /* No comment provided by engineer. */
-"Connection error" = "Connection error";
+"Connection error" = "Hitilafu ya muunganiko";
 
 /* No comment provided by engineer. */
-"Do you want to connect to the server anyway?" = "Do you want to connect to the server anyway?";
+"Do you want to connect to the server anyway?" = "Je unataka kuunganisha kwenye seva vyovyote vile";
 
 /* Message of alert to change notes folder */
 "Enter a name for the folder where notes should be saved on the server" = "Enter a name for the folder where notes should be saved on the server";
 
 /* An error message title */
-"Error" = "Error";
+"Error" = "Hitilafu";
 
 /* No comment provided by engineer. */
-"No" = "No";
+"No" = "Hapana";
 
 /* Title of alert to change notes folder */
 "Notes Folder" = "Notes folder";
@@ -243,7 +243,7 @@
 "View Certificate" = "View certificate";
 
 /* No comment provided by engineer. */
-"Yes" = "Yes";
+"Yes" = "Ndiyo";
 
 // NEXTCLOUD
 "Select the account to add"   = "Select the account to add";
