@@ -123,7 +123,7 @@
 "Note Title" = "Not başlığı";
 
 /* An error message */
-"Notes could not be found on your server. Make sure it is installed and enabled" = "Sunucunuzda Notlar uygulaması bulunamadı. Lütfen kurulmuş ve etkinleştirilmiş olduğundan emin olun.";
+"Notes could not be found on your server. Make sure it is installed and enabled" = "Sunucunuzda Notlar uygulaması bulunamadı. Lütfen kurulmuş ve kullanıma alınmış olduğundan emin olun.";
 
 /* An error message title */
 "Notes not found" = "Notlar uygulaması bulunamadı";
