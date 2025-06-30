@@ -641,9 +641,7 @@ class NotesTableViewController: BaseUITableViewController {
     }
 
     private func didBecomeActive() {
-        if KeychainHelper.server.isEmpty {
-//            performSegue(withIdentifier: "ShowSettings", sender: self)
-        } else if KeychainHelper.syncOnStart {
+        if KeychainHelper.syncOnStart {
             onRefresh(sender: nil)
         } else if KeychainHelper.dbReset {
             CDNote.reset()
