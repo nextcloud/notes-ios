@@ -53,13 +53,7 @@ final class LoginRequestInterceptor: RequestInterceptor {
             return completion(.doNotRetryWithError(error))
         }
 
-        let serverAddress = KeychainHelper.server
-        if !serverAddress.hasSuffix(".php") {
-            KeychainHelper.server = "\(serverAddress)/index.php"
-            completion(.retry)
-        } else {
-            completion(.doNotRetryWithError(error))
-        }
+        return completion(.doNotRetryWithError(error))
     }
 
 }
@@ -84,27 +78,10 @@ final class NoteRequestInterceptor: RequestInterceptor {
         case 304:
             completion(.doNotRetry)
         case 404:
-            if KeychainHelper.lastModified > 0 {
-                completion(.doNotRetryWithError(error))
-            } else {
-                let serverAddress = KeychainHelper.server
-                if !serverAddress.hasSuffix(".php") {
-                    KeychainHelper.server = "\(serverAddress)/index.php"
-                    completion(.retry)
-                } else {
-                    completion(.doNotRetryWithError(error))
-                }
-            }
+            completion(.doNotRetryWithError(error))
         case 405:
-            let serverAddress = KeychainHelper.server
-            if !serverAddress.hasSuffix(".php") {
-                KeychainHelper.server = "\(serverAddress)/index.php"
-                completion(.retry)
-            } else {
-                completion(.doNotRetryWithError(error))
-            }
-        case 423:
-            // File lock on server, retry once
+            completion(.doNotRetryWithError(error))
+        case 423: // File lock on server, retry once
             completion(.retryWithDelay(2))
         default:
             completion(.doNotRetryWithError(error))
@@ -160,6 +137,8 @@ class NoteSessionManager {
     ///     - completion: Optional completion handler to call afterwards.
     ///
     func status(completion: SyncCompletionBlock? = nil) {
+        logger.notice("Fetching status...")
+
         let router = StatusRouter.status
         session
             .request(router)
@@ -293,6 +272,7 @@ class NoteSessionManager {
     /// Actually synchronize the notes.
     ///
     func sync(completion: SyncCompletionBlock? = nil) {
+        logger.notice("Synchronizing...")
 
         func deleteOnServer(completion: @escaping SyncCompletionBlock) {
             if let notesToDelete = CDNote.notes(property: "cdDeleteNeeded"),
@@ -408,7 +388,7 @@ class NoteSessionManager {
                                 if error.isResponseValidationError {
                                     switch error.responseCode {
                                     case 304:
-                                        // Not modified, do nothing
+                                        self.logger.notice("Remote notes did not change.")
                                         break
                                     default:
                                         let message = ErrorMessage(title: NSLocalizedString("Error Syncing Notes", comment: "The title of an error message"),
@@ -444,6 +424,8 @@ class NoteSessionManager {
     }
 
     func add(content: String, category: String, favorite: Bool? = false, completion: SyncCompletionBlockWithNote? = nil) {
+        logger.notice("Adding note...")
+
         let note = NoteStruct(content: content, category: category, favorite: favorite ?? false)
         if  let incoming = CDNote.update(note: note) { //addNeeded defaults to true
             self.add(note: incoming, completion: completion)
@@ -508,6 +490,8 @@ class NoteSessionManager {
     }
 
     func get(note: NoteProtocol, completion: SyncCompletionBlock? = nil) {
+        logger.notice("Getting note...")
+
         guard NoteSessionManager.isOnline else {
             completion?()
             return
@@ -547,6 +531,8 @@ class NoteSessionManager {
     }
 
     func update(note: NoteProtocol, completion: SyncCompletionBlock? = nil) {
+        logger.notice("Updating note...")
+
         var incoming = note
         incoming.updateNeeded = true
         if NoteSessionManager.isOnline {
@@ -606,6 +592,8 @@ class NoteSessionManager {
     }
     
     func delete(note: NoteProtocol, completion: SyncCompletionBlock? = nil) {
+        logger.notice("Deleting note...")
+
         var incoming = note
         incoming.deleteNeeded = true
         if incoming.addNeeded {

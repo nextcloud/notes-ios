@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		AA182D002DDCD6520058C246 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = AA182CFF2DDCD6520058C246 /* CodeScanner */; };
+		AA3054382E12AF9B00D33159 /* StatusRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3054372E12AF9800D33159 /* StatusRouter.swift */; };
+		AA30543A2E12AFFD00D33159 /* OCSRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3054392E12AFFB00D33159 /* OCSRouter.swift */; };
+		AA30543C2E12B06F00D33159 /* HTTPHeader+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA30543B2E12B06700D33159 /* HTTPHeader+Extensions.swift */; };
 		AA83B8AA2DEF080700F35F3E /* SwiftNextcloudUI in Frameworks */ = {isa = PBXBuildFile; productRef = AA83B8A92DEF080700F35F3E /* SwiftNextcloudUI */; };
 		AAA900B42DE6F37400D3EF0F /* SwiftNextcloudUI in Frameworks */ = {isa = PBXBuildFile; productRef = AAA900B32DE6F37400D3EF0F /* SwiftNextcloudUI */; };
 		AABC95572DFC717F0023790D /* UIApplication+topViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABC95562DFC717A0023790D /* UIApplication+topViewController.swift */; };
@@ -35,7 +38,7 @@
 		D075B1BC2906DDBF0085D64E /* ServerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D075B1BB2906DDBF0085D64E /* ServerStatus.swift */; };
 		D075B1BE29074E6B0085D64E /* CertificateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D075B1BD29074E6B0085D64E /* CertificateViewController.swift */; };
 		D078A1C4239C8A2000E1A004 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D078A1C3239C8A2000E1A004 /* CoreServices.framework */; };
-		D07F5E8E2207B6FF00528E90 /* NoteRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07F5E8D2207B6FF00528E90 /* NoteRouter.swift */; };
+		D07F5E8E2207B6FF00528E90 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07F5E8D2207B6FF00528E90 /* Router.swift */; };
 		D08713ED1D18DA40001EAF82 /* HeaderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08713EC1D18DA40001EAF82 /* HeaderTextView.swift */; };
 		D095384A1D3313F8006BB78E /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09538421D32A56A006BB78E /* PreviewViewController.swift */; };
 		D095AE45245BB25F00A7EF62 /* NoteSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01067DD220BCE3C0047E090 /* NoteSessionManager.swift */; };
@@ -97,6 +100,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AA3054372E12AF9800D33159 /* StatusRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusRouter.swift; sourceTree = "<group>"; };
+		AA3054392E12AFFB00D33159 /* OCSRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCSRouter.swift; sourceTree = "<group>"; };
+		AA30543B2E12B06700D33159 /* HTTPHeader+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPHeader+Extensions.swift"; sourceTree = "<group>"; };
 		AA360F442D71E6EF00BDC831 /* iOCNotes.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = iOCNotes.xcconfig; sourceTree = "<group>"; };
 		AA592A6E2DBBBA3B003A3057 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		AABC95562DFC717A0023790D /* UIApplication+topViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+topViewController.swift"; sourceTree = "<group>"; };
@@ -149,7 +155,7 @@
 		D076F74226BCBEC00093F22A /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D078A1C3239C8A2000E1A004 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework; sourceTree = DEVELOPER_DIR; };
 		D07F5E8A2207B61500528E90 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
-		D07F5E8D2207B6FF00528E90 /* NoteRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteRouter.swift; sourceTree = "<group>"; };
+		D07F5E8D2207B6FF00528E90 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		D07F5E8F2207B81F00528E90 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = Carthage/Build/iOS/KeychainAccess.framework; sourceTree = "<group>"; };
 		D08713EC1D18DA40001EAF82 /* HeaderTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderTextView.swift; sourceTree = "<group>"; };
 		D09538421D32A56A006BB78E /* PreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
@@ -257,7 +263,10 @@
 		D07F5E8C2207B6D700528E90 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				D07F5E8D2207B6FF00528E90 /* NoteRouter.swift */,
+				AA30543B2E12B06700D33159 /* HTTPHeader+Extensions.swift */,
+				AA3054392E12AFFB00D33159 /* OCSRouter.swift */,
+				AA3054372E12AF9800D33159 /* StatusRouter.swift */,
+				D07F5E8D2207B6FF00528E90 /* Router.swift */,
 				D01067DD220BCE3C0047E090 /* NoteSessionManager.swift */,
 				D0C1C39E2462448D00AAC4A8 /* SyncOperation.swift */,
 				D075B1BB2906DDBF0085D64E /* ServerStatus.swift */,
@@ -648,12 +657,13 @@
 				F3E3C8DC2C6B7DA600A80504 /* UIColor+Extension.swift in Sources */,
 				F3E3C8D92C6B7C2200A80504 /* NCBrand.swift in Sources */,
 				D095384A1D3313F8006BB78E /* PreviewViewController.swift in Sources */,
+				AA30543A2E12AFFD00D33159 /* OCSRouter.swift in Sources */,
 				D0B0F3A427360BD000E51C3F /* NotesFRCManager.swift in Sources */,
 				D0E60F152772D809009CF78F /* SettingsProtocol.swift in Sources */,
 				BDD015A32353F7D4000BA001 /* PBHSplitViewController.swift in Sources */,
 				D095AE45245BB25F00A7EF62 /* NoteSessionManager.swift in Sources */,
 				D0E60F5E277FADD5009CF78F /* Theme.swift in Sources */,
-				D07F5E8E2207B6FF00528E90 /* NoteRouter.swift in Sources */,
+				D07F5E8E2207B6FF00528E90 /* Router.swift in Sources */,
 				D09E6451248B3A7C003FB4C9 /* OCSProtocol.swift in Sources */,
 				D0E60F5C277FADD5009CF78F /* AttributedStringKey.swift in Sources */,
 				BD653F88231C43FA00D59A88 /* Constants.swift in Sources */,
@@ -682,11 +692,13 @@
 				D059F7DB1D40596D00C252F2 /* NoteExporter.swift in Sources */,
 				BD86DD8522B9CDD500115E5D /* KeychainHelper.swift in Sources */,
 				F3F7345B2C6FAD80007C8C0B /* BaseUIVIewController.swift in Sources */,
+				AA3054382E12AF9B00D33159 /* StatusRouter.swift in Sources */,
 				D08713ED1D18DA40001EAF82 /* HeaderTextView.swift in Sources */,
 				D0E60F5A277FADD5009CF78F /* UniversalTypes.swift in Sources */,
 				D0E60F28277801F8009CF78F /* PreviewWebView.swift in Sources */,
 				D03493B922F3CC5700E1A9B0 /* CategoryTableViewController.swift in Sources */,
 				D0E60F64277FADD6009CF78F /* LayoutManager.swift in Sources */,
+				AA30543C2E12B06F00D33159 /* HTTPHeader+Extensions.swift in Sources */,
 				D075B1BE29074E6B0085D64E /* CertificateViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
