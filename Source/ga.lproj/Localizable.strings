@@ -218,9 +218,6 @@
 /* No comment provided by engineer. */
 "Do you want to connect to the server anyway?" = "Ar mhaith leat ceangal leis an bhfreastalaí ar aon nós?";
 
-/* Message of alert to change notes folder */
-"Enter a name for the folder where notes should be saved on the server" = "Cuir isteach ainm don fhillteán inar cheart nótaí a shábháil ar an bhfreastalaí";
-
 /* An error message title */
 "Error" = "Earráid";
 
@@ -250,9 +247,6 @@
 
 "Notes" = "Nótaí";
 
-"Client Version" = "Leagan Cliant";
-"Server Version" = "Leagan an Fhreastalaí";
-"Are you sure you want to log out?" = "An bhfuil tú cinnte gur mian leat logáil amach?";
 "Cancel" = "Cealaigh";
 "Scan QR Code" = "Scanáil Cód QR";
 "Close" = "Dún";
@@ -261,3 +255,23 @@
 "The entered server address is invalid." = "Tá an seoladh freastalaí a iontráladh neamhbhailí.";
 "Accounts from our other apps were found on this device. Would you like to add one of these?" = "Fuarthas cuntais ó ár n-aipeanna eile ar an ngléas seo. Ar mhaith leat ceann acu seo a chur leis?";
 "Shared Accounts" = "Cuntais Chomhroinnte";
+
+// SettingsView
+"Account" = "Cuntas";
+"Log Out" = "Logáil Amach";
+"Synchronization" = "Sioncrónú";
+"Synchronize on Start" = "Synchronize on Start";
+"Offline Mode" = "Mód As Líne";
+"Server Settings" = "Server Settings";
+"Notes Path" = "Notes Path";
+"Internal Editor" = "Internal Editor";
+"File Extension" = "Síneadh Comhad";
+"About This App" = "About This App";
+"Client Version" = "Leagan Cliant";
+"Server Version" = "Leagan an Fhreastalaí";
+"Privacy and Legal Policy" = "Polasaí Príobháideachta agus Dlí";
+"Show Source Code on GitHub" = "Show Source Code on GitHub";
+"Logout" = "Logout";
+"Are you sure you want to log out?" = "An bhfuil tú cinnte gur mian leat logáil amach?";
+"Enter a name for the folder where notes should be saved on the server" = "Cuir isteach ainm don fhillteán inar cheart nótaí a shábháil ar an bhfreastalaí";
+"Settings" = "Socruithe";

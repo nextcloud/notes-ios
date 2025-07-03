@@ -218,9 +218,6 @@
 /* No comment provided by engineer. */
 "Do you want to connect to the server anyway?" = "Souhaitez-vous quand même vous connecter au serveur ?";
 
-/* Message of alert to change notes folder */
-"Enter a name for the folder where notes should be saved on the server" = "Entrez un nom pour le dossier où les notes seront sauvegardées sur le serveur.";
-
 /* An error message title */
 "Error" = "Erreur";
 
@@ -250,9 +247,6 @@
 
 "Notes" = "Notes";
 
-"Client Version" = "Version du Client";
-"Server Version" = "Version du Serveur";
-"Are you sure you want to log out?" = "Are you sure you want to log out?";
 "Cancel" = "Cancel";
 "Scan QR Code" = "Scanner le QR code";
 "Close" = "Fermer";
@@ -261,3 +255,23 @@
 "The entered server address is invalid." = "The entered server address is invalid.";
 "Accounts from our other apps were found on this device. Would you like to add one of these?" = "Accounts from our other apps were found on this device. Would you like to add one of these?";
 "Shared Accounts" = "Comptes partagés";
+
+// SettingsView
+"Account" = "Compte";
+"Log Out" = "Déconnexion";
+"Synchronization" = "Synchronisation";
+"Synchronize on Start" = "Synchronize on Start";
+"Offline Mode" = "Mode hors connexion";
+"Server Settings" = "Server Settings";
+"Notes Path" = "Notes Path";
+"Internal Editor" = "Internal Editor";
+"File Extension" = "Extension de fichier";
+"About This App" = "About This App";
+"Client Version" = "Version du Client";
+"Server Version" = "Version du Serveur";
+"Privacy and Legal Policy" = "Politique de confidentialité et juridique";
+"Show Source Code on GitHub" = "Show Source Code on GitHub";
+"Logout" = "Logout";
+"Are you sure you want to log out?" = "Are you sure you want to log out?";
+"Enter a name for the folder where notes should be saved on the server" = "Entrez un nom pour le dossier où les notes seront sauvegardées sur le serveur.";
+"Settings" = "Paramètres";
