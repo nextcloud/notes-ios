@@ -218,9 +218,6 @@
 /* No comment provided by engineer. */
 "Do you want to connect to the server anyway?" = "無論如何都要連接該伺服器嗎？";
 
-/* Message of alert to change notes folder */
-"Enter a name for the folder where notes should be saved on the server" = "輸入要在伺服器上保存筆記的資料夾名稱";
-
 /* An error message title */
 "Error" = "Error";
 
@@ -250,9 +247,6 @@
 
 "Notes" = "備忘";
 
-"Client Version" = "客户端版本";
-"Server Version" = "伺服器版本";
-"Are you sure you want to log out?" = "您確定要登出嗎？";
 "Cancel" = "取消";
 "Scan QR Code" = "掃描 QR 碼";
 "Close" = "關閉";
@@ -261,3 +255,23 @@
 "The entered server address is invalid." = "輸入的伺服器地址無效。";
 "Accounts from our other apps were found on this device. Would you like to add one of these?" = "在此裝置上找到我們其他應用程式的帳戶。您想要新增其中一個嗎？";
 "Shared Accounts" = "共享帳號";
+
+// SettingsView
+"Account" = "帳戶";
+"Log Out" = "登出";
+"Synchronization" = "同步";
+"Synchronize on Start" = "Synchronize on Start";
+"Offline Mode" = "離線模式";
+"Server Settings" = "Server Settings";
+"Notes Path" = "Notes Path";
+"Internal Editor" = "Internal Editor";
+"File Extension" = "檔案擴展名";
+"About This App" = "About This App";
+"Client Version" = "客户端版本";
+"Server Version" = "伺服器版本";
+"Privacy and Legal Policy" = "隐私及法律政策";
+"Show Source Code on GitHub" = "Show Source Code on GitHub";
+"Logout" = "Logout";
+"Are you sure you want to log out?" = "您確定要登出嗎？";
+"Enter a name for the folder where notes should be saved on the server" = "輸入要在伺服器上保存筆記的資料夾名稱";
+"Settings" = "Settings";

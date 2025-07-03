@@ -218,9 +218,6 @@
 /* No comment provided by engineer. */
 "Do you want to connect to the server anyway?" = "그래도 서버에 연결하시겠습니까?";
 
-/* Message of alert to change notes folder */
-"Enter a name for the folder where notes should be saved on the server" = "메모가 서버상에 저장되어야 할 폴더의 이름을 입력하십시오.";
-
 /* An error message title */
 "Error" = "오류";
 
@@ -250,9 +247,6 @@
 
 "Notes" = "메모";
 
-"Client Version" = "Client Version";
-"Server Version" = "Server Version";
-"Are you sure you want to log out?" = "Are you sure you want to log out?";
 "Cancel" = "취소";
 "Scan QR Code" = "Scan QR Code";
 "Close" = "닫기";
@@ -261,3 +255,23 @@
 "The entered server address is invalid." = "The entered server address is invalid.";
 "Accounts from our other apps were found on this device. Would you like to add one of these?" = "Accounts from our other apps were found on this device. Would you like to add one of these?";
 "Shared Accounts" = "Shared Accounts";
+
+// SettingsView
+"Account" = "Account";
+"Log Out" = "Log Out";
+"Synchronization" = "동기화";
+"Synchronize on Start" = "Synchronize on Start";
+"Offline Mode" = "오프라인 모드";
+"Server Settings" = "Server Settings";
+"Notes Path" = "Notes Path";
+"Internal Editor" = "Internal Editor";
+"File Extension" = "파일 확장자";
+"About This App" = "About This App";
+"Client Version" = "Client Version";
+"Server Version" = "Server Version";
+"Privacy and Legal Policy" = "개인정보 보호와 법적 고지";
+"Show Source Code on GitHub" = "Show Source Code on GitHub";
+"Logout" = "Logout";
+"Are you sure you want to log out?" = "Are you sure you want to log out?";
+"Enter a name for the folder where notes should be saved on the server" = "메모가 서버상에 저장되어야 할 폴더의 이름을 입력하십시오.";
+"Settings" = "설정";
