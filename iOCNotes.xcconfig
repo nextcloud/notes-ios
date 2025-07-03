@@ -1,8 +1,8 @@
 // Build settings for the whole project.
 
-CURRENT_PROJECT_VERSION = 3
+CURRENT_PROJECT_VERSION = 1
 ENABLE_USER_SCRIPT_SANDBOXING = NO
 INFOPLIST_KEY_NSHumanReadableCopyright = Copyright © 2025 Nextcloud GmbH. All rights reserved.
 IPHONEOS_DEPLOYMENT_TARGET = 17.0
-MARKETING_VERSION = 4.4.0
+MARKETING_VERSION = 4.5.0
 PRODUCT_BUNDLE_IDENTIFIER = com.peterandlinda.iOCNotes
