@@ -259,19 +259,19 @@
 // SettingsView
 "Account" = "Konto";
 "Log Out" = "Abmelden";
-"Synchronization" = "Synchronization";
-"Synchronize on Start" = "Synchronize on Start";
+"Synchronization" = "Synchronisierung";
+"Synchronize on Start" = "Beim Start synchronisieren";
 "Offline Mode" = "Offline-Modus";
-"Server Settings" = "Server Settings";
-"Notes Path" = "Notes Path";
-"Internal Editor" = "Internal Editor";
+"Server Settings" = "Servereinstellungen";
+"Notes Path" = "Notizen-Pfad";
+"Internal Editor" = "Interner Editor";
 "File Extension" = "Dateierweiterung";
-"About This App" = "About This App";
+"About This App" = "Über diese App";
 "Client Version" = "Client-Version";
 "Server Version" = "Serverversion";
 "Privacy and Legal Policy" = "Datenschutzerklärung und Geschäftsbedingungen";
-"Show Source Code on GitHub" = "Show Source Code on GitHub";
-"Logout" = "Logout";
+"Show Source Code on GitHub" = "Quellcode auf GitHub anzeigen";
+"Logout" = "Abmelden";
 "Are you sure you want to log out?" = "Möchten Sie sich wirklich abmelden?";
 "Enter a name for the folder where notes should be saved on the server" = "Geben Sie einen Namen für den Ordner ein, in dem Notizen auf dem Server gespeichert werden sollen";
 "Settings" = "Einstellungen";
