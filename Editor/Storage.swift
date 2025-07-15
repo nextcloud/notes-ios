@@ -140,8 +140,8 @@ public class Storage: NSTextStorage {
                           return
                       }
                 
-                // Skip header styling if it's inside a code block
-                if isHeaderPattern(pattern) && isInsideCodeBlock(match.range(at: 0), codeBlockRanges: codeBlockRanges) {
+                // Skip all formatting styling if it's inside a code block
+                if shouldExcludeFromCodeBlock(pattern) && isInsideCodeBlock(match.range(at: 0), codeBlockRanges: codeBlockRanges) {
                     return
                 }
                 
@@ -202,15 +202,28 @@ public class Storage: NSTextStorage {
         return codeBlockRanges
     }
     
-    /// Checks if a given pattern is a header pattern.
+    /// Checks if a given pattern should be excluded from code blocks.
     ///
     /// - parameter pattern: The regex pattern to check.
     ///
-    /// - returns: True if the pattern is for a header (h1, h2, h3).
-    private func isHeaderPattern(_ pattern: String) -> Bool {
+    /// - returns: True if the pattern should not be applied inside code blocks.
+    private func shouldExcludeFromCodeBlock(_ pattern: String) -> Bool {
+        // Exclude all text formatting inside code blocks
         return pattern == Element.h1.rawValue || 
                pattern == Element.h2.rawValue || 
-               pattern == Element.h3.rawValue
+               pattern == Element.h3.rawValue ||
+               pattern == Element.bold.rawValue ||
+               pattern == Element.italic.rawValue ||
+               pattern == Element.boldItalic.rawValue ||
+               pattern == Element.strikeThrough.rawValue ||
+               pattern == Element.codeInline.rawValue ||
+               pattern == Element.url.rawValue ||
+               pattern == Element.image.rawValue ||
+               pattern == Element.listItemUnordered.rawValue ||
+               pattern == Element.listItemOrdered.rawValue ||
+               pattern == Element.checkBoxUnchecked.rawValue ||
+               pattern == Element.checkBoxChecked.rawValue ||
+               pattern == Element.quote.rawValue
     }
     
     /// Checks if a given range is inside any of the code block ranges.
