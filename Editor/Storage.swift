@@ -125,9 +125,6 @@ public class Storage: NSTextStorage {
         let backingString = backingStore.string
         backingStore.setAttributes(theme.body.attributes, range: range)
 
-        // First, find all fenced code block ranges
-        let codeBlockRanges = findCodeBlockRanges(in: backingString, range: range)
-
         let sortedStyles = theme.styles.sorted {
             $0.priority > $1.priority
         }
@@ -139,12 +136,6 @@ public class Storage: NSTextStorage {
                       let pattern = match.regularExpression?.pattern else {
                           return
                       }
-                
-                // Skip all formatting styling if it's inside a code block
-                if shouldExcludeFromCodeBlock(pattern) && isInsideCodeBlock(match.range(at: 0), codeBlockRanges: codeBlockRanges) {
-                    return
-                }
-                
 //                for i in 0..<match.numberOfRanges {
 //                    print("\(pattern) matched at \(match.range(at: i))")
 //                }
@@ -176,68 +167,5 @@ public class Storage: NSTextStorage {
                 }
             })
         }
-    }
-    
-    /// Finds all fenced code block ranges in the given text range.
-    ///
-    /// - parameter text: The text to search for code blocks.
-    /// - parameter range: The range to search within.
-    ///
-    /// - returns: An array of NSRange objects representing the content inside code blocks.
-    private func findCodeBlockRanges(in text: String, range: NSRange) -> [NSRange] {
-        var codeBlockRanges: [NSRange] = []
-        
-        // Find fenced code blocks (```...```)
-        let fencedCodeRegex = Element.codeFenced.toRegex()
-        fencedCodeRegex.enumerateMatches(in: text, options: .withoutAnchoringBounds, range: range) { (match, flags, stop) in
-            if let match = match, match.numberOfRanges >= 3 {
-                // Group 2 contains the content inside the fenced code block
-                let contentRange = match.range(at: 2)
-                if contentRange.location != NSNotFound {
-                    codeBlockRanges.append(contentRange)
-                }
-            }
-        }
-        
-        return codeBlockRanges
-    }
-    
-    /// Checks if a given pattern should be excluded from code blocks.
-    ///
-    /// - parameter pattern: The regex pattern to check.
-    ///
-    /// - returns: True if the pattern should not be applied inside code blocks.
-    private func shouldExcludeFromCodeBlock(_ pattern: String) -> Bool {
-        // Exclude all text formatting inside code blocks
-        return pattern == Element.h1.rawValue || 
-               pattern == Element.h2.rawValue || 
-               pattern == Element.h3.rawValue ||
-               pattern == Element.bold.rawValue ||
-               pattern == Element.italic.rawValue ||
-               pattern == Element.boldItalic.rawValue ||
-               pattern == Element.strikeThrough.rawValue ||
-               pattern == Element.codeInline.rawValue ||
-               pattern == Element.url.rawValue ||
-               pattern == Element.image.rawValue ||
-               pattern == Element.listItemUnordered.rawValue ||
-               pattern == Element.listItemOrdered.rawValue ||
-               pattern == Element.checkBoxUnchecked.rawValue ||
-               pattern == Element.checkBoxChecked.rawValue ||
-               pattern == Element.quote.rawValue
-    }
-    
-    /// Checks if a given range is inside any of the code block ranges.
-    ///
-    /// - parameter range: The range to check.
-    /// - parameter codeBlockRanges: Array of code block ranges.
-    ///
-    /// - returns: True if the range is inside a code block.
-    private func isInsideCodeBlock(_ range: NSRange, codeBlockRanges: [NSRange]) -> Bool {
-        for codeBlockRange in codeBlockRanges {
-            if NSLocationInRange(range.location, codeBlockRange) {
-                return true
-            }
-        }
-        return false
     }
 }
