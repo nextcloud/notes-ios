@@ -14,6 +14,7 @@
 		AA83B8AA2DEF080700F35F3E /* SwiftNextcloudUI in Frameworks */ = {isa = PBXBuildFile; productRef = AA83B8A92DEF080700F35F3E /* SwiftNextcloudUI */; };
 		AAA900B42DE6F37400D3EF0F /* SwiftNextcloudUI in Frameworks */ = {isa = PBXBuildFile; productRef = AAA900B32DE6F37400D3EF0F /* SwiftNextcloudUI */; };
 		AABC95572DFC717F0023790D /* UIApplication+topViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABC95562DFC717A0023790D /* UIApplication+topViewController.swift */; };
+		AAC79FE82E279184006D6845 /* MarkdownTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC79FE72E279184006D6845 /* MarkdownTextStorage.swift */; };
 		BD653F88231C43FA00D59A88 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD653F87231C43FA00D59A88 /* Constants.swift */; };
 		BD86DD8522B9CDD500115E5D /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD86DD8422B9CDD500115E5D /* KeychainHelper.swift */; };
 		BD92271B22CD3743004E2408 /* UtilityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD92271A22CD3743004E2408 /* UtilityExtensions.swift */; };
@@ -107,6 +108,7 @@
 		AA592A6E2DBBBA3B003A3057 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		AABC95562DFC717A0023790D /* UIApplication+topViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+topViewController.swift"; sourceTree = "<group>"; };
 		AABD0BF82D5E08B500F009E6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		AAC79FE72E279184006D6845 /* MarkdownTextStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownTextStorage.swift; sourceTree = "<group>"; };
 		BD653F87231C43FA00D59A88 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BD86DD8422B9CDD500115E5D /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
 		BD92271622C92EBB004E2408 /* PKHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PKHUD.framework; path = Carthage/Build/iOS/PKHUD.framework; sourceTree = "<group>"; };
@@ -404,6 +406,7 @@
 		D0E60F35277FADA0009CF78F /* Editor */ = {
 			isa = PBXGroup;
 			children = (
+				AAC79FE72E279184006D6845 /* MarkdownTextStorage.swift */,
 				D0E60F3C277FADD5009CF78F /* AttributedStringKey.swift */,
 				D0E60F52277FADD5009CF78F /* CheckBoxTapHandler.swift */,
 				D0E60F3F277FADD5009CF78F /* Element.swift */,
@@ -664,6 +667,7 @@
 				D095AE45245BB25F00A7EF62 /* NoteSessionManager.swift in Sources */,
 				D0E60F5E277FADD5009CF78F /* Theme.swift in Sources */,
 				D07F5E8E2207B6FF00528E90 /* Router.swift in Sources */,
+				AAC79FE82E279184006D6845 /* MarkdownTextStorage.swift in Sources */,
 				D09E6451248B3A7C003FB4C9 /* OCSProtocol.swift in Sources */,
 				D0E60F5C277FADD5009CF78F /* AttributedStringKey.swift in Sources */,
 				BD653F88231C43FA00D59A88 /* Constants.swift in Sources */,
