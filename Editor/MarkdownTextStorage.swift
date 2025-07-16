@@ -90,7 +90,11 @@ public class MarkdownTextStorage: NSTextStorage {
         // Apply formatting for each markdown element
         applyHeaderFormatting(in: text, range: range, excludingRanges: codeBlockRanges)
         applyBoldFormatting(in: text, range: range, excludingRanges: codeBlockRanges)
+        applyUnderlineFormatting(in: text, range: range, excludingRanges: codeBlockRanges)
         applyItalicFormatting(in: text, range: range, excludingRanges: codeBlockRanges)
+        applyStrikethroughFormatting(in: text, range: range, excludingRanges: codeBlockRanges)
+        applyLinkFormatting(in: text, range: range, excludingRanges: codeBlockRanges)
+        applyBlockQuoteFormatting(in: text, range: range, excludingRanges: codeBlockRanges)
         applyInlineCodeFormatting(in: text, range: range, excludingRanges: codeBlockRanges)
         applyListFormatting(in: text, range: range, excludingRanges: codeBlockRanges)
         applyCheckboxFormatting(in: text, range: range, excludingRanges: codeBlockRanges)
@@ -125,12 +129,12 @@ public class MarkdownTextStorage: NSTextStorage {
     /// Applies header formatting (larger font sizes)
     private func applyHeaderFormatting(in text: String, range: NSRange, excludingRanges: [NSRange]) {
         let headerPatterns = [
-            ("^#{1}\\s+(.*)$", UIFont.TextStyle.title1),
-            ("^#{2}\\s+(.*)$", UIFont.TextStyle.title2),
-            ("^#{3}\\s+(.*)$", UIFont.TextStyle.title3),
-            ("^#{4}\\s+(.*)$", UIFont.TextStyle.headline),
-            ("^#{5}\\s+(.*)$", UIFont.TextStyle.subheadline),
-            ("^#{6}\\s+(.*)$", UIFont.TextStyle.callout)
+            ("^(#{1})\\s+(.*)$", UIFont.TextStyle.title1),
+            ("^(#{2})\\s+(.*)$", UIFont.TextStyle.title2),
+            ("^(#{3})\\s+(.*)$", UIFont.TextStyle.title3),
+            ("^(#{4})\\s+(.*)$", UIFont.TextStyle.headline),
+            ("^(#{5})\\s+(.*)$", UIFont.TextStyle.subheadline),
+            ("^(#{6})\\s+(.*)$", UIFont.TextStyle.callout)
         ]
         
         for (pattern, textStyle) in headerPatterns {
@@ -140,19 +144,73 @@ public class MarkdownTextStorage: NSTextStorage {
             
             regex.enumerateMatches(in: text, options: [], range: range) { match, _, _ in
                 if let match = match, !isRangeInExcludedRanges(match.range, excludingRanges: excludingRanges) {
-                    // Apply bold font with larger size for headers
+                    // Apply bold font with larger size for the entire header
                     let font = UIFont.preferredFont(forTextStyle: textStyle).bold()
                     backingStore.addAttribute(.font, value: font, range: match.range)
+                    
+                    // Apply faded color to the hashtag symbols only
+                    if match.numberOfRanges >= 2 {
+                        let hashtagRange = match.range(at: 1)
+                        let fadedColor = UIColor.label.withAlphaComponent(0.5)
+                        backingStore.addAttribute(.foregroundColor, value: fadedColor, range: hashtagRange)
+                    }
                 }
             }
         }
     }
     
-    /// Applies bold formatting (**text** or __text__)
+    /// Applies bold formatting (**text**)
     private func applyBoldFormatting(in text: String, range: NSRange, excludingRanges: [NSRange]) {
+        let pattern = "\\*\\*[^*\\s][^*]*[^*\\s]\\*\\*"  // **bold** only
+        
+        guard let regex = try? NSRegularExpression(pattern: pattern, options: []) else {
+            return
+        }
+        
+        regex.enumerateMatches(in: text, options: [], range: range) { match, _, _ in
+            if let match = match, !isRangeInExcludedRanges(match.range, excludingRanges: excludingRanges) {
+                let currentFont = backingStore.attribute(.font, at: match.range.location, effectiveRange: nil) as? UIFont
+                    ?? UIFont.preferredFont(forTextStyle: .body)
+                let boldFont = currentFont.bold()
+                backingStore.addAttribute(.font, value: boldFont, range: match.range)
+            }
+        }
+    }
+    
+    /// Applies underline formatting (__text__)
+    private func applyUnderlineFormatting(in text: String, range: NSRange, excludingRanges: [NSRange]) {
+        let pattern = "__[^_\\s][^_]*[^_\\s]__"  // __underline__
+        
+        guard let regex = try? NSRegularExpression(pattern: pattern, options: []) else {
+            return
+        }
+        
+        regex.enumerateMatches(in: text, options: [], range: range) { match, _, _ in
+            if let match = match, !isRangeInExcludedRanges(match.range, excludingRanges: excludingRanges) {
+                backingStore.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: match.range)
+            }
+        }
+    }
+    
+    /// Applies strikethrough formatting (~~text~~)
+    private func applyStrikethroughFormatting(in text: String, range: NSRange, excludingRanges: [NSRange]) {
+        let pattern = "~~[^~\\s][^~]*[^~\\s]~~"  // ~~strikethrough~~
+        
+        guard let regex = try? NSRegularExpression(pattern: pattern, options: []) else {
+            return
+        }
+        
+        regex.enumerateMatches(in: text, options: [], range: range) { match, _, _ in
+            if let match = match, !isRangeInExcludedRanges(match.range, excludingRanges: excludingRanges) {
+                backingStore.addAttribute(.strikethroughStyle, value: NSUnderlineStyle.single.rawValue, range: match.range)
+            }
+        }
+    }
+    
+    /// Applies link formatting ([text](url) and ![alt](src))
+    private func applyLinkFormatting(in text: String, range: NSRange, excludingRanges: [NSRange]) {
         let patterns = [
-            "\\*\\*[^*\\s][^*]*[^*\\s]\\*\\*",  // **bold**
-            "__[^_\\s][^_]*[^_\\s]__"           // __bold__
+            "!?\\[[^\\]]*\\]\\([^\\)]*\\)"  // [text](url) and ![alt](src)
         ]
         
         for pattern in patterns {
@@ -162,10 +220,36 @@ public class MarkdownTextStorage: NSTextStorage {
             
             regex.enumerateMatches(in: text, options: [], range: range) { match, _, _ in
                 if let match = match, !isRangeInExcludedRanges(match.range, excludingRanges: excludingRanges) {
-                    let currentFont = backingStore.attribute(.font, at: match.range.location, effectiveRange: nil) as? UIFont
-                        ?? UIFont.preferredFont(forTextStyle: .body)
-                    let boldFont = currentFont.bold()
-                    backingStore.addAttribute(.font, value: boldFont, range: match.range)
+                    // Apply blue color and underline for links
+                    backingStore.addAttributes([
+                        .foregroundColor: UIColor.systemBlue,
+                        .underlineStyle: NSUnderlineStyle.single.rawValue
+                    ], range: match.range)
+                }
+            }
+        }
+    }
+    
+    /// Applies block quote formatting (> text)
+    private func applyBlockQuoteFormatting(in text: String, range: NSRange, excludingRanges: [NSRange]) {
+        let pattern = "^(>+)\\s*(.*)$"  // > blockquote
+        
+        guard let regex = try? NSRegularExpression(pattern: pattern, options: [.anchorsMatchLines]) else {
+            return
+        }
+        
+        regex.enumerateMatches(in: text, options: [], range: range) { match, _, _ in
+            if let match = match, !isRangeInExcludedRanges(match.range, excludingRanges: excludingRanges) {
+                let fadedColor = UIColor.label.withAlphaComponent(0.6)
+                
+                // Apply faded color to the entire block quote
+                backingStore.addAttribute(.foregroundColor, value: fadedColor, range: match.range)
+                
+                // Apply even more faded color to the > symbol
+                if match.numberOfRanges >= 2 {
+                    let quoteSymbolRange = match.range(at: 1)
+                    let symbolFadedColor = UIColor.label.withAlphaComponent(0.4)
+                    backingStore.addAttribute(.foregroundColor, value: symbolFadedColor, range: quoteSymbolRange)
                 }
             }
         }
