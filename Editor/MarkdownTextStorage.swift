@@ -303,29 +303,3 @@ public class MarkdownTextStorage: NSTextStorage {
         return false
     }
 }
-
-// MARK: - UIFont Extensions for Bold/Italic
-
-extension UIFont {
-    func bold() -> UIFont {
-        guard let descriptor = fontDescriptor.withSymbolicTraits(.traitBold) else {
-            return self
-        }
-        return UIFont(descriptor: descriptor, size: pointSize)
-    }
-    
-    func italic() -> UIFont {
-        guard let descriptor = fontDescriptor.withSymbolicTraits(.traitItalic) else {
-            return self
-        }
-        return UIFont(descriptor: descriptor, size: pointSize)
-    }
-    
-    convenience init?(style: TextStyle, design: UIFontDescriptor.SystemDesign) {
-        let descriptor = UIFontDescriptor.preferredFontDescriptor(withTextStyle: style)
-        guard let designDescriptor = descriptor.withDesign(design) else {
-            return nil
-        }
-        self.init(descriptor: designDescriptor, size: 0)
-    }
-}
