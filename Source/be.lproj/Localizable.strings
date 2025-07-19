@@ -18,7 +18,7 @@
 
 /* A menu action
    A menu option for cancelling */
-"Cancel" = "Cancel";
+"Cancel" = "Скасаваць";
 
 /* Header title, categories */
 "CATEGORIES" = "CATEGORIES";
@@ -60,7 +60,7 @@
 "Crash Detected" = "Crash detected";
 
 /* Action to delete a note */
-"Delete" = "Delete";
+"Delete" = "Выдаліць";
 
 /* A menu action */
 "Delete Note" = "Delete cote";
@@ -231,7 +231,7 @@
 "PDF" = "PDF";
 
 /* Caption of Save button */
-"Save" = "Save";
+"Save" = "Захаваць";
 
 /* No comment provided by engineer. */
 "The certificate for this server is invalid" = "The certificate for this server is invalid";
@@ -247,7 +247,7 @@
 
 "Notes" = "Notes";
 
-"Cancel" = "Cancel";
+"Cancel" = "Скасаваць";
 "Scan QR Code" = "Scan QR Code";
 "Close" = "Close";
 "Server Address" = "Server Address";
