@@ -8,7 +8,7 @@
 "A server installation could not be found. Check the server address." = "A server installation could not be found. Check the server address.";
 
 /* Acknowledgements */
-"Acknowledgements" = "Acknowledgements";
+"Acknowledgements" = "Падзякі";
 
 /* Title of alert for adding a category */
 "Add Category" = "Add category";
@@ -90,7 +90,7 @@
 "Failed to connect to a server. Check your settings." = "Failed to connect to a server. Check your settings.";
 
 /* Item to show favorite notes */
-"Favorites" = "Favorites";
+"Favorites" = "Абранае";
 
 /* A menu option for plain sharing in html format */
 "HTML" = "HTML";
@@ -146,7 +146,7 @@
 
 /* Action to change title of a note
    Caption of Rename button */
-"Rename" = "Rename";
+"Rename" = "Перайменаваць";
 
 /* Message of alert to change title */
 "Rename the note" = "Rename the note";
@@ -213,16 +213,16 @@
 "Checking server status" = "Checking server status";
 
 /* No comment provided by engineer. */
-"Connection error" = "Connection error";
+"Connection error" = "Памылка злучэння";
 
 /* No comment provided by engineer. */
-"Do you want to connect to the server anyway?" = "Do you want to connect to the server anyway?";
+"Do you want to connect to the server anyway?" = "Вы ўсё роўна хочаце злучыцца з серверам?";
 
 /* An error message title */
-"Error" = "Error";
+"Error" = "Памылка";
 
 /* No comment provided by engineer. */
-"No" = "No";
+"No" = "Не";
 
 /* Title of alert to change notes folder */
 "Notes Folder" = "Notes folder";
@@ -240,12 +240,12 @@
 "View Certificate" = "View certificate";
 
 /* No comment provided by engineer. */
-"Yes" = "Yes";
+"Yes" = "Так";
 
 // NEXTCLOUD
 "Select the account to add"   = "Select the account to add";
 
-"Notes" = "Notes";
+"Notes" = "Нататкі";
 
 "Cancel" = "Скасаваць";
 "Scan QR Code" = "Scan QR Code";
@@ -259,7 +259,7 @@
 // SettingsView
 "Account" = "Account";
 "Log Out" = "Log Out";
-"Synchronization" = "Synchronization";
+"Synchronization" = "Сінхранізацыя";
 "Synchronize on Start" = "Synchronize on Start";
 "Offline Mode" = "Offline Mode";
 "Server Settings" = "Server Settings";
@@ -274,4 +274,4 @@
 "Logout" = "Logout";
 "Are you sure you want to log out?" = "Are you sure you want to log out?";
 "Enter a name for the folder where notes should be saved on the server" = "Enter a name for the folder where notes should be saved on the server";
-"Settings" = "Settings";
+"Settings" = "Налады";
