@@ -259,19 +259,19 @@
 // SettingsView
 "Account" = "Hesap";
 "Log Out" = "Oturumu kapat";
-"Synchronization" = "Synchronization";
-"Synchronize on Start" = "Synchronize on Start";
+"Synchronization" = "Eşitleme";
+"Synchronize on Start" = "Başlangıçta eşitlensin";
 "Offline Mode" = "Çevrim dışı kipi";
-"Server Settings" = "Server Settings";
-"Notes Path" = "Notes Path";
-"Internal Editor" = "Internal Editor";
+"Server Settings" = "Sunucu ayarları";
+"Notes Path" = "Notlar yolu";
+"Internal Editor" = "İç düzenleyici";
 "File Extension" = "Dosya uzantısı";
-"About This App" = "About This App";
+"About This App" = "Bu uygulama hakkında";
 "Client Version" = "İstemci sürümü";
 "Server Version" = "Sunucu sürümü";
 "Privacy and Legal Policy" = "Gizlilik ve Yasal İlkeler";
-"Show Source Code on GitHub" = "Show Source Code on GitHub";
-"Logout" = "Logout";
+"Show Source Code on GitHub" = "GitHub üzerindeki kaynak kodunu görüntüle";
+"Logout" = "Oturumu kapat";
 "Are you sure you want to log out?" = "Oturumu kapatmak istediğinize emin misiniz?";
 "Enter a name for the folder where notes should be saved on the server" = "Notların sunucuda kaydedileceği klasörün adını yazın";
 "Settings" = "Ayarlar";
