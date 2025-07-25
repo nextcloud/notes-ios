@@ -105,7 +105,7 @@
 "Markdown" = "Markdown";
 
 /* The title of a new note */
-"New note" = "New note";
+"New note" = "Новая нататка";
 
 /* No comment provided by engineer. */
 "No thanks" = "No thanks";
@@ -192,7 +192,7 @@
 "Unauthorized" = "Unauthorized";
 
 /* Text displayed for notes not assigned to a category */
-"Uncategorized" = "Uncategorized";
+"Uncategorized" = "Без катэгорыі";
 
 /* Message with Notes version, product name and version */
 "Using Notes %@on %@ %@." = "Using Notes %@on %@ %@.";
