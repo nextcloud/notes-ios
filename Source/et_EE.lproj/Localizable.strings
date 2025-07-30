@@ -218,9 +218,6 @@
 /* No comment provided by engineer. */
 "Do you want to connect to the server anyway?" = "Kas sa ikkagi soovid luua ühendust serveriga?";
 
-/* Message of alert to change notes folder */
-"Enter a name for the folder where notes should be saved on the server" = "Sisesta kausta nimi, kus märkmed peaksid serveris salvestuma";
-
 /* An error message title */
 "Error" = "Viga";
 
@@ -250,9 +247,6 @@
 
 "Notes" = "Märkmed";
 
-"Client Version" = "Kliendi versioon";
-"Server Version" = "Serveri versioon";
-"Are you sure you want to log out?" = "Kas sa oled kindel, et soovid välja logida?";
 "Cancel" = "Loobu";
 "Scan QR Code" = "Skaneeri QR-koodi";
 "Close" = "Sulge";
@@ -261,3 +255,23 @@
 "The entered server address is invalid." = "Sisestatud serveri aadress on vigane.";
 "Accounts from our other apps were found on this device. Would you like to add one of these?" = "Selles seadmes leidub teiste rakenduste kasutajakontode andmeid. Kas sa soovid neist mõne lisada?";
 "Shared Accounts" = "Jagatud kasutajakontod";
+
+// SettingsView
+"Account" = "Kasutajakonto";
+"Log Out" = "Logi välja";
+"Synchronization" = "Sünkroonimine";
+"Synchronize on Start" = "Sünkroonimi käivitamisel";
+"Offline Mode" = "Vallasrežiim";
+"Server Settings" = "Serveri seadistused";
+"Notes Path" = "Märkmete asukoht";
+"Internal Editor" = "Sisemine toimeti";
+"File Extension" = "Faililaiend";
+"About This App" = "Rakenduse teave: Märkmed";
+"Client Version" = "Kliendi versioon";
+"Server Version" = "Serveri versioon";
+"Privacy and Legal Policy" = "Privaatsus ja juriidilised tingimused";
+"Show Source Code on GitHub" = "Vaata lähtekoodi GitHubis";
+"Logout" = "Logi välja";
+"Are you sure you want to log out?" = "Kas sa oled kindel, et soovid välja logida?";
+"Enter a name for the folder where notes should be saved on the server" = "Sisesta kausta nimi, kus märkmed peaksid serveris salvestuma";
+"Settings" = "Seadistused";

@@ -5,16 +5,16 @@
   Created by Peter Hedlund on 6/22/14.
   Copyright (c) 2014 Peter Hedlund. All rights reserved.
 */
-"About" = "About";
+"About" = "Kuhusu";
 
-"Acknowledgements" = "Acknowledgements";
+"Acknowledgements" = "Shukrani";
 
-"Advanced Settings" = "Advanced settings";
+"Advanced Settings" = "Mipangilio ya kiwango cha juu";
 
-"Caution: Turning the switch on will remove all notes locally. Unsynced changes will be lost. Use only if you are experiencing problems." = "Caution: Turning the switch on will remove all notes locally. Unsynced changes will be lost. Use only if you are experiencing problems.";
+"Caution: Turning the switch on will remove all notes locally. Unsynced changes will be lost. Use only if you are experiencing problems." = "Tahadhari: Kuwasha swichi kutaondoa madokezo yote ndani. Mabadiliko ambayo hayajasawazishwa yatapotea. Tumia tu ikiwa unakabiliwa na matatizo.";
 
-"Reset local notes database" = "Reset local notes database";
+"Reset local notes database" = "Weka upya hifadhidata ya madokezo ya ndani";
 
-"Third-party licenses" = "Third-party licenses";
+"Third-party licenses" = "Leseni za watu wengine";
 
-"Version" = "Version";
+"Version" = "Toleo";

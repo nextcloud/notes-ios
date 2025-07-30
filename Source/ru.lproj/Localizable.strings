@@ -1,105 +1,105 @@
 /* Crash report email body placeholder */
-"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Please provide as much details as possible about what you were doing when the crash occurred.>";
+"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Пожалуйста предоставьте как можно больше деталей о том что вы делали в момент когда произошла ошибка.>";
 
 /* Support email body placeholder */
-"<Please state your question or problem here>" = "Please state your question or problem here";
+"<Please state your question or problem here>" = "Пожалуйста, укажите здесь ваш вопрос или проблему";
 
 /* An error message */
-"A server installation could not be found. Check the server address." = "A server installation could not be found. Check the server address.";
+"A server installation could not be found. Check the server address." = "Установка сервера не найдена. Проверьте адрес сервера.";
 
 /* Acknowledgements */
-"Acknowledgements" = "Подтверждения";
+"Acknowledgements" = "Благодарности";
 
 /* Title of alert for adding a category */
-"Add Category" = "Add category";
+"Add Category" = "Добавить категорию";
 
 /* Item to show all notes */
 "All" = "Все";
 
 /* A menu action
    A menu option for cancelling */
-"Cancel" = "Закрыть";
+"Cancel" = "Отмена";
 
 /* Header title, categories */
-"CATEGORIES" = "CATEGORIES";
+"CATEGORIES" = "КАТЕГОРИИ";
 
 /* 'Category' menu item */
-"Category" = "Category";
+"Category" = "Категория";
 
 /* Action to change category of a note */
-"Category…" = "Category…";
+"Category…" = "Категория…";
 
 /* Action to change category of a note */
-"Change Category…" = "Change category…";
+"Change Category…" = "Изменить категорию…";
 
 /* An error message */
-"Check username and password." = "Check username and password.";
+"Check username and password." = "Проверьте имя пользователя и пароль.";
 
 /* Title of a button allowing the user to close the login screen and sync with the server */
-"Close & Sync" = "Close & Sync";
+"Close & Sync" = "Закрыть и синхр.";
 
 /* Crash report email subject */
-"NextcloudNotes Crash Report" = "NextcloudNotes Crash Report";
+"NextcloudNotes Crash Report" = "Отчёт об ошибках NextcloudNotes ";
 
 /* No comment provided by engineer. */
-"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?";
+"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "NextcloudNotes завершилось с ошибкой в прошлый раз когда оно были запущено. Хотите ли вы отправить разработчику отчёт об ошибке?";
 
 /* Support email subject */
-"NextcloudNotes Support Request" = "NextcloudNotes Support Request";
+"NextcloudNotes Support Request" = "Запрос поддержки NextcloudNotes ";
 
 /* A button title */
-"Connect" = "Connect";
+"Connect" = "Подключиться";
 
 /* Status information, connected */
-"Connected to Notes on the server" = "Connected to Notes on the server";
+"Connected to Notes on the server" = "Подключено к Заметкам на сервере";
 
 /* An error message title */
-"Connection failure" = "Connection failure";
+"Connection failure" = "Ошибка подключения";
 
 /* Alert view title */
-"Crash Detected" = "Crash detected";
+"Crash Detected" = "Обнаружена ошибка";
 
 /* Action to delete a note */
-"Delete" = "Delete";
+"Delete" = "Удалить";
 
 /* A menu action */
-"Delete Note" = "Delete cote";
+"Delete Note" = "Удалить заметку";
 
 /* Prompt on alert for adding a category */
-"Enter a name for the new category" = "Enter a name for the new category";
+"Enter a name for the new category" = "Введите название новой категории";
 
 /* The title of an error message */
-"Error Adding Note" = "Error adding note";
+"Error Adding Note" = "Ошибка при добавлении заметки";
 
 /* The title of an error message */
-"Error Deleting Note" = "Error deleting note";
+"Error Deleting Note" = "Ошибка при удалении заметки";
 
 /* The title of an error message */
-"Error Getting Note" = "Error getting note";
+"Error Getting Note" = "Ошибка при получении заметки";
 
 /* The title of an error message */
-"Error Syncing Notes" = "Error syncing notes";
+"Error Syncing Notes" = "Ошибка при синхронизации заметки";
 
 /* The title of an error message */
-"Error Updating Note" = "Error updating note";
+"Error Updating Note" = "Ошибка при обновлении заметки";
 
 /* The title of an error message */
-"Error Updating Notes" = "Error updating notes";
+"Error Updating Notes" = "Ошибка при обновлении заметок";
 
 /* An error message */
-"Failed to connect to a server. Check your settings." = "Failed to connect to a server. Check your settings.";
+"Failed to connect to a server. Check your settings." = "Не удалось подключиться к серверу. Проверьте ваши настройки.";
 
 /* Item to show favorite notes */
-"Favorites" = "Favorites";
+"Favorites" = "Избранное";
 
 /* A menu option for plain sharing in html format */
 "HTML" = "HTML";
 
 /* A status label indicating that the user is logged in */
-"Logged In" = "Logged in";
+"Logged In" = "Вход выполнен";
 
 /* Header title, main */
-"MAIN" = "MAIN";
+"MAIN" = "ОСНОВНОЕ";
 
 /* A menu option for sharing in markdown format */
 "Markdown" = "Markdown";
@@ -108,127 +108,124 @@
 "New note" = "Новая заметка";
 
 /* No comment provided by engineer. */
-"No thanks" = "No thanks";
+"No thanks" = "Нет, спасибо";
 
 /* Status information, not connected */
-"Not connected to Notes on a server" = "Not connected to Notes on a server";
+"Not connected to Notes on a server" = "Не подключено к Заметкам на сервере";
 
 /* A status label indicating that the user is not logged in */
-"Not Logged In" = "Not logged in";
+"Not Logged In" = "Вход не выполнен";
 
 /* Message about not being logged in */
-"Not logged in" = "Not logged in";
+"Not logged in" = "Вход не выполнен";
 
 /* Title of alert to change title */
-"Note Title" = "Note title";
+"Note Title" = "Название заметки";
 
 /* An error message */
-"Notes could not be found on your server. Make sure it is installed and enabled" = "Notes could not be found on your server. Make sure it is installed and enabled";
+"Notes could not be found on your server. Make sure it is installed and enabled" = "Заметки не найдены на вашем сервере. Убедитесь что они установлены и включены";
 
 /* An error message title */
-"Notes not found" = "Notes not found";
+"Notes not found" = "Заметки не найдены";
 
 /* Button, OK */
-"OK" = "OK";
+"OK" = "ОК";
 
 /* Title for Open In activity */
 "Open in…" = "Открыть в…";
 
 /* A menu option for sharing in plain text format */
-"Plain Text" = "Plain text";
+"Plain Text" = "Обычный текст";
 
 /* A message
    A message to check network connection */
-"Please check network connection and login." = "Please check network connection and login.";
+"Please check network connection and login." = "Пожалуйста, проверьте соединение и войдите.";
 
 /* A button title */
-"Reconnect" = "Reconnect";
+"Reconnect" = "Переподключиться ";
 
 /* Action to change title of a note
    Caption of Rename button */
 "Rename" = "Переименовать";
 
 /* Message of alert to change title */
-"Rename the note" = "Rename the note";
+"Rename the note" = "Переименовать заметку";
 
 /* Action to change title of a note */
-"Rename…" = "Rename…";
+"Rename…" = "Переименовать…";
 
 /* A menu option for sharing in rich text format */
 "Rich Text" = "Rich text";
 
 /* Placeholder text when no note is selected */
-"Select or create a note." = "Select or create a note.";
+"Select or create a note." = "Выберите или создайте заметку.";
 
 /* Alert title for selecting server brand */
-"Server" = "Server";
+"Server" = "Сервер";
 
 /* An error message title */
 "Server not found" = "Сервер не найден";
 
 /* A message title */
-"Server Reachable" = "Server reachable";
+"Server Reachable" = "Сервер доступен";
 
 /* Title of a menu with sharing options */
-"Share Note As" = "Share note as";
+"Share Note As" = "Поделиться заметкой как";
 
 /* A message title */
-"Success" = "Success";
+"Success" = "Успешно";
 
 /* A message */
-"The network connection is working properly." = "The network connection is working properly.";
+"The network connection is working properly." = "Сетевое подключение работает правильно.";
 
 /* An error message */
-"The note does not exist" = "The note does not exist";
+"The note does not exist" = "Заметка не существует";
 
 /* Alert message for selecting server brand */
-"Unable to automatically detect type of server.\nPlease select:" = "Unable to automatically detect type of server.\nPlease select:";
+"Unable to automatically detect type of server.\nPlease select:" = "Невозможно автоматически определить тип сервера.\nПожалуйста, выберите:";
 
 /* A message title
    The title of an error message */
-"Unable to Reach Server" = "Unable to reach server";
+"Unable to Reach Server" = "Сервер недоступен";
 
 /* An error message title */
 "Unauthorized" = "Неавторизованный";
 
 /* Text displayed for notes not assigned to a category */
-"Uncategorized" = "Uncategorized";
+"Uncategorized" = "Без категории";
 
 /* Message with Notes version, product name and version */
-"Using Notes %@on %@ %@." = "Using Notes %@on %@ %@.";
+"Using Notes %@on %@ %@." = "Используется Notes %@on %@ %@.";
 
 /* No comment provided by engineer. */
-"Yes, please!" = "Yes, please!";
+"Yes, please!" = "Да, конечно!";
 
 /* A message */
-"You are now connected to Notes on your server" = "You are now connected to Notes on your server";
+"You are now connected to Notes on your server" = "Вы подключены к Заметкам на вашем сервере";
 
 /* HUD subtitle when checking server capabilities */
-"Checking server capabilities" = "Checking server capabilities";
+"Checking server capabilities" = "Проверка возможностей сервера";
 
 /* HUD subtitle when checking server settings */
-"Checking server settings" = "Checking server settings";
+"Checking server settings" = "Проверка настроек сервера";
 
 /* HUD subtitle when checking server status */
-"Checking server status" = "Checking server status";
+"Checking server status" = "Проверка статуса сервера";
 
 /* No comment provided by engineer. */
-"Connection error" = "Connection error";
+"Connection error" = "Ошибка подключения";
 
 /* No comment provided by engineer. */
-"Do you want to connect to the server anyway?" = "Хотите подключиться к серверу в любом случае?";
-
-/* Message of alert to change notes folder */
-"Enter a name for the folder where notes should be saved on the server" = "Enter a name for the folder where notes should be saved on the server";
+"Do you want to connect to the server anyway?" = "Вы хотите подключиться к серверу в любом случае?";
 
 /* An error message title */
-"Error" = "Error";
+"Error" = "Ошибка";
 
 /* No comment provided by engineer. */
-"No" = "No";
+"No" = "Нет";
 
 /* Title of alert to change notes folder */
-"Notes Folder" = "Notes folder";
+"Notes Folder" = "Папка заметок";
 
 /* A menu option for sharing in pdf format */
 "PDF" = "PDF";
@@ -237,27 +234,44 @@
 "Save" = "Сохранить";
 
 /* No comment provided by engineer. */
-"The certificate for this server is invalid" = "Неверный сертификат сервера";
+"The certificate for this server is invalid" = "У этого сервера недействительный сертификат.";
 
 /* No comment provided by engineer. */
-"View Certificate" = "View certificate";
+"View Certificate" = "Посмотреть сертификат";
 
 /* No comment provided by engineer. */
-"Yes" = "Yes";
+"Yes" = "Да";
 
 // NEXTCLOUD
-"Select the account to add"   = "Выберите учетную запись которую хотите добавить";
+"Select the account to add"   = "Выберите учётную запись которую хотите добавить";
 
-"Notes" = "Notes";
+"Notes" = "Заметки";
 
-"Client Version" = "Client Version";
-"Server Version" = "Server Version";
-"Are you sure you want to log out?" = "Are you sure you want to log out?";
-"Cancel" = "Закрыть";
-"Scan QR Code" = "Scan QR Code";
-"Close" = "Close";
-"Server Address" = "Server Address";
-"The address of your Nextcloud web interface when you open it in your browser." = "The address of your Nextcloud web interface when you open it in your browser.";
-"The entered server address is invalid." = "The entered server address is invalid.";
-"Accounts from our other apps were found on this device. Would you like to add one of these?" = "Accounts from our other apps were found on this device. Would you like to add one of these?";
-"Shared Accounts" = "Shared Accounts";
+"Cancel" = "Отмена";
+"Scan QR Code" = "Сканировать QR-код";
+"Close" = "Закрыть";
+"Server Address" = "Адрес сервера";
+"The address of your Nextcloud web interface when you open it in your browser." = "Адрес вашего веб-интерфейса Nextcloud, когда вы открываете его в вашем браузере";
+"The entered server address is invalid." = "Введённый адрес сервера недействителен.";
+"Accounts from our other apps were found on this device. Would you like to add one of these?" = "Учётные записи из других наших приложений были найдены на этом устройстве. Хотите добавить одну из этих?";
+"Shared Accounts" = "Общие учётные записи";
+
+// SettingsView
+"Account" = "Учётная запись";
+"Log Out" = "Выйти";
+"Synchronization" = "Синхронизация";
+"Synchronize on Start" = "Синхронизировать при старте";
+"Offline Mode" = "Оффлайн режим";
+"Server Settings" = "Настройки сервера";
+"Notes Path" = "Путь для заметок";
+"Internal Editor" = "Встроенный редактор";
+"File Extension" = "Расширение файла";
+"About This App" = "Об этом приложении";
+"Client Version" = "Версия клиента";
+"Server Version" = "Версия сервера";
+"Privacy and Legal Policy" = "Конфиденциальность и правовая политика";
+"Show Source Code on GitHub" = "Посмотреть исходный код на GitHub";
+"Logout" = "Выйти";
+"Are you sure you want to log out?" = "Вы уверены что хотите выйти?";
+"Enter a name for the folder where notes should be saved on the server" = "Введите имя папки, где заметки должны быть размещены на сервере";
+"Settings" = "Настройки";

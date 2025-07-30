@@ -218,9 +218,6 @@
 /* No comment provided by engineer. */
 "Do you want to connect to the server anyway?" = "Chcete se k tomuto serveru připojit i tak?";
 
-/* Message of alert to change notes folder */
-"Enter a name for the folder where notes should be saved on the server" = "Zadejte název složky do které mají být poznámky ukládány na serveru";
-
 /* An error message title */
 "Error" = "Error";
 
@@ -250,9 +247,6 @@
 
 "Notes" = "Poznámky";
 
-"Client Version" = "Verze klienta";
-"Server Version" = "Verze serveru";
-"Are you sure you want to log out?" = "Opravdu se chcete odhlásit?";
 "Cancel" = "Storno";
 "Scan QR Code" = "Naskenovat QR kód";
 "Close" = "Zavřít";
@@ -261,3 +255,23 @@
 "The entered server address is invalid." = "Zadaná adresa serveru není platná.";
 "Accounts from our other apps were found on this device. Would you like to add one of these?" = "Na tomto zařízení byly nalezeny účty z našich ostatních aplikací. Chcete přidat jeden z nich?";
 "Shared Accounts" = "Sdílené účty";
+
+// SettingsView
+"Account" = "Účet";
+"Log Out" = "Odhlásit se";
+"Synchronization" = "Synchronizace";
+"Synchronize on Start" = "Synchronizovat při špouštění";
+"Offline Mode" = "Režim bez připojení";
+"Server Settings" = "Nastavení serveru";
+"Notes Path" = "Popis umístění poznámek";
+"Internal Editor" = "Vestavěný editor";
+"File Extension" = "Přípona souboru";
+"About This App" = "O této aplikaci";
+"Client Version" = "Verze klienta";
+"Server Version" = "Verze serveru";
+"Privacy and Legal Policy" = "Zásady ochrany soukromí a právní náležitosti";
+"Show Source Code on GitHub" = "Zobrazit zdrojové kódy na portálu GitHub";
+"Logout" = "Odhlásit";
+"Are you sure you want to log out?" = "Opravdu se chcete odhlásit?";
+"Enter a name for the folder where notes should be saved on the server" = "Zadejte název složky do které mají být poznámky ukládány na serveru";
+"Settings" = "Nastavení";

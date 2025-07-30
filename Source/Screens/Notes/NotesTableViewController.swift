@@ -400,12 +400,27 @@ class NotesTableViewController: BaseUITableViewController {
     // MARK: - Navigation
 
     func isAvailableDirectEditing(identifier: String) -> Bool {
-
-        if !KeychainHelper.internalEditor && identifier == detailSegueIdentifier && KeychainHelper.directEditing && KeychainHelper.directEditingSupportsFileId && (appDelegate.networkReachability == NKCommon.TypeReachability.reachableCellular || appDelegate.networkReachability == NKCommon.TypeReachability.reachableEthernetOrWiFi) {
-            return true
+        guard KeychainHelper.internalEditor == false else {
+            return false
         }
 
-        return false
+        guard identifier == detailSegueIdentifier else {
+            return false
+        }
+
+        guard KeychainHelper.directEditing else {
+            return false
+        }
+
+        guard KeychainHelper.directEditingSupportsFileId else {
+            return false
+        }
+
+        guard appDelegate.networkReachability == NKCommon.TypeReachability.reachableCellular || appDelegate.networkReachability == NKCommon.TypeReachability.reachableEthernetOrWiFi else {
+            return false
+        }
+
+        return true
     }
 
     func openTextWebView(note: CDNote) {
@@ -414,6 +429,7 @@ class NotesTableViewController: BaseUITableViewController {
         }
 
         let notesPath = KeychainHelper.notesPath
+
         NextcloudKit.shared.textOpenFile(fileNamePath: notesPath, fileId: String(note.cdId), editor: "text", account: account) { account, url, data, error in
             if error == .success, let url = url, let viewController: NCViewerNextcloudText = UIStoryboard(name: "NCViewerNextcloudText", bundle: nil).instantiateInitialViewController() as? NCViewerNextcloudText {
                 viewController.editor = "text"
@@ -422,14 +438,15 @@ class NotesTableViewController: BaseUITableViewController {
                 viewController.modalPresentationStyle = .fullScreen
                 self.navigationController?.present(viewController, animated: true)
             } else {
-                //
+                let alert = UIAlertController(title: "Error", message: "Cannot open file for direct editing: \(error.localizedDescription)", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
+                self.present(alert, animated: true, completion: nil)
             }
         }
 
     }
 
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-
         if isAvailableDirectEditing(identifier: identifier), let cell = sender as? UITableViewCell, let cellIndexPath = tableView.indexPath(for: cell) {
             let note = notesManager.manager.fetchedResultsController.object(at: cellIndexPath)
             openTextWebView(note: note)
@@ -626,9 +643,7 @@ class NotesTableViewController: BaseUITableViewController {
     }
 
     private func didBecomeActive() {
-        if KeychainHelper.server.isEmpty {
-//            performSegue(withIdentifier: "ShowSettings", sender: self)
-        } else if KeychainHelper.syncOnStart {
+        if KeychainHelper.syncOnStart {
             onRefresh(sender: nil)
         } else if KeychainHelper.dbReset {
             CDNote.reset()

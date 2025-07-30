@@ -10,6 +10,7 @@ import Alamofire
 import Foundation
 import UIKit
 import SwiftMessages
+import os
 
 typealias SyncCompletionBlock = () -> Void
 typealias SyncCompletionBlockWithNote = (_ note: CDNote?) -> Void
@@ -52,13 +53,7 @@ final class LoginRequestInterceptor: RequestInterceptor {
             return completion(.doNotRetryWithError(error))
         }
 
-        let serverAddress = KeychainHelper.server
-        if !serverAddress.hasSuffix(".php") {
-            KeychainHelper.server = "\(serverAddress)/index.php"
-            completion(.retry)
-        } else {
-            completion(.doNotRetryWithError(error))
-        }
+        return completion(.doNotRetryWithError(error))
     }
 
 }
@@ -83,27 +78,10 @@ final class NoteRequestInterceptor: RequestInterceptor {
         case 304:
             completion(.doNotRetry)
         case 404:
-            if KeychainHelper.lastModified > 0 {
-                completion(.doNotRetryWithError(error))
-            } else {
-                let serverAddress = KeychainHelper.server
-                if !serverAddress.hasSuffix(".php") {
-                    KeychainHelper.server = "\(serverAddress)/index.php"
-                    completion(.retry)
-                } else {
-                    completion(.doNotRetryWithError(error))
-                }
-            }
+            completion(.doNotRetryWithError(error))
         case 405:
-            let serverAddress = KeychainHelper.server
-            if !serverAddress.hasSuffix(".php") {
-                KeychainHelper.server = "\(serverAddress)/index.php"
-                completion(.retry)
-            } else {
-                completion(.doNotRetryWithError(error))
-            }
-        case 423:
-            // File lock on server, retry once
+            completion(.doNotRetryWithError(error))
+        case 423: // File lock on server, retry once
             completion(.retryWithDelay(2))
         default:
             completion(.doNotRetryWithError(error))
@@ -113,7 +91,8 @@ final class NoteRequestInterceptor: RequestInterceptor {
 }
 
 class NoteSessionManager {
-    
+    private let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "NoteSessionManager")
+
     struct NoteError: Error {
         var message: ErrorMessage
     }
@@ -140,7 +119,7 @@ class NoteSessionManager {
     }
 
     class var isOnline: Bool {
-        return NoteSessionManager.isConnectedToServer && !KeychainHelper.offlineMode
+        return NoteSessionManager.isConnectedToServer && !Store.shared.offlineMode
     }
     
     init() {
@@ -151,7 +130,15 @@ class NoteSessionManager {
         session = Session(configuration: configuration, serverTrustManager: NotesServerTrustPolicyManager(allHostsMustBeEvaluated: true, evaluators: [:]))
     }
 
-    func status(completion: SyncCompletionBlock? = nil) {        
+    ///
+    /// Fetch the server status.
+    ///
+    /// - Parameters:
+    ///     - completion: Optional completion handler to call afterwards.
+    ///
+    func status(completion: SyncCompletionBlock? = nil) {
+        logger.notice("Fetching status...")
+
         let router = StatusRouter.status
         session
             .request(router)
@@ -168,74 +155,124 @@ class NoteSessionManager {
         }
     }
 
+    ///
+    /// Asynchronous wrapper for ``status(completion:)``.
+    ///
+    func status() async {
+        await withCheckedContinuation { continuation in
+            status {
+                continuation.resume()
+            }
+        }
+    }
+
+    ///
+    /// Fetch the user settings for Nextcloud Notes from the server.
+    ///
+    /// - Parameters:
+    ///     - completion: Optional completion handler to call afterwards.
+    ///
     func settings(completion: SyncCompletionBlock? = nil) {
+        logger.debug("Fetching notes user settings from server...")
+
         let router = Router.settings
+
         session
-            .request(router, interceptor: LoginRequestInterceptor())
-            .validate(statusCode: 200..<300)
-            .validate(contentType: [Router.applicationJson])
-            .responseDecodable(of: SettingsStruct.self) { response in
-                switch response.result {
+        .request(router, interceptor: LoginRequestInterceptor())
+        .validate(statusCode: 200..<300)
+        .validate(contentType: [Router.applicationJson])
+        .responseDecodable(of: SettingsStruct.self) { [self] response in
+            switch response.result {
                 case let .success(result):
+                    logger.debug("Successfully received settings from the server (notes path: \"\(result.notesPath)\", file suffix: \"\(result.fileSuffix)\").")
+
                     switch result.fileSuffix {
-                    case FileSuffix.md.suffix:
-                        KeychainHelper.fileSuffix = FileSuffix.md
-                    default:
-                        KeychainHelper.fileSuffix = FileSuffix.txt
+                        case FileSuffix.md.suffix:
+                            Store.shared.fileExtension = FileSuffix.md
+                        case FileSuffix.txt.suffix:
+                            Store.shared.fileExtension = FileSuffix.txt
+                        default:
+                            logger.error("Unexpected file suffix \"\(result.fileSuffix, privacy: .public)\" received in settings, falling back to plain text extension.")
+                            Store.shared.fileExtension = FileSuffix.txt
                     }
-                    KeychainHelper.notesPath = result.notesPath
+
+                    Store.shared.notesPath = result.notesPath
                 case let .failure(error):
-                    print(error.localizedDescription)
+                    logger.error("Error during settings retrieval: \(error, privacy: .public)")
+
                     if let urlResponse = response.response {
                         switch urlResponse.statusCode {
-                        case 400: // Bad request, endpoint not supported
-                            print(error)
-                        case 401:
-                            let title = NSLocalizedString("Unauthorized", comment: "An error message title")
-                            let body = NSLocalizedString("Check username and password.", comment: "An error message")
-                            NoteSessionManager.shared.showErrorMessage(message: ErrorMessage(title: title, body: body))
-                        default:
-                            let message = ErrorMessage(title: NSLocalizedString("Error Getting Settings", comment: "The title of an error message"),
-                                                       body: error.localizedDescription)
-                            self.showErrorMessage(message: message)
+                            case 400: // Bad request, endpoint not supported
+                                print(error)
+                            case 401:
+                                let title = NSLocalizedString("Unauthorized", comment: "An error message title")
+                                let body = NSLocalizedString("Check username and password.", comment: "An error message")
+                                NoteSessionManager.shared.showErrorMessage(message: ErrorMessage(title: title, body: body))
+                            default:
+                                let message = ErrorMessage(title: NSLocalizedString("Error Getting Settings", comment: "The title of an error message"),
+                                                           body: error.localizedDescription)
+                                self.showErrorMessage(message: message)
                         }
                     }
-                }
-                completion?()
             }
+
+            completion?()
+        }
+    }
+
+    ///
+    /// Asynchronous wrapper for ``settings(completion:)``.
+    ///
+    func settings() async {
+        await withCheckedContinuation { continuation in
+            settings {
+                continuation.resume()
+            }
+        }
     }
 
     func updateSettings(completion: SyncCompletionBlock? = nil) {
-        let router = Router.updateSettings(notesPath: KeychainHelper.notesPath, fileSuffix: KeychainHelper.fileSuffix.suffix)
+        logger.debug("Updating notes user settings on server...")
+
+        let router = Router.updateSettings(notesPath: Store.shared.notesPath, fileSuffix: Store.shared.fileExtension.suffix)
+
         session
-            .request(router)
-            .validate(statusCode: 200..<300)
-            .validate(contentType: [Router.applicationJson])
-            .responseData { response in
-                switch response.result {
+        .request(router)
+        .validate(statusCode: 200..<300)
+        .validate(contentType: [Router.applicationJson])
+        .responseData { [self] response in
+            switch response.result {
                 case .success( _):
+                    logger.debug("Successfully updated notes user settings on server.")
                     completion?()
                 case let .failure(error):
+                    logger.debug("Error while updating notes user settings on server: \(error.localizedDescription, privacy: .public)")
+
                     if let urlResponse = response.response {
                         switch urlResponse.statusCode {
-                        case 400: // Bad request, endpoint not supported
-                            print(error)
-                        case 401:
-                            let title = NSLocalizedString("Unauthorized", comment: "An error message title")
-                            let body = NSLocalizedString("Check username and password.", comment: "An error message")
-                            NoteSessionManager.shared.showErrorMessage(message: ErrorMessage(title: title, body: body))
-                        default:
-                            let message = ErrorMessage(title: NSLocalizedString("Error Updating Settings", comment: "The title of an error message"),
-                                                       body: error.localizedDescription)
-                            self.showErrorMessage(message: message)
+                            case 400: // Bad request, endpoint not supported
+                                print(error)
+                            case 401:
+                                let title = NSLocalizedString("Unauthorized", comment: "An error message title")
+                                let body = NSLocalizedString("Check username and password.", comment: "An error message")
+                                NoteSessionManager.shared.showErrorMessage(message: ErrorMessage(title: title, body: body))
+                            default:
+                                let message = ErrorMessage(title: NSLocalizedString("Error Updating Settings", comment: "The title of an error message"),
+                                                           body: error.localizedDescription)
+                                self.showErrorMessage(message: message)
                         }
                     }
+
                     completion?()
-                }
             }
+        }
     }
 
+    ///
+    /// Actually synchronize the notes.
+    ///
     func sync(completion: SyncCompletionBlock? = nil) {
+        logger.notice("Synchronizing...")
 
         func deleteOnServer(completion: @escaping SyncCompletionBlock) {
             if let notesToDelete = CDNote.notes(property: "cdDeleteNeeded"),
@@ -351,7 +388,7 @@ class NoteSessionManager {
                                 if error.isResponseValidationError {
                                     switch error.responseCode {
                                     case 304:
-                                        // Not modified, do nothing
+                                        self.logger.notice("Remote notes did not change.")
                                         break
                                     default:
                                         let message = ErrorMessage(title: NSLocalizedString("Error Syncing Notes", comment: "The title of an error message"),
@@ -374,8 +411,21 @@ class NoteSessionManager {
             }
         }
     }
-    
+
+    ///
+    /// Asynchronous wrapper for ``sync(completion:)``
+    ///
+    func sync() async {
+        await withCheckedContinuation { continuation in
+            sync {
+                continuation.resume()
+            }
+        }
+    }
+
     func add(content: String, category: String, favorite: Bool? = false, completion: SyncCompletionBlockWithNote? = nil) {
+        logger.notice("Adding note...")
+
         let note = NoteStruct(content: content, category: category, favorite: favorite ?? false)
         if  let incoming = CDNote.update(note: note) { //addNeeded defaults to true
             self.add(note: incoming, completion: completion)
@@ -440,6 +490,8 @@ class NoteSessionManager {
     }
 
     func get(note: NoteProtocol, completion: SyncCompletionBlock? = nil) {
+        logger.notice("Getting note...")
+
         guard NoteSessionManager.isOnline else {
             completion?()
             return
@@ -479,6 +531,8 @@ class NoteSessionManager {
     }
 
     func update(note: NoteProtocol, completion: SyncCompletionBlock? = nil) {
+        logger.notice("Updating note...")
+
         var incoming = note
         incoming.updateNeeded = true
         if NoteSessionManager.isOnline {
@@ -538,6 +592,8 @@ class NoteSessionManager {
     }
     
     func delete(note: NoteProtocol, completion: SyncCompletionBlock? = nil) {
+        logger.notice("Deleting note...")
+
         var incoming = note
         incoming.deleteNeeded = true
         if incoming.addNeeded {
