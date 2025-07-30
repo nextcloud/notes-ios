@@ -25,12 +25,10 @@ class NotesTableViewController: BaseUITableViewController {
     @IBOutlet weak var refreshBarButton: UIBarButtonItem!
 
     var notes: [CDNote]?
-    var searchController: UISearchController?
     var editorViewController: EditorViewController?
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
     private var networkHasBeenUnreachable = false
-    private var searchResult: [CDNote]?
     private var launching = true
 
     private let notesManager = NotesManager()
@@ -145,15 +143,9 @@ class NotesTableViewController: BaseUITableViewController {
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.toolbar.isTranslucent = true
         navigationController?.toolbar.clipsToBounds = true
-//        searchController = UISearchController(searchResultsController: nil)
-//        searchController?.searchResultsUpdater = self
-//        searchController?.delegate = self
-//        searchController?.obscuresBackgroundDuringPresentation = false
-//        searchController?.hidesNavigationBarDuringPresentation = true
-//        searchController?.searchBar.directionalLayoutMargins = .init(top: 0, leading: 15, bottom: 0, trailing: 15)
+        
         notesManager.manager.delegate = self
         updateFrcDelegate(update: .enable(withFetch: true))
-        tableView.tableHeaderView = searchController?.searchBar
 
         tableView.backgroundView = UIView()
         tableView.dropDelegate = self
@@ -463,18 +455,12 @@ class NotesTableViewController: BaseUITableViewController {
                 isAddingFromButton = false
                 editorController.navigationItem.leftItemsSupplementBackButton = true
                 editorController.navigationItem.title = note.title
-                if splitViewController?.displayMode == .allVisible || splitViewController?.displayMode == .primaryOverlay {
+                if splitViewController?.displayMode == .oneBesideSecondary || splitViewController?.displayMode == .oneOverSecondary {
                     UIView.animate(withDuration: 0.3, animations: {
-                        self.splitViewController?.preferredDisplayMode = .primaryHidden
+                        self.splitViewController?.preferredDisplayMode = .secondaryOnly
                     }, completion: nil)
                 }
             }
-//        case settingsSegueIdentifier:
-//            if let navigationController = segue.destination as? UINavigationController,
-//               let controller = navigationController.topViewController as? SettingsTableViewController {
-//                controller.presentationController?.delegate = self
-//                navigationController.presentationController?.delegate = self
-//            }
         default:
             break
         }
@@ -829,15 +815,11 @@ struct NotesTableViewControllerRepresentable: UIViewControllerRepresentable {
     }
 
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
-        print("Search text is now: \(searchText)") // DEBUG
-
         if addNote {
             context.coordinator.addNote()
         }
 
-//        if !searchText.isEmpty {
-            context.coordinator.searchNote(text: searchText)
-//        }
+        context.coordinator.searchNote(text: searchText)
     }
 }
 
