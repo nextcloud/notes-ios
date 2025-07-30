@@ -145,11 +145,12 @@ class NotesTableViewController: BaseUITableViewController {
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.toolbar.isTranslucent = true
         navigationController?.toolbar.clipsToBounds = true
-        searchController = UISearchController(searchResultsController: nil)
-        searchController?.searchResultsUpdater = self
-        searchController?.obscuresBackgroundDuringPresentation = false
-        searchController?.hidesNavigationBarDuringPresentation = true
-        searchController?.searchBar.directionalLayoutMargins = .init(top: 0, leading: 15, bottom: 0, trailing: 15)
+//        searchController = UISearchController(searchResultsController: nil)
+//        searchController?.searchResultsUpdater = self
+//        searchController?.delegate = self
+//        searchController?.obscuresBackgroundDuringPresentation = false
+//        searchController?.hidesNavigationBarDuringPresentation = true
+//        searchController?.searchBar.directionalLayoutMargins = .init(top: 0, leading: 15, bottom: 0, trailing: 15)
         notesManager.manager.delegate = self
         updateFrcDelegate(update: .enable(withFetch: true))
         tableView.tableHeaderView = searchController?.searchBar
@@ -164,7 +165,6 @@ class NotesTableViewController: BaseUITableViewController {
         tableView.reloadData()
         definesPresentationContext = true
         refreshBarButton.isEnabled = NoteSessionManager.isOnline
-//        tableView.backgroundColor = .systemBackground
         if let splitVC = splitViewController as? PBHSplitViewController {
             splitVC.notesTableViewController = self
         }
@@ -174,6 +174,7 @@ class NotesTableViewController: BaseUITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
         addBarButton.isEnabled = true
         refreshBarButton.isEnabled = NoteSessionManager.isOnline
         startObservingSynchronizationState()
@@ -574,6 +575,21 @@ class NotesTableViewController: BaseUITableViewController {
         addNote(content: "")
     }
 
+    func searchNote(text: String) {
+        var predicate: NSPredicate?
+        if !text.isEmpty {
+            let matchingText = NSPredicate(format: "(cdTitle contains[c] %@) || (cdContent contains[cd] %@)", text, text)
+            predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [.allNotes, matchingText])
+        } else {
+            predicate = .allNotes
+        }
+        notesManager.manager.fetchedResultsController.fetchRequest.predicate = predicate
+        do {
+            try notesManager.manager.fetchedResultsController.performFetch()
+            tableView.reloadData()
+        } catch { }
+    }
+
     func addNote(content: String) {
         guard isViewLoaded else {
             noteToAddOnViewDidLoad = content
@@ -777,6 +793,7 @@ extension NSPredicate {
 
 struct NotesTableViewControllerRepresentable: UIViewControllerRepresentable {
     @Binding var addNote: Bool
+    @Binding var searchText: String
 
     class Coordinator: NSObject {
         var parent: NotesTableViewControllerRepresentable
@@ -784,6 +801,10 @@ struct NotesTableViewControllerRepresentable: UIViewControllerRepresentable {
 
         init(_ parent: NotesTableViewControllerRepresentable) {
             self.parent = parent
+        }
+
+        func searchNote(text: String) {
+            viewController?.searchNote(text: text)
         }
 
         func addNote() {
@@ -808,9 +829,20 @@ struct NotesTableViewControllerRepresentable: UIViewControllerRepresentable {
     }
 
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+        print("Search text is now: \(searchText)") // DEBUG
 
         if addNote {
             context.coordinator.addNote()
         }
+
+//        if !searchText.isEmpty {
+            context.coordinator.searchNote(text: searchText)
+//        }
+    }
+}
+
+extension NotesTableViewController: UISearchControllerDelegate {
+    func didPresentSearchController(_ searchController: UISearchController) {
+        print("YES")
     }
 }
