@@ -498,14 +498,56 @@ class NoteSessionManager {
         }
         let router = Router.getNote(id: Int(note.id), exclude: "", etag: note.etag)
         let validStatusCode = KeychainHelper.notesApiVersion == Router.defaultApiVersion ? 200..<300 : 200..<201
+        let attachmentHelper = AttachmentHelper()
+        
         session
             .request(router)
             .validate(statusCode: validStatusCode)
             .validate(contentType: [Router.applicationJson])
-            .responseDecodable(of: NoteStruct.self) { response in
+            .responseDecodable(of: NoteStruct.self, decoder: JSONDecoder()) { (response: AFDataResponse<NoteStruct>) in
                 switch response.result {
                 case let .success(note):
                     CDNote.update(notes: [note])
+                    self.logger.debug("Checking server API version \(KeychainHelper.notesApiVersion, privacy: .public) for compatibility for attachment download")
+                    guard
+                        KeychainHelper.notesApiVersionisAtLeast("1.4")
+                    else {
+                        self.logger.warning("Server with API version \(KeychainHelper.notesApiVersion, privacy: .public) does not support attachment download (API version >= 1.4), not parsing and downloading attachments")
+                        return
+                    }
+
+                    self.logger.debug("Searching for attachments")
+                    let paths: [String] = attachmentHelper.extractRelativeAttachmentPaths(from: note.content, removeUrlEncoding: true)
+                    self.logger.debug("Found the paths: \(paths, privacy: .public)")
+                    
+                    guard !paths.isEmpty else {
+                        self.logger.notice("Searching for attachments completed, no paths found in note")
+                        completion?()
+                        return
+                    }
+                    
+                    let group = DispatchGroup()
+                    for path in paths {
+                        group.enter()
+                        Task { [weak self] in
+                            guard let self else { return }
+                            do {
+                                let data = try await self.getAttachment(noteId: Int(note.id), path: path)
+                                self.logger.debug("Attachment for note ID \(note.id, privacy: .public) and path \(path, privacy: .public) downloaded successfully")
+                                try AttachmentStore.shared.store(data: data, noteId: Int(note.id), path: path)
+                                self.logger.notice("Attachment for note ID \(note.id, privacy: .public) and path \(path, privacy: .public) stored successfully")
+                            } catch {
+                                self.logger.error("Attachment download for note ID \(note.id, privacy: .public) and path \(path, privacy: .public) failed: \(error.localizedDescription, privacy: .public)")
+                            }
+                        }
+                        group.leave()
+                    }
+                    
+                    group.notify(queue: .main) {
+                        completion?()
+                    }
+                    return
+
                 case let .failure(error):
                     if let urlResponse = response.response {
                         switch urlResponse.statusCode {
@@ -527,7 +569,23 @@ class NoteSessionManager {
                     }
                 }
                 completion?()
-        }
+            }
+    }
+
+
+
+    func getAttachment(noteId: Int, path: String) async throws -> Data {
+        logger.notice("Getting attachment for noteId: \(noteId, privacy: .public), path: \(path, privacy: .public)")
+        let router = Router.getAttachment(noteId: noteId, path: path)
+
+        return try await session
+            .request(router)
+            .onURLRequestCreation { req in
+                self.logger.debug("URL: \(req.url?.absoluteString ?? "nil", privacy: .public)")
+              }
+            .validate(statusCode: 200..<300)
+            .serializingData()
+            .value
     }
 
     func update(note: NoteProtocol, completion: SyncCompletionBlock? = nil) {
@@ -589,6 +647,39 @@ class NoteSessionManager {
                     }
                 }
         }
+    }
+    
+    func createAttachment(noteId: Int,
+                          fileData: Data,
+                          filename: String,
+                          mimeType: String,
+                          completion: @escaping (Result<String, NoteError>) -> Void) {
+        struct AttachmentResponse: Decodable {
+            let filename: String
+        }
+        
+        let router = Router.createAttachment(noteId: noteId)
+        
+        session
+            .upload(multipartFormData: { form in
+                form.append(fileData,
+                            withName: "file",
+                            fileName: filename,
+                            mimeType: mimeType)
+            }, with: router)
+            .validate(statusCode: 200..<300)
+            .responseDecodable(of: AttachmentResponse.self) { response in
+                switch response.result {
+                case .success(let payload):
+                    completion(.success(payload.filename))
+                case .failure(let error):
+                    let message = ErrorMessage(
+                        title: NSLocalizedString("Error Creating Attachment", comment: ""),
+                        body: error.localizedDescription
+                    )
+                    completion(.failure(NoteError(message: message)))
+                }
+            }
     }
     
     func delete(note: NoteProtocol, completion: SyncCompletionBlock? = nil) {

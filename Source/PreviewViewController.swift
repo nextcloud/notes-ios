@@ -10,10 +10,11 @@ import UIKit
 
 class PreviewViewController: UIViewController {
 
+    var noteId: Int64?
     var content: String?
     var noteTitle: String?
     var noteDate: String?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         var previewContent = ""
@@ -23,11 +24,11 @@ class PreviewViewController: UIViewController {
         if let noteDate = noteDate {
             previewContent.append("*\(noteDate)*\n\n")
         }
-        if let content = content {
+        if let content = content, let noteId = noteId {
             do {
                 previewContent.append(content)
 
-                let previewWebView = try PreviewWebView(markdown: content) {
+                let previewWebView = try PreviewWebView(markdown: content, noteId: noteId) {
                     print("Markdown was rendered.")
                 }
 
