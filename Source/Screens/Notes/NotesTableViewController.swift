@@ -20,7 +20,7 @@ let detailSegueIdentifier = "showDetail"
 let categorySegueIdentifier = "SelectCategorySegue"
 let directeditingSe6436gueIdentifier = "directEditing"
 
-class NotesTableViewController: BaseUITableViewController {
+class NotesTableViewController: BaseUITableViewController, Logging {
     @IBOutlet var addBarButton: UIBarButtonItem!
     @IBOutlet weak var refreshBarButton: UIBarButtonItem!
 
@@ -39,6 +39,8 @@ class NotesTableViewController: BaseUITableViewController {
 
     private var contextMenuIndexPath: IndexPath?
     private var noteExporter: NoteExporter?
+
+    let logger = makeLogger()
 
     private var dateFormat: DateFormatter {
         let df = DateFormatter()
@@ -243,7 +245,9 @@ class NotesTableViewController: BaseUITableViewController {
                 do {
                     try notesManager.manager.fetchedResultsController.performFetch()
                     tableView.reloadData()
-                } catch { }
+                } catch {
+                    logger.error("Could not fetch notes")
+                }
             }
         }
     }
@@ -835,11 +839,5 @@ struct NotesTableViewControllerRepresentable: UIViewControllerRepresentable {
         }
 
         context.coordinator.searchNote(text: searchText)
-    }
-}
-
-extension NotesTableViewController: UISearchControllerDelegate {
-    func didPresentSearchController(_ searchController: UISearchController) {
-        print("YES")
     }
 }
