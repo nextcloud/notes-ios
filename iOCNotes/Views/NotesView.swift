@@ -9,10 +9,12 @@ import SwiftUI
 ///
 struct NotesView: View {
     @State private var addNote = false
+    @State private var searchText = ""
 
     var body: some View {
-        NotesTableViewControllerRepresentable(addNote: $addNote)
+        NotesTableViewControllerRepresentable(addNote: $addNote, searchText: $searchText)
             .ignoresSafeArea(.all)
+            .searchable(text: $searchText)
             .toolbar {
                 Button {
                     addNote = true
