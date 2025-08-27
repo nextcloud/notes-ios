@@ -161,7 +161,7 @@
 "Select or create a note." = "Select or create a note.";
 
 /* Alert title for selecting server brand */
-"Server" = "Server";
+"Server" = "Сервер";
 
 /* An error message title */
 "Server not found" = "Server not found";
