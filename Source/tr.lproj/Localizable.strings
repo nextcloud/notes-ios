@@ -135,7 +135,7 @@
 "Open in…" = "Şununla aç…";
 
 /* A menu option for sharing in plain text format */
-"Plain Text" = "Düz metin";
+"Plain Text" = "Düz yazı";
 
 /* A message
    A message to check network connection */
@@ -155,7 +155,7 @@
 "Rename…" = "Yeniden adlandır…";
 
 /* A menu option for sharing in rich text format */
-"Rich Text" = "Zengin metin";
+"Rich Text" = "Zengin yazı";
 
 /* Placeholder text when no note is selected */
 "Select or create a note." = "Bir not seçin ya da ekleyin.";
