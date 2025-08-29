@@ -149,10 +149,10 @@
 "Rename" = "Перайменаваць";
 
 /* Message of alert to change title */
-"Rename the note" = "Rename the note";
+"Rename the note" = "Перайменаваць нататку";
 
 /* Action to change title of a note */
-"Rename…" = "Rename…";
+"Rename…" = "Перайменаваць…";
 
 /* A menu option for sharing in rich text format */
 "Rich Text" = "Rich text";
