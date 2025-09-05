@@ -8,7 +8,7 @@
 "A server installation could not be found. Check the server address." = "A server installation could not be found. Check the server address.";
 
 /* Acknowledgements */
-"Acknowledgements" = "Acknowledgements";
+"Acknowledgements" = "Падзякі";
 
 /* Title of alert for adding a category */
 "Add Category" = "Add category";
@@ -18,7 +18,7 @@
 
 /* A menu action
    A menu option for cancelling */
-"Cancel" = "Cancel";
+"Cancel" = "Скасаваць";
 
 /* Header title, categories */
 "CATEGORIES" = "CATEGORIES";
@@ -60,7 +60,7 @@
 "Crash Detected" = "Crash detected";
 
 /* Action to delete a note */
-"Delete" = "Delete";
+"Delete" = "Выдаліць";
 
 /* A menu action */
 "Delete Note" = "Delete cote";
@@ -90,7 +90,7 @@
 "Failed to connect to a server. Check your settings." = "Failed to connect to a server. Check your settings.";
 
 /* Item to show favorite notes */
-"Favorites" = "Favorites";
+"Favorites" = "Абранае";
 
 /* A menu option for plain sharing in html format */
 "HTML" = "HTML";
@@ -105,7 +105,7 @@
 "Markdown" = "Markdown";
 
 /* The title of a new note */
-"New note" = "New note";
+"New note" = "Новая нататка";
 
 /* No comment provided by engineer. */
 "No thanks" = "No thanks";
@@ -146,13 +146,13 @@
 
 /* Action to change title of a note
    Caption of Rename button */
-"Rename" = "Rename";
+"Rename" = "Перайменаваць";
 
 /* Message of alert to change title */
-"Rename the note" = "Rename the note";
+"Rename the note" = "Перайменаваць нататку";
 
 /* Action to change title of a note */
-"Rename…" = "Rename…";
+"Rename…" = "Перайменаваць…";
 
 /* A menu option for sharing in rich text format */
 "Rich Text" = "Rich text";
@@ -161,7 +161,7 @@
 "Select or create a note." = "Select or create a note.";
 
 /* Alert title for selecting server brand */
-"Server" = "Server";
+"Server" = "Сервер";
 
 /* An error message title */
 "Server not found" = "Server not found";
@@ -192,7 +192,7 @@
 "Unauthorized" = "Unauthorized";
 
 /* Text displayed for notes not assigned to a category */
-"Uncategorized" = "Uncategorized";
+"Uncategorized" = "Без катэгорыі";
 
 /* Message with Notes version, product name and version */
 "Using Notes %@on %@ %@." = "Using Notes %@on %@ %@.";
@@ -213,16 +213,16 @@
 "Checking server status" = "Checking server status";
 
 /* No comment provided by engineer. */
-"Connection error" = "Connection error";
+"Connection error" = "Памылка злучэння";
 
 /* No comment provided by engineer. */
-"Do you want to connect to the server anyway?" = "Do you want to connect to the server anyway?";
+"Do you want to connect to the server anyway?" = "Вы ўсё роўна хочаце злучыцца з серверам?";
 
 /* An error message title */
-"Error" = "Error";
+"Error" = "Памылка";
 
 /* No comment provided by engineer. */
-"No" = "No";
+"No" = "Не";
 
 /* Title of alert to change notes folder */
 "Notes Folder" = "Notes folder";
@@ -231,7 +231,7 @@
 "PDF" = "PDF";
 
 /* Caption of Save button */
-"Save" = "Save";
+"Save" = "Захаваць";
 
 /* No comment provided by engineer. */
 "The certificate for this server is invalid" = "The certificate for this server is invalid";
@@ -240,16 +240,16 @@
 "View Certificate" = "View certificate";
 
 /* No comment provided by engineer. */
-"Yes" = "Yes";
+"Yes" = "Так";
 
 // NEXTCLOUD
 "Select the account to add"   = "Select the account to add";
 
-"Notes" = "Notes";
+"Notes" = "Нататкі";
 
-"Cancel" = "Cancel";
+"Cancel" = "Скасаваць";
 "Scan QR Code" = "Scan QR Code";
-"Close" = "Close";
+"Close" = "Закрыць";
 "Server Address" = "Server Address";
 "The address of your Nextcloud web interface when you open it in your browser." = "The address of your Nextcloud web interface when you open it in your browser.";
 "The entered server address is invalid." = "The entered server address is invalid.";
@@ -259,7 +259,7 @@
 // SettingsView
 "Account" = "Account";
 "Log Out" = "Log Out";
-"Synchronization" = "Synchronization";
+"Synchronization" = "Сінхранізацыя";
 "Synchronize on Start" = "Synchronize on Start";
 "Offline Mode" = "Offline Mode";
 "Server Settings" = "Server Settings";
@@ -274,4 +274,4 @@
 "Logout" = "Logout";
 "Are you sure you want to log out?" = "Are you sure you want to log out?";
 "Enter a name for the folder where notes should be saved on the server" = "Enter a name for the folder where notes should be saved on the server";
-"Settings" = "Settings";
+"Settings" = "Налады";

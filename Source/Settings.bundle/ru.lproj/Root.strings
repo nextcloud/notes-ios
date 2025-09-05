@@ -7,14 +7,14 @@
 */
 "About" = "О нас";
 
-"Acknowledgements" = "Подтверждения";
+"Acknowledgements" = "Благодарности";
 
-"Advanced Settings" = "Advanced settings";
+"Advanced Settings" = "Доп. настройки";
 
-"Caution: Turning the switch on will remove all notes locally. Unsynced changes will be lost. Use only if you are experiencing problems." = "Caution: Turning the switch on will remove all notes locally. Unsynced changes will be lost. Use only if you are experiencing problems.";
+"Caution: Turning the switch on will remove all notes locally. Unsynced changes will be lost. Use only if you are experiencing problems." = "Внимание: Включение переключателя удалит все заметки с устройства. Несохранённые изменения будут потеряны. Используйте только если вы столкнулись с проблемами.";
 
-"Reset local notes database" = "Reset local notes database";
+"Reset local notes database" = "Сбросить базу заметок на этом устройстве";
 
-"Third-party licenses" = "Third-party licenses";
+"Third-party licenses" = "Сторонние лицензии";
 
-"Version" = "Version";
+"Version" = "Версия";

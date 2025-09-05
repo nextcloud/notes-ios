@@ -2,92 +2,92 @@
 "<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Please provide as much details as possible about what you were doing when the crash occurred.>";
 
 /* Support email body placeholder */
-"<Please state your question or problem here>" = "Please state your question or problem here";
+"<Please state your question or problem here>" = "Будь ласка, сформулюйте ваше запитання або проблему тут";
 
 /* An error message */
-"A server installation could not be found. Check the server address." = "A server installation could not be found. Check the server address.";
+"A server installation could not be found. Check the server address." = "Не вдалося знайти інсталяцію сервера. Перевірте адресу сервера.";
 
 /* Acknowledgements */
 "Acknowledgements" = "Acknowledgements";
 
 /* Title of alert for adding a category */
-"Add Category" = "Add category";
+"Add Category" = "Додати категорію";
 
 /* Item to show all notes */
-"All" = "All";
+"All" = "Усе.";
 
 /* A menu action
    A menu option for cancelling */
 "Cancel" = "Скасувати";
 
 /* Header title, categories */
-"CATEGORIES" = "CATEGORIES";
+"CATEGORIES" = "КАТЕГОРІЇ";
 
 /* 'Category' menu item */
-"Category" = "Category";
+"Category" = "Категорія";
 
 /* Action to change category of a note */
-"Category…" = "Category…";
+"Category…" = "Категорія...";
 
 /* Action to change category of a note */
-"Change Category…" = "Change category…";
+"Change Category…" = "Змінити категорію...";
 
 /* An error message */
-"Check username and password." = "Check username and password.";
+"Check username and password." = "Перевірте ім'я користувача та пароль.";
 
 /* Title of a button allowing the user to close the login screen and sync with the server */
-"Close & Sync" = "Close & Sync";
+"Close & Sync" = "Закрити та синхронізувати";
 
 /* Crash report email subject */
-"NextcloudNotes Crash Report" = "NextcloudNotes Crash Report";
+"NextcloudNotes Crash Report" = "NextcloudNotes Звіт про аварію";
 
 /* No comment provided by engineer. */
-"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?";
+"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "Під час останнього запуску NextcloudNotes стався збій під час роботи. Ви хочете надіслати звіт розробнику?";
 
 /* Support email subject */
-"NextcloudNotes Support Request" = "NextcloudNotes Support Request";
+"NextcloudNotes Support Request" = "NextcloudNotes Запит на підтримку";
 
 /* A button title */
-"Connect" = "Connect";
+"Connect" = "Підключіться";
 
 /* Status information, connected */
-"Connected to Notes on the server" = "Connected to Notes on the server";
+"Connected to Notes on the server" = "Підключено до Нотаток на сервері";
 
 /* An error message title */
-"Connection failure" = "Connection failure";
+"Connection failure" = "Помилка з'єднання";
 
 /* Alert view title */
-"Crash Detected" = "Crash detected";
+"Crash Detected" = "Виявлено збій";
 
 /* Action to delete a note */
 "Delete" = "Вилучити";
 
 /* A menu action */
-"Delete Note" = "Delete cote";
+"Delete Note" = "Видалити цитату";
 
 /* Prompt on alert for adding a category */
-"Enter a name for the new category" = "Enter a name for the new category";
+"Enter a name for the new category" = "Введіть назву для нової категорії";
 
 /* The title of an error message */
-"Error Adding Note" = "Error adding note";
+"Error Adding Note" = "Помилка додавання примітки";
 
 /* The title of an error message */
-"Error Deleting Note" = "Error deleting note";
+"Error Deleting Note" = "Помилка видалення нотатки";
 
 /* The title of an error message */
-"Error Getting Note" = "Error getting note";
+"Error Getting Note" = "Помилка отримання повідомлення";
 
 /* The title of an error message */
-"Error Syncing Notes" = "Error syncing notes";
+"Error Syncing Notes" = "Примітки щодо помилок синхронізації";
 
 /* The title of an error message */
-"Error Updating Note" = "Error updating note";
+"Error Updating Note" = "Примітка про помилку оновлення";
 
 /* The title of an error message */
-"Error Updating Notes" = "Error updating notes";
+"Error Updating Notes" = "Примітки про помилки при оновленні";
 
 /* An error message */
-"Failed to connect to a server. Check your settings." = "Failed to connect to a server. Check your settings.";
+"Failed to connect to a server. Check your settings." = "Не вдалося підключитися до сервера. Перевірте свої налаштування.";
 
 /* Item to show favorite notes */
 "Favorites" = "Із зірочкою";
@@ -96,10 +96,10 @@
 "HTML" = "HTML";
 
 /* A status label indicating that the user is logged in */
-"Logged In" = "Logged in";
+"Logged In" = "Увійшли в систему";
 
 /* Header title, main */
-"MAIN" = "MAIN";
+"MAIN" = "ГОЛОВНЕ";
 
 /* A menu option for sharing in markdown format */
 "Markdown" = "З розміткою";
@@ -108,85 +108,85 @@
 "New note" = "Нова нотатка";
 
 /* No comment provided by engineer. */
-"No thanks" = "No thanks";
+"No thanks" = "Ні, дякую.";
 
 /* Status information, not connected */
-"Not connected to Notes on a server" = "Not connected to Notes on a server";
+"Not connected to Notes on a server" = "Не підключено до Нотаток на сервері";
 
 /* A status label indicating that the user is not logged in */
-"Not Logged In" = "Not logged in";
+"Not Logged In" = "Ви не ввійшли в систему";
 
 /* Message about not being logged in */
-"Not logged in" = "Not logged in";
+"Not logged in" = "Ви не ввійшли в систему";
 
 /* Title of alert to change title */
-"Note Title" = "Note title";
+"Note Title" = "Назва примітки";
 
 /* An error message */
-"Notes could not be found on your server. Make sure it is installed and enabled" = "Notes could not be found on your server. Make sure it is installed and enabled";
+"Notes could not be found on your server. Make sure it is installed and enabled" = "Нотатки не вдалося знайти на вашому сервері. Переконайтеся, що його встановлено та ввімкнено";
 
 /* An error message title */
-"Notes not found" = "Notes not found";
+"Notes not found" = "Примітки не знайдено";
 
 /* Button, OK */
 "OK" = "Гаразд";
 
 /* Title for Open In activity */
-"Open in…" = "Open in…";
+"Open in…" = "Відкриваємо в...";
 
 /* A menu option for sharing in plain text format */
-"Plain Text" = "Plain text";
+"Plain Text" = "Звичайний текст";
 
 /* A message
    A message to check network connection */
-"Please check network connection and login." = "Please check network connection and login.";
+"Please check network connection and login." = "Будь ласка, перевірте підключення до мережі та увійдіть в систему.";
 
 /* A button title */
-"Reconnect" = "Reconnect";
+"Reconnect" = "Підключіться знову";
 
 /* Action to change title of a note
    Caption of Rename button */
 "Rename" = "Перейменувати";
 
 /* Message of alert to change title */
-"Rename the note" = "Rename the note";
+"Rename the note" = "Перейменуйте нотатку";
 
 /* Action to change title of a note */
-"Rename…" = "Rename…";
+"Rename…" = "Перейменувати...";
 
 /* A menu option for sharing in rich text format */
-"Rich Text" = "Rich text";
+"Rich Text" = "Розширений текст";
 
 /* Placeholder text when no note is selected */
-"Select or create a note." = "Select or create a note.";
+"Select or create a note." = "Виберіть або створіть нотатку.";
 
 /* Alert title for selecting server brand */
-"Server" = "Server";
+"Server" = "Сервер";
 
 /* An error message title */
-"Server not found" = "Server not found";
+"Server not found" = "Сервер не знайдено";
 
 /* A message title */
-"Server Reachable" = "Server reachable";
+"Server Reachable" = "Сервер доступний";
 
 /* Title of a menu with sharing options */
-"Share Note As" = "Share note as";
+"Share Note As" = "Поділіться заміткою як";
 
 /* A message title */
-"Success" = "Success";
+"Success" = "Успіх";
 
 /* A message */
-"The network connection is working properly." = "The network connection is working properly.";
+"The network connection is working properly." = "Мережеве з'єднання працює належним чином.";
 
 /* An error message */
-"The note does not exist" = "The note does not exist";
+"The note does not exist" = "Нотатка не існує";
 
 /* Alert message for selecting server brand */
-"Unable to automatically detect type of server.\nPlease select:" = "Unable to automatically detect type of server.\nPlease select:";
+"Unable to automatically detect type of server.\nPlease select:" = "Не вдалося автоматично визначити тип сервера.\nБудь ласка, виберіть:";
 
 /* A message title
    The title of an error message */
-"Unable to Reach Server" = "Unable to reach server";
+"Unable to Reach Server" = "Не вдалося зв'язатися з сервером";
 
 /* An error message title */
 "Unauthorized" = "Неавторизований";
@@ -195,22 +195,22 @@
 "Uncategorized" = "Некатегоризоване";
 
 /* Message with Notes version, product name and version */
-"Using Notes %@on %@ %@." = "Using Notes %@on %@ %@.";
+"Using Notes %@on %@ %@." = "Використання Нотаток %@ на %@ %@.";
 
 /* No comment provided by engineer. */
-"Yes, please!" = "Yes, please!";
+"Yes, please!" = "Так, будь ласка!";
 
 /* A message */
-"You are now connected to Notes on your server" = "You are now connected to Notes on your server";
+"You are now connected to Notes on your server" = "Тепер ви підключені до Нотаток на вашому сервері";
 
 /* HUD subtitle when checking server capabilities */
-"Checking server capabilities" = "Checking server capabilities";
+"Checking server capabilities" = "Перевірка можливостей сервера";
 
 /* HUD subtitle when checking server settings */
-"Checking server settings" = "Checking server settings";
+"Checking server settings" = "Перевірка налаштувань сервера";
 
 /* HUD subtitle when checking server status */
-"Checking server status" = "Checking server status";
+"Checking server status" = "Перевірка стану сервера";
 
 /* No comment provided by engineer. */
 "Connection error" = "Connection error";
@@ -225,7 +225,7 @@
 "No" = "Ні";
 
 /* Title of alert to change notes folder */
-"Notes Folder" = "Notes folder";
+"Notes Folder" = "Папка Нотатки";
 
 /* A menu option for sharing in pdf format */
 "PDF" = "PDF";
@@ -234,10 +234,10 @@
 "Save" = "Save";
 
 /* No comment provided by engineer. */
-"The certificate for this server is invalid" = "The certificate for this server is invalid";
+"The certificate for this server is invalid" = "Сертифікат для цього сервера недійсний";
 
 /* No comment provided by engineer. */
-"View Certificate" = "View certificate";
+"View Certificate" = "Переглянути сертифікат";
 
 /* No comment provided by engineer. */
 "Yes" = "Так";
@@ -248,30 +248,30 @@
 "Notes" = "Примітки";
 
 "Cancel" = "Скасувати";
-"Scan QR Code" = "Scan QR Code";
-"Close" = "Close";
-"Server Address" = "Server Address";
-"The address of your Nextcloud web interface when you open it in your browser." = "The address of your Nextcloud web interface when you open it in your browser.";
-"The entered server address is invalid." = "The entered server address is invalid.";
-"Accounts from our other apps were found on this device. Would you like to add one of these?" = "Accounts from our other apps were found on this device. Would you like to add one of these?";
-"Shared Accounts" = "Shared Accounts";
+"Scan QR Code" = "Відскануйте QR-код";
+"Close" = "Закрити";
+"Server Address" = "Адреса сервера";
+"The address of your Nextcloud web interface when you open it in your browser." = "Адреса вашого веб-інтерфейсу Nextcloud, коли ви відкриваєте його в браузері.";
+"The entered server address is invalid." = "Введена адреса сервера є невірною.";
+"Accounts from our other apps were found on this device. Would you like to add one of these?" = "На цьому пристрої виявлено облікові записи з інших наших програм. Бажаєте додати один з них?";
+"Shared Accounts" = "Спільні облікові записи";
 
 // SettingsView
-"Account" = "Account";
-"Log Out" = "Log Out";
+"Account" = "Обліковий запис";
+"Log Out" = "Вийти з системи";
 "Synchronization" = "Синхронізація";
-"Synchronize on Start" = "Synchronize on Start";
-"Offline Mode" = "Offline Mode";
-"Server Settings" = "Server Settings";
-"Notes Path" = "Notes Path";
-"Internal Editor" = "Internal Editor";
-"File Extension" = "File Extension";
-"About This App" = "About This App";
-"Client Version" = "Client Version";
-"Server Version" = "Server Version";
+"Synchronize on Start" = "Синхронізувати під час запуску";
+"Offline Mode" = "Офлайн-режим";
+"Server Settings" = "Налаштування сервера";
+"Notes Path" = "Шлях до нотаток";
+"Internal Editor" = "Внутрішній редактор";
+"File Extension" = "Розширення файлу";
+"About This App" = "Про цей додаток";
+"Client Version" = "Клієнтська версія";
+"Server Version" = "Версія сервера";
 "Privacy and Legal Policy" = "Конфіденційність та правові політики";
-"Show Source Code on GitHub" = "Show Source Code on GitHub";
-"Logout" = "Logout";
-"Are you sure you want to log out?" = "Are you sure you want to log out?";
-"Enter a name for the folder where notes should be saved on the server" = "Enter a name for the folder where notes should be saved on the server";
+"Show Source Code on GitHub" = "Показати вихідний код на GitHub";
+"Logout" = "Вийти з системи";
+"Are you sure you want to log out?" = "Ви впевнені, що хочете вийти з системи?";
+"Enter a name for the folder where notes should be saved on the server" = "Введіть ім'я папки, в якій будуть зберігатися нотатки на сервері";
 "Settings" = "Налаштування";

@@ -20,17 +20,15 @@ let detailSegueIdentifier = "showDetail"
 let categorySegueIdentifier = "SelectCategorySegue"
 let directeditingSe6436gueIdentifier = "directEditing"
 
-class NotesTableViewController: BaseUITableViewController {
+class NotesTableViewController: BaseUITableViewController, Logging {
     @IBOutlet var addBarButton: UIBarButtonItem!
     @IBOutlet weak var refreshBarButton: UIBarButtonItem!
 
     var notes: [CDNote]?
-    var searchController: UISearchController?
     var editorViewController: EditorViewController?
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
     private var networkHasBeenUnreachable = false
-    private var searchResult: [CDNote]?
     private var launching = true
 
     private let notesManager = NotesManager()
@@ -41,6 +39,8 @@ class NotesTableViewController: BaseUITableViewController {
 
     private var contextMenuIndexPath: IndexPath?
     private var noteExporter: NoteExporter?
+
+    let logger = makeLogger()
 
     private var dateFormat: DateFormatter {
         let df = DateFormatter()
@@ -145,14 +145,9 @@ class NotesTableViewController: BaseUITableViewController {
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.toolbar.isTranslucent = true
         navigationController?.toolbar.clipsToBounds = true
-        searchController = UISearchController(searchResultsController: nil)
-        searchController?.searchResultsUpdater = self
-        searchController?.obscuresBackgroundDuringPresentation = false
-        searchController?.hidesNavigationBarDuringPresentation = true
-        searchController?.searchBar.directionalLayoutMargins = .init(top: 0, leading: 15, bottom: 0, trailing: 15)
+        
         notesManager.manager.delegate = self
         updateFrcDelegate(update: .enable(withFetch: true))
-        tableView.tableHeaderView = searchController?.searchBar
 
         tableView.backgroundView = UIView()
         tableView.dropDelegate = self
@@ -164,7 +159,6 @@ class NotesTableViewController: BaseUITableViewController {
         tableView.reloadData()
         definesPresentationContext = true
         refreshBarButton.isEnabled = NoteSessionManager.isOnline
-//        tableView.backgroundColor = .systemBackground
         if let splitVC = splitViewController as? PBHSplitViewController {
             splitVC.notesTableViewController = self
         }
@@ -174,6 +168,7 @@ class NotesTableViewController: BaseUITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
         addBarButton.isEnabled = true
         refreshBarButton.isEnabled = NoteSessionManager.isOnline
         startObservingSynchronizationState()
@@ -250,7 +245,9 @@ class NotesTableViewController: BaseUITableViewController {
                 do {
                     try notesManager.manager.fetchedResultsController.performFetch()
                     tableView.reloadData()
-                } catch { }
+                } catch {
+                    logger.error("Could not fetch notes")
+                }
             }
         }
     }
@@ -479,18 +476,12 @@ class NotesTableViewController: BaseUITableViewController {
                 isAddingFromButton = false
                 editorController.navigationItem.leftItemsSupplementBackButton = true
                 editorController.navigationItem.title = note.title
-                if splitViewController?.displayMode == .allVisible || splitViewController?.displayMode == .primaryOverlay {
+                if splitViewController?.displayMode == .oneBesideSecondary || splitViewController?.displayMode == .oneOverSecondary {
                     UIView.animate(withDuration: 0.3, animations: {
-                        self.splitViewController?.preferredDisplayMode = .primaryHidden
+                        self.splitViewController?.preferredDisplayMode = .secondaryOnly
                     }, completion: nil)
                 }
             }
-//        case settingsSegueIdentifier:
-//            if let navigationController = segue.destination as? UINavigationController,
-//               let controller = navigationController.topViewController as? SettingsTableViewController {
-//                controller.presentationController?.delegate = self
-//                navigationController.presentationController?.delegate = self
-//            }
         default:
             break
         }
@@ -589,6 +580,21 @@ class NotesTableViewController: BaseUITableViewController {
     @IBAction func onAdd(sender: Any?) {
         isAddingFromButton = true
         addNote(content: "")
+    }
+
+    func searchNote(text: String) {
+        var predicate: NSPredicate?
+        if !text.isEmpty {
+            let matchingText = NSPredicate(format: "(cdTitle contains[c] %@) || (cdContent contains[cd] %@)", text, text)
+            predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [.allNotes, matchingText])
+        } else {
+            predicate = .allNotes
+        }
+        notesManager.manager.fetchedResultsController.fetchRequest.predicate = predicate
+        do {
+            try notesManager.manager.fetchedResultsController.performFetch()
+            tableView.reloadData()
+        } catch { }
     }
 
     func addNote(content: String) {
@@ -792,6 +798,7 @@ extension NSPredicate {
 
 struct NotesTableViewControllerRepresentable: UIViewControllerRepresentable {
     @Binding var addNote: Bool
+    @Binding var searchText: String
 
     class Coordinator: NSObject {
         var parent: NotesTableViewControllerRepresentable
@@ -799,6 +806,10 @@ struct NotesTableViewControllerRepresentable: UIViewControllerRepresentable {
 
         init(_ parent: NotesTableViewControllerRepresentable) {
             self.parent = parent
+        }
+
+        func searchNote(text: String) {
+            viewController?.searchNote(text: text)
         }
 
         func addNote() {
@@ -823,9 +834,10 @@ struct NotesTableViewControllerRepresentable: UIViewControllerRepresentable {
     }
 
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
-
         if addNote {
             context.coordinator.addNote()
         }
+
+        context.coordinator.searchNote(text: searchText)
     }
 }

@@ -5,16 +5,16 @@
   Created by Peter Hedlund on 6/22/14.
   Copyright (c) 2014 Peter Hedlund. All rights reserved.
 */
-"About" = "About";
+"About" = "Acerca de";
 
 "Acknowledgements" = "Agradecimientos";
 
-"Advanced Settings" = "Advanced settings";
+"Advanced Settings" = "Ajustes avanzados";
 
-"Caution: Turning the switch on will remove all notes locally. Unsynced changes will be lost. Use only if you are experiencing problems." = "Caution: Turning the switch on will remove all notes locally. Unsynced changes will be lost. Use only if you are experiencing problems.";
+"Caution: Turning the switch on will remove all notes locally. Unsynced changes will be lost. Use only if you are experiencing problems." = "Peligro: Encender este switch eliminará todas las notas localmente. Los cambios que no estén sincronizados se perderán. Utilícelo solo si está experimentando problemas.";
 
-"Reset local notes database" = "Reset local notes database";
+"Reset local notes database" = "Restablecer base de datos local de notas";
 
-"Third-party licenses" = "Third-party licenses";
+"Third-party licenses" = "Licencias de terceros";
 
-"Version" = "Version";
+"Version" = "Versión";
