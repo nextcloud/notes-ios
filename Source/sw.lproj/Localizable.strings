@@ -164,7 +164,7 @@
 "Server" = "Seva";
 
 /* An error message title */
-"Server not found" = "Server not found";
+"Server not found" = "Seva haipatikani";
 
 /* A message title */
 "Server Reachable" = "Server reachable";
