@@ -64,11 +64,38 @@ public class MarkdownTextStorage: NSTextStorage {
     
     override public func processEditing() {
         let backingString = backingStore.string
-        if let nsRange = backingString.range(from: NSMakeRange(NSMaxRange(editedRange), 0)) {
-            let indexRange = backingString.lineRange(for: nsRange)
-            let extendedRange: NSRange = NSUnionRange(editedRange, backingString.nsRange(from: indexRange))
-            applyMarkdownFormatting(extendedRange)
+        let stringLength = backingString.count
+        
+        // Ensure we have a valid string and edited range
+        guard stringLength > 0 && editedRange.location != NSNotFound else {
+            super.processEditing()
+            return
         }
+        
+        // Clamp edited range to valid bounds
+        let clampedEditedRange = NSRange(
+            location: max(0, min(editedRange.location, stringLength)),
+            length: max(0, min(editedRange.length, stringLength - editedRange.location))
+        )
+        
+        // Find the range of lines that contain the edited range
+        // Start from the beginning of the line containing the edited range
+        let lineStartLocation = max(0, clampedEditedRange.location)
+        let lineEndLocation = min(stringLength, NSMaxRange(clampedEditedRange))
+        
+        // Convert to String.Index to find line boundaries
+        guard let startIndex = backingString.index(backingString.startIndex, offsetBy: lineStartLocation, limitedBy: backingString.endIndex),
+              let endIndex = backingString.index(backingString.startIndex, offsetBy: lineEndLocation, limitedBy: backingString.endIndex) else {
+            super.processEditing()
+            return
+        }
+        
+        // Get the line range that encompasses the edited text
+        let lineRange = backingString.lineRange(for: startIndex..<endIndex)
+        let extendedRange = backingString.nsRange(from: lineRange)
+        
+        // Apply formatting to the extended range
+        applyMarkdownFormatting(extendedRange)
         super.processEditing()
     }
     
