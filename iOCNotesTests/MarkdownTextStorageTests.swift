@@ -7,7 +7,6 @@
 //
 
 import XCTest
-@testable import iOCNotes
 
 class MarkdownTextStorageTests: XCTestCase {
     

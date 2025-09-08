@@ -39,6 +39,17 @@
                ReferencedContainer = "container:iOCNotes.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F300373F2E6ED2DC00A49C0D"
+               BuildableName = "IOCNotesUnitTests.xctest"
+               BlueprintName = "IOCNotesUnitTests"
+               ReferencedContainer = "container:iOCNotes.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
