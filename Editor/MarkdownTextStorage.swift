@@ -326,13 +326,14 @@ public class MarkdownTextStorage: NSTextStorage {
                     let font = UIFont.preferredFont(forTextStyle: .body)
                     backingStore.addAttribute(.font, value: font, range: match.range)
                     
-                    // Add special attribute for list items (for potential future use)
-                    if match.numberOfRanges >= 4 {
-                        let contentRange = match.range(at: 3)
+                    // Add special attribute for list items - apply to the bullet character itself
+                    // so the LayoutManager can replace it with the appropriate glyph
+                    if match.numberOfRanges >= 3 {
+                        let bulletRange = match.range(at: 2)
                         if pattern.contains("[-*+]") {
-                            backingStore.addAttribute(.listItemUnordered, value: true, range: contentRange)
+                            backingStore.addAttribute(.listItemUnordered, value: true, range: bulletRange)
                         } else {
-                            backingStore.addAttribute(.listItemOrdered, value: true, range: contentRange)
+                            backingStore.addAttribute(.listItemOrdered, value: true, range: bulletRange)
                         }
                     }
                 }
