@@ -8,10 +8,5 @@
 
 import Testing
 
-struct IOCNotesUnitTests {
-
-    @Test func example() async throws {
-        // Write your test here and use APIs like `#expect(...)` to check expected conditions.
-    }
-
-}
+// This file serves as the main entry point for the IOCNotesUnitTests target.
+// Individual test suites are defined in separate files within this target.
