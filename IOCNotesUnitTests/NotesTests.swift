@@ -7,10 +7,11 @@
 //
 
 import Testing
+import Dispatch
 @testable import iOCNotes
 
 @Suite("Notes Management Tests")
-struct NotesTests {
+class NotesTests {
     var originalServer: String = ""
     var originalUser: String = ""
     var originalPassword: String = ""
@@ -42,7 +43,7 @@ struct NotesTests {
         let content = "Note added during test"
         
         return await withCheckedContinuation { continuation in
-            NotesManager.shared.add(content: content, category: "") { note in
+            NoteSessionManager.shared.add(content: content, category: "") { note in
                 #expect(note != nil, "Expected note to not be nil")
                 #expect(note?.addNeeded == false, "Expected addNeeded to be false")
                 continuation.resume()
@@ -56,7 +57,7 @@ struct NotesTests {
         let category = "Test Category"
         
         return await withCheckedContinuation { continuation in
-            NotesManager.shared.add(content: content, category: category) { note in
+            NoteSessionManager.shared.add(content: content, category: category) { note in
                 #expect(note != nil, "Expected note to not be nil")
                 #expect(note?.addNeeded == false, "Expected addNeeded to be false")
                 #expect(note?.category == "Test Category", "Expected the category to be Test Category")
@@ -70,11 +71,11 @@ struct NotesTests {
         let content = "Note added and deleted during test"
         
         return await withCheckedContinuation { continuation in
-            NotesManager.shared.add(content: content, category: "") { note in
+            NoteSessionManager.shared.add(content: content, category: "") { note in
                 #expect(note != nil, "Expected note to not be nil")
                 #expect(note?.addNeeded == false, "Expected addNeeded to be false")
                 if let note = note {
-                    NotesManager.shared.delete(note: note) {
+                    NoteSessionManager.shared.delete(note: note) {
                         continuation.resume()
                     }
                 } else {
@@ -90,12 +91,12 @@ struct NotesTests {
         let category = "Test Category"
         
         return await withCheckedContinuation { continuation in
-            NotesManager.shared.add(content: content, category: category) { note in
+            NoteSessionManager.shared.add(content: content, category: category) { note in
                 #expect(note != nil, "Expected note to not be nil")
                 #expect(note?.addNeeded == false, "Expected addNeeded to be false")
                 #expect(note?.category == "Test Category", "Expected the category to be Test Category")
                 if let note = note {
-                    NotesManager.shared.delete(note: note) {
+                    NoteSessionManager.shared.delete(note: note) {
                         continuation.resume()
                     }
                 } else {
@@ -111,11 +112,11 @@ struct NotesTests {
         
         return await withCheckedContinuation { continuation in
             KeychainHelper.offlineMode = true
-            NotesManager.shared.add(content: content, category: "") { note in
+            NoteSessionManager.shared.add(content: content, category: "") { note in
                 #expect(note != nil, "Expected note to not be nil")
                 #expect(note?.addNeeded == true, "Expected addNeeded to be true")
                 KeychainHelper.offlineMode = false
-                NotesManager.shared.sync() {
+                NoteSessionManager.shared.sync() {
                     if CDNote.all()?.filter( { $0.addNeeded == true }).count ?? 0 > 0 {
                         Issue.record("Expected addNeeded count to be 0")
                     }
@@ -140,7 +141,7 @@ struct NotesTests {
             
             for content in contents {
                 group.enter()
-                NotesManager.shared.add(content: content, category: "") { note in
+                NoteSessionManager.shared.add(content: content, category: "") { note in
                     #expect(note != nil, "Expected note to not be nil")
                     completedCount += 1
                     group.leave()
@@ -173,7 +174,7 @@ struct NotesTests {
             
             for (content, category) in testData {
                 group.enter()
-                NotesManager.shared.add(content: content, category: category) { note in
+                NoteSessionManager.shared.add(content: content, category: category) { note in
                     #expect(note != nil, "Expected note to not be nil")
                     completedCount += 1
                     group.leave()
@@ -207,7 +208,7 @@ struct NotesTests {
             // Add all notes first
             for content in contents {
                 group.enter()
-                NotesManager.shared.add(content: content, category: "") { note in
+                NoteSessionManager.shared.add(content: content, category: "") { note in
                     #expect(note != nil, "Expected note to not be nil")
                     notes.append(note)
                     group.leave()
@@ -226,7 +227,7 @@ struct NotesTests {
                     if let note2 = note2 {
                         moveGroup.enter()
                         note2.category = "Add and Move Category"
-                        NotesManager.shared.update(note: note2) {
+                        NoteSessionManager.shared.update(note: note2) {
                             updateCount += 1
                             moveGroup.leave()
                         }
@@ -235,7 +236,7 @@ struct NotesTests {
                     if let note4 = note4 {
                         moveGroup.enter()
                         note4.category = "Add and Move Category"
-                        NotesManager.shared.update(note: note4) {
+                        NoteSessionManager.shared.update(note: note4) {
                             updateCount += 1
                             moveGroup.leave()
                         }
@@ -271,7 +272,7 @@ struct NotesTests {
             // Add all notes with category first
             for content in contents {
                 group.enter()
-                NotesManager.shared.add(content: content, category: category) { note in
+                NoteSessionManager.shared.add(content: content, category: category) { note in
                     #expect(note != nil, "Expected note to not be nil")
                     notes.append(note)
                     group.leave()
@@ -290,7 +291,7 @@ struct NotesTests {
                     if let note2 = note2 {
                         moveGroup.enter()
                         note2.category = ""
-                        NotesManager.shared.update(note: note2) {
+                        NoteSessionManager.shared.update(note: note2) {
                             updateCount += 1
                             moveGroup.leave()
                         }
@@ -299,7 +300,7 @@ struct NotesTests {
                     if let note4 = note4 {
                         moveGroup.enter()
                         note4.category = ""
-                        NotesManager.shared.update(note: note4) {
+                        NoteSessionManager.shared.update(note: note4) {
                             updateCount += 1
                             moveGroup.leave()
                         }
