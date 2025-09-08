@@ -14,6 +14,7 @@
 		AA83B8AA2DEF080700F35F3E /* SwiftNextcloudUI in Frameworks */ = {isa = PBXBuildFile; productRef = AA83B8A92DEF080700F35F3E /* SwiftNextcloudUI */; };
 		AAA900B42DE6F37400D3EF0F /* SwiftNextcloudUI in Frameworks */ = {isa = PBXBuildFile; productRef = AAA900B32DE6F37400D3EF0F /* SwiftNextcloudUI */; };
 		AABC95572DFC717F0023790D /* UIApplication+topViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABC95562DFC717A0023790D /* UIApplication+topViewController.swift */; };
+		AAC79FE82E279184006D6845 /* MarkdownTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC79FE72E279184006D6845 /* MarkdownTextStorage.swift */; };
 		BD653F88231C43FA00D59A88 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD653F87231C43FA00D59A88 /* Constants.swift */; };
 		BD86DD8522B9CDD500115E5D /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD86DD8422B9CDD500115E5D /* KeychainHelper.swift */; };
 		BD92271B22CD3743004E2408 /* UtilityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD92271A22CD3743004E2408 /* UtilityExtensions.swift */; };
@@ -86,6 +87,16 @@
 		F7F0812B299D0B53006A2041 /* NCViewerNextcloudText.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F08129299D0B53006A2041 /* NCViewerNextcloudText.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		F30037442E6ED2DC00A49C0D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D0CFE52B1888A7BD00165839 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D0CFE5321888A7BD00165839;
+			remoteInfo = iOCNotes;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		D094DACC24661889007E562B /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -107,6 +118,7 @@
 		AA592A6E2DBBBA3B003A3057 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		AABC95562DFC717A0023790D /* UIApplication+topViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+topViewController.swift"; sourceTree = "<group>"; };
 		AABD0BF82D5E08B500F009E6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		AAC79FE72E279184006D6845 /* MarkdownTextStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownTextStorage.swift; sourceTree = "<group>"; };
 		BD653F87231C43FA00D59A88 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BD86DD8422B9CDD500115E5D /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
 		BD92271622C92EBB004E2408 /* PKHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PKHUD.framework; path = Carthage/Build/iOS/PKHUD.framework; sourceTree = "<group>"; };
@@ -116,17 +128,14 @@
 		BDC5FF8A23EB996200E0EB17 /* Notepad.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Notepad.framework; path = Carthage/Build/Mac/Notepad.framework; sourceTree = "<group>"; };
 		BDD015A0234CEF86000BA001 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		BDD015A22353F7D4000BA001 /* PBHSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBHSplitViewController.swift; sourceTree = "<group>"; };
-		BDDD77A8235CDF130053DAEC /* NotesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTests.swift; sourceTree = "<group>"; };
 		D004DB652391EBA70080A7D1 /* SwiftMessages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftMessages.framework; path = Carthage/Build/macCatalyst/SwiftMessages.framework; sourceTree = "<group>"; };
 		D004DB7623920E820080A7D1 /* Preview.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Preview.bundle; sourceTree = "<group>"; };
 		D004DB7E23948F3D0080A7D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D00CDFBB194E64F9007505E9 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		D00CDFBC194E64F9007505E9 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D00CDFC0194E65B4007505E9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D00CDFC2194E65D4007505E9 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D00CDFC5194E6835007505E9 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D00CDFC6194E6835007505E9 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		D00CDFC7194E6835007505E9 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D01067DD220BCE3C0047E090 /* NoteSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteSessionManager.swift; sourceTree = "<group>"; };
 		D01067E12213BB5E0047E090 /* NoteProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteProtocol.swift; sourceTree = "<group>"; };
 		D01067E32213BDF20047E090 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -141,7 +150,6 @@
 		D03493B822F3CC5700E1A9B0 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		D03E93DC2734BEF30066BC8F /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main_iPhone.strings; sourceTree = "<group>"; };
 		D03E93DE2734BEF30066BC8F /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Categories.strings; sourceTree = "<group>"; };
-		D03E93E12734BF060066BC8F /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D05110B920C8C9FE00AFFDC7 /* KSCrash.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KSCrash.framework; path = Carthage/Build/iOS/KSCrash.framework; sourceTree = "<group>"; };
 		D0545F22230901D30001D165 /* PBHOpenInActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBHOpenInActivity.swift; sourceTree = "<group>"; };
 		D059745A18CE9E5A00867B02 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
@@ -152,7 +160,6 @@
 		D076F73A26BCBEBB0093F22A /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Main_iPhone.strings; sourceTree = "<group>"; };
 		D076F73C26BCBEBB0093F22A /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Categories.strings; sourceTree = "<group>"; };
 		D076F73E26BCBEC00093F22A /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		D076F74226BCBEC00093F22A /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D078A1C3239C8A2000E1A004 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework; sourceTree = DEVELOPER_DIR; };
 		D07F5E8A2207B61500528E90 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		D07F5E8D2207B6FF00528E90 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
@@ -183,8 +190,6 @@
 		D0CFE53A1888A7BD00165839 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D0CFE5401888A7BD00165839 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D0CFE5581888A7BD00165839 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		D0CFE5601888A7BD00165839 /* iOCNotesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iOCNotesTests-Info.plist"; sourceTree = "<group>"; };
-		D0CFE5621888A7BD00165839 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D0CFE5AC1890659600165839 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D0E60F142772D809009CF78F /* SettingsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProtocol.swift; sourceTree = "<group>"; };
 		D0E60F1E2777A5DA009CF78F /* libcmark-gfm.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libcmark-gfm.tbd"; path = "usr/lib/libcmark-gfm.tbd"; sourceTree = SDKROOT; };
@@ -200,6 +205,7 @@
 		D0E60F52277FADD5009CF78F /* CheckBoxTapHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoxTapHandler.swift; sourceTree = "<group>"; };
 		D0E60F55277FADD5009CF78F /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D0E60F75277FB0A5009CF78F /* Themes.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Themes.bundle; sourceTree = "<group>"; };
+		F30037402E6ED2DC00A49C0D /* IOCNotesUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IOCNotesUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F32A39442C99A40D008EE8DC /* iOCNotes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOCNotes.entitlements; sourceTree = "<group>"; };
 		F32A39452C99A40D008EE8DC /* iOCNotes.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = iOCNotes.plist; sourceTree = "<group>"; };
 		F389ABFE2C9C40210056C059 /* Custom.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Custom.xcassets; sourceTree = "<group>"; };
@@ -220,6 +226,7 @@
 		AA4C16BF2D8332C1006AFE8C /* iOCNotes */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = iOCNotes; sourceTree = "<group>"; };
 		AA592A6F2DBBBB04003A3057 /* .github */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = .github; sourceTree = "<group>"; };
 		AA62DF642D5DFC48009E8894 /* .tx */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = .tx; sourceTree = "<group>"; };
+		F30037412E6ED2DC00A49C0D /* IOCNotesUnitTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = IOCNotesUnitTests; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +251,13 @@
 				D0CAFF092533E7FB00C47FA0 /* SwiftMessages in Frameworks */,
 				D078A1C4239C8A2000E1A004 /* CoreServices.framework in Frameworks */,
 				AA182D002DDCD6520058C246 /* CodeScanner in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F300373D2E6ED2DC00A49C0D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,7 +316,7 @@
 				D07F5E8C2207B6D700528E90 /* Networking */,
 				D0E60F35277FADA0009CF78F /* Editor */,
 				F3E3C8DA2C6B7D3B00A80504 /* Extensions */,
-				D0CFE55E1888A7BD00165839 /* iOCNotesTests */,
+				F30037412E6ED2DC00A49C0D /* IOCNotesUnitTests */,
 				D0CFE5351888A7BD00165839 /* Frameworks */,
 				D0CFE5341888A7BD00165839 /* Products */,
 			);
@@ -312,6 +326,7 @@
 			isa = PBXGroup;
 			children = (
 				D0CFE5331888A7BD00165839 /* Nextcloud Notes.app */,
+				F30037402E6ED2DC00A49C0D /* IOCNotesUnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -383,27 +398,10 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		D0CFE55E1888A7BD00165839 /* iOCNotesTests */ = {
-			isa = PBXGroup;
-			children = (
-				BDDD77A8235CDF130053DAEC /* NotesTests.swift */,
-				D0CFE55F1888A7BD00165839 /* Supporting Files */,
-			);
-			path = iOCNotesTests;
-			sourceTree = "<group>";
-		};
-		D0CFE55F1888A7BD00165839 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				D0CFE5601888A7BD00165839 /* iOCNotesTests-Info.plist */,
-				D0CFE5611888A7BD00165839 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		D0E60F35277FADA0009CF78F /* Editor */ = {
 			isa = PBXGroup;
 			children = (
+				AAC79FE72E279184006D6845 /* MarkdownTextStorage.swift */,
 				D0E60F3C277FADD5009CF78F /* AttributedStringKey.swift */,
 				D0E60F52277FADD5009CF78F /* CheckBoxTapHandler.swift */,
 				D0E60F3F277FADD5009CF78F /* Element.swift */,
@@ -550,6 +548,29 @@
 			productReference = D0CFE5331888A7BD00165839 /* Nextcloud Notes.app */;
 			productType = "com.apple.product-type.application";
 		};
+		F300373F2E6ED2DC00A49C0D /* IOCNotesUnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F30037462E6ED2DC00A49C0D /* Build configuration list for PBXNativeTarget "IOCNotesUnitTests" */;
+			buildPhases = (
+				F300373C2E6ED2DC00A49C0D /* Sources */,
+				F300373D2E6ED2DC00A49C0D /* Frameworks */,
+				F300373E2E6ED2DC00A49C0D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F30037452E6ED2DC00A49C0D /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				F30037412E6ED2DC00A49C0D /* IOCNotesUnitTests */,
+			);
+			name = IOCNotesUnitTests;
+			packageProductDependencies = (
+			);
+			productName = IOCNotesUnitTests;
+			productReference = F30037402E6ED2DC00A49C0D /* IOCNotesUnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -558,12 +579,16 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				CLASSPREFIX = "";
-				LastSwiftUpdateCheck = 1630;
+				LastSwiftUpdateCheck = 2600;
 				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Nextcloud GmbH";
 				TargetAttributes = {
 					D0CFE5321888A7BD00165839 = {
 						LastSwiftMigration = 0810;
+					};
+					F300373F2E6ED2DC00A49C0D = {
+						CreatedOnToolsVersion = 26.0;
+						TestTargetID = D0CFE5321888A7BD00165839;
 					};
 				};
 			};
@@ -598,6 +623,7 @@
 			projectRoot = "";
 			targets = (
 				D0CFE5321888A7BD00165839 /* iOCNotes */,
+				F300373F2E6ED2DC00A49C0D /* IOCNotesUnitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -620,6 +646,13 @@
 				D0E60F76277FB0A5009CF78F /* Themes.bundle in Resources */,
 				D0BCFE6A2454BF40007C4CA3 /* Categories.storyboard in Resources */,
 				D0CFE5411888A7BD00165839 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F300373E2E6ED2DC00A49C0D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -664,6 +697,7 @@
 				D095AE45245BB25F00A7EF62 /* NoteSessionManager.swift in Sources */,
 				D0E60F5E277FADD5009CF78F /* Theme.swift in Sources */,
 				D07F5E8E2207B6FF00528E90 /* Router.swift in Sources */,
+				AAC79FE82E279184006D6845 /* MarkdownTextStorage.swift in Sources */,
 				D09E6451248B3A7C003FB4C9 /* OCSProtocol.swift in Sources */,
 				D0E60F5C277FADD5009CF78F /* AttributedStringKey.swift in Sources */,
 				BD653F88231C43FA00D59A88 /* Constants.swift in Sources */,
@@ -703,7 +737,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F300373C2E6ED2DC00A49C0D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F30037452E6ED2DC00A49C0D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D0CFE5321888A7BD00165839 /* iOCNotes */;
+			targetProxy = F30037442E6ED2DC00A49C0D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D00CDFC1194E65B4007505E9 /* Localizable.strings */ = {
@@ -752,18 +801,6 @@
 				D00CDFC6194E6835007505E9 /* de */,
 				D076F73E26BCBEC00093F22A /* cs */,
 				D0B0F3A12734C11F00E51C3F /* ko */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		D0CFE5611888A7BD00165839 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D0CFE5621888A7BD00165839 /* en */,
-				D00CDFBC194E64F9007505E9 /* fr */,
-				D00CDFC7194E6835007505E9 /* de */,
-				D076F74226BCBEC00093F22A /* cs */,
-				D03E93E12734BF060066BC8F /* ko */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -953,6 +990,82 @@
 			};
 			name = Release;
 		};
+		F30037472E6ED2DC00A49C0D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = NKUJUXUJ3B;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = mpivchev.IOCNotesUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Nextcloud Notes.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Nextcloud Notes";
+			};
+			name = Debug;
+		};
+		F30037482E6ED2DC00A49C0D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = NKUJUXUJ3B;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = mpivchev.IOCNotesUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Nextcloud Notes.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Nextcloud Notes";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -970,6 +1083,15 @@
 			buildConfigurations = (
 				D0CFE5691888A7BD00165839 /* Debug */,
 				D0CFE56A1888A7BD00165839 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F30037462E6ED2DC00A49C0D /* Build configuration list for PBXNativeTarget "IOCNotesUnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F30037472E6ED2DC00A49C0D /* Debug */,
+				F30037482E6ED2DC00A49C0D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

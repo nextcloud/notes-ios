@@ -17,7 +17,7 @@ class HeaderTextView: UITextView {
     private var didSetupConstraints = false
     private var headerLabelConstraintConstant: CGFloat = 20.0
     
-    private var noteTextStorage = Storage()
+    private var noteTextStorage = MarkdownTextStorage()
     private var checkBoxTapHandler = CheckBoxTapHandler()
 
     private var textContentInset = UIEdgeInsets(top: 30, left: 0, bottom: 0, right: 0);
@@ -50,8 +50,6 @@ class HeaderTextView: UITextView {
         let layoutManager = LayoutManager()
         layoutManager.delegate = layoutManager
         layoutManager.addTextContainer(container)
-        let theme = Theme("cloudnotes")
-        noteTextStorage.theme = theme
         noteTextStorage.addLayoutManager(layoutManager)
 
         super.init(frame: frame, textContainer: container)
@@ -62,8 +60,8 @@ class HeaderTextView: UITextView {
         self.textContainerInset = containerInset
         self.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(headerLabel)
-        self.backgroundColor = theme.backgroundColor
-        self.tintColor = theme.tintColor
+        self.backgroundColor = UIColor.systemBackground
+        self.tintColor = UIColor.systemBlue
         self.setNeedsUpdateConstraints()
         self.traitCollectionDidChange(nil)
     }
@@ -92,12 +90,9 @@ class HeaderTextView: UITextView {
         layoutManager.addTextContainer(container)
         noteTextStorage.addLayoutManager(layoutManager)
         layoutManager.addTextContainer(container)
-        let theme = Theme("system-minimal")
-        noteTextStorage.theme = theme
-        noteTextStorage.addLayoutManager(layoutManager)
 
-        self.backgroundColor = theme.backgroundColor
-        self.tintColor = theme.tintColor
+        self.backgroundColor = UIColor.systemBackground
+        self.tintColor = UIColor.systemBlue
         self.setNeedsUpdateConstraints()
         self.traitCollectionDidChange(nil)
     }
