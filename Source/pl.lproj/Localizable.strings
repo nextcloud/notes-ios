@@ -164,7 +164,7 @@
 "Server" = "Server";
 
 /* An error message title */
-"Server not found" = "Server not found";
+"Server not found" = "Nie odnaleziono serwera";
 
 /* A message title */
 "Server Reachable" = "Server reachable";
