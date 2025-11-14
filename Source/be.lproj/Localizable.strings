@@ -135,7 +135,7 @@
 "Open in…" = "Open in…";
 
 /* A menu option for sharing in plain text format */
-"Plain Text" = "Plain text";
+"Plain Text" = "Звычайны тэкст";
 
 /* A message
    A message to check network connection */
@@ -155,7 +155,7 @@
 "Rename…" = "Перайменаваць…";
 
 /* A menu option for sharing in rich text format */
-"Rich Text" = "Rich text";
+"Rich Text" = "Фарматаваны тэкст";
 
 /* Placeholder text when no note is selected */
 "Select or create a note." = "Select or create a note.";
