@@ -5,7 +5,7 @@
 "<Please state your question or problem here>" = "Bitte schildern Sie hier Ihre Frage oder Ihr Problem";
 
 /* An error message */
-"A server installation could not be found. Check the server address." = "Eine Serverinstallation konnte nicht gefunden werden. Überprüfen Sie die Serveradresse.";
+"A server installation could not be found. Check the server address." = "Keine Serverinstallation gefunden. Bitte die Serveradresse überprüfen.";
 
 /* Acknowledgements */
 "Acknowledgements" = "Danksagungen";
@@ -251,9 +251,9 @@
 "Scan QR Code" = "QR-Code scannen";
 "Close" = "Schließen";
 "Server Address" = "Serveradresse";
-"The address of your Nextcloud web interface when you open it in your browser." = "Die Adresse Ihrer Nextcloud-Weboberfläche, wenn Sie sie in Ihrem Browser öffnen.";
+"The address of your Nextcloud web interface when you open it in your browser." = "Die Adresse Ihrer Nextcloud-Weboberfläche, wenn Sie diese in Ihrem Browser öffnen.";
 "The entered server address is invalid." = "Die eingegebene Serveradresse ist ungültig.";
-"Accounts from our other apps were found on this device. Would you like to add one of these?" = "Es wurden Konten aus anderen Apps auf diesem Gerät gefunden. Soll eines davon hinzugefügt werden?";
+"Accounts from our other apps were found on this device. Would you like to add one of these?" = "Es wurden Konten aus anderen Apps auf diesem Gerät gefunden. Möchten Sie eines davon hinzufügen?";
 "Shared Accounts" = "Geteilte Konten";
 
 // SettingsView
