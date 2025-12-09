@@ -108,7 +108,7 @@
 "New note" = "Neue Notiz";
 
 /* No comment provided by engineer. */
-"No thanks" = "Nein Danke";
+"No thanks" = "Nein, danke";
 
 /* Status information, not connected */
 "Not connected to Notes on a server" = "Nicht mit Notes auf einem Server verbunden";
@@ -132,7 +132,7 @@
 "OK" = "Ok";
 
 /* Title for Open In activity */
-"Open in…" = "Öffnen mit…";
+"Open in…" = "Öffnen in…";
 
 /* A menu option for sharing in plain text format */
 "Plain Text" = "Klartext";
