@@ -7,14 +7,14 @@
 */
 "About" = "ھەققىدە";
 
-"Acknowledgements" = "Acknowledgements";
+"Acknowledgements" = "ئېتراپ قىلىش";
 
-"Advanced Settings" = "Advanced settings";
+"Advanced Settings" = "ئىلغار تەڭشەكلەر";
 
-"Caution: Turning the switch on will remove all notes locally. Unsynced changes will be lost. Use only if you are experiencing problems." = "Caution: Turning the switch on will remove all notes locally. Unsynced changes will be lost. Use only if you are experiencing problems.";
+"Caution: Turning the switch on will remove all notes locally. Unsynced changes will be lost. Use only if you are experiencing problems." = "دىققەت: كۇنۇپكىنى قوزغىتىپ قويسىڭىز، يەرلىكتىكى بارلىق خاتىرىلەر ئۆچۈرۈلىدۇ. ماسلاشمىغان ئۆزگەرتىشلەر يوقاپ كېتىدۇ. پەقەت مەسىلىگە يولۇققان بولسىڭىزلا ئىشلىتىڭ.";
 
-"Reset local notes database" = "Reset local notes database";
+"Reset local notes database" = "يەرلىك خاتىرە ساندانىنى ئەسلىگە قايتۇر";
 
-"Third-party licenses" = "Third-party licenses";
+"Third-party licenses" = "ئۈچىنجى تەرەپ ئىجازەتنامىسى";
 
-"Version" = "Version";
+"Version" = "نەشرى";
