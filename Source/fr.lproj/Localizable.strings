@@ -63,7 +63,7 @@
 "Delete" = "Supprimé";
 
 /* A menu action */
-"Delete Note" = "Supprimer la cote";
+"Delete Note" = "Supprimer la note";
 
 /* Prompt on alert for adding a category */
 "Enter a name for the new category" = "Saisir un nom pour la nouvelle catégorie";
