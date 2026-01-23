@@ -135,7 +135,7 @@
 "Open in…" = "Open in…";
 
 /* A menu option for sharing in plain text format */
-"Plain Text" = "Plain text";
+"Plain Text" = "Teks polos";
 
 /* A message
    A message to check network connection */
@@ -146,7 +146,7 @@
 
 /* Action to change title of a note
    Caption of Rename button */
-"Rename" = "Rename";
+"Rename" = "Ganti nama";
 
 /* Message of alert to change title */
 "Rename the note" = "Rename the note";
@@ -155,7 +155,7 @@
 "Rename…" = "Rename…";
 
 /* A menu option for sharing in rich text format */
-"Rich Text" = "Rich text";
+"Rich Text" = "Teks kaya";
 
 /* Placeholder text when no note is selected */
 "Select or create a note." = "Select or create a note.";
@@ -192,7 +192,7 @@
 "Unauthorized" = "Unauthorized";
 
 /* Text displayed for notes not assigned to a category */
-"Uncategorized" = "Uncategorized";
+"Uncategorized" = "Tanpa kategori";
 
 /* Message with Notes version, product name and version */
 "Using Notes %@on %@ %@." = "Using Notes %@on %@ %@.";
@@ -225,7 +225,7 @@
 "No" = "Tidak";
 
 /* Title of alert to change notes folder */
-"Notes Folder" = "Notes folder";
+"Notes Folder" = "Folder catatan";
 
 /* A menu option for sharing in pdf format */
 "PDF" = "PDF";
