@@ -218,9 +218,6 @@
 /* No comment provided by engineer. */
 "Do you want to connect to the server anyway?" = "¿Aún así quiere conectarse al servidor?";
 
-/* Message of alert to change notes folder */
-"Enter a name for the folder where notes should be saved on the server" = "Ingrese un nombre para la carpeta donde las notas deben ser almacenadas en el servidor";
-
 /* An error message title */
 "Error" = "Error";
 
@@ -250,14 +247,31 @@
 
 "Notes" = "Notes";
 
-"Client Version" = "Client Version";
-"Server Version" = "Server Version";
-"Are you sure you want to log out?" = "Are you sure you want to log out?";
 "Cancel" = "Cancel";
-"Scan QR Code" = "Scan QR Code";
-"Close" = "Close";
-"Server Address" = "Server Address";
-"The address of your Nextcloud web interface when you open it in your browser." = "The address of your Nextcloud web interface when you open it in your browser.";
-"The entered server address is invalid." = "The entered server address is invalid.";
-"Accounts from our other apps were found on this device. Would you like to add one of these?" = "Accounts from our other apps were found on this device. Would you like to add one of these?";
-"Shared Accounts" = "Shared Accounts";
+"Scan QR Code" = "Escanear código QR";
+"Close" = "Cerrar";
+"Server Address" = "Dirección del servidor";
+"The address of your Nextcloud web interface when you open it in your browser." = "La dirección de la interfaz web de su Nextcloud cuando lo abre en su navegador.";
+"The entered server address is invalid." = "La dirección del servidor ingresada no es válida.";
+"Accounts from our other apps were found on this device. Would you like to add one of these?" = "Cuentas de otras de nuestras aplicaciones se encontraron en este dispositivo. ¿Desea agregar alguna de ellas?";
+"Shared Accounts" = "Cuentas compartidas";
+
+// SettingsView
+"Account" = "Cuentas";
+"Log Out" = "Cerrar sesión";
+"Synchronization" = "Sincronización";
+"Synchronize on Start" = "Sincronizar al Iniciar";
+"Offline Mode" = "Modo sin conexión";
+"Server Settings" = "Ajustes del Servidor";
+"Notes Path" = "Ruta de las Notas";
+"Internal Editor" = "Editor Interno";
+"File Extension" = "Extensión de Archivo";
+"About This App" = "Acerca de esta App";
+"Client Version" = "Versión del Cliente";
+"Server Version" = "Versión del Servidor";
+"Privacy and Legal Policy" = "Política de Privacidad e Información Legal";
+"Show Source Code on GitHub" = "Mostrar código fuente en GitHub";
+"Logout" = "Cerrar sesión";
+"Are you sure you want to log out?" = "¿Está seguro que quiere cerrar la sesión?";
+"Enter a name for the folder where notes should be saved on the server" = "Ingrese un nombre para la carpeta donde las notas deben ser almacenadas en el servidor";
+"Settings" = "Ajustes";

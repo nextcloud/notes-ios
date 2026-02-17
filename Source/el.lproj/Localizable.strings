@@ -1,105 +1,105 @@
 /* Crash report email body placeholder */
-"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Please provide as much details as possible about what you were doing when the crash occurred.>";
+"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Παρακαλούμε δώστε όσο το δυνατόν περισσότερες λεπτομέρειες σχετικά με το τι κάνατε όταν συνέβη η συντριβή.>";
 
 /* Support email body placeholder */
-"<Please state your question or problem here>" = "Please state your question or problem here";
+"<Please state your question or problem here>" = "Παρακαλούμε δηλώστε την ερώτησή σας ή το πρόβλημά σας εδώ";
 
 /* An error message */
-"A server installation could not be found. Check the server address." = "A server installation could not be found. Check the server address.";
+"A server installation could not be found. Check the server address." = "Δεν βρέθηκε εγκατάσταση διακομιστή. Ελέγξτε τη διεύθυνση του διακομιστή.";
 
 /* Acknowledgements */
 "Acknowledgements" = "Ευχαριστίες";
 
 /* Title of alert for adding a category */
-"Add Category" = "Add category";
+"Add Category" = "Προσθήκη κατηγορίας";
 
 /* Item to show all notes */
 "All" = "'Ολα";
 
 /* A menu action
    A menu option for cancelling */
-"Cancel" = "Cancel";
+"Cancel" = "Ακύρωση";
 
 /* Header title, categories */
-"CATEGORIES" = "CATEGORIES";
+"CATEGORIES" = "ΚΑΤΗΓΟΡΙΕΣ";
 
 /* 'Category' menu item */
-"Category" = "Category";
+"Category" = "Κατηγορία";
 
 /* Action to change category of a note */
-"Category…" = "Category…";
+"Category…" = "Κατηγορία…";
 
 /* Action to change category of a note */
-"Change Category…" = "Change category…";
+"Change Category…" = "Αλλαγή κατηγορίας…";
 
 /* An error message */
-"Check username and password." = "Check username and password.";
+"Check username and password." = "Ελέγξτε το όνομα χρήστη και τον κωδικό πρόσβασης.";
 
 /* Title of a button allowing the user to close the login screen and sync with the server */
-"Close & Sync" = "Close & Sync";
+"Close & Sync" = "Κλείσιμο & Συγχρονισμός";
 
 /* Crash report email subject */
-"NextcloudNotes Crash Report" = "NextcloudNotes Crash Report";
+"NextcloudNotes Crash Report" = "Αναφορά Σφάλματος NextcloudNotes";
 
 /* No comment provided by engineer. */
-"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?";
+"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "Το NextcloudNotes κατέρρευσε την τελευταία φορά που εκκινήθηκε. Θέλετε να στείλετε μια αναφορά στον προγραμματιστή;";
 
 /* Support email subject */
-"NextcloudNotes Support Request" = "NextcloudNotes Support Request";
+"NextcloudNotes Support Request" = "Αίτημα Υποστήριξης NextcloudNotes";
 
 /* A button title */
-"Connect" = "Connect";
+"Connect" = "Σύνδεση";
 
 /* Status information, connected */
-"Connected to Notes on the server" = "Connected to Notes on the server";
+"Connected to Notes on the server" = "Συνδεδεμένο με τις Σημειώσεις στον διακομιστή";
 
 /* An error message title */
-"Connection failure" = "Connection failure";
+"Connection failure" = "Αποτυχία σύνδεσης";
 
 /* Alert view title */
-"Crash Detected" = "Crash detected";
+"Crash Detected" = "Ανιχνεύθηκε σφάλμα";
 
 /* Action to delete a note */
-"Delete" = "Delete";
+"Delete" = "Διαγραφή";
 
 /* A menu action */
-"Delete Note" = "Delete cote";
+"Delete Note" = "Διαγραφή σημείωσης";
 
 /* Prompt on alert for adding a category */
-"Enter a name for the new category" = "Enter a name for the new category";
+"Enter a name for the new category" = "Εισάγετε ένα όνομα για τη νέα κατηγορία";
 
 /* The title of an error message */
-"Error Adding Note" = "Error adding note";
+"Error Adding Note" = "Σφάλμα προσθήκης σημείωσης";
 
 /* The title of an error message */
-"Error Deleting Note" = "Error deleting note";
+"Error Deleting Note" = "Σφάλμα διαγραφής σημείωσης";
 
 /* The title of an error message */
-"Error Getting Note" = "Error getting note";
+"Error Getting Note" = "Σφάλμα λήψης σημείωσης";
 
 /* The title of an error message */
-"Error Syncing Notes" = "Error syncing notes";
+"Error Syncing Notes" = "Σφάλμα συγχρονισμού σημειώσεων";
 
 /* The title of an error message */
-"Error Updating Note" = "Error updating note";
+"Error Updating Note" = "Σφάλμα ενημέρωσης σημείωσης";
 
 /* The title of an error message */
-"Error Updating Notes" = "Error updating notes";
+"Error Updating Notes" = "Σφάλμα ενημέρωσης σημειώσεων";
 
 /* An error message */
-"Failed to connect to a server. Check your settings." = "Failed to connect to a server. Check your settings.";
+"Failed to connect to a server. Check your settings." = "Αποτυχία σύνδεσης με διακομιστή. Ελέγξτε τις ρυθμίσεις σας.";
 
 /* Item to show favorite notes */
-"Favorites" = "Favorites";
+"Favorites" = "Αγαπημένα";
 
 /* A menu option for plain sharing in html format */
 "HTML" = "HTML";
 
 /* A status label indicating that the user is logged in */
-"Logged In" = "Logged in";
+"Logged In" = "Συνδεδεμένος";
 
 /* Header title, main */
-"MAIN" = "MAIN";
+"MAIN" = "ΚΥΡΙΑ";
 
 /* A menu option for sharing in markdown format */
 "Markdown" = "Markdown";
@@ -108,25 +108,25 @@
 "New note" = "Νέα σημείωση";
 
 /* No comment provided by engineer. */
-"No thanks" = "No thanks";
+"No thanks" = "Όχι ευχαριστώ";
 
 /* Status information, not connected */
-"Not connected to Notes on a server" = "Not connected to Notes on a server";
+"Not connected to Notes on a server" = "Μη συνδεδεμένο με Σημειώσεις σε διακομιστή";
 
 /* A status label indicating that the user is not logged in */
-"Not Logged In" = "Not logged in";
+"Not Logged In" = "Μη Συνδεδεμένος";
 
 /* Message about not being logged in */
-"Not logged in" = "Not logged in";
+"Not logged in" = "Δεν είστε συνδεδεμένος";
 
 /* Title of alert to change title */
-"Note Title" = "Note title";
+"Note Title" = "Τίτλος σημείωσης";
 
 /* An error message */
-"Notes could not be found on your server. Make sure it is installed and enabled" = "Notes could not be found on your server. Make sure it is installed and enabled";
+"Notes could not be found on your server. Make sure it is installed and enabled" = "Δεν βρέθηκαν σημειώσεις στον διακομιστή σας. Βεβαιωθείτε ότι είναι εγκατεστημένες και ενεργοποιημένες";
 
 /* An error message title */
-"Notes not found" = "Notes not found";
+"Notes not found" = "Δεν βρέθηκαν σημειώσεις";
 
 /* Button, OK */
 "OK" = "OK";
@@ -135,129 +135,143 @@
 "Open in…" = "Άνοιγμα σε...";
 
 /* A menu option for sharing in plain text format */
-"Plain Text" = "Plain text";
+"Plain Text" = "Απλό κείμενο";
 
 /* A message
    A message to check network connection */
-"Please check network connection and login." = "Please check network connection and login.";
+"Please check network connection and login." = "Παρακαλώ ελέγξτε τη σύνδεση δικτύου και το login.";
 
 /* A button title */
-"Reconnect" = "Reconnect";
+"Reconnect" = "Επανασύνδεση";
 
 /* Action to change title of a note
    Caption of Rename button */
-"Rename" = "Rename";
+"Rename" = "Μετονομασία";
 
 /* Message of alert to change title */
-"Rename the note" = "Rename the note";
+"Rename the note" = "Μετονομάστε τη σημείωση";
 
 /* Action to change title of a note */
-"Rename…" = "Rename…";
+"Rename…" = "Μετονομασία…";
 
 /* A menu option for sharing in rich text format */
-"Rich Text" = "Rich text";
+"Rich Text" = "Μορφοποιημένο κείμενο";
 
 /* Placeholder text when no note is selected */
-"Select or create a note." = "Select or create a note.";
+"Select or create a note." = "Επιλέξτε ή δημιουργήστε μια σημείωση.";
 
 /* Alert title for selecting server brand */
-"Server" = "Server";
+"Server" = "Διακομιστής";
 
 /* An error message title */
 "Server not found" = "Δεν βρέθηκε διακομιστής";
 
 /* A message title */
-"Server Reachable" = "Server reachable";
+"Server Reachable" = "Ο διακομιστής είναι προσβάσιμος";
 
 /* Title of a menu with sharing options */
-"Share Note As" = "Share note as";
+"Share Note As" = "Κοινοποίηση σημείωσης ως";
 
 /* A message title */
-"Success" = "Επιτυχία.";
+"Success" = "Επιτυχία";
 
 /* A message */
-"The network connection is working properly." = "The network connection is working properly.";
+"The network connection is working properly." = "Η σύνδεση δικτύου λειτουργεί σωστά.";
 
 /* An error message */
-"The note does not exist" = "The note does not exist";
+"The note does not exist" = "Η σημείωση δεν υπάρχει";
 
 /* Alert message for selecting server brand */
-"Unable to automatically detect type of server.\nPlease select:" = "Unable to automatically detect type of server.\nPlease select:";
+"Unable to automatically detect type of server.\nPlease select:" = "Δεν είναι δυνατή η αυτόματη ανίχνευση τύπου διακομιστή.\nΠαρακαλώ επιλέξτε:";
 
 /* A message title
    The title of an error message */
-"Unable to Reach Server" = "Unable to reach server";
+"Unable to Reach Server" = "Αδυναμία πρόσβασης στον διακομιστή";
 
 /* An error message title */
-"Unauthorized" = "Unauthorized";
+"Unauthorized" = "Μη εξουσιοδοτημένος";
 
 /* Text displayed for notes not assigned to a category */
 "Uncategorized" = "Χωρίς κατηγορία";
 
 /* Message with Notes version, product name and version */
-"Using Notes %@on %@ %@." = "Using Notes %@on %@ %@.";
+"Using Notes %@on %@ %@." = "Χρήση Notes %@στο %@ %@.";
 
 /* No comment provided by engineer. */
-"Yes, please!" = "Yes, please!";
+"Yes, please!" = "Ναι, παρακαλώ!";
 
 /* A message */
-"You are now connected to Notes on your server" = "You are now connected to Notes on your server";
+"You are now connected to Notes on your server" = "Είστε πλέον συνδεδεμένοι με τις Σημειώσεις στον διακομιστή σας";
 
 /* HUD subtitle when checking server capabilities */
-"Checking server capabilities" = "Checking server capabilities";
+"Checking server capabilities" = "Έλεγχος δυνατοτήτων διακομιστή";
 
 /* HUD subtitle when checking server settings */
-"Checking server settings" = "Checking server settings";
+"Checking server settings" = "Έλεγχος ρυθμίσεων διακομιστή";
 
 /* HUD subtitle when checking server status */
-"Checking server status" = "Checking server status";
+"Checking server status" = "Έλεγχος κατάστασης διακομιστή";
 
 /* No comment provided by engineer. */
-"Connection error" = "Connection error";
+"Connection error" = "Σφάλμα σύνδεσης";
 
 /* No comment provided by engineer. */
 "Do you want to connect to the server anyway?" = "Θέλετε να συνδεθείτε στον διακομιστή;";
 
-/* Message of alert to change notes folder */
-"Enter a name for the folder where notes should be saved on the server" = "Enter a name for the folder where notes should be saved on the server";
-
 /* An error message title */
-"Error" = "Error";
+"Error" = "Σφάλμα";
 
 /* No comment provided by engineer. */
-"No" = "No";
+"No" = "Όχι";
 
 /* Title of alert to change notes folder */
-"Notes Folder" = "Notes folder";
+"Notes Folder" = "Φάκελος Σημειώσεων";
 
 /* A menu option for sharing in pdf format */
 "PDF" = "PDF";
 
 /* Caption of Save button */
-"Save" = "Save";
+"Save" = "Αποθήκευση";
 
 /* No comment provided by engineer. */
 "The certificate for this server is invalid" = "Το πιστοποιητικό για αυτόν τον διακομιστή δεν είναι έγκυρο";
 
 /* No comment provided by engineer. */
-"View Certificate" = "View certificate";
+"View Certificate" = "Προβολή πιστοποιητικού";
 
 /* No comment provided by engineer. */
-"Yes" = "Yes";
+"Yes" = "Ναι";
 
 // NEXTCLOUD
 "Select the account to add"   = "Επιλέξτε τον λογαριασμό που θέλετε να προσθέσετε";
 
 "Notes" = "Σημειώσεις";
 
-"Client Version" = "Client Version";
-"Server Version" = "Server Version";
-"Are you sure you want to log out?" = "Are you sure you want to log out?";
-"Cancel" = "Cancel";
-"Scan QR Code" = "Scan QR Code";
-"Close" = "Close";
-"Server Address" = "Server Address";
-"The address of your Nextcloud web interface when you open it in your browser." = "The address of your Nextcloud web interface when you open it in your browser.";
-"The entered server address is invalid." = "The entered server address is invalid.";
-"Accounts from our other apps were found on this device. Would you like to add one of these?" = "Accounts from our other apps were found on this device. Would you like to add one of these?";
-"Shared Accounts" = "Shared Accounts";
+"Cancel" = "Ακύρωση";
+"Scan QR Code" = "Σάρωση QR Κωδικού";
+"Close" = "Κλείσιμο";
+"Server Address" = "Διεύθυνση Διακομιστή";
+"The address of your Nextcloud web interface when you open it in your browser." = "Η διεύθυνση της διεπαφής web του Nextcloud σας όταν την ανοίγετε στο πρόγραμμα περιήγησής σας.";
+"The entered server address is invalid." = "Η εισαχθείσα διεύθυνση διακομιστή είναι άκυρη.";
+"Accounts from our other apps were found on this device. Would you like to add one of these?" = "Βρέθηκαν λογαριασμοί από τις άλλες εφαρμογές μας σε αυτήν τη συσκευή. Θέλετε να προσθέσετε έναν από αυτούς;";
+"Shared Accounts" = "Κοινόχρηστοι Λογαριασμοί";
+
+// SettingsView
+"Account" = "Λογαριασμός";
+"Log Out" = "Αποσύνδεση";
+"Synchronization" = "Συγχρονισμός";
+"Synchronize on Start" = "Συγχρονισμός κατά την εκκίνηση";
+"Offline Mode" = "Λειτουργία εκτός σύνδεσης";
+"Server Settings" = "Ρυθμίσεις Διακομιστή";
+"Notes Path" = "Διαδρομή Σημειώσεων";
+"Internal Editor" = "Εσωτερικός Επεξεργαστής";
+"File Extension" = "Επέκταση Αρχείου";
+"About This App" = "Σχετικά με αυτήν την Εφαρμογή";
+"Client Version" = "Έκδοση Πελάτη";
+"Server Version" = "Έκδοση Διακομιστή";
+"Privacy and Legal Policy" = "Απόρρητο και όροι και προϋποθέσεις";
+"Show Source Code on GitHub" = "Εμφάνιση Πηγαίου Κώδικα στο GitHub";
+"Logout" = "Αποσύνδεση";
+"Are you sure you want to log out?" = "Είστε βέβαιοι ότι θέλετε να αποσυνδεθείτε;";
+"Enter a name for the folder where notes should be saved on the server" = "Εισάγετε ένα όνομα για το φάκελο όπου οι σημειώσεις θα αποθηκεύονται στον διακομιστή";
+"Settings" = "Ρυθμίσεις";

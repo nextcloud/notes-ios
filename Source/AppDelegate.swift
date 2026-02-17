@@ -17,7 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var notesTableViewController: NotesTableViewController?
+
+    ///
+    /// Updated by being the `NextcloudKitDelegate`.
+    ///
     var networkReachability: NKCommon.TypeReachability?
+
     static var shared: AppDelegate {
         return UIApplication.shared.delegate as! AppDelegate
     }
@@ -26,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private var updateFrcDelegateNeeded = true
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        NextcloudKit.shared.setup(delegate: self)
 
         for account in store.accounts {
             NextcloudKit.shared.appendSession(
@@ -72,7 +78,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             CategoryTableViewController.self,
             EditorViewController.self,
             PreviewViewController.self,
-            SettingsTableViewController.self
         ]
         UIScrollView.appearance(whenContainedInInstancesOf: scrollViewArray).backgroundColor = .ph_cellBackgroundColor
 
@@ -115,7 +120,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
-        NCService.shared.startRequestServicesServer { }
+        store.synchronize()
         updateFrcDelegateIfNeeded()
     }
     
@@ -189,22 +194,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
-extension UIApplication {
-    
-    class func topViewController(base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
-        if let nav = base as? UINavigationController {
-            return topViewController(base: nav.visibleViewController)
-        }
-        if let tab = base as? UITabBarController {
-            if let selected = tab.selectedViewController {
-                return topViewController(base: selected)
+// MARK: - NextcloudKitDelegate
+
+extension AppDelegate: NextcloudKitDelegate {
+    func authenticationChallenge(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+        DispatchQueue.global().async {
+            if let serverTrust = challenge.protectionSpace.serverTrust {
+                completionHandler(Foundation.URLSession.AuthChallengeDisposition.useCredential, URLCredential(trust: serverTrust))
+            } else {
+                completionHandler(URLSession.AuthChallengeDisposition.useCredential, nil)
             }
         }
-        if let presented = base?.presentedViewController {
-            return topViewController(base: presented)
-        }
-        return base
     }
-    
-}
 
+    public func networkReachabilityObserver(_ typeReachability: NKCommon.TypeReachability) {
+        self.networkReachability = typeReachability
+    }
+}

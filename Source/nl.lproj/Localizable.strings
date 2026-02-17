@@ -1,105 +1,105 @@
 /* Crash report email body placeholder */
-"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Please provide as much details as possible about what you were doing when the crash occurred.>";
+"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Geef alstublieft zoveel mogelijk details over wat je deed toen het probleem optrad.>";
 
 /* Support email body placeholder */
-"<Please state your question or problem here>" = "Please state your question or problem here";
+"<Please state your question or problem here>" = "Vermeld hier je vraag of probleem";
 
 /* An error message */
-"A server installation could not be found. Check the server address." = "A server installation could not be found. Check the server address.";
+"A server installation could not be found. Check the server address." = "Geen serverinstallatie aangetroffen. Controleer het serveradres.";
 
 /* Acknowledgements */
 "Acknowledgements" = "Erkenningen";
 
 /* Title of alert for adding a category */
-"Add Category" = "Add category";
+"Add Category" = "Categorie toevoegen";
 
 /* Item to show all notes */
-"All" = "All";
+"All" = "Alle";
 
 /* A menu action
    A menu option for cancelling */
-"Cancel" = "Cancel";
+"Cancel" = "Annuleren";
 
 /* Header title, categories */
-"CATEGORIES" = "CATEGORIES";
+"CATEGORIES" = "CATEGORIEËN";
 
 /* 'Category' menu item */
-"Category" = "Category";
+"Category" = "Categorie";
 
 /* Action to change category of a note */
-"Category…" = "Category…";
+"Category…" = "Categorie…";
 
 /* Action to change category of a note */
-"Change Category…" = "Change category…";
+"Change Category…" = "Categorie wijzigen...";
 
 /* An error message */
-"Check username and password." = "Check username and password.";
+"Check username and password." = "Gebruikersnaam en wachtwoord controleren.";
 
 /* Title of a button allowing the user to close the login screen and sync with the server */
-"Close & Sync" = "Close & Sync";
+"Close & Sync" = "Sluiten & synchroniseren";
 
 /* Crash report email subject */
-"NextcloudNotes Crash Report" = "NextcloudNotes Crash Report";
+"NextcloudNotes Crash Report" = "NextcloudNotes foutrapportage";
 
 /* No comment provided by engineer. */
-"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?";
+"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "NextcloudNotes crashte de vorige keer dat het werd gestart. Wil je een rapport sturen naar de ontwikkelaar?";
 
 /* Support email subject */
-"NextcloudNotes Support Request" = "NextcloudNotes Support Request";
+"NextcloudNotes Support Request" = "NextcloudNotes ondersteuningsverzoek";
 
 /* A button title */
-"Connect" = "Connect";
+"Connect" = "Verbinding maken";
 
 /* Status information, connected */
-"Connected to Notes on the server" = "Connected to Notes on the server";
+"Connected to Notes on the server" = "Verbonden met Notes op de server";
 
 /* An error message title */
-"Connection failure" = "Connection failure";
+"Connection failure" = "Verbindingsfout";
 
 /* Alert view title */
-"Crash Detected" = "Crash detected";
+"Crash Detected" = "Crash gedetecteerd";
 
 /* Action to delete a note */
-"Delete" = "Delete";
+"Delete" = "Verwijderen";
 
 /* A menu action */
-"Delete Note" = "Delete cote";
+"Delete Note" = "Notitie verwijderen";
 
 /* Prompt on alert for adding a category */
-"Enter a name for the new category" = "Enter a name for the new category";
+"Enter a name for the new category" = "Voer een naam in voor de nieuwe categorie";
 
 /* The title of an error message */
-"Error Adding Note" = "Error adding note";
+"Error Adding Note" = "Fout bij toevoegen van notitie";
 
 /* The title of an error message */
-"Error Deleting Note" = "Error deleting note";
+"Error Deleting Note" = "Fout bij verwijderen van notitie";
 
 /* The title of an error message */
-"Error Getting Note" = "Error getting note";
+"Error Getting Note" = "Fout bij verkrijgen van notitie";
 
 /* The title of an error message */
-"Error Syncing Notes" = "Error syncing notes";
+"Error Syncing Notes" = "Fout bij synchroniseren van notities";
 
 /* The title of an error message */
-"Error Updating Note" = "Error updating note";
+"Error Updating Note" = "Fout bij bijwerken van notitie ";
 
 /* The title of an error message */
-"Error Updating Notes" = "Error updating notes";
+"Error Updating Notes" = "Fout bij bijwerken van notities";
 
 /* An error message */
-"Failed to connect to a server. Check your settings." = "Failed to connect to a server. Check your settings.";
+"Failed to connect to a server. Check your settings." = "Verbinding met een server is mislukt. Controleer de instellingen.";
 
 /* Item to show favorite notes */
-"Favorites" = "Favorites";
+"Favorites" = "Favorieten";
 
 /* A menu option for plain sharing in html format */
 "HTML" = "HTML";
 
 /* A status label indicating that the user is logged in */
-"Logged In" = "Logged in";
+"Logged In" = "Ingelogd";
 
 /* Header title, main */
-"MAIN" = "MAIN";
+"MAIN" = "HOOFD";
 
 /* A menu option for sharing in markdown format */
 "Markdown" = "Markdown";
@@ -108,156 +108,170 @@
 "New note" = "Nieuwe notitie";
 
 /* No comment provided by engineer. */
-"No thanks" = "No thanks";
+"No thanks" = "Nee bedankt";
 
 /* Status information, not connected */
-"Not connected to Notes on a server" = "Not connected to Notes on a server";
+"Not connected to Notes on a server" = "Niet verbonden met Notes op een server";
 
 /* A status label indicating that the user is not logged in */
-"Not Logged In" = "Not logged in";
+"Not Logged In" = "Niet ingelogd";
 
 /* Message about not being logged in */
-"Not logged in" = "Not logged in";
+"Not logged in" = "Niet ingelogd";
 
 /* Title of alert to change title */
-"Note Title" = "Note title";
+"Note Title" = "Titel van de notitie";
 
 /* An error message */
-"Notes could not be found on your server. Make sure it is installed and enabled" = "Notes could not be found on your server. Make sure it is installed and enabled";
+"Notes could not be found on your server. Make sure it is installed and enabled" = "Geen Notes op je server gevonden. Zorg ervoor dat het is geïnstalleerd en ingeschakeld";
 
 /* An error message title */
-"Notes not found" = "Notes not found";
+"Notes not found" = "Notes niet gevonden";
 
 /* Button, OK */
 "OK" = "OK";
 
 /* Title for Open In activity */
-"Open in…" = "Open in…";
+"Open in…" = "Openen in…";
 
 /* A menu option for sharing in plain text format */
-"Plain Text" = "Plain text";
+"Plain Text" = "Platte tekst";
 
 /* A message
    A message to check network connection */
-"Please check network connection and login." = "Please check network connection and login.";
+"Please check network connection and login." = "Controleer de netwerkverbinding en log in.";
 
 /* A button title */
-"Reconnect" = "Reconnect";
+"Reconnect" = "Opnieuw verbinden";
 
 /* Action to change title of a note
    Caption of Rename button */
-"Rename" = "Rename";
+"Rename" = "Hernoemen";
 
 /* Message of alert to change title */
-"Rename the note" = "Rename the note";
+"Rename the note" = "Notitie hernoemen";
 
 /* Action to change title of a note */
-"Rename…" = "Rename…";
+"Rename…" = "Hernoemen…";
 
 /* A menu option for sharing in rich text format */
-"Rich Text" = "Rich text";
+"Rich Text" = "Rich tekst";
 
 /* Placeholder text when no note is selected */
-"Select or create a note." = "Select or create a note.";
+"Select or create a note." = "Selecteer een notitie of maak een nieuwe aan.";
 
 /* Alert title for selecting server brand */
 "Server" = "Server";
 
 /* An error message title */
-"Server not found" = "Server not found";
+"Server not found" = "Server niet gevonden";
 
 /* A message title */
-"Server Reachable" = "Server reachable";
+"Server Reachable" = "Server bereikbaar";
 
 /* Title of a menu with sharing options */
-"Share Note As" = "Share note as";
+"Share Note As" = "Notitie delen als";
 
 /* A message title */
 "Success" = "Success";
 
 /* A message */
-"The network connection is working properly." = "The network connection is working properly.";
+"The network connection is working properly." = "De netwerkverbinding werkt naar behoren.";
 
 /* An error message */
-"The note does not exist" = "The note does not exist";
+"The note does not exist" = "De notitie bestaat niet";
 
 /* Alert message for selecting server brand */
-"Unable to automatically detect type of server.\nPlease select:" = "Unable to automatically detect type of server.\nPlease select:";
+"Unable to automatically detect type of server.\nPlease select:" = "Kan type server niet automatisch detecteren. \nSelecteer alsjeblieft:";
 
 /* A message title
    The title of an error message */
-"Unable to Reach Server" = "Unable to reach server";
+"Unable to Reach Server" = "Kan server niet bereiken";
 
 /* An error message title */
-"Unauthorized" = "Unauthorized";
+"Unauthorized" = "Ongeautoriseerd";
 
 /* Text displayed for notes not assigned to a category */
 "Uncategorized" = "Niet gecategoriseerd ";
 
 /* Message with Notes version, product name and version */
-"Using Notes %@on %@ %@." = "Using Notes %@on %@ %@.";
+"Using Notes %@on %@ %@." = "Notes %@ op %@ %@.";
 
 /* No comment provided by engineer. */
-"Yes, please!" = "Yes, please!";
+"Yes, please!" = "Ja, graag!";
 
 /* A message */
-"You are now connected to Notes on your server" = "You are now connected to Notes on your server";
+"You are now connected to Notes on your server" = "Je bent nu verbonden met Notes op jouw server";
 
 /* HUD subtitle when checking server capabilities */
-"Checking server capabilities" = "Checking server capabilities";
+"Checking server capabilities" = "Controle van servermogelijkheden";
 
 /* HUD subtitle when checking server settings */
-"Checking server settings" = "Checking server settings";
+"Checking server settings" = "Controle van serverinstellingen";
 
 /* HUD subtitle when checking server status */
-"Checking server status" = "Checking server status";
+"Checking server status" = "Controle van de serverstatus";
 
 /* No comment provided by engineer. */
-"Connection error" = "Connection error";
+"Connection error" = "Verbindingsfout";
 
 /* No comment provided by engineer. */
 "Do you want to connect to the server anyway?" = "Wil je toch verbinding maken met de server?";
 
-/* Message of alert to change notes folder */
-"Enter a name for the folder where notes should be saved on the server" = "Enter a name for the folder where notes should be saved on the server";
-
 /* An error message title */
-"Error" = "Error";
+"Error" = "Fout";
 
 /* No comment provided by engineer. */
-"No" = "No";
+"No" = "Nee";
 
 /* Title of alert to change notes folder */
-"Notes Folder" = "Notes folder";
+"Notes Folder" = "Map voor notities";
 
 /* A menu option for sharing in pdf format */
 "PDF" = "PDF";
 
 /* Caption of Save button */
-"Save" = "Save";
+"Save" = "Opslaan";
 
 /* No comment provided by engineer. */
 "The certificate for this server is invalid" = "Het servercertificaat is ongeldig";
 
 /* No comment provided by engineer. */
-"View Certificate" = "View certificate";
+"View Certificate" = "Certificaat weergeven";
 
 /* No comment provided by engineer. */
-"Yes" = "Yes";
+"Yes" = "Ja";
 
 // NEXTCLOUD
 "Select the account to add"   = "Selecteer het account om toe te voegen";
 
-"Notes" = "Opmerkingen";
+"Notes" = "Notes";
 
-"Client Version" = "Client Version";
-"Server Version" = "Server Version";
-"Are you sure you want to log out?" = "Are you sure you want to log out?";
-"Cancel" = "Cancel";
-"Scan QR Code" = "Scan QR Code";
-"Close" = "Close";
-"Server Address" = "Server Address";
-"The address of your Nextcloud web interface when you open it in your browser." = "The address of your Nextcloud web interface when you open it in your browser.";
-"The entered server address is invalid." = "The entered server address is invalid.";
-"Accounts from our other apps were found on this device. Would you like to add one of these?" = "Accounts from our other apps were found on this device. Would you like to add one of these?";
-"Shared Accounts" = "Shared Accounts";
+"Cancel" = "Annuleren";
+"Scan QR Code" = "QR-code scannen";
+"Close" = "Sluiten";
+"Server Address" = "Serveradres";
+"The address of your Nextcloud web interface when you open it in your browser." = "Het adres van je Nextcloud-webinterface wanneer je deze in je browser opent.";
+"The entered server address is invalid." = "Het ingevoerde serveradres is ongeldig.";
+"Accounts from our other apps were found on this device. Would you like to add one of these?" = "Accounts van onze andere apps zijn gevonden op dit apparaat. Wil je één van deze gebruiken?";
+"Shared Accounts" = "Gedeelde accounts";
+
+// SettingsView
+"Account" = "Account";
+"Log Out" = "Log Out";
+"Synchronization" = "Synchronisatie";
+"Synchronize on Start" = "Synchronize on Start";
+"Offline Mode" = "Offline Mode";
+"Server Settings" = "Server Settings";
+"Notes Path" = "Notes Path";
+"Internal Editor" = "Internal Editor";
+"File Extension" = "File Extension";
+"About This App" = "About This App";
+"Client Version" = "Clientversie";
+"Server Version" = "Serverversie";
+"Privacy and Legal Policy" = "Privacy- en Juridisch Beleid";
+"Show Source Code on GitHub" = "Show Source Code on GitHub";
+"Logout" = "Logout";
+"Are you sure you want to log out?" = "Weet je zeker dat je wilt uitloggen?";
+"Enter a name for the folder where notes should be saved on the server" = "Voer een naam in voor de map waarin notities op de server moeten worden opgeslagen";
+"Settings" = "Instellingen";

@@ -5,16 +5,16 @@
   Created by Peter Hedlund on 6/22/14.
   Copyright (c) 2014 Peter Hedlund. All rights reserved.
 */
-"About" = "About";
+"About" = "Haqida";
 
-"Acknowledgements" = "Acknowledgements";
+"Acknowledgements" = "Minnatdorchilik";
 
-"Advanced Settings" = "Advanced settings";
+"Advanced Settings" = "Kengaytirilgan sozlamalar";
 
-"Caution: Turning the switch on will remove all notes locally. Unsynced changes will be lost. Use only if you are experiencing problems." = "Caution: Turning the switch on will remove all notes locally. Unsynced changes will be lost. Use only if you are experiencing problems.";
+"Caution: Turning the switch on will remove all notes locally. Unsynced changes will be lost. Use only if you are experiencing problems." = "Diqqat: Kalitni yoqish barcha qaydlarni mahalliy sifatida olib tashlaydi. Sinxronlanmagan o'zgarishlar yo'qoladi. Faqat muammoga duch kelganingizda foydalaning.";
 
-"Reset local notes database" = "Reset local notes database";
+"Reset local notes database" = "Mahalliy qaydlar ma'lumotlar bazasini tiklash";
 
-"Third-party licenses" = "Third-party licenses";
+"Third-party licenses" = "Uchinchi tomon litsenziyalari";
 
-"Version" = "Version";
+"Version" = "Versiya";

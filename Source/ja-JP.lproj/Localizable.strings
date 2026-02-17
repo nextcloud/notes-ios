@@ -1,8 +1,8 @@
 /* Crash report email body placeholder */
-"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Please provide as much details as possible about what you were doing when the crash occurred.>";
+"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<クラッシュが起きたときに何をしていたかできるだけ詳しく教えてください。>";
 
 /* Support email body placeholder */
-"<Please state your question or problem here>" = "Please state your question or problem here";
+"<Please state your question or problem here>" = "ご質問やご問題がございましたら、ここにご記入ください。";
 
 /* An error message */
 "A server installation could not be found. Check the server address." = "A server installation could not be found. Check the server address.";
@@ -186,7 +186,7 @@
 
 /* A message title
    The title of an error message */
-"Unable to Reach Server" = "Unable to reach server";
+"Unable to Reach Server" = "サーバーにアクセスできません";
 
 /* An error message title */
 "Unauthorized" = "Unauthorized";
@@ -218,9 +218,6 @@
 /* No comment provided by engineer. */
 "Do you want to connect to the server anyway?" = "とにかくサーバーに接続しますか?";
 
-/* Message of alert to change notes folder */
-"Enter a name for the folder where notes should be saved on the server" = "Enter a name for the folder where notes should be saved on the server";
-
 /* An error message title */
 "Error" = "Error";
 
@@ -250,14 +247,31 @@
 
 "Notes" = "Notes";
 
-"Client Version" = "Client Version";
-"Server Version" = "Server Version";
-"Are you sure you want to log out?" = "Are you sure you want to log out?";
 "Cancel" = "Cancel";
-"Scan QR Code" = "Scan QR Code";
-"Close" = "Close";
+"Scan QR Code" = "QR Codeをスキャン";
+"Close" = "閉じる";
 "Server Address" = "Server Address";
 "The address of your Nextcloud web interface when you open it in your browser." = "The address of your Nextcloud web interface when you open it in your browser.";
 "The entered server address is invalid." = "The entered server address is invalid.";
 "Accounts from our other apps were found on this device. Would you like to add one of these?" = "Accounts from our other apps were found on this device. Would you like to add one of these?";
 "Shared Accounts" = "Shared Accounts";
+
+// SettingsView
+"Account" = "Account";
+"Log Out" = "ログアウト";
+"Synchronization" = "同期中";
+"Synchronize on Start" = "Synchronize on Start";
+"Offline Mode" = "Offline Mode";
+"Server Settings" = "Server Settings";
+"Notes Path" = "Notes Path";
+"Internal Editor" = "Internal Editor";
+"File Extension" = "File Extension";
+"About This App" = "About This App";
+"Client Version" = "Client Version";
+"Server Version" = "Server Version";
+"Privacy and Legal Policy" = "個人情報保護方針と法務方針";
+"Show Source Code on GitHub" = "Show Source Code on GitHub";
+"Logout" = "Logout";
+"Are you sure you want to log out?" = "Are you sure you want to log out?";
+"Enter a name for the folder where notes should be saved on the server" = "Enter a name for the folder where notes should be saved on the server";
+"Settings" = "Settings";

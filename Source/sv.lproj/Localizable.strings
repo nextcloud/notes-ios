@@ -218,9 +218,6 @@
 /* No comment provided by engineer. */
 "Do you want to connect to the server anyway?" = "Vill du ansluta till servern ändå?";
 
-/* Message of alert to change notes folder */
-"Enter a name for the folder where notes should be saved on the server" = "Ange ett namn för mappen där anteckningar ska sparas på servern";
-
 /* An error message title */
 "Error" = "Fel";
 
@@ -250,9 +247,6 @@
 
 "Notes" = "Anteckningar";
 
-"Client Version" = "Klientversion";
-"Server Version" = "Serverversion";
-"Are you sure you want to log out?" = "Är du säker på att du vill logga ut?";
 "Cancel" = "Cancel";
 "Scan QR Code" = "Skanna QR-kod";
 "Close" = "Stäng";
@@ -261,3 +255,23 @@
 "The entered server address is invalid." = "Den angivna serveradressen är ogiltig.";
 "Accounts from our other apps were found on this device. Would you like to add one of these?" = "Konton från våra andra appar har hittats på den här enheten. Vill du lägga till ett av dem?";
 "Shared Accounts" = "Delade konton";
+
+// SettingsView
+"Account" = "Konto";
+"Log Out" = "Logga ut";
+"Synchronization" = "Synkronisering";
+"Synchronize on Start" = "Synkronisera vid start";
+"Offline Mode" = "Offlineläge";
+"Server Settings" = "Serverinställningar";
+"Notes Path" = "Sökväg för anteckningar";
+"Internal Editor" = "Intern redigerare";
+"File Extension" = "Filändelse";
+"About This App" = "Om denna app";
+"Client Version" = "Klientversion";
+"Server Version" = "Serverversion";
+"Privacy and Legal Policy" = "Integritets- och juridisk policy";
+"Show Source Code on GitHub" = "Visa källkod på GitHub";
+"Logout" = "Logga ut";
+"Are you sure you want to log out?" = "Är du säker på att du vill logga ut?";
+"Enter a name for the folder where notes should be saved on the server" = "Ange ett namn för mappen där anteckningar ska sparas på servern";
+"Settings" = "Inställingar";

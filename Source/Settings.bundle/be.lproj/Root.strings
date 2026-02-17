@@ -5,9 +5,9 @@
   Created by Peter Hedlund on 6/22/14.
   Copyright (c) 2014 Peter Hedlund. All rights reserved.
 */
-"About" = "About";
+"About" = "Аб праграме";
 
-"Acknowledgements" = "Acknowledgements";
+"Acknowledgements" = "Падзякі";
 
 "Advanced Settings" = "Advanced settings";
 
@@ -17,4 +17,4 @@
 
 "Third-party licenses" = "Third-party licenses";
 
-"Version" = "Version";
+"Version" = "Версія";

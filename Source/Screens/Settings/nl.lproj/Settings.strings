@@ -59,20 +59,17 @@
 /* Class = "UITableViewSection"; headerTitle = "Account"; ObjectID = "qGs-TC-y20"; */
 "qGs-TC-y20.headerTitle" = "Account";
 
-/* Class = "UITextView"; accessibilityHint = "Placeholder for legal text content: Do not translate!"; ObjectID = "smL-9H-BiT"; */
-"smL-9H-BiT.accessibilityHint" = "Placeholder for legal text content: Do not translate!";
-
 /* Class = "UILabel"; text = "Plain Text (.txt)"; ObjectID = "uVd-ib-jy0"; Note = "Do not translate"; */
 "uVd-ib-jy0.text" = "Plain Text (.txt)";
 
 /* Class = "UITableViewCell"; contentConfiguration.text = "Client Version"; ObjectID = "vrs-Pz-kVO"; */
-"vrs-Pz-kVO.contentConfiguration.text" = "Client Version";
+"vrs-Pz-kVO.contentConfiguration.text" = "Clientversie";
 
 /* Class = "UINavigationItem"; title = "Settings"; ObjectID = "waZ-N6-59b"; */
 "waZ-N6-59b.title" = "Instellingen";
 
 /* Class = "UITableViewCell"; contentConfiguration.text = "Server Version"; ObjectID = "y5A-NE-V50"; */
-"y5A-NE-V50.contentConfiguration.text" = "Server Version";
+"y5A-NE-V50.contentConfiguration.text" = "Serverversie";
 
 /* Class = "UILabel"; text = "Privacy and Legal Policy"; ObjectID = "yi3-0y-GWm"; Note = "Label for link"; */
 "yi3-0y-GWm.text" = "Privacy- en Juridisch Beleid";

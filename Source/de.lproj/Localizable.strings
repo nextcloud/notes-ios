@@ -5,7 +5,7 @@
 "<Please state your question or problem here>" = "Bitte schildern Sie hier Ihre Frage oder Ihr Problem";
 
 /* An error message */
-"A server installation could not be found. Check the server address." = "Eine Serverinstallation konnte nicht gefunden werden. Überprüfen Sie die Serveradresse.";
+"A server installation could not be found. Check the server address." = "Keine Serverinstallation gefunden. Bitte die Serveradresse überprüfen.";
 
 /* Acknowledgements */
 "Acknowledgements" = "Danksagungen";
@@ -108,7 +108,7 @@
 "New note" = "Neue Notiz";
 
 /* No comment provided by engineer. */
-"No thanks" = "Nein Danke";
+"No thanks" = "Nein, danke";
 
 /* Status information, not connected */
 "Not connected to Notes on a server" = "Nicht mit Notes auf einem Server verbunden";
@@ -132,7 +132,7 @@
 "OK" = "Ok";
 
 /* Title for Open In activity */
-"Open in…" = "Öffnen mit…";
+"Open in…" = "Öffnen in…";
 
 /* A menu option for sharing in plain text format */
 "Plain Text" = "Klartext";
@@ -218,9 +218,6 @@
 /* No comment provided by engineer. */
 "Do you want to connect to the server anyway?" = "Möchten Sie dennoch eine Verbindung zu diesem Server herstellen?";
 
-/* Message of alert to change notes folder */
-"Enter a name for the folder where notes should be saved on the server" = "Geben Sie einen Namen für den Ordner ein, in dem Notizen auf dem Server gespeichert werden sollen";
-
 /* An error message title */
 "Error" = "Fehler";
 
@@ -250,14 +247,31 @@
 
 "Notes" = "Notizen";
 
-"Client Version" = "Client-Version";
-"Server Version" = "Serverversion";
-"Are you sure you want to log out?" = "Möchten Sie sich wirklich abmelden?";
 "Cancel" = "Abbruch";
 "Scan QR Code" = "QR-Code scannen";
 "Close" = "Schließen";
 "Server Address" = "Serveradresse";
-"The address of your Nextcloud web interface when you open it in your browser." = "Die Adresse Ihrer Nextcloud-Weboberfläche, wenn Sie sie in Ihrem Browser öffnen.";
+"The address of your Nextcloud web interface when you open it in your browser." = "Die Adresse Ihrer Nextcloud-Weboberfläche, wenn Sie diese in Ihrem Browser öffnen.";
 "The entered server address is invalid." = "Die eingegebene Serveradresse ist ungültig.";
-"Accounts from our other apps were found on this device. Would you like to add one of these?" = "Es wurden Konten aus anderen Apps auf diesem Gerät gefunden. Soll eines davon hinzugefügt werden?";
+"Accounts from our other apps were found on this device. Would you like to add one of these?" = "Es wurden Konten aus anderen Apps auf diesem Gerät gefunden. Möchten Sie eines davon hinzufügen?";
 "Shared Accounts" = "Geteilte Konten";
+
+// SettingsView
+"Account" = "Konto";
+"Log Out" = "Abmelden";
+"Synchronization" = "Synchronisierung";
+"Synchronize on Start" = "Beim Start synchronisieren";
+"Offline Mode" = "Offline-Modus";
+"Server Settings" = "Servereinstellungen";
+"Notes Path" = "Notizen-Pfad";
+"Internal Editor" = "Interner Editor";
+"File Extension" = "Dateierweiterung";
+"About This App" = "Über diese App";
+"Client Version" = "Client-Version";
+"Server Version" = "Serverversion";
+"Privacy and Legal Policy" = "Datenschutzerklärung und Geschäftsbedingungen";
+"Show Source Code on GitHub" = "Quellcode auf GitHub anzeigen";
+"Logout" = "Abmelden";
+"Are you sure you want to log out?" = "Möchten Sie sich wirklich abmelden?";
+"Enter a name for the folder where notes should be saved on the server" = "Geben Sie einen Namen für den Ordner ein, in dem Notizen auf dem Server gespeichert werden sollen";
+"Settings" = "Einstellungen";

@@ -1,0 +1,20 @@
+/* 
+  Root.strings
+  iOCNotes
+
+  Created by Peter Hedlund on 6/22/14.
+  Copyright (c) 2014 Peter Hedlund. All rights reserved.
+*/
+"About" = "ھەققىدە";
+
+"Acknowledgements" = "ئېتراپ قىلىش";
+
+"Advanced Settings" = "ئىلغار تەڭشەكلەر";
+
+"Caution: Turning the switch on will remove all notes locally. Unsynced changes will be lost. Use only if you are experiencing problems." = "دىققەت: كۇنۇپكىنى قوزغىتىپ قويسىڭىز، يەرلىكتىكى بارلىق خاتىرىلەر ئۆچۈرۈلىدۇ. ماسلاشمىغان ئۆزگەرتىشلەر يوقاپ كېتىدۇ. پەقەت مەسىلىگە يولۇققان بولسىڭىزلا ئىشلىتىڭ.";
+
+"Reset local notes database" = "يەرلىك خاتىرە ساندانىنى ئەسلىگە قايتۇر";
+
+"Third-party licenses" = "ئۈچىنجى تەرەپ ئىجازەتنامىسى";
+
+"Version" = "نەشرى";

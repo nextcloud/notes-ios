@@ -123,7 +123,7 @@
 "Note Title" = "Not başlığı";
 
 /* An error message */
-"Notes could not be found on your server. Make sure it is installed and enabled" = "Sunucunuzda Notlar uygulaması bulunamadı. Lütfen kurulmuş ve etkinleştirilmiş olduğundan emin olun.";
+"Notes could not be found on your server. Make sure it is installed and enabled" = "Sunucunuzda Notlar uygulaması bulunamadı. Lütfen kurulmuş ve kullanıma alınmış olduğundan emin olun.";
 
 /* An error message title */
 "Notes not found" = "Notlar uygulaması bulunamadı";
@@ -135,7 +135,7 @@
 "Open in…" = "Şununla aç…";
 
 /* A menu option for sharing in plain text format */
-"Plain Text" = "Düz metin";
+"Plain Text" = "Düz yazı";
 
 /* A message
    A message to check network connection */
@@ -155,7 +155,7 @@
 "Rename…" = "Yeniden adlandır…";
 
 /* A menu option for sharing in rich text format */
-"Rich Text" = "Zengin metin";
+"Rich Text" = "Zengin yazı";
 
 /* Placeholder text when no note is selected */
 "Select or create a note." = "Bir not seçin ya da ekleyin.";
@@ -218,9 +218,6 @@
 /* No comment provided by engineer. */
 "Do you want to connect to the server anyway?" = "Yine de sunucu ile bağlantı kurulsun mu?";
 
-/* Message of alert to change notes folder */
-"Enter a name for the folder where notes should be saved on the server" = "Notların sunucuda kaydedileceği klasörün adını yazın";
-
 /* An error message title */
 "Error" = "Hata";
 
@@ -250,14 +247,31 @@
 
 "Notes" = "Notlar";
 
-"Client Version" = "Client Version";
-"Server Version" = "Server Version";
-"Are you sure you want to log out?" = "Are you sure you want to log out?";
 "Cancel" = "Cancel";
-"Scan QR Code" = "Scan QR Code";
+"Scan QR Code" = "Kare kodu tara";
 "Close" = "Kapat";
-"Server Address" = "Server Address";
-"The address of your Nextcloud web interface when you open it in your browser." = "The address of your Nextcloud web interface when you open it in your browser.";
-"The entered server address is invalid." = "The entered server address is invalid.";
-"Accounts from our other apps were found on this device. Would you like to add one of these?" = "Accounts from our other apps were found on this device. Would you like to add one of these?";
-"Shared Accounts" = "Shared Accounts";
+"Server Address" = "Sunucu adresi";
+"The address of your Nextcloud web interface when you open it in your browser." = "Nextcloud internet arayüzü için tarayıcınızda açacağınız adres.";
+"The entered server address is invalid." = "Yazılan sunucu adresi geçersiz.";
+"Accounts from our other apps were found on this device. Would you like to add one of these?" = "Bu aygıtta diğer uygulamalarımızın hesapları bulundu. Bunlardan birini eklemek ister misiniz?";
+"Shared Accounts" = "Paylaşılmış hesaplar";
+
+// SettingsView
+"Account" = "Hesap";
+"Log Out" = "Oturumu kapat";
+"Synchronization" = "Eşitleme";
+"Synchronize on Start" = "Başlangıçta eşitlensin";
+"Offline Mode" = "Çevrim dışı kipi";
+"Server Settings" = "Sunucu ayarları";
+"Notes Path" = "Notlar yolu";
+"Internal Editor" = "İç düzenleyici";
+"File Extension" = "Dosya uzantısı";
+"About This App" = "Bu uygulama hakkında";
+"Client Version" = "İstemci sürümü";
+"Server Version" = "Sunucu sürümü";
+"Privacy and Legal Policy" = "Gizlilik ve Yasal İlkeler";
+"Show Source Code on GitHub" = "GitHub üzerindeki kaynak kodunu görüntüle";
+"Logout" = "Oturumu kapat";
+"Are you sure you want to log out?" = "Oturumu kapatmak istediğinize emin misiniz?";
+"Enter a name for the folder where notes should be saved on the server" = "Notların sunucuda kaydedileceği klasörün adını yazın";
+"Settings" = "Ayarlar";

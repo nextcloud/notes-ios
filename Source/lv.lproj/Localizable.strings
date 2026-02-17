@@ -132,7 +132,7 @@
 "OK" = "Labi";
 
 /* Title for Open In activity */
-"Open in…" = "Open in…";
+"Open in…" = "Atvērt…";
 
 /* A menu option for sharing in plain text format */
 "Plain Text" = "Plain text";
@@ -149,10 +149,10 @@
 "Rename" = "Pārdēvēt";
 
 /* Message of alert to change title */
-"Rename the note" = "Rename the note";
+"Rename the note" = "Pārdēvēt piezīmi";
 
 /* Action to change title of a note */
-"Rename…" = "Rename…";
+"Rename…" = "Pārdēvēt…";
 
 /* A menu option for sharing in rich text format */
 "Rich Text" = "Rich text";
@@ -218,9 +218,6 @@
 /* No comment provided by engineer. */
 "Do you want to connect to the server anyway?" = "Do you want to connect to the server anyway?";
 
-/* Message of alert to change notes folder */
-"Enter a name for the folder where notes should be saved on the server" = "Enter a name for the folder where notes should be saved on the server";
-
 /* An error message title */
 "Error" = "Error";
 
@@ -250,14 +247,31 @@
 
 "Notes" = "Piezīmes";
 
-"Client Version" = "Client Version";
-"Server Version" = "Server Version";
-"Are you sure you want to log out?" = "Are you sure you want to log out?";
 "Cancel" = "Atcelt";
 "Scan QR Code" = "Scan QR Code";
 "Close" = "Close";
 "Server Address" = "Server Address";
-"The address of your Nextcloud web interface when you open it in your browser." = "The address of your Nextcloud web interface when you open it in your browser.";
+"The address of your Nextcloud web interface when you open it in your browser." = "Nextcloud tīmekļa saskarnes adrese, kad atver to pārlūkā.";
 "The entered server address is invalid." = "The entered server address is invalid.";
 "Accounts from our other apps were found on this device. Would you like to add one of these?" = "Accounts from our other apps were found on this device. Would you like to add one of these?";
 "Shared Accounts" = "Shared Accounts";
+
+// SettingsView
+"Account" = "Account";
+"Log Out" = "Log Out";
+"Synchronization" = "Sinhronizēšana";
+"Synchronize on Start" = "Synchronize on Start";
+"Offline Mode" = "Offline Mode";
+"Server Settings" = "Server Settings";
+"Notes Path" = "Notes Path";
+"Internal Editor" = "Internal Editor";
+"File Extension" = "File Extension";
+"About This App" = "About This App";
+"Client Version" = "Client Version";
+"Server Version" = "Server Version";
+"Privacy and Legal Policy" = "Privacy and Legal Policy";
+"Show Source Code on GitHub" = "Show Source Code on GitHub";
+"Logout" = "Logout";
+"Are you sure you want to log out?" = "Are you sure you want to log out?";
+"Enter a name for the folder where notes should be saved on the server" = "Enter a name for the folder where notes should be saved on the server";
+"Settings" = "Settings";

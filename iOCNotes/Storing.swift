@@ -12,10 +12,8 @@ import NextcloudKit
 /// Through increasing isolation of features and layers with facilities like this future development can be accelerated.
 ///
 protocol Storing: Observable {
-    ///
-    /// Returns all locally set up accounts for this app.
-    ///
-    var accounts: [AccountTransferObject] { get }
+
+    // MARK: Synchronization
 
     ///
     /// Whether the current account is synchronizing notes or not.
@@ -23,6 +21,18 @@ protocol Storing: Observable {
     /// This is needed to update the user interface state accordingly.
     ///
     var isSynchronizing: Bool { get }
+
+    ///
+    /// Synchronize set up accounts and their associated information as well as notes.
+    ///
+    func synchronize()
+
+    // MARK: Account Management
+
+    ///
+    /// Returns all locally set up accounts for this app.
+    ///
+    var accounts: [AccountTransferObject] { get }
 
     ///
     /// Create a new account object in the local client database.
@@ -35,14 +45,11 @@ protocol Storing: Observable {
     func addAccount(host: URL, name: String, password: String)
 
     ///
-    /// Update ``sharedAccounts`` by reading persisted information from persistent storage.
-    ///
-    func readSharedAccounts()
-
-    ///
     /// Log out the currently active account.
     ///
     func removeAccount()
+
+    // MARK: Shared Accounts
 
     ///
     /// All available accounts shared between the apps of the same group.
@@ -51,7 +58,34 @@ protocol Storing: Observable {
     var sharedAccounts: [NKShareAccounts.DataAccounts] { get }
 
     ///
-    /// Synchronize set up accounts and their associated information as well as notes.
+    /// Update ``sharedAccounts`` by reading persisted information from persistent storage.
     ///
-    func synchronize()
+    func readSharedAccounts()
+
+    // MARK: Settings
+
+    ///
+    /// Which file extension should be used for note files.
+    ///
+    var fileExtension: FileSuffix { get set }
+
+    ///
+    /// Whether only the built-in editor is supposed to be used.
+    ///
+    var internalEditor: Bool { get set }
+
+    ///
+    /// The root file path for note files.
+    ///
+    var notesPath: String { get set }
+
+    ///
+    /// Whether synchronization is forcefully disabled or not.
+    ///
+    var offlineMode: Bool { get set }
+
+    ///
+    /// Whether to synchronize on app launch or not.
+    ///
+    var launchSynchronization: Bool { get set }
 }

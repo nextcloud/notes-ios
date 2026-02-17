@@ -5,16 +5,16 @@
   Created by Peter Hedlund on 6/22/14.
   Copyright (c) 2014 Peter Hedlund. All rights reserved.
 */
-"About" = "About";
+"About" = "Over";
 
 "Acknowledgements" = "Erkenningen";
 
-"Advanced Settings" = "Advanced settings";
+"Advanced Settings" = "Geavanceerde instellingen";
 
-"Caution: Turning the switch on will remove all notes locally. Unsynced changes will be lost. Use only if you are experiencing problems." = "Caution: Turning the switch on will remove all notes locally. Unsynced changes will be lost. Use only if you are experiencing problems.";
+"Caution: Turning the switch on will remove all notes locally. Unsynced changes will be lost. Use only if you are experiencing problems." = "Let op: Hiermee worden alle notities lokaal verwijderd. Niet-gesynchroniseerde wijzigingen gaan verloren. Gebruik dit alleen om problemen te verhelpen.";
 
-"Reset local notes database" = "Reset local notes database";
+"Reset local notes database" = "Lokale notities-database herstellen";
 
-"Third-party licenses" = "Third-party licenses";
+"Third-party licenses" = "Externe licenties";
 
-"Version" = "Version";
+"Version" = "Versie";

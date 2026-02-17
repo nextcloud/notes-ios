@@ -1,17 +1,17 @@
 /* Crash report email body placeholder */
-"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Please provide as much details as possible about what you were doing when the crash occurred.>";
+"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<ۋەقە يۈز بەرگەندە نېمە ئىش قىلغانلىقىڭىز ھەققىدە مۇمكىن قەدەر كۆپ تەپسىلاتلارنى بېرىڭ.>";
 
 /* Support email body placeholder */
-"<Please state your question or problem here>" = "Please state your question or problem here";
+"<Please state your question or problem here>" = "سوئالىڭىزنى ياكى ۋەزىپىڭىزنى بۇ يەرگە كىرگۈزۈڭ:";
 
 /* An error message */
-"A server installation could not be found. Check the server address." = "A server installation could not be found. Check the server address.";
+"A server installation could not be found. Check the server address." = "بىر مۇلازىمېتىر قاچىلىنىشىنى تاپالمىدى. مۇلازىمېتىر ئادىرسىنى تەكشۈرۈڭ.";
 
 /* Acknowledgements */
-"Acknowledgements" = "Acknowledgements";
+"Acknowledgements" = "ئېتىراپ قىلىندى";
 
 /* Title of alert for adding a category */
-"Add Category" = "Add category";
+"Add Category" = "تۈر قوش";
 
 /* Item to show all notes */
 "All" = "ھەممىسى";
@@ -21,85 +21,85 @@
 "Cancel" = "ۋاز كەچ";
 
 /* Header title, categories */
-"CATEGORIES" = "CATEGORIES";
+"CATEGORIES" = "تۈرلەر";
 
 /* 'Category' menu item */
-"Category" = "Category";
+"Category" = "تۈر";
 
 /* Action to change category of a note */
-"Category…" = "Category…";
+"Category…" = "تۈر...";
 
 /* Action to change category of a note */
-"Change Category…" = "Change category…";
+"Change Category…" = "تۈر ئۆزگەرت...";
 
 /* An error message */
-"Check username and password." = "Check username and password.";
+"Check username and password." = "ئىشلەتكۈچى ئىسمى ۋە پارولىنى تەكشۈر";
 
 /* Title of a button allowing the user to close the login screen and sync with the server */
-"Close & Sync" = "Close & Sync";
+"Close & Sync" = "ياپ & ماس-قەدەملە";
 
 /* Crash report email subject */
-"NextcloudNotes Crash Report" = "NextcloudNotes Crash Report";
+"NextcloudNotes Crash Report" = "NextcloudNotes بۇزۇلۇش دوكىلاتى";
 
 /* No comment provided by engineer. */
-"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?";
+"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "NextcloudNotes ئالدىنقى قېتىم يۈرگۈزۈلگەندىن كىيىن غۇلىغان. بۇ ھەقتە ئۇچۇرنى ياسىغۇچىغا ئەۋەتمەكچىمۇسىز؟";
 
 /* Support email subject */
-"NextcloudNotes Support Request" = "NextcloudNotes Support Request";
+"NextcloudNotes Support Request" = "NextcloudNotes ياردەمگە ئېرىشىش تەلىپى";
 
 /* A button title */
-"Connect" = "Connect";
+"Connect" = "ئۇلا";
 
 /* Status information, connected */
-"Connected to Notes on the server" = "Connected to Notes on the server";
+"Connected to Notes on the server" = "مۇلازىمېتىردىكى خاتىرە ئەپكە ئۇلاندى";
 
 /* An error message title */
-"Connection failure" = "Connection failure";
+"Connection failure" = "ئۇلىنىش مەغلۇبىيتى";
 
 /* Alert view title */
-"Crash Detected" = "Crash detected";
+"Crash Detected" = "غۇلاش بايقالدى";
 
 /* Action to delete a note */
-"Delete" = "Delete";
+"Delete" = "ئۆچۈر";
 
 /* A menu action */
-"Delete Note" = "Delete cote";
+"Delete Note" = "خاتىرىنى ئۆ";
 
 /* Prompt on alert for adding a category */
-"Enter a name for the new category" = "Enter a name for the new category";
+"Enter a name for the new category" = "يېڭى تۈرنىڭ نامىنى كىرگۈز";
 
 /* The title of an error message */
-"Error Adding Note" = "Error adding note";
+"Error Adding Note" = "خاتىرە قوشۇش خاتالىقى";
 
 /* The title of an error message */
-"Error Deleting Note" = "Error deleting note";
+"Error Deleting Note" = "خاتىرە ئۆچۈرۈش خاتالىقى";
 
 /* The title of an error message */
-"Error Getting Note" = "Error getting note";
+"Error Getting Note" = "خاتىرىگە ئېرىشىش خاتالىقى";
 
 /* The title of an error message */
-"Error Syncing Notes" = "Error syncing notes";
+"Error Syncing Notes" = "خاتىرىنى ماس-قەدەملەش خاتالىقى";
 
 /* The title of an error message */
-"Error Updating Note" = "Error updating note";
+"Error Updating Note" = "خاتىرىنى يېڭىلاش خاتالىقى";
 
 /* The title of an error message */
-"Error Updating Notes" = "Error updating notes";
+"Error Updating Notes" = "خاتىرىلەرنى يېڭىلاش خاتالىقى";
 
 /* An error message */
-"Failed to connect to a server. Check your settings." = "Failed to connect to a server. Check your settings.";
+"Failed to connect to a server. Check your settings." = "مۇلازىمېتىرغا ئۇلىنىش مەغلۇپ بولدى. تەڭشەكلەرنى تەكشۈرۈڭ.";
 
 /* Item to show favorite notes */
-"Favorites" = "Favorites";
+"Favorites" = "ياقتۇردىغان";
 
 /* A menu option for plain sharing in html format */
 "HTML" = "HTML";
 
 /* A status label indicating that the user is logged in */
-"Logged In" = "Logged in";
+"Logged In" = "تىزىمغا كىردى";
 
 /* Header title, main */
-"MAIN" = "MAIN";
+"MAIN" = "ئاساسلىق";
 
 /* A menu option for sharing in markdown format */
 "Markdown" = "Markdown";
@@ -108,57 +108,57 @@
 "New note" = "يېڭى خاتىرە";
 
 /* No comment provided by engineer. */
-"No thanks" = "No thanks";
+"No thanks" = "ياق، رەھمەت";
 
 /* Status information, not connected */
-"Not connected to Notes on a server" = "Not connected to Notes on a server";
+"Not connected to Notes on a server" = "مۇلازىمېتىردىكى خاتىرە ئەپكە ئۇلانمىدى";
 
 /* A status label indicating that the user is not logged in */
-"Not Logged In" = "Not logged in";
+"Not Logged In" = "تىزىمغا كىرمىدى";
 
 /* Message about not being logged in */
-"Not logged in" = "Not logged in";
+"Not logged in" = "تىزىمغا كىرمىدى";
 
 /* Title of alert to change title */
-"Note Title" = "Note title";
+"Note Title" = "خاتىرە ماۋزوسى";
 
 /* An error message */
-"Notes could not be found on your server. Make sure it is installed and enabled" = "Notes could not be found on your server. Make sure it is installed and enabled";
+"Notes could not be found on your server. Make sure it is installed and enabled" = "مۇلازىمېتىردا خاتىرە ئەپ تېپىلمىدى. ئۇنىڭ قاچىلانغان ھەمدە قوزغىتىلغانلىقىنى جەزىملەشتۈرۈڭ.";
 
 /* An error message title */
-"Notes not found" = "Notes not found";
+"Notes not found" = "خاتىرە تېپىلمىدى";
 
 /* Button, OK */
 "OK" = "جەزملە";
 
 /* Title for Open In activity */
-"Open in…" = "Open in…";
+"Open in…" = "بىلەن ئاچ...";
 
 /* A menu option for sharing in plain text format */
-"Plain Text" = "Plain text";
+"Plain Text" = "ئاددىي تېكىست";
 
 /* A message
    A message to check network connection */
-"Please check network connection and login." = "Please check network connection and login.";
+"Please check network connection and login." = "تور ئۇلىنىشىنى تەكشۈرۈڭ ھەمدە تىزىمغا كىرىڭ.";
 
 /* A button title */
-"Reconnect" = "Reconnect";
+"Reconnect" = "قايتا-ئۇلا";
 
 /* Action to change title of a note
    Caption of Rename button */
-"Rename" = "Rename";
+"Rename" = "ئىسىم ئۆزگەرت";
 
 /* Message of alert to change title */
-"Rename the note" = "Rename the note";
+"Rename the note" = "خاتىرىنىڭ ئىسمىنى ئۆزگەرت";
 
 /* Action to change title of a note */
-"Rename…" = "Rename…";
+"Rename…" = "ئىسىم ئۆزگەرت";
 
 /* A menu option for sharing in rich text format */
-"Rich Text" = "Rich text";
+"Rich Text" = "مول تېكىست";
 
 /* Placeholder text when no note is selected */
-"Select or create a note." = "Select or create a note.";
+"Select or create a note." = "بىر خاتىرىنى تاللا ياكى قۇر";
 
 /* Alert title for selecting server brand */
 "Server" = "مۇلازىمېتىر";
@@ -167,26 +167,26 @@
 "Server not found" = "مۇلازىمېتىر تېپىلمىدى";
 
 /* A message title */
-"Server Reachable" = "Server reachable";
+"Server Reachable" = "مۇلازىمېتىرغا ئۇلىغىلى بۇلىدۇ";
 
 /* Title of a menu with sharing options */
-"Share Note As" = "Share note as";
+"Share Note As" = "خاتىرىنى ھەمبەھىرلە";
 
 /* A message title */
-"Success" = "مۇۋەپپەقىيەت";
+"Success" = "مۇۋەپپەقىيەتلىك";
 
 /* A message */
-"The network connection is working properly." = "The network connection is working properly.";
+"The network connection is working properly." = "تور ئۇلىنىشى توغرا ئىشلەۋاتىدۇ.";
 
 /* An error message */
-"The note does not exist" = "The note does not exist";
+"The note does not exist" = "خاتىرە مەۋجۇت ئەمەس";
 
 /* Alert message for selecting server brand */
-"Unable to automatically detect type of server.\nPlease select:" = "Unable to automatically detect type of server.\nPlease select:";
+"Unable to automatically detect type of server.\nPlease select:" = "مۇلازىمېتىر تىپىنى ئاپتۇماتىك بايقىغىلى بولمىدى.\nتاللاڭ:";
 
 /* A message title
    The title of an error message */
-"Unable to Reach Server" = "Unable to reach server";
+"Unable to Reach Server" = "مۇلازىمېتىرغا يەتكىلى بولمىدى";
 
 /* An error message title */
 "Unauthorized" = "ئىجازەتسىز";
@@ -195,69 +195,83 @@
 "Uncategorized" = "تۈرگە ئايرىلمىغان";
 
 /* Message with Notes version, product name and version */
-"Using Notes %@on %@ %@." = "Using Notes %@on %@ %@.";
+"Using Notes %@on %@ %@." = "%@on %@ %@ خاتىرىنى ئىشلىتىۋاتىدۇ";
 
 /* No comment provided by engineer. */
-"Yes, please!" = "Yes, please!";
+"Yes, please!" = "شۇنداق، رەھمەت!";
 
 /* A message */
-"You are now connected to Notes on your server" = "You are now connected to Notes on your server";
+"You are now connected to Notes on your server" = "سىز ھازىر مۇلازىمېتىردىكى خاتىرە ئەپكە ئۇلاندىڭىز";
 
 /* HUD subtitle when checking server capabilities */
-"Checking server capabilities" = "Checking server capabilities";
+"Checking server capabilities" = "مۇلازىمېتىر ئىقتىدارىنى تەكشۈرۋاتىدۇ";
 
 /* HUD subtitle when checking server settings */
-"Checking server settings" = "Checking server settings";
+"Checking server settings" = "مۇلازىمېتىر تەڭشەكلىرىنى تەكشۈرۋاتىدۇ";
 
 /* HUD subtitle when checking server status */
-"Checking server status" = "Checking server status";
+"Checking server status" = "مۇلازىمېتىر ھالىتىنى تەكشۈرۋاتىدۇ";
 
 /* No comment provided by engineer. */
-"Connection error" = "Connection error";
+"Connection error" = "ئۇلىنىش خاتالىقى";
 
 /* No comment provided by engineer. */
-"Do you want to connect to the server anyway?" = "Do you want to connect to the server anyway?";
-
-/* Message of alert to change notes folder */
-"Enter a name for the folder where notes should be saved on the server" = "Enter a name for the folder where notes should be saved on the server";
+"Do you want to connect to the server anyway?" = "سىز يەنىلا بۇ مۇلازىمېتىرغا ئۇلىماقچىمۇ؟";
 
 /* An error message title */
-"Error" = "Error";
+"Error" = "خاتالىق";
 
 /* No comment provided by engineer. */
-"No" = "No";
+"No" = "ياق";
 
 /* Title of alert to change notes folder */
-"Notes Folder" = "Notes folder";
+"Notes Folder" = "خاتىرە قىسقۇچى";
 
 /* A menu option for sharing in pdf format */
 "PDF" = "PDF";
 
 /* Caption of Save button */
-"Save" = "Save";
+"Save" = "ساقلا";
 
 /* No comment provided by engineer. */
 "The certificate for this server is invalid" = "بۇ مۇلازىمېتىرنىڭ گۇۋاھنامىسى ئىناۋەتسىز";
 
 /* No comment provided by engineer. */
-"View Certificate" = "View certificate";
+"View Certificate" = "كىنىشكىنى كۆر";
 
 /* No comment provided by engineer. */
-"Yes" = "Yes";
+"Yes" = "ماقۇل";
 
 // NEXTCLOUD
 "Select the account to add"   = "قوشۇش ئۈچۈن ھېساباتنى تاللاڭ";
 
 "Notes" = "ئىزاھاتلار";
 
-"Client Version" = "Client Version";
-"Server Version" = "Server Version";
-"Are you sure you want to log out?" = "Are you sure you want to log out?";
 "Cancel" = "ۋاز كەچ";
-"Scan QR Code" = "Scan QR Code";
-"Close" = "Close";
-"Server Address" = "Server Address";
-"The address of your Nextcloud web interface when you open it in your browser." = "The address of your Nextcloud web interface when you open it in your browser.";
-"The entered server address is invalid." = "The entered server address is invalid.";
-"Accounts from our other apps were found on this device. Would you like to add one of these?" = "Accounts from our other apps were found on this device. Would you like to add one of these?";
-"Shared Accounts" = "Shared Accounts";
+"Scan QR Code" = "QR كودىنى سىكانىرلا";
+"Close" = "ياپ";
+"Server Address" = "مۇلازىمېتىر ئادرېسى";
+"The address of your Nextcloud web interface when you open it in your browser." = "سىز تور كۆرگۈچتە ئاچقاندىكى Nextcloud توربەتنىڭ ئادىرسى.";
+"The entered server address is invalid." = "كىرگۈزگەن مۇلازىمېتىر ئادرېسى ئىناۋەتسىز";
+"Accounts from our other apps were found on this device. Would you like to add one of these?" = "بۇ ئۈسكۈنىدە باشقا ئەپلىرىمىزدىكى ھېساباتلار تېپىلدى. بۇلارنىڭ بىرىنى قوشماقچىمۇسىز؟";
+"Shared Accounts" = "ئورتاقلاشقان ھېسابات";
+
+// SettingsView
+"Account" = "ھېسابات";
+"Log Out" = "تىزىمدىن چىق";
+"Synchronization" = "ماس قەدەملەش";
+"Synchronize on Start" = "باشلانغاندا ماسقەدەملە";
+"Offline Mode" = "تورسىز ھالەت";
+"Server Settings" = "مۇلازىمېتىر تەڭشىكى";
+"Notes Path" = "خاتىرە يولى";
+"Internal Editor" = "ئىچكىي تەھرىرلىگۈچ";
+"File Extension" = "ھۆججەت كېڭەيتىلمىسى";
+"About This App" = "بۇ ئەپ توغىرسىدا";
+"Client Version" = "خېرىدار نەشىرى";
+"Server Version" = "مۇلازىمېتىر نەشىرى";
+"Privacy and Legal Policy" = "مەخپىيەتلىك ۋە قانۇن سىياسىتى";
+"Show Source Code on GitHub" = "مەنبە كودىنى GitHub دا كۆرسەت";
+"Logout" = "تىزىمدىن چىق";
+"Are you sure you want to log out?" = "سىز راستىنلا چىكىنمەكچىمۇ؟";
+"Enter a name for the folder where notes should be saved on the server" = "خاتىرىلەرنىڭ مۇلازىمېتىردا ساقلىندىغان بىر قىسقۇچ نامىنى كىرگۈز";
+"Settings" = "تەڭشەكلەر";

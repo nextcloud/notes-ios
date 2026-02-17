@@ -23,7 +23,7 @@ public class CheckBoxTapHandler: NSObject {
 
     @objc func handleTap(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
-            guard let layoutManager = layoutManager, let textView = textView, let textStorage = layoutManager.textStorage as? Storage, !textStorage.string.isEmpty else {
+            guard let layoutManager = layoutManager, let textView = textView, let textStorage = layoutManager.textStorage, !textStorage.string.isEmpty else {
                 return
             }
 
@@ -73,7 +73,7 @@ extension CheckBoxTapHandler: UIGestureRecognizerDelegate {
         if gestureRecognizer != tapGestureRecognizer {
             return true
         }
-        guard let layoutManager = layoutManager, let textView = textView, let textStorage = layoutManager.textStorage as? Storage, !textStorage.string.isEmpty else {
+        guard let layoutManager = layoutManager, let textView = textView, let textStorage = layoutManager.textStorage, !textStorage.string.isEmpty else {
             return true
         }
         var result = true

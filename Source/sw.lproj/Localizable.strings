@@ -1,234 +1,231 @@
 /* Crash report email body placeholder */
-"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Please provide as much details as possible about what you were doing when the crash occurred.>";
+"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Tafadhali toa maelezo mengi iwezekanavyo kuhusu ulichokuwa ukifanya wakati ajali ilipotokea.>";
 
 /* Support email body placeholder */
-"<Please state your question or problem here>" = "Please state your question or problem here";
+"<Please state your question or problem here>" = "Tafadhali eleza swali au tatizo lako hapa";
 
 /* An error message */
-"A server installation could not be found. Check the server address." = "A server installation could not be found. Check the server address.";
+"A server installation could not be found. Check the server address." = "Usakinishaji wa seva haukuweza kupatikana. Angalia anwani ya seva.";
 
 /* Acknowledgements */
-"Acknowledgements" = "Acknowledgements";
+"Acknowledgements" = "Shukrani";
 
 /* Title of alert for adding a category */
-"Add Category" = "Add category";
+"Add Category" = "Ongeza kategoria";
 
 /* Item to show all notes */
-"All" = "All";
+"All" = "Zote";
 
 /* A menu action
    A menu option for cancelling */
 "Cancel" = "Ghaili";
 
 /* Header title, categories */
-"CATEGORIES" = "CATEGORIES";
+"CATEGORIES" = "KATEGORIA";
 
 /* 'Category' menu item */
-"Category" = "Category";
+"Category" = "Kategoria";
 
 /* Action to change category of a note */
-"Category…" = "Category…";
+"Category…" = "Kategoria…";
 
 /* Action to change category of a note */
-"Change Category…" = "Change category…";
+"Change Category…" = "Badili kategoria…";
 
 /* An error message */
-"Check username and password." = "Check username and password.";
+"Check username and password." = "Angalia jina la mtumiaji na nenosiri.";
 
 /* Title of a button allowing the user to close the login screen and sync with the server */
-"Close & Sync" = "Close & Sync";
+"Close & Sync" = "Funga na Usawazishe";
 
 /* Crash report email subject */
-"NextcloudNotes Crash Report" = "NextcloudNotes Crash Report";
+"NextcloudNotes Crash Report" = "Ripoti ya Ajali ya NextcloudNotes";
 
 /* No comment provided by engineer. */
-"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?";
+"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "NextcloudNotes ilianguka mara ya mwisho ilipozinduliwa. Unataka kutuma ripoti kwa msanidi programu?";
 
 /* Support email subject */
-"NextcloudNotes Support Request" = "NextcloudNotes Support Request";
+"NextcloudNotes Support Request" = "Ombi la Msaada wa NextcloudNotes";
 
 /* A button title */
-"Connect" = "Connect";
+"Connect" = "Unganisha";
 
 /* Status information, connected */
-"Connected to Notes on the server" = "Connected to Notes on the server";
+"Connected to Notes on the server" = "Imeunganishwa na Vidokezo kwenye seva";
 
 /* An error message title */
-"Connection failure" = "Connection failure";
+"Connection failure" = "Hitilafu ya muunganisho";
 
 /* Alert view title */
-"Crash Detected" = "Crash detected";
+"Crash Detected" = "Ajali imetambuliwa";
 
 /* Action to delete a note */
 "Delete" = "Futa";
 
 /* A menu action */
-"Delete Note" = "Delete cote";
+"Delete Note" = "Futa cote";
 
 /* Prompt on alert for adding a category */
-"Enter a name for the new category" = "Enter a name for the new category";
+"Enter a name for the new category" = "Weka jina la kategoria mpya";
 
 /* The title of an error message */
-"Error Adding Note" = "Error adding note";
+"Error Adding Note" = "Hitilafu katika kuongeza dokezo";
 
 /* The title of an error message */
-"Error Deleting Note" = "Error deleting note";
+"Error Deleting Note" = "Hitilafu katika kufuta dokezo";
 
 /* The title of an error message */
-"Error Getting Note" = "Error getting note";
+"Error Getting Note" = "Hitilafu katika kupata dokezo";
 
 /* The title of an error message */
-"Error Syncing Notes" = "Error syncing notes";
+"Error Syncing Notes" = "Hitilafu katika kusawazisha madokezo";
 
 /* The title of an error message */
-"Error Updating Note" = "Error updating note";
+"Error Updating Note" = "Hitilafu katika kusasisha dokezo";
 
 /* The title of an error message */
-"Error Updating Notes" = "Error updating notes";
+"Error Updating Notes" = "Hitilafu katika kusasisha madokezo";
 
 /* An error message */
-"Failed to connect to a server. Check your settings." = "Failed to connect to a server. Check your settings.";
+"Failed to connect to a server. Check your settings." = "Imeshindwa kuunganisha kwenye seva. Angalia mipangilio yako.";
 
 /* Item to show favorite notes */
-"Favorites" = "Favorites";
+"Favorites" = "Vipendwa";
 
 /* A menu option for plain sharing in html format */
 "HTML" = "HTML";
 
 /* A status label indicating that the user is logged in */
-"Logged In" = "Logged in";
+"Logged In" = "Umeingia";
 
 /* Header title, main */
-"MAIN" = "MAIN";
+"MAIN" = "KUU";
 
 /* A menu option for sharing in markdown format */
-"Markdown" = "Markdown";
+"Markdown" = "Weka alama";
 
 /* The title of a new note */
-"New note" = "New note";
+"New note" = "Dokezo jipya";
 
 /* No comment provided by engineer. */
-"No thanks" = "No thanks";
+"No thanks" = "Hapana asante";
 
 /* Status information, not connected */
-"Not connected to Notes on a server" = "Not connected to Notes on a server";
+"Not connected to Notes on a server" = "Haijaunganishwa kwa madokezo kwenye seva";
 
 /* A status label indicating that the user is not logged in */
-"Not Logged In" = "Not logged in";
+"Not Logged In" = "Hujaingia";
 
 /* Message about not being logged in */
-"Not logged in" = "Not logged in";
+"Not logged in" = "Hujaingia";
 
 /* Title of alert to change title */
-"Note Title" = "Note title";
+"Note Title" = "Kichwa cha dokezo";
 
 /* An error message */
-"Notes could not be found on your server. Make sure it is installed and enabled" = "Notes could not be found on your server. Make sure it is installed and enabled";
+"Notes could not be found on your server. Make sure it is installed and enabled" = "Madokezo hayakuweza kupatikana kwenye seva yako. Hakikisha kuwa imesakinishwa na kuwezeshwa";
 
 /* An error message title */
-"Notes not found" = "Notes not found";
+"Notes not found" = "Madokezo hayapatikani";
 
 /* Button, OK */
-"OK" = "OK";
+"OK" = "Sawa";
 
 /* Title for Open In activity */
-"Open in…" = "Open in…";
+"Open in…" = "Fungua katika...";
 
 /* A menu option for sharing in plain text format */
-"Plain Text" = "Plain text";
+"Plain Text" = "Maandishi tupu";
 
 /* A message
    A message to check network connection */
-"Please check network connection and login." = "Please check network connection and login.";
+"Please check network connection and login." = "Tafadhali angalia muunganisho wa mtandao na uingie.";
 
 /* A button title */
-"Reconnect" = "Reconnect";
+"Reconnect" = "Unganisha upya";
 
 /* Action to change title of a note
    Caption of Rename button */
 "Rename" = "Badili jina";
 
 /* Message of alert to change title */
-"Rename the note" = "Rename the note";
+"Rename the note" = "Badilisha jina la dokezo";
 
 /* Action to change title of a note */
-"Rename…" = "Rename…";
+"Rename…" = "Badilisha jina…";
 
 /* A menu option for sharing in rich text format */
-"Rich Text" = "Rich text";
+"Rich Text" = "Nakala tajiri";
 
 /* Placeholder text when no note is selected */
-"Select or create a note." = "Select or create a note.";
+"Select or create a note." = "Chagua au unda dokezo.";
 
 /* Alert title for selecting server brand */
-"Server" = "Server";
+"Server" = "Seva";
 
 /* An error message title */
-"Server not found" = "Server not found";
+"Server not found" = "Seva haipatikani";
 
 /* A message title */
-"Server Reachable" = "Server reachable";
+"Server Reachable" = "Seva inayoweza kufikiwa";
 
 /* Title of a menu with sharing options */
-"Share Note As" = "Share note as";
+"Share Note As" = "Shiriki dokezo kama";
 
 /* A message title */
-"Success" = "Success";
+"Success" = "Mafanikio";
 
 /* A message */
-"The network connection is working properly." = "The network connection is working properly.";
+"The network connection is working properly." = "Muunganisho wa mtandao unafanya kazi vizuri.";
 
 /* An error message */
-"The note does not exist" = "The note does not exist";
+"The note does not exist" = "Dokezo halipo";
 
 /* Alert message for selecting server brand */
-"Unable to automatically detect type of server.\nPlease select:" = "Unable to automatically detect type of server.\nPlease select:";
+"Unable to automatically detect type of server.\nPlease select:" = "Haiwezi kutambua aina ya seva kiotomatiki.\nTafadhali chagua:";
 
 /* A message title
    The title of an error message */
-"Unable to Reach Server" = "Unable to reach server";
+"Unable to Reach Server" = "Imeshindwa kufikia seva";
 
 /* An error message title */
-"Unauthorized" = "Unauthorized";
+"Unauthorized" = "Haijaidhinishwa";
 
 /* Text displayed for notes not assigned to a category */
-"Uncategorized" = "Uncategorized";
+"Uncategorized" = "Isiyowekwa katika kategoria";
 
 /* Message with Notes version, product name and version */
-"Using Notes %@on %@ %@." = "Using Notes %@on %@ %@.";
+"Using Notes %@on %@ %@." = "Kwa kutumia madokezo %@on %@ %@.";
 
 /* No comment provided by engineer. */
-"Yes, please!" = "Yes, please!";
+"Yes, please!" = "Ndiyo, tafadhali!";
 
 /* A message */
-"You are now connected to Notes on your server" = "You are now connected to Notes on your server";
+"You are now connected to Notes on your server" = "Sasa umeunganishwa kwa madokezo kwenye seva yako";
 
 /* HUD subtitle when checking server capabilities */
-"Checking server capabilities" = "Checking server capabilities";
+"Checking server capabilities" = "Inaangalia uwezo wa seva";
 
 /* HUD subtitle when checking server settings */
-"Checking server settings" = "Checking server settings";
+"Checking server settings" = "Inaangalia mipangilio ya seva";
 
 /* HUD subtitle when checking server status */
-"Checking server status" = "Checking server status";
+"Checking server status" = "Inakagua hali ya seva ";
 
 /* No comment provided by engineer. */
-"Connection error" = "Connection error";
+"Connection error" = "Hitilafu ya muunganiko";
 
 /* No comment provided by engineer. */
-"Do you want to connect to the server anyway?" = "Do you want to connect to the server anyway?";
-
-/* Message of alert to change notes folder */
-"Enter a name for the folder where notes should be saved on the server" = "Enter a name for the folder where notes should be saved on the server";
+"Do you want to connect to the server anyway?" = "Je unataka kuunganisha kwenye seva vyovyote vile";
 
 /* An error message title */
-"Error" = "Error";
+"Error" = "Hitilafu";
 
 /* No comment provided by engineer. */
-"No" = "No";
+"No" = "Hapana";
 
 /* Title of alert to change notes folder */
-"Notes Folder" = "Notes folder";
+"Notes Folder" = "Folda ya madokezo";
 
 /* A menu option for sharing in pdf format */
 "PDF" = "PDF";
@@ -237,27 +234,44 @@
 "Save" = "Hifadhi";
 
 /* No comment provided by engineer. */
-"The certificate for this server is invalid" = "The certificate for this server is invalid";
+"The certificate for this server is invalid" = "Cheti cha seva hii ni batili";
 
 /* No comment provided by engineer. */
-"View Certificate" = "View certificate";
+"View Certificate" = "Tazama cheti";
 
 /* No comment provided by engineer. */
-"Yes" = "Yes";
+"Yes" = "Ndiyo";
 
 // NEXTCLOUD
 "Select the account to add"   = "Select the account to add";
 
 "Notes" = "Vidokezo";
 
-"Client Version" = "Client Version";
-"Server Version" = "Server Version";
-"Are you sure you want to log out?" = "Are you sure you want to log out?";
 "Cancel" = "Ghaili";
-"Scan QR Code" = "Scan QR Code";
+"Scan QR Code" = "Changanua Msimbo wa QR";
 "Close" = "Funga";
-"Server Address" = "Server Address";
-"The address of your Nextcloud web interface when you open it in your browser." = "The address of your Nextcloud web interface when you open it in your browser.";
-"The entered server address is invalid." = "The entered server address is invalid.";
-"Accounts from our other apps were found on this device. Would you like to add one of these?" = "Accounts from our other apps were found on this device. Would you like to add one of these?";
-"Shared Accounts" = "Shared Accounts";
+"Server Address" = "Anwani ya Seva";
+"The address of your Nextcloud web interface when you open it in your browser." = "Anwani ya kiolesura chako cha Nextcloud unapoifungua kwenye kivinjari chako.";
+"The entered server address is invalid." = "Anwani ya seva iliyokusudiwa si sahihi.";
+"Accounts from our other apps were found on this device. Would you like to add one of these?" = "Akaunti kutoka kwa programu zetu zingine zilipatikana kwenye kifaa hiki. Je, ungependa kuongeza mojawapo ya haya?";
+"Shared Accounts" = "Akaunti Zilizoshirikiwa";
+
+// SettingsView
+"Account" = "Akaunti";
+"Log Out" = "Toka nje";
+"Synchronization" = "Usawazishaji";
+"Synchronize on Start" = "Sawazisha kwenye Mwanzo";
+"Offline Mode" = "Hali ya Nje ya Mtandao";
+"Server Settings" = "Mipangilio ya seva";
+"Notes Path" = "Njia ya madokezo";
+"Internal Editor" = "Mhariri wa Ndani";
+"File Extension" = "Kiendelezi cha faili";
+"About This App" = "Kuhusu programu hii";
+"Client Version" = "Toleo la Mteja";
+"Server Version" = "Toleo la Seva";
+"Privacy and Legal Policy" = "Sera ya Faragha na Kisheria";
+"Show Source Code on GitHub" = "Onyesha Msimbo wa Chanzo kwenye GitHub";
+"Logout" = "Toka nje";
+"Are you sure you want to log out?" = "Je, una uhakika unataka kutoka?";
+"Enter a name for the folder where notes should be saved on the server" = "Ingiza jina la folda ambapo madokezo yanapaswa kuhifadhiwa kwenye seva";
+"Settings" = "Mipangilio";

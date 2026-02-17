@@ -155,7 +155,7 @@
 "Rename…" = "Renommer...";
 
 /* A menu option for sharing in rich text format */
-"Rich Text" = "Texte riche";
+"Rich Text" = "Texte enrichi";
 
 /* Placeholder text when no note is selected */
 "Select or create a note." = "Sélectionner ou créer une note";
@@ -218,9 +218,6 @@
 /* No comment provided by engineer. */
 "Do you want to connect to the server anyway?" = "Souhaitez-vous quand même vous connecter au serveur ?";
 
-/* Message of alert to change notes folder */
-"Enter a name for the folder where notes should be saved on the server" = "Entrez un nom pour le dossier où les notes seront sauvegardées sur le serveur.";
-
 /* An error message title */
 "Error" = "Erreur";
 
@@ -250,14 +247,31 @@
 
 "Notes" = "Notes";
 
-"Client Version" = "Client Version";
-"Server Version" = "Server Version";
-"Are you sure you want to log out?" = "Are you sure you want to log out?";
 "Cancel" = "Cancel";
-"Scan QR Code" = "Scan QR Code";
+"Scan QR Code" = "Scanner le QR code";
 "Close" = "Fermer";
-"Server Address" = "Server Address";
-"The address of your Nextcloud web interface when you open it in your browser." = "The address of your Nextcloud web interface when you open it in your browser.";
-"The entered server address is invalid." = "The entered server address is invalid.";
-"Accounts from our other apps were found on this device. Would you like to add one of these?" = "Accounts from our other apps were found on this device. Would you like to add one of these?";
-"Shared Accounts" = "Shared Accounts";
+"Server Address" = "Adresse du serveur";
+"The address of your Nextcloud web interface when you open it in your browser." = "L'adresse de votre interface Nextcloud quand vous l'ouvrez dans votre navigateur.";
+"The entered server address is invalid." = "L'adresse du serveur saisie n'est pas valide.";
+"Accounts from our other apps were found on this device. Would you like to add one of these?" = "Des comptes provenant de nos autres applications ont été trouvés sur cet appareil. Souhaitez-vous en ajouter un ?";
+"Shared Accounts" = "Comptes partagés";
+
+// SettingsView
+"Account" = "Compte";
+"Log Out" = "Déconnexion";
+"Synchronization" = "Synchronisation";
+"Synchronize on Start" = "Synchroniser au démarrage";
+"Offline Mode" = "Mode hors connexion";
+"Server Settings" = "Paramètres du serveur";
+"Notes Path" = "Chemin d'accès des notes";
+"Internal Editor" = "Editeur interne";
+"File Extension" = "Extension de fichier";
+"About This App" = "A propos de cette application";
+"Client Version" = "Version du client";
+"Server Version" = "Version du serveur";
+"Privacy and Legal Policy" = "Politique de confidentialité et juridique";
+"Show Source Code on GitHub" = "Voir le code source sur GitHub";
+"Logout" = "Déconnexion";
+"Are you sure you want to log out?" = "Êtes-vous sûr de vouloir vous déconnecter ?";
+"Enter a name for the folder where notes should be saved on the server" = "Entrez un nom pour le dossier où les notes seront sauvegardées sur le serveur.";
+"Settings" = "Paramètres";

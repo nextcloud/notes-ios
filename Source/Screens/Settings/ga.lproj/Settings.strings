@@ -59,9 +59,6 @@
 /* Class = "UITableViewSection"; headerTitle = "Account"; ObjectID = "qGs-TC-y20"; */
 "qGs-TC-y20.headerTitle" = "Cuntas";
 
-/* Class = "UITextView"; accessibilityHint = "Placeholder for legal text content: Do not translate!"; ObjectID = "smL-9H-BiT"; */
-"smL-9H-BiT.accessibilityHint" = "Placeholder for legal text content: Do not translate!";
-
 /* Class = "UILabel"; text = "Plain Text (.txt)"; ObjectID = "uVd-ib-jy0"; Note = "Do not translate"; */
 "uVd-ib-jy0.text" = "Gnáth-théacs (.txt)";
 
