@@ -27,10 +27,10 @@
 "Category" = "Kategorie";
 
 /* Action to change category of a note */
-"Category…" = "Kategorie…";
+"Category…" = "Kategorie …";
 
 /* Action to change category of a note */
-"Change Category…" = "Změnit kategorii…";
+"Change Category…" = "Změnit kategorii …";
 
 /* An error message */
 "Check username and password." = "Zkontrolujte uživatelské jméno a heslo.";
@@ -132,7 +132,7 @@
 "OK" = "OK";
 
 /* Title for Open In activity */
-"Open in…" = "Otevřít v…";
+"Open in…" = "Otevřít v …";
 
 /* A menu option for sharing in plain text format */
 "Plain Text" = "Neformátovaný text";
@@ -152,7 +152,7 @@
 "Rename the note" = "Přejmenovat poznámku";
 
 /* Action to change title of a note */
-"Rename…" = "Přejmenovat…";
+"Rename…" = "Přejmenovat …";
 
 /* A menu option for sharing in rich text format */
 "Rich Text" = "Formátovaný text";

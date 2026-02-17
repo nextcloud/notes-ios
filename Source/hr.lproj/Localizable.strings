@@ -135,7 +135,7 @@
 "Open in…" = "Open in…";
 
 /* A menu option for sharing in plain text format */
-"Plain Text" = "Plain text";
+"Plain Text" = "Običan tekst";
 
 /* A message
    A message to check network connection */
@@ -155,7 +155,7 @@
 "Rename…" = "Rename…";
 
 /* A menu option for sharing in rich text format */
-"Rich Text" = "Rich text";
+"Rich Text" = "Obogaćeni tekst";
 
 /* Placeholder text when no note is selected */
 "Select or create a note." = "Select or create a note.";
@@ -225,7 +225,7 @@
 "No" = "No";
 
 /* Title of alert to change notes folder */
-"Notes Folder" = "Notes folder";
+"Notes Folder" = "Mapa bilješki";
 
 /* A menu option for sharing in pdf format */
 "PDF" = "PDF";
@@ -243,7 +243,7 @@
 "Yes" = "Yes";
 
 // NEXTCLOUD
-"Select the account to add"   = "Select the account to add";
+"Select the account to add"   = "Odaberite račun za dodavanje";
 
 "Notes" = "Notes";
 
@@ -269,7 +269,7 @@
 "About This App" = "About This App";
 "Client Version" = "Client Version";
 "Server Version" = "Server Version";
-"Privacy and Legal Policy" = "Privacy and Legal Policy";
+"Privacy and Legal Policy" = "Pravila privatnosti i pravne napomene";
 "Show Source Code on GitHub" = "Show Source Code on GitHub";
 "Logout" = "Logout";
 "Are you sure you want to log out?" = "Are you sure you want to log out?";

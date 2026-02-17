@@ -2,7 +2,7 @@
 "<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<クラッシュが起きたときに何をしていたかできるだけ詳しく教えてください。>";
 
 /* Support email body placeholder */
-"<Please state your question or problem here>" = "Please state your question or problem here";
+"<Please state your question or problem here>" = "ご質問やご問題がございましたら、ここにご記入ください。";
 
 /* An error message */
 "A server installation could not be found. Check the server address." = "A server installation could not be found. Check the server address.";
@@ -186,7 +186,7 @@
 
 /* A message title
    The title of an error message */
-"Unable to Reach Server" = "Unable to reach server";
+"Unable to Reach Server" = "サーバーにアクセスできません";
 
 /* An error message title */
 "Unauthorized" = "Unauthorized";
@@ -248,8 +248,8 @@
 "Notes" = "Notes";
 
 "Cancel" = "Cancel";
-"Scan QR Code" = "Scan QR Code";
-"Close" = "Close";
+"Scan QR Code" = "QR Codeをスキャン";
+"Close" = "閉じる";
 "Server Address" = "Server Address";
 "The address of your Nextcloud web interface when you open it in your browser." = "The address of your Nextcloud web interface when you open it in your browser.";
 "The entered server address is invalid." = "The entered server address is invalid.";
@@ -258,7 +258,7 @@
 
 // SettingsView
 "Account" = "Account";
-"Log Out" = "Log Out";
+"Log Out" = "ログアウト";
 "Synchronization" = "同期中";
 "Synchronize on Start" = "Synchronize on Start";
 "Offline Mode" = "Offline Mode";

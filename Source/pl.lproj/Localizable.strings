@@ -135,7 +135,7 @@
 "Open in…" = "Otwórz w...";
 
 /* A menu option for sharing in plain text format */
-"Plain Text" = "Plain text";
+"Plain Text" = "Zwykły tekst";
 
 /* A message
    A message to check network connection */
@@ -155,7 +155,7 @@
 "Rename…" = "Rename…";
 
 /* A menu option for sharing in rich text format */
-"Rich Text" = "Rich text";
+"Rich Text" = "Tekst sformatowany";
 
 /* Placeholder text when no note is selected */
 "Select or create a note." = "Select or create a note.";
@@ -164,7 +164,7 @@
 "Server" = "Server";
 
 /* An error message title */
-"Server not found" = "Server not found";
+"Server not found" = "Nie odnaleziono serwera";
 
 /* A message title */
 "Server Reachable" = "Server reachable";
@@ -225,7 +225,7 @@
 "No" = "Nie";
 
 /* Title of alert to change notes folder */
-"Notes Folder" = "Notes folder";
+"Notes Folder" = "Katalog notatek";
 
 /* A menu option for sharing in pdf format */
 "PDF" = "PDF";

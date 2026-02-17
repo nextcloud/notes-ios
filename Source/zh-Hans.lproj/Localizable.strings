@@ -24,7 +24,7 @@
 "CATEGORIES" = "CATEGORIES";
 
 /* 'Category' menu item */
-"Category" = "Category";
+"Category" = "分类";
 
 /* Action to change category of a note */
 "Category…" = "Category…";
@@ -48,7 +48,7 @@
 "NextcloudNotes Support Request" = "NextcloudNotes Support Request";
 
 /* A button title */
-"Connect" = "Connect";
+"Connect" = "连接";
 
 /* Status information, connected */
 "Connected to Notes on the server" = "Connected to Notes on the server";
@@ -135,14 +135,14 @@
 "Open in…" = "在…中打开";
 
 /* A menu option for sharing in plain text format */
-"Plain Text" = "Plain text";
+"Plain Text" = "纯文本";
 
 /* A message
    A message to check network connection */
 "Please check network connection and login." = "Please check network connection and login.";
 
 /* A button title */
-"Reconnect" = "Reconnect";
+"Reconnect" = "重新连接";
 
 /* Action to change title of a note
    Caption of Rename button */
@@ -155,13 +155,13 @@
 "Rename…" = "Rename…";
 
 /* A menu option for sharing in rich text format */
-"Rich Text" = "Rich text";
+"Rich Text" = "富文本";
 
 /* Placeholder text when no note is selected */
 "Select or create a note." = "Select or create a note.";
 
 /* Alert title for selecting server brand */
-"Server" = "Server";
+"Server" = "服务器";
 
 /* An error message title */
 "Server not found" = "无法找到服务器";
@@ -173,7 +173,7 @@
 "Share Note As" = "Share note as";
 
 /* A message title */
-"Success" = "Success";
+"Success" = "成功";
 
 /* A message */
 "The network connection is working properly." = "The network connection is working properly.";
@@ -189,10 +189,10 @@
 "Unable to Reach Server" = "Unable to reach server";
 
 /* An error message title */
-"Unauthorized" = "Unauthorized";
+"Unauthorized" = "未授权";
 
 /* Text displayed for notes not assigned to a category */
-"Uncategorized" = "Uncategorized";
+"Uncategorized" = "未分类";
 
 /* Message with Notes version, product name and version */
 "Using Notes %@on %@ %@." = "Using Notes %@on %@ %@.";
@@ -225,7 +225,7 @@
 "No" = "No";
 
 /* Title of alert to change notes folder */
-"Notes Folder" = "Notes folder";
+"Notes Folder" = "笔记文件夹";
 
 /* A menu option for sharing in pdf format */
 "PDF" = "PDF";

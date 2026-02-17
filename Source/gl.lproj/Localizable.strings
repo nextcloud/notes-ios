@@ -182,7 +182,7 @@
 "The note does not exist" = "A nota non existe";
 
 /* Alert message for selecting server brand */
-"Unable to automatically detect type of server.\nPlease select:" = "Non foi posíbel detectar automaticamente o tipo de servidor.\nSeleccione:";
+"Unable to automatically detect type of server.\nPlease select:" = "Non é posíbel detectar automaticamente o tipo de servidor.\nSeleccione:";
 
 /* A message title
    The title of an error message */
@@ -204,7 +204,7 @@
 "You are now connected to Notes on your server" = "Agora está conectado a Notas no seu servidor";
 
 /* HUD subtitle when checking server capabilities */
-"Checking server capabilities" = "Comprobar as capacidades do servidor";
+"Checking server capabilities" = "Comprobar as funcionalidades do servidor";
 
 /* HUD subtitle when checking server settings */
 "Checking server settings" = "Comprobando os axustes do servidor";
@@ -248,30 +248,30 @@
 "Notes" = "Notas";
 
 "Cancel" = "Cancelar";
-"Scan QR Code" = "Scan QR Code";
+"Scan QR Code" = "Escanear o código QR";
 "Close" = "Pechar";
-"Server Address" = "Server Address";
-"The address of your Nextcloud web interface when you open it in your browser." = "The address of your Nextcloud web interface when you open it in your browser.";
-"The entered server address is invalid." = "The entered server address is invalid.";
-"Accounts from our other apps were found on this device. Would you like to add one of these?" = "Accounts from our other apps were found on this device. Would you like to add one of these?";
-"Shared Accounts" = "Shared Accounts";
+"Server Address" = "Enderezo do servidor";
+"The address of your Nextcloud web interface when you open it in your browser." = "O enderezo da súa interface web de Nextcloud cando a abre no seu navegador.";
+"The entered server address is invalid." = "O enderezo do servidor introducido non é válido";
+"Accounts from our other apps were found on this device. Would you like to add one of these?" = "As contas das nosas outras aplicacións foron atopadas neste dispositivo. Gustaríalle engadir algunha delas?";
+"Shared Accounts" = "Contas compartidas";
 
 // SettingsView
-"Account" = "Account";
-"Log Out" = "Log Out";
+"Account" = "Conta";
+"Log Out" = "Saír";
 "Synchronization" = "Sincronización";
-"Synchronize on Start" = "Synchronize on Start";
+"Synchronize on Start" = "Sincronizar ao iniciar";
 "Offline Mode" = "Modo sen conexión";
-"Server Settings" = "Server Settings";
-"Notes Path" = "Notes Path";
-"Internal Editor" = "Internal Editor";
+"Server Settings" = "Axustes do servidor";
+"Notes Path" = "Ruta a Notas";
+"Internal Editor" = "Editor interno";
 "File Extension" = "Extensión de ficheiro";
-"About This App" = "About This App";
-"Client Version" = "Client Version";
-"Server Version" = "Server Version";
+"About This App" = "Sobre esta aplicación";
+"Client Version" = "Versión do cliente";
+"Server Version" = "Versión do servidor";
 "Privacy and Legal Policy" = "Directiva legal e de privacidade";
-"Show Source Code on GitHub" = "Show Source Code on GitHub";
-"Logout" = "Logout";
-"Are you sure you want to log out?" = "Are you sure you want to log out?";
+"Show Source Code on GitHub" = "Am osar o código fonte en GitHub";
+"Logout" = "Saír";
+"Are you sure you want to log out?" = "Confirma que quere saír?";
 "Enter a name for the folder where notes should be saved on the server" = "Introduza un nome para o cartafol onde se deben gardar as notas no servidor";
 "Settings" = "Axustes";

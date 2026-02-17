@@ -60,7 +60,7 @@
 "Crash Detected" = "Crash detected";
 
 /* Action to delete a note */
-"Delete" = "Cancella";
+"Delete" = "Elimina";
 
 /* A menu action */
 "Delete Note" = "Delete cote";
@@ -135,7 +135,7 @@
 "Open in…" = "Apri con...";
 
 /* A menu option for sharing in plain text format */
-"Plain Text" = "Plain text";
+"Plain Text" = "Testo semplice";
 
 /* A message
    A message to check network connection */
@@ -155,7 +155,7 @@
 "Rename…" = "Rename…";
 
 /* A menu option for sharing in rich text format */
-"Rich Text" = "Rich text";
+"Rich Text" = "Testo formattato";
 
 /* Placeholder text when no note is selected */
 "Select or create a note." = "Select or create a note.";
@@ -225,7 +225,7 @@
 "No" = "No";
 
 /* Title of alert to change notes folder */
-"Notes Folder" = "Notes folder";
+"Notes Folder" = "Cartella note";
 
 /* A menu option for sharing in pdf format */
 "PDF" = "PDF";

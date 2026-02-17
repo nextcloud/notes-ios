@@ -14,7 +14,7 @@
 "Add Category" = "Add category";
 
 /* Item to show all notes */
-"All" = "All";
+"All" = "Усе";
 
 /* A menu action
    A menu option for cancelling */
@@ -135,7 +135,7 @@
 "Open in…" = "Open in…";
 
 /* A menu option for sharing in plain text format */
-"Plain Text" = "Plain text";
+"Plain Text" = "Звычайны тэкст";
 
 /* A message
    A message to check network connection */
@@ -155,7 +155,7 @@
 "Rename…" = "Перайменаваць…";
 
 /* A menu option for sharing in rich text format */
-"Rich Text" = "Rich text";
+"Rich Text" = "Фарматаваны тэкст";
 
 /* Placeholder text when no note is selected */
 "Select or create a note." = "Select or create a note.";
@@ -164,7 +164,7 @@
 "Server" = "Сервер";
 
 /* An error message title */
-"Server not found" = "Server not found";
+"Server not found" = "Сервер не знойдзены";
 
 /* A message title */
 "Server Reachable" = "Server reachable";
@@ -257,7 +257,7 @@
 "Shared Accounts" = "Shared Accounts";
 
 // SettingsView
-"Account" = "Account";
+"Account" = "Уліковы запіс";
 "Log Out" = "Log Out";
 "Synchronization" = "Сінхранізацыя";
 "Synchronize on Start" = "Synchronize on Start";
