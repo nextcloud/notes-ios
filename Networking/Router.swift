@@ -16,7 +16,9 @@ import Version
 enum Router: URLRequestConvertible {
     case allNotes(exclude: String)
     case getNote(id: Int, exclude: String, etag: String)
+    case getAttachment(noteId: Int, path: String)
     case createNote(parameters: Parameters)
+    case createAttachment(noteId: Int)
     case updateNote(id: Int, paramters: Parameters)
     case deleteNote(id: Int)
     case settings
@@ -27,9 +29,9 @@ enum Router: URLRequestConvertible {
 
     var method: HTTPMethod {
         switch self {
-            case .allNotes, .getNote, .settings:
+            case .allNotes, .getAttachment, .getNote, .settings:
                 return .get
-            case .createNote:
+            case .createNote, .createAttachment:
                 return .post
             case .updateNote, .updateSettings:
                 return .put
@@ -44,6 +46,10 @@ enum Router: URLRequestConvertible {
                 return "/notes"
             case .getNote(let id , _, _):
                 return "/notes/\(id)"
+            case .getAttachment(let noteId, _):
+                return "/attachment/\(noteId)"
+            case .createAttachment(let noteId):
+                return "/attachment/\(noteId)"
             case .createNote:
                 return "/notes"
             case .updateNote(let id, _):
@@ -111,8 +117,19 @@ enum Router: URLRequestConvertible {
                 }
 
                 urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
+            case .getAttachment(_, let attachmentPath):
+                // TODO: Find out why only explicit API version is supported
+                let baseURLString = "\(server)/index.php/apps/notes/api/v1.4"
+                let url = try baseURLString.asURL()
+                urlRequest.url = url.appendingPathComponent(self.path)
+            
+                let parameters = ["path": attachmentPath] as [String: Any]
+                urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
             case .createNote(let parameters):
                 urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
+            case .createAttachment:
+               // Multipart body will be added by AF.upload; nothing to encode here.
+               break
             case .updateNote(_, let parameters):
                 urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
             case .updateSettings(let notesPath, let fileSuffix):

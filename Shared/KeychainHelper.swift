@@ -193,6 +193,10 @@ struct KeychainHelper {
             UserDefaults.standard.set(newValue, forKey: "notesApiVersion")
         }
     }
+    
+    static func notesApiVersionisAtLeast(_ minVersion: String) -> Bool {
+        KeychainHelper.notesApiVersion.compare(minVersion, options: .numeric, range: nil, locale: nil) != .orderedAscending
+    }
 
     static var notesVersion: String {
         get {
