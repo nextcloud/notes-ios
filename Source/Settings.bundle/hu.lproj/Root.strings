@@ -9,11 +9,11 @@
 
 "Acknowledgements" = "Köszönetnyilvánítás";
 
-"Advanced Settings" = "Haladó beállítások";
+"Advanced Settings" = "Speciális beállítások";
 
 "Caution: Turning the switch on will remove all notes locally. Unsynced changes will be lost. Use only if you are experiencing problems." = "Figyelem: a kapcsoló bekapcsolásával minden helyi jegyzet törlésre kerül. A nem szinkronizált változtatások elvesznek. Csak akkora használja, ha hibát tapasztal.";
 
-"Reset local notes database" = "Helyi jegyzet adatbázis visszaállítása";
+"Reset local notes database" = "Helyi jegyzetadatbázis visszaállítása";
 
 "Third-party licenses" = "Harmadik feles licencek";
 
