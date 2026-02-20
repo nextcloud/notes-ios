@@ -63,7 +63,7 @@
 "Delete" = "Futa";
 
 /* A menu action */
-"Delete Note" = "Futa cote";
+"Delete Note" = "Futa note";
 
 /* Prompt on alert for adding a category */
 "Enter a name for the new category" = "Weka jina la kategoria mpya";

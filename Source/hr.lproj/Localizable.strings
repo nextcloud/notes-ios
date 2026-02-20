@@ -63,7 +63,7 @@
 "Delete" = "Obriši";
 
 /* A menu action */
-"Delete Note" = "Delete cote";
+"Delete Note" = "Delete note";
 
 /* Prompt on alert for adding a category */
 "Enter a name for the new category" = "Enter a name for the new category";

@@ -63,7 +63,7 @@
 "Delete" = "삭제";
 
 /* A menu action */
-"Delete Note" = "Delete cote";
+"Delete Note" = "Delete note";
 
 /* Prompt on alert for adding a category */
 "Enter a name for the new category" = "새 분류에 대하여 이름을 입력하십시오.";
