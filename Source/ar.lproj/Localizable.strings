@@ -63,7 +63,7 @@
 "Delete" = "حذف";
 
 /* A menu action */
-"Delete Note" = "حذف الملاحظة";
+"Delete Note" = "حذف الملاحظة ";
 
 /* Prompt on alert for adding a category */
 "Enter a name for the new category" = "أدخل اسم التصنيف الجديد";
@@ -195,7 +195,7 @@
 "Uncategorized" = "غير مصنف";
 
 /* Message with Notes version, product name and version */
-"Using Notes %@on %@ %@." = "استعمال الملاحظات %@on %@ %@.";
+"Using Notes %1$@ on %2$@ %3$@." = "Using Notes %1$@ on %2$@ %3$@.";
 
 /* No comment provided by engineer. */
 "Yes, please!" = "نعم، من فضلك!";

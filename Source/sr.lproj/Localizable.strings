@@ -195,7 +195,7 @@
 "Uncategorized" = "Некатегоризовано";
 
 /* Message with Notes version, product name and version */
-"Using Notes %@on %@ %@." = "Користе се Белешке %@на %@ %@.";
+"Using Notes %1$@ on %2$@ %3$@." = "Using Notes %1$@ on %2$@ %3$@.";
 
 /* No comment provided by engineer. */
 "Yes, please!" = "Да, хвала!";

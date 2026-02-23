@@ -63,7 +63,7 @@
 "Delete" = "Verwijderen";
 
 /* A menu action */
-"Delete Note" = "Notitie verwijderen";
+"Delete Note" = "Verwijder notitie";
 
 /* Prompt on alert for adding a category */
 "Enter a name for the new category" = "Voer een naam in voor de nieuwe categorie";
@@ -195,7 +195,7 @@
 "Uncategorized" = "Niet gecategoriseerd ";
 
 /* Message with Notes version, product name and version */
-"Using Notes %@on %@ %@." = "Notes %@ op %@ %@.";
+"Using Notes %1$@ on %2$@ %3$@." = "Using Notes %1$@ on %2$@ %3$@.";
 
 /* No comment provided by engineer. */
 "Yes, please!" = "Ja, graag!";

@@ -195,7 +195,7 @@
 "Uncategorized" = "Kategooria on märkimata";
 
 /* Message with Notes version, product name and version */
-"Using Notes %@on %@ %@." = "Kasutusel on Märkmete rakendus %@, %@, %@.";
+"Using Notes %1$@ on %2$@ %3$@." = "Using Notes %1$@ on %2$@ %3$@.";
 
 /* No comment provided by engineer. */
 "Yes, please!" = "Jah, palun!";

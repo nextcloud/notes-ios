@@ -63,7 +63,7 @@
 "Delete" = "Delete";
 
 /* A menu action */
-"Delete Note" = "Odstrániť poznámku";
+"Delete Note" = "Zmazať poznámku";
 
 /* Prompt on alert for adding a category */
 "Enter a name for the new category" = "Vložte meno novej kategórie";
@@ -195,7 +195,7 @@
 "Uncategorized" = "Nezaradené";
 
 /* Message with Notes version, product name and version */
-"Using Notes %@on %@ %@." = "Používa Notes %@na %@ %@.";
+"Using Notes %1$@ on %2$@ %3$@." = "Using Notes %1$@ on %2$@ %3$@.";
 
 /* No comment provided by engineer. */
 "Yes, please!" = "Áno, prosím!";

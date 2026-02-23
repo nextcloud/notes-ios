@@ -63,7 +63,7 @@
 "Delete" = "Skasuj";
 
 /* A menu action */
-"Delete Note" = "Delete cote";
+"Delete Note" = "Usuń notatkę";
 
 /* Prompt on alert for adding a category */
 "Enter a name for the new category" = "Enter a name for the new category";
@@ -195,7 +195,7 @@
 "Uncategorized" = "Uncategorized";
 
 /* Message with Notes version, product name and version */
-"Using Notes %@on %@ %@." = "Using Notes %@on %@ %@.";
+"Using Notes %1$@ on %2$@ %3$@." = "Using Notes %1$@ on %2$@ %3$@.";
 
 /* No comment provided by engineer. */
 "Yes, please!" = "Yes, please!";

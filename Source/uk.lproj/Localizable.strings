@@ -63,7 +63,7 @@
 "Delete" = "Вилучити";
 
 /* A menu action */
-"Delete Note" = "Видалити цитату";
+"Delete Note" = "Вилучити";
 
 /* Prompt on alert for adding a category */
 "Enter a name for the new category" = "Введіть назву для нової категорії";
@@ -195,7 +195,7 @@
 "Uncategorized" = "Некатегоризоване";
 
 /* Message with Notes version, product name and version */
-"Using Notes %@on %@ %@." = "Використання Нотаток %@ на %@ %@.";
+"Using Notes %1$@ on %2$@ %3$@." = "Using Notes %1$@ on %2$@ %3$@.";
 
 /* No comment provided by engineer. */
 "Yes, please!" = "Так, будь ласка!";

@@ -63,7 +63,7 @@
 "Delete" = "ئۆچۈر";
 
 /* A menu action */
-"Delete Note" = "خاتىرىنى ئۆ";
+"Delete Note" = "ئۆچۈرۈش";
 
 /* Prompt on alert for adding a category */
 "Enter a name for the new category" = "يېڭى تۈرنىڭ نامىنى كىرگۈز";
@@ -195,7 +195,7 @@
 "Uncategorized" = "تۈرگە ئايرىلمىغان";
 
 /* Message with Notes version, product name and version */
-"Using Notes %@on %@ %@." = "%@on %@ %@ خاتىرىنى ئىشلىتىۋاتىدۇ";
+"Using Notes %1$@ on %2$@ %3$@." = "Using Notes %1$@ on %2$@ %3$@.";
 
 /* No comment provided by engineer. */
 "Yes, please!" = "شۇنداق، رەھمەت!";

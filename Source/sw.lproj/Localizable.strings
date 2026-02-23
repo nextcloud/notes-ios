@@ -63,7 +63,7 @@
 "Delete" = "Futa";
 
 /* A menu action */
-"Delete Note" = "Futa cote";
+"Delete Note" = "Futa dokezo";
 
 /* Prompt on alert for adding a category */
 "Enter a name for the new category" = "Weka jina la kategoria mpya";
@@ -195,7 +195,7 @@
 "Uncategorized" = "Isiyowekwa katika kategoria";
 
 /* Message with Notes version, product name and version */
-"Using Notes %@on %@ %@." = "Kwa kutumia madokezo %@on %@ %@.";
+"Using Notes %1$@ on %2$@ %3$@." = "Using Notes %1$@ on %2$@ %3$@.";
 
 /* No comment provided by engineer. */
 "Yes, please!" = "Ndiyo, tafadhali!";

@@ -63,7 +63,7 @@
 "Delete" = "Eliminar";
 
 /* A menu action */
-"Delete Note" = "Eliminar a nota";
+"Delete Note" = "Eliminar nota";
 
 /* Prompt on alert for adding a category */
 "Enter a name for the new category" = "Introduza o nome da nova categoría";
@@ -195,7 +195,7 @@
 "Uncategorized" = "Sen categorizar";
 
 /* Message with Notes version, product name and version */
-"Using Notes %@on %@ %@." = "Usando Notas %@ en %@ %@.";
+"Using Notes %1$@ on %2$@ %3$@." = "Using Notes %1$@ on %2$@ %3$@.";
 
 /* No comment provided by engineer. */
 "Yes, please!" = "Si, por favor!";

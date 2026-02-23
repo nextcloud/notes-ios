@@ -63,7 +63,7 @@
 "Delete" = "Scrios";
 
 /* A menu action */
-"Delete Note" = "Scrios an chóta";
+"Delete Note" = "Scrios nóta";
 
 /* Prompt on alert for adding a category */
 "Enter a name for the new category" = "Cuir isteach ainm don chatagóir nua";
@@ -195,7 +195,7 @@
 "Uncategorized" = "Gan catagóir";
 
 /* Message with Notes version, product name and version */
-"Using Notes %@on %@ %@." = "Ag Úsáid Nótaí % @ ar %@ %@.";
+"Using Notes %1$@ on %2$@ %3$@." = "Using Notes %1$@ on %2$@ %3$@.";
 
 /* No comment provided by engineer. */
 "Yes, please!" = "Sea, le do thoil!";
