@@ -195,7 +195,7 @@
 "Uncategorized" = "Kategorisiz";
 
 /* Message with Notes version, product name and version */
-"Using Notes %1$@ on %2$@ %3$@." = "Using Notes %1$@ on %2$@ %3$@.";
+"Using Notes %1$@ on %2$@ %3$@." = "Notlar %1$@ ile %2$@ %3$@ üzerinde.";
 
 /* No comment provided by engineer. */
 "Yes, please!" = "Evet, lütfen!";
