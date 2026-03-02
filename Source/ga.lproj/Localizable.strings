@@ -195,7 +195,7 @@
 "Uncategorized" = "Gan catagóir";
 
 /* Message with Notes version, product name and version */
-"Using Notes %1$@ on %2$@ %3$@." = "Using Notes %1$@ on %2$@ %3$@.";
+"Using Notes %1$@ on %2$@ %3$@." = "Ag baint úsáide as Nótaí %1$@ ar %2$@ %3$@.";
 
 /* No comment provided by engineer. */
 "Yes, please!" = "Sea, le do thoil!";
