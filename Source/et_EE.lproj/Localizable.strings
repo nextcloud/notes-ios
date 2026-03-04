@@ -195,7 +195,7 @@
 "Uncategorized" = "Kategooria on märkimata";
 
 /* Message with Notes version, product name and version */
-"Using Notes %1$@ on %2$@ %3$@." = "Using Notes %1$@ on %2$@ %3$@.";
+"Using Notes %1$@ on %2$@ %3$@." = "Kasutusel on Märkmete rakendus %@ serveris %@, %@.";
 
 /* No comment provided by engineer. */
 "Yes, please!" = "Jah, palun!";
@@ -260,11 +260,11 @@
 "Account" = "Kasutajakonto";
 "Log Out" = "Logi välja";
 "Synchronization" = "Sünkroonimine";
-"Synchronize on Start" = "Sünkroonimi käivitamisel";
+"Synchronize on Start" = "Sünkrooni käivitamisel";
 "Offline Mode" = "Vallasrežiim";
 "Server Settings" = "Serveri seadistused";
 "Notes Path" = "Märkmete asukoht";
-"Internal Editor" = "Sisemine toimeti";
+"Internal Editor" = "Sisseehitatud tekstitoimeti";
 "File Extension" = "Faililaiend";
 "About This App" = "Rakenduse teave: Märkmed";
 "Client Version" = "Kliendi versioon";
