@@ -195,7 +195,7 @@
 "Uncategorized" = "未分類";
 
 /* Message with Notes version, product name and version */
-"Using Notes %1$@ on %2$@ %3$@." = "Using Notes %1$@ on %2$@ %3$@.";
+"Using Notes %1$@ on %2$@ %3$@." = "使用 Notes  %1$@ 在 %2$@ %3$@ 上。";
 
 /* No comment provided by engineer. */
 "Yes, please!" = "是的，請這樣做！";
