@@ -27,10 +27,10 @@
 "Category" = "Kategorie";
 
 /* Action to change category of a note */
-"Category…" = "Kategorie…";
+"Category…" = "Kategorie …";
 
 /* Action to change category of a note */
-"Change Category…" = "Kategorie ändern…";
+"Change Category…" = "Kategorie ändern …";
 
 /* An error message */
 "Check username and password." = "Benutzername und Passwort prüfen.";
@@ -132,14 +132,14 @@
 "OK" = "Ok";
 
 /* Title for Open In activity */
-"Open in…" = "Öffnen in…";
+"Open in…" = "Öffnen in …";
 
 /* A menu option for sharing in plain text format */
 "Plain Text" = "Klartext";
 
 /* A message
    A message to check network connection */
-"Please check network connection and login." = "Bitte die Netzwerkverbindung überprüfen und melden Sie sich an.";
+"Please check network connection and login." = "Bitte die Netzwerkverbindung überprüfen und anmelden.";
 
 /* A button title */
 "Reconnect" = "Wiederverbinden";
@@ -225,7 +225,7 @@
 "No" = "Nein";
 
 /* Title of alert to change notes folder */
-"Notes Folder" = "Notizenordner";
+"Notes Folder" = "Notizen-Ordner";
 
 /* A menu option for sharing in pdf format */
 "PDF" = "PDF";
