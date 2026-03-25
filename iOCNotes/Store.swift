@@ -297,11 +297,7 @@ final class Store: Logging, Storing {
             KeychainHelper.syncOnStart = newValue
         }
     }
-}
 
-// MARK: - ServerAddressViewDelegate
-
-extension Store: ServerAddressViewDelegate {
     private func getResponse(endpoint: URL, token: String, options: NKRequestOptions) async -> (url: String, user: String, appPassword: String)? {
         logger.debug("Getting login flow status...")
 

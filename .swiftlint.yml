@@ -40,5 +40,9 @@ large_tuple:
     warning: 4
     error: 6
 
+type_body_length:
+    warning: 300
+    error: 400
+    
 switch_case_alignment:
     indented_cases: true
