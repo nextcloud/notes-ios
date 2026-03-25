@@ -35,11 +35,18 @@ struct ContentView: View {
 
     var body: some View {
         if store.accounts.isEmpty {
-            ServerAddressView(backgroundColor: .constant(Color.accent), brandImage: Image("BrandLogo"), delegate: store, sharedAccounts: sharedAccounts, userAgent: userAgent)
-                .onAppear {
-                    // The store must update its list of shared accounts when the login user interface is about to appear.
-                    store.readSharedAccounts()
-                }
+            ServerAddressView(backgroundColor: .constant(Color.accent), brandImage: Image("BrandLogo"), sharedAccounts: sharedAccounts, userAgent: userAgent) { host, name, password in
+                store.addAccount(host: host, name: name, password: password)
+            } beginPolling: { url, _ in
+               try await store.beginPolling(at: url)
+            } cancelPolling: { token in
+                store.cancelPolling(by: token)
+            }
+            .onAppear {
+                // The store must update its list of shared accounts when the login user interface is about to appear.
+                store.readSharedAccounts()
+            }
+
         } else {
             TabView(selection: $selection) {
                 NavigationStack {
