@@ -16,6 +16,7 @@ GoogleService-Info.plist
 DevicePushKey-Info.plist
 
 ## Xcode
+*.xcuserstate
 .DS_Store
 */build/*
 *.pbxuser
