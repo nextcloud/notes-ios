@@ -135,7 +135,7 @@
 "Open in…" = "Open in…";
 
 /* A menu option for sharing in plain text format */
-"Plain Text" = "Plain text";
+"Plain Text" = "Grynasis tekstas";
 
 /* A message
    A message to check network connection */
@@ -225,7 +225,7 @@
 "No" = "Ne";
 
 /* Title of alert to change notes folder */
-"Notes Folder" = "Notes folder";
+"Notes Folder" = "Užrašų aplankas";
 
 /* A menu option for sharing in pdf format */
 "PDF" = "PDF";
