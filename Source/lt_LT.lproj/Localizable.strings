@@ -8,7 +8,7 @@
 "A server installation could not be found. Check the server address." = "A server installation could not be found. Check the server address.";
 
 /* Acknowledgements */
-"Acknowledgements" = "Acknowledgements";
+"Acknowledgements" = "Padėkos";
 
 /* Title of alert for adding a category */
 "Add Category" = "Pridėti kategoriją";
@@ -243,7 +243,7 @@
 "Yes" = "Taip";
 
 // NEXTCLOUD
-"Select the account to add"   = "Select the account to add";
+"Select the account to add"   = "Pasirinkite paskyrą, kurią norite pridėti";
 
 "Notes" = "Pastabos";
 
@@ -269,7 +269,7 @@
 "About This App" = "About This App";
 "Client Version" = "Client Version";
 "Server Version" = "Server Version";
-"Privacy and Legal Policy" = "Privacy and Legal Policy";
+"Privacy and Legal Policy" = "Privatumo ir teisinė politika";
 "Show Source Code on GitHub" = "Show Source Code on GitHub";
 "Logout" = "Logout";
 "Are you sure you want to log out?" = "Are you sure you want to log out?";
