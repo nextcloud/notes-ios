@@ -5,7 +5,7 @@
 "<Please state your question or problem here>" = "Pateikite čia savo klausimą ar problemą";
 
 /* An error message */
-"A server installation could not be found. Check the server address." = "A server installation could not be found. Check the server address.";
+"A server installation could not be found. Check the server address." = "Nepavyko rasti serverio. Patikrinkite serverio adresą.";
 
 /* Acknowledgements */
 "Acknowledgements" = "Padėkos";
@@ -14,7 +14,7 @@
 "Add Category" = "Pridėti kategoriją";
 
 /* Item to show all notes */
-"All" = "All";
+"All" = "Visos";
 
 /* A menu action
    A menu option for cancelling */
@@ -36,22 +36,22 @@
 "Check username and password." = "Patikrinkite naudotojo vardą ir slaptažodį.";
 
 /* Title of a button allowing the user to close the login screen and sync with the server */
-"Close & Sync" = "Close & Sync";
+"Close & Sync" = "Uždaryti ir sinchronizuoti";
 
 /* Crash report email subject */
-"NextcloudNotes Crash Report" = "NextcloudNotes Crash Report";
+"NextcloudNotes Crash Report" = "Nextcloud „Užrašų“ gedimų ataskaita";
 
 /* No comment provided by engineer. */
-"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?";
+"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "Nextcloud „Užrašai“ sugedo paskutinį kartą ją paleidus. Ar norite nusiųsti ataskaitą kūrėjui?";
 
 /* Support email subject */
-"NextcloudNotes Support Request" = "NextcloudNotes Support Request";
+"NextcloudNotes Support Request" = "Nextcloud „Užrašai“ pagalbos užklausimas";
 
 /* A button title */
-"Connect" = "Connect";
+"Connect" = "Prisijungti";
 
 /* Status information, connected */
-"Connected to Notes on the server" = "Connected to Notes on the server";
+"Connected to Notes on the server" = "Susieta su „Užrašais“ serveryje";
 
 /* An error message title */
 "Connection failure" = "Ryšio nesėkmė";
@@ -66,43 +66,43 @@
 "Delete Note" = "Ištrinti užrašus";
 
 /* Prompt on alert for adding a category */
-"Enter a name for the new category" = "Enter a name for the new category";
+"Enter a name for the new category" = "Įveskite naujos kategorijos pavadinimą";
 
 /* The title of an error message */
-"Error Adding Note" = "Error adding note";
+"Error Adding Note" = "Klaida pridedant užrašą";
 
 /* The title of an error message */
-"Error Deleting Note" = "Error deleting note";
+"Error Deleting Note" = "Klaida trinant užrašą";
 
 /* The title of an error message */
-"Error Getting Note" = "Error getting note";
+"Error Getting Note" = "Klaida gaunant užrašą";
 
 /* The title of an error message */
-"Error Syncing Notes" = "Error syncing notes";
+"Error Syncing Notes" = "Klaida sinchronizuojant užrašus";
 
 /* The title of an error message */
-"Error Updating Note" = "Error updating note";
+"Error Updating Note" = "Klaida atnaujinant užrašą";
 
 /* The title of an error message */
-"Error Updating Notes" = "Error updating notes";
+"Error Updating Notes" = "Klaida atnaujinant užrašus";
 
 /* An error message */
 "Failed to connect to a server. Check your settings." = "Nepavyko prisijungti prie serverio. Patikrinkite nustatymus.";
 
 /* Item to show favorite notes */
-"Favorites" = "Favorites";
+"Favorites" = "Mėgstami";
 
 /* A menu option for plain sharing in html format */
 "HTML" = "HTML";
 
 /* A status label indicating that the user is logged in */
-"Logged In" = "Logged in";
+"Logged In" = "Prisijungta";
 
 /* Header title, main */
-"MAIN" = "MAIN";
+"MAIN" = "PAGRINDINIS";
 
 /* A menu option for sharing in markdown format */
-"Markdown" = "Markdown";
+"Markdown" = "„Markdown“";
 
 /* The title of a new note */
 "New note" = "Nauji užrašai";
@@ -111,54 +111,54 @@
 "No thanks" = "Ne, ačiū";
 
 /* Status information, not connected */
-"Not connected to Notes on a server" = "Not connected to Notes on a server";
+"Not connected to Notes on a server" = "Nesujungta su „Užrašai“ serveryje";
 
 /* A status label indicating that the user is not logged in */
-"Not Logged In" = "Not logged in";
+"Not Logged In" = "Neprisijungta";
 
 /* Message about not being logged in */
-"Not logged in" = "Not logged in";
+"Not logged in" = "Neprisijungta";
 
 /* Title of alert to change title */
-"Note Title" = "Note title";
+"Note Title" = "Užrašo pavadinimas";
 
 /* An error message */
-"Notes could not be found on your server. Make sure it is installed and enabled" = "Notes could not be found on your server. Make sure it is installed and enabled";
+"Notes could not be found on your server. Make sure it is installed and enabled" = "Nepavyko rasti „Užrašų“ jūsų serveryje. Įsitikinkite, kad jie įdiegti ir įgalinti.";
 
 /* An error message title */
-"Notes not found" = "Notes not found";
+"Notes not found" = "Užrašai nerasti";
 
 /* Button, OK */
 "OK" = "Gerai";
 
 /* Title for Open In activity */
-"Open in…" = "Open in…";
+"Open in…" = "Atidaryti…";
 
 /* A menu option for sharing in plain text format */
 "Plain Text" = "Grynasis tekstas";
 
 /* A message
    A message to check network connection */
-"Please check network connection and login." = "Please check network connection and login.";
+"Please check network connection and login." = "Patikrinkite tinklo ryšį ir prisijunkite.";
 
 /* A button title */
-"Reconnect" = "Reconnect";
+"Reconnect" = "Jungtis iš naujo";
 
 /* Action to change title of a note
    Caption of Rename button */
 "Rename" = "Pervadinti";
 
 /* Message of alert to change title */
-"Rename the note" = "Rename the note";
+"Rename the note" = "Pervadinti užrašą";
 
 /* Action to change title of a note */
-"Rename…" = "Rename…";
+"Rename…" = "Pervadinama...";
 
 /* A menu option for sharing in rich text format */
 "Rich Text" = "Raiškusis tekstas";
 
 /* Placeholder text when no note is selected */
-"Select or create a note." = "Select or create a note.";
+"Select or create a note." = "Pasirinkite arba sukurkite užrašą.";
 
 /* Alert title for selecting server brand */
 "Server" = "Serveris";
@@ -170,7 +170,7 @@
 "Server Reachable" = "Serveris pasiekiamas";
 
 /* Title of a menu with sharing options */
-"Share Note As" = "Share note as";
+"Share Note As" = "Bendrinti pastabą kaip";
 
 /* A message title */
 "Success" = "Pavyko";
@@ -179,38 +179,38 @@
 "The network connection is working properly." = "Tinklo ryšys veikia tinkamai.";
 
 /* An error message */
-"The note does not exist" = "The note does not exist";
+"The note does not exist" = "Užrašo nėra";
 
 /* Alert message for selecting server brand */
-"Unable to automatically detect type of server.\nPlease select:" = "Unable to automatically detect type of server.\nPlease select:";
+"Unable to automatically detect type of server.\nPlease select:" = "Nepavyko automatiškai nustatyti serverio tipo.\nPrašome pasirinkti:";
 
 /* A message title
    The title of an error message */
-"Unable to Reach Server" = "Unable to reach server";
+"Unable to Reach Server" = "Nepavyksta prisijungti prie serverio";
 
 /* An error message title */
-"Unauthorized" = "Unauthorized";
+"Unauthorized" = "Neautorizuota";
 
 /* Text displayed for notes not assigned to a category */
 "Uncategorized" = "Nekategorizuoti";
 
 /* Message with Notes version, product name and version */
-"Using Notes %1$@ on %2$@ %3$@." = "Using Notes %1$@ on %2$@ %3$@.";
+"Using Notes %1$@ on %2$@ %3$@." = "Naudojant užrašus %1$@ dėl %2$@ %3$@.";
 
 /* No comment provided by engineer. */
-"Yes, please!" = "Yes, please!";
+"Yes, please!" = "Taip, prašau!";
 
 /* A message */
-"You are now connected to Notes on your server" = "You are now connected to Notes on your server";
+"You are now connected to Notes on your server" = "Dabar esate prisijungę prie „Užrašai“ savo serveryje";
 
 /* HUD subtitle when checking server capabilities */
-"Checking server capabilities" = "Checking server capabilities";
+"Checking server capabilities" = "Serverio galimybių tikrinimas";
 
 /* HUD subtitle when checking server settings */
-"Checking server settings" = "Checking server settings";
+"Checking server settings" = "Serverio nustatymų tikrinimas";
 
 /* HUD subtitle when checking server status */
-"Checking server status" = "Checking server status";
+"Checking server status" = "Tikrinama serverio būsena";
 
 /* No comment provided by engineer. */
 "Connection error" = "Ryšio klaida";
@@ -248,30 +248,30 @@
 "Notes" = "Pastabos";
 
 "Cancel" = "Atsisakyti";
-"Scan QR Code" = "Scan QR Code";
-"Close" = "Close";
-"Server Address" = "Server Address";
-"The address of your Nextcloud web interface when you open it in your browser." = "The address of your Nextcloud web interface when you open it in your browser.";
-"The entered server address is invalid." = "The entered server address is invalid.";
-"Accounts from our other apps were found on this device. Would you like to add one of these?" = "Accounts from our other apps were found on this device. Would you like to add one of these?";
-"Shared Accounts" = "Shared Accounts";
+"Scan QR Code" = "Skenuoti QR Code";
+"Close" = "Užverti";
+"Server Address" = "Serverio adresas";
+"The address of your Nextcloud web interface when you open it in your browser." = "Jūsų „Nextcloud“ žiniatinklio sąsajos adresas, kai ją atidarote naršyklėje.";
+"The entered server address is invalid." = "Įvestas serverio adresas yra neteisingas.";
+"Accounts from our other apps were found on this device. Would you like to add one of these?" = "Šiame įrenginyje rasta paskyrų iš kitų mūsų programėlių. Ar norite pridėti vieną iš jų?";
+"Shared Accounts" = "Bendrinamos paskyros";
 
 // SettingsView
-"Account" = "Account";
-"Log Out" = "Log Out";
-"Synchronization" = "Synchronization";
-"Synchronize on Start" = "Synchronize on Start";
-"Offline Mode" = "Offline Mode";
-"Server Settings" = "Server Settings";
-"Notes Path" = "Notes Path";
-"Internal Editor" = "Internal Editor";
-"File Extension" = "File Extension";
-"About This App" = "About This App";
-"Client Version" = "Client Version";
-"Server Version" = "Server Version";
+"Account" = "Paskyra";
+"Log Out" = "Atsijungti";
+"Synchronization" = "Sinchronizacija";
+"Synchronize on Start" = "Sinchronizuoti paleidžiant";
+"Offline Mode" = "Režimas neprisijungus";
+"Server Settings" = "Serverio nustatymai";
+"Notes Path" = "„Užrašų“ kelias";
+"Internal Editor" = "Vidinis redaktorius";
+"File Extension" = "Failo plėtinys";
+"About This App" = "Apie šią programėlę";
+"Client Version" = "Kliento versija";
+"Server Version" = "Serverio versija";
 "Privacy and Legal Policy" = "Privatumo ir teisinė politika";
-"Show Source Code on GitHub" = "Show Source Code on GitHub";
-"Logout" = "Logout";
-"Are you sure you want to log out?" = "Are you sure you want to log out?";
-"Enter a name for the folder where notes should be saved on the server" = "Enter a name for the folder where notes should be saved on the server";
+"Show Source Code on GitHub" = "Rodyti pirminį kodą „GitHub“";
+"Logout" = "Atsijungti";
+"Are you sure you want to log out?" = "Ar tikrai norite atsijungti?";
+"Enter a name for the folder where notes should be saved on the server" = "Įveskite aplanko, kuriame serveryje turi būti išsaugotos pastabos, pavadinimą";
 "Settings" = "Nustatymai";
