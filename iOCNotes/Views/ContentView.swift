@@ -39,8 +39,8 @@ struct ContentView: View {
                 store.addAccount(host: host, name: name, password: password)
             } beginPolling: { url, _ in
                try await store.beginPolling(at: url)
-            } cancelPolling: { token in
-                store.cancelPolling(by: token)
+            } cancelPolling: {
+                store.cancelPolling()
             }
             .onAppear {
                 // The store must update its list of shared accounts when the login user interface is about to appear.
