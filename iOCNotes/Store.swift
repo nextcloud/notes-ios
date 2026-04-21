@@ -18,7 +18,6 @@ final class Store: Logging, Storing {
     /// The currently active login flow polling task.
     ///
     var pollingTask: Task<Void, any Error>?
-    var pollingToken: String?
 
     ///
     /// This singleton is necessary to conveniently expose the same environment object used in SwiftUI to the already existing UIKit code.
@@ -333,16 +332,11 @@ final class Store: Logging, Storing {
                     logger.debug("Cancelling previous polling task before starting a new one.")
                     pollingTask.cancel()
                     self.pollingTask = nil
-                    self.pollingToken = nil
                 }
 
-                self.pollingToken = token
                 self.pollingTask = Task { @MainActor in
                     defer {
-                        if self.pollingToken == token {
-                            self.pollingTask = nil
-                            self.pollingToken = nil
-                        }
+                        self.pollingTask = nil
                     }
 
                     repeat {
@@ -379,7 +373,6 @@ final class Store: Logging, Storing {
 
         pollingTask.cancel()
         self.pollingTask = nil
-        pollingToken = nil
         logger.debug("Polling task cancelled.")
     }
 }
