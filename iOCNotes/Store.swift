@@ -15,9 +15,9 @@ final class Store: Logging, Storing {
     ///
     /// Required for `ServerAddressViewDelegate` conformance.
     ///
-    /// Tasks are keyed by their login flow polling token.
+    /// The currently active login flow polling task.
     ///
-    var pollingTasks = [String: Task<Void, any Error>]()
+    var pollingTask: Task<Void, any Error>?
 
     ///
     /// This singleton is necessary to conveniently expose the same environment object used in SwiftUI to the already existing UIKit code.
@@ -328,8 +328,19 @@ final class Store: Logging, Storing {
 
                 logger.debug("Received login address \"\(loginAddress)\" with polling endpoint \"\(endpoint)\" and token \"\(token)\".")
 
-                self.pollingTasks[token] = Task { @MainActor in
+                if let pollingTask {
+                    logger.debug("Cancelling previous polling task before starting a new one.")
+                    pollingTask.cancel()
+                    self.pollingTask = nil
+                }
+
+                self.pollingTask = Task { @MainActor in
+                    defer {
+                        self.pollingTask = nil
+                    }
+
                     repeat {
+                        try Task.checkCancellation()
                         grantValues = await getResponse(endpoint: endpoint, token: token, options: options)
                         try await Task.sleep(for: .seconds(1))
                     } while grantValues == nil
@@ -352,16 +363,16 @@ final class Store: Logging, Storing {
         }
     }
 
-    func cancelPolling(by token: String) {
-        logger.debug("Cancelling polling task by token \"\(token)\"...")
+    func cancelPolling() {
+        logger.debug("Cancelling polling task.")
 
-        guard let task = pollingTasks[token] else {
-            logger.error("Attempt to cancel polling task by token \"\(token)\" which is not registered!")
+        guard let pollingTask else {
+            logger.error("Attempt to cancel polling task but no task is active!")
             return
         }
 
-        task.cancel()
-        pollingTasks.removeValue(forKey: token)
-        logger.debug("Polling task cancelled by token \"\(token)\".")
+        pollingTask.cancel()
+        self.pollingTask = nil
+        logger.debug("Polling task cancelled.")
     }
 }
