@@ -31,7 +31,22 @@ class NotesTableViewController: BaseUITableViewController, Logging, NSFetchedRes
     private var networkHasBeenUnreachable = false
     private var launching = true
 
-    private let notesManager = NotesManager()
+    private lazy var fetchedResultsController: NSFetchedResultsController<CDNote> = {
+        let request = CDNote.fetchRequest()
+        request.fetchBatchSize = 288
+        request.predicate = .allNotes
+        request.sortDescriptors = [
+            NSSortDescriptor(key: "cdCategory", ascending: true),
+            NSSortDescriptor(key: "cdModified", ascending: false)
+        ]
+
+        return NSFetchedResultsController(
+            fetchRequest: request,
+            managedObjectContext: NotesData.mainThreadContext,
+            sectionNameKeyPath: "sectionName",
+            cacheName: nil
+        )
+    }()
 
     private var observers = [NSObjectProtocol]()
     private var noteToAddOnViewDidLoad: String?
@@ -42,6 +57,11 @@ class NotesTableViewController: BaseUITableViewController, Logging, NSFetchedRes
     private var dataSource: UITableViewDiffableDataSource<String, NSManagedObjectID>?
 
     let logger = makeLogger()
+
+    private var disclosureSections: DisclosureSections {
+        get { KeychainHelper.sectionExpandedInfo }
+        set { KeychainHelper.sectionExpandedInfo = newValue }
+    }
 
     private var dateFormat: DateFormatter {
         let df = DateFormatter()
@@ -86,7 +106,7 @@ class NotesTableViewController: BaseUITableViewController, Logging, NSFetchedRes
                                                                      using: { [weak self] _ in
             if let editor = self?.editorViewController,
                let note = editor.note,
-               let currentIndexPath = self?.notesManager.manager.fetchedResultsController.indexPath(forObject: note), let tableView = self?.tableView {
+               let currentIndexPath = self?.fetchedResultsController.indexPath(forObject: note), let tableView = self?.tableView {
                 self?.tableView(tableView, commit: .delete, forRowAt: currentIndexPath)
             }
         }))
@@ -148,7 +168,7 @@ class NotesTableViewController: BaseUITableViewController, Logging, NSFetchedRes
         navigationController?.toolbar.clipsToBounds = true
         
         configureDataSource()
-        updateFrcDelegate(update: .enable(withFetch: true))
+        configureFetchedResultsController(performFetch: true)
 
         tableView.backgroundView = UIView()
         tableView.dropDelegate = self
@@ -234,21 +254,23 @@ class NotesTableViewController: BaseUITableViewController, Logging, NSFetchedRes
 
     // MARK: - Public functions
 
-    func updateFrcDelegate(update: FrcDelegateUpdate) {
-        switch update {
-        case .disable:
-            notesManager.manager.fetchedResultsController.delegate = nil
-        case .enable(let withFetch):
-            notesManager.manager.fetchedResultsController.delegate = self
-            if withFetch {
-                do {
-                    try notesManager.manager.fetchedResultsController.performFetch()
-                    applySnapshot(animatingDifferences: false)
-                } catch {
-                    logger.error("Could not fetch notes")
-                }
-            }
+    func configureFetchedResultsController(performFetch: Bool) {
+        fetchedResultsController.delegate = self
+
+        guard performFetch else {
+            return
         }
+
+        do {
+            try fetchedResultsController.performFetch()
+            applySnapshot(animatingDifferences: false)
+        } catch {
+            logger.error("Could not fetch notes")
+        }
+    }
+
+    func disableFetchedResultsController() {
+        fetchedResultsController.delegate = nil
     }
 
     // MARK: - Table view data source
@@ -270,7 +292,7 @@ class NotesTableViewController: BaseUITableViewController, Logging, NSFetchedRes
     private func applySnapshot(animatingDifferences: Bool) {
         var snapshot = NSDiffableDataSourceSnapshot<String, NSManagedObjectID>()
 
-        guard let sections = notesManager.manager.fetchedResultsController.sections else {
+        guard let sections = fetchedResultsController.sections else {
             dataSource?.apply(snapshot, animatingDifferences: animatingDifferences)
             return
         }
@@ -279,7 +301,7 @@ class NotesTableViewController: BaseUITableViewController, Logging, NSFetchedRes
             let title = section.name
             snapshot.appendSections([title])
 
-            let isCollapsed = notesManager.manager.disclosureSections.first(where: { $0.title == title })?.collapsed ?? false
+            let isCollapsed = disclosureSections.first(where: { $0.title == title })?.collapsed ?? false
             guard !isCollapsed,
                   let notes = section.objects as? [CDNote] else {
                 continue
@@ -313,6 +335,18 @@ class NotesTableViewController: BaseUITableViewController, Logging, NSFetchedRes
         return try? NotesData.mainThreadContext.existingObject(with: objectID) as? CDNote
     }
 
+    private func isValid(indexPath: IndexPath) -> Bool {
+        guard let sections = fetchedResultsController.sections else {
+            return false
+        }
+
+        guard indexPath.section >= 0, indexPath.section < sections.count else {
+            return false
+        }
+
+        return indexPath.row >= 0 && indexPath.row < sections[indexPath.section].numberOfObjects
+    }
+
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let sectionHeaderView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HeaderView") as! CollapsibleTableViewHeaderView
         let title = sectionTitle(at: section) ?? ""
@@ -321,7 +355,7 @@ class NotesTableViewController: BaseUITableViewController, Logging, NSFetchedRes
         sectionHeaderView.sectionIndex = section
         sectionHeaderView.delegate = self
         sectionHeaderView.titleLabel.text = displayTitle
-        sectionHeaderView.collapsed = notesManager.manager.disclosureSections.first(where: { $0.title == title })?.collapsed ?? false
+        sectionHeaderView.collapsed = disclosureSections.first(where: { $0.title == title })?.collapsed ?? false
         return sectionHeaderView
     }
 
@@ -381,13 +415,13 @@ class NotesTableViewController: BaseUITableViewController, Logging, NSFetchedRes
             }
 
             NoteSessionManager.shared.delete(note: note, completion: { [weak self] in
-                if self?.notesManager.manager.fetchedResultsController.validate(indexPath: indexPath) ?? false {
+                if self?.isValid(indexPath: indexPath) ?? false {
                     var newIndex = 0
                     if indexPath.row >= 0 {
                         newIndex = indexPath.row
                     }
                     var noteCount = 0
-                    if let sections = self?.notesManager.manager.fetchedResultsController.sections,
+                    if let sections = self?.fetchedResultsController.sections,
                        sections.count >= indexPath.section {
                         noteCount = sections[indexPath.section].numberOfObjects
                     }
@@ -396,7 +430,7 @@ class NotesTableViewController: BaseUITableViewController, Logging, NSFetchedRes
                     }
 
                     if newIndex >= 0 && newIndex < noteCount,
-                       let newNote = self?.notesManager.manager.fetchedResultsController.sections?[indexPath.section].objects?[newIndex] as? CDNote {
+                       let newNote = self?.fetchedResultsController.sections?[indexPath.section].objects?[newIndex] as? CDNote {
                         self?.editorViewController?.note = newNote
                         DispatchQueue.main.async {
                             self?.tableView.selectRow(at: IndexPath(row: newIndex, section: indexPath.section), animated: false, scrollPosition: .none)
@@ -600,9 +634,9 @@ class NotesTableViewController: BaseUITableViewController, Logging, NSFetchedRes
         } else {
             predicate = .allNotes
         }
-        notesManager.manager.fetchedResultsController.fetchRequest.predicate = predicate
+        fetchedResultsController.fetchRequest.predicate = predicate
         do {
-            try notesManager.manager.fetchedResultsController.performFetch()
+            try fetchedResultsController.performFetch()
             applySnapshot(animatingDifferences: false)
         } catch { }
     }
@@ -616,9 +650,9 @@ class NotesTableViewController: BaseUITableViewController, Logging, NSFetchedRes
         NoteSessionManager.shared.add(content: content, category: "", completion: { [weak self] note in
             if note != nil {
                 let indexPath = IndexPath(row: 0, section: 0)
-                if self?.notesManager.manager.fetchedResultsController.validate(indexPath: indexPath) ?? false,
-                   let collapsedInfo = self?.notesManager.manager.disclosureSections.first(where: { $0.title == Constants.noCategory }),
-                   !collapsedInfo.collapsed {
+                if self?.isValid(indexPath: indexPath) ?? false,
+                   let collapsedInfo = self?.disclosureSections.first(where: { $0.title == Constants.noCategory }),
+                    !collapsedInfo.collapsed {
                     self?.tableView.selectRow(at: indexPath, animated: true, scrollPosition: .top)
                 }
                 self?.editorViewController?.isNewNote = true
@@ -633,19 +667,19 @@ class NotesTableViewController: BaseUITableViewController, Logging, NSFetchedRes
     }
 
     func updateSectionExpandedInfo() {
-        let knownSectionTitles = Set(notesManager.manager.disclosureSections.map({ $0.title }))
-        if let sections = notesManager.manager.fetchedResultsController.sections {
+        let knownSectionTitles = Set(disclosureSections.map { $0.title })
+        if let sections = fetchedResultsController.sections {
             if sections.isEmpty {
-                notesManager.manager.disclosureSections = []
+                disclosureSections = []
             } else {
-                let newSectionTitles = Set(sections.map({ $0.name }))
+                let newSectionTitles = Set(sections.map { $0.name })
                 let deleted = knownSectionTitles.subtracting(newSectionTitles)
                 let added = newSectionTitles.subtracting(knownSectionTitles)
-                var sectionCollapsedInfo = notesManager.manager.disclosureSections.filter({ !deleted.contains($0.title) })
+                var sectionCollapsedInfo = disclosureSections.filter { !deleted.contains($0.title) }
                 for newSection in added {
                     sectionCollapsedInfo.append(DisclosureSection(title: newSection, collapsed: false))
                 }
-                notesManager.manager.disclosureSections = sectionCollapsedInfo
+                disclosureSections = sectionCollapsedInfo
             }
         }
     }
@@ -662,7 +696,7 @@ class NotesTableViewController: BaseUITableViewController, Logging, NSFetchedRes
         } else if KeychainHelper.dbReset {
             CDNote.reset()
             KeychainHelper.dbReset = false
-            try? notesManager.manager.fetchedResultsController.performFetch()
+            try? fetchedResultsController.performFetch()
             applySnapshot(animatingDifferences: false)
         }
         addBarButton.isEnabled = true
@@ -670,7 +704,7 @@ class NotesTableViewController: BaseUITableViewController, Logging, NSFetchedRes
     }
 
     fileprivate func showCategories(indexPath: IndexPath) {
-        let categories = notesManager.manager.fetchedResultsController.fetchedObjects?.compactMap({ (note) -> String? in
+        let categories = fetchedResultsController.fetchedObjects?.compactMap({ (note) -> String? in
             return note.category
         })
         let storyboard = UIStoryboard(name: "Categories", bundle: Bundle.main)
@@ -710,9 +744,9 @@ extension NotesTableViewController: UISearchResultsUpdating {
         } else {
             predicate = .allNotes
         }
-        notesManager.manager.fetchedResultsController.fetchRequest.predicate = predicate
+        fetchedResultsController.fetchRequest.predicate = predicate
         do {
-            try notesManager.manager.fetchedResultsController.performFetch()
+            try fetchedResultsController.performFetch()
             applySnapshot(animatingDifferences: false)
         } catch { }
     }
@@ -759,13 +793,13 @@ extension NotesTableViewController: UITableViewDropDelegate {
 
 extension NotesTableViewController: CollapsibleTableViewHeaderViewDelegate {
     func toggleSection(_ header: CollapsibleTableViewHeaderView, sectionTitle: String, sectionIndex: Int) {
-        var sectionCollapsedInfo = notesManager.manager.disclosureSections
+        var sectionCollapsedInfo = disclosureSections
         if  let info = sectionCollapsedInfo.first(where: { $0.title == sectionTitle }),
             let index = sectionCollapsedInfo.firstIndex(where: { $0.title == sectionTitle }) {
             let collapsed = info.collapsed
             sectionCollapsedInfo.remove(at: index)
             sectionCollapsedInfo.insert(DisclosureSection(title: info.title, collapsed: !collapsed), at: index)
-            notesManager.manager.disclosureSections = sectionCollapsedInfo
+            disclosureSections = sectionCollapsedInfo
             header.collapsed = !collapsed
             applySnapshot(animatingDifferences: true)
         }
