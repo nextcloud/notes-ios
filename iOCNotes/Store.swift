@@ -221,7 +221,7 @@ final class Store: Logging, Storing {
         KeychainHelper.server = ""
         KeychainHelper.username = ""
         KeychainHelper.password = ""
-        CDNote.reset()
+        Note.reset()
         reloadAccounts()
     }
 

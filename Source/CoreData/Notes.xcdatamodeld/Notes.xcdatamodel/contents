@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="21C52" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="CDNote" representedClassName="CDNote" syncable="YES">
-        <attribute name="cdAddNeeded" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
-        <attribute name="cdCategory" attributeType="String"/>
-        <attribute name="cdContent" attributeType="String"/>
-        <attribute name="cdDeleteNeeded" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
-        <attribute name="cdError" optional="YES" attributeType="Boolean" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="cdErrorMessage" optional="YES" attributeType="String"/>
-        <attribute name="cdEtag" optional="YES" attributeType="String"/>
-        <attribute name="cdFavorite" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
-        <attribute name="cdGuid" optional="YES" attributeType="String"/>
-        <attribute name="cdId" attributeType="Integer 64" defaultValueString="-1" usesScalarValueType="YES"/>
-        <attribute name="cdModified" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="cdReadOnly" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
-        <attribute name="cdTitle" attributeType="String" defaultValueString="New Note"/>
-        <attribute name="cdUpdateNeeded" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="24837" systemVersion="25E246" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Note" representedClassName="Note" renamingIdentifier="CDNote" syncable="YES">
+        <attribute name="addNeeded" renamingIdentifier="cdAddNeeded" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <attribute name="category" renamingIdentifier="cdCategory" attributeType="String"/>
+        <attribute name="content" renamingIdentifier="cdContent" attributeType="String"/>
+        <attribute name="deleteNeeded" renamingIdentifier="cdDeleteNeeded" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="error" renamingIdentifier="cdError" attributeType="Boolean" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="errorMessage" renamingIdentifier="cdErrorMessage" optional="YES" attributeType="String"/>
+        <attribute name="etag" renamingIdentifier="cdEtag" attributeType="String" defaultValueString=""/>
+        <attribute name="favorite" renamingIdentifier="cdFavorite" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="guid" renamingIdentifier="cdGuid" optional="YES" attributeType="String"/>
+        <attribute name="id" renamingIdentifier="cdId" attributeType="Integer 64" defaultValueString="-1" usesScalarValueType="YES"/>
+        <attribute name="modified" renamingIdentifier="cdModified" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="readOnly" renamingIdentifier="cdReadOnly" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="sectionName" optional="YES" transient="YES" attributeType="String"/>
+        <attribute name="title" renamingIdentifier="cdTitle" attributeType="String" defaultValueString="New Note"/>
+        <attribute name="updateNeeded" renamingIdentifier="cdUpdateNeeded" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
     </entity>
     <elements>
-        <element name="CDNote" positionX="-63" positionY="-18" width="128" height="254"/>
+        <element name="Note" positionX="-63" positionY="-18" width="128" height="254"/>
     </elements>
 </model>

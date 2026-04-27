@@ -1,5 +1,5 @@
 {
-  "originHash" : "f47d5350204810d2423a1d61e8832fd4e9af60c6d726f7efd130b4b279958a8d",
+  "originHash" : "1658e0ccffb421f61f86533c4021dfa389b4e4f3552ab84e4ae1441892b317e0",
   "pins" : [
     {
       "identity" : "alamofire",
@@ -78,8 +78,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SimplyDanny/SwiftLintPlugins",
       "state" : {
-        "revision" : "8545ddf4de043e6f2051c5cf204f39ef778ebf6b",
-        "version" : "0.59.1"
+        "revision" : "8a4640d14777685ba8f14e832373160498fbab92",
+        "version" : "0.63.2"
       }
     },
     {
@@ -97,7 +97,7 @@
       "location" : "https://github.com/nextcloud/swiftnextcloudui",
       "state" : {
         "branch" : "main",
-        "revision" : "91bf43d1db64f45fbeb5f173249f8a4711bd3e70"
+        "revision" : "4a1de596438104b5f8bdcca97d5cc9650d874c29"
       }
     },
     {

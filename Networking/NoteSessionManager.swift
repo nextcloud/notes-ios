@@ -13,7 +13,7 @@ import SwiftMessages
 import os
 
 typealias SyncCompletionBlock = () -> Void
-typealias SyncCompletionBlockWithNote = (_ note: CDNote?) -> Void
+typealias SyncCompletionBlockWithNote = (_ note: Note?) -> Void
 
 struct ErrorMessage {
     var title: String
@@ -97,12 +97,12 @@ class NoteSessionManager {
         var message: ErrorMessage
     }
     
-    enum Result<CDNote, NoteError> {
-        case success(CDNote?)
+    enum Result<Note, NoteError> {
+        case success(Note?)
         case failure(NoteError)
     }
 
-    typealias SyncHandler = (Result<CDNote, NoteError>) -> Void
+    typealias SyncHandler = (Result<Note, NoteError>) -> Void
 
     static let shared = NoteSessionManager()
 
@@ -275,7 +275,7 @@ class NoteSessionManager {
         logger.notice("Synchronizing...")
 
         func deleteOnServer(completion: @escaping SyncCompletionBlock) {
-            if let notesToDelete = CDNote.notes(property: "cdDeleteNeeded"),
+            if let notesToDelete = Note.notes(property: "deleteNeeded"),
                 !notesToDelete.isEmpty {
                 let group = DispatchGroup()
                 
@@ -296,7 +296,7 @@ class NoteSessionManager {
         }
 
         func addOnServer(completion: @escaping SyncCompletionBlock) {
-            if let notesToAdd = CDNote.notes(property: "cdAddNeeded"),
+            if let notesToAdd = Note.notes(property: "addNeeded"),
                 !notesToAdd.isEmpty {
                 let group = DispatchGroup()
                 
@@ -322,7 +322,7 @@ class NoteSessionManager {
         }
 
         func updateOnServer(completion: @escaping SyncCompletionBlock) {
-            if let notesToUpdate = CDNote.notes(property: "cdUpdateNeeded"),
+            if let notesToUpdate = Note.notes(property: "updateNeeded"),
                 !notesToUpdate.isEmpty {
                 let group = DispatchGroup()
 
@@ -369,10 +369,10 @@ class NoteSessionManager {
                                 if let jsonArray = json as? Array<[String: Any]> {
                                     print(jsonArray)
                                     if let serverIds = jsonArray.map( { $0["id"] }) as? [Int64],
-                                        let knownIds = CDNote.all()?.map({ $0.id }).filter({ $0 > 0 }) {
+                                        let knownIds = Note.all()?.map({ $0.id }).filter({ $0 > 0 }) {
                                         let deletedOnServer = Set(knownIds).subtracting(Set(serverIds))
                                         if !deletedOnServer.isEmpty {
-                                            CDNote.delete(ids: Array(deletedOnServer))
+                                            Note.delete(ids: Array(deletedOnServer))
                                         }
                                     }
                                     let filteredDicts = jsonArray.filter({ $0.keys.count > 1 })
@@ -381,7 +381,7 @@ class NoteSessionManager {
                                         for noteDict in filteredDicts {
                                             notes.append(NoteStruct(dictionary: noteDict))
                                         }
-                                        CDNote.update(notes: notes)
+                                        Note.update(notes: notes)
                                     }
                                 }
                             case let .failure(error):
@@ -427,12 +427,12 @@ class NoteSessionManager {
         logger.notice("Adding note...")
 
         let note = NoteStruct(content: content, category: category, favorite: favorite ?? false)
-        if  let incoming = CDNote.update(note: note) { //addNeeded defaults to true
+        if  let incoming = Note.update(note: note) { //addNeeded defaults to true
             self.add(note: incoming, completion: completion)
         }
     }
 
-    func add(note: CDNote, completion: SyncCompletionBlockWithNote? = nil) {
+    func add(note: Note, completion: SyncCompletionBlockWithNote? = nil) {
         if NoteSessionManager.isOnline {
             addToServer(note: note) { [weak self] result in
                 switch result {
@@ -450,9 +450,9 @@ class NoteSessionManager {
         }
     }
 
-    func addToServer(note: CDNote, handler: @escaping SyncHandler) {
+    func addToServer(note: Note, handler: @escaping SyncHandler) {
         let newNote = note
-        var result: CDNote?
+        var result: Note?
         let parameters: Parameters = ["title": note.title as Any,
                                       "content": note.content as Any,
                                       "category": note.category as Any,
@@ -479,7 +479,7 @@ class NoteSessionManager {
                     newNote.category = note.category
                     newNote.addNeeded = false
                     newNote.updateNeeded = false
-                    result = CDNote.update(note: newNote)
+                    result = Note.update(note: newNote)
                     handler(.success(result))
                 case let .failure(error):
                     let message = ErrorMessage(title: NSLocalizedString("Error Adding Note", comment: "The title of an error message"),
@@ -505,7 +505,7 @@ class NoteSessionManager {
             .responseDecodable(of: NoteStruct.self) { response in
                 switch response.result {
                 case let .success(note):
-                    CDNote.update(notes: [note])
+                    Note.update(notes: [note])
                 case let .failure(error):
                     if let urlResponse = response.response {
                         switch urlResponse.statusCode {
@@ -516,7 +516,7 @@ class NoteSessionManager {
                             print(error)
                         case 404:
                             if let guid = note.guid,
-                                let dbNote = CDNote.note(guid: guid) {
+                                let dbNote = Note.note(guid: guid) {
                                 self.add(note: dbNote, completion: nil)
                             }
                         default:
@@ -548,7 +548,7 @@ class NoteSessionManager {
                 }
             }
         } else {
-            CDNote.update(notes: [incoming])
+            Note.update(notes: [incoming])
             completion?()
         }
     }
@@ -567,17 +567,17 @@ class NoteSessionManager {
             .responseDecodable(of: NoteStruct.self) { response in
                 switch response.result {
                 case let .success(note):
-                    CDNote.update(notes: [note])
+                    Note.update(notes: [note])
                     handler(.success(nil))
                 case let .failure(error):
-                    CDNote.update(notes: [note])
+                    Note.update(notes: [note])
                     let message = ErrorMessage(title: NSLocalizedString("Error Updating Note", comment: "The title of an error message"),
                                                body: error.localizedDescription)
                     if let urlResponse = response.response {
                         switch urlResponse.statusCode {
                         case 404, 405:
                             if let guid = note.guid,
-                                let dbNote = CDNote.note(guid: guid) {
+                                let dbNote = Note.note(guid: guid) {
                                 self.add(note: dbNote, completion: nil)
                             }
                             handler(.success(nil))
@@ -597,7 +597,7 @@ class NoteSessionManager {
         var incoming = note
         incoming.deleteNeeded = true
         if incoming.addNeeded {
-            CDNote.delete(note: incoming)
+            Note.delete(note: incoming)
             completion?()
         } else if NoteSessionManager.isOnline {
             deleteOnServer(incoming) { [weak self] result in
@@ -612,7 +612,7 @@ class NoteSessionManager {
                 }
             }
         } else {
-            CDNote.update(notes: [incoming])
+            Note.update(notes: [incoming])
             completion?()
         }
     }
@@ -625,7 +625,7 @@ class NoteSessionManager {
             .responseData { (response) in
                 switch response.result {
                 case .success:
-                    CDNote.delete(note: note)
+                    Note.delete(note: note)
                     handler(.success(nil))
                 case .failure(let error):
                     var message = ErrorMessage(title: NSLocalizedString("Error Deleting Note", comment: "The title of an error message"),
@@ -635,14 +635,14 @@ class NoteSessionManager {
                         case 404:
                             //Note doesn't exist on the server but we are obviously
                             //trying to delete it, so let's do that.
-                            CDNote.delete(note: note)
+                            Note.delete(note: note)
                             handler(.success(nil))
                         case 423:
                             message.body = NSLocalizedString("Unable to delete locked file on server", comment: "")
-                            CDNote.delete(note: note)
+                            Note.delete(note: note)
                             handler(.failure(NoteError(message: message)))
                         default:
-                            CDNote.update(notes: [note])
+                            Note.update(notes: [note])
                             handler(.failure(NoteError(message: message)))
                         }
                     }

@@ -103,7 +103,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        notesTableViewController?.updateFrcDelegate(update: .disable)
+        notesTableViewController?.disableFetchedResultsController()
         updateFrcDelegateNeeded = true
         scheduleAppSync()
     }
@@ -130,7 +130,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         updateFrcDelegateNeeded = false
-        notesTableViewController?.updateFrcDelegate(update: .enable(withFetch: KeychainHelper.didSyncInBackground))
+        notesTableViewController?.configureFetchedResultsController(performFetch: KeychainHelper.didSyncInBackground)
         KeychainHelper.didSyncInBackground = false
     }
         
