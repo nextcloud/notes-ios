@@ -1,10 +1,6 @@
-//
-//  CategoryTableViewController.swift
-//  iOCNotes
-//
-//  Created by Peter Hedlund on 8/1/19.
-//  Copyright © 2019 Peter Hedlund. All rights reserved.
-//
+// SPDX-FileCopyrightText: Nextcloud GmbH
+// SPDX-FileCopyrightText: 2026 Milen Pivchev
+// SPDX-License-Identifier: GPL-3.0-or-later
 
 import UIKit
 

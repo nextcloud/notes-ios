@@ -10,9 +10,46 @@ import Foundation
 import CoreData
 
 class NotesData {
+    private enum MigrationMapping {
+        // 2.0 migration: CDNote/cd* -> Note/*
+        static let v2EntityRenamingIdentifier = "CDNote"
+        static let v2AttributeRenames = [
+            "addNeeded": "cdAddNeeded",
+            "category": "cdCategory",
+            "content": "cdContent",
+            "deleteNeeded": "cdDeleteNeeded",
+            "error": "cdError",
+            "errorMessage": "cdErrorMessage",
+            "etag": "cdEtag",
+            "favorite": "cdFavorite",
+            "guid": "cdGuid",
+            "id": "cdId",
+            "modified": "cdModified",
+            "readOnly": "cdReadOnly",
+            "title": "cdTitle",
+            "updateNeeded": "cdUpdateNeeded"
+        ]
+    }
+
+    private static func makeManagedObjectModel() -> NSManagedObjectModel {
+        guard let modelURL = Bundle.main.url(forResource: "Notes", withExtension: "momd"),
+              let model = NSManagedObjectModel(contentsOf: modelURL) else {
+            fatalError("Unable to load Notes.momd")
+        }
+
+        if let noteEntity = model.entitiesByName["Note"] {
+            noteEntity.renamingIdentifier = MigrationMapping.v2EntityRenamingIdentifier
+            for (newName, oldName) in MigrationMapping.v2AttributeRenames {
+                noteEntity.propertiesByName[newName]?.renamingIdentifier = oldName
+            }
+        }
+
+        return model
+    }
+
     
     static var mainThreadContext: NSManagedObjectContext = {
-        let persistentContainer = NSPersistentContainer(name: "Notes")
+        let persistentContainer = NSPersistentContainer(name: "Notes", managedObjectModel: makeManagedObjectModel())
         if let storeDescription = persistentContainer.persistentStoreDescriptions.first {
             storeDescription.setOption(true as NSNumber, forKey: NSMigratePersistentStoresAutomaticallyOption)
             storeDescription.setOption(true as NSNumber, forKey: NSInferMappingModelAutomaticallyOption)
