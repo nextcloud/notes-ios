@@ -55,6 +55,7 @@ class NotesTableViewController: BaseUITableViewController, Logging, NSFetchedRes
     private var contextMenuIndexPath: IndexPath?
     private var noteExporter: NoteExporter?
     private var dataSource: UITableViewDiffableDataSource<String, NSManagedObjectID>?
+    private var notesByObjectID = [NSManagedObjectID: Note]()
 
     let logger = makeLogger()
 
@@ -276,9 +277,9 @@ class NotesTableViewController: BaseUITableViewController, Logging, NSFetchedRes
     // MARK: - Table view data source
 
     private func configureDataSource() {
-        dataSource = UITableViewDiffableDataSource<String, NSManagedObjectID>(tableView: tableView) { [weak self] tableView, indexPath, _ in
+        dataSource = UITableViewDiffableDataSource<String, NSManagedObjectID>(tableView: tableView) { [weak self] tableView, indexPath, objectID in
             guard let self,
-                  let note = self.note(at: indexPath),
+                  let note = self.note(for: objectID),
                   let cell = tableView.dequeueReusableCell(withIdentifier: "NoteCell", for: indexPath) as? NoteTableViewCell else {
                 return UITableViewCell()
             }
@@ -291,8 +292,11 @@ class NotesTableViewController: BaseUITableViewController, Logging, NSFetchedRes
 
     private func applySnapshot(animatingDifferences: Bool) {
         var snapshot = NSDiffableDataSourceSnapshot<String, NSManagedObjectID>()
+        var allItemIDs = [NSManagedObjectID]()
+        var notesByObjectID = [NSManagedObjectID: Note]()
 
         guard let sections = fetchedResultsController.sections else {
+            self.notesByObjectID = [:]
             dataSource?.apply(snapshot, animatingDifferences: animatingDifferences)
             return
         }
@@ -307,11 +311,20 @@ class NotesTableViewController: BaseUITableViewController, Logging, NSFetchedRes
                 continue
             }
 
+            for note in notes {
+                notesByObjectID[note.objectID] = note
+            }
             let ids = notes.map(\.objectID)
+            allItemIDs.append(contentsOf: ids)
             snapshot.appendItems(ids, toSection: title)
         }
 
-        dataSource?.apply(snapshot, animatingDifferences: animatingDifferences)
+        self.notesByObjectID = notesByObjectID
+        snapshot.reloadItems(allItemIDs)
+        dataSource?.apply(snapshot, animatingDifferences: animatingDifferences) { [weak self] in
+            self?.tableView.setNeedsLayout()
+            self?.tableView.layoutIfNeeded()
+        }
     }
 
     private func sectionTitle(at sectionIndex: Int) -> String? {
@@ -332,7 +345,11 @@ class NotesTableViewController: BaseUITableViewController, Logging, NSFetchedRes
             return nil
         }
 
-        return try? NotesData.mainThreadContext.existingObject(with: objectID) as? Note
+        return note(for: objectID)
+    }
+
+    private func note(for objectID: NSManagedObjectID) -> Note? {
+        return notesByObjectID[objectID]
     }
 
     private func isValid(indexPath: IndexPath) -> Bool {
@@ -697,6 +714,7 @@ class NotesTableViewController: BaseUITableViewController, Logging, NSFetchedRes
             Note.reset()
             KeychainHelper.dbReset = false
             try? fetchedResultsController.performFetch()
+            updateSectionExpandedInfo()
             applySnapshot(animatingDifferences: false)
         }
         addBarButton.isEnabled = true
