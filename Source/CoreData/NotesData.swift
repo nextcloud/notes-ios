@@ -13,6 +13,10 @@ class NotesData {
     
     static var mainThreadContext: NSManagedObjectContext = {
         let persistentContainer = NSPersistentContainer(name: "Notes")
+        if let storeDescription = persistentContainer.persistentStoreDescriptions.first {
+            storeDescription.setOption(true as NSNumber, forKey: NSMigratePersistentStoresAutomaticallyOption)
+            storeDescription.setOption(true as NSNumber, forKey: NSInferMappingModelAutomaticallyOption)
+        }
         persistentContainer.loadPersistentStores(completionHandler: { store, error in
             print(store.url as Any)
             if let error = error as NSError? {

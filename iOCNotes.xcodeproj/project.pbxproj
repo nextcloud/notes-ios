@@ -73,8 +73,8 @@
 		F389ABFF2C9C40210056C059 /* Custom.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F389ABFE2C9C40210056C059 /* Custom.xcassets */; };
 		F3E3C8D92C6B7C2200A80504 /* NCBrand.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E3C8D82C6B7C2200A80504 /* NCBrand.swift */; };
 		F3E3C8DC2C6B7DA600A80504 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E3C8DB2C6B7DA600A80504 /* UIColor+Extension.swift */; };
-		F3F7344E2C6FA550007C8C0B /* CDNote+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F734472C6FA550007C8C0B /* CDNote+CoreDataClass.swift */; };
-		F3F7344F2C6FA550007C8C0B /* CDNote+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F734482C6FA550007C8C0B /* CDNote+CoreDataProperties.swift */; };
+		F3E3D5CA2F9F6A1C007FC9F0 /* Note+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E3D5C82F9F6A1C007FC9F0 /* Note+CoreDataClass.swift */; };
+		F3E3D5CB2F9F6A1C007FC9F0 /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E3D5C92F9F6A1C007FC9F0 /* Note+CoreDataProperties.swift */; };
 		F3F734512C6FA550007C8C0B /* Notes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F3F7344A2C6FA550007C8C0B /* Notes.xcdatamodeld */; };
 		F3F734522C6FA550007C8C0B /* NotesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F7344B2C6FA550007C8C0B /* NotesData.swift */; };
 		F3F734582C6FAC17007C8C0B /* Theming.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F734572C6FAC17007C8C0B /* Theming.swift */; };
@@ -210,10 +210,11 @@
 		F3E3C8D82C6B7C2200A80504 /* NCBrand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NCBrand.swift; sourceTree = "<group>"; };
 		F3E3C8DB2C6B7DA600A80504 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		F3E3D3052F97C514007FC9F0 /* swiftnextcloudui */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = swiftnextcloudui; path = ../swiftnextcloudui; sourceTree = SOURCE_ROOT; };
-		F3F734472C6FA550007C8C0B /* CDNote+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDNote+CoreDataClass.swift"; sourceTree = "<group>"; };
-		F3F734482C6FA550007C8C0B /* CDNote+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDNote+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F3E3D5C82F9F6A1C007FC9F0 /* Note+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F3E3D5C92F9F6A1C007FC9F0 /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F3F7344B2C6FA550007C8C0B /* NotesData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesData.swift; sourceTree = "<group>"; };
 		F3F7344D2C6FA550007C8C0B /* Notes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Notes.xcdatamodel; sourceTree = "<group>"; };
+		F3F7345B2C6FA550007C8C0B /* NotesV1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NotesV1.xcdatamodel; sourceTree = "<group>"; };
 		F3F734572C6FAC17007C8C0B /* Theming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theming.swift; sourceTree = "<group>"; };
 		F3F7345A2C6FAD80007C8C0B /* BaseUIVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUIVIewController.swift; sourceTree = "<group>"; };
 		F7BB8B7129915A650010D2F7 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -440,8 +441,8 @@
 		F3F7344C2C6FA550007C8C0B /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				F3F734472C6FA550007C8C0B /* CDNote+CoreDataClass.swift */,
-				F3F734482C6FA550007C8C0B /* CDNote+CoreDataProperties.swift */,
+				F3E3D5C82F9F6A1C007FC9F0 /* Note+CoreDataClass.swift */,
+				F3E3D5C92F9F6A1C007FC9F0 /* Note+CoreDataProperties.swift */,
 				F3F7344A2C6FA550007C8C0B /* Notes.xcdatamodeld */,
 				F3F7344B2C6FA550007C8C0B /* NotesData.swift */,
 			);
@@ -686,6 +687,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AABC95572DFC717F0023790D /* UIApplication+topViewController.swift in Sources */,
+				F3E3D5CA2F9F6A1C007FC9F0 /* Note+CoreDataClass.swift in Sources */,
+				F3E3D5CB2F9F6A1C007FC9F0 /* Note+CoreDataProperties.swift in Sources */,
 				F3E3C8DC2C6B7DA600A80504 /* UIColor+Extension.swift in Sources */,
 				F3E3C8D92C6B7C2200A80504 /* NCBrand.swift in Sources */,
 				D095384A1D3313F8006BB78E /* PreviewViewController.swift in Sources */,
@@ -701,7 +704,6 @@
 				BD653F88231C43FA00D59A88 /* Constants.swift in Sources */,
 				D01067E42213BDF30047E090 /* AppDelegate.swift in Sources */,
 				F3F734512C6FA550007C8C0B /* Notes.xcdatamodeld in Sources */,
-				F3F7344F2C6FA550007C8C0B /* CDNote+CoreDataProperties.swift in Sources */,
 				F7F0812B299D0B53006A2041 /* NCViewerNextcloudText.swift in Sources */,
 				D0E38B0324930C410075B7F0 /* Throttler.swift in Sources */,
 				D01067E62213C17D0047E090 /* NotesTableViewController.swift in Sources */,
@@ -711,7 +713,6 @@
 				D0E60F5F277FADD5009CF78F /* Element.swift in Sources */,
 				D0C1C39F2462448D00AAC4A8 /* SyncOperation.swift in Sources */,
 				D0E60F74277FADD6009CF78F /* Extensions.swift in Sources */,
-				F3F7344E2C6FA550007C8C0B /* CDNote+CoreDataClass.swift in Sources */,
 				D075B1BC2906DDBF0085D64E /* ServerStatus.swift in Sources */,
 				D0E60F57277FADD5009CF78F /* Storage.swift in Sources */,
 				D0545F23230901D30001D165 /* PBHOpenInActivity.swift in Sources */,
@@ -1258,6 +1259,7 @@
 			isa = XCVersionGroup;
 			children = (
 				F3F7344D2C6FA550007C8C0B /* Notes.xcdatamodel */,
+				F3F7345B2C6FA550007C8C0B /* NotesV1.xcdatamodel */,
 			);
 			currentVersion = F3F7344D2C6FA550007C8C0B /* Notes.xcdatamodel */;
 			path = Notes.xcdatamodeld;
