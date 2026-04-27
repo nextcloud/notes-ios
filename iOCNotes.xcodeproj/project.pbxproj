@@ -209,14 +209,13 @@
 		F389ABFE2C9C40210056C059 /* Custom.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Custom.xcassets; sourceTree = "<group>"; };
 		F3E3C8D82C6B7C2200A80504 /* NCBrand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NCBrand.swift; sourceTree = "<group>"; };
 		F3E3C8DB2C6B7DA600A80504 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
-		F3E3D3052F97C514007FC9F0 /* swiftnextcloudui */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = swiftnextcloudui; path = ../swiftnextcloudui; sourceTree = SOURCE_ROOT; };
 		F3E3D5C82F9F6A1C007FC9F0 /* Note+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataClass.swift"; sourceTree = "<group>"; };
 		F3E3D5C92F9F6A1C007FC9F0 /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F3F7344B2C6FA550007C8C0B /* NotesData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesData.swift; sourceTree = "<group>"; };
 		F3F7344D2C6FA550007C8C0B /* Notes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Notes.xcdatamodel; sourceTree = "<group>"; };
-		F3F7345B2C6FA550007C8C0B /* NotesV1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NotesV1.xcdatamodel; sourceTree = "<group>"; };
 		F3F734572C6FAC17007C8C0B /* Theming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theming.swift; sourceTree = "<group>"; };
 		F3F7345A2C6FAD80007C8C0B /* BaseUIVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUIVIewController.swift; sourceTree = "<group>"; };
+		F3F7345B2C6FA550007C8C0B /* NotesV1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NotesV1.xcdatamodel; sourceTree = "<group>"; };
 		F7BB8B7129915A650010D2F7 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		F7F08128299D0B53006A2041 /* NCViewerNextcloudText.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NCViewerNextcloudText.storyboard; sourceTree = "<group>"; };
 		F7F08129299D0B53006A2041 /* NCViewerNextcloudText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NCViewerNextcloudText.swift; sourceTree = "<group>"; };
@@ -319,7 +318,6 @@
 				F30037412E6ED2DC00A49C0D /* IOCNotesUnitTests */,
 				D0CFE5351888A7BD00165839 /* Frameworks */,
 				D0CFE5341888A7BD00165839 /* Products */,
-				F3E3D3052F97C514007FC9F0 /* swiftnextcloudui */,
 			);
 			sourceTree = "<group>";
 		};
