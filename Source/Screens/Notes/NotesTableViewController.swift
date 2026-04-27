@@ -24,20 +24,20 @@ class NotesTableViewController: BaseUITableViewController, Logging, NSFetchedRes
     @IBOutlet var addBarButton: UIBarButtonItem!
     @IBOutlet weak var refreshBarButton: UIBarButtonItem!
 
-    var notes: [CDNote]?
+    var notes: [Note]?
     var editorViewController: EditorViewController?
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
     private var networkHasBeenUnreachable = false
     private var launching = true
 
-    private lazy var fetchedResultsController: NSFetchedResultsController<CDNote> = {
-        let request = CDNote.fetchRequest()
+    private lazy var fetchedResultsController: NSFetchedResultsController<Note> = {
+        let request = Note.fetchRequest()
         request.fetchBatchSize = 288
         request.predicate = .allNotes
         request.sortDescriptors = [
-            NSSortDescriptor(key: "cdCategory", ascending: true),
-            NSSortDescriptor(key: "cdModified", ascending: false)
+            NSSortDescriptor(key: "category", ascending: true),
+            NSSortDescriptor(key: "modified", ascending: false)
         ]
 
         return NSFetchedResultsController(
@@ -303,7 +303,7 @@ class NotesTableViewController: BaseUITableViewController, Logging, NSFetchedRes
 
             let isCollapsed = disclosureSections.first(where: { $0.title == title })?.collapsed ?? false
             guard !isCollapsed,
-                  let notes = section.objects as? [CDNote] else {
+                  let notes = section.objects as? [Note] else {
                 continue
             }
 
@@ -327,12 +327,12 @@ class NotesTableViewController: BaseUITableViewController, Logging, NSFetchedRes
         return sections[sectionIndex]
     }
 
-    private func note(at indexPath: IndexPath) -> CDNote? {
+    private func note(at indexPath: IndexPath) -> Note? {
         guard let objectID = dataSource?.itemIdentifier(for: indexPath) else {
             return nil
         }
 
-        return try? NotesData.mainThreadContext.existingObject(with: objectID) as? CDNote
+        return try? NotesData.mainThreadContext.existingObject(with: objectID) as? Note
     }
 
     private func isValid(indexPath: IndexPath) -> Bool {
@@ -385,7 +385,7 @@ class NotesTableViewController: BaseUITableViewController, Logging, NSFetchedRes
         return (height1 + height2) * 1.7
     }
 
-    fileprivate func configureCell(_ cell: NoteTableViewCell, with note: CDNote) {
+    fileprivate func configureCell(_ cell: NoteTableViewCell, with note: Note) {
         cell.textLabel?.font = .systemFont(ofSize: 17, weight: .medium)
         cell.backgroundColor = .ph_cellBackgroundColor
         cell.contentView.backgroundColor = .ph_cellBackgroundColor
@@ -430,7 +430,7 @@ class NotesTableViewController: BaseUITableViewController, Logging, NSFetchedRes
                     }
 
                     if newIndex >= 0 && newIndex < noteCount,
-                       let newNote = self?.fetchedResultsController.sections?[indexPath.section].objects?[newIndex] as? CDNote {
+                       let newNote = self?.fetchedResultsController.sections?[indexPath.section].objects?[newIndex] as? Note {
                         self?.editorViewController?.note = newNote
                         DispatchQueue.main.async {
                             self?.tableView.selectRow(at: IndexPath(row: newIndex, section: indexPath.section), animated: false, scrollPosition: .none)
@@ -474,18 +474,18 @@ class NotesTableViewController: BaseUITableViewController, Logging, NSFetchedRes
         return true
     }
 
-    func openTextWebView(note: CDNote) {
+    func openTextWebView(note: Note) {
         guard let account = KeychainHelper.account else {
             return
         }
 
         let notesPath = KeychainHelper.notesPath
 
-        NextcloudKit.shared.textOpenFile(fileNamePath: notesPath, fileId: String(note.cdId), editor: "text", account: account) { account, url, data, error in
+        NextcloudKit.shared.textOpenFile(fileNamePath: notesPath, fileId: String(note.id), editor: "text", account: account) { account, url, data, error in
             if error == .success, let url = url, let viewController: NCViewerNextcloudText = UIStoryboard(name: "NCViewerNextcloudText", bundle: nil).instantiateInitialViewController() as? NCViewerNextcloudText {
                 viewController.editor = "text"
                 viewController.link = url
-                viewController.fileName = note.cdTitle
+                viewController.fileName = note.title
                 viewController.modalPresentationStyle = .fullScreen
                 self.navigationController?.present(viewController, animated: true)
             } else {
@@ -629,7 +629,7 @@ class NotesTableViewController: BaseUITableViewController, Logging, NSFetchedRes
     func searchNote(text: String) {
         var predicate: NSPredicate?
         if !text.isEmpty {
-            let matchingText = NSPredicate(format: "(cdTitle contains[c] %@) || (cdContent contains[cd] %@)", text, text)
+            let matchingText = NSPredicate(format: "(title contains[c] %@) || (content contains[cd] %@)", text, text)
             predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [.allNotes, matchingText])
         } else {
             predicate = .allNotes
@@ -694,7 +694,7 @@ class NotesTableViewController: BaseUITableViewController, Logging, NSFetchedRes
         if KeychainHelper.syncOnStart {
             onRefresh(sender: nil)
         } else if KeychainHelper.dbReset {
-            CDNote.reset()
+            Note.reset()
             KeychainHelper.dbReset = false
             try? fetchedResultsController.performFetch()
             applySnapshot(animatingDifferences: false)
@@ -739,7 +739,7 @@ extension NotesTableViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         var predicate: NSPredicate?
         if let text = searchController.searchBar.text, !text.isEmpty {
-            let matchingText = NSPredicate(format: "(cdTitle contains[c] %@) || (cdContent contains[cd] %@)", text, text)
+            let matchingText = NSPredicate(format: "(title contains[c] %@) || (content contains[cd] %@)", text, text)
             predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [.allNotes, matchingText])
         } else {
             predicate = .allNotes
@@ -831,7 +831,7 @@ extension Array where Element: Equatable {
 
 extension NSPredicate {
     static var allNotes: NSPredicate {
-        return NSPredicate(format: "cdDeleteNeeded == %@", NSNumber(value: false))
+        return NSPredicate(format: "deleteNeeded == %@", NSNumber(value: false))
     }
 
 }

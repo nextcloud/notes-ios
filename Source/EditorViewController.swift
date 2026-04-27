@@ -25,7 +25,7 @@ class EditorViewController: UIViewController {
     var bottomLayoutConstraint: NSLayoutConstraint?
     var isNewNote = false
 
-    var note: CDNote? {
+    var note: Note? {
         didSet {
             if note != oldValue, let note = note {
                 HUD.show(.progress)

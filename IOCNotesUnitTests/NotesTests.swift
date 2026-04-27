@@ -28,7 +28,7 @@ class NotesTests {
         KeychainHelper.password = "cloudnotes"
         
         // Clear database
-        CDNote.reset()
+        Note.reset()
     }
     
     deinit {
@@ -117,7 +117,7 @@ class NotesTests {
                 #expect(note?.addNeeded == true, "Expected addNeeded to be true")
                 KeychainHelper.offlineMode = false
                 NoteSessionManager.shared.sync() {
-                    if CDNote.all()?.filter( { $0.addNeeded == true }).count ?? 0 > 0 {
+                    if Note.all()?.filter( { $0.addNeeded == true }).count ?? 0 > 0 {
                         Issue.record("Expected addNeeded count to be 0")
                     }
                     continuation.resume()
@@ -150,8 +150,8 @@ class NotesTests {
             
             group.notify(queue: .main) {
                 #expect(completedCount == 4, "Expected all 4 notes to be added")
-                CDNote.reset()
-                if CDNote.all()?.count ?? 0 > 0 {
+                Note.reset()
+                if Note.all()?.count ?? 0 > 0 {
                     Issue.record("Expected note count to be 0")
                 }
                 continuation.resume()
@@ -183,8 +183,8 @@ class NotesTests {
             
             group.notify(queue: .main) {
                 #expect(completedCount == 4, "Expected all 4 notes to be added")
-                CDNote.reset()
-                if CDNote.all()?.count ?? 0 > 0 {
+                Note.reset()
+                if Note.all()?.count ?? 0 > 0 {
                     Issue.record("Expected note count to be 0")
                 }
                 continuation.resume()
@@ -196,7 +196,7 @@ class NotesTests {
     func addAndMove() async throws {
         await withCheckedContinuation { continuation in
             let group = DispatchGroup()
-            var notes: [CDNote?] = []
+            var notes: [Note?] = []
             
             let contents = [
                 "Note 1 added during add and move test",
@@ -245,7 +245,7 @@ class NotesTests {
                 
                 moveGroup.notify(queue: .main) {
                     #expect(updateCount == 2, "Expected 2 notes to be updated")
-                    if CDNote.all()?.filter( { $0.category == "Add and Move Category" }).count ?? 0 != 2 {
+                    if Note.all()?.filter( { $0.category == "Add and Move Category" }).count ?? 0 != 2 {
                         Issue.record("Expected category count to be 2")
                     }
                     continuation.resume()
@@ -260,7 +260,7 @@ class NotesTests {
         
         await withCheckedContinuation { continuation in
             let group = DispatchGroup()
-            var notes: [CDNote?] = []
+            var notes: [Note?] = []
             
             let contents = [
                 "Note 1 added during add and move test",
@@ -309,7 +309,7 @@ class NotesTests {
                 
                 moveGroup.notify(queue: .main) {
                     #expect(updateCount == 2, "Expected 2 notes to be updated")
-                    if CDNote.all()?.filter( { $0.category == "" }).count ?? 0 != 2 {
+                    if Note.all()?.filter( { $0.category == "" }).count ?? 0 != 2 {
                         Issue.record("Expected category count to be 2")
                     }
                     continuation.resume()

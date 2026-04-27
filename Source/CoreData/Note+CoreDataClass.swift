@@ -10,10 +10,10 @@
 import Foundation
 import CoreData
 
-@objc(CDNote)
-public class CDNote: NSManagedObject {
+@objc(Note)
+public class Note: NSManagedObject {
 
-    static private let entityName = "CDNote"
+    static private let entityName = "Note"
 
     public override func awakeFromInsert() {
         super.awakeFromInsert()
@@ -28,18 +28,18 @@ public class CDNote: NSManagedObject {
     }
 
     @objc var sectionName: String {
-        if self.cdCategory.isEmpty {
+        if self.category.isEmpty {
             return Constants.noCategory
         } else {
-            return self.cdCategory
+            return self.category
         }
     }
 
-    static func all() -> [CDNote]? {
-        let request: NSFetchRequest<CDNote> = self.fetchRequest()
-        let property = "cdDeleteNeeded"
+    static func all() -> [Note]? {
+        let request: NSFetchRequest<Note> = self.fetchRequest()
+        let property = "deleteNeeded"
         request.predicate = NSPredicate(format: "%K == %@", property, NSNumber(value: false))
-        var noteList = [CDNote]()
+        var noteList = [Note]()
         do {
             let results  = try NotesData.mainThreadContext.fetch(request)
             for record in results {
@@ -51,10 +51,10 @@ public class CDNote: NSManagedObject {
         return noteList
     }
 
-    static func starred() -> [CDNote]? {
-        let request: NSFetchRequest<CDNote> = self.fetchRequest()
-        let predicate1 = NSPredicate(format: "cdFavorite == %@", NSNumber(value: true))
-        let property = "cdDeleteNeeded"
+    static func starred() -> [Note]? {
+        let request: NSFetchRequest<Note> = self.fetchRequest()
+        let predicate1 = NSPredicate(format: "favorite == %@", NSNumber(value: true))
+        let property = "deleteNeeded"
         let predicate2 = NSPredicate(format: "%K == %@", property, NSNumber(value: false))
         request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate1, predicate2])
         do {
@@ -66,7 +66,7 @@ public class CDNote: NSManagedObject {
     }
 
     static func categories() -> [String]? {
-        if let notes = CDNote.all() {
+        if let notes = Note.all() {
             let rawCategories = notes.compactMap({ (note) -> String? in
                 return note.category
             })
@@ -75,8 +75,8 @@ public class CDNote: NSManagedObject {
         return nil
     }
         
-    static func notes(property: String) -> [CDNote]? {
-        let request: NSFetchRequest<CDNote> = self.fetchRequest()
+    static func notes(property: String) -> [Note]? {
+        let request: NSFetchRequest<Note> = self.fetchRequest()
         request.predicate = NSPredicate(format: "%K == %@", property, NSNumber(value: true))
         do {
             return try NotesData.mainThreadContext.fetch(request)
@@ -86,10 +86,10 @@ public class CDNote: NSManagedObject {
         return nil
     }
 
-    static func notes(category: String) -> [CDNote]? {
-        let request: NSFetchRequest<CDNote> = self.fetchRequest()
-        let predicate1 = NSPredicate(format: "cdCategory == %@", category)
-        let property = "cdDeleteNeeded"
+    static func notes(category: String) -> [Note]? {
+        let request: NSFetchRequest<Note> = self.fetchRequest()
+        let predicate1 = NSPredicate(format: "category == %@", category)
+        let property = "deleteNeeded"
         let predicate2 = NSPredicate(format: "%K == %@", property, NSNumber(value: false))
         request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate1, predicate2])
         do {
@@ -100,9 +100,9 @@ public class CDNote: NSManagedObject {
         return nil
     }
 
-    static func note(id: Int32) -> CDNote? {
-        let request: NSFetchRequest<CDNote> = self.fetchRequest()
-        let predicate = NSPredicate(format: "cdId == %d", id)
+    static func note(id: Int32) -> Note? {
+        let request: NSFetchRequest<Note> = self.fetchRequest()
+        let predicate = NSPredicate(format: "id == %d", id)
         request.predicate = predicate
         request.fetchLimit = 1
         do {
@@ -114,9 +114,9 @@ public class CDNote: NSManagedObject {
         return nil
     }
     
-    static func note(guid: String) -> CDNote? {
-        let request: NSFetchRequest<CDNote> = self.fetchRequest()
-        let predicate = NSPredicate(format: "cdGuid == %@", guid)
+    static func note(guid: String) -> Note? {
+        let request: NSFetchRequest<Note> = self.fetchRequest()
+        let predicate = NSPredicate(format: "guid == %@", guid)
         request.predicate = predicate
         request.fetchLimit = 1
         do {
@@ -130,14 +130,14 @@ public class CDNote: NSManagedObject {
 
     static func update(notes: [NoteProtocol]) {
         NotesData.mainThreadContext.performAndWait {
-            let request: NSFetchRequest<CDNote> = CDNote.fetchRequest()
+            let request: NSFetchRequest<Note> = Note.fetchRequest()
             do {
                 for note in notes {
                     let predicate: NSPredicate
                     if note.id >= 0 {
-                        predicate = NSPredicate(format: "cdId == %d", note.id)
+                        predicate = NSPredicate(format: "id == %d", note.id)
                     } else {
-                        predicate = NSPredicate(format: "cdGuid == %@", note.guid ?? "")
+                        predicate = NSPredicate(format: "guid == %@", note.guid ?? "")
                     }
                     request.predicate = predicate
                     let records = try NotesData.mainThreadContext.fetch(request)
@@ -154,7 +154,7 @@ public class CDNote: NSManagedObject {
                         existingRecord.updateNeeded = note.updateNeeded
                         existingRecord.deleteNeeded = note.deleteNeeded
                     } else {
-                        let newRecord = NSEntityDescription.insertNewObject(forEntityName: CDNote.entityName, into: NotesData.mainThreadContext) as! CDNote
+                        let newRecord = NSEntityDescription.insertNewObject(forEntityName: Note.entityName, into: NotesData.mainThreadContext) as! Note
                         newRecord.guid = note.guid
                         newRecord.category = note.category
                         newRecord.content = note.content
@@ -180,16 +180,16 @@ public class CDNote: NSManagedObject {
         }
     }
 
-    static func update(note: NoteProtocol) -> CDNote? {
-        var result: CDNote?
+    static func update(note: NoteProtocol) -> Note? {
+        var result: Note?
         NotesData.mainThreadContext.performAndWait {
-            let request: NSFetchRequest<CDNote> = CDNote.fetchRequest()
+            let request: NSFetchRequest<Note> = Note.fetchRequest()
             do {
                 let predicate: NSPredicate
                 if note.id >= 0 {
-                    predicate = NSPredicate(format: "cdId == %d", note.id)
+                    predicate = NSPredicate(format: "id == %d", note.id)
                 } else {
-                    predicate = NSPredicate(format: "cdGuid == %@", note.guid ?? "")
+                    predicate = NSPredicate(format: "guid == %@", note.guid ?? "")
                 }
                 request.predicate = predicate
                 let records = try NotesData.mainThreadContext.fetch(request)
@@ -207,7 +207,7 @@ public class CDNote: NSManagedObject {
                     existingRecord.deleteNeeded = note.deleteNeeded
                     result = existingRecord
                 } else {
-                    let newRecord = NSEntityDescription.insertNewObject(forEntityName: CDNote.entityName, into: NotesData.mainThreadContext) as! CDNote
+                    let newRecord = NSEntityDescription.insertNewObject(forEntityName: Note.entityName, into: NotesData.mainThreadContext) as! Note
                     newRecord.guid = note.guid
                     newRecord.category = note.category
                     newRecord.content = note.content
@@ -236,13 +236,13 @@ public class CDNote: NSManagedObject {
 
     static func delete(note: NoteProtocol) {
         NotesData.mainThreadContext.performAndWait {
-            let request: NSFetchRequest<CDNote> = CDNote.fetchRequest()
+            let request: NSFetchRequest<Note> = Note.fetchRequest()
             do {
                 let predicate: NSPredicate
                 if note.id >= 0 {
-                    predicate = NSPredicate(format: "cdId == %d", note.id)
+                    predicate = NSPredicate(format: "id == %d", note.id)
                 } else {
-                    predicate = NSPredicate(format: "cdGuid == %@", note.guid ?? "")
+                    predicate = NSPredicate(format: "guid == %@", note.guid ?? "")
                 }
                 request.predicate = predicate
                 let records = try NotesData.mainThreadContext.fetch(request)
@@ -259,7 +259,7 @@ public class CDNote: NSManagedObject {
     static func delete(ids: [Int64]) {
         NotesData.mainThreadContext.performAndWait {
             let request = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
-            let predicate = NSPredicate(format: "cdId IN %@", ids)
+            let predicate = NSPredicate(format: "id IN %@", ids)
             request.predicate = predicate
             let deleteRequest = NSBatchDeleteRequest(fetchRequest: request )
             do {

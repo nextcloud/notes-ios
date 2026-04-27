@@ -23,7 +23,7 @@ class CategoryTableViewController: UITableViewController {
         }
     }
     
-    var note: CDNote? {
+    var note: Note? {
         didSet {
             if let category = note?.category {
                 currentCategory = category
@@ -110,4 +110,3 @@ class CategoryTableViewController: UITableViewController {
         self.present(alert, animated: true, completion: nil)
     }
 }
-
