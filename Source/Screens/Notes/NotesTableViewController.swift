@@ -24,7 +24,6 @@ class NotesTableViewController: BaseUITableViewController, Logging, NSFetchedRes
     @IBOutlet var addBarButton: UIBarButtonItem!
     @IBOutlet weak var refreshBarButton: UIBarButtonItem!
 
-    var notes: [Note]?
     var editorViewController: EditorViewController?
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 

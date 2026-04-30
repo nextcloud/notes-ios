@@ -70,6 +70,8 @@
 		D0E60F71277FADD6009CF78F /* CheckBoxTapHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E60F52277FADD5009CF78F /* CheckBoxTapHandler.swift */; };
 		D0E60F74277FADD6009CF78F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E60F55277FADD5009CF78F /* Extensions.swift */; };
 		D0E60F76277FB0A5009CF78F /* Themes.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D0E60F75277FB0A5009CF78F /* Themes.bundle */; };
+		F32D782A2FA350BD0067EBE9 /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = F32D78292FA350BD0067EBE9 /* AppIcon.icon */; };
+		F32D782B2FA350BD0067EBE9 /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = F32D78292FA350BD0067EBE9 /* AppIcon.icon */; };
 		F389ABFF2C9C40210056C059 /* Custom.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F389ABFE2C9C40210056C059 /* Custom.xcassets */; };
 		F3E3C8D92C6B7C2200A80504 /* NCBrand.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E3C8D82C6B7C2200A80504 /* NCBrand.swift */; };
 		F3E3C8DC2C6B7DA600A80504 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E3C8DB2C6B7DA600A80504 /* UIColor+Extension.swift */; };
@@ -206,6 +208,7 @@
 		F30037402E6ED2DC00A49C0D /* IOCNotesUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IOCNotesUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F32A39442C99A40D008EE8DC /* iOCNotes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOCNotes.entitlements; sourceTree = "<group>"; };
 		F32A39452C99A40D008EE8DC /* iOCNotes.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = iOCNotes.plist; sourceTree = "<group>"; };
+		F32D78292FA350BD0067EBE9 /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon.icon; sourceTree = "<group>"; };
 		F389ABFE2C9C40210056C059 /* Custom.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Custom.xcassets; sourceTree = "<group>"; };
 		F3E3C8D82C6B7C2200A80504 /* NCBrand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NCBrand.swift; sourceTree = "<group>"; };
 		F3E3C8DB2C6B7DA600A80504 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -301,23 +304,24 @@
 		D0CFE52A1888A7BD00165839 = {
 			isa = PBXGroup;
 			children = (
-				AA360F442D71E6EF00BDC831 /* iOCNotes.xcconfig */,
 				AA592A6F2DBBBB04003A3057 /* .github */,
 				AA592A6E2DBBBA3B003A3057 /* .swiftlint.yml */,
 				AA62DF642D5DFC48009E8894 /* .tx */,
-				AABD0BF82D5E08B500F009E6 /* README.md */,
+				F32D78292FA350BD0067EBE9 /* AppIcon.icon */,
 				F3E3C8D72C6B7BF800A80504 /* Brand */,
-				AA4C16BF2D8332C1006AFE8C /* iOCNotes */,
-				F77B57002993E32100A23E76 /* Nextcloud */,
-				D0CFE53C1888A7BD00165839 /* Source */,
-				D084FB6C245A5FDC003EB6FB /* Shared */,
-				D01067DC220BCAD60047E090 /* Models */,
-				D07F5E8C2207B6D700528E90 /* Networking */,
 				D0E60F35277FADA0009CF78F /* Editor */,
 				F3E3C8DA2C6B7D3B00A80504 /* Extensions */,
-				F30037412E6ED2DC00A49C0D /* IOCNotesUnitTests */,
 				D0CFE5351888A7BD00165839 /* Frameworks */,
+				AA4C16BF2D8332C1006AFE8C /* iOCNotes */,
+				AA360F442D71E6EF00BDC831 /* iOCNotes.xcconfig */,
+				F30037412E6ED2DC00A49C0D /* IOCNotesUnitTests */,
+				D01067DC220BCAD60047E090 /* Models */,
+				D07F5E8C2207B6D700528E90 /* Networking */,
+				F77B57002993E32100A23E76 /* Nextcloud */,
 				D0CFE5341888A7BD00165839 /* Products */,
+				AABD0BF82D5E08B500F009E6 /* README.md */,
+				D084FB6C245A5FDC003EB6FB /* Shared */,
+				D0CFE53C1888A7BD00165839 /* Source */,
 			);
 			sourceTree = "<group>";
 		};
@@ -644,6 +648,7 @@
 				D0E60F76277FB0A5009CF78F /* Themes.bundle in Resources */,
 				D0BCFE6A2454BF40007C4CA3 /* Categories.storyboard in Resources */,
 				D0CFE5411888A7BD00165839 /* InfoPlist.strings in Resources */,
+				F32D782B2FA350BD0067EBE9 /* AppIcon.icon in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -651,6 +656,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F32D782A2FA350BD0067EBE9 /* AppIcon.icon in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
