@@ -24,7 +24,6 @@ class NotesTableViewController: BaseUITableViewController, Logging {
     @IBOutlet var addBarButton: UIBarButtonItem!
     @IBOutlet weak var refreshBarButton: UIBarButtonItem!
 
-    var notes: [CDNote]?
     var editorViewController: EditorViewController?
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
