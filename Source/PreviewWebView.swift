@@ -6,7 +6,6 @@
 //  Copyright © 2021 Peter Hedlund. All rights reserved.
 //
 
-import cmark_gfm_swift
 import UIKit
 import WebKit
 
@@ -21,22 +20,6 @@ class PreviewWebView: WKWebView {
     }()
 
     private var loadCompletion: LoadCompletion?
-
-    // List of markdown options
-    var options: [MarkdownOption] = [
-      .footnotes // Footnote syntax
-    ]
-
-    // List of markdown extensions
-    var extensions: [MarkdownExtension] = [
-      .emoji,        // GitHub emojis
-      .table,        // Tables
-      .autolink,     // Autolink URLs
-      .mention,      // GitHub @ mentions
-      .checkbox,     // Checkboxes
-      .wikilink,     // WikiLinks
-      .strikethrough // Strikethrough
-    ]
 
     public init(markdown: String, completion: LoadCompletion? = nil) throws {
 
@@ -63,9 +46,8 @@ class PreviewWebView: WKWebView {
 private extension PreviewWebView {
 
     func loadHTML(_ markdown: String) throws {
-        let htmlString = Node(markdown: markdown, options: options, extensions: extensions)?.html
-
-        let pageHTMLString = try htmlFromTemplate(htmlString ?? markdown)
+        let htmlString = MarkdownRenderer.html(from: markdown)
+        let pageHTMLString = try htmlFromTemplate(htmlString)
         loadHTMLString(pageHTMLString, baseURL: baseURL)
     }
 

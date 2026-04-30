@@ -1,10 +1,6 @@
-//
-//  UtilityExtensions.swift
-//  iOCNotes
-//
-//  Created by Peter Hedlund on 7/3/19.
-//  Copyright © 2019 Peter Hedlund. All rights reserved.
-//
+// SPDX-FileCopyrightText: Nextcloud GmbH
+// SPDX-FileCopyrightText: 2026 Milen Pivchev
+// SPDX-License-Identifier: GPL-3.0-or-later
 
 #if os(macOS)
 import Foundation
@@ -90,6 +86,31 @@ extension String {
             truncated = truncated.dropLast()
         }
         return truncated + trailing
+    }
+
+    func strippingHTML() -> String {
+        var result = self
+        result = result.replacingOccurrences(
+            of: "(?is)<script\\b[^>]*>.*?</script>",
+            with: " ",
+            options: .regularExpression
+        )
+        result = result.replacingOccurrences(
+            of: "(?is)<style\\b[^>]*>.*?</style>",
+            with: " ",
+            options: .regularExpression
+        )
+        result = result.replacingOccurrences(
+            of: "(?is)<[^>]+>",
+            with: " ",
+            options: .regularExpression
+        )
+        result = result.replacingOccurrences(
+            of: "\\s+",
+            with: " ",
+            options: .regularExpression
+        )
+        return result.trimmingCharacters(in: .whitespacesAndNewlines)
     }
     
 }

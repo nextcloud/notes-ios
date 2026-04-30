@@ -1,10 +1,6 @@
-//
-//  MarkdownTextStorageTests.swift
-//  IOCNotesUnitTests
-//
-//  Created by Copilot on 2025-01-15.
-//  Copyright © 2025 Peter Hedlund. All rights reserved.
-//
+// SPDX-FileCopyrightText: Nextcloud GmbH
+// SPDX-FileCopyrightText: 2019 Peter Hedlund
+// SPDX-License-Identifier: GPL-3.0-or-later
 
 import Testing
 import UIKit

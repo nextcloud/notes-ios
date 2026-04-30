@@ -6,7 +6,6 @@
 //  Copyright © 2016-2021 Peter Hedlund. All rights reserved.
 //
 
-import cmark_gfm_swift
 import CoreFoundation
 import UIKit
 
@@ -195,26 +194,27 @@ class NoteExporter: NSObject {
 
     private func asHtml() -> String {
         var result = ""
-        if let outputHtml = Node(markdown: text, options: [], extensions: [.checkbox, .table])?.html {
-            let htmlTemplate = """
-                <?xml version="1.0" encoding="utf-8"?>
-                <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-                <html xmlns="http://www.w3.org/1999/xhtml">
-                    <head>
-                        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes" />
-                        <title>
-                            \(self.title)
-                        </title>
-                    </head>
-                    <body>
-                        <article>
-                            \(outputHtml)
-                        </article>
-                    </body>
-                </html>
-                """
-            result = htmlTemplate
-        }
+        let outputHtml = MarkdownRenderer.html(from: text)
+        let title = self.title.strippingHTML()
+        let htmlTemplate = """
+            <?xml version="1.0" encoding="utf-8"?>
+            <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+            <html xmlns="http://www.w3.org/1999/xhtml">
+                <head>
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes" />
+                    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'none'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:;">
+                    <title>
+                        \(title)
+                    </title>
+                </head>
+                <body>
+                    <article>
+                        \(outputHtml)
+                    </article>
+                </body>
+            </html>
+            """
+        result = htmlTemplate
         return result
     }
 

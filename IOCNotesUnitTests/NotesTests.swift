@@ -1,10 +1,6 @@
-//
-//  NotesTests.swift
-//  IOCNotesUnitTests
-//
-//  Created by Peter Hedlund on 10/20/19.
-//  Copyright © 2019 Peter Hedlund. All rights reserved.
-//
+// SPDX-FileCopyrightText: Nextcloud GmbH
+// SPDX-FileCopyrightText: 2019 Peter Hedlund
+// SPDX-License-Identifier: GPL-3.0-or-later
 
 import Testing
 import Dispatch

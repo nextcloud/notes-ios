@@ -1,10 +1,6 @@
-//
-//  MarkdownTextStorage.swift
-//  iOCNotes
-//
-//  Created by Copilot on 2025-01-15.
-//  Copyright © 2025 Peter Hedlund. All rights reserved.
-//
+// SPDX-FileCopyrightText: Nextcloud GmbH
+// SPDX-FileCopyrightText: 2025 Peter Hedlund
+// SPDX-License-Identifier: GPL-3.0-or-later
 
 import UIKit
 
