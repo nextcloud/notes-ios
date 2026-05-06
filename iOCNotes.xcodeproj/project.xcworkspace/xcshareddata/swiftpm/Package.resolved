@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Alamofire/Alamofire",
       "state" : {
-        "revision" : "513364f870f6bfc468f9d2ff0a95caccc10044c5",
-        "version" : "5.10.2"
+        "revision" : "e938f8c66708e7352fc7e3512647fa54255b267a",
+        "version" : "5.11.2"
       }
     },
     {
@@ -51,8 +51,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/krzyzanowskim/OpenSSL",
       "state" : {
-        "revision" : "623c84da314e85363236507ca38a4bde65df21c3",
-        "version" : "3.3.3001"
+        "revision" : "e7d34385da795aaaeb2212e38c7401e5c333f792",
+        "version" : "3.6.1"
       }
     },
     {
@@ -96,8 +96,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SwiftKickMobile/SwiftMessages",
       "state" : {
-        "revision" : "c544df6ce316422b9d65a571f932e800213dd09c",
-        "version" : "10.0.1"
+        "revision" : "c0ff6c65bfc00e6a707957cb7069988c5cde2a30",
+        "version" : "10.0.2"
       }
     },
     {
@@ -106,7 +106,7 @@
       "location" : "https://github.com/nextcloud/swiftnextcloudui",
       "state" : {
         "branch" : "main",
-        "revision" : "4a1de596438104b5f8bdcca97d5cc9650d874c29"
+        "revision" : "a3254d493626319afe0e720d195ff983b95cb1e4"
       }
     },
     {
