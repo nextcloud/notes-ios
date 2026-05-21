@@ -73,10 +73,18 @@ enum Router: URLRequestConvertible {
             throw error
         }
 
-        let baseURLString = "\(server)/index.php/apps/notes/api/v\(apiVersion)"
-        let url = try baseURLString.asURL()
+        guard var components = canonicalServerComponents(from: server) else {
+            throw AFError.parameterEncodingFailed(reason: .missingURL)
+        }
 
-        var urlRequest = URLRequest(url: url.appendingPathComponent(self.path))
+        let basePath = components.path
+        components.path = basePath + "/index.php/apps/notes/api/v\(apiVersion)" + self.path
+
+        guard let url = components.url else {
+            throw AFError.parameterEncodingFailed(reason: .missingURL)
+        }
+
+        var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = self.method.rawValue
         let username = KeychainHelper.username
         let password = KeychainHelper.password

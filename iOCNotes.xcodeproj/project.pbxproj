@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		AA182D002DDCD6520058C246 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = AA182CFF2DDCD6520058C246 /* CodeScanner */; };
-		AA3054382E12AF9B00D33159 /* StatusRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3054372E12AF9800D33159 /* StatusRouter.swift */; };
-		AA30543A2E12AFFD00D33159 /* OCSRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3054392E12AFFB00D33159 /* OCSRouter.swift */; };
 		AA30543C2E12B06F00D33159 /* HTTPHeader+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA30543B2E12B06700D33159 /* HTTPHeader+Extensions.swift */; };
 		AA83B8AA2DEF080700F35F3E /* SwiftNextcloudUI in Frameworks */ = {isa = PBXBuildFile; productRef = AA83B8A92DEF080700F35F3E /* SwiftNextcloudUI */; };
 		AAA900B42DE6F37400D3EF0F /* SwiftNextcloudUI in Frameworks */ = {isa = PBXBuildFile; productRef = AAA900B32DE6F37400D3EF0F /* SwiftNextcloudUI */; };
@@ -113,8 +111,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		AA3054372E12AF9800D33159 /* StatusRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusRouter.swift; sourceTree = "<group>"; };
-		AA3054392E12AFFB00D33159 /* OCSRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCSRouter.swift; sourceTree = "<group>"; };
 		AA30543B2E12B06700D33159 /* HTTPHeader+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPHeader+Extensions.swift"; sourceTree = "<group>"; };
 		AA360F442D71E6EF00BDC831 /* iOCNotes.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = iOCNotes.xcconfig; sourceTree = "<group>"; };
 		AA592A6E2DBBBA3B003A3057 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
@@ -282,8 +278,6 @@
 			isa = PBXGroup;
 			children = (
 				AA30543B2E12B06700D33159 /* HTTPHeader+Extensions.swift */,
-				AA3054392E12AFFB00D33159 /* OCSRouter.swift */,
-				AA3054372E12AF9800D33159 /* StatusRouter.swift */,
 				D07F5E8D2207B6FF00528E90 /* Router.swift */,
 				D01067DD220BCE3C0047E090 /* NoteSessionManager.swift */,
 				D0C1C39E2462448D00AAC4A8 /* SyncOperation.swift */,
@@ -699,7 +693,6 @@
 				F3E3C8DC2C6B7DA600A80504 /* UIColor+Extension.swift in Sources */,
 				F3E3C8D92C6B7C2200A80504 /* NCBrand.swift in Sources */,
 				D095384A1D3313F8006BB78E /* PreviewViewController.swift in Sources */,
-				AA30543A2E12AFFD00D33159 /* OCSRouter.swift in Sources */,
 				D0E60F152772D809009CF78F /* SettingsProtocol.swift in Sources */,
 				BDD015A32353F7D4000BA001 /* PBHSplitViewController.swift in Sources */,
 				D095AE45245BB25F00A7EF62 /* NoteSessionManager.swift in Sources */,
@@ -733,7 +726,6 @@
 				D059F7DB1D40596D00C252F2 /* NoteExporter.swift in Sources */,
 				BD86DD8522B9CDD500115E5D /* KeychainHelper.swift in Sources */,
 				F3F7345B2C6FAD80007C8C0B /* BaseUIVIewController.swift in Sources */,
-				AA3054382E12AF9B00D33159 /* StatusRouter.swift in Sources */,
 				D08713ED1D18DA40001EAF82 /* HeaderTextView.swift in Sources */,
 				D0E60F5A277FADD5009CF78F /* UniversalTypes.swift in Sources */,
 				D0E60F28277801F8009CF78F /* PreviewWebView.swift in Sources */,

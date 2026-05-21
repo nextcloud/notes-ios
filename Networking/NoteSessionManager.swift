@@ -8,6 +8,7 @@
 
 import Alamofire
 import Foundation
+import NextcloudKit
 import UIKit
 import SwiftMessages
 import os
@@ -130,39 +131,23 @@ class NoteSessionManager {
         session = Session(configuration: configuration, serverTrustManager: NotesServerTrustPolicyManager(allHostsMustBeEvaluated: true, evaluators: [:]))
     }
 
-    ///
-    /// Fetch the server status.
-    ///
-    /// - Parameters:
-    ///     - completion: Optional completion handler to call afterwards.
-    ///
-    func status(completion: SyncCompletionBlock? = nil) {
+    /// Fetch the server status from `/status.php`.
+    func status() async {
         logger.notice("Fetching status...")
 
-        let router = StatusRouter.status
-        session
-            .request(router)
-            .validate(contentType: [Router.applicationJson])
-            .responseDecodable(of: CloudStatus.self) { response in
-                switch response.result {
-                case let .success(result):
-                    KeychainHelper.productVersion = result.versionstring
-                    KeychainHelper.productName = result.productname
-                case let .failure(error):
-                    print(error.localizedDescription)
-                }
-                completion?()
+        guard let serverUrl = canonicalServerComponents(from: KeychainHelper.server)?.url?.absoluteString else {
+            logger.error("Cannot fetch status: server URL is empty or invalid.")
+            return
         }
-    }
 
-    ///
-    /// Asynchronous wrapper for ``status(completion:)``.
-    ///
-    func status() async {
-        await withCheckedContinuation { continuation in
-            status {
-                continuation.resume()
-            }
+        let (_, result) = await NextcloudKit.shared.getServerStatusAsync(serverUrl: serverUrl)
+
+        switch result {
+            case let .success(info):
+                KeychainHelper.productVersion = info.version
+                KeychainHelper.productName = info.productName
+            case let .failure(error):
+                logger.error("Error fetching status: \(error.errorDescription, privacy: .public)")
         }
     }
 

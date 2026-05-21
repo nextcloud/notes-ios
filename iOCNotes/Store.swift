@@ -172,17 +172,8 @@ final class Store: Logging, Storing {
             return
         }
 
-        guard let parsedComponents = URLComponents(string: KeychainHelper.server) else {
-            accounts = []
-            return
-        }
-
-        var assembledComponents = URLComponents()
-        assembledComponents.scheme = parsedComponents.scheme
-        assembledComponents.host = parsedComponents.host
-        assembledComponents.port = parsedComponents.port
-
-        guard let baseURL = assembledComponents.url?.absoluteString else {
+        guard let assembledComponents = canonicalServerComponents(from: KeychainHelper.server),
+              let baseURL = assembledComponents.url?.absoluteString else {
             accounts = []
             return
         }

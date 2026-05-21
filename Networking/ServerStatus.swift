@@ -20,9 +20,16 @@ class ServerStatus: NSObject {
     }
 
     func check() async throws  {
-        let router = StatusRouter.status
+        guard var components = canonicalServerComponents(from: KeychainHelper.server) else {
+            throw NSError(domain: NSURLErrorDomain, code: NSURLErrorBadURL)
+        }
+        components.path = components.path + "/status.php"
+        guard let url = components.url else {
+            throw NSError(domain: NSURLErrorDomain, code: NSURLErrorBadURL)
+        }
+
         do {
-            let (_, _) = try await session.data(for: router.asURLRequest())
+            let (_, _) = try await session.data(for: URLRequest(url: url))
         } catch(let error) {
             throw error as NSError
         }
