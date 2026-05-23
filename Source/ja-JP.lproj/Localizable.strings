@@ -5,44 +5,44 @@
 "<Please state your question or problem here>" = "ご質問やご問題がございましたら、ここにご記入ください。";
 
 /* An error message */
-"A server installation could not be found. Check the server address." = "A server installation could not be found. Check the server address.";
+"A server installation could not be found. Check the server address." = "該当するサーバーが見つかりませんでした。サーバーのアドレスを確認してください。";
 
 /* Acknowledgements */
 "Acknowledgements" = "謝辞";
 
 /* Title of alert for adding a category */
-"Add Category" = "Add category";
+"Add Category" = "カテゴリを追加";
 
 /* Item to show all notes */
 "All" = "すべて";
 
 /* A menu action
    A menu option for cancelling */
-"Cancel" = "Cancel";
+"Cancel" = "キャンセル";
 
 /* Header title, categories */
-"CATEGORIES" = "CATEGORIES";
+"CATEGORIES" = "カテゴリ";
 
 /* 'Category' menu item */
-"Category" = "Category";
+"Category" = "カテゴリ";
 
 /* Action to change category of a note */
-"Category…" = "Category…";
+"Category…" = "カテゴリ…";
 
 /* Action to change category of a note */
-"Change Category…" = "Change category…";
+"Change Category…" = "カテゴリの変更…";
 
 /* An error message */
-"Check username and password." = "Check username and password.";
+"Check username and password." = "ユーザー名とパスワードを確認してください。";
 
 /* Title of a button allowing the user to close the login screen and sync with the server */
-"Close & Sync" = "Close & Sync";
+"Close & Sync" = "閉じる＆同期";
 
 /* Crash report email subject */
-"NextcloudNotes Crash Report" = "NextcloudNotes Crash Report";
+"NextcloudNotes Crash Report" = "NextcloudNotes クラッシュレポート";
 
 /* No comment provided by engineer. */
-"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?";
+"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "前回、NextcloudNotesを起動した際にクラッシュしました。開発者にレポートを送信しますか？";
 
 /* Support email subject */
 "NextcloudNotes Support Request" = "NextcloudNotes Support Request";
@@ -247,7 +247,7 @@
 
 "Notes" = "Notes";
 
-"Cancel" = "Cancel";
+"Cancel" = "キャンセル";
 "Scan QR Code" = "QR Codeをスキャン";
 "Close" = "閉じる";
 "Server Address" = "Server Address";
