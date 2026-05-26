@@ -56,7 +56,6 @@ extension UIColor {
     static let ph_popoverBackgroundColor = UIColor(named: "PHWhitePopoverBackground")!
     static let ph_popoverButtonColor = UIColor(named: "PHWhitePopoverButton")!
     static let ph_popoverBorderColor = UIColor(named: "PHWhitePopoverBorder")!
-//    static let ph_popoverIconColor = UIColor(named: "PHWhitePopoverIcon")!
     static let ph_switchTintColor = UIColor(named: "PHWhitePopoverBorder")!
     static let ph_selectedTextColor = UIColor(named: "PHSelectedText")!
 
@@ -141,4 +140,20 @@ func isNextcloud() -> Bool {
         }
     } catch { }
     return isNextcloud
+}
+
+/// Returns components for `serverAddress` with any trailing `/index.php` or `/` removed.
+/// Handles cases where the address may have been received in a bad format, ex. test.com/nextcloud/index.php/index.php
+func canonicalServerComponents(from serverAddress: String) -> URLComponents? {
+    guard let url = URL(string: serverAddress) else { return nil }
+
+    let stripped = url.lastPathComponent == "index.php" ? url.deletingLastPathComponent() : url
+
+    guard var components = URLComponents(url: stripped, resolvingAgainstBaseURL: false) else { return nil }
+
+    if components.path.hasSuffix("/") {
+        components.path = String(components.path.dropLast())
+    }
+
+    return components
 }

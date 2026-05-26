@@ -150,6 +150,7 @@ struct SettingsView: View {
                 Text("Enter a name for the folder where notes should be saved on the server")
             }
             .navigationTitle("Settings")
+            .toolbarTitleDisplayMode(.inline)
         }
     }
 }
