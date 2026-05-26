@@ -146,10 +146,14 @@ func isNextcloud() -> Bool {
 /// Handles cases where the address may have been received in a bad format, ex. test.com/nextcloud/index.php/index.php
 func canonicalServerComponents(from serverAddress: String) -> URLComponents? {
     guard let url = URL(string: serverAddress) else { return nil }
+
     let stripped = url.lastPathComponent == "index.php" ? url.deletingLastPathComponent() : url
+
     guard var components = URLComponents(url: stripped, resolvingAgainstBaseURL: false) else { return nil }
+
     if components.path.hasSuffix("/") {
         components.path = String(components.path.dropLast())
     }
+
     return components
 }

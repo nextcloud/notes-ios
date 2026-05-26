@@ -23,7 +23,9 @@ class ServerStatus: NSObject {
         guard var components = canonicalServerComponents(from: KeychainHelper.server) else {
             throw NSError(domain: NSURLErrorDomain, code: NSURLErrorBadURL)
         }
+
         components.path = components.path + "/status.php"
+
         guard let url = components.url else {
             throw NSError(domain: NSURLErrorDomain, code: NSURLErrorBadURL)
         }
