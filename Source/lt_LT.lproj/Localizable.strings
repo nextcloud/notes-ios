@@ -234,10 +234,10 @@
 "Save" = "Įrašyti";
 
 /* No comment provided by engineer. */
-"The certificate for this server is invalid" = "Šio serverio liudijimas negalioja";
+"The certificate for this server is invalid" = "Šio serverio sertifikatas negalioja";
 
 /* No comment provided by engineer. */
-"View Certificate" = "Rodyti liudijimą";
+"View Certificate" = "Rodyti sertifikatą";
 
 /* No comment provided by engineer. */
 "Yes" = "Taip";
