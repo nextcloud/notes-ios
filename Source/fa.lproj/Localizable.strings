@@ -135,7 +135,7 @@
 "Open in…" = "باز کردن در…";
 
 /* A menu option for sharing in plain text format */
-"Plain Text" = "Plain text";
+"Plain Text" = "متن ساده";
 
 /* A message
    A message to check network connection */
@@ -146,7 +146,7 @@
 
 /* Action to change title of a note
    Caption of Rename button */
-"Rename" = "Rename";
+"Rename" = "تغییر نام";
 
 /* Message of alert to change title */
 "Rename the note" = "Rename the note";
@@ -155,7 +155,7 @@
 "Rename…" = "Rename…";
 
 /* A menu option for sharing in rich text format */
-"Rich Text" = "Rich text";
+"Rich Text" = "متن غنی";
 
 /* Placeholder text when no note is selected */
 "Select or create a note." = "Select or create a note.";
@@ -225,7 +225,7 @@
 "No" = "نه";
 
 /* Title of alert to change notes folder */
-"Notes Folder" = "Notes folder";
+"Notes Folder" = "پوشه‌ی یادداشت ها";
 
 /* A menu option for sharing in pdf format */
 "PDF" = "PDF";
