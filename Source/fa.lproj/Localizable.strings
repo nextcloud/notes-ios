@@ -1,51 +1,51 @@
 /* Crash report email body placeholder */
-"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Please provide as much details as possible about what you were doing when the crash occurred.>";
+"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<لطفاً تا حد امکان جزئیات بیشتری درباره کاری که هنگام بروز خطا انجام می‌دادید، ارائه دهید.>";
 
 /* Support email body placeholder */
-"<Please state your question or problem here>" = "Please state your question or problem here";
+"<Please state your question or problem here>" = "<لطفاً سؤال یا مشکل خود را اینجا مطرح کنید>";
 
 /* An error message */
-"A server installation could not be found. Check the server address." = "A server installation could not be found. Check the server address.";
+"A server installation could not be found. Check the server address." = "سروری یافت نشد. نشانی سرور را بررسی کنید.";
 
 /* Acknowledgements */
-"Acknowledgements" = "سپاسگزاری ها";
+"Acknowledgements" = "تقدیر و تشکرها";
 
 /* Title of alert for adding a category */
-"Add Category" = "Add category";
+"Add Category" = "افزودن دسته‌بندی";
 
 /* Item to show all notes */
-"All" = "All";
+"All" = "همه";
 
 /* A menu action
    A menu option for cancelling */
 "Cancel" = "لغو";
 
 /* Header title, categories */
-"CATEGORIES" = "CATEGORIES";
+"CATEGORIES" = "دسته‌بندی‌ها";
 
 /* 'Category' menu item */
-"Category" = "Category";
+"Category" = "دسته‌بندی";
 
 /* Action to change category of a note */
-"Category…" = "Category…";
+"Category…" = "دسته‌بندی…";
 
 /* Action to change category of a note */
-"Change Category…" = "Change category…";
+"Change Category…" = "تغییر دسته‌بندی…";
 
 /* An error message */
-"Check username and password." = "Check username and password.";
+"Check username and password." = "نام کاربری و رمز عبور را بررسی کنید.";
 
 /* Title of a button allowing the user to close the login screen and sync with the server */
-"Close & Sync" = "Close & Sync";
+"Close & Sync" = "بستن و همگام‌سازی";
 
 /* Crash report email subject */
-"NextcloudNotes Crash Report" = "NextcloudNotes Crash Report";
+"NextcloudNotes Crash Report" = "گزارش خرابی یادداشت‌های Nextcloud";
 
 /* No comment provided by engineer. */
-"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?";
+"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "برنامه یادداشت‌های Nextcloud در آخرین اجرا با خطا مواجه شد. آیا مایلید گزارشی برای توسعه‌دهنده ارسال کنید؟";
 
 /* Support email subject */
-"NextcloudNotes Support Request" = "NextcloudNotes Support Request";
+"NextcloudNotes Support Request" = "درخواست پشتیبانی یادداشت‌های Nextcloud";
 
 /* A button title */
 "Connect" = "Connect";
@@ -60,10 +60,10 @@
 "Crash Detected" = "Crash detected";
 
 /* Action to delete a note */
-"Delete" = "Delete";
+"Delete" = "حذف";
 
 /* A menu action */
-"Delete Note" = "Delete note";
+"Delete Note" = "حذف یادداشت";
 
 /* Prompt on alert for adding a category */
 "Enter a name for the new category" = "Enter a name for the new category";
@@ -192,7 +192,7 @@
 "Unauthorized" = "Unauthorized";
 
 /* Text displayed for notes not assigned to a category */
-"Uncategorized" = "دسته‌بندی نشده";
+"Uncategorized" = "بدون دسته‌بندی";
 
 /* Message with Notes version, product name and version */
 "Using Notes %1$@ on %2$@ %3$@." = "Using Notes %1$@ on %2$@ %3$@.";
@@ -219,10 +219,10 @@
 "Do you want to connect to the server anyway?" = "Do you want to connect to the server anyway?";
 
 /* An error message title */
-"Error" = "Error";
+"Error" = "خطا";
 
 /* No comment provided by engineer. */
-"No" = "نه";
+"No" = "خیر";
 
 /* Title of alert to change notes folder */
 "Notes Folder" = "پوشه‌ی یادداشت ها";
@@ -231,7 +231,7 @@
 "PDF" = "PDF";
 
 /* Caption of Save button */
-"Save" = "Save";
+"Save" = "ذخیره";
 
 /* No comment provided by engineer. */
 "The certificate for this server is invalid" = "حجم فایل معتبر نیست";
@@ -243,35 +243,35 @@
 "Yes" = "بله";
 
 // NEXTCLOUD
-"Select the account to add"   = "Select the account to add";
+"Select the account to add"   = "حساب کاربری مورد نظر را برای افزودن انتخاب کنید";
 
-"Notes" = "یادداشت ها";
+"Notes" = "یادداشت‌ها";
 
 "Cancel" = "لغو";
-"Scan QR Code" = "Scan QR Code";
-"Close" = "Close";
-"Server Address" = "Server Address";
-"The address of your Nextcloud web interface when you open it in your browser." = "The address of your Nextcloud web interface when you open it in your browser.";
-"The entered server address is invalid." = "The entered server address is invalid.";
-"Accounts from our other apps were found on this device. Would you like to add one of these?" = "Accounts from our other apps were found on this device. Would you like to add one of these?";
-"Shared Accounts" = "Shared Accounts";
+"Scan QR Code" = "اسکن کد QR";
+"Close" = "بستن";
+"Server Address" = "نشانی سرور";
+"The address of your Nextcloud web interface when you open it in your browser." = "نشانی رابط وب Nextcloud شما هنگامی که آن را در مرورگر باز می‌کنید.";
+"The entered server address is invalid." = "نشانی سرور وارد شده معتبر نیست.";
+"Accounts from our other apps were found on this device. Would you like to add one of these?" = "حساب‌های کاربری از برنامه‌های دیگر ما در این دستگاه یافت شد. آیا مایلید یکی از آن‌ها را اضافه کنید؟";
+"Shared Accounts" = "حساب‌های مشترک";
 
 // SettingsView
-"Account" = "Account";
-"Log Out" = "Log Out";
-"Synchronization" = "Synchronization";
-"Synchronize on Start" = "Synchronize on Start";
-"Offline Mode" = "Offline Mode";
-"Server Settings" = "Server Settings";
-"Notes Path" = "Notes Path";
-"Internal Editor" = "Internal Editor";
-"File Extension" = "File Extension";
-"About This App" = "About This App";
-"Client Version" = "Client Version";
-"Server Version" = "Server Version";
-"Privacy and Legal Policy" = "Privacy and Legal Policy";
-"Show Source Code on GitHub" = "Show Source Code on GitHub";
+"Account" = "حساب کاربری";
+"Log Out" = "خروج از حساب";
+"Synchronization" = "همگام‌سازی";
+"Synchronize on Start" = "همگام‌سازی در شروع برنامه";
+"Offline Mode" = "حالت آفلاین";
+"Server Settings" = "تنظیمات سرور";
+"Notes Path" = "مسیر یادداشت‌ها";
+"Internal Editor" = "ویرایشگر داخلی";
+"File Extension" = "پسوند فایل";
+"About This App" = "درباره این برنامه";
+"Client Version" = "نسخه کلاینت";
+"Server Version" = "نسخه سرور";
+"Privacy and Legal Policy" = "سیاست حریم خصوصی و قوانین";
+"Show Source Code on GitHub" = "نمایش کد منبع در گیت‌هاب";
 "Logout" = "خروج از حساب کاربری";
-"Are you sure you want to log out?" = "Are you sure you want to log out?";
-"Enter a name for the folder where notes should be saved on the server" = "Enter a name for the folder where notes should be saved on the server";
-"Settings" = "Settings";
+"Are you sure you want to log out?" = "آیا مطمئن هستید که می‌خواهید خارج شوید؟";
+"Enter a name for the folder where notes should be saved on the server" = "نام پوشه‌ای را که یادداشت‌ها باید در سرور ذخیره شوند وارد کنید";
+"Settings" = "تنظیمات";

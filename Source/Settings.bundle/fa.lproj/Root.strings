@@ -7,14 +7,14 @@
 */
 "About" = "درباره";
 
-"Acknowledgements" = "سپاسگزاری ها";
+"Acknowledgements" = "تقدیر و تشکرها";
 
-"Advanced Settings" = "Advanced settings";
+"Advanced Settings" = "تنظیمات پیشرفته";
 
-"Caution: Turning the switch on will remove all notes locally. Unsynced changes will be lost. Use only if you are experiencing problems." = "Caution: Turning the switch on will remove all notes locally. Unsynced changes will be lost. Use only if you are experiencing problems.";
+"Caution: Turning the switch on will remove all notes locally. Unsynced changes will be lost. Use only if you are experiencing problems." = "احتیاط: فعال کردن این گزینه تمامی یادداشت‌های ذخیره‌شده روی دستگاه را حذف خواهد کرد. تغییراتی که همگام‌سازی نشده باشند از دست می‌روند. فقط در صورتی استفاده کنید که با برنامه مشکل دارید.";
 
-"Reset local notes database" = "Reset local notes database";
+"Reset local notes database" = "بازنشانی پایگاه‌داده محلی یادداشت‌ها";
 
-"Third-party licenses" = "Third-party licenses";
+"Third-party licenses" = "پروانه‌های شخص ثالث";
 
-"Version" = "Version";
+"Version" = "نسخه";
