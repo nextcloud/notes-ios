@@ -1,5 +1,5 @@
 /* Crash report email body placeholder */
-"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Please provide as much details as possible about what you were doing when the crash occurred.>";
+"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Por favor, forneça o máximo de detalhes possível sobre o que você estava fazendo quando a falha do sistema ocorreu.>";
 
 /* Support email body placeholder */
 "<Please state your question or problem here>" = "Please state your question or problem here";
@@ -11,7 +11,7 @@
 "Acknowledgements" = "Reconhecimentos";
 
 /* Title of alert for adding a category */
-"Add Category" = "Add category";
+"Add Category" = "Adicionar categoria";
 
 /* Item to show all notes */
 "All" = "All";
@@ -24,7 +24,7 @@
 "CATEGORIES" = "CATEGORIES";
 
 /* 'Category' menu item */
-"Category" = "Category";
+"Category" = "Categoria";
 
 /* Action to change category of a note */
 "Category…" = "Category…";
@@ -36,7 +36,7 @@
 "Check username and password." = "Check username and password.";
 
 /* Title of a button allowing the user to close the login screen and sync with the server */
-"Close & Sync" = "Close & Sync";
+"Close & Sync" = "Fechar & Sincronizar";
 
 /* Crash report email subject */
 "NextcloudNotes Crash Report" = "NextcloudNotes Crash Report";
@@ -45,7 +45,7 @@
 "NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?";
 
 /* Support email subject */
-"NextcloudNotes Support Request" = "NextcloudNotes Support Request";
+"NextcloudNotes Support Request" = "Solicitação de Suporte do Nextcloud Notas";
 
 /* A button title */
 "Connect" = "Connect";
@@ -54,7 +54,7 @@
 "Connected to Notes on the server" = "Connected to Notes on the server";
 
 /* An error message title */
-"Connection failure" = "Connection failure";
+"Connection failure" = "Falha na conexão";
 
 /* Alert view title */
 "Crash Detected" = "Crash detected";
@@ -69,7 +69,7 @@
 "Enter a name for the new category" = "Enter a name for the new category";
 
 /* The title of an error message */
-"Error Adding Note" = "Error adding note";
+"Error Adding Note" = "Erro ao adicionar nota";
 
 /* The title of an error message */
 "Error Deleting Note" = "Error deleting note";
@@ -81,7 +81,7 @@
 "Error Syncing Notes" = "Error syncing notes";
 
 /* The title of an error message */
-"Error Updating Note" = "Error updating note";
+"Error Updating Note" = "Erro ao atualizar nota";
 
 /* The title of an error message */
 "Error Updating Notes" = "Error updating notes";
@@ -114,10 +114,10 @@
 "Not connected to Notes on a server" = "Not connected to Notes on a server";
 
 /* A status label indicating that the user is not logged in */
-"Not Logged In" = "Not logged in";
+"Not Logged In" = "Não logado";
 
 /* Message about not being logged in */
-"Not logged in" = "Not logged in";
+"Not logged in" = "Não logado";
 
 /* Title of alert to change title */
 "Note Title" = "Note title";
@@ -126,7 +126,7 @@
 "Notes could not be found on your server. Make sure it is installed and enabled" = "Notes could not be found on your server. Make sure it is installed and enabled";
 
 /* An error message title */
-"Notes not found" = "Notes not found";
+"Notes not found" = "Aplicativo Notas não encontrado";
 
 /* Button, OK */
 "OK" = "OK";
@@ -149,7 +149,7 @@
 "Rename" = "Rename";
 
 /* Message of alert to change title */
-"Rename the note" = "Rename the note";
+"Rename the note" = "Renomear a nota";
 
 /* Action to change title of a note */
 "Rename…" = "Rename…";
@@ -161,7 +161,7 @@
 "Select or create a note." = "Select or create a note.";
 
 /* Alert title for selecting server brand */
-"Server" = "Server";
+"Server" = "Servidor";
 
 /* An error message title */
 "Server not found" = "Server not found";
@@ -170,7 +170,7 @@
 "Server Reachable" = "Server reachable";
 
 /* Title of a menu with sharing options */
-"Share Note As" = "Share note as";
+"Share Note As" = "Compartilhar nota como";
 
 /* A message title */
 "Success" = "Sucesso";
@@ -182,7 +182,7 @@
 "The note does not exist" = "The note does not exist";
 
 /* Alert message for selecting server brand */
-"Unable to automatically detect type of server.\nPlease select:" = "Unable to automatically detect type of server.\nPlease select:";
+"Unable to automatically detect type of server.\nPlease select:" = "Não é possível detectar automaticamente o tipo de servidor.\nPor favor, selecione:";
 
 /* A message title
    The title of an error message */
@@ -195,7 +195,7 @@
 "Uncategorized" = "Uncategorized";
 
 /* Message with Notes version, product name and version */
-"Using Notes %1$@ on %2$@ %3$@." = "Using Notes %1$@ on %2$@ %3$@.";
+"Using Notes %1$@ on %2$@ %3$@." = "Usando Notas %1$@ em %2$@ %3$@.";
 
 /* No comment provided by engineer. */
 "Yes, please!" = "Yes, please!";
@@ -204,7 +204,7 @@
 "You are now connected to Notes on your server" = "You are now connected to Notes on your server";
 
 /* HUD subtitle when checking server capabilities */
-"Checking server capabilities" = "Checking server capabilities";
+"Checking server capabilities" = "Verificando as capacidades do servidor";
 
 /* HUD subtitle when checking server settings */
 "Checking server settings" = "Checking server settings";
@@ -213,7 +213,7 @@
 "Checking server status" = "Checking server status";
 
 /* No comment provided by engineer. */
-"Connection error" = "Connection error";
+"Connection error" = "Erro de conexão";
 
 /* No comment provided by engineer. */
 "Do you want to connect to the server anyway?" = "Quer ligar-se ao servidor mesmo assim?";
@@ -248,30 +248,30 @@
 "Notes" = "Notas";
 
 "Cancel" = "Cancel";
-"Scan QR Code" = "Scan QR Code";
+"Scan QR Code" = "Escanear Código QR";
 "Close" = "Close";
 "Server Address" = "Endereço do Servidor";
 "The address of your Nextcloud web interface when you open it in your browser." = "The address of your Nextcloud web interface when you open it in your browser.";
-"The entered server address is invalid." = "The entered server address is invalid.";
+"The entered server address is invalid." = "O endereço do servidor informado é inválido.";
 "Accounts from our other apps were found on this device. Would you like to add one of these?" = "Contas de nossos outros aplicativos foram encontradas neste dispositivo. Você gostaria de adicionar uma destas contas?";
 "Shared Accounts" = "Shared Accounts";
 
 // SettingsView
 "Account" = "Account";
-"Log Out" = "Log Out";
+"Log Out" = "Sair";
 "Synchronization" = "Sincronização";
 "Synchronize on Start" = "Synchronize on Start";
 "Offline Mode" = "Offline Mode";
-"Server Settings" = "Server Settings";
+"Server Settings" = "Configurações do Servidor";
 "Notes Path" = "Caminho do Notas";
 "Internal Editor" = "Internal Editor";
-"File Extension" = "File Extension";
-"About This App" = "About This App";
-"Client Version" = "Client Version";
+"File Extension" = "Extensão de arquivo";
+"About This App" = "Sobre Este Aplicativo";
+"Client Version" = "Versão do Cliente";
 "Server Version" = "Versão do Servidor";
 "Privacy and Legal Policy" = "Política de Privacidade e Legal";
 "Show Source Code on GitHub" = "Show Source Code on GitHub";
 "Logout" = "Logout";
-"Are you sure you want to log out?" = "Are you sure you want to log out?";
+"Are you sure you want to log out?" = "Tem certeza de que deseja sair?";
 "Enter a name for the folder where notes should be saved on the server" = "Digite o nome para a pasta onde as notas devem ser salvas no servidor";
 "Settings" = "Settings";
