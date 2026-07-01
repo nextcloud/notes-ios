@@ -14,7 +14,7 @@
 "Add Category" = "Adicionar categoria";
 
 /* Item to show all notes */
-"All" = "All";
+"All" = "Todas";
 
 /* A menu action
    A menu option for cancelling */
@@ -30,7 +30,7 @@
 "Category…" = "Category…";
 
 /* Action to change category of a note */
-"Change Category…" = "Change category…";
+"Change Category…" = "Mudar a categoria…";
 
 /* An error message */
 "Check username and password." = "Check username and password.";
@@ -42,7 +42,7 @@
 "NextcloudNotes Crash Report" = "NextcloudNotes Crash Report";
 
 /* No comment provided by engineer. */
-"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?";
+"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "O Nextcloud Notas falhou na última vez que foi iniciado. Você quer enviar um relatório ao desenvolvedor?";
 
 /* Support email subject */
 "NextcloudNotes Support Request" = "Solicitação de Suporte do Nextcloud Notas";
@@ -57,7 +57,7 @@
 "Connection failure" = "Falha na conexão";
 
 /* Alert view title */
-"Crash Detected" = "Crash detected";
+"Crash Detected" = "Falha detectada";
 
 /* Action to delete a note */
 "Delete" = "Delete";
@@ -78,7 +78,7 @@
 "Error Getting Note" = "Error getting note";
 
 /* The title of an error message */
-"Error Syncing Notes" = "Error syncing notes";
+"Error Syncing Notes" = "Erro ao sincronizar notas";
 
 /* The title of an error message */
 "Error Updating Note" = "Erro ao atualizar nota";
@@ -96,7 +96,7 @@
 "HTML" = "HTML";
 
 /* A status label indicating that the user is logged in */
-"Logged In" = "Logged in";
+"Logged In" = "Logado";
 
 /* Header title, main */
 "MAIN" = "MAIN";
@@ -111,7 +111,7 @@
 "No thanks" = "No thanks";
 
 /* Status information, not connected */
-"Not connected to Notes on a server" = "Not connected to Notes on a server";
+"Not connected to Notes on a server" = "Não conectado ao aplicativo Notas no servidor";
 
 /* A status label indicating that the user is not logged in */
 "Not Logged In" = "Não logado";
@@ -142,7 +142,7 @@
 "Please check network connection and login." = "Please check network connection and login.";
 
 /* A button title */
-"Reconnect" = "Reconnect";
+"Reconnect" = "Reconectar";
 
 /* Action to change title of a note
    Caption of Rename button */
@@ -158,13 +158,13 @@
 "Rich Text" = "Rich text";
 
 /* Placeholder text when no note is selected */
-"Select or create a note." = "Select or create a note.";
+"Select or create a note." = "Selecione ou crie uma nota.";
 
 /* Alert title for selecting server brand */
 "Server" = "Servidor";
 
 /* An error message title */
-"Server not found" = "Server not found";
+"Server not found" = "Servidor não encontrado";
 
 /* A message title */
 "Server Reachable" = "Server reachable";
@@ -176,7 +176,7 @@
 "Success" = "Sucesso";
 
 /* A message */
-"The network connection is working properly." = "The network connection is working properly.";
+"The network connection is working properly." = "A conexão de rede está funcionando corretamente.";
 
 /* An error message */
 "The note does not exist" = "The note does not exist";
@@ -192,7 +192,7 @@
 "Unauthorized" = "Unauthorized";
 
 /* Text displayed for notes not assigned to a category */
-"Uncategorized" = "Uncategorized";
+"Uncategorized" = "Não categorizado";
 
 /* Message with Notes version, product name and version */
 "Using Notes %1$@ on %2$@ %3$@." = "Usando Notas %1$@ em %2$@ %3$@.";
@@ -207,7 +207,7 @@
 "Checking server capabilities" = "Verificando as capacidades do servidor";
 
 /* HUD subtitle when checking server settings */
-"Checking server settings" = "Checking server settings";
+"Checking server settings" = "Verificando as configurações do servidor";
 
 /* HUD subtitle when checking server status */
 "Checking server status" = "Checking server status";
@@ -254,14 +254,14 @@
 "The address of your Nextcloud web interface when you open it in your browser." = "The address of your Nextcloud web interface when you open it in your browser.";
 "The entered server address is invalid." = "O endereço do servidor informado é inválido.";
 "Accounts from our other apps were found on this device. Would you like to add one of these?" = "Contas de nossos outros aplicativos foram encontradas neste dispositivo. Você gostaria de adicionar uma destas contas?";
-"Shared Accounts" = "Shared Accounts";
+"Shared Accounts" = "Contas Compartilhadas";
 
 // SettingsView
 "Account" = "Account";
 "Log Out" = "Sair";
 "Synchronization" = "Sincronização";
 "Synchronize on Start" = "Synchronize on Start";
-"Offline Mode" = "Offline Mode";
+"Offline Mode" = "Modo Off-line";
 "Server Settings" = "Configurações do Servidor";
 "Notes Path" = "Caminho do Notas";
 "Internal Editor" = "Internal Editor";
@@ -271,7 +271,7 @@
 "Server Version" = "Versão do Servidor";
 "Privacy and Legal Policy" = "Política de Privacidade e Legal";
 "Show Source Code on GitHub" = "Show Source Code on GitHub";
-"Logout" = "Logout";
+"Logout" = "Sair";
 "Are you sure you want to log out?" = "Tem certeza de que deseja sair?";
 "Enter a name for the folder where notes should be saved on the server" = "Digite o nome para a pasta onde as notas devem ser salvas no servidor";
 "Settings" = "Settings";
