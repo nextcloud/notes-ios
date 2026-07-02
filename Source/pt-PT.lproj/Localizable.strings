@@ -2,7 +2,7 @@
 "<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Por favor, forneça o máximo de detalhes possível sobre o que você estava fazendo quando a falha do sistema ocorreu.>";
 
 /* Support email body placeholder */
-"<Please state your question or problem here>" = "Please state your question or problem here";
+"<Please state your question or problem here>" = "Por favor, informe sua pergunta ou problema aqui";
 
 /* An error message */
 "A server installation could not be found. Check the server address." = "A server installation could not be found. Check the server address.";
@@ -33,7 +33,7 @@
 "Change Category…" = "Mudar a categoria…";
 
 /* An error message */
-"Check username and password." = "Check username and password.";
+"Check username and password." = "Verifique o nome de usuário e a senha.";
 
 /* Title of a button allowing the user to close the login screen and sync with the server */
 "Close & Sync" = "Fechar & Sincronizar";
@@ -51,7 +51,7 @@
 "Connect" = "Connect";
 
 /* Status information, connected */
-"Connected to Notes on the server" = "Connected to Notes on the server";
+"Connected to Notes on the server" = "Conectado ao aplicativo Notas no servidor";
 
 /* An error message title */
 "Connection failure" = "Falha na conexão";
@@ -75,7 +75,7 @@
 "Error Deleting Note" = "Error deleting note";
 
 /* The title of an error message */
-"Error Getting Note" = "Error getting note";
+"Error Getting Note" = "Erro ao obter nota";
 
 /* The title of an error message */
 "Error Syncing Notes" = "Erro ao sincronizar notas";
@@ -108,7 +108,7 @@
 "New note" = "Nova nota";
 
 /* No comment provided by engineer. */
-"No thanks" = "No thanks";
+"No thanks" = "Não, obrigado";
 
 /* Status information, not connected */
 "Not connected to Notes on a server" = "Não conectado ao aplicativo Notas no servidor";
@@ -139,7 +139,7 @@
 
 /* A message
    A message to check network connection */
-"Please check network connection and login." = "Please check network connection and login.";
+"Please check network connection and login." = "Verifique a conexão de rede e faça login.";
 
 /* A button title */
 "Reconnect" = "Reconectar";
@@ -167,7 +167,7 @@
 "Server not found" = "Servidor não encontrado";
 
 /* A message title */
-"Server Reachable" = "Server reachable";
+"Server Reachable" = "Servidor acessível";
 
 /* Title of a menu with sharing options */
 "Share Note As" = "Compartilhar nota como";
@@ -198,7 +198,7 @@
 "Using Notes %1$@ on %2$@ %3$@." = "Usando Notas %1$@ em %2$@ %3$@.";
 
 /* No comment provided by engineer. */
-"Yes, please!" = "Yes, please!";
+"Yes, please!" = "Sim, por favor!";
 
 /* A message */
 "You are now connected to Notes on your server" = "You are now connected to Notes on your server";
@@ -225,7 +225,7 @@
 "No" = "Não";
 
 /* Title of alert to change notes folder */
-"Notes Folder" = "Notes folder";
+"Notes Folder" = "Pasta de notas";
 
 /* A menu option for sharing in pdf format */
 "PDF" = "PDF";
@@ -251,20 +251,20 @@
 "Scan QR Code" = "Escanear Código QR";
 "Close" = "Close";
 "Server Address" = "Endereço do Servidor";
-"The address of your Nextcloud web interface when you open it in your browser." = "The address of your Nextcloud web interface when you open it in your browser.";
+"The address of your Nextcloud web interface when you open it in your browser." = "O endereço da interface web do Nextcloud quando você a abre no navegador.";
 "The entered server address is invalid." = "O endereço do servidor informado é inválido.";
 "Accounts from our other apps were found on this device. Would you like to add one of these?" = "Contas de nossos outros aplicativos foram encontradas neste dispositivo. Você gostaria de adicionar uma destas contas?";
 "Shared Accounts" = "Contas Compartilhadas";
 
 // SettingsView
-"Account" = "Account";
+"Account" = "Conta";
 "Log Out" = "Sair";
 "Synchronization" = "Sincronização";
 "Synchronize on Start" = "Synchronize on Start";
 "Offline Mode" = "Modo Off-line";
 "Server Settings" = "Configurações do Servidor";
 "Notes Path" = "Caminho do Notas";
-"Internal Editor" = "Internal Editor";
+"Internal Editor" = "Editor Interno";
 "File Extension" = "Extensão de arquivo";
 "About This App" = "Sobre Este Aplicativo";
 "Client Version" = "Versão do Cliente";
