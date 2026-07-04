@@ -66,7 +66,7 @@
 "Delete Note" = "Apagar nota";
 
 /* Prompt on alert for adding a category */
-"Enter a name for the new category" = "Enter a name for the new category";
+"Enter a name for the new category" = "Insira um nome para a nova categoria";
 
 /* The title of an error message */
 "Error Adding Note" = "Erro ao adicionar nota";
@@ -84,7 +84,7 @@
 "Error Updating Note" = "Erro ao atualizar nota";
 
 /* The title of an error message */
-"Error Updating Notes" = "Error updating notes";
+"Error Updating Notes" = "Erro ao atualizar notas";
 
 /* An error message */
 "Failed to connect to a server. Check your settings." = "Falha ao conectar a um servidor. Verifique suas configurações.";
@@ -99,7 +99,7 @@
 "Logged In" = "Logado";
 
 /* Header title, main */
-"MAIN" = "MAIN";
+"MAIN" = "PRINCIPAL";
 
 /* A menu option for sharing in markdown format */
 "Markdown" = "Markdown";
@@ -155,7 +155,7 @@
 "Rename…" = "Renomear…";
 
 /* A menu option for sharing in rich text format */
-"Rich Text" = "Rich text";
+"Rich Text" = "Texto rich";
 
 /* Placeholder text when no note is selected */
 "Select or create a note." = "Selecione ou crie uma nota.";
@@ -237,7 +237,7 @@
 "The certificate for this server is invalid" = "O certificado deste servidor é inválido";
 
 /* No comment provided by engineer. */
-"View Certificate" = "View certificate";
+"View Certificate" = "Ver certificado";
 
 /* No comment provided by engineer. */
 "Yes" = "Sim";
@@ -270,7 +270,7 @@
 "Client Version" = "Versão do Cliente";
 "Server Version" = "Versão do Servidor";
 "Privacy and Legal Policy" = "Política de Privacidade e Legal";
-"Show Source Code on GitHub" = "Show Source Code on GitHub";
+"Show Source Code on GitHub" = "Exibir Código-Fonte no GitHub";
 "Logout" = "Sair";
 "Are you sure you want to log out?" = "Tem certeza de que deseja sair?";
 "Enter a name for the folder where notes should be saved on the server" = "Digite o nome para a pasta onde as notas devem ser salvas no servidor";
