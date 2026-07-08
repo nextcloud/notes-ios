@@ -27,12 +27,20 @@ final class DirectEditingWebEnvironment {
     private let processPool = WKProcessPool()
 
     ///
+    /// The live content controller for the reusable web view. Held explicitly because
+    /// `WKWebView.configuration` returns a copy, so script message handlers must be registered
+    /// through this original reference to take effect.
+    ///
+    let userContentController = WKUserContentController()
+
+    ///
     /// Persistent, shared configuration used for the reusable web view.
     ///
     private lazy var configuration: WKWebViewConfiguration = {
         let configuration = WKWebViewConfiguration()
         configuration.websiteDataStore = .default()
         configuration.processPool = processPool
+        configuration.userContentController = userContentController
         return configuration
     }()
 

@@ -92,7 +92,7 @@ class NCViewerNextcloudText: UIViewController, WKNavigationDelegate, WKScriptMes
     // MARK: - Shared web view
 
     private func attachSharedWebView() {
-        let contentController = webView.configuration.userContentController
+        let contentController = DirectEditingWebEnvironment.shared.userContentController
         // Remove any handler a previous presentation registered before adding this one, so the
         // shared content controller does not retain a dismissed controller.
         contentController.removeScriptMessageHandler(forName: Self.messageHandlerName)
@@ -110,7 +110,7 @@ class NCViewerNextcloudText: UIViewController, WKNavigationDelegate, WKScriptMes
     }
 
     private func detachSharedWebView() {
-        webView.configuration.userContentController.removeScriptMessageHandler(forName: Self.messageHandlerName)
+        DirectEditingWebEnvironment.shared.userContentController.removeScriptMessageHandler(forName: Self.messageHandlerName)
 
         if webView.navigationDelegate === self {
             webView.navigationDelegate = nil
