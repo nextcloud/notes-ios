@@ -200,6 +200,12 @@ class NotesTableViewController: BaseUITableViewController, Logging, NSFetchedRes
             didBecomeActive()
         }
         launching = false
+
+        // Warm the shared direct-editing web view and the connection to the server so the first
+        // editor open is faster, but only when direct editing is actually available.
+        if isAvailableDirectEditing(identifier: detailSegueIdentifier) {
+            DirectEditingWebEnvironment.shared.prewarm()
+        }
     }
 
     // MARK: - Store Observation
@@ -495,19 +501,32 @@ class NotesTableViewController: BaseUITableViewController, Logging, NSFetchedRes
             return
         }
 
+        guard let viewController = UIStoryboard(name: "NCViewerNextcloudText", bundle: nil).instantiateInitialViewController() as? NCViewerNextcloudText else {
+            return
+        }
+
         let notesPath = KeychainHelper.notesPath
 
+        viewController.editor = "text"
+        viewController.fileName = note.title
+        viewController.modalPresentationStyle = .fullScreen
+
+        // Present immediately (showing the loading indicator) so the presentation animation and
+        // connection warm-up overlap the textOpenFile round-trip. The editor URL is supplied via
+        // load(link:) once it returns.
+        navigationController?.present(viewController, animated: true)
+
         NextcloudKit.shared.textOpenFile(fileNamePath: notesPath, fileId: String(note.id), editor: "text", account: account) { account, url, data, error in
-            if error == .success, let url = url, let viewController: NCViewerNextcloudText = UIStoryboard(name: "NCViewerNextcloudText", bundle: nil).instantiateInitialViewController() as? NCViewerNextcloudText {
-                viewController.editor = "text"
-                viewController.link = url
-                viewController.fileName = note.title
-                viewController.modalPresentationStyle = .fullScreen
-                self.navigationController?.present(viewController, animated: true)
-            } else {
-                let alert = UIAlertController(title: "Error", message: "Cannot open file for direct editing: \(error.localizedDescription)", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
-                self.present(alert, animated: true, completion: nil)
+            DispatchQueue.main.async {
+                if error == .success, let url = url {
+                    viewController.load(link: url)
+                } else {
+                    viewController.dismiss(animated: true) {
+                        let alert = UIAlertController(title: "Error", message: "Cannot open file for direct editing: \(error.localizedDescription)", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                }
             }
         }
 
