@@ -213,6 +213,9 @@ final class Store: Logging, Storing {
         KeychainHelper.username = ""
         KeychainHelper.password = ""
         Note.reset()
+        // Drop cached direct-editing web data (bundles, cookies, session) so nothing leaks to
+        // the next account.
+        DirectEditingWebEnvironment.shared.clearData()
         reloadAccounts()
     }
 
