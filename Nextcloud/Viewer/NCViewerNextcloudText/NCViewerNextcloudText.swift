@@ -102,7 +102,11 @@ class NCViewerNextcloudText: UIViewController, WKNavigationDelegate, WKScriptMes
         guard let info = notification.userInfo else { return }
         guard let frameInfo = info[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
         let keyboardFrame = frameInfo.cgRectValue
-        let height = keyboardFrame.size.height
+        // The keyboard height is measured from the bottom of the screen, while the
+        // web view is pinned to the safe area bottom (already inset by the home
+        // indicator). Subtracting the safe area bottom inset avoids the extra
+        // spacing that would otherwise appear between the editor and the keyboard.
+        let height = keyboardFrame.size.height - view.safeAreaInsets.bottom
         bottomConstraint?.constant = -height
     }
 
