@@ -122,14 +122,17 @@ final class NotesListModel: NSObject, Logging, NSFetchedResultsControllerDelegat
         request.predicate = predicate(for: searchText)
 
         if groupByCategory {
+            // "category" must stay first so it matches the section key path; favorites float to the top within each category.
             request.sortDescriptors = [
                 NSSortDescriptor(key: "category", ascending: true),
+                NSSortDescriptor(key: "favorite", ascending: false),
                 NSSortDescriptor(key: "modified", ascending: false),
                 NSSortDescriptor(key: "id", ascending: true),
                 NSSortDescriptor(key: "guid", ascending: true)
             ]
         } else {
             request.sortDescriptors = [
+                NSSortDescriptor(key: "favorite", ascending: false),
                 NSSortDescriptor(key: "modified", ascending: false),
                 NSSortDescriptor(key: "id", ascending: true),
                 NSSortDescriptor(key: "guid", ascending: true)

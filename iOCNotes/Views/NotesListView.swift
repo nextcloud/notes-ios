@@ -81,6 +81,14 @@ struct NotesListView: View {
             .contextMenu {
                 contextMenu(for: row)
             }
+            .swipeActions(edge: .leading) {
+                Button {
+                    toggleFavorite(row)
+                } label: {
+                    favoriteLabel(isFavorite: row.favorite)
+                }
+                .tint(.yellow)
+            }
             .swipeActions(edge: .trailing) {
                 Button(role: .destructive) {
                     delete(row)
@@ -108,6 +116,12 @@ struct NotesListView: View {
             } label: {
                 Label(String(localized: "Category…", comment: "Action to change category of a note"), systemImage: "folder")
             }
+        }
+
+        Button {
+            toggleFavorite(row)
+        } label: {
+            favoriteLabel(isFavorite: row.favorite)
         }
 
         Button {
@@ -148,6 +162,21 @@ struct NotesListView: View {
     private func delete(_ row: NoteListRow) {
         guard let note = model.note(for: row.id) else { return }
         NoteSessionManager.shared.delete(note: note)
+    }
+
+    @ViewBuilder
+    private func favoriteLabel(isFavorite: Bool) -> some View {
+        if isFavorite {
+            Label(String(localized: "Remove from Favorites", comment: "Action to unmark a note as favorite"), systemImage: "star.slash")
+        } else {
+            Label(String(localized: "Favorite", comment: "Action to mark a note as favorite"), systemImage: "star")
+        }
+    }
+
+    private func toggleFavorite(_ row: NoteListRow) {
+        guard let note = model.note(for: row.id) else { return }
+        note.favorite.toggle()
+        NoteSessionManager.shared.update(note: note, completion: nil)
     }
 
     private func commitRename() {
