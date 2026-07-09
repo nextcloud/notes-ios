@@ -2,11 +2,18 @@
 // SPDX-FileCopyrightText: 2019 Peter Hedlund
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import Testing
 import Dispatch
+import Foundation
+import Testing
 @testable import iOCNotes
 
-@Suite("Notes Management Tests")
+@Suite(
+    "Notes Management Tests",
+    .enabled(
+        if: ProcessInfo.processInfo.environment["NOTES_INTEGRATION_TESTS"] == "1",
+        "Requires the local Nextcloud test server"
+    )
+)
 class NotesTests {
     var originalServer: String = ""
     var originalUser: String = ""
@@ -20,8 +27,8 @@ class NotesTests {
         
         // Set test values
         KeychainHelper.server = "http://localhost:8080"
-        KeychainHelper.username = "cloudnotes"
-        KeychainHelper.password = "cloudnotes"
+        KeychainHelper.username = "nonotes"
+        KeychainHelper.password = "password"
         
         // Clear database
         Note.reset()
