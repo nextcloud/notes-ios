@@ -176,7 +176,7 @@ struct NotesListView: View {
     private func toggleFavorite(_ row: NoteListRow) {
         guard let note = model.note(for: row.id) else { return }
         note.favorite.toggle()
-        NoteSessionManager.shared.update(note: note, completion: nil)
+        NoteSessionManager.shared.update(note: note, updateModified: false, completion: nil)
     }
 
     private func commitRename() {
