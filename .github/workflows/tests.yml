@@ -1,0 +1,76 @@
+# SPDX-FileCopyrightText: Nextcloud GmbH
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+name: Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: macos-26
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Select Xcode
+        run: sudo xcode-select --switch /Applications/Xcode_26.app
+
+      - name: Show versions
+        run: |
+          xcodebuild -version
+          swift --version
+
+      - name: Resolve Swift package dependencies
+        run: |
+          xcodebuild -resolvePackageDependencies \
+            -project iOCNotes.xcodeproj \
+            -scheme iOCNotes
+
+      - name: Pick an iOS simulator
+        id: sim
+        run: |
+          # Choose the newest available iPhone simulator so we don't hard-code a
+          # device name that may change between Xcode releases.
+          cat > /tmp/pick_sim.py <<'PY'
+          import json, sys
+          devices = json.load(sys.stdin)["devices"]
+          cands = [d for rt, ds in devices.items() if "iOS" in rt
+                   for d in ds if d.get("isAvailable") and "iPhone" in d["name"]]
+          print(cands[-1]["udid"] if cands else "")
+          PY
+          UDID=$(xcrun simctl list devices available --json | python3 /tmp/pick_sim.py)
+          if [ -z "$UDID" ]; then
+            echo "No iOS simulator available" >&2
+            xcrun simctl list devices available
+            exit 1
+          fi
+          echo "Using simulator $UDID"
+          echo "udid=$UDID" >> "$GITHUB_OUTPUT"
+
+      - name: Run unit tests
+        run: |
+          xcodebuild test \
+            -project iOCNotes.xcodeproj \
+            -scheme iOCNotes \
+            -destination "platform=iOS Simulator,id=${{ steps.sim.outputs.udid }}" \
+            -resultBundlePath TestResults.xcresult \
+            CODE_SIGNING_ALLOWED=NO
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: TestResults
+          path: TestResults.xcresult
+          if-no-files-found: ignore
