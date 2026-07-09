@@ -30,16 +30,6 @@
       codeCoverageEnabled = "YES">
       <Testables>
          <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D0CFE5561888A7BD00165839"
-               BuildableName = "iOCNotesTests.xctest"
-               BlueprintName = "iOCNotesTests"
-               ReferencedContainer = "container:iOCNotes.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
             skipped = "NO"
             parallelizable = "YES">
             <BuildableReference
