@@ -17,14 +17,20 @@ concurrency:
 
 jobs:
   test:
-    runs-on: macos-26
+    runs-on: macos-15
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Select Xcode
-        run: sudo xcode-select --switch /Applications/Xcode_26.app
+      - name: Select latest installed Xcode
+        run: |
+          # Pick the newest Xcode present on the runner instead of hard-coding a
+          # path, so the job keeps working as runner images change.
+          LATEST=$(ls -d /Applications/Xcode_*.app 2>/dev/null | sort -V | tail -1)
+          LATEST=${LATEST:-/Applications/Xcode.app}
+          echo "Selecting $LATEST"
+          sudo xcode-select --switch "$LATEST"
 
       - name: Show versions
         run: |
