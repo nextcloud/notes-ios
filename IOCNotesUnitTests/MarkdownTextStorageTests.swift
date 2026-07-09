@@ -16,8 +16,10 @@ struct MarkdownTextStorageTests {
         let attributedString = NSAttributedString(string: text)
         textStorage.setAttributedString(attributedString)
         
-        // Manually trigger formatting since we're not in a text view
-        let range = NSRange(location: 0, length: text.count)
+        // Manually trigger formatting since we're not in a text view.
+        // Use the UTF-16 length (not the grapheme count) since that is what
+        // NSTextStorage/NSAttributedString ranges are measured in.
+        let range = NSRange(location: 0, length: (text as NSString).length)
         textStorage.edited([.editedCharacters, .editedAttributes], range: range, changeInLength: 0)
         textStorage.processEditing()
         
