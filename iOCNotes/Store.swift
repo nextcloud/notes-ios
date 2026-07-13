@@ -19,6 +19,9 @@ final class Store: Logging, Storing {
     ///
     var pollingTask: Task<Void, any Error>?
 
+    /// A terminal error reported by the active login flow.
+    var loginErrorMessage: String?
+
     ///
     /// This singleton is necessary to conveniently expose the same environment object used in SwiftUI to the already existing UIKit code.
     ///
@@ -289,31 +292,45 @@ final class Store: Logging, Storing {
         }
     }
 
-    private func getResponse(endpoint: URL, token: String, options: NKRequestOptions) async -> (url: String, user: String, appPassword: String)? {
+    private func getResponse(endpoint: URL, token: String, options: NKRequestOptions) async throws -> (url: String, user: String, appPassword: String)? {
         logger.debug("Getting login flow status...")
 
-        return await withCheckedContinuation { continuation in
-            NextcloudKit.shared.getLoginFlowV2Poll(token: token, endpoint: endpoint.absoluteString, options: options) { [self] server, loginName, appPassword, _, error in
+        return try await withCheckedThrowingContinuation { continuation in
+            NextcloudKit.shared.getLoginFlowV2Poll(token: token, endpoint: endpoint.absoluteString, options: options) { [self] server, loginName, appPassword, response, error in
                 if error == .success, let urlBase = server, let user = loginName, let appPassword {
                     logger.debug("Successfully got login flow status (server: \(urlBase), user: \(user), password: \(appPassword)).")
                     continuation.resume(returning: (urlBase, user, appPassword))
-                } else {
-                    logger.debug("Failed to get login flow status.")
+                } else if response?.response?.statusCode == 404 {
+                    logger.debug("Login flow is pending.")
                     continuation.resume(returning: nil)
+                } else {
+                    logger.error("Failed to get login flow status: \(error.localizedDescription, privacy: .public)")
+                    continuation.resume(throwing: error.error)
                 }
             }
         }
     }
 
-    func beginPolling(at url: URL) async throws -> URL {
+    private func getLoginFlow(for url: URL) async throws -> (endpoint: URL, login: URL, token: String) {
+        let options = NKRequestOptions(customUserAgent: userAgent)
+
+        do {
+            return try await NextcloudKit.shared.getLoginFlowV2(serverUrl: url.absoluteString, options: options)
+        } catch {
+            logger.error("Failed to start login flow: \(error.localizedDescription, privacy: .public)")
+            throw error
+        }
+    }
+
+    func beginPolling(at url: URL, dismiss: @MainActor @Sendable @escaping () -> Void) async throws -> URL {
         logger.debug("Beginning polling at \(url.absoluteString)")
+        loginErrorMessage = nil
 
         let (_, serverInfoResult) = await NextcloudKit.shared.getServerStatusAsync(serverUrl: url.absoluteString)
 
         switch serverInfoResult {
             case .success:
-                let loginOptions = NKRequestOptions(customUserAgent: userAgent)
-                let (endpoint, loginAddress, token) = try await NextcloudKit.shared.getLoginFlowV2(serverUrl: url.absoluteString, options: loginOptions)
+                let (endpoint, loginAddress, token) = try await getLoginFlow(for: url)
                 let options = NKRequestOptions(customUserAgent: userAgent)
                 var grantValues: (url: String, user: String, appPassword: String)?
 
@@ -330,21 +347,33 @@ final class Store: Logging, Storing {
                         self.pollingTask = nil
                     }
 
-                    repeat {
-                        try Task.checkCancellation()
-                        grantValues = await getResponse(endpoint: endpoint, token: token, options: options)
-                        try await Task.sleep(for: .seconds(1))
-                    } while grantValues == nil
+                    do {
+                        repeat {
+                            try Task.checkCancellation()
+                            grantValues = try await getResponse(endpoint: endpoint, token: token, options: options)
 
-                    guard let grantValues else {
-                        return
+                            if grantValues == nil {
+                                try await Task.sleep(for: .seconds(1))
+                            }
+                        } while grantValues == nil
+
+                        guard let grantValues else {
+                            return
+                        }
+
+                        guard let host = URL(string: grantValues.url) else {
+                            throw NKError.urlError.error
+                        }
+
+                        addAccount(host: host, name: grantValues.user, password: grantValues.appPassword)
+                        dismiss()
+                    } catch is CancellationError {
+                        logger.debug("Login flow polling was cancelled.")
+                    } catch {
+                        logger.error("Login flow polling failed: \(error.localizedDescription, privacy: .public)")
+                        loginErrorMessage = error.localizedDescription
+                        dismiss()
                     }
-
-                    guard let host = URL(string: grantValues.url) else {
-                        return
-                    }
-
-                    addAccount(host: host, name: grantValues.user, password: grantValues.appPassword)
                 }
 
                 return loginAddress
@@ -358,7 +387,7 @@ final class Store: Logging, Storing {
         logger.debug("Cancelling polling task.")
 
         guard let pollingTask else {
-            logger.error("Attempt to cancel polling task but no task is active!")
+            logger.debug("No active polling task to cancel.")
             return
         }
 

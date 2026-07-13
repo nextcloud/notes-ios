@@ -37,14 +37,28 @@ struct ContentView: View {
         if store.accounts.isEmpty {
             ServerAddressView(backgroundColor: .constant(Color.accent), brandImage: Image("BrandLogo"), sharedAccounts: sharedAccounts, userAgent: userAgent) { host, name, password in
                 store.addAccount(host: host, name: name, password: password)
-            } beginPolling: { url, _ in
-               try await store.beginPolling(at: url)
+            } beginPolling: { url, dismiss in
+                try await store.beginPolling(at: url, dismiss: dismiss)
             } cancelPolling: {
                 store.cancelPolling()
             }
             .onAppear {
                 // The store must update its list of shared accounts when the login user interface is about to appear.
                 store.readSharedAccounts()
+            }
+            .alert("Login Failed", isPresented: Binding(
+                get: { store.loginErrorMessage != nil },
+                set: { isPresented in
+                    if isPresented == false {
+                        store.loginErrorMessage = nil
+                    }
+                }
+            )) {
+                Button("OK", role: .cancel) {
+                    store.loginErrorMessage = nil
+                }
+            } message: {
+                Text(store.loginErrorMessage ?? "Unknown login error.")
             }
 
         } else {
