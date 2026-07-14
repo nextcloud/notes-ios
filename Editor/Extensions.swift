@@ -47,18 +47,10 @@ extension String {
     ///
     /// - returns: The equivalent NSRange.
     func nsRange(from range: Range<String.Index>) -> NSRange {
-        // Guard against indices that do not belong to this string (for example a
-        // range computed against a longer, stale version of the text). Feeding
-        // such indices to `utf16.distance` traps with "String index is out of
-        // bounds", so fall back to an empty range instead of crashing.
-        guard range.lowerBound >= startIndex,
-              range.upperBound <= endIndex,
-              let from = range.lowerBound.samePosition(in: utf16),
-              let to = range.upperBound.samePosition(in: utf16) else {
-            return NSRange(location: NSNotFound, length: 0)
-        }
-        return NSRange(location: utf16.distance(from: utf16.startIndex, to: from),
-                       length: utf16.distance(from: from, to: to))
+        let from = range.lowerBound.samePosition(in: utf16)
+        let to = range.upperBound.samePosition(in: utf16)
+        return NSRange(location: utf16.distance(from: utf16.startIndex, to: from!),
+                       length: utf16.distance(from: from!, to: to!))
     }
 
     /// Converts a String to a NSRegularExpression.

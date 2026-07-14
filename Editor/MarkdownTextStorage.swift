@@ -60,18 +60,10 @@ public class MarkdownTextStorage: NSTextStorage {
     
     override public func processEditing() {
         let backingString = backingStore.string
-        let fullRange = NSRange(location: 0, length: (backingString as NSString).length)
-        // The edited range can point just past the end of the string (or be stale
-        // relative to the backing store), so clamp before converting to avoid
-        // out-of-bounds string-index math.
-        let location = min(NSMaxRange(editedRange), fullRange.length)
-        if let nsRange = backingString.range(from: NSMakeRange(location, 0)) {
+        if let nsRange = backingString.range(from: NSMakeRange(NSMaxRange(editedRange), 0)) {
             let indexRange = backingString.lineRange(for: nsRange)
-            let lineNSRange = backingString.nsRange(from: indexRange)
-            if lineNSRange.location != NSNotFound {
-                let extendedRange = NSIntersectionRange(NSUnionRange(editedRange, lineNSRange), fullRange)
-                applyMarkdownFormatting(extendedRange)
-            }
+            let extendedRange: NSRange = NSUnionRange(editedRange, backingString.nsRange(from: indexRange))
+            applyMarkdownFormatting(extendedRange)
         }
         super.processEditing()
     }

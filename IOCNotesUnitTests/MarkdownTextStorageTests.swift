@@ -13,16 +13,17 @@ struct MarkdownTextStorageTests {
     
     private func applyText(_ text: String) -> NSAttributedString {
         let textStorage = MarkdownTextStorage()
-        let attributedString = NSAttributedString(string: text)
-        textStorage.setAttributedString(attributedString)
-        
-        // Manually trigger formatting since we're not in a text view.
-        // Use the UTF-16 length (not the grapheme count) since that is what
-        // NSTextStorage/NSAttributedString ranges are measured in.
-        let range = NSRange(location: 0, length: (text as NSString).length)
-        textStorage.edited([.editedCharacters, .editedAttributes], range: range, changeInLength: 0)
-        textStorage.processEditing()
-        
+
+        // Drive the storage the way a UITextView does: insert the text through
+        // `replaceCharacters` inside a begin/end editing group. This sets a valid
+        // `editedRange` and lets `processEditing` run exactly as it does in the
+        // app. Calling `edited`/`processEditing` by hand instead leaves the
+        // edited range in the `{NSNotFound, …}` sentinel state, which crashes
+        // NSTextStorage's attribute fixing.
+        textStorage.beginEditing()
+        textStorage.replaceCharacters(in: NSRange(location: 0, length: 0), with: text)
+        textStorage.endEditing()
+
         return NSAttributedString(attributedString: textStorage)
     }
     
@@ -50,6 +51,14 @@ struct MarkdownTextStorageTests {
         guard location < attributedString.length else { return nil }
         return attributedString.attribute(.strikethroughStyle, at: location, effectiveRange: nil) as? Int
     }
+
+    private func isBodyMonospacedFont(_ font: UIFont?) -> Bool {
+        guard let font else { return false }
+        let bodyFont = UIFont.preferredFont(forTextStyle: .body)
+        let expectedFont = UIFont(style: .body, design: .monospaced)
+            ?? UIFont.monospacedSystemFont(ofSize: bodyFont.pointSize, weight: .regular)
+        return font.fontName == expectedFont.fontName && font.pointSize == expectedFont.pointSize
+    }
     
     // MARK: - Header Tests
     
@@ -67,14 +76,13 @@ struct MarkdownTextStorageTests {
         
         #expect(font != nil, "Font should not be nil for: \(text)")
         
-        // Check that font size matches expected style (larger than body)
+        // Check that the configured text style is applied.
         let expectedFont = UIFont.preferredFont(forTextStyle: expectedStyle)
-        let bodyFont = UIFont.preferredFont(forTextStyle: .body)
         
         #expect(font!.pointSize >= expectedFont.pointSize * 0.9, 
                 "Header font size should be appropriate for: \(text)")
-        #expect(font!.pointSize > bodyFont.pointSize, 
-                "Header font should be larger than body font for: \(text)")
+        #expect(font!.pointSize == expectedFont.pointSize,
+                "Header font should match its configured text style for: \(text)")
     }
     
     @Test("Header hashtag fading")
@@ -122,10 +130,7 @@ struct MarkdownTextStorageTests {
         let codeHeaderRange = nsText.range(of: "# This is not a header")
         if codeHeaderRange.location != NSNotFound {
             let font = getFontAt(codeHeaderRange.location, in: result)
-            #expect(font?.familyName.contains("Menlo") == true || 
-                   font?.familyName.contains("Monaco") == true ||
-                   font?.familyName.contains("Courier") == true ||
-                   font?.fontDescriptor.symbolicTraits.contains(.traitMonoSpace) == true,
+            #expect(isBodyMonospacedFont(font),
                    "Header inside code block should use monospaced font")
         }
     }
@@ -286,10 +291,7 @@ struct MarkdownTextStorageTests {
             let font = getFontAt(startIndex, in: result)
             let backgroundColor = getBackgroundColorAt(startIndex, in: result)
             
-            #expect(font?.familyName.contains("Menlo") == true || 
-                   font?.familyName.contains("Monaco") == true ||
-                   font?.familyName.contains("Courier") == true ||
-                   font?.fontDescriptor.symbolicTraits.contains(.traitMonoSpace) == true,
+            #expect(isBodyMonospacedFont(font),
                    "Inline code should use monospaced font")
             #expect(backgroundColor != nil, "Inline code should have background color")
         }
@@ -325,10 +327,7 @@ struct MarkdownTextStorageTests {
                 let font = getFontAt(currentIndex, in: result)
                 let backgroundColor = getBackgroundColorAt(currentIndex, in: result)
                 
-                #expect(font?.familyName.contains("Menlo") == true || 
-                       font?.familyName.contains("Monaco") == true ||
-                       font?.familyName.contains("Courier") == true ||
-                       font?.fontDescriptor.symbolicTraits.contains(.traitMonoSpace) == true,
+                #expect(isBodyMonospacedFont(font),
                        "Code block should use monospaced font for line: \(line)")
                 #expect(backgroundColor != nil, "Code block should have background color")
             }
@@ -363,10 +362,7 @@ struct MarkdownTextStorageTests {
             let font = getFontAt(notBoldRange.location, in: result)
             
             // Should be monospaced
-            #expect(font?.familyName.contains("Menlo") == true || 
-                   font?.familyName.contains("Monaco") == true ||
-                   font?.familyName.contains("Courier") == true ||
-                   font?.fontDescriptor.symbolicTraits.contains(.traitMonoSpace) == true,
+            #expect(isBodyMonospacedFont(font),
                    "Code should be monospaced")
             
             // Should not have special formatting
@@ -378,10 +374,7 @@ struct MarkdownTextStorageTests {
             let font = getFontAt(notHeaderRange.location, in: result)
             
             // Should be monospaced, not larger header font
-            #expect(font?.familyName.contains("Menlo") == true || 
-                   font?.familyName.contains("Monaco") == true ||
-                   font?.familyName.contains("Courier") == true ||
-                   font?.fontDescriptor.symbolicTraits.contains(.traitMonoSpace) == true,
+            #expect(isBodyMonospacedFont(font),
                    "Code should be monospaced, not header styled")
         }
     }
@@ -497,10 +490,7 @@ struct MarkdownTextStorageTests {
         let codeTextRange = nsText.range(of: "**Not bold**")
         if codeTextRange.location != NSNotFound {
             let font = getFontAt(codeTextRange.location, in: result)
-            #expect(font?.familyName.contains("Menlo") == true || 
-                   font?.familyName.contains("Monaco") == true ||
-                   font?.familyName.contains("Courier") == true ||
-                   font?.fontDescriptor.symbolicTraits.contains(.traitMonoSpace) == true,
+            #expect(isBodyMonospacedFont(font),
                    "Code block should use monospaced font")
             #expect(!font!.fontDescriptor.symbolicTraits.contains(.traitBold), 
                   "Text in code block should not be bold")

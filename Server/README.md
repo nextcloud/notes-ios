@@ -36,6 +36,13 @@ NEXTCLOUD_TRUSTED_DOMAINS='192.168.178.*' ./Server/Run.sh
 You only need this one as long as you do not delete the container again.
 Until then you can start or stop it with Docker Desktop.
 
+The network-backed tests are opt-in so regular unit-test and CI runs do not
+depend on this server. After provisioning it, include those tests with:
+
+```sh
+NOTES_INTEGRATION_TESTS=1 xcodebuild test -scheme iOCNotes -destination 'platform=iOS Simulator,name=iPhone 16'
+```
+
 To quickly get rid of the container and delete all its data:
 
 ```sh
