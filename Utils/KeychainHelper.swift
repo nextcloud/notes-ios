@@ -170,6 +170,18 @@ struct KeychainHelper {
         }
     }
 
+    static var groupByCategory: Bool {
+        get {
+            if UserDefaults.standard.object(forKey: "GroupByCategory") == nil {
+                return true
+            }
+            return UserDefaults.standard.bool(forKey: "GroupByCategory")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "GroupByCategory")
+        }
+    }
+
     static var sectionExpandedInfo: DisclosureSections {
         get {
             if let data = UserDefaults.standard.value(forKey: "Sections") as? Data,

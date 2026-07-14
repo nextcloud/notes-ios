@@ -15,8 +15,6 @@ import SwiftUI
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var store = Store.shared
 
-    var notesTableViewController: NotesTableViewController?
-
     ///
     /// Updated by being the `NextcloudKitDelegate`.
     ///
@@ -27,8 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     private let operationQueue = OperationQueue()
-    private var updateFrcDelegateNeeded = true
-    
+    private var pendingNoteToOpen: Note?
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         NextcloudKit.shared.setup(delegate: self)
 
@@ -71,7 +69,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITableViewCell.appearance().backgroundColor = .ph_cellBackgroundColor
 
         let scrollViewArray = [
-            NotesTableViewController.self,
             CategoryTableViewController.self,
             EditorViewController.self,
             PreviewViewController.self,
@@ -95,8 +92,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     /// Scene lifecycle is adopted via ``SceneDelegate``; these handlers hold the shared behaviour it forwards.
     ///
     func handleDidEnterBackground() {
-        notesTableViewController?.disableFetchedResultsController()
-        updateFrcDelegateNeeded = true
         scheduleAppSync()
     }
 
@@ -112,19 +107,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func handleDidBecomeActive() {
         store.synchronize()
-        updateFrcDelegateIfNeeded()
-    }
-    
-    private func updateFrcDelegateIfNeeded() {
-        guard updateFrcDelegateNeeded else {
-            return
+        DispatchQueue.main.async {
+            self.openPendingNoteIfNeeded()
         }
-        
-        updateFrcDelegateNeeded = false
-        notesTableViewController?.configureFetchedResultsController(performFetch: KeychainHelper.didSyncInBackground)
-        KeychainHelper.didSyncInBackground = false
     }
-        
+
     func scheduleAppSync() {
         BGTaskScheduler.shared.cancelAllTaskRequests()
         let request = BGAppRefreshTaskRequest(identifier: "com.peterandlinda.iOCNotes.Sync")
@@ -167,9 +154,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if let queryItems = urlComponents?.queryItems,
                 let item = queryItems.first(where: { $0.name == "note" }),
                 let content = item.value {
-                // Make sure we connect the delegate up, as this is called before the app is active
-                updateFrcDelegateIfNeeded()
-                self.notesTableViewController?.addNote(content: content)
+                NoteSessionManager.shared.add(content: content, category: "") { note in
+                    guard let note = note else { return }
+                    DispatchQueue.main.async {
+                        self.openEditorWhenReady(for: note)
+                    }
+                }
             }
         } else if url.isFileURL {
             do {
@@ -183,6 +173,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         return true
+    }
+
+    private func openEditorWhenReady(for note: Note) {
+        guard NotesPresenter.openEditor(for: note, isNewNote: true) else {
+            pendingNoteToOpen = note
+            return
+        }
+
+        pendingNoteToOpen = nil
+    }
+
+    private func openPendingNoteIfNeeded() {
+        guard let pendingNoteToOpen else { return }
+        openEditorWhenReady(for: pendingNoteToOpen)
     }
 }
 

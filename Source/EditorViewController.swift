@@ -119,9 +119,6 @@ class EditorViewController: UIViewController {
         navigationController?.delegate = self
         navigationController?.toolbar.isTranslucent = true
         navigationController?.toolbar.clipsToBounds = true
-        if let splitVC = splitViewController as? PBHSplitViewController {
-            splitVC.editorViewController = self
-        }
         updatedByEditing = false
         self.observers.append(NotificationCenter.default.addObserver(forName: UIWindow.keyboardWillShowNotification,
                                                                      object: nil,
