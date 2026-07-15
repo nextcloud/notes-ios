@@ -97,7 +97,8 @@ enum NotesPresenter {
                     viewController.editor = "text"
                     viewController.link = url
                     viewController.fileName = note.title
-                    viewController.modalPresentationStyle = .fullScreen
+                    viewController.modalPresentationStyle = .custom
+                    viewController.transitioningDelegate = viewController
                     presenter.present(viewController, animated: true)
                 } else {
                     let title = NSLocalizedString("Error", comment: "Title of an error alert")
