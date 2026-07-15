@@ -97,7 +97,8 @@ enum NotesPresenter {
                     viewController.fileName = note.title
 
                     let navigationController = UINavigationController(rootViewController: viewController)
-                    navigationController.modalPresentationStyle = .fullScreen
+                    navigationController.modalPresentationStyle = .custom
+                    navigationController.transitioningDelegate = viewController
                     presenter.present(navigationController, animated: true)
                 } else {
                     let title = NSLocalizedString("Error", comment: "Title of an error alert")
