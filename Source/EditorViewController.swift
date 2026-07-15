@@ -52,6 +52,12 @@ class EditorViewController: UIViewController {
 
     private var observers = [NSObjectProtocol]()
     private let throttler = Throttler(minimumDelay: 0.5)
+    private lazy var backSwipeGestureRecognizer: UIScreenEdgePanGestureRecognizer = {
+        let gestureRecognizer = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(handleBackSwipe(_:)))
+        gestureRecognizer.edges = .left
+        gestureRecognizer.cancelsTouchesInView = false
+        return gestureRecognizer
+    }()
 
     var screenShot: UIImage {
         var capturedScreen: UIImage?
@@ -72,6 +78,7 @@ class EditorViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addGestureRecognizer(backSwipeGestureRecognizer)
         view.addSubview(noteView)
         noteView.translatesAutoresizingMaskIntoConstraints = false
         noteView.delegate = self
@@ -201,6 +208,21 @@ class EditorViewController: UIViewController {
                     noteView.updateInsets(size: 50)
                 }
             }
+        }
+    }
+
+    @objc private func handleBackSwipe(_ gestureRecognizer: UIScreenEdgePanGestureRecognizer) {
+        guard gestureRecognizer.state == .ended else { return }
+
+        let translation = gestureRecognizer.translation(in: view)
+        let velocity = gestureRecognizer.velocity(in: view)
+        guard translation.x > view.bounds.width * 0.15, velocity.x > 0 else { return }
+
+        if let navigationController = navigationController,
+           navigationController.viewControllers.first !== self {
+            navigationController.popViewController(animated: true)
+        } else {
+            splitViewController?.show(.primary)
         }
     }
     
