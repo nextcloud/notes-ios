@@ -28,6 +28,99 @@
             </objects>
             <point key="canvasLocation" x="703" y="-485"/>
         </scene>
+        <!--Editor View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="EditorViewController" customModule="iOCNotes" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ate-YD-PfH"/>
+                        <viewControllerLayoutGuide type="bottom" id="2tF-Ws-VkG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="1210" height="834"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" name="PHWhiteBackground"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="dEj-4d-nDe"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="activityButton" destination="pXa-gb-ki1" id="fMm-Yj-DYc"/>
+                        <outlet property="deleteButton" destination="aql-su-dTG" id="aZw-En-uzG"/>
+                        <outlet property="dismissButton" destination="4hl-CC-W27" id="OKL-CP-CGv"/>
+                        <outlet property="doneButton" destination="1qk-bQ-vnb" id="t3C-JM-SAg"/>
+                        <outlet property="fixedSpace" destination="thB-y7-Xbs" id="6iI-ez-fg4"/>
+                        <outlet property="previewButton" destination="3f2-rn-lgQ" id="q8D-CE-LGd"/>
+                        <outlet property="redoButton" destination="T7C-FW-CGQ" id="FeB-EW-iqa"/>
+                        <outlet property="undoButton" destination="6bO-Ah-TJ8" id="jZs-pU-qIb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <barButtonItem systemItem="action" id="pXa-gb-ki1">
+                    <color key="tintColor" name="PHWhiteIcon"/>
+                    <connections>
+                        <action selector="onActivities:" destination="vXZ-lx-hvc" id="oex-S6-Eng"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem systemItem="trash" id="aql-su-dTG">
+                    <color key="tintColor" name="PHWhiteIcon"/>
+                    <connections>
+                        <action selector="onDelete:" destination="vXZ-lx-hvc" id="UNY-4r-5qs"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem title="Preview" image="text.page.badge.magnifyingglass" catalog="system" id="3f2-rn-lgQ" userLabel="Preview">
+                    <color key="tintColor" name="PHWhiteIcon"/>
+                    <connections>
+                        <segue destination="7xC-ZL-ULJ" kind="show" identifier="showPreview" id="2yM-1x-su8"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem title="Undo" image="arrow.uturn.backward.circle" catalog="system" id="6bO-Ah-TJ8">
+                    <color key="tintColor" name="PHWhiteIcon"/>
+                    <connections>
+                        <action selector="onUndo:" destination="vXZ-lx-hvc" id="JwM-xg-ZsU"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem title="Redo" image="arrow.uturn.forward.circle" catalog="system" id="T7C-FW-CGQ">
+                    <color key="tintColor" name="PHWhiteIcon"/>
+                    <connections>
+                        <action selector="onRedo:" destination="vXZ-lx-hvc" id="dEX-CR-Yww"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem title="Done" image="checkmark" catalog="system" id="1qk-bQ-vnb">
+                    <color key="tintColor" name="PHWhiteIcon"/>
+                    <connections>
+                        <action selector="onDone:" destination="vXZ-lx-hvc" id="ZSg-Vw-aPw"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem title="Dismiss" image="xmark" catalog="system" id="4hl-CC-W27">
+                    <color key="tintColor" name="PHWhiteIcon"/>
+                    <connections>
+                        <action selector="onDismiss:" destination="vXZ-lx-hvc" id="pAI-b7-Frx"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem width="10" style="plain" systemItem="fixedSpace" id="thB-y7-Xbs"/>
+            </objects>
+            <point key="canvasLocation" x="1417" y="-485"/>
+        </scene>
+        <!--Preview View Controller-->
+        <scene sceneID="zMG-OD-d12">
+            <objects>
+                <viewController storyboardIdentifier="PreviewController" id="7xC-ZL-ULJ" customClass="PreviewViewController" customModule="iOCNotes" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hdL-0d-TTy"/>
+                        <viewControllerLayoutGuide type="bottom" id="bpa-Yz-xfN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8k1-Ib-19a">
+                        <rect key="frame" x="0.0" y="0.0" width="1210" height="834"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="vsb-LD-pwS"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IYG-2G-Yb7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2154" y="-485"/>
+        </scene>
     </scenes>
     <resources>
         <image name="arrow.uturn.backward.circle" catalog="system" width="128" height="123"/>
