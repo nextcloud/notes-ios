@@ -275,3 +275,10 @@
 "Are you sure you want to log out?" = "Are you sure you want to log out?";
 "Enter a name for the folder where notes should be saved on the server" = "Enter a name for the folder where notes should be saved on the server";
 "Settings" = "Settings";
+
+// Folder navigation
+"Folders" = "Folders";
+"All Notes" = "All Notes";
+"New Folder" = "New Folder";
+"Name" = "Name";
+"Enter a name for the new folder" = "Enter a name for the new folder";

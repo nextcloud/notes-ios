@@ -182,6 +182,35 @@ struct KeychainHelper {
         }
     }
 
+    ///
+    /// Persistence value of the last visited route in the notes navigation, if any.
+    ///
+    /// See `NoteRoute` for the encoding.
+    ///
+    static var lastSelectedRoute: String? {
+        get {
+            UserDefaults.standard.string(forKey: "LastSelectedRoute")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "LastSelectedRoute")
+        }
+    }
+
+    ///
+    /// Categories created locally which do not contain any note yet.
+    ///
+    /// The server only knows categories through the notes assigned to them, so freshly created empty
+    /// folders are kept here until a note is created in them.
+    ///
+    static var localFolders: [String] {
+        get {
+            UserDefaults.standard.stringArray(forKey: "LocalFolders") ?? []
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "LocalFolders")
+        }
+    }
+
     static var sectionExpandedInfo: DisclosureSections {
         get {
             if let data = UserDefaults.standard.value(forKey: "Sections") as? Data,

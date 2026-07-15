@@ -8,18 +8,43 @@ import SwiftUI
 /// Top-level view for the notes navigation.
 ///
 struct NotesView: View {
-    @State private var model = NotesListModel()
+    ///
+    /// The part of the notes hierarchy this screen shows.
+    ///
+    let route: NoteRoute
+
+    ///
+    /// Source of the subfolders listed above the notes when showing a folder.
+    ///
+    var foldersModel: FoldersModel?
+
+    @State private var model: NotesListModel
     @State private var searchText = ""
 
+    init(route: NoteRoute = .allNotes, foldersModel: FoldersModel? = nil) {
+        self.route = route
+        self.foldersModel = foldersModel
+        _model = State(initialValue: NotesListModel(scope: route))
+    }
+
+    private var subfolders: [FolderNode] {
+        guard let category = route.category, let foldersModel else {
+            return []
+        }
+        return foldersModel.subfolders(of: category)
+    }
+
     var body: some View {
-        NotesListView(model: model)
+        NotesListView(model: model, subfolders: subfolders)
             .searchable(text: $searchText)
             .onChange(of: searchText) { _, newValue in
                 model.search(for: newValue)
             }
             .toolbar {
                 ToolbarItemGroup(placement: .topBarTrailing) {
-                    sortMenu
+                    if route == .allNotes {
+                        sortMenu
+                    }
                     Button {
                         addNote()
                     } label: {
@@ -27,8 +52,8 @@ struct NotesView: View {
                     }
                 }
             }
-            .toolbarTitleDisplayMode(.inline)
-            .navigationTitle(String(localized: "Notes", comment: ""))
+            .toolbarTitleDisplayMode(.large)
+            .navigationTitle(route.title)
             .toolbarBackground(.visible, for: .navigationBar)
             .toolbarBackground(.visible, for: .tabBar)
     }
@@ -51,7 +76,7 @@ struct NotesView: View {
     }
 
     private func addNote() {
-        NoteSessionManager.shared.add(content: "", category: "") { note in
+        NoteSessionManager.shared.add(content: "", category: route.category ?? "") { note in
             guard let note else { return }
             DispatchQueue.main.async {
                 NotesPresenter.openEditor(for: note, isNewNote: true)

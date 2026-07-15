@@ -69,6 +69,13 @@ struct NoteListSection: Equatable, Identifiable {
 final class NotesListModel: NSObject, Logging, NSFetchedResultsControllerDelegate {
     let logger = makeLogger()
 
+    ///
+    /// The part of the notes hierarchy this list shows.
+    ///
+    /// Category grouping only applies when all notes are shown, scoped lists are always flat.
+    ///
+    let scope: NoteRoute
+
     private(set) var sections: [NoteListSection] = []
 
     @ObservationIgnored private var fetchedResultsController: NSFetchedResultsController<Note>?
@@ -78,7 +85,8 @@ final class NotesListModel: NSObject, Logging, NSFetchedResultsControllerDelegat
 
     private(set) var groupByCategory: Bool
 
-    override init() {
+    init(scope: NoteRoute = .allNotes) {
+        self.scope = scope
         groupByCategory = KeychainHelper.groupByCategory
         collapsedTitles = Set(KeychainHelper.sectionExpandedInfo.filter { $0.collapsed }.map { $0.title })
         super.init()
@@ -132,7 +140,7 @@ final class NotesListModel: NSObject, Logging, NSFetchedResultsControllerDelegat
         request.fetchBatchSize = 288
         request.predicate = predicate(for: searchText)
 
-        if groupByCategory {
+        if isGroupedByCategory {
             // "category" must stay first so it matches the section key path; favorites float to the top within each category.
             request.sortDescriptors = [
                 NSSortDescriptor(key: "category", ascending: true),
@@ -153,7 +161,7 @@ final class NotesListModel: NSObject, Logging, NSFetchedResultsControllerDelegat
         let controller = NSFetchedResultsController(
             fetchRequest: request,
             managedObjectContext: NotesData.mainThreadContext,
-            sectionNameKeyPath: groupByCategory ? "sectionName" : nil,
+            sectionNameKeyPath: isGroupedByCategory ? "sectionName" : nil,
             cacheName: nil
         )
         controller.delegate = self
@@ -168,12 +176,32 @@ final class NotesListModel: NSObject, Logging, NSFetchedResultsControllerDelegat
         }
     }
 
+    ///
+    /// Whether the fetched notes are grouped into category sections.
+    ///
+    /// Scoped lists show a single category or favorites, so grouping them by category is pointless.
+    ///
+    private var isGroupedByCategory: Bool {
+        groupByCategory && scope == .allNotes
+    }
+
     private func predicate(for text: String) -> NSPredicate {
-        guard !text.isEmpty else {
-            return .allNotes
+        var predicates: [NSPredicate] = [.allNotes]
+
+        switch scope {
+            case .allNotes:
+                break
+            case .favorites:
+                predicates.append(NSPredicate(format: "favorite == %@", NSNumber(value: true)))
+            case .folder(let category):
+                predicates.append(NSPredicate(format: "category == %@", category))
         }
-        let matching = NSPredicate(format: "(title contains[c] %@) || (content contains[cd] %@)", text, text)
-        return NSCompoundPredicate(andPredicateWithSubpredicates: [.allNotes, matching])
+
+        if !text.isEmpty {
+            predicates.append(NSPredicate(format: "(title contains[c] %@) || (content contains[cd] %@)", text, text))
+        }
+
+        return NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
     }
 
     private func rebuildSections() {
@@ -183,7 +211,7 @@ final class NotesListModel: NSObject, Logging, NSFetchedResultsControllerDelegat
         }
 
         let updatedSections = fetchedSections.map { section in
-            let title = groupByCategory ? section.name : ""
+            let title = isGroupedByCategory ? section.name : ""
             let notes = (section.objects as? [Note]) ?? []
             return NoteListSection(title: title, rows: notes.map(NoteListRow.init))
         }

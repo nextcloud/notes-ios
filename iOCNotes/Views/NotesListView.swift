@@ -10,6 +10,11 @@ import SwiftUI
 struct NotesListView: View {
     @Bindable var model: NotesListModel
 
+    ///
+    /// Subfolders of the shown folder, listed for navigation above the notes.
+    ///
+    var subfolders: [FolderNode] = []
+
     @State private var noteToRename: NSManagedObjectID?
     @State private var renameText = ""
     @State private var exporter: NoteExporter?
@@ -20,7 +25,7 @@ struct NotesListView: View {
 
     var body: some View {
         Group {
-            if model.sections.isEmpty {
+            if model.sections.isEmpty && subfolders.isEmpty {
                 ContentUnavailableView(
                     String(localized: "No Notes", comment: "Shown when there are no notes to display"),
                     systemImage: "note.text"
@@ -45,6 +50,21 @@ struct NotesListView: View {
 
     private var notesList: some View {
         List {
+            if !subfolders.isEmpty {
+                Section {
+                    ForEach(subfolders) { folder in
+                        NavigationLink(value: NoteRoute.folder(folder.fullPath)) {
+                            HStack {
+                                Label(folder.name, systemImage: "folder")
+                                Spacer()
+                                Text(folder.directCount, format: .number)
+                                    .foregroundStyle(.secondary)
+                            }
+                        }
+                    }
+                }
+            }
+
             ForEach(model.sections) { section in
                 if section.hasHeader {
                     Section(isExpanded: expansionBinding(for: section.title)) {
@@ -64,7 +84,7 @@ struct NotesListView: View {
         .dropDestination(for: String.self) { items, _ in
             let contents = items.filter { !$0.isEmpty }
             for content in contents {
-                NoteSessionManager.shared.add(content: content, category: "")
+                NoteSessionManager.shared.add(content: content, category: model.scope.category ?? "")
             }
             return !contents.isEmpty
         }

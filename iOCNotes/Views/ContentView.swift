@@ -15,6 +15,28 @@ struct ContentView: View {
 
     @State var selection: Int = 0
 
+    ///
+    /// Navigation path of the notes tab.
+    ///
+    /// Restored once at launch so the app opens on the last visited screen, defaulting to all notes
+    /// with the folder list as the root to navigate back to.
+    ///
+    @State private var path: [NoteRoute]
+
+    @State private var foldersModel = FoldersModel()
+
+    init(selection: Int = 0) {
+        _selection = State(initialValue: selection)
+
+        if let persistenceValue = KeychainHelper.lastSelectedRoute {
+            // An empty value means the folder list itself was the last visited screen.
+            let route = NoteRoute(persistenceValue: persistenceValue)
+            _path = State(initialValue: route.map { [$0] } ?? [])
+        } else {
+            _path = State(initialValue: [.allNotes])
+        }
+    }
+
     var sharedAccounts: [SharedAccount] {
         store.sharedAccounts.compactMap {
             guard let url = URL(string: $0.url) else {
@@ -49,8 +71,14 @@ struct ContentView: View {
 
         } else {
             TabView(selection: $selection) {
-                NavigationStack {
-                    NotesView()
+                NavigationStack(path: $path) {
+                    FoldersView(model: foldersModel)
+                        .navigationDestination(for: NoteRoute.self) { route in
+                            NotesView(route: route, foldersModel: foldersModel)
+                        }
+                }
+                .onChange(of: path) { _, newValue in
+                    KeychainHelper.lastSelectedRoute = newValue.last?.persistenceValue ?? ""
                 }
                 .tabItem {
                     Label(
