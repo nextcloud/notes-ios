@@ -7,13 +7,13 @@
 */
 "About" = "Om";
 
-"Acknowledgements" = "Tredjepartslicenser";
+"Acknowledgements" = "Erkännanden";
 
 "Advanced Settings" = "Avancerade inställningar";
 
-"Caution: Turning the switch on will remove all notes locally. Unsynced changes will be lost. Use only if you are experiencing problems." = "Varning: Om du aktiverar så tas alla anteckningar bort lokalt. Osynkroniserade ändringar kommer att gå förlorade. Använd endast om du har problem.";
+"Caution: Turning the switch on will remove all notes locally. Unsynced changes will be lost. Use only if you are experiencing problems." = "Varning: Om du aktiverar reglaget tas alla lokala anteckningar bort. Osynkroniserade ändringar går förlorade. Använd endast funktionen om du har problem.";
 
-"Reset local notes database" = "Återställ lokal databas för anteckningar";
+"Reset local notes database" = "Återställ den lokala anteckningsdatabasen";
 
 "Third-party licenses" = "Tredjepartslicenser";
 

@@ -18,7 +18,7 @@
 
 /* A menu action
    A menu option for cancelling */
-"Cancel" = "Cancel";
+"Cancel" = "Avbryt";
 
 /* Header title, categories */
 "CATEGORIES" = "KATEGORIER";
@@ -27,37 +27,37 @@
 "Category" = "Kategori";
 
 /* Action to change category of a note */
-"Category…" = "Kategori...";
+"Category…" = "Kategori …";
 
 /* Action to change category of a note */
-"Change Category…" = "Ändra kategori...";
+"Change Category…" = "Ändra kategori …";
 
 /* An error message */
 "Check username and password." = "Kontrollera användarnamn och lösenord.";
 
 /* Title of a button allowing the user to close the login screen and sync with the server */
-"Close & Sync" = "Stäng & synka";
+"Close & Sync" = "Stäng och synkronisera";
 
 /* Crash report email subject */
-"NextcloudNotes Crash Report" = "NextcloudNotes kraschrapport";
+"NextcloudNotes Crash Report" = "Kraschrapport för Nextcloud Notes";
 
 /* No comment provided by engineer. */
 "NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "NextcloudNotes kraschade förra gången det startades. Vill du skicka en rapport till utvecklaren?";
 
 /* Support email subject */
-"NextcloudNotes Support Request" = "NextcloudNotes supportförfrågan";
+"NextcloudNotes Support Request" = "Supportbegäran för Nextcloud Notes";
 
 /* A button title */
 "Connect" = "Anslut";
 
 /* Status information, connected */
-"Connected to Notes on the server" = "Ansluten till Notes på servern";
+"Connected to Notes on the server" = "Ansluten till Anteckningar på servern";
 
 /* An error message title */
 "Connection failure" = "Anslutningsfel";
 
 /* Alert view title */
-"Crash Detected" = "Krasch upptäckt";
+"Crash Detected" = "En krasch har identifierats";
 
 /* Action to delete a note */
 "Delete" = "Ta bort";
@@ -69,22 +69,22 @@
 "Enter a name for the new category" = "Ange ett namn för den nya kategorin";
 
 /* The title of an error message */
-"Error Adding Note" = "Kunde inte lägga till anteckning";
+"Error Adding Note" = "Det gick inte att lägga till anteckningen";
 
 /* The title of an error message */
-"Error Deleting Note" = "Kunde inte ta bort anteckning";
+"Error Deleting Note" = "Det gick inte att ta bort anteckningen";
 
 /* The title of an error message */
-"Error Getting Note" = "Kunde inte hämta anteckning";
+"Error Getting Note" = "Det gick inte att hämta anteckningen";
 
 /* The title of an error message */
-"Error Syncing Notes" = "Kunde inte synka anteckningar";
+"Error Syncing Notes" = "Det gick inte att synkronisera anteckningarna";
 
 /* The title of an error message */
-"Error Updating Note" = "Kunde inte uppdatera anteckning";
+"Error Updating Note" = "Det gick inte att uppdatera anteckningen";
 
 /* The title of an error message */
-"Error Updating Notes" = "Kunde inte uppdatera anteckningar";
+"Error Updating Notes" = "Det gick inte att uppdatera anteckningarna";
 
 /* An error message */
 "Failed to connect to a server. Check your settings." = "Det gick inte att ansluta till en server. Kontrollera dina inställningar.";
@@ -111,7 +111,7 @@
 "No thanks" = "Nej tack";
 
 /* Status information, not connected */
-"Not connected to Notes on a server" = "Inte ansluten till Notes på en server";
+"Not connected to Notes on a server" = "Inte ansluten till Anteckningar på en server";
 
 /* A status label indicating that the user is not logged in */
 "Not Logged In" = "Inte inloggad";
@@ -123,23 +123,23 @@
 "Note Title" = "Anteckningens titel";
 
 /* An error message */
-"Notes could not be found on your server. Make sure it is installed and enabled" = "Det gick inte att hitta Notes på din server. Se till att den är installerad och aktiverad";
+"Notes could not be found on your server. Make sure it is installed and enabled" = "Det gick inte att hitta Anteckningar på servern. Kontrollera att appen är installerad och aktiverad.";
 
 /* An error message title */
-"Notes not found" = "Notes hittades inte";
+"Notes not found" = "Anteckningar hittades inte";
 
 /* Button, OK */
 "OK" = "OK";
 
 /* Title for Open In activity */
-"Open in…" = "Öppna i...";
+"Open in…" = "Öppna i …";
 
 /* A menu option for sharing in plain text format */
 "Plain Text" = "Oformaterad text";
 
 /* A message
    A message to check network connection */
-"Please check network connection and login." = "Kontrollera nätverksanslutningen och logga in.";
+"Please check network connection and login." = "Kontrollera nätverksanslutningen och logga in igen.";
 
 /* A button title */
 "Reconnect" = "Återanslut";
@@ -152,7 +152,7 @@
 "Rename the note" = "Byt namn på anteckningen";
 
 /* Action to change title of a note */
-"Rename…" = "Byt namn...";
+"Rename…" = "Byt namn …";
 
 /* A menu option for sharing in rich text format */
 "Rich Text" = "Formaterad text";
@@ -164,16 +164,16 @@
 "Server" = "Server";
 
 /* An error message title */
-"Server not found" = "Server kunde inte hittas";
+"Server not found" = "Servern hittades inte";
 
 /* A message title */
-"Server Reachable" = "Server nåbar";
+"Server Reachable" = "Servern kan nås";
 
 /* Title of a menu with sharing options */
 "Share Note As" = "Dela anteckning som";
 
 /* A message title */
-"Success" = "Lyckades";
+"Success" = "Klart";
 
 /* A message */
 "The network connection is working properly." = "Nätverksanslutningen fungerar korrekt.";
@@ -182,11 +182,11 @@
 "The note does not exist" = "Anteckningen finns inte";
 
 /* Alert message for selecting server brand */
-"Unable to automatically detect type of server.\nPlease select:" = "Det går inte att automatiskt identifiera typ av server.\nVälj:";
+"Unable to automatically detect type of server.\nPlease select:" = "Det gick inte att identifiera servertypen automatiskt.\nVälj:";
 
 /* A message title
    The title of an error message */
-"Unable to Reach Server" = "Kan inte nå servern";
+"Unable to Reach Server" = "Det går inte att nå servern";
 
 /* An error message title */
 "Unauthorized" = "Obehörig";
@@ -204,13 +204,13 @@
 "You are now connected to Notes on your server" = "Du är nu ansluten till Notes på din server";
 
 /* HUD subtitle when checking server capabilities */
-"Checking server capabilities" = "Kontrollera serverns kapacitet";
+"Checking server capabilities" = "Kontrollerar serverfunktioner";
 
 /* HUD subtitle when checking server settings */
-"Checking server settings" = "Kontrollerar serverinställningar";
+"Checking server settings" = "Kontrollerar serverinställningarna";
 
 /* HUD subtitle when checking server status */
-"Checking server status" = "Kontrollerar serverstatus";
+"Checking server status" = "Kontrollerar serverstatusen";
 
 /* No comment provided by engineer. */
 "Connection error" = "Anslutningsfel";
@@ -234,7 +234,7 @@
 "Save" = "Spara";
 
 /* No comment provided by engineer. */
-"The certificate for this server is invalid" = "Certifikatet för denna server är ogiltigt";
+"The certificate for this server is invalid" = "Serverns certifikat är ogiltigt";
 
 /* No comment provided by engineer. */
 "View Certificate" = "Visa certifikat";
@@ -247,11 +247,11 @@
 
 "Notes" = "Anteckningar";
 
-"Cancel" = "Cancel";
+"Cancel" = "Avbryt";
 "Scan QR Code" = "Skanna QR-kod";
 "Close" = "Stäng";
 "Server Address" = "Serveradress";
-"The address of your Nextcloud web interface when you open it in your browser." = "Adressen till ditt Nextcloud webbgränssnitt när du öppnar det i din webbläsare.";
+"The address of your Nextcloud web interface when you open it in your browser." = "Adressen till Nextclouds webbgränssnitt när du öppnar det i webbläsaren.";
 "The entered server address is invalid." = "Den angivna serveradressen är ogiltig.";
 "Accounts from our other apps were found on this device. Would you like to add one of these?" = "Konton från våra andra appar har hittats på den här enheten. Vill du lägga till ett av dem?";
 "Shared Accounts" = "Delade konton";
@@ -269,9 +269,9 @@
 "About This App" = "Om denna app";
 "Client Version" = "Klientversion";
 "Server Version" = "Serverversion";
-"Privacy and Legal Policy" = "Integritets- och juridisk policy";
+"Privacy and Legal Policy" = "Integritets- och rättspolicy";
 "Show Source Code on GitHub" = "Visa källkod på GitHub";
 "Logout" = "Logga ut";
 "Are you sure you want to log out?" = "Är du säker på att du vill logga ut?";
 "Enter a name for the folder where notes should be saved on the server" = "Ange ett namn för mappen där anteckningar ska sparas på servern";
-"Settings" = "Inställingar";
+"Settings" = "Inställningar";
