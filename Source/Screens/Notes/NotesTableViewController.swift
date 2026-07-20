@@ -502,8 +502,9 @@ class NotesTableViewController: BaseUITableViewController, Logging, NSFetchedRes
                 viewController.editor = "text"
                 viewController.link = url
                 viewController.fileName = note.title
-                viewController.modalPresentationStyle = .fullScreen
-                self.navigationController?.present(viewController, animated: true)
+                viewController.modalPresentationStyle = .custom
+                viewController.transitioningDelegate = viewController
+                self.present(viewController, animated: true)
             } else {
                 let alert = UIAlertController(title: "Error", message: "Cannot open file for direct editing: \(error.localizedDescription)", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))

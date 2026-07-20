@@ -34,6 +34,12 @@ class NCViewerNextcloudText: UIViewController, WKNavigationDelegate, WKScriptMes
     var editor: String = ""
     var fileName: String?
     let hud = JGProgressHUD()
+    private lazy var backSwipeGestureRecognizer: UIScreenEdgePanGestureRecognizer = {
+        let gestureRecognizer = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(handleBackSwipe(_:)))
+        gestureRecognizer.edges = .left
+        gestureRecognizer.cancelsTouchesInView = false
+        return gestureRecognizer
+    }()
 
     // MARK: - View Life Cycle
 
@@ -43,6 +49,7 @@ class NCViewerNextcloudText: UIViewController, WKNavigationDelegate, WKScriptMes
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addGestureRecognizer(backSwipeGestureRecognizer)
 
         // navigationController?.setNavigationBarHidden(true, animated: true)
         navigationItem.title = fileName
@@ -91,8 +98,17 @@ class NCViewerNextcloudText: UIViewController, WKNavigationDelegate, WKScriptMes
     }
 
     @objc func viewUnload() {
-        self.dismiss(animated: true)
-        // navigationController?.popViewController(animated: true)
+        dismiss(animated: true)
+    }
+
+    @objc private func handleBackSwipe(_ gestureRecognizer: UIScreenEdgePanGestureRecognizer) {
+        guard gestureRecognizer.state == .ended else { return }
+
+        let translation = gestureRecognizer.translation(in: view)
+        let velocity = gestureRecognizer.velocity(in: view)
+        guard translation.x > view.bounds.width * 0.15, velocity.x > 0 else { return }
+
+        dismiss(animated: true)
     }
 
     // MARK: - NotificationCenter
@@ -175,6 +191,69 @@ class NCViewerNextcloudText: UIViewController, WKNavigationDelegate, WKScriptMes
 
     public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         hud.dismiss()
+    }
+}
+
+extension NCViewerNextcloudText: UIViewControllerTransitioningDelegate {
+
+    func animationController(forPresented presented: UIViewController,
+                             presenting: UIViewController,
+                             source: UIViewController) -> (any UIViewControllerAnimatedTransitioning)? {
+        HorizontalSlideAnimator(isPresenting: true)
+    }
+
+    func animationController(forDismissed dismissed: UIViewController) -> (any UIViewControllerAnimatedTransitioning)? {
+        HorizontalSlideAnimator(isPresenting: false)
+    }
+}
+
+private final class HorizontalSlideAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+
+    private let isPresenting: Bool
+
+    init(isPresenting: Bool) {
+        self.isPresenting = isPresenting
+    }
+
+    func transitionDuration(using transitionContext: (any UIViewControllerContextTransitioning)?) -> TimeInterval {
+        0.35
+    }
+
+    func animateTransition(using transitionContext: any UIViewControllerContextTransitioning) {
+        let containerView = transitionContext.containerView
+        guard let fromView = transitionContext.view(forKey: .from),
+              let toView = transitionContext.view(forKey: .to) else {
+            transitionContext.completeTransition(false)
+            return
+        }
+
+        let width = containerView.bounds.width
+        let destinationView = isPresenting ? toView : fromView
+        let sourceView = isPresenting ? fromView : toView
+
+        if isPresenting {
+            destinationView.frame = containerView.bounds.offsetBy(dx: width, dy: 0)
+            containerView.addSubview(destinationView)
+        } else {
+            containerView.insertSubview(sourceView, belowSubview: destinationView)
+        }
+
+        UIView.animate(withDuration: transitionDuration(using: transitionContext),
+                       delay: 0,
+                       options: [.curveEaseOut]) {
+            destinationView.frame = self.isPresenting
+                ? containerView.bounds
+                : containerView.bounds.offsetBy(dx: width, dy: 0)
+            sourceView.frame = self.isPresenting
+                ? containerView.bounds.offsetBy(dx: -width * 0.25, dy: 0)
+                : containerView.bounds
+        } completion: { finished in
+            let completed = finished && !transitionContext.transitionWasCancelled
+            if !completed {
+                sourceView.frame = containerView.bounds
+            }
+            transitionContext.completeTransition(completed)
+        }
     }
 }
 
