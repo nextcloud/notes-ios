@@ -99,7 +99,7 @@
 "Logged In" = "Inloggad";
 
 /* Header title, main */
-"MAIN" = "MAIN";
+"MAIN" = "HUVUDMENY";
 
 /* A menu option for sharing in markdown format */
 "Markdown" = "Markdown";
@@ -195,13 +195,13 @@
 "Uncategorized" = "Okategoriserad";
 
 /* Message with Notes version, product name and version */
-"Using Notes %1$@ on %2$@ %3$@." = "Using Notes %1$@ on %2$@ %3$@.";
+"Using Notes %1$@ on %2$@ %3$@." = "Använder Anteckningar %1$@ på %2$@ %3$@.";
 
 /* No comment provided by engineer. */
 "Yes, please!" = "Ja tack!";
 
 /* A message */
-"You are now connected to Notes on your server" = "Du är nu ansluten till Notes på din server";
+"You are now connected to Notes on your server" = "Du är nu ansluten till Anteckningar på din server";
 
 /* HUD subtitle when checking server capabilities */
 "Checking server capabilities" = "Kontrollerar serverfunktioner";
