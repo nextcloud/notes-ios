@@ -4,20 +4,12 @@
 
 import Foundation
 import NextcloudKit
-import SwiftNextcloudUI
 import SwiftyJSON
 import UIKit
 
 @Observable
 final class Store: Logging, Storing {
     let logger = makeLogger()
-
-    ///
-    /// Required for `ServerAddressViewDelegate` conformance.
-    ///
-    /// The currently active login flow polling task.
-    ///
-    var pollingTask: Task<Void, any Error>?
 
     ///
     /// This singleton is necessary to conveniently expose the same environment object used in SwiftUI to the already existing UIKit code.
@@ -79,7 +71,7 @@ final class Store: Logging, Storing {
             "version"
         ]
 
-        let (_, data, error) = await NextcloudKit.shared.getCapabilitiesAsync(account: account.id)
+        let (_, _, data, error) = await NextcloudKit.shared.getCapabilitiesAsync(account: account.id)
 
         guard error == .success else {
             logger.error("Failed to fetch capabilities: \(error.localizedDescription, privacy: .public)")
@@ -102,8 +94,6 @@ final class Store: Logging, Storing {
         KeychainHelper.serverMajorVersion = capabilities[serverVersionKeyPath]["major"].int ?? 0
         KeychainHelper.serverMinorVersion = capabilities[serverVersionKeyPath]["minor"].int ?? 0
         KeychainHelper.serverMicroVersion = capabilities[serverVersionKeyPath]["micro"].int ?? 0
-
-        NextcloudKit.shared.updateSession(account: account.id, nextcloudVersion: KeychainHelper.serverMajorVersion)
     }
 
     // swiftlint:enable function_body_length
@@ -126,7 +116,6 @@ final class Store: Logging, Storing {
                     userId: account.userId,
                     password: account.password,
                     userAgent: userAgent,
-                    nextcloudVersion: account.serverVersion.major,
                     groupIdentifier: NCBrandOptions.shared.capabilitiesGroup
                 )
 
@@ -287,83 +276,5 @@ final class Store: Logging, Storing {
             logger.debug("Setting startup synchronization enabled to \(newValue).")
             KeychainHelper.syncOnStart = newValue
         }
-    }
-
-    private func getResponse(endpoint: URL, token: String, options: NKRequestOptions) async -> (url: String, user: String, appPassword: String)? {
-        logger.debug("Getting login flow status...")
-
-        return await withCheckedContinuation { continuation in
-            NextcloudKit.shared.getLoginFlowV2Poll(token: token, endpoint: endpoint.absoluteString, options: options) { [self] server, loginName, appPassword, _, error in
-                if error == .success, let urlBase = server, let user = loginName, let appPassword {
-                    logger.debug("Successfully got login flow status (server: \(urlBase), user: \(user), password: \(appPassword)).")
-                    continuation.resume(returning: (urlBase, user, appPassword))
-                } else {
-                    logger.debug("Failed to get login flow status.")
-                    continuation.resume(returning: nil)
-                }
-            }
-        }
-    }
-
-    func beginPolling(at url: URL) async throws -> URL {
-        logger.debug("Beginning polling at \(url.absoluteString)")
-
-        let (_, serverInfoResult) = await NextcloudKit.shared.getServerStatusAsync(serverUrl: url.absoluteString)
-
-        switch serverInfoResult {
-            case .success:
-                let loginOptions = NKRequestOptions(customUserAgent: userAgent)
-                let (endpoint, loginAddress, token) = try await NextcloudKit.shared.getLoginFlowV2(serverUrl: url.absoluteString, options: loginOptions)
-                let options = NKRequestOptions(customUserAgent: userAgent)
-                var grantValues: (url: String, user: String, appPassword: String)?
-
-                logger.debug("Received login address \"\(loginAddress)\" with polling endpoint \"\(endpoint)\" and token \"\(token)\".")
-
-                if let pollingTask {
-                    logger.debug("Cancelling previous polling task before starting a new one.")
-                    pollingTask.cancel()
-                    self.pollingTask = nil
-                }
-
-                self.pollingTask = Task { @MainActor in
-                    defer {
-                        self.pollingTask = nil
-                    }
-
-                    repeat {
-                        try Task.checkCancellation()
-                        grantValues = await getResponse(endpoint: endpoint, token: token, options: options)
-                        try await Task.sleep(for: .seconds(1))
-                    } while grantValues == nil
-
-                    guard let grantValues else {
-                        return
-                    }
-
-                    guard let host = URL(string: grantValues.url) else {
-                        return
-                    }
-
-                    addAccount(host: host, name: grantValues.user, password: grantValues.appPassword)
-                }
-
-                return loginAddress
-            case .failure(let nKError):
-                logger.error("Received error as response to server status: \(nKError.errorDescription)")
-                throw nKError.error
-        }
-    }
-
-    func cancelPolling() {
-        logger.debug("Cancelling polling task.")
-
-        guard let pollingTask else {
-            logger.error("Attempt to cancel polling task but no task is active!")
-            return
-        }
-
-        pollingTask.cancel()
-        self.pollingTask = nil
-        logger.debug("Polling task cancelled.")
     }
 }

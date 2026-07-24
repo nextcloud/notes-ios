@@ -8,24 +8,55 @@ import SwiftUI
 /// Top-level view for the notes navigation.
 ///
 struct NotesView: View {
-    @State private var addNote = false
+    @State private var model = NotesListModel()
     @State private var searchText = ""
 
     var body: some View {
-        NotesTableViewControllerRepresentable(addNote: $addNote, searchText: $searchText)
-            .ignoresSafeArea(.all)
+        NotesListView(model: model)
             .searchable(text: $searchText)
+            .onChange(of: searchText) { _, newValue in
+                model.search(for: newValue)
+            }
             .toolbar {
-                Button {
-                    addNote = true
-                } label: {
-                    Image(systemName: "plus")
+                ToolbarItemGroup(placement: .topBarTrailing) {
+                    sortMenu
+                    Button {
+                        addNote()
+                    } label: {
+                        Image(systemName: "plus")
+                    }
                 }
             }
             .toolbarTitleDisplayMode(.inline)
             .navigationTitle(String(localized: "Notes", comment: ""))
             .toolbarBackground(.visible, for: .navigationBar)
             .toolbarBackground(.visible, for: .tabBar)
+    }
+
+    private var sortMenu: some View {
+        Menu {
+            Picker(
+                String(localized: "Sorting", comment: "Menu heading for note list sorting options"),
+                selection: Binding(get: { model.groupByCategory }, set: { model.setGroupByCategory($0) })
+            ) {
+                Label(String(localized: "Group by category", comment: "Sorting option grouping notes into their categories"), systemImage: "folder")
+                    .tag(true)
+                Label(String(localized: "Sort by most recent", comment: "Sorting option ordering notes by modification date"), systemImage: "clock")
+                    .tag(false)
+            }
+            .pickerStyle(.inline)
+        } label: {
+            Image(systemName: "line.3.horizontal.decrease.circle")
+        }
+    }
+
+    private func addNote() {
+        NoteSessionManager.shared.add(content: "", category: "") { note in
+            guard let note else { return }
+            DispatchQueue.main.async {
+                NotesPresenter.openEditor(for: note, isNewNote: true)
+            }
+        }
     }
 }
 
