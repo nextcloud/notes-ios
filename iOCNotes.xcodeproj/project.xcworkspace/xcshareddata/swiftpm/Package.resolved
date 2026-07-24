@@ -1,13 +1,13 @@
 {
-  "originHash" : "bdbe1470ac762e49baed317575243d81ed9f32538fd0bdb49c3638f738dc335c",
+  "originHash" : "362600762584dfcdd7a2dce6bf3ff2289adda012d9991e48e76a89167b3e0447",
   "pins" : [
     {
       "identity" : "alamofire",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Alamofire/Alamofire",
       "state" : {
-        "revision" : "e938f8c66708e7352fc7e3512647fa54255b267a",
-        "version" : "5.11.2"
+        "revision" : "7595cbcf59809f9977c5f6378500de2ad73b7ddb",
+        "version" : "5.12.0"
       }
     },
     {
@@ -42,8 +42,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/nextcloud/NextcloudKit",
       "state" : {
-        "revision" : "33b8c019831b9175229ae37b1c8ba8c71e5dc763",
-        "version" : "6.1.0"
+        "revision" : "6d21f1258d1fb67b510c3b66129e73d86114fe14",
+        "version" : "7.4.1"
       }
     },
     {
@@ -51,8 +51,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/krzyzanowskim/OpenSSL",
       "state" : {
-        "revision" : "e7d34385da795aaaeb2212e38c7401e5c333f792",
-        "version" : "3.6.1"
+        "revision" : "fdc9231384f37f053dffe058fd6dfc6c5072dae5",
+        "version" : "3.6.2000"
       }
     },
     {
@@ -70,7 +70,7 @@
       "location" : "https://github.com/swiftlang/swift-cmark.git",
       "state" : {
         "branch" : "gfm",
-        "revision" : "924936d0427cb25a61169739a7660230bffa6ea6"
+        "revision" : "0101bf2c6ff6a218f93150f340fe5ccf76d9f3aa"
       }
     },
     {
@@ -79,16 +79,7 @@
       "location" : "https://github.com/swiftlang/swift-markdown",
       "state" : {
         "branch" : "main",
-        "revision" : "55d66d9a9e8d4fd3f48d111b0d437e82fe451903"
-      }
-    },
-    {
-      "identity" : "swiftlintplugins",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/SimplyDanny/SwiftLintPlugins",
-      "state" : {
-        "revision" : "8a4640d14777685ba8f14e832373160498fbab92",
-        "version" : "0.63.2"
+        "revision" : "27b7fc1a19068bcea3d2072db0ce86360d1400ed"
       }
     },
     {
@@ -98,15 +89,6 @@
       "state" : {
         "revision" : "c0ff6c65bfc00e6a707957cb7069988c5cde2a30",
         "version" : "10.0.2"
-      }
-    },
-    {
-      "identity" : "swiftnextcloudui",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/nextcloud/swiftnextcloudui",
-      "state" : {
-        "branch" : "main",
-        "revision" : "a3254d493626319afe0e720d195ff983b95cb1e4"
       }
     },
     {

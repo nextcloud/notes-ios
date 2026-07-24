@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     ///
     /// Updated by being the `NextcloudKitDelegate`.
     ///
-    var networkReachability: NKCommon.TypeReachability?
+    var networkReachability: NKTypeReachability?
 
     static var shared: AppDelegate {
         return UIApplication.shared.delegate as! AppDelegate
@@ -38,7 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 userId: account.userId,
                 password: account.password,
                 userAgent: userAgent,
-                nextcloudVersion: account.serverVersion.major,
                 groupIdentifier: NCBrandOptions.shared.capabilitiesGroup
             )
         }
@@ -203,7 +202,7 @@ extension AppDelegate: NextcloudKitDelegate {
         }
     }
 
-    public func networkReachabilityObserver(_ typeReachability: NKCommon.TypeReachability) {
+    public func networkReachabilityObserver(_ typeReachability: NKTypeReachability) {
         self.networkReachability = typeReachability
     }
 }

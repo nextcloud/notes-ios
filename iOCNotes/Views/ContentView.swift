@@ -2,7 +2,7 @@
 // SPDX-FileCopyrightText: 2025 Iva Horn
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import SwiftNextcloudUI
+import NextcloudKitUI
 import SwiftUI
 
 ///
@@ -37,10 +37,6 @@ struct ContentView: View {
         if store.accounts.isEmpty {
             ServerAddressView(backgroundColor: .constant(Color.accent), brandImage: Image("BrandLogo"), sharedAccounts: sharedAccounts, userAgent: userAgent) { host, name, password in
                 store.addAccount(host: host, name: name, password: password)
-            } beginPolling: { url, _ in
-               try await store.beginPolling(at: url)
-            } cancelPolling: {
-                store.cancelPolling()
             }
             .onAppear {
                 // The store must update its list of shared accounts when the login user interface is about to appear.

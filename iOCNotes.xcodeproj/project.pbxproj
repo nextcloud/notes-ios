@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		AA182D002DDCD6520058C246 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = AA182CFF2DDCD6520058C246 /* CodeScanner */; };
 		AA30543C2E12B06F00D33159 /* HTTPHeader+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA30543B2E12B06700D33159 /* HTTPHeader+Extensions.swift */; };
-		AA83B8AA2DEF080700F35F3E /* SwiftNextcloudUI in Frameworks */ = {isa = PBXBuildFile; productRef = AA83B8A92DEF080700F35F3E /* SwiftNextcloudUI */; };
-		AAA900B42DE6F37400D3EF0F /* SwiftNextcloudUI in Frameworks */ = {isa = PBXBuildFile; productRef = AAA900B32DE6F37400D3EF0F /* SwiftNextcloudUI */; };
 		AABC95572DFC717F0023790D /* UIApplication+topViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABC95562DFC717A0023790D /* UIApplication+topViewController.swift */; };
 		AAC79FE82E279184006D6845 /* MarkdownTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC79FE72E279184006D6845 /* MarkdownTextStorage.swift */; };
 		BD653F88231C43FA00D59A88 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD653F87231C43FA00D59A88 /* Constants.swift */; };
@@ -72,6 +70,7 @@
 		F3E3C8DC2C6B7DA600A80504 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E3C8DB2C6B7DA600A80504 /* UIColor+Extension.swift */; };
 		F3E3D5CA2F9F6A1C007FC9F0 /* Note+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E3D5C82F9F6A1C007FC9F0 /* Note+CoreDataClass.swift */; };
 		F3E3D5CB2F9F6A1C007FC9F0 /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E3D5C92F9F6A1C007FC9F0 /* Note+CoreDataProperties.swift */; };
+		F3F1E30D30136E1A009CB910 /* NextcloudKitUI in Frameworks */ = {isa = PBXBuildFile; productRef = F3F1E30C30136E1A009CB910 /* NextcloudKitUI */; };
 		F3F734512C6FA550007C8C0B /* Notes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F3F7344A2C6FA550007C8C0B /* Notes.xcdatamodeld */; };
 		F3F734522C6FA550007C8C0B /* NotesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F7344B2C6FA550007C8C0B /* NotesData.swift */; };
 		F3F734582C6FAC17007C8C0B /* Theming.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F734572C6FAC17007C8C0B /* Theming.swift */; };
@@ -225,7 +224,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0C876DF248F18700052EA63 /* Version in Frameworks */,
-				AAA900B42DE6F37400D3EF0F /* SwiftNextcloudUI in Frameworks */,
 				D0595C7C238632610004C4E8 /* KeychainAccess in Frameworks */,
 				D02D15CC2905D756006ADCBB /* OpenSSL in Frameworks */,
 				D06CDA60238F6EC300CF90B0 /* Alamofire in Frameworks */,
@@ -233,9 +231,9 @@
 				F77B56FF2993DE6300A23E76 /* NextcloudKit in Frameworks */,
 				D017D4241D3B03BE00B21443 /* WebKit.framework in Frameworks */,
 				D0CFE5AD1890659600165839 /* QuartzCore.framework in Frameworks */,
-				AA83B8AA2DEF080700F35F3E /* SwiftNextcloudUI in Frameworks */,
 				F75D7B1229C8687C00ABD392 /* JGProgressHUD in Frameworks */,
 				D0CAFF162533E89900C47FA0 /* PKHUD in Frameworks */,
+				F3F1E30D30136E1A009CB910 /* NextcloudKitUI in Frameworks */,
 				D0CFE53B1888A7BD00165839 /* UIKit.framework in Frameworks */,
 				D0CFE5371888A7BD00165839 /* Foundation.framework in Frameworks */,
 				D0CAFF092533E7FB00C47FA0 /* SwiftMessages in Frameworks */,
@@ -524,8 +522,7 @@
 				F77B56FE2993DE6300A23E76 /* NextcloudKit */,
 				F75D7B1129C8687C00ABD392 /* JGProgressHUD */,
 				AA182CFF2DDCD6520058C246 /* CodeScanner */,
-				AAA900B32DE6F37400D3EF0F /* SwiftNextcloudUI */,
-				AA83B8A92DEF080700F35F3E /* SwiftNextcloudUI */,
+				F3F1E30C30136E1A009CB910 /* NextcloudKitUI */,
 			);
 			productName = iOCNotes;
 			productReference = D0CFE5331888A7BD00165839 /* Nextcloud Notes.app */;
@@ -599,7 +596,6 @@
 				F77B56FD2993DE6300A23E76 /* XCRemoteSwiftPackageReference "NextcloudKit" */,
 				F75D7B1029C8687C00ABD392 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 				AA182CFE2DDCD6520058C246 /* XCRemoteSwiftPackageReference "CodeScanner" */,
-				AA83B8A82DEF080700F35F3E /* XCRemoteSwiftPackageReference "swiftnextcloudui" */,
 			);
 			productRefGroup = D0CFE5341888A7BD00165839 /* Products */;
 			projectDirPath = "";
@@ -1092,14 +1088,6 @@
 				minimumVersion = 2.5.2;
 			};
 		};
-		AA83B8A82DEF080700F35F3E /* XCRemoteSwiftPackageReference "swiftnextcloudui" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/nextcloud/swiftnextcloudui";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 		D02D15CA2905D756006ADCBB /* XCRemoteSwiftPackageReference "OpenSSL" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/krzyzanowskim/OpenSSL";
@@ -1168,8 +1156,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/nextcloud/NextcloudKit";
 			requirement = {
-				kind = exactVersion;
-				version = 6.1.0;
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.4.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -1179,15 +1167,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AA182CFE2DDCD6520058C246 /* XCRemoteSwiftPackageReference "CodeScanner" */;
 			productName = CodeScanner;
-		};
-		AA83B8A92DEF080700F35F3E /* SwiftNextcloudUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AA83B8A82DEF080700F35F3E /* XCRemoteSwiftPackageReference "swiftnextcloudui" */;
-			productName = SwiftNextcloudUI;
-		};
-		AAA900B32DE6F37400D3EF0F /* SwiftNextcloudUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = SwiftNextcloudUI;
 		};
 		D02D15CB2905D756006ADCBB /* OpenSSL */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -1223,6 +1202,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D0E60F222777DD38009CF78F /* XCRemoteSwiftPackageReference "swift-markdown" */;
 			productName = Markdown;
+		};
+		F3F1E30C30136E1A009CB910 /* NextcloudKitUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F77B56FD2993DE6300A23E76 /* XCRemoteSwiftPackageReference "NextcloudKit" */;
+			productName = NextcloudKitUI;
 		};
 		F75D7B1129C8687C00ABD392 /* JGProgressHUD */ = {
 			isa = XCSwiftPackageProductDependency;
