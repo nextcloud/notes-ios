@@ -10,16 +10,26 @@ import SwiftUI
 /// Immutable values needed to identify, render and act on a note list row.
 ///
 struct NoteListRow: Equatable, Identifiable {
+    ///
+    /// Identity used by the native list, which must replace a swiped row when favorite sorting moves it.
+    ///
+    struct PresentationID: Hashable {
+        let noteID: NSManagedObjectID
+        let favorite: Bool
+    }
+
     private static let snippetLength = 512
 
-    let id: NSManagedObjectID
+    let noteID: NSManagedObjectID
     let title: String
     let snippet: String
     let modified: Double
     let favorite: Bool
 
+    var id: PresentationID { PresentationID(noteID: noteID, favorite: favorite) }
+
     init(note: Note) {
-        id = note.objectID
+        noteID = note.objectID
         title = note.title
         snippet = Self.snippet(from: note.content)
         modified = note.modified
@@ -63,6 +73,7 @@ final class NotesListModel: NSObject, Logging, NSFetchedResultsControllerDelegat
 
     @ObservationIgnored private var fetchedResultsController: NSFetchedResultsController<Note>?
     @ObservationIgnored private var searchText = ""
+    @ObservationIgnored private var pendingFavoriteRowReplacement = false
     private var collapsedTitles: Set<String>
 
     private(set) var groupByCategory: Bool
@@ -122,14 +133,17 @@ final class NotesListModel: NSObject, Logging, NSFetchedResultsControllerDelegat
         request.predicate = predicate(for: searchText)
 
         if groupByCategory {
+            // "category" must stay first so it matches the section key path; favorites float to the top within each category.
             request.sortDescriptors = [
                 NSSortDescriptor(key: "category", ascending: true),
+                NSSortDescriptor(key: "favorite", ascending: false),
                 NSSortDescriptor(key: "modified", ascending: false),
                 NSSortDescriptor(key: "id", ascending: true),
                 NSSortDescriptor(key: "guid", ascending: true)
             ]
         } else {
             request.sortDescriptors = [
+                NSSortDescriptor(key: "favorite", ascending: false),
                 NSSortDescriptor(key: "modified", ascending: false),
                 NSSortDescriptor(key: "id", ascending: true),
                 NSSortDescriptor(key: "guid", ascending: true)
@@ -182,11 +196,28 @@ final class NotesListModel: NSObject, Logging, NSFetchedResultsControllerDelegat
         try? NotesData.mainThreadContext.existingObject(with: id) as? Note
     }
 
+    func toggleFavorite(for id: NSManagedObjectID) -> Note? {
+        guard let note = note(for: id) else { return nil }
+        pendingFavoriteRowReplacement = true
+        note.favorite.toggle()
+        return note
+    }
+
     // MARK: - NSFetchedResultsControllerDelegate
 
     @objc
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        rebuildSections()
+        guard pendingFavoriteRowReplacement else {
+            rebuildSections()
+            return
+        }
+
+        pendingFavoriteRowReplacement = false
+        var transaction = Transaction()
+        transaction.disablesAnimations = true
+        withTransaction(transaction) {
+            rebuildSections()
+        }
     }
 }
 

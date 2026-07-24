@@ -515,13 +515,13 @@ class NoteSessionManager {
         }
     }
 
-    func update(note: NoteProtocol, completion: SyncCompletionBlock? = nil) {
+    func update(note: NoteProtocol, updateModified: Bool = true, completion: SyncCompletionBlock? = nil) {
         logger.notice("Updating note...")
 
         var incoming = note
         incoming.updateNeeded = true
         if NoteSessionManager.isOnline {
-            updateOnServer(incoming) { [weak self] result in
+            updateOnServer(incoming, updateModified: updateModified) { [weak self] result in
                 switch result {
                 case .success( _):
                     completion?()
@@ -538,11 +538,14 @@ class NoteSessionManager {
         }
     }
     
-    fileprivate func updateOnServer(_ note: NoteProtocol, handler: @escaping SyncHandler) {
+    fileprivate func updateOnServer(_ note: NoteProtocol, updateModified: Bool = true, handler: @escaping SyncHandler) {
+        // Metadata-only changes (e.g. toggling favorite) keep the existing modification date so the note does
+        // not jump to the top of a date-sorted list and the row is not re-sorted a second time after the sync.
+        let modified = updateModified ? Date().timeIntervalSince1970 : note.modified
         let parameters: Parameters = ["title": note.title as Any,
                                       "content": note.content as Any,
                                       "category": note.category as Any,
-                                      "modified": Date().timeIntervalSince1970 as Any,
+                                      "modified": modified as Any,
                                       "favorite": note.favorite]
         let router = Router.updateNote(id: Int(note.id), paramters: parameters)
         session

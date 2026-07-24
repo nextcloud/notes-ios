@@ -81,6 +81,14 @@ struct NotesListView: View {
             .contextMenu {
                 contextMenu(for: row)
             }
+            .swipeActions(edge: .leading) {
+                Button {
+                    toggleFavorite(row)
+                } label: {
+                    favoriteLabel(isFavorite: row.favorite)
+                }
+                .tint(.yellow)
+            }
             .swipeActions(edge: .trailing) {
                 Button(role: .destructive) {
                     delete(row)
@@ -96,7 +104,7 @@ struct NotesListView: View {
         if canRename {
             Button {
                 renameText = row.title
-                noteToRename = row.id
+                noteToRename = row.noteID
             } label: {
                 Label(String(localized: "Rename…", comment: "Action to change title of a note"), systemImage: "square.and.pencil")
             }
@@ -108,6 +116,12 @@ struct NotesListView: View {
             } label: {
                 Label(String(localized: "Category…", comment: "Action to change category of a note"), systemImage: "folder")
             }
+        }
+
+        Button {
+            toggleFavorite(row)
+        } label: {
+            favoriteLabel(isFavorite: row.favorite)
         }
 
         Button {
@@ -131,23 +145,37 @@ struct NotesListView: View {
     }
 
     private func openEditor(for row: NoteListRow) {
-        guard let note = model.note(for: row.id) else { return }
+        guard let note = model.note(for: row.noteID) else { return }
         NotesPresenter.openEditor(for: note, isNewNote: false)
     }
 
     private func openCategories(for row: NoteListRow) {
-        guard let note = model.note(for: row.id) else { return }
+        guard let note = model.note(for: row.noteID) else { return }
         NotesPresenter.openCategories(for: note, categories: Note.categories() ?? [])
     }
 
     private func share(_ row: NoteListRow) {
-        guard let note = model.note(for: row.id) else { return }
+        guard let note = model.note(for: row.noteID) else { return }
         NotesPresenter.share(note: note, exporter: &exporter)
     }
 
     private func delete(_ row: NoteListRow) {
-        guard let note = model.note(for: row.id) else { return }
+        guard let note = model.note(for: row.noteID) else { return }
         NoteSessionManager.shared.delete(note: note)
+    }
+
+    @ViewBuilder
+    private func favoriteLabel(isFavorite: Bool) -> some View {
+        if isFavorite {
+            Label(String(localized: "Remove from Favorites", comment: "Action to unmark a note as favorite"), systemImage: "star.slash")
+        } else {
+            Label(String(localized: "Favorite", comment: "Action to mark a note as favorite"), systemImage: "star")
+        }
+    }
+
+    private func toggleFavorite(_ row: NoteListRow) {
+        guard let note = model.toggleFavorite(for: row.noteID) else { return }
+        NoteSessionManager.shared.update(note: note, updateModified: false, completion: nil)
     }
 
     private func commitRename() {
