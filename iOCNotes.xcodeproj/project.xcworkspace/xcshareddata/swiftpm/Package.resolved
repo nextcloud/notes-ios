@@ -42,8 +42,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/nextcloud/NextcloudKit",
       "state" : {
-        "revision" : "33b8c019831b9175229ae37b1c8ba8c71e5dc763",
-        "version" : "6.1.0"
+        "revision" : "6d21f1258d1fb67b510c3b66129e73d86114fe14",
+        "version" : "7.4.1"
       }
     },
     {
