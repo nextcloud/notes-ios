@@ -1,0 +1,25 @@
+# SPDX-FileCopyrightText: Nextcloud GmbH
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+version: 2
+updates:
+  # Swift Package Manager dependencies (Alamofire, NextcloudKit, swift-markdown, …)
+  - package-ecosystem: "swift"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
+    labels:
+      - "dependencies"
+    commit-message:
+      prefix: "fix(deps)"
+
+  # Keep the GitHub Actions used by our workflows up to date
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "dependencies"
+    commit-message:
+      prefix: "ci"

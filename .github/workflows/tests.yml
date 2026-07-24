@@ -1,0 +1,100 @@
+# SPDX-FileCopyrightText: Nextcloud GmbH
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+name: Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: macos-15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Select latest installed Xcode
+        run: |
+          # Pick the newest Xcode present on the runner instead of hard-coding a
+          # path, so the job keeps working as runner images change.
+          LATEST=$(ls -d /Applications/Xcode_*.app 2>/dev/null | sort -V | tail -1)
+          LATEST=${LATEST:-/Applications/Xcode.app}
+          echo "Selecting $LATEST"
+          sudo xcode-select --switch "$LATEST"
+
+      - name: Show versions
+        run: |
+          xcodebuild -version
+          swift --version
+
+      - name: Resolve Swift package dependencies
+        run: |
+          xcodebuild -resolvePackageDependencies \
+            -project iOCNotes.xcodeproj \
+            -scheme iOCNotes
+
+      - name: Pick an iOS simulator
+        id: sim
+        run: |
+          # Choose the newest available iPhone simulator so we don't hard-code a
+          # device name that may change between Xcode releases.
+          cat > /tmp/pick_sim.py <<'PY'
+          import json, sys
+          devices = json.load(sys.stdin)["devices"]
+          cands = [d for rt, ds in devices.items() if "iOS" in rt
+                   for d in ds if d.get("isAvailable") and "iPhone" in d["name"]]
+          print(cands[-1]["udid"] if cands else "")
+          PY
+          UDID=$(xcrun simctl list devices available --json | python3 /tmp/pick_sim.py)
+          if [ -z "$UDID" ]; then
+            echo "No iOS simulator available" >&2
+            xcrun simctl list devices available
+            exit 1
+          fi
+          echo "Using simulator $UDID"
+          echo "udid=$UDID" >> "$GITHUB_OUTPUT"
+
+      - name: Run unit tests
+        run: |
+          xcodebuild test \
+            -project iOCNotes.xcodeproj \
+            -scheme iOCNotes \
+            -destination "platform=iOS Simulator,id=${{ steps.sim.outputs.udid }}" \
+            -resultBundlePath TestResults.xcresult \
+            -skipPackagePluginValidation \
+            -parallel-testing-enabled NO \
+            CODE_SIGNING_ALLOWED=NO
+
+      - name: Show failure details
+        if: failure()
+        run: |
+          # Surface the actual test/crash reason from the result bundle, since a
+          # host-app launch failure prints nothing useful to the build log.
+          echo "===== test results summary ====="
+          xcrun xcresulttool get test-results summary \
+            --path TestResults.xcresult || true
+          echo "===== crash backtraces ====="
+          xcrun xcresulttool export diagnostics \
+            --path TestResults.xcresult \
+            --output-path _diagnostics 2>/dev/null || true
+          find _diagnostics TestResults.xcresult \
+            \( -name "*.crash" -o -name "*.ips" \) 2>/dev/null \
+            | while read -r f; do echo "--- $f ---"; sed -n '1,150p' "$f" || true; done
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: TestResults
+          path: TestResults.xcresult
+          if-no-files-found: ignore
