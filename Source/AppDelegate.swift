@@ -15,7 +15,6 @@ import SwiftUI
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var store = Store.shared
 
-    var window: UIWindow?
     var notesTableViewController: NotesTableViewController?
 
     ///
@@ -53,8 +52,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
 
-        window?.tintColor = .ph_iconColor
-
         if #available(iOS 15, *) {
             let appearance = UINavigationBarAppearance()
             appearance.configureWithOpaqueBackground()
@@ -90,26 +87,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITextField.appearance().textColor = .ph_textColor
         
         UITextView.appearance().tintColor = .ph_selectedTextColor
-        
-        let contentView = ContentView()
-            .environment(Store.shared)
 
-        let window = UIWindow(frame: UIScreen.main.bounds)
-        window.rootViewController = UIHostingController(rootView: contentView)
-        self.window = window
-        window.makeKeyAndVisible()
-        
         return true
     }
 
-    func applicationDidEnterBackground(_ application: UIApplication) {
+    ///
+    /// Scene lifecycle is adopted via ``SceneDelegate``; these handlers hold the shared behaviour it forwards.
+    ///
+    func handleDidEnterBackground() {
         notesTableViewController?.disableFetchedResultsController()
         updateFrcDelegateNeeded = true
         scheduleAppSync()
     }
 
-    func applicationWillResignActive(_ application: UIApplication) {
-
+    func handleWillResignActive() {
         if !KeychainHelper.server.isEmpty,
             let server = URL(string: KeychainHelper.server),
             let scheme = server.scheme, let host = server.host,
@@ -119,7 +110,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func applicationDidBecomeActive(_ application: UIApplication) {
+    func handleDidBecomeActive() {
         store.synchronize()
         updateFrcDelegateIfNeeded()
     }
@@ -169,7 +160,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         operationQueue.addOperation(operation)
     }
     
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+    @discardableResult
+    func handleOpen(url: URL) -> Bool {
         if let scheme = url.scheme, scheme == "nextcloudnotes" {
             let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
             if let queryItems = urlComponents?.queryItems,
