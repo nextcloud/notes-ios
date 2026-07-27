@@ -173,7 +173,7 @@ struct KeychainHelper {
     static var groupByCategory: Bool {
         get {
             if UserDefaults.standard.object(forKey: "GroupByCategory") == nil {
-                return true
+                return false
             }
             return UserDefaults.standard.bool(forKey: "GroupByCategory")
         }
