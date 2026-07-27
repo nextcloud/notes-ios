@@ -219,7 +219,7 @@
 "Do you want to connect to the server anyway?" = "Chcete se k tomuto serveru připojit i tak?";
 
 /* An error message title */
-"Error" = "Error";
+"Error" = "Chyba";
 
 /* No comment provided by engineer. */
 "No" = "Ne";
