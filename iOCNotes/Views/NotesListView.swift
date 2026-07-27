@@ -50,7 +50,11 @@ struct NotesListView: View {
                     Section(isExpanded: expansionBinding(for: section.title)) {
                         rows(for: section)
                     } header: {
-                        Label(section.title, systemImage: "folder")
+                        if let systemImage = section.systemImage {
+                            Label(section.title, systemImage: systemImage)
+                        } else {
+                            Text(section.title)
+                        }
                     }
                 } else {
                     rows(for: section)
