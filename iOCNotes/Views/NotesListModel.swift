@@ -48,12 +48,13 @@ struct NoteListRow: Equatable, Identifiable {
 ///
 /// A single group of notes shown in ``NotesListView``.
 ///
-/// When notes are sorted by modification date instead of grouped by category, a single section with an
-/// empty ``title`` is produced and rendered without a header.
+/// When notes are sorted by modification date instead of grouped by category, sections are based on
+/// their relative modification date.
 ///
 struct NoteListSection: Equatable, Identifiable {
     let title: String
     let rows: [NoteListRow]
+    let systemImage: String?
 
     var id: String { title }
     var hasHeader: Bool { !title.isEmpty }
@@ -177,15 +178,29 @@ final class NotesListModel: NSObject, Logging, NSFetchedResultsControllerDelegat
     }
 
     private func rebuildSections() {
-        guard let fetchedSections = fetchedResultsController?.sections else {
+        guard let fetchedResultsController else {
             sections = []
             return
         }
 
-        let updatedSections = fetchedSections.map { section in
-            let title = groupByCategory ? section.name : ""
-            let notes = (section.objects as? [Note]) ?? []
-            return NoteListSection(title: title, rows: notes.map(NoteListRow.init))
+        let updatedSections: [NoteListSection]
+        if groupByCategory {
+            updatedSections = fetchedResultsController.sections?.map { section in
+                let notes = (section.objects as? [Note]) ?? []
+                return NoteListSection(title: section.name, rows: notes.map(NoteListRow.init), systemImage: "folder")
+            } ?? []
+        } else {
+            let calendar = Calendar.current
+            let referenceDate = Date()
+            let groupedNotes = Dictionary(grouping: fetchedResultsController.fetchedObjects ?? []) { note in
+                NoteDateSection(modified: note.modified, relativeTo: referenceDate, calendar: calendar)
+            }
+            updatedSections = groupedNotes.keys
+                .sorted { $0.startDate > $1.startDate }
+                .compactMap { section in
+                    guard let notes = groupedNotes[section] else { return nil }
+                    return NoteListSection(title: section.title, rows: notes.map(NoteListRow.init), systemImage: nil)
+                }
         }
 
         guard updatedSections != sections else { return }
@@ -218,6 +233,65 @@ final class NotesListModel: NSObject, Logging, NSFetchedResultsControllerDelegat
         withTransaction(transaction) {
             rebuildSections()
         }
+    }
+}
+
+private enum NoteDateSection: Hashable {
+    case month(Date)
+    case previousSevenDays(Date)
+    case previousThirtyDays(Date)
+    case today(Date)
+    case year(Date)
+
+    init(modified: Double, relativeTo referenceDate: Date, calendar: Calendar) {
+        let today = calendar.startOfDay(for: referenceDate)
+        let noteDate = Date(timeIntervalSince1970: modified)
+        let sevenDaysAgo = calendar.date(byAdding: .day, value: -7, to: today) ?? today
+        let thirtyDaysAgo = calendar.date(byAdding: .day, value: -30, to: today) ?? sevenDaysAgo
+
+        if noteDate >= today {
+            self = .today(today)
+        } else if noteDate >= sevenDaysAgo {
+            self = .previousSevenDays(sevenDaysAgo)
+        } else if noteDate >= thirtyDaysAgo {
+            self = .previousThirtyDays(thirtyDaysAgo)
+        } else if calendar.component(.year, from: noteDate) == calendar.component(.year, from: referenceDate) {
+            self = .month(calendar.startOfMonth(for: noteDate))
+        } else {
+            self = .year(calendar.startOfYear(for: noteDate))
+        }
+    }
+
+    var startDate: Date {
+        switch self {
+            case let .today(date), let .previousSevenDays(date), let .previousThirtyDays(date), let .month(date), let .year(date):
+                return date
+        }
+    }
+
+    var title: String {
+        switch self {
+            case .today:
+                return String(localized: "Today", comment: "Notes modified today")
+            case .previousSevenDays:
+                return String(localized: "Previous 7 Days", comment: "Notes modified in the previous seven days")
+            case .previousThirtyDays:
+                return String(localized: "Previous 30 Days", comment: "Notes modified in the previous thirty days")
+            case let .month(date):
+                return date.formatted(.dateTime.month(.wide))
+            case let .year(date):
+                return date.formatted(.dateTime.year())
+        }
+    }
+}
+
+private extension Calendar {
+    func startOfMonth(for inputDate: Date) -> Date {
+        date(from: dateComponents([.calendar, .era, .year, .month], from: inputDate)) ?? inputDate
+    }
+
+    func startOfYear(for inputDate: Date) -> Date {
+        date(from: dateComponents([.calendar, .era, .year], from: inputDate)) ?? inputDate
     }
 }
 
