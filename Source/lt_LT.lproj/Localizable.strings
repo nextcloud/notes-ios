@@ -39,19 +39,19 @@
 "Close & Sync" = "Uždaryti ir sinchronizuoti";
 
 /* Crash report email subject */
-"NextcloudNotes Crash Report" = "Nextcloud „Užrašų“ gedimų ataskaita";
+"NextcloudNotes Crash Report" = "„Nextcloud „Užrašai“ gedimų ataskaita";
 
 /* No comment provided by engineer. */
-"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "Nextcloud „Užrašai“ sugedo paskutinį kartą ją paleidus. Ar norite nusiųsti ataskaitą kūrėjui?";
+"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "„Nextcloud Užrašai“ sugedo paskutinį kartą ją paleidus. Ar norite nusiųsti ataskaitą kūrėjui?";
 
 /* Support email subject */
-"NextcloudNotes Support Request" = "Nextcloud „Užrašai“ pagalbos užklausimas";
+"NextcloudNotes Support Request" = "„Nextcloud Užrašai“ pagalbos užklausimas";
 
 /* A button title */
 "Connect" = "Prisijungti";
 
 /* Status information, connected */
-"Connected to Notes on the server" = "Susieta su „Užrašais“ serveryje";
+"Connected to Notes on the server" = "Susieta su „Užrašai“ serveryje";
 
 /* An error message title */
 "Connection failure" = "Ryšio nesėkmė";
@@ -123,7 +123,7 @@
 "Note Title" = "Užrašo pavadinimas";
 
 /* An error message */
-"Notes could not be found on your server. Make sure it is installed and enabled" = "Nepavyko rasti „Užrašų“ jūsų serveryje. Įsitikinkite, kad jie įdiegti ir įgalinti.";
+"Notes could not be found on your server. Make sure it is installed and enabled" = "Nepavyko rasti programėlės „Užrašai“ jūsų serveryje. Įsitikinkite, kad ji įdiegta ir įgalinta.";
 
 /* An error message title */
 "Notes not found" = "Užrašai nerasti";
@@ -195,7 +195,7 @@
 "Uncategorized" = "Nekategorizuoti";
 
 /* Message with Notes version, product name and version */
-"Using Notes %1$@ on %2$@ %3$@." = "Naudojant užrašus %1$@ dėl %2$@ %3$@.";
+"Using Notes %1$@ on %2$@ %3$@." = "Naudojant programėlę „Užrašai“ %1$@ dėl %2$@ %3$@.";
 
 /* No comment provided by engineer. */
 "Yes, please!" = "Taip, prašau!";
@@ -245,7 +245,7 @@
 // NEXTCLOUD
 "Select the account to add"   = "Pasirinkite paskyrą, kurią norite pridėti";
 
-"Notes" = "Pastabos";
+"Notes" = "Užrašai";
 
 "Cancel" = "Atsisakyti";
 "Scan QR Code" = "Skenuoti QR Code";
@@ -263,7 +263,7 @@
 "Synchronize on Start" = "Sinchronizuoti paleidžiant";
 "Offline Mode" = "Režimas neprisijungus";
 "Server Settings" = "Serverio nustatymai";
-"Notes Path" = "„Užrašų“ kelias";
+"Notes Path" = "„Užrašai“ kelias";
 "Internal Editor" = "Vidinis redaktorius";
 "File Extension" = "Failo plėtinys";
 "About This App" = "Apie šią programėlę";
