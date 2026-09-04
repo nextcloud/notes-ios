@@ -195,7 +195,7 @@
 "Uncategorized" = "Nezaradené";
 
 /* Message with Notes version, product name and version */
-"Using Notes %1$@ on %2$@ %3$@." = "Using Notes %1$@ on %2$@ %3$@.";
+"Using Notes %1$@ on %2$@ %3$@." = "Používanie aplikácie Notes %1$@ na %2$@ %3$@.";
 
 /* No comment provided by engineer. */
 "Yes, please!" = "Áno, prosím!";
@@ -248,30 +248,30 @@
 "Notes" = "Notes";
 
 "Cancel" = "Cancel";
-"Scan QR Code" = "Scan QR Code";
+"Scan QR Code" = "Skenovať QR kód";
 "Close" = "Zatvoriť";
-"Server Address" = "Server Address";
-"The address of your Nextcloud web interface when you open it in your browser." = "The address of your Nextcloud web interface when you open it in your browser.";
-"The entered server address is invalid." = "The entered server address is invalid.";
-"Accounts from our other apps were found on this device. Would you like to add one of these?" = "Accounts from our other apps were found on this device. Would you like to add one of these?";
-"Shared Accounts" = "Shared Accounts";
+"Server Address" = "Adresa servera";
+"The address of your Nextcloud web interface when you open it in your browser." = "Adresa vášho webového rozhrania Nextcloud pri otvorení v prehliadači.";
+"The entered server address is invalid." = "Zadaná adresa servera je neplatná.";
+"Accounts from our other apps were found on this device. Would you like to add one of these?" = "V tomto zariadení boli nájdené účty z našich ďalších aplikácií. Chcete niektorý z nich pridať?";
+"Shared Accounts" = "Zdieľané účty";
 
 // SettingsView
-"Account" = "Account";
-"Log Out" = "Log Out";
+"Account" = "Účet";
+"Log Out" = "Odhlásiť sa";
 "Synchronization" = "Synchronizácia";
-"Synchronize on Start" = "Synchronize on Start";
-"Offline Mode" = "Offline Mode";
-"Server Settings" = "Server Settings";
-"Notes Path" = "Notes Path";
-"Internal Editor" = "Internal Editor";
-"File Extension" = "File Extension";
-"About This App" = "About This App";
-"Client Version" = "Client Version";
-"Server Version" = "Server Version";
+"Synchronize on Start" = "Synchronizovať pri štarte";
+"Offline Mode" = "Režim offline";
+"Server Settings" = "Nastavenia servera";
+"Notes Path" = "Cesta k poznámkam";
+"Internal Editor" = "Interný editor";
+"File Extension" = "Prípona súboru";
+"About This App" = "O tejto aplikácii";
+"Client Version" = "Verzia klienta";
+"Server Version" = "Verzia servera";
 "Privacy and Legal Policy" = "Ochrana osobných údajov a právne zásady";
-"Show Source Code on GitHub" = "Show Source Code on GitHub";
+"Show Source Code on GitHub" = "Zobraziť zdrojový kód na GitHub";
 "Logout" = "Odhlásiť sa";
-"Are you sure you want to log out?" = "Are you sure you want to log out?";
+"Are you sure you want to log out?" = "Naozaj sa chcete odhlásiť?";
 "Enter a name for the folder where notes should be saved on the server" = "Zadajte názov adresára, do ktorého sa majú na serveri ukladať poznámky";
 "Settings" = "Settings";
