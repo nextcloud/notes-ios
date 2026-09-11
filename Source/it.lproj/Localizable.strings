@@ -18,7 +18,7 @@
 
 /* A menu action
    A menu option for cancelling */
-"Cancel" = "Cancel";
+"Cancel" = "Annulla";
 
 /* Header title, categories */
 "CATEGORIES" = "CATEGORIES";
@@ -247,7 +247,7 @@
 
 "Notes" = "Notes";
 
-"Cancel" = "Cancel";
+"Cancel" = "Annulla";
 "Scan QR Code" = "Scan QR Code";
 "Close" = "Close";
 "Server Address" = "Server Address";
