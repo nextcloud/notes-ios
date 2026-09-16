@@ -24,7 +24,7 @@
 "CATEGORIES" = "CATEGORIES";
 
 /* 'Category' menu item */
-"Category" = "Category";
+"Category" = "Categoria";
 
 /* Action to change category of a note */
 "Category…" = "Category…";
