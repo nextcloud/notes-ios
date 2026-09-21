@@ -1,10 +1,5 @@
-//
-//  KeychainHelper.swift
-//  iOCNotes
-//
-//  Created by Peter Hedlund on 6/18/19.
-//  Copyright © 2019 Peter Hedlund. All rights reserved.
-//
+// SPDX-FileCopyrightText: 2019 Peter Hedlund
+// SPDX-License-Identifier: BSD-2-Clause
 
 import Foundation
 import KeychainAccess

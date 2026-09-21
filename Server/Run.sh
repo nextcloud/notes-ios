@@ -1,5 +1,9 @@
 #!/usr/bin/env zsh
 
+# SPDX-FileCopyrightText: Nextcloud GmbH
+# SPDX-FileCopyrightText: 2025 Iva Horn
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 CONTAINER_NAME="nextcloud-notes-test-server"
 NEXTCLOUD_TRUSTED_DOMAINS="${NEXTCLOUD_TRUSTED_DOMAINS:-localhost}"
 NEXTCLOUD_URL="http://localhost:8080"

@@ -1,0 +1,79 @@
+# SPDX-FileCopyrightText: 2026 Nextcloud GmbH and Nextcloud contributors
+# SPDX-License-Identifier: GPL-3.0-or-later
+version = 1
+SPDX-PackageName = "Nextcloud Notes iOS App"
+SPDX-PackageSupplier = "Nextcloud GmbH <https://nextcloud.com/impressum/>"
+SPDX-PackageDownloadLocation = "https://github.com/nextcloud/notes-ios/"
+
+# --- Original iOCNotes work by Peter Hedlund, under the BSD-2-Clause LICENSE ---
+
+[[annotations]]
+path = [".gitignore", "Server/Notes/.gitignore", "Source/defaults.plist", "Source/CoreData/**", "Source/Base.lproj/*.storyboard", "iOCNotes.xcodeproj/**", "svg/**", "Editor/AttributedStringKey.swift", "Editor/CheckBoxTapHandler.swift", "Editor/HeaderTextView.swift", "Editor/LayoutManager.swift", "Editor/Themes.bundle/**", "Source/Preview.bundle/index.html", "Source/Preview.bundle/js/down.js"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2013-2022 Peter Hedlund <peter.hedlund@me.com>"
+SPDX-License-Identifier = "BSD-2-Clause"
+
+# --- Nextcloud-era contributions ---
+
+[[annotations]]
+path = [".tx/config", ".github/copilot-instructions.md", "iOCNotes.xcconfig", "Brand/**", "README/**", "Server/Notes/**", "Server/README.md", "ActionExtension/Media.xcassets/**", "iOCNotes/Assets.xcassets/**", "Source/Colors.xcassets/**", "Nextcloud/**"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2014-2026 Nextcloud GmbH and Nextcloud contributors"
+SPDX-License-Identifier = "GPL-3.0-or-later"
+
+[[annotations]]
+path = ["README.md"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2014-2026 Nextcloud GmbH and Nextcloud contributors"
+SPDX-License-Identifier = "GPL-3.0-or-later"
+
+# Translations are managed on Transifex; headers here would be overwritten on sync.
+[[annotations]]
+path = ["Source/*.lproj/*.strings", "Source/Settings.bundle/*.lproj/*.strings", "Source/Screens/**/*.lproj/*.strings"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2014-2026 Nextcloud translators"
+SPDX-License-Identifier = "GPL-3.0-or-later"
+
+[[annotations]]
+path = ["Source/Settings.bundle/*.plist"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2014-2026 Nextcloud GmbH and Nextcloud contributors"
+SPDX-License-Identifier = "GPL-3.0-or-later"
+
+# The Nextcloud name and logo are trademarks; see LICENSES/LicenseRef-NextcloudTrademarks.txt
+[[annotations]]
+path = ["AppIcon.icon/**", "Brand/Custom.xcassets/**"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "Nextcloud GmbH"
+SPDX-License-Identifier = "LicenseRef-NextcloudTrademarks"
+
+# --- Vendored third-party ---
+
+# Notepad editor — https://github.com/ruddfawcett/Notepad
+[[annotations]]
+path = ["Editor/Element.swift", "Editor/Extensions.swift", "Editor/Storage.swift", "Editor/Style.swift", "Editor/Theme.swift", "Editor/UniversalTypes.swift"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2016 Rudd Fawcett"
+SPDX-License-Identifier = "MIT"
+
+# highlight.js — banner in the file declares BSD3
+[[annotations]]
+path = ["Source/Preview.bundle/js/highlight.min.js"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2006 Ivan Sagalaev and other contributors"
+SPDX-License-Identifier = "BSD-3-Clause"
+
+# github-markdown-css — https://github.com/sindresorhus/github-markdown-css
+[[annotations]]
+path = ["Source/Preview.bundle/css/github-markdown.css"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "Sindre Sorhus <sindresorhus@gmail.com>"
+SPDX-License-Identifier = "MIT"
+
+# --- Editor/IDE cruft that is tracked but should not be (see notes) ---
+
+[[annotations]]
+path = ["Nextcloud/Viewer/.DS_Store", "iOCNotes.xcodeproj/xcuserdata/**"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2014-2026 Nextcloud GmbH and Nextcloud contributors"
+SPDX-License-Identifier = "GPL-3.0-or-later"

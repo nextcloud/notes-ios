@@ -1,10 +1,5 @@
-//
-//  NoteSessionManager.swift
-//  iOCNotes
-//
-//  Created by Peter Hedlund on 2/6/19.
-//  Copyright © 2020 Peter Hedlund. All rights reserved.
-//
+// SPDX-FileCopyrightText: 2020 Peter Hedlund
+// SPDX-License-Identifier: BSD-2-Clause
 
 import Alamofire
 import Foundation

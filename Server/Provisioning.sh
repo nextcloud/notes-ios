@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# SPDX-FileCopyrightText: Nextcloud GmbH
+# SPDX-FileCopyrightText: 2025 Iva Horn
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 # Disable password policy app to enable simple testing passwords.
 ./occ app:disable password_policy
 
