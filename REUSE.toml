@@ -8,7 +8,7 @@ SPDX-PackageDownloadLocation = "https://github.com/nextcloud/notes-ios/"
 # --- Original iOCNotes work by Peter Hedlund, under the BSD-2-Clause LICENSE ---
 
 [[annotations]]
-path = [".gitignore", "Server/Notes/.gitignore", "Source/defaults.plist", "Source/CoreData/**", "Source/Base.lproj/*.storyboard", "iOCNotes.xcodeproj/**", "svg/**", "Editor/AttributedStringKey.swift", "Editor/CheckBoxTapHandler.swift", "Editor/HeaderTextView.swift", "Editor/LayoutManager.swift", "Editor/Themes.bundle/**", "Source/Preview.bundle/index.html", "Source/Preview.bundle/js/down.js"]
+path = [".gitignore", "Server/Notes/.gitignore", "Source/defaults.plist", "Source/CoreData/**", "Source/Base.lproj/*.storyboard", "iOCNotes.xcodeproj/**", "svg/**", "Editor/AttributedStringKey.swift", "Editor/CheckBoxTapHandler.swift", "Editor/HeaderTextView.swift", "Editor/LayoutManager.swift", "Editor/Themes.bundle/**", "Source/Preview.bundle/index.html"]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2013-2022 Peter Hedlund <peter.hedlund@me.com>"
 SPDX-License-Identifier = "BSD-2-Clause"
@@ -55,13 +55,6 @@ path = ["Editor/Element.swift", "Editor/Extensions.swift", "Editor/Storage.swift
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2016 Rudd Fawcett"
 SPDX-License-Identifier = "MIT"
-
-# highlight.js — banner in the file declares BSD3
-[[annotations]]
-path = ["Source/Preview.bundle/js/highlight.min.js"]
-precedence = "aggregate"
-SPDX-FileCopyrightText = "2006 Ivan Sagalaev and other contributors"
-SPDX-License-Identifier = "BSD-3-Clause"
 
 # github-markdown-css — https://github.com/sindresorhus/github-markdown-css
 [[annotations]]
