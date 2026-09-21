@@ -8,7 +8,7 @@ SPDX-PackageDownloadLocation = "https://github.com/nextcloud/notes-ios/"
 # --- Original iOCNotes work by Peter Hedlund, under the BSD-2-Clause LICENSE ---
 
 [[annotations]]
-path = [".gitignore", "Server/Notes/.gitignore", "Source/defaults.plist", "Source/CoreData/**", "Source/Base.lproj/*.storyboard", "iOCNotes.xcodeproj/**", "svg/**", "Editor/AttributedStringKey.swift", "Editor/CheckBoxTapHandler.swift", "Editor/HeaderTextView.swift", "Editor/LayoutManager.swift", "Editor/Themes.bundle/**", "Source/Preview.bundle/index.html"]
+path = [".gitignore", "Source/defaults.plist", "Source/CoreData/Notes.xcdatamodeld/**", "Source/Base.lproj/*.storyboard", "iOCNotes.xcodeproj/**", "svg/**", "Editor/AttributedStringKey.swift", "Editor/CheckBoxTapHandler.swift", "Editor/HeaderTextView.swift", "Editor/LayoutManager.swift", "Editor/Themes.bundle/**", "Source/Preview.bundle/index.html"]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2013-2022 Peter Hedlund <peter.hedlund@me.com>"
 SPDX-License-Identifier = "BSD-2-Clause"
