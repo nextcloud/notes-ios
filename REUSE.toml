@@ -69,11 +69,3 @@ path = ["Source/Preview.bundle/css/github-markdown.css"]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "Sindre Sorhus <sindresorhus@gmail.com>"
 SPDX-License-Identifier = "MIT"
-
-# --- Editor/IDE cruft that is tracked but should not be (see notes) ---
-
-[[annotations]]
-path = ["Nextcloud/Viewer/.DS_Store", "iOCNotes.xcodeproj/xcuserdata/**"]
-precedence = "aggregate"
-SPDX-FileCopyrightText = "2014-2026 Nextcloud GmbH and Nextcloud contributors"
-SPDX-License-Identifier = "GPL-3.0-or-later"
