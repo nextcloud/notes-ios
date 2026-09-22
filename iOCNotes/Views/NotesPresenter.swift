@@ -87,7 +87,7 @@ enum NotesPresenter {
             return false
         }
 
-        NextcloudKit.shared.textOpenFile(fileNamePath: KeychainHelper.notesPath, fileId: String(note.id), editor: "text", account: account) { _, url, _, error in
+        NextcloudKit.shared.openFileForDirectEditing(fileNamePath: KeychainHelper.notesPath, fileId: String(note.id), editorId: "text", account: account) { _, url, _, error in
             DispatchQueue.main.async {
                 guard let presenter = UIApplication.topViewController() else { return }
 

@@ -43,3 +43,4 @@ Carthage/
 Package.resolved
 
 *.generated.swift
+/iOCNotes.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
