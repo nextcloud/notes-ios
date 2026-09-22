@@ -1,10 +1,5 @@
-//
-//  ServerStatus.swift
-//  iOCNotes
-//
-//  Created by Peter Hedlund on 10/24/22.
-//  Copyright © 2022 Peter Hedlund. All rights reserved.
-//
+// SPDX-FileCopyrightText: 2022 Peter Hedlund
+// SPDX-License-Identifier: BSD-2-Clause
 
 import Foundation
 import OpenSSL

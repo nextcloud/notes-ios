@@ -1,11 +1,5 @@
-//
-//  Note+CoreDataClass.swift
-//  iOCNotes
-//
-//  Created by Peter Hedlund on 6/7/18.
-//  Copyright © 2018 Peter Hedlund. All rights reserved.
-//
-//
+// SPDX-FileCopyrightText: 2018 Peter Hedlund
+// SPDX-License-Identifier: BSD-2-Clause
 
 import Foundation
 import CoreData

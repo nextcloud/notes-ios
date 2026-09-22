@@ -1,10 +1,5 @@
-//
-//  Throttler.swift
-//  CloudNotes
-//
-//  Created by Peter Hedlund on 6/5/20.
-//  Copyright © 2020 Peter Hedlund. All rights reserved.
-//
+// SPDX-FileCopyrightText: 2020 Peter Hedlund
+// SPDX-License-Identifier: BSD-2-Clause
 
 import Foundation
 

@@ -1,9 +1,7 @@
-//
-//  Note+CoreDataProperties.swift
-//
-//
-//  Created by Peter Hedlund on 1/23/19.
-//
+// SPDX-FileCopyrightText: Nextcloud GmbH
+// SPDX-FileCopyrightText: 2019 Peter Hedlund
+// SPDX-FileCopyrightText: 2026 Milen Pivchev
+// SPDX-License-Identifier: BSD-2-Clause AND GPL-3.0-or-later
 
 import CoreData
 import Foundation
