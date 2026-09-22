@@ -16,7 +16,7 @@ SPDX-License-Identifier = "BSD-2-Clause"
 # --- Nextcloud-era contributions ---
 
 [[annotations]]
-path = [".tx/config", ".github/copilot-instructions.md", "iOCNotes.xcconfig", "Brand/**", "README/**", "Server/Notes/**", "Server/README.md", "ActionExtension/Media.xcassets/**", "iOCNotes/Assets.xcassets/**", "Source/Colors.xcassets/**", "Nextcloud/**"]
+path = [".swiftlint.yml", ".tx/config", ".github/copilot-instructions.md", "iOCNotes.xcconfig", "Brand/**", "README/**", "Server/Notes/**", "Server/README.md", "ActionExtension/Media.xcassets/**", "iOCNotes/Assets.xcassets/**", "Source/Colors.xcassets/**", "Nextcloud/**"]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2014-2026 Nextcloud GmbH and Nextcloud contributors"
 SPDX-License-Identifier = "GPL-3.0-or-later"
