@@ -22,21 +22,25 @@ struct NoteRowView: View {
         favorite = row.favorite
     }
 
-    private static let dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .short
-        formatter.timeStyle = .none
-        formatter.doesRelativeDateFormatting = true
+    private static let intervalFormatter: DateComponentsFormatter = {
+        let formatter = DateComponentsFormatter()
+        formatter.unitsStyle = .abbreviated
+        formatter.maximumUnitCount = 1
+        formatter.allowedUnits = [.year, .month, .weekOfMonth, .day, .hour, .minute]
         return formatter
     }()
 
+    ///
+    /// Compact relative age of the note, e.g. "7m" or "2h".
+    ///
     private var modifiedText: String {
-        Self.dateFormatter.string(from: Date(timeIntervalSince1970: modified))
+        let interval = max(Date.now.timeIntervalSince1970 - modified, 60)
+        return Self.intervalFormatter.string(from: interval) ?? ""
     }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 3) {
-            HStack(spacing: 8) {
+            HStack(alignment: .firstTextBaseline, spacing: 8) {
                 Text(title)
                     .font(.headline)
                     .lineLimit(1)
@@ -46,18 +50,18 @@ struct NoteRowView: View {
                         .font(.caption)
                         .foregroundStyle(.yellow)
                 }
-            }
 
-            if !snippet.isEmpty {
-                Text(snippet)
+                Spacer()
+
+                Text(modifiedText)
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
-                    .lineLimit(1)
             }
 
-            Text(modifiedText)
-                .font(.caption)
+            Text(snippet.isEmpty ? String(localized: "No content", comment: "Shown in the notes list for notes without content") : snippet)
+                .font(.subheadline)
                 .foregroundStyle(.secondary)
+                .lineLimit(1)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.vertical, 2)
