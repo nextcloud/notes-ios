@@ -8,11 +8,9 @@ import JGProgressHUD
 
 class NCViewerNextcloudText: UIViewController, WKNavigationDelegate, WKScriptMessageHandler {
 
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var webView = WKWebView()
     var bottomConstraint: NSLayoutConstraint?
     var link: String = ""
-    var editor: String = ""
     var fileName: String?
     let hud = JGProgressHUD()
 
@@ -27,11 +25,14 @@ class NCViewerNextcloudText: UIViewController, WKNavigationDelegate, WKScriptMes
 
         // navigationController?.setNavigationBarHidden(true, animated: true)
         navigationItem.title = fileName
+        navigationItem.leftBarButtonItem = UIBarButtonItem(systemItem: .close, primaryAction: UIAction { [weak self] _ in
+            self?.close()
+        })
 
         let config = WKWebViewConfiguration()
         config.websiteDataStore = WKWebsiteDataStore.nonPersistent()
         let contentController = config.userContentController
-        contentController.add(self, name: "DirectEditingMobileInterface")
+        contentController.add(WeakScriptMessageHandler(delegate: self), name: "DirectEditingMobileInterface")
 
         webView = WKWebView(frame: CGRect.zero, configuration: config)
         webView.navigationDelegate = self
@@ -74,6 +75,34 @@ class NCViewerNextcloudText: UIViewController, WKNavigationDelegate, WKScriptMes
     @objc func viewUnload() {
         self.dismiss(animated: true)
         // navigationController?.popViewController(animated: true)
+    }
+
+    /// Prefers Text's own close button so pending changes get saved; dismisses directly when it isn't rendered.
+    private func close() {
+        let script = """
+        (function () {
+          var closeIcons = document.getElementsByClassName("icon-close");
+          if (closeIcons.length > 0) {
+            closeIcons[0].click();
+            return true;
+          }
+          return false;
+        })();
+        """
+
+        webView.evaluateJavaScript(script) { [weak self] result, _ in
+            guard result as? Bool == true else {
+                self?.viewUnload()
+                return
+            }
+
+            // Text replies with a "close" message once saved; don't get stuck if it never does.
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [weak self] in
+                guard let self, view.window != nil else { return }
+
+                viewUnload()
+            }
+        }
     }
 
     // MARK: - NotificationCenter
@@ -167,5 +196,18 @@ extension NCViewerNextcloudText: UINavigationControllerDelegate {
         if parent == nil {
            // NotificationCenter.default.postOnMainThread(name: NCGlobal.shared.notificationCenterReloadDataSourceNetworkForced, userInfo: ["serverUrl": self.metadata.serverUrl])
         }
+    }
+}
+
+/// Forwards script messages without `WKUserContentController` retaining the viewer.
+private final class WeakScriptMessageHandler: NSObject, WKScriptMessageHandler {
+    weak var delegate: WKScriptMessageHandler?
+
+    init(delegate: WKScriptMessageHandler) {
+        self.delegate = delegate
+    }
+
+    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        delegate?.userContentController(userContentController, didReceive: message)
     }
 }
