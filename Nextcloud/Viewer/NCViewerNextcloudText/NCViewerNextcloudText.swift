@@ -32,7 +32,7 @@ class NCViewerNextcloudText: UIViewController, WKNavigationDelegate, WKScriptMes
         let config = WKWebViewConfiguration()
         config.websiteDataStore = WKWebsiteDataStore.nonPersistent()
         let contentController = config.userContentController
-        contentController.add(WeakScriptMessageHandler(delegate: self), name: "DirectEditingMobileInterface")
+        contentController.add(self, name: "DirectEditingMobileInterface")
 
         webView = WKWebView(frame: CGRect.zero, configuration: config)
         webView.navigationDelegate = self
@@ -73,11 +73,12 @@ class NCViewerNextcloudText: UIViewController, WKNavigationDelegate, WKScriptMes
     }
 
     @objc func viewUnload() {
+        // The content controller retains its handler, so release it to break the cycle.
+        webView.configuration.userContentController.removeScriptMessageHandler(forName: "DirectEditingMobileInterface")
         self.dismiss(animated: true)
         // navigationController?.popViewController(animated: true)
     }
 
-    /// Prefers Text's own close button so pending changes get saved; dismisses directly when it isn't rendered.
     private func close() {
         let script = """
         (function () {
@@ -196,18 +197,5 @@ extension NCViewerNextcloudText: UINavigationControllerDelegate {
         if parent == nil {
            // NotificationCenter.default.postOnMainThread(name: NCGlobal.shared.notificationCenterReloadDataSourceNetworkForced, userInfo: ["serverUrl": self.metadata.serverUrl])
         }
-    }
-}
-
-/// Forwards script messages without `WKUserContentController` retaining the viewer.
-private final class WeakScriptMessageHandler: NSObject, WKScriptMessageHandler {
-    weak var delegate: WKScriptMessageHandler?
-
-    init(delegate: WKScriptMessageHandler) {
-        self.delegate = delegate
-    }
-
-    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        delegate?.userContentController(userContentController, didReceive: message)
     }
 }
