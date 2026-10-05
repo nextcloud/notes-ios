@@ -195,7 +195,7 @@
 "Uncategorized" = "Ikke kategoriseret";
 
 /* Message with Notes version, product name and version */
-"Using Notes %1$@ on %2$@ %3$@." = "Using Notes %1$@ on %2$@ %3$@.";
+"Using Notes %1$@ on %2$@ %3$@." = "Bruger Noter %1$@ på %2$@ %3$@.";
 
 /* No comment provided by engineer. */
 "Yes, please!" = "Ja tak!";
@@ -248,30 +248,30 @@
 "Notes" = "Noter";
 
 "Cancel" = "Annuller";
-"Scan QR Code" = "Scan QR Code";
+"Scan QR Code" = "Scan QR-kode";
 "Close" = "Luk";
-"Server Address" = "Server Address";
-"The address of your Nextcloud web interface when you open it in your browser." = "The address of your Nextcloud web interface when you open it in your browser.";
-"The entered server address is invalid." = "The entered server address is invalid.";
-"Accounts from our other apps were found on this device. Would you like to add one of these?" = "Accounts from our other apps were found on this device. Would you like to add one of these?";
-"Shared Accounts" = "Shared Accounts";
+"Server Address" = "Serveradresse";
+"The address of your Nextcloud web interface when you open it in your browser." = "Adressen på din Nextcloud-webgrænseflade, når du åbner den i din browser.";
+"The entered server address is invalid." = "Den indtastede serveradresse er ugyldig.";
+"Accounts from our other apps were found on this device. Would you like to add one of these?" = "Der blev fundet konti fra vores andre apps på denne enhed. Vil du tilføje en af dem?";
+"Shared Accounts" = "Delte konti";
 
 // SettingsView
-"Account" = "Account";
-"Log Out" = "Log Out";
+"Account" = "Konto";
+"Log Out" = "Log ud";
 "Synchronization" = "Synkronisering";
-"Synchronize on Start" = "Synchronize on Start";
-"Offline Mode" = "Offline Mode";
-"Server Settings" = "Server Settings";
-"Notes Path" = "Notes Path";
-"Internal Editor" = "Internal Editor";
-"File Extension" = "File Extension";
-"About This App" = "About This App";
-"Client Version" = "Client Version";
-"Server Version" = "Server Version";
+"Synchronize on Start" = "Synkroniser ved start";
+"Offline Mode" = "Offlinetilstand";
+"Server Settings" = "Serverindstillinger";
+"Notes Path" = "Sti til noter";
+"Internal Editor" = "Intern editor";
+"File Extension" = "Filendelse";
+"About This App" = "Om denne app";
+"Client Version" = "Klientversion";
+"Server Version" = "Serverversion";
 "Privacy and Legal Policy" = "Privatliv og juridisk politik";
-"Show Source Code on GitHub" = "Show Source Code on GitHub";
-"Logout" = "Logout";
-"Are you sure you want to log out?" = "Are you sure you want to log out?";
+"Show Source Code on GitHub" = "Vis kildekode på GitHub";
+"Logout" = "Log ud";
+"Are you sure you want to log out?" = "Er du sikker på, at du vil logge ud?";
 "Enter a name for the folder where notes should be saved on the server" = "Indtast et navn for mappen hvor noter skal gemmes på serveren";
 "Settings" = "Indstillinger";
