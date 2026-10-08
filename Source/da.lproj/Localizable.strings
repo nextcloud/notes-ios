@@ -96,7 +96,7 @@
 "HTML" = "HTML";
 
 /* A status label indicating that the user is logged in */
-"Logged In" = "Logget på";
+"Logged In" = "Logget ind";
 
 /* Header title, main */
 "MAIN" = "MAIN";
@@ -114,10 +114,10 @@
 "Not connected to Notes on a server" = "Ikke forbundet til Noter på en server";
 
 /* A status label indicating that the user is not logged in */
-"Not Logged In" = "Ikke logget på";
+"Not Logged In" = "Ikke logget ind";
 
 /* Message about not being logged in */
-"Not logged in" = "Ikke logget på";
+"Not logged in" = "Ikke logget ind";
 
 /* Title of alert to change title */
 "Note Title" = "Note titel";
@@ -139,7 +139,7 @@
 
 /* A message
    A message to check network connection */
-"Please check network connection and login." = "Tjek venligst netværksforbindelsen og log på.";
+"Please check network connection and login." = "Tjek netværksforbindelsen, og log ind.";
 
 /* A button title */
 "Reconnect" = "Tilslut igen";
