@@ -91,6 +91,11 @@ final class Store: Logging, Storing {
             return
         }
 
+        guard !isSynchronizing else {
+            logger.debug("Skipping synchronization because one is already running.")
+            return
+        }
+
         logger.debug("Synchronizing...")
         isSynchronizing = true
 
@@ -113,7 +118,7 @@ final class Store: Logging, Storing {
             await NoteSessionManager.shared.settings()
             await NoteSessionManager.shared.sync()
 
-            isSynchronizing = false
+            await MainActor.run { isSynchronizing = false }
             logger.debug("Synchronization completed.")
         }
     }
