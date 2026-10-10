@@ -26,6 +26,23 @@ class NotesData {
         ]
     }
 
+    /// The model is loaded once, loading it a second time makes Core Data complain about duplicate entity classes.
+    private static let managedObjectModel: NSManagedObjectModel = makeManagedObjectModel()
+
+    /// Creates a context backed by an in-memory store, for tests.
+    static func makeInMemoryContext() -> NSManagedObjectContext {
+        let container = NSPersistentContainer(name: "Notes", managedObjectModel: managedObjectModel)
+        let description = NSPersistentStoreDescription()
+        description.type = NSInMemoryStoreType
+        container.persistentStoreDescriptions = [description]
+        container.loadPersistentStores { _, error in
+            if let error {
+                fatalError("Unable to create in-memory store: \(error)")
+            }
+        }
+        return container.viewContext
+    }
+
     private static func makeManagedObjectModel() -> NSManagedObjectModel {
         guard let modelURL = Bundle.main.url(forResource: "Notes", withExtension: "momd"),
               let model = NSManagedObjectModel(contentsOf: modelURL) else {
@@ -44,7 +61,7 @@ class NotesData {
 
     
     static var mainThreadContext: NSManagedObjectContext = {
-        let persistentContainer = NSPersistentContainer(name: "Notes", managedObjectModel: makeManagedObjectModel())
+        let persistentContainer = NSPersistentContainer(name: "Notes", managedObjectModel: managedObjectModel)
         if let storeDescription = persistentContainer.persistentStoreDescriptions.first {
             storeDescription.setOption(true as NSNumber, forKey: NSMigratePersistentStoresAutomaticallyOption)
             storeDescription.setOption(true as NSNumber, forKey: NSInferMappingModelAutomaticallyOption)
