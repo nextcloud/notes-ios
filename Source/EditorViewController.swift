@@ -20,6 +20,9 @@ class EditorViewController: UIViewController {
     var bottomLayoutConstraint: NSLayoutConstraint?
     var isNewNote = false
 
+    /// The note's own date only moves after a successful sync, so local edits are tracked here.
+    private var editedDate: Date?
+
     var note: Note? {
         didSet {
             if note != oldValue, let note = note {
@@ -28,14 +31,14 @@ class EditorViewController: UIViewController {
                     noteView.text = note.content
                     noteView.undoManager?.removeAllActions()
                     noteView.scrollRangeToVisible(NSRange(location: 0, length: 0))
-                    updateHeaderLabel()
+                    updateTitleAndDate()
                     HUD.hide()
                 } else {
                     NoteSessionManager.shared.get(note: note, completion: { [weak self] in
                         self?.noteView.text = note.content
                         self?.noteView.undoManager?.removeAllActions()
                         self?.noteView.scrollRangeToVisible(NSRange(location: 0, length: 0))
-                        self?.updateHeaderLabel()
+                        self?.updateTitleAndDate()
                         HUD.hide()
                     })
                 }
@@ -104,7 +107,6 @@ class EditorViewController: UIViewController {
             noteView.isEditable = false
             noteView.isSelectable = false
             noteView.text = ""
-            noteView.headerLabel.text = NSLocalizedString("Select or create a note.", comment: "Placeholder text when no note is selected")
             navigationItem.title = ""
             activityButton.isEnabled = false
             deleteButton.isEnabled = false
@@ -151,21 +153,17 @@ class EditorViewController: UIViewController {
         }
     }
     
-    fileprivate func updateHeaderLabel() {
-        if let note = note, let date = Date(timeIntervalSince1970: note.modified) as Date? {
-            let formatter = DateFormatter()
-            formatter.dateStyle = .short
-            formatter.timeStyle = .short
-            formatter.doesRelativeDateFormatting = false
-            noteView.headerLabel.text = formatter.string(from: date)
-            noteView.headerLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)
-            navigationItem.title = note.title
-        }
+    private func updateTitleAndDate() {
+        guard let note else { return }
+
+        let modified = Date(timeIntervalSince1970: note.modified)
+        noteView.dateLabel.text = max(modified, editedDate ?? modified).formatted(date: .abbreviated, time: .omitted)
+        navigationItem.title = note.title
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        updateHeaderLabel()
+        updateTitleAndDate()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -203,7 +201,6 @@ class EditorViewController: UIViewController {
             if let preview = segue.destination as? PreviewViewController, let note = note {
                 preview.content = noteView.text
                 preview.noteTitle = note.title
-                preview.noteDate = noteView.headerLabel.text
             }
         }
     }
@@ -346,7 +343,6 @@ class EditorViewController: UIViewController {
 
     func preferredContentSizeChanged() {
         self.noteView.font = UIFont.preferredFont(forTextStyle: .body)
-        self.noteView.headerLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)
     }
 }
 
@@ -359,7 +355,7 @@ extension EditorViewController: UITextViewDelegate {
                 note.title = noteTitle(note)
             }
             NoteSessionManager.shared.update(note: note, completion: { [weak self] in
-                self?.updateHeaderLabel()
+                self?.updateTitleAndDate()
             })
         }
     }
@@ -368,6 +364,10 @@ extension EditorViewController: UITextViewDelegate {
         self.activityButton.isEnabled = !textView.text.isEmpty
         self.previewButton.isEnabled = !textView.text.isEmpty
         self.deleteButton.isEnabled = true
+
+        editedDate = Date()
+        updateTitleAndDate()
+
         throttler.throttle { [weak self] in
             self?.updateNoteContent()
         }
@@ -649,6 +649,10 @@ extension EditorViewController: UITextViewDelegate {
     
     func textViewDidChangeSelection(_ textView: UITextView) {
         textView.scrollRangeToVisible(textView.selectedRange)
+    }
+
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        noteView.settleDate(targetContentOffset: targetContentOffset)
     }
 }
 

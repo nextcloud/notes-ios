@@ -263,4 +263,17 @@ struct KeychainHelper {
             UserDefaults.standard.set(newValue, forKey: "directEditingSupportsFileId")
         }
     }
+
+    static var shouldShowOnboarding: Bool {
+        get {
+            if UserDefaults.standard.object(forKey: "shouldShowOnboarding") == nil {
+                return true
+            }
+
+            return UserDefaults.standard.bool(forKey: "shouldShowOnboarding")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "shouldShowOnboarding")
+        }
+    }
 }

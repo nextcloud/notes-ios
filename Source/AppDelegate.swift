@@ -74,6 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         UILabel.appearance().themeColor = .ph_textColor
         UILabel.appearance(whenContainedInInstancesOf: [UITextField.self]).themeColor = .ph_readTextColor
+        UILabel.appearance(whenContainedInInstancesOf: [HeaderTextView.self]).themeColor = .secondaryLabel
 
         UITextField.appearance().textColor = .ph_textColor
         
