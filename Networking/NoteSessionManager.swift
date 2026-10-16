@@ -102,7 +102,11 @@ class NoteSessionManager {
 
     static let shared = NoteSessionManager()
 
-    private var notesBeingAdded = Set<String>()
+    /// Guids of notes whose creation request is in flight. Main queue only.
+    private let addsInFlight = InFlightTracker()
+
+    /// Makes sure only one synchronization runs at a time. Main queue only.
+    private let syncGate = SyncGate()
     
     private var session: Session
 
@@ -252,7 +256,20 @@ class NoteSessionManager {
     /// Actually synchronize the notes.
     ///
     func sync(completion: SyncCompletionBlock? = nil) {
+        guard Thread.isMainThread else {
+            DispatchQueue.main.async { self.sync(completion: completion) }
+            return
+        }
+        guard syncGate.begin(completion: completion) else {
+            logger.notice("Synchronization already in progress, not starting another one.")
+            return
+        }
         logger.notice("Synchronizing...")
+
+        let finish: SyncCompletionBlock = { [weak self] in
+            self?.syncGate.end()
+            completion?()
+        }
 
         func deleteOnServer(completion: @escaping SyncCompletionBlock) {
             if let notesToDelete = Note.notes(property: "deleteNeeded"),
@@ -281,11 +298,6 @@ class NoteSessionManager {
                 let group = DispatchGroup()
                 
                 for note in notesToAdd {
-                    if let guid = note.guid,
-                        notesBeingAdded.contains(guid) {
-                        continue
-                    }
-                    
                     group.enter()
                     self.addToServer(note: note) { _ in
                         group.leave()
@@ -306,7 +318,7 @@ class NoteSessionManager {
                 !notesToUpdate.isEmpty {
                 let group = DispatchGroup()
 
-                for note in notesToUpdate {
+                for note in notesToUpdate where note.id > 0 {
                     group.enter()
                     NoteSessionManager.shared.update(note: note, completion: {
                         group.leave()
@@ -385,7 +397,7 @@ class NoteSessionManager {
                                     self.showErrorMessage(message: message)
                                 }
                             }
-                            completion?()
+                            finish()
                         })
                 }
             }
@@ -433,23 +445,28 @@ class NoteSessionManager {
     func addToServer(note: Note, handler: @escaping SyncHandler) {
         let newNote = note
         var result: Note?
+        guard let guid = newNote.guid, !guid.isEmpty else {
+            logger.error("Not adding a note without a guid to the server.")
+            handler(.success(nil))
+            return
+        }
+        guard addsInFlight.claim(guid) else {
+            logger.notice("Note is already being added to the server.")
+            handler(.success(nil))
+            return
+        }
         let parameters: Parameters = ["title": note.title as Any,
                                       "content": note.content as Any,
                                       "category": note.category as Any,
                                       "modified": note.modified,
                                       "favorite": note.favorite]
         let router = Router.createNote(parameters: parameters)
-        if let guid = newNote.guid {
-            notesBeingAdded.insert(guid)
-        }
         session
             .request(router, interceptor: NoteRequestInterceptor())
             .validate(statusCode: 200..<300)
             .validate(contentType: [Router.applicationJson])
             .responseDecodable(of: NoteStruct.self) { response in
-                if let guid = newNote.guid {
-                    self.notesBeingAdded.remove(guid)
-                }
+                self.addsInFlight.release(guid)
                 switch response.result {
                 case let .success(note):
                     newNote.id = note.id
@@ -513,7 +530,22 @@ class NoteSessionManager {
     func update(note: NoteProtocol, updateModified: Bool = true, completion: SyncCompletionBlock? = nil) {
         logger.notice("Updating note...")
 
+        if let managed = note as? Note, managed.isDeleted || managed.managedObjectContext == nil {
+            logger.notice("Not updating a note which no longer exists locally.")
+            completion?()
+            return
+        }
+
         var incoming = note
+        if incoming.id <= 0 {
+            // Not on the server yet. There is nothing to PUT, the note is sent by the add request instead.
+            Note.update(notes: [incoming])
+            if NoteSessionManager.isOnline, let guid = incoming.guid, let dbNote = Note.note(guid: guid) {
+                add(note: dbNote, completion: nil)
+            }
+            completion?()
+            return
+        }
         incoming.updateNeeded = true
         if NoteSessionManager.isOnline {
             updateOnServer(incoming, updateModified: updateModified) { [weak self] result in
@@ -553,7 +585,7 @@ class NoteSessionManager {
                     Note.update(notes: [note])
                     handler(.success(nil))
                 case let .failure(error):
-                    Note.update(notes: [note])
+                    Note.markPending(note, update: true)
                     let message = ErrorMessage(title: NSLocalizedString("Error Updating Note", comment: "The title of an error message"),
                                                body: error.localizedDescription)
                     if let urlResponse = response.response {
@@ -625,7 +657,7 @@ class NoteSessionManager {
                             Note.delete(note: note)
                             handler(.failure(NoteError(message: message)))
                         default:
-                            Note.update(notes: [note])
+                            Note.markPending(note, delete: true)
                             handler(.failure(NoteError(message: message)))
                         }
                     }

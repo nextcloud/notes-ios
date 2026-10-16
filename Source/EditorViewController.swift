@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2019 Peter Hedlund
 // SPDX-License-Identifier: BSD-2-Clause
 
+import CoreData
 import UIKit
 import PKHUD
 
@@ -144,6 +145,19 @@ class EditorViewController: UIViewController {
                 self.noteView.scrollRangeToVisible(self.noteView.selectedRange)
             }
 
+        }))
+
+        // Stop saving when the note is removed underneath the editor (for example by a sync), otherwise every
+        // keystroke would try to update a note which no longer exists.
+        self.observers.append(NotificationCenter.default.addObserver(forName: .NSManagedObjectContextObjectsDidChange,
+                                                                     object: NotesData.mainThreadContext,
+                                                                     queue: OperationQueue.main,
+                                                                     using: { [weak self] notification in
+            guard let self, let note = self.note else { return }
+            let deleted = notification.userInfo?[NSDeletedObjectsKey] as? Set<NSManagedObject> ?? []
+            if note.isDeleted || deleted.contains(note) {
+                self.note = nil
+            }
         }))
 
         if let transitionCoordinator = transitionCoordinator {
