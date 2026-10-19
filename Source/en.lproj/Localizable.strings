@@ -299,3 +299,12 @@
 
 /* Onboarding feature description. */
 "Keep writing even without a connection." = "Keep writing even without a connection.";
+
+/* Accessibility label of the button with more note actions */
+"More" = "More";
+
+/* Action to preview a note */
+"Preview" = "Preview";
+
+/* Action to share a note */
+"Share" = "Share";

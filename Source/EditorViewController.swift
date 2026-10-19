@@ -6,15 +6,26 @@ import PKHUD
 
 class EditorViewController: UIViewController {
 
-    @IBOutlet var activityButton: UIBarButtonItem!
-    @IBOutlet var deleteButton: UIBarButtonItem!
-    @IBOutlet var previewButton: UIBarButtonItem!
     @IBOutlet var undoButton: UIBarButtonItem!
     @IBOutlet var redoButton: UIBarButtonItem!
     @IBOutlet var doneButton: UIBarButtonItem!
     @IBOutlet var dismissButton: UIBarButtonItem!
     @IBOutlet var fixedSpace: UIBarButtonItem!
-    
+
+    /// Preview, share and delete; rebuilt on every open so the disabled states follow the text.
+    private lazy var moreButton: UIBarButtonItem = {
+        let menu = UIMenu(children: [
+            UIDeferredMenuElement.uncached { [weak self] completion in
+                completion(self?.moreMenuElements() ?? [])
+            }
+        ])
+
+        let button = UIBarButtonItem(title: NSLocalizedString("More", comment: "Accessibility label of the button with more note actions"), image: UIImage(systemName: "ellipsis"), primaryAction: nil, menu: menu)
+        button.tintColor = .ph_iconColor
+
+        return button
+    }()
+
     var updatedByEditing = false
     var noteExporter: NoteExporter?
     var bottomLayoutConstraint: NSLayoutConstraint?
@@ -83,16 +94,8 @@ class EditorViewController: UIViewController {
             bottomConstraint,
         ])
 
-        navigationItem.rightBarButtonItems = [
-            fixedSpace,
-            dismissButton,
-            fixedSpace,
-            activityButton,
-            fixedSpace,
-            deleteButton,
-            fixedSpace,
-            previewButton,
-        ]
+        navigationItem.leftBarButtonItem = dismissButton
+        navigationItem.rightBarButtonItem = moreButton
 
         navigationItem.leftItemsSupplementBackButton = true
 
@@ -100,17 +103,11 @@ class EditorViewController: UIViewController {
             noteView.text = note.content;
             noteView.isEditable = true
             noteView.isSelectable = true
-            activityButton.isEnabled = !noteView.text.isEmpty
-            previewButton.isEnabled = !noteView.text.isEmpty
-            deleteButton.isEnabled = true
         } else {
             noteView.isEditable = false
             noteView.isSelectable = false
             noteView.text = ""
             navigationItem.title = ""
-            activityButton.isEnabled = false
-            deleteButton.isEnabled = false
-            previewButton.isEnabled = false
         }
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.delegate = self
@@ -207,7 +204,25 @@ class EditorViewController: UIViewController {
     
     // MARK: - Actions
 
-    @IBAction func onActivities(_ sender: Any?) {
+    private func moreMenuElements() -> [UIMenuElement] {
+        let textAttributes: UIMenuElement.Attributes = noteView.text.isEmpty ? .disabled : []
+
+        let previewAction = UIAction(title: NSLocalizedString("Preview", comment: "Action to preview a note"), image: UIImage(systemName: "text.page.badge.magnifyingglass"), attributes: textAttributes) { [weak self] _ in
+            self?.performSegue(withIdentifier: "showPreview", sender: nil)
+        }
+
+        let shareAction = UIAction(title: NSLocalizedString("Share", comment: "Action to share a note"), image: UIImage(systemName: "square.and.arrow.up"), attributes: textAttributes) { [weak self] _ in
+            self?.share()
+        }
+
+        let deleteAction = UIAction(title: NSLocalizedString("Delete", comment: "Action to delete a note"), image: UIImage(systemName: "trash"), attributes: note == nil ? [.destructive, .disabled] : .destructive) { [weak self] _ in
+            self?.confirmDelete()
+        }
+
+        return [previewAction, shareAction, UIMenu(options: .displayInline, children: [deleteAction])]
+    }
+
+    private func share() {
         var textToExport: String?
         if let selectedRange = noteView.selectedTextRange, let selectedText = noteView.text(in: selectedRange), !selectedText.isEmpty  {
             textToExport = selectedText
@@ -215,7 +230,7 @@ class EditorViewController: UIViewController {
             textToExport = noteView.text
         }
         if let text = textToExport {
-            noteExporter = NoteExporter(title: note?.title ?? "Untitled", text: text, viewController: self, from: activityButton)
+            noteExporter = NoteExporter(title: note?.title ?? "Untitled", text: text, viewController: self, from: moreButton)
             noteExporter?.showMenu()
         }
     }
@@ -255,17 +270,13 @@ class EditorViewController: UIViewController {
         }
     }
     
-    @IBAction func onDelete(_ sender: Any?) {
+    private func confirmDelete() {
         if let popover = deleteAlertController.popoverPresentationController {
-            popover.barButtonItem = deleteButton
+            popover.barButtonItem = moreButton
         }
         present(deleteAlertController, animated: true, completion: nil)
     }
 
-    @IBAction func onPreview(_ sender: Any?) {
-        performSegue(withIdentifier: "showPreview", sender: sender)
-    }
-    
     @IBAction func onUndo(_ sender: Any?) {
         if let _ = noteView.undoManager?.canUndo {
             noteView.undoManager?.undo()
@@ -316,15 +327,7 @@ class EditorViewController: UIViewController {
 
     func keyboardWillHide(notification: Notification) {
         if self.traitCollection.userInterfaceIdiom == .phone {
-            self.navigationItem.rightBarButtonItems = [
-                dismissButton,
-                fixedSpace,
-                activityButton,
-                fixedSpace,
-                deleteButton,
-                fixedSpace,
-                previewButton
-            ]
+            self.navigationItem.rightBarButtonItem = moreButton
         }
 
         if let info = notification.userInfo,
@@ -361,10 +364,6 @@ extension EditorViewController: UITextViewDelegate {
     }
 
     func textViewDidChange(_ textView: UITextView) {
-        self.activityButton.isEnabled = !textView.text.isEmpty
-        self.previewButton.isEnabled = !textView.text.isEmpty
-        self.deleteButton.isEnabled = true
-
         editedDate = Date()
         updateTitleAndDate()
 
