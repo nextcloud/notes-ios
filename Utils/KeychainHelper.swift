@@ -224,6 +224,16 @@ struct KeychainHelper {
         }
     }
 
+    /// Any install <= 35.0.0 has a bug where notes are not fully synced, as `eTag` and `lastModified` were not reset upon log out. Reset once so the first sync fetches everything.
+    static var didResetSyncValidators: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: "didResetSyncValidators")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "didResetSyncValidators")
+        }
+    }
+
     static var eTag: String {
         get {
             return UserDefaults.standard.string(forKey: "eTag") ?? ""

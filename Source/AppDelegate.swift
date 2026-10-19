@@ -22,6 +22,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private var pendingNoteToOpen: Note?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        // Any install <= 35.0.0 has a bug where notes are not fully synced, as `eTag` and `lastModified` were not reset upon log out.
+        // Reset once so the first sync fetches everything.
+        if !KeychainHelper.didResetSyncValidators {
+            KeychainHelper.eTag = ""
+            KeychainHelper.lastModified = 0
+            KeychainHelper.didResetSyncValidators = true
+        }
+
         NextcloudKit.shared.setup(delegate: self)
 
         for account in store.accounts {
