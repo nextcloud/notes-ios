@@ -24,8 +24,6 @@ final class Store: Logging, Storing {
 
     var isSynchronizing = false
 
-    // swiftlint:disable function_body_length
-
     ///
     /// Fetch filtered capability information from the server of the given account.
     ///
@@ -39,14 +37,6 @@ final class Store: Logging, Storing {
             "files",
             "directEditing",
             "supportsFileId"
-        ]
-
-        let directEditingKeyPath = [
-            "ocs",
-            "data",
-            "capabilities",
-            "richdocuments",
-            "direct_editing"
         ]
 
         let notesVersionKeypath = [
@@ -87,7 +77,6 @@ final class Store: Logging, Storing {
 
         logger.debug("Received capabilities for account \"\(account.id)\": \(capabilities.debugDescription)")
 
-        KeychainHelper.directEditing = capabilities[directEditingKeyPath].boolValue
         KeychainHelper.directEditingSupportsFileId = capabilities[directEditingSupportsFileIdKeyPath].boolValue
         KeychainHelper.notesVersion = capabilities[notesVersionKeypath].stringValue
         KeychainHelper.notesApiVersion = capabilities[notesApiVersionKeyPath].array?.last?.string ?? ""
@@ -95,8 +84,6 @@ final class Store: Logging, Storing {
         KeychainHelper.serverMinorVersion = capabilities[serverVersionKeyPath]["minor"].int ?? 0
         KeychainHelper.serverMicroVersion = capabilities[serverVersionKeyPath]["micro"].int ?? 0
     }
-
-    // swiftlint:enable function_body_length
 
     func synchronize() {
         guard NoteSessionManager.isOnline else {

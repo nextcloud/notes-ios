@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2016 Peter Hedlund
+// SPDX-FileCopyrightText: 2016-2021 Peter Hedlund
 // SPDX-License-Identifier: BSD-2-Clause
 
 import CoreFoundation

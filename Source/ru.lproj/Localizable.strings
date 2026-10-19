@@ -1,8 +1,8 @@
 /* Crash report email body placeholder */
-"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Пожалуйста предоставьте как можно больше деталей о том что вы делали в момент когда произошла ошибка.>";
+"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Опишите как можно подробнее, что вы делали в момент, когда произошла ошибка.>";
 
 /* Support email body placeholder */
-"<Please state your question or problem here>" = "Пожалуйста, укажите здесь ваш вопрос или проблему";
+"<Please state your question or problem here>" = "Укажите здесь ваш вопрос или проблему";
 
 /* An error message */
 "A server installation could not be found. Check the server address." = "Установка сервера не найдена. Проверьте адрес сервера.";
@@ -139,7 +139,7 @@
 
 /* A message
    A message to check network connection */
-"Please check network connection and login." = "Пожалуйста, проверьте соединение и войдите.";
+"Please check network connection and login." = "Проверьте соединение и войдите.";
 
 /* A button title */
 "Reconnect" = "Переподключиться ";
@@ -182,7 +182,7 @@
 "The note does not exist" = "Заметка не существует";
 
 /* Alert message for selecting server brand */
-"Unable to automatically detect type of server.\nPlease select:" = "Невозможно автоматически определить тип сервера.\nПожалуйста, выберите:";
+"Unable to automatically detect type of server.\nPlease select:" = "Невозможно автоматически определить тип сервера.\nВыберите:";
 
 /* A message title
    The title of an error message */

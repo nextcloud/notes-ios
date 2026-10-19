@@ -8,11 +8,9 @@ import JGProgressHUD
 
 class NCViewerNextcloudText: UIViewController, WKNavigationDelegate, WKScriptMessageHandler {
 
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var webView = WKWebView()
     var bottomConstraint: NSLayoutConstraint?
     var link: String = ""
-    var editor: String = ""
     var fileName: String?
     let hud = JGProgressHUD()
 
@@ -27,6 +25,9 @@ class NCViewerNextcloudText: UIViewController, WKNavigationDelegate, WKScriptMes
 
         // navigationController?.setNavigationBarHidden(true, animated: true)
         navigationItem.title = fileName
+        navigationItem.leftBarButtonItem = UIBarButtonItem(systemItem: .close, primaryAction: UIAction { [weak self] _ in
+            self?.close()
+        })
 
         let config = WKWebViewConfiguration()
         config.websiteDataStore = WKWebsiteDataStore.nonPersistent()
@@ -72,8 +73,37 @@ class NCViewerNextcloudText: UIViewController, WKNavigationDelegate, WKScriptMes
     }
 
     @objc func viewUnload() {
+        // The content controller retains its handler, so release it to break the cycle.
+        webView.configuration.userContentController.removeScriptMessageHandler(forName: "DirectEditingMobileInterface")
         self.dismiss(animated: true)
         // navigationController?.popViewController(animated: true)
+    }
+
+    private func close() {
+        let script = """
+        (function () {
+          var closeIcons = document.getElementsByClassName("icon-close");
+          if (closeIcons.length > 0) {
+            closeIcons[0].click();
+            return true;
+          }
+          return false;
+        })();
+        """
+
+        webView.evaluateJavaScript(script) { [weak self] result, _ in
+            guard result as? Bool == true else {
+                self?.viewUnload()
+                return
+            }
+
+            // Text replies with a "close" message once saved; don't get stuck if it never does.
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [weak self] in
+                guard let self, view.window != nil else { return }
+
+                viewUnload()
+            }
+        }
     }
 
     // MARK: - NotificationCenter

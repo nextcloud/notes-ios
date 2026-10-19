@@ -72,7 +72,6 @@ enum NotesPresenter {
     ///
     private static var isDirectEditingAvailable: Bool {
         guard KeychainHelper.internalEditor == false,
-              KeychainHelper.directEditing,
               KeychainHelper.directEditingSupportsFileId else {
             return false
         }
@@ -87,18 +86,19 @@ enum NotesPresenter {
             return false
         }
 
-        NextcloudKit.shared.textOpenFile(fileNamePath: KeychainHelper.notesPath, fileId: String(note.id), editor: "text", account: account) { _, url, _, error in
+        NextcloudKit.shared.openFileForDirectEditing(fileNamePath: KeychainHelper.notesPath, fileId: String(note.id), editorId: "text", account: account) { _, url, _, error in
             DispatchQueue.main.async {
                 guard let presenter = UIApplication.topViewController() else { return }
 
                 if error == .success,
                    let url,
                    let viewController = UIStoryboard(name: "NCViewerNextcloudText", bundle: nil).instantiateInitialViewController() as? NCViewerNextcloudText {
-                    viewController.editor = "text"
                     viewController.link = url
                     viewController.fileName = note.title
-                    viewController.modalPresentationStyle = .fullScreen
-                    presenter.present(viewController, animated: true)
+
+                    let navigationController = UINavigationController(rootViewController: viewController)
+                    navigationController.modalPresentationStyle = .fullScreen
+                    presenter.present(navigationController, animated: true)
                 } else {
                     let title = NSLocalizedString("Error", comment: "Title of an error alert")
                     let messageFormat = NSLocalizedString("Cannot open file for direct editing: %@", comment: "Direct editing failure followed by the underlying error")
