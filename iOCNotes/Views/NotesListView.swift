@@ -63,8 +63,10 @@ struct NotesListView: View {
         }
         .dropDestination(for: String.self) { items, _ in
             let contents = items.filter { !$0.isEmpty }
-            for content in contents {
-                NoteSessionManager.shared.add(content: content, category: "")
+            Task {
+                for content in contents {
+                    await NoteSessionManager.shared.add(content: content, category: "")
+                }
             }
             return !contents.isEmpty
         }
@@ -161,7 +163,9 @@ struct NotesListView: View {
 
     private func delete(_ row: NoteListRow) {
         guard let note = model.note(for: row.noteID) else { return }
-        NoteSessionManager.shared.delete(note: note)
+        Task {
+            await NoteSessionManager.shared.delete(note: note)
+        }
     }
 
     @ViewBuilder
@@ -175,7 +179,9 @@ struct NotesListView: View {
 
     private func toggleFavorite(_ row: NoteListRow) {
         guard let note = model.toggleFavorite(for: row.noteID) else { return }
-        NoteSessionManager.shared.update(note: note, updateModified: false, completion: nil)
+        Task {
+            await NoteSessionManager.shared.update(note: note, updateModified: false)
+        }
     }
 
     private func commitRename() {
@@ -187,6 +193,8 @@ struct NotesListView: View {
         guard !newName.isEmpty, newName != note.title else { return }
 
         note.title = newName
-        NoteSessionManager.shared.update(note: note, completion: nil)
+        Task {
+            await NoteSessionManager.shared.update(note: note)
+        }
     }
 }

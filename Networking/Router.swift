@@ -1,14 +1,19 @@
 // SPDX-FileCopyrightText: 2020 Peter Hedlund
 // SPDX-License-Identifier: BSD-2-Clause
 
-import Alamofire
 import Foundation
 import Version
+
+typealias Parameters = [String: Any]
+
+enum RouterError: Error {
+    case missingURL
+}
 
 ///
 /// Network router for Nextcloud Notes API.
 ///
-enum Router: URLRequestConvertible {
+enum Router {
     case allNotes(exclude: String)
     case getNote(id: Int, exclude: String, etag: String)
     case createNote(parameters: Parameters)
@@ -20,7 +25,14 @@ enum Router: URLRequestConvertible {
     static let applicationJson = "application/json"
     static let defaultApiVersion = "0.2"
 
-    var method: HTTPMethod {
+    private enum HTTPMethod: String {
+        case get = "GET"
+        case post = "POST"
+        case put = "PUT"
+        case delete = "DELETE"
+    }
+
+    private var method: HTTPMethod {
         switch self {
             case .allNotes, .getNote, .settings:
                 return .get
@@ -33,7 +45,7 @@ enum Router: URLRequestConvertible {
         }
     }
 
-    var path: String {
+    private var path: String {
         switch self {
             case .allNotes:
                 return "/notes"
@@ -54,45 +66,42 @@ enum Router: URLRequestConvertible {
         let server = KeychainHelper.server
 
         guard server.isEmpty == false else {
-            throw AFError.parameterEncodingFailed(reason: .missingURL)
+            throw RouterError.missingURL
         }
 
         var apiVersion = Router.defaultApiVersion
 
-        do {
-            let version = try Version(KeychainHelper.notesApiVersion)
-            if version.major == 1 {
-                apiVersion = "1"
-            }
-        } catch {
-            throw error
+        let version = try Version(KeychainHelper.notesApiVersion)
+
+        if version.major == 1 {
+            apiVersion = "1"
         }
 
         guard var components = canonicalServerComponents(from: server) else {
-            throw AFError.parameterEncodingFailed(reason: .missingURL)
+            throw RouterError.missingURL
         }
 
         let basePath = components.path
         components.path = basePath + "/index.php/apps/notes/api/v\(apiVersion)" + self.path
 
         guard let url = components.url else {
-            throw AFError.parameterEncodingFailed(reason: .missingURL)
+            throw RouterError.missingURL
         }
 
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = self.method.rawValue
+
         let username = KeychainHelper.username
         let password = KeychainHelper.password
+        let credential = Data("\(username):\(password)".utf8).base64EncodedString()
 
-        urlRequest.headers = [
-            .authorization(username: username, password: password),
-            .accept(Router.applicationJson)
-        ]
+        urlRequest.setValue("Basic \(credential)", forHTTPHeaderField: "Authorization")
+        urlRequest.setValue(Router.applicationJson, forHTTPHeaderField: "Accept")
 
         switch self {
             case .allNotes(let exclude):
                 if !KeychainHelper.eTag.isEmpty {
-                    urlRequest.headers.add(.ifNoneMatch(KeychainHelper.eTag))
+                    urlRequest.setValue(KeychainHelper.eTag, forHTTPHeaderField: "If-None-Match")
                 }
 
                 var parameters = Parameters()
@@ -105,26 +114,80 @@ enum Router: URLRequestConvertible {
                     parameters["pruneBefore"] = KeychainHelper.lastModified
                 }
 
-                urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
+                Router.encode(parameters, into: &urlRequest)
             case .getNote(_, let exclude, let etag):
-                let parameters = ["exclude": exclude] as [String : Any]
-
                 if !etag.isEmpty {
-                    urlRequest.headers.add(.ifNoneMatch(etag))
+                    urlRequest.setValue(etag, forHTTPHeaderField: "If-None-Match")
                 }
 
-                urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
+                Router.encode(["exclude": exclude], into: &urlRequest)
             case .createNote(let parameters):
-                urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
+                Router.encode(parameters, into: &urlRequest)
             case .updateNote(_, let parameters):
-                urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
+                Router.encode(parameters, into: &urlRequest)
             case .updateSettings(let notesPath, let fileSuffix):
-                let parameters = ["notesPath": notesPath, "fileSuffix": fileSuffix] as [String : Any]
-                urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
+                Router.encode(["notesPath": notesPath, "fileSuffix": fileSuffix], into: &urlRequest)
             default:
                 break
         }
 
         return urlRequest
+    }
+}
+
+// MARK: - Parameter encoding
+
+private extension Router {
+    ///
+    /// Encodes parameters like Alamofire's `URLEncoding.default` did: into the query
+    /// string for GET/DELETE, into a form-urlencoded body for POST/PUT.
+    ///
+    static func encode(_ parameters: Parameters, into urlRequest: inout URLRequest) {
+        guard !parameters.isEmpty else { return }
+
+        let query = parameters
+            .sorted { $0.key < $1.key }
+            .map { "\(escape($0.key))=\(escape(encodedValue($0.value)))" }
+            .joined(separator: "&")
+
+        if urlRequest.httpMethod == HTTPMethod.get.rawValue || urlRequest.httpMethod == HTTPMethod.delete.rawValue {
+            guard let url = urlRequest.url,
+                  var components = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
+                return
+            }
+
+            let existingQuery = components.percentEncodedQuery.map { $0 + "&" } ?? ""
+            components.percentEncodedQuery = existingQuery + query
+            urlRequest.url = components.url
+        } else {
+            if urlRequest.value(forHTTPHeaderField: "Content-Type") == nil {
+                urlRequest.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
+            }
+
+            urlRequest.httpBody = Data(query.utf8)
+        }
+    }
+
+    /// `.urlQueryAllowed` minus the delimiters Alamofire escaped; `/` and `?` stay literal.
+    static let allowedCharacters: CharacterSet = {
+        var allowed = CharacterSet.urlQueryAllowed
+        allowed.remove(charactersIn: ":#[]@!$&'()*+,;=")
+        return allowed
+    }()
+
+    static func escape(_ string: String) -> String {
+        string.addingPercentEncoding(withAllowedCharacters: allowedCharacters) ?? string
+    }
+
+    /// Booleans must encode as `1`/`0` — the server treats a literal `"false"` as truthy.
+    static func encodedValue(_ value: Any) -> String {
+        switch value {
+            case let number as NSNumber where CFGetTypeID(number) == CFBooleanGetTypeID():
+                return number.boolValue ? "1" : "0"
+            case let bool as Bool:
+                return bool ? "1" : "0"
+            default:
+                return "\(value)"
+        }
     }
 }

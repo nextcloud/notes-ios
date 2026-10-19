@@ -31,13 +31,15 @@ class EditorViewController: UIViewController {
                     updateHeaderLabel()
                     HUD.hide()
                 } else {
-                    NoteSessionManager.shared.get(note: note, completion: { [weak self] in
+                    Task { [weak self] in
+                        await NoteSessionManager.shared.get(note: note)
+
                         self?.noteView.text = note.content
                         self?.noteView.undoManager?.removeAllActions()
                         self?.noteView.scrollRangeToVisible(NSRange(location: 0, length: 0))
                         self?.updateHeaderLabel()
                         HUD.hide()
-                    })
+                    }
                 }
             }
         }
@@ -358,9 +360,11 @@ extension EditorViewController: UITextViewDelegate {
             if isNewNote {
                 note.title = noteTitle(note)
             }
-            NoteSessionManager.shared.update(note: note, completion: { [weak self] in
+            Task { [weak self] in
+                await NoteSessionManager.shared.update(note: note)
+
                 self?.updateHeaderLabel()
-            })
+            }
         }
     }
 
