@@ -83,8 +83,6 @@ class CategoryTableViewController: UITableViewController {
             note.category = currentCategory
             Task {
                 await NoteSessionManager.shared.update(note: note)
-
-                NotificationCenter.default.post(name: .doneSelectingCategory, object: nil)
             }
         }
         dismiss(animated: true, completion: nil)

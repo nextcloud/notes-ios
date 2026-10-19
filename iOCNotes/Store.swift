@@ -79,7 +79,7 @@ final class Store: Logging, Storing {
 
         KeychainHelper.directEditingSupportsFileId = capabilities[directEditingSupportsFileIdKeyPath].boolValue
         KeychainHelper.notesVersion = capabilities[notesVersionKeypath].stringValue
-        KeychainHelper.notesApiVersion = capabilities[notesApiVersionKeyPath].array?.last?.string ?? ""
+        KeychainHelper.notesApiVersion = capabilities[notesApiVersionKeyPath].array?.last?.string ?? Router.defaultApiVersion
         KeychainHelper.serverMajorVersion = capabilities[serverVersionKeyPath]["major"].int ?? 0
         KeychainHelper.serverMinorVersion = capabilities[serverVersionKeyPath]["minor"].int ?? 0
         KeychainHelper.serverMicroVersion = capabilities[serverVersionKeyPath]["micro"].int ?? 0
@@ -188,6 +188,9 @@ final class Store: Logging, Storing {
         KeychainHelper.server = ""
         KeychainHelper.username = ""
         KeychainHelper.password = ""
+        KeychainHelper.eTag = ""
+        KeychainHelper.lastModified = 0
+        KeychainHelper.notesApiVersion = Router.defaultApiVersion
         Note.reset()
         reloadAccounts()
     }

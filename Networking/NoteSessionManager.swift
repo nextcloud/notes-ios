@@ -8,16 +8,16 @@ import SwiftMessages
 import SystemConfiguration
 import UIKit
 
-struct ErrorMessage {
-    var title: String
-    var body: String
+private struct ErrorMessage {
+    let title: String
+    let body: String
 }
 
 ///
 /// Server trust handling for the notes session: accepts the saved self-signed
 /// certificate when the user allowed it, default evaluation otherwise.
 ///
-final class NotesURLSessionDelegate: NSObject, URLSessionDelegate, @unchecked Sendable {
+private final class NotesURLSessionDelegate: NSObject, URLSessionDelegate, @unchecked Sendable {
 
     func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
         guard challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust,
@@ -53,25 +53,20 @@ private struct HTTPResult {
 }
 
 private enum RequestError: Error, LocalizedError {
-    case invalidRequest(Error)
     case transport(Error)
     case unacceptableStatusCode(HTTPResult)
     case unacceptableContentType(HTTPResult)
     case decoding(Error, HTTPResult)
 
-    var response: HTTPURLResponse? {
+    var statusCode: Int? {
         switch self {
-        case .invalidRequest, .transport:
+        case .transport:
             return nil
         case let .unacceptableStatusCode(result), let .unacceptableContentType(result):
-            return result.response
+            return result.response.statusCode
         case let .decoding(_, result):
-            return result.response
+            return result.response.statusCode
         }
-    }
-
-    var statusCode: Int? {
-        response?.statusCode
     }
 
     var isTimedOut: Bool {
@@ -84,7 +79,7 @@ private enum RequestError: Error, LocalizedError {
 
     var errorDescription: String? {
         switch self {
-        case let .invalidRequest(error), let .transport(error), let .decoding(error, _):
+        case let .transport(error), let .decoding(error, _):
             return error.localizedDescription
         case let .unacceptableStatusCode(result):
             return "Response status code was unacceptable: \(result.response.statusCode)."
@@ -95,11 +90,11 @@ private enum RequestError: Error, LocalizedError {
 }
 
 @MainActor
-class NoteSessionManager {
+final class NoteSessionManager {
     private let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "NoteSessionManager")
 
-    struct NoteError: Error {
-        var message: ErrorMessage
+    private struct NoteError: Error {
+        let message: ErrorMessage
     }
 
     static let shared = NoteSessionManager()
@@ -108,7 +103,7 @@ class NoteSessionManager {
 
     private let session: URLSession
 
-    nonisolated class var isConnectedToServer: Bool {
+    nonisolated static var isConnectedToServer: Bool {
         guard let url = URL(string: KeychainHelper.server),
             let host = url.host else {
             return false
@@ -117,11 +112,11 @@ class NoteSessionManager {
         return hostIsReachable(host)
     }
 
-    nonisolated class var isOnline: Bool {
+    nonisolated static var isOnline: Bool {
         return NoteSessionManager.isConnectedToServer && !Store.shared.offlineMode
     }
 
-    init() {
+    private init() {
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForResource = 30
         configuration.timeoutIntervalForRequest = 30
@@ -174,18 +169,7 @@ class NoteSessionManager {
             case let .failure(error):
                 logger.error("Error during settings retrieval: \(error.localizedDescription, privacy: .public)")
 
-                switch error.statusCode {
-                    case nil, 400: // Transport error, or bad request (endpoint not supported)
-                        break
-                    case 401:
-                        let title = NSLocalizedString("Unauthorized", comment: "An error message title")
-                        let body = NSLocalizedString("Check username and password.", comment: "An error message")
-                        showErrorMessage(message: ErrorMessage(title: title, body: body))
-                    default:
-                        let message = ErrorMessage(title: NSLocalizedString("Error Getting Settings", comment: "The title of an error message"),
-                                                   body: error.localizedDescription)
-                        showErrorMessage(message: message)
-                }
+                showSettingsError(error, title: NSLocalizedString("Error Getting Settings", comment: "The title of an error message"))
         }
     }
 
@@ -203,18 +187,19 @@ class NoteSessionManager {
             case let .failure(error):
                 logger.debug("Error while updating notes user settings on server: \(error.localizedDescription, privacy: .public)")
 
-                switch error.statusCode {
-                    case nil, 400: // Transport error, or bad request (endpoint not supported)
-                        break
-                    case 401:
-                        let title = NSLocalizedString("Unauthorized", comment: "An error message title")
-                        let body = NSLocalizedString("Check username and password.", comment: "An error message")
-                        showErrorMessage(message: ErrorMessage(title: title, body: body))
-                    default:
-                        let message = ErrorMessage(title: NSLocalizedString("Error Updating Settings", comment: "The title of an error message"),
-                                                   body: error.localizedDescription)
-                        showErrorMessage(message: message)
-                }
+                showSettingsError(error, title: NSLocalizedString("Error Updating Settings", comment: "The title of an error message"))
+        }
+    }
+
+    private func showSettingsError(_ error: RequestError, title: String) {
+        switch error.statusCode {
+            case nil, 400: // Transport error, or bad request (endpoint not supported)
+                break
+            case 401:
+                showErrorMessage(message: ErrorMessage(title: NSLocalizedString("Unauthorized", comment: "An error message title"),
+                                                       body: NSLocalizedString("Check username and password.", comment: "An error message")))
+            default:
+                showErrorMessage(message: ErrorMessage(title: title, body: error.localizedDescription))
         }
     }
 
@@ -231,17 +216,13 @@ class NoteSessionManager {
     }
 
     private func pushLocalDeletions() async {
-        guard let notesToDelete = Note.notes(property: "deleteNeeded"), !notesToDelete.isEmpty else { return }
-
-        for note in notesToDelete {
+        for note in Note.notes(property: "deleteNeeded") ?? [] {
             await delete(note: note)
         }
     }
 
     private func pushLocalAdditions() async {
-        guard let notesToAdd = Note.notes(property: "addNeeded"), !notesToAdd.isEmpty else { return }
-
-        for note in notesToAdd {
+        for note in Note.notes(property: "addNeeded") ?? [] {
             if let guid = note.guid, notesBeingAdded.contains(guid) {
                 continue
             }
@@ -251,22 +232,22 @@ class NoteSessionManager {
     }
 
     private func pushLocalUpdates() async {
-        guard let notesToUpdate = Note.notes(property: "updateNeeded"), !notesToUpdate.isEmpty else { return }
-
-        for note in notesToUpdate {
+        for note in Note.notes(property: "updateNeeded") ?? [] {
             await update(note: note)
         }
     }
 
-    private func pullRemoteChanges() async {
-        switch await perform(Router.allNotes(exclude: ""), retryLimit: 2) {
+    private func pullRemoteChanges(recoveringFromStaleCache: Bool = false) async {
+        switch await perform(Router.allNotes, retryLimit: 2) {
             case let .success(result):
-                if let lastModifiedString = result.response.value(forHTTPHeaderField: "Last-Modified") {
-                    let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "EEEE, dd LLL yyyy HH:mm:ss zzz"
-                    let lastModifiedDate = dateFormatter.date(from: lastModifiedString) ?? Date.distantPast
-                    KeychainHelper.lastModified = Int(lastModifiedDate.timeIntervalSince1970)
-                }
+                let dateFormatter = DateFormatter()
+                dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+                dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+                dateFormatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss zzz"
+
+                // Like the Android client: 0 (no pruning) when the header is missing or unparseable.
+                let lastModifiedDate = result.response.value(forHTTPHeaderField: "Last-Modified").flatMap { dateFormatter.date(from: $0) }
+                KeychainHelper.lastModified = Int(lastModifiedDate?.timeIntervalSince1970 ?? 0)
 
                 if let etag = result.response.value(forHTTPHeaderField: "Etag") {
                     KeychainHelper.eTag = etag
@@ -276,6 +257,23 @@ class NoteSessionManager {
                       let jsonArray = json as? Array<[String: Any]> else {
                     logger.error("Unexpected payload received for the list of all notes.")
                     return
+                }
+
+                // A pruned stub for a note missing locally means the validators got ahead of
+                // the local database: drop them and fetch the full list once.
+                if !recoveringFromStaleCache {
+                    let knownIds = Set(Note.all()?.map(\.id) ?? [])
+                    let prunedIds = jsonArray.filter({ $0.keys.count == 1 }).compactMap({ $0["id"] as? Int64 })
+
+                    if prunedIds.contains(where: { !knownIds.contains($0) }) {
+                        logger.notice("Server pruned notes that do not exist locally, refetching the full list...")
+
+                        KeychainHelper.eTag = ""
+                        KeychainHelper.lastModified = 0
+
+                        await pullRemoteChanges(recoveringFromStaleCache: true)
+                        return
+                    }
                 }
 
                 if let serverIds = jsonArray.map({ $0["id"] }) as? [Int64],
@@ -295,6 +293,16 @@ class NoteSessionManager {
                 }
             case let .failure(error):
                 if error.statusCode == 304 {
+                    // A 304 with no local notes means the validators outlived the database (e.g. relogin):
+                    // drop them and fetch the full list once.
+                    if !recoveringFromStaleCache, Note.all()?.isEmpty != false {
+                        KeychainHelper.eTag = ""
+                        KeychainHelper.lastModified = 0
+
+                        await pullRemoteChanges(recoveringFromStaleCache: true)
+                        return
+                    }
+
                     logger.notice("Remote notes did not change.")
                 } else {
                     let body = error.isTimedOut ? "The server request timed out" : error.localizedDescription
@@ -306,10 +314,10 @@ class NoteSessionManager {
     }
 
     @discardableResult
-    func add(content: String, category: String, favorite: Bool = false) async -> Note? {
+    func add(content: String, category: String) async -> Note? {
         logger.notice("Adding note...")
 
-        let note = NoteStruct(content: content, category: category, favorite: favorite)
+        let note = NoteStruct(content: content, category: category)
 
         guard let incoming = Note.update(note: note) else { return nil } //addNeeded defaults to true
 
@@ -369,7 +377,7 @@ class NoteSessionManager {
 
         guard NoteSessionManager.isOnline else { return }
 
-        let router = Router.getNote(id: Int(note.id), exclude: "", etag: note.etag)
+        let router = Router.getNote(id: Int(note.id), etag: note.etag)
         let validStatusCodes = KeychainHelper.notesApiVersion == Router.defaultApiVersion ? 200..<300 : 200..<201
 
         switch await performDecodable(router, of: NoteStruct.self, validStatusCodes: validStatusCodes) {
@@ -416,7 +424,7 @@ class NoteSessionManager {
                                       "category": note.category as Any,
                                       "modified": modified as Any,
                                       "favorite": note.favorite]
-        let router = Router.updateNote(id: Int(note.id), paramters: parameters)
+        let router = Router.updateNote(id: Int(note.id), parameters: parameters)
 
         switch await performDecodable(router, of: NoteStruct.self, retryLimit: 2) {
             case let .success(remote):
@@ -507,7 +515,7 @@ class NoteSessionManager {
             do {
                 request = try router.asURLRequest()
             } catch {
-                return .failure(.invalidRequest(error))
+                return .failure(.transport(error))
             }
 
             let data: Data
@@ -526,7 +534,7 @@ class NoteSessionManager {
             let result = HTTPResult(data: data, response: httpResponse)
 
             guard validStatusCodes.contains(httpResponse.statusCode) else {
-                if httpResponse.statusCode == 423, attempt < retryLimit { // File lock on server
+                if httpResponse.statusCode == 423, attempt < retryLimit, !Task.isCancelled { // File lock on server
                     attempt += 1
                     try? await Task.sleep(nanoseconds: 2_000_000_000)
                     continue
@@ -577,33 +585,10 @@ class NoteSessionManager {
 
     // MARK: - Messages
 
-    func showSyncMessage() {
-        #if os(iOS)
-        var config = SwiftMessages.defaultConfig
-        config.duration = .forever
-        config.preferredStatusBarStyle = .default
-        config.presentationContext = .viewController(UIApplication.topViewController()!)
-        SwiftMessages.show(config: config, viewProvider: {
-            let view = MessageView.viewFromNib(layout: .cardView)
-            view.configureTheme(.success, iconStyle: .default)
-            view.configureDropShadow()
-            view.configureContent(title: NSLocalizedString("Success", comment: "A message title"),
-                                  body: NSLocalizedString("You are now connected to Notes on your server", comment: "A message"),
-                                  iconImage: Icon.success.image,
-                                  iconText: nil,
-                                  buttonImage: nil,
-                                  buttonTitle: NSLocalizedString("Close & Sync", comment: "Title of a button allowing the user to close the login screen and sync with the server"),
-                                  buttonTapHandler: { _ in
-                                    SwiftMessages.hide()
-                                    UIApplication.topViewController()?.dismiss(animated: true, completion: nil)
-                                    NotificationCenter.default.post(name: .syncNotes, object: nil)
-            })
-            return view
-        })
-        #endif
-    }
+    private func showErrorMessage(message: ErrorMessage) {
+        // A cancelled flow (dismissed pull-to-refresh, expired background task) must not surface banners.
+        guard !Task.isCancelled else { return }
 
-    func showErrorMessage(message: ErrorMessage) {
         #if !os(OSX)
         var config = SwiftMessages.defaultConfig
         config.interactiveHide = true

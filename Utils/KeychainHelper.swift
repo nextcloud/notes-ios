@@ -156,15 +156,6 @@ struct KeychainHelper {
         }
     }
 
-    static var didSyncInBackground: Bool {
-        get {
-            return UserDefaults.standard.bool(forKey: "didSyncInBackground")
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: "didSyncInBackground")
-        }
-    }
-
     static var groupByCategory: Bool {
         get {
             if UserDefaults.standard.object(forKey: "GroupByCategory") == nil {
@@ -194,7 +185,12 @@ struct KeychainHelper {
     
     static var notesApiVersion: String {
         get {
-            return UserDefaults.standard.string(forKey: "notesApiVersion") ?? Router.defaultApiVersion
+            // An empty string can linger from older builds and would make every request fail version parsing.
+            guard let version = UserDefaults.standard.string(forKey: "notesApiVersion"), !version.isEmpty else {
+                return Router.defaultApiVersion
+            }
+
+            return version
         }
         set {
             UserDefaults.standard.set(newValue, forKey: "notesApiVersion")

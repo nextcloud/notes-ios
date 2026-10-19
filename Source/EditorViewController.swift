@@ -242,7 +242,6 @@ class EditorViewController: UIViewController {
     }()
     
     func deleteNote(_ sender: Any?) {
-        NotificationCenter.default.post(name: .deletingNote, object: self)
         let imageView = UIImageView(frame: self.noteView.frame)
         imageView.image = self.screenShot
         self.noteView.addSubview(imageView)

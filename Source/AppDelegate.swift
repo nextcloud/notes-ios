@@ -123,7 +123,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let syncTask = Task {
             await NoteSessionManager.shared.sync()
 
-            KeychainHelper.didSyncInBackground = true
             task.setTaskCompleted(success: !Task.isCancelled)
         }
 

@@ -14,10 +14,10 @@ enum RouterError: Error {
 /// Network router for Nextcloud Notes API.
 ///
 enum Router {
-    case allNotes(exclude: String)
-    case getNote(id: Int, exclude: String, etag: String)
+    case allNotes
+    case getNote(id: Int, etag: String)
     case createNote(parameters: Parameters)
-    case updateNote(id: Int, paramters: Parameters)
+    case updateNote(id: Int, parameters: Parameters)
     case deleteNote(id: Int)
     case settings
     case updateSettings(notesPath: String, fileSuffix: String)
@@ -49,7 +49,7 @@ enum Router {
         switch self {
             case .allNotes:
                 return "/notes"
-            case .getNote(let id , _, _):
+            case .getNote(let id, _):
                 return "/notes/\(id)"
             case .createNote:
                 return "/notes"
@@ -99,28 +99,22 @@ enum Router {
         urlRequest.setValue(Router.applicationJson, forHTTPHeaderField: "Accept")
 
         switch self {
-            case .allNotes(let exclude):
+            case .allNotes:
                 if !KeychainHelper.eTag.isEmpty {
                     urlRequest.setValue(KeychainHelper.eTag, forHTTPHeaderField: "If-None-Match")
                 }
 
                 var parameters = Parameters()
 
-                if !exclude.isEmpty {
-                    parameters["exclude"] = exclude
-                }
-
                 if KeychainHelper.lastModified > 0 {
                     parameters["pruneBefore"] = KeychainHelper.lastModified
                 }
 
                 Router.encode(parameters, into: &urlRequest)
-            case .getNote(_, let exclude, let etag):
+            case .getNote(_, let etag):
                 if !etag.isEmpty {
                     urlRequest.setValue(etag, forHTTPHeaderField: "If-None-Match")
                 }
-
-                Router.encode(["exclude": exclude], into: &urlRequest)
             case .createNote(let parameters):
                 Router.encode(parameters, into: &urlRequest)
             case .updateNote(_, let parameters):
