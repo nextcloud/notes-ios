@@ -92,7 +92,7 @@ struct SettingsView: View {
 
                     if let url = URL(string: NCBrandOptions.shared.privacyUrl) {
                         NavigationLink("Privacy and Legal Policy") {
-                            WebView(initialURL: .constant(url))
+                            WebView(initialURL: url)
                         }
                     }
 
