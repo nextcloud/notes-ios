@@ -42,8 +42,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/nextcloud/NextcloudKit",
       "state" : {
-        "revision" : "053d6eb161a7024e00e1064ab2825cad3e9317a2",
-        "version" : "7.6.1"
+        "revision" : "705e69cf0526cac0bdeaf21699c41c895cae42a0",
+        "version" : "7.6.2"
       }
     },
     {
@@ -51,8 +51,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/krzyzanowskim/OpenSSL",
       "state" : {
-        "revision" : "4b1188ba947ddc23d03b13096b9e44b804e146c9",
-        "version" : "3.6.3000"
+        "revision" : "0a6149bff4fb00921ce0ec1811f726b166638095",
+        "version" : "3.6.5000"
       }
     },
     {
