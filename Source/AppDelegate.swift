@@ -100,7 +100,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func handleDidBecomeActive() {
-        store.synchronize()
+        if store.launchSynchronization {
+            store.synchronize()
+        }
         DispatchQueue.main.async {
             self.openPendingNoteIfNeeded()
         }
