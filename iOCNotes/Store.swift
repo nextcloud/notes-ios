@@ -177,6 +177,7 @@ final class Store: Logging, Storing {
         KeychainHelper.server = host.absoluteString
         KeychainHelper.username = name
         KeychainHelper.password = password
+        resetSynchronizationState()
 
         reloadAccounts()
         synchronize()
@@ -189,7 +190,19 @@ final class Store: Logging, Storing {
         KeychainHelper.username = ""
         KeychainHelper.password = ""
         Note.reset()
+        resetSynchronizationState()
         reloadAccounts()
+    }
+
+    ///
+    /// Forget the `ETag` and `pruneBefore` timestamp of the last notes list.
+    ///
+    /// Both describe what the local database already holds. Once it is emptied or belongs to another account,
+    /// sending them makes the server answer `304` or omit unchanged notes, so the list would stay empty.
+    ///
+    private func resetSynchronizationState() {
+        KeychainHelper.eTag = ""
+        KeychainHelper.lastModified = 0
     }
 
     // MARK: Shared Accounts
