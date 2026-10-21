@@ -336,10 +336,7 @@ class NoteSessionManager {
                                 if let allHeaders = response.response?.allHeaderFields {
                                     if let lmIndex = allHeaders.index(forKey: "Last-Modified"),
                                         let lastModifiedString = allHeaders[lmIndex].value as? String {
-                                        let dateFormatter = DateFormatter()
-                                        dateFormatter.dateFormat = "EEEE, dd LLL yyyy HH:mm:ss zzz"
-                                        let lastModifiedDate = dateFormatter.date(from: lastModifiedString) ?? Date.distantPast
-                                        KeychainHelper.lastModified = Int(lastModifiedDate.timeIntervalSince1970)
+                                        KeychainHelper.lastModified = NoteSessionManager.timestamp(fromHTTPDate: lastModifiedString) ?? 0
                                     }
                                     if let etagIndex = allHeaders.index(forKey: "Etag"),
                                         let etag = allHeaders[etagIndex].value as? String {
@@ -390,6 +387,24 @@ class NoteSessionManager {
                 }
             }
         }
+    }
+
+    ///
+    /// Parses an HTTP date such as `Wed, 21 Oct 2026 07:28:00 GMT` (RFC 7231, IMF-fixdate).
+    ///
+    /// The formatter is pinned to `en_US_POSIX` and GMT, so day and month names parse on devices in any language.
+    ///
+    /// - Returns: Seconds since 1970, or `nil` if the value is not an HTTP date.
+    ///
+    static func timestamp(fromHTTPDate value: String) -> Int? {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.timeZone = TimeZone(identifier: "GMT")
+        formatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss zzz"
+        guard let date = formatter.date(from: value) else {
+            return nil
+        }
+        return Int(date.timeIntervalSince1970)
     }
 
     ///
