@@ -358,7 +358,8 @@ class NoteSessionManager {
                                         for noteDict in filteredDicts {
                                             notes.append(NoteStruct(dictionary: noteDict))
                                         }
-                                        Note.update(notes: notes)
+                                        let pendingIds = Set(((Note.notes(property: "updateNeeded") ?? []) + (Note.notes(property: "deleteNeeded") ?? [])).map(\.id))
+                                        Note.update(notes: NoteSessionManager.notes(notes, excludingPending: pendingIds))
                                     }
                                 }
                             case let .failure(error):
@@ -387,6 +388,16 @@ class NoteSessionManager {
                 }
             }
         }
+    }
+
+    ///
+    /// Leaves out server notes whose local copy still has changes to send.
+    ///
+    /// Applying them would replace the local content and clear `updateNeeded`/`deleteNeeded`, so an edit or
+    /// deletion whose request failed (for example `423 Locked`) would be lost instead of being sent next time.
+    ///
+    static func notes(_ notes: [NoteStruct], excludingPending pendingIds: Set<Int64>) -> [NoteStruct] {
+        notes.filter { !pendingIds.contains($0.id) }
     }
 
     ///
