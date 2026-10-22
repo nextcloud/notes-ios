@@ -7,14 +7,14 @@
 */
 "About" = "Despre";
 
-"Acknowledgements" = "Acknowledgements";
+"Acknowledgements" = "Mulțumiri";
 
-"Advanced Settings" = "Advanced settings";
+"Advanced Settings" = "Setări avansate";
 
-"Caution: Turning the switch on will remove all notes locally. Unsynced changes will be lost. Use only if you are experiencing problems." = "Caution: Turning the switch on will remove all notes locally. Unsynced changes will be lost. Use only if you are experiencing problems.";
+"Caution: Turning the switch on will remove all notes locally. Unsynced changes will be lost. Use only if you are experiencing problems." = "Atenție: activarea acestui comutator va șterge toate notițele de pe dispozitiv. Modificările nesincronizate vor fi pierdute. Folosește această opțiune doar dacă întâmpini probleme.";
 
-"Reset local notes database" = "Reset local notes database";
+"Reset local notes database" = "Resetează baza de date locală a notițelor";
 
-"Third-party licenses" = "Third-party licenses";
+"Third-party licenses" = "Licențe terțe";
 
-"Version" = "Version";
+"Version" = "Versiune";
