@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		AA182D002DDCD6520058C246 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = AA182CFF2DDCD6520058C246 /* CodeScanner */; };
-		AA30543C2E12B06F00D33159 /* HTTPHeader+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA30543B2E12B06700D33159 /* HTTPHeader+Extensions.swift */; };
 		AABC95572DFC717F0023790D /* UIApplication+topViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABC95562DFC717A0023790D /* UIApplication+topViewController.swift */; };
 		AAC79FE82E279184006D6845 /* MarkdownTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC79FE72E279184006D6845 /* MarkdownTextStorage.swift */; };
 		BD653F88231C43FA00D59A88 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD653F87231C43FA00D59A88 /* Constants.swift */; };
@@ -29,7 +28,6 @@
 		D0595C7C238632610004C4E8 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = D0595C7B238632610004C4E8 /* KeychainAccess */; };
 		D059F7DB1D40596D00C252F2 /* NoteExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D059F7DA1D40596D00C252F2 /* NoteExporter.swift */; };
 		D06882EE22BB146200CEBC1F /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06882ED22BB146200CEBC1F /* EditorViewController.swift */; };
-		D06CDA60238F6EC300CF90B0 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D06CDA5F238F6EC300CF90B0 /* Alamofire */; };
 		D075B1BC2906DDBF0085D64E /* ServerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D075B1BB2906DDBF0085D64E /* ServerStatus.swift */; };
 		D075B1BE29074E6B0085D64E /* CertificateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D075B1BD29074E6B0085D64E /* CertificateViewController.swift */; };
 		D078A1C4239C8A2000E1A004 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D078A1C3239C8A2000E1A004 /* CoreServices.framework */; };
@@ -40,7 +38,6 @@
 		D09E430C1E2C46930010E4B3 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D09E430E1E2C46930010E4B3 /* Main_iPhone.storyboard */; };
 		D09E6451248B3A7C003FB4C9 /* OCSProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09E6450248B3A7C003FB4C9 /* OCSProtocol.swift */; };
 		D0BCFE6A2454BF40007C4CA3 /* Categories.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0BCFE6C2454BF40007C4CA3 /* Categories.storyboard */; };
-		D0C1C39F2462448D00AAC4A8 /* SyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C1C39E2462448D00AAC4A8 /* SyncOperation.swift */; };
 		D0C876DF248F18700052EA63 /* Version in Frameworks */ = {isa = PBXBuildFile; productRef = D0C876DE248F18700052EA63 /* Version */; };
 		D0CAFF092533E7FB00C47FA0 /* SwiftMessages in Frameworks */ = {isa = PBXBuildFile; productRef = D0CAFF082533E7FB00C47FA0 /* SwiftMessages */; };
 		D0CAFF162533E89900C47FA0 /* PKHUD in Frameworks */ = {isa = PBXBuildFile; productRef = D0CAFF152533E89900C47FA0 /* PKHUD */; };
@@ -106,7 +103,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		AA30543B2E12B06700D33159 /* HTTPHeader+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPHeader+Extensions.swift"; sourceTree = "<group>"; };
 		AA360F442D71E6EF00BDC831 /* iOCNotes.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = iOCNotes.xcconfig; sourceTree = "<group>"; };
 		AA592A6E2DBBBA3B003A3057 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		AABC95562DFC717A0023790D /* UIApplication+topViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+topViewController.swift"; sourceTree = "<group>"; };
@@ -150,7 +146,6 @@
 		D076F73C26BCBEBB0093F22A /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Categories.strings; sourceTree = "<group>"; };
 		D076F73E26BCBEC00093F22A /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D078A1C3239C8A2000E1A004 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework; sourceTree = DEVELOPER_DIR; };
-		D07F5E8A2207B61500528E90 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		D07F5E8D2207B6FF00528E90 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		D07F5E8F2207B81F00528E90 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = Carthage/Build/iOS/KeychainAccess.framework; sourceTree = "<group>"; };
 		D08713EC1D18DA40001EAF82 /* HeaderTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderTextView.swift; sourceTree = "<group>"; };
@@ -168,7 +163,6 @@
 		D0BCFE6E2454BF46007C4CA3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Categories.strings; sourceTree = "<group>"; };
 		D0BCFE702454BF46007C4CA3 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Categories.strings; sourceTree = "<group>"; };
 		D0BCFE722454BF47007C4CA3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Categories.strings; sourceTree = "<group>"; };
-		D0C1C39E2462448D00AAC4A8 /* SyncOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncOperation.swift; sourceTree = "<group>"; };
 		D0CCF2AA1F77395E00535D54 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		D0CFE5331888A7BD00165839 /* Nextcloud Notes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nextcloud Notes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0CFE5361888A7BD00165839 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -226,7 +220,6 @@
 				D0C876DF248F18700052EA63 /* Version in Frameworks */,
 				D0595C7C238632610004C4E8 /* KeychainAccess in Frameworks */,
 				D02D15CC2905D756006ADCBB /* OpenSSL in Frameworks */,
-				D06CDA60238F6EC300CF90B0 /* Alamofire in Frameworks */,
 				D0E60F242777DD38009CF78F /* Markdown in Frameworks */,
 				F77B56FF2993DE6300A23E76 /* NextcloudKit in Frameworks */,
 				D017D4241D3B03BE00B21443 /* WebKit.framework in Frameworks */,
@@ -265,10 +258,8 @@
 		D07F5E8C2207B6D700528E90 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				AA30543B2E12B06700D33159 /* HTTPHeader+Extensions.swift */,
 				D07F5E8D2207B6FF00528E90 /* Router.swift */,
 				D01067DD220BCE3C0047E090 /* NoteSessionManager.swift */,
-				D0C1C39E2462448D00AAC4A8 /* SyncOperation.swift */,
 				D075B1BB2906DDBF0085D64E /* ServerStatus.swift */,
 			);
 			path = Networking;
@@ -331,7 +322,6 @@
 				BD92271E22CF4EBD004E2408 /* SwiftMessages.framework */,
 				BD92271622C92EBB004E2408 /* PKHUD.framework */,
 				D07F5E8F2207B81F00528E90 /* KeychainAccess.framework */,
-				D07F5E8A2207B61500528E90 /* Alamofire.framework */,
 				D05110B920C8C9FE00AFFDC7 /* KSCrash.framework */,
 				D0CCF2AA1F77395E00535D54 /* MobileCoreServices.framework */,
 				D017D4231D3B03BE00B21443 /* WebKit.framework */,
@@ -513,7 +503,6 @@
 			name = iOCNotes;
 			packageProductDependencies = (
 				D0595C7B238632610004C4E8 /* KeychainAccess */,
-				D06CDA5F238F6EC300CF90B0 /* Alamofire */,
 				D0C876DE248F18700052EA63 /* Version */,
 				D0CAFF082533E7FB00C47FA0 /* SwiftMessages */,
 				D0CAFF152533E89900C47FA0 /* PKHUD */,
@@ -587,7 +576,6 @@
 			mainGroup = D0CFE52A1888A7BD00165839;
 			packageReferences = (
 				D0595C7A238632610004C4E8 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
-				D06CDA5E238F6EC300CF90B0 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				D0C876DD248F18700052EA63 /* XCRemoteSwiftPackageReference "Version" */,
 				D0CAFF072533E7FB00C47FA0 /* XCRemoteSwiftPackageReference "SwiftMessages" */,
 				D0CAFF142533E89900C47FA0 /* XCRemoteSwiftPackageReference "PKHUD" */,
@@ -688,7 +676,6 @@
 				BD92271B22CD3743004E2408 /* UtilityExtensions.swift in Sources */,
 				D0E60F71277FADD6009CF78F /* CheckBoxTapHandler.swift in Sources */,
 				D0E60F5F277FADD5009CF78F /* Element.swift in Sources */,
-				D0C1C39F2462448D00AAC4A8 /* SyncOperation.swift in Sources */,
 				D0E60F74277FADD6009CF78F /* Extensions.swift in Sources */,
 				D075B1BC2906DDBF0085D64E /* ServerStatus.swift in Sources */,
 				D0E60F57277FADD5009CF78F /* Storage.swift in Sources */,
@@ -707,7 +694,6 @@
 				D0E60F28277801F8009CF78F /* PreviewWebView.swift in Sources */,
 				D03493B922F3CC5700E1A9B0 /* CategoryTableViewController.swift in Sources */,
 				D0E60F64277FADD6009CF78F /* LayoutManager.swift in Sources */,
-				AA30543C2E12B06F00D33159 /* HTTPHeader+Extensions.swift in Sources */,
 				D075B1BE29074E6B0085D64E /* CertificateViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1104,14 +1090,6 @@
 				minimumVersion = 4.1.0;
 			};
 		};
-		D06CDA5E238F6EC300CF90B0 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.12.2;
-			};
-		};
 		D0C876DD248F18700052EA63 /* XCRemoteSwiftPackageReference "Version" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mrackwitz/Version";
@@ -1177,11 +1155,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D0595C7A238632610004C4E8 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
 			productName = KeychainAccess;
-		};
-		D06CDA5F238F6EC300CF90B0 /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D06CDA5E238F6EC300CF90B0 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
 		};
 		D0C876DE248F18700052EA63 /* Version */ = {
 			isa = XCSwiftPackageProductDependency;

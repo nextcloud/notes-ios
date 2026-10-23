@@ -35,9 +35,6 @@
 /* An error message */
 "Check username and password." = "Check username and password.";
 
-/* Title of a button allowing the user to close the login screen and sync with the server */
-"Close & Sync" = "Close & Sync";
-
 /* Crash report email subject */
 "NextcloudNotes Crash Report" = "NextcloudNotes Crash Report";
 
@@ -172,9 +169,6 @@
 /* Title of a menu with sharing options */
 "Share Note As" = "Share note as";
 
-/* A message title */
-"Success" = "Success";
-
 /* A message */
 "The network connection is working properly." = "The network connection is working properly.";
 
@@ -199,9 +193,6 @@
 
 /* No comment provided by engineer. */
 "Yes, please!" = "Yes, please!";
-
-/* A message */
-"You are now connected to Notes on your server" = "You are now connected to Notes on your server";
 
 /* HUD subtitle when checking server capabilities */
 "Checking server capabilities" = "Checking server capabilities";
