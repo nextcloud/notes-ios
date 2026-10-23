@@ -100,7 +100,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func handleDidBecomeActive() {
-        store.synchronize()
+        if store.launchSynchronization {
+            store.synchronize()
+        }
         DispatchQueue.main.async {
             self.openPendingNoteIfNeeded()
         }
@@ -141,6 +143,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         operationQueue.addOperation(operation)
     }
     
+    /// Whether `url` is a copy iOS placed in the app's `Documents/Inbox` folder when a file was shared to the app.
+    static func isInboxCopy(_ url: URL, documentsDirectory: URL) -> Bool {
+        let inbox = documentsDirectory.appendingPathComponent("Inbox", isDirectory: true).resolvingSymlinksInPath().standardizedFileURL.path
+        let file = url.resolvingSymlinksInPath().standardizedFileURL.path
+        return file.hasPrefix(inbox + "/")
+    }
+
     @discardableResult
     func handleOpen(url: URL) -> Bool {
         if let scheme = url.scheme, scheme == "nextcloudnotes" {
@@ -156,12 +165,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
         } else if url.isFileURL {
+            let isAccessing = url.startAccessingSecurityScopedResource()
+            defer {
+                if isAccessing {
+                    url.stopAccessingSecurityScopedResource()
+                }
+            }
             do {
-                _ = url.startAccessingSecurityScopedResource()
                 let content = try String(contentsOf: url, encoding: .utf8)
                 NoteSessionManager.shared.add(content: content, category: "")
-                try FileManager.default.removeItem(at: url)
-                url.stopAccessingSecurityScopedResource()
+                // With "open in place" the URL is the user's own document (Files, iCloud Drive…), not a copy.
+                // Only the temporary copy iOS puts into the app's Inbox may be removed.
+                if let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first,
+                   AppDelegate.isInboxCopy(url, documentsDirectory: documents) {
+                    try FileManager.default.removeItem(at: url)
+                }
             } catch {
                 print(error.localizedDescription)
             }
