@@ -190,7 +190,7 @@ class NoteSessionManager {
                                 NoteSessionManager.shared.showErrorMessage(message: ErrorMessage(title: title, body: body))
                             default:
                                 let message = ErrorMessage(title: NSLocalizedString("Error Getting Settings", comment: "The title of an error message"),
-                                                           body: error.localizedDescription)
+                                                           body: NoteSessionManager.message(for: error))
                                 self.showErrorMessage(message: message)
                         }
                     }
@@ -238,7 +238,7 @@ class NoteSessionManager {
                                 NoteSessionManager.shared.showErrorMessage(message: ErrorMessage(title: title, body: body))
                             default:
                                 let message = ErrorMessage(title: NSLocalizedString("Error Updating Settings", comment: "The title of an error message"),
-                                                           body: error.localizedDescription)
+                                                           body: NoteSessionManager.message(for: error))
                                 self.showErrorMessage(message: message)
                         }
                     }
@@ -336,10 +336,7 @@ class NoteSessionManager {
                                 if let allHeaders = response.response?.allHeaderFields {
                                     if let lmIndex = allHeaders.index(forKey: "Last-Modified"),
                                         let lastModifiedString = allHeaders[lmIndex].value as? String {
-                                        let dateFormatter = DateFormatter()
-                                        dateFormatter.dateFormat = "EEEE, dd LLL yyyy HH:mm:ss zzz"
-                                        let lastModifiedDate = dateFormatter.date(from: lastModifiedString) ?? Date.distantPast
-                                        KeychainHelper.lastModified = Int(lastModifiedDate.timeIntervalSince1970)
+                                        KeychainHelper.lastModified = NoteSessionManager.timestamp(fromHTTPDate: lastModifiedString) ?? 0
                                     }
                                     if let etagIndex = allHeaders.index(forKey: "Etag"),
                                         let etag = allHeaders[etagIndex].value as? String {
@@ -361,7 +358,8 @@ class NoteSessionManager {
                                         for noteDict in filteredDicts {
                                             notes.append(NoteStruct(dictionary: noteDict))
                                         }
-                                        Note.update(notes: notes)
+                                        let pendingIds = Set(((Note.notes(property: "updateNeeded") ?? []) + (Note.notes(property: "deleteNeeded") ?? [])).map(\.id))
+                                        Note.update(notes: NoteSessionManager.notes(notes, excludingPending: pendingIds))
                                     }
                                 }
                             case let .failure(error):
@@ -372,16 +370,16 @@ class NoteSessionManager {
                                         break
                                     default:
                                         let message = ErrorMessage(title: NSLocalizedString("Error Syncing Notes", comment: "The title of an error message"),
-                                                                   body: error.localizedDescription)
+                                                                   body: NoteSessionManager.message(for: error))
                                         self.showErrorMessage(message: message)
                                     }
                                 } else if error.isRequestRetryError {
                                     let message = ErrorMessage(title: NSLocalizedString("Error Syncing Notes", comment: "The title of an error message"),
-                                                               body: "The server request timed out")
+                                                               body: NoteSessionManager.message(for: error))
                                     self.showErrorMessage(message: message)
                                 } else {
                                     let message = ErrorMessage(title: NSLocalizedString("Error Syncing Notes", comment: "The title of an error message"),
-                                                               body: error.localizedDescription)
+                                                               body: NoteSessionManager.message(for: error))
                                     self.showErrorMessage(message: message)
                                 }
                             }
@@ -390,6 +388,69 @@ class NoteSessionManager {
                 }
             }
         }
+    }
+
+    ///
+    /// A short, readable description of a failed request for the error banner.
+    ///
+    /// Alamofire wraps errors once per retry attempt, so `localizedDescription` repeats "Request retry failed with
+    /// retry error: …" several times. This unwraps the original error and describes its HTTP status or network
+    /// cause instead.
+    ///
+    static func message(for error: Error) -> String {
+        var current = error
+        while let afError = current.asAFError, case let .requestRetryFailed(_, originalError) = afError {
+            current = originalError
+        }
+
+        guard let afError = current.asAFError else {
+            return current.localizedDescription
+        }
+
+        if let statusCode = afError.responseCode {
+            switch statusCode {
+                case 401:
+                    return NSLocalizedString("Check username and password.", comment: "An error message")
+                case 423:
+                    return NSLocalizedString("The note is locked on the server. Please try again later.", comment: "An error message")
+                default:
+                    return "\(statusCode): \(HTTPURLResponse.localizedString(forStatusCode: statusCode).capitalized)"
+            }
+        }
+
+        if let underlyingError = afError.underlyingError {
+            return underlyingError.localizedDescription
+        }
+
+        return afError.localizedDescription
+    }
+
+    ///
+    /// Leaves out server notes whose local copy still has changes to send.
+    ///
+    /// Applying them would replace the local content and clear `updateNeeded`/`deleteNeeded`, so an edit or
+    /// deletion whose request failed (for example `423 Locked`) would be lost instead of being sent next time.
+    ///
+    static func notes(_ notes: [NoteStruct], excludingPending pendingIds: Set<Int64>) -> [NoteStruct] {
+        notes.filter { !pendingIds.contains($0.id) }
+    }
+
+    ///
+    /// Parses an HTTP date such as `Wed, 21 Oct 2026 07:28:00 GMT` (RFC 7231, IMF-fixdate).
+    ///
+    /// The formatter is pinned to `en_US_POSIX` and GMT, so day and month names parse on devices in any language.
+    ///
+    /// - Returns: Seconds since 1970, or `nil` if the value is not an HTTP date.
+    ///
+    static func timestamp(fromHTTPDate value: String) -> Int? {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.timeZone = TimeZone(identifier: "GMT")
+        formatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss zzz"
+        guard let date = formatter.date(from: value) else {
+            return nil
+        }
+        return Int(date.timeIntervalSince1970)
     }
 
     ///
@@ -463,7 +524,7 @@ class NoteSessionManager {
                     handler(.success(result))
                 case let .failure(error):
                     let message = ErrorMessage(title: NSLocalizedString("Error Adding Note", comment: "The title of an error message"),
-                                               body: error.localizedDescription)
+                                               body: NoteSessionManager.message(for: error))
                     handler(.failure(NoteError(message: message)))
                 }
         }
@@ -501,7 +562,7 @@ class NoteSessionManager {
                             }
                         default:
                             let message = ErrorMessage(title: NSLocalizedString("Error Getting Note", comment: "The title of an error message"),
-                                                       body: error.localizedDescription)
+                                                       body: NoteSessionManager.message(for: error))
                             self.showErrorMessage(message: message)
                         }
                     }
@@ -555,7 +616,7 @@ class NoteSessionManager {
                 case let .failure(error):
                     Note.update(notes: [note])
                     let message = ErrorMessage(title: NSLocalizedString("Error Updating Note", comment: "The title of an error message"),
-                                               body: error.localizedDescription)
+                                               body: NoteSessionManager.message(for: error))
                     if let urlResponse = response.response {
                         switch urlResponse.statusCode {
                         case 404, 405:
@@ -612,7 +673,7 @@ class NoteSessionManager {
                     handler(.success(nil))
                 case .failure(let error):
                     var message = ErrorMessage(title: NSLocalizedString("Error Deleting Note", comment: "The title of an error message"),
-                                               body: error.localizedDescription)
+                                               body: NoteSessionManager.message(for: error))
                     if let urlResponse = response.response {
                         switch urlResponse.statusCode {
                         case 404:
