@@ -25,6 +25,7 @@ struct NoteListRow: Equatable, Identifiable {
     let snippet: String
     let modified: Double
     let favorite: Bool
+    let readOnly: Bool
 
     var id: PresentationID { PresentationID(noteID: noteID, favorite: favorite) }
 
@@ -34,6 +35,7 @@ struct NoteListRow: Equatable, Identifiable {
         snippet = Self.snippet(from: note.content)
         modified = note.modified
         favorite = note.favorite
+        readOnly = note.readOnly
     }
 
     private static func snippet(from content: String) -> String {

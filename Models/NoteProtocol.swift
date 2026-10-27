@@ -43,7 +43,7 @@ struct NoteStruct: Codable, NoteProtocol {
         case category
         case content
         case favorite
-        case readOnly
+        case readOnly = "readonly"
         case guid
         case modified
         case id
@@ -96,7 +96,7 @@ struct NoteStruct: Codable, NoteProtocol {
 //        guid = UUID().uuidString
         modified = dictionary[CodingKeys.modified.rawValue] as? TimeInterval ?? Date().timeIntervalSince1970
         id = dictionary[CodingKeys.id.rawValue] as? Int64 ?? -1
-        etag = ""
+        etag = dictionary[CodingKeys.etag.rawValue] as? String ?? ""
         error = dictionary[CodingKeys.error.rawValue] as? Bool ?? false
         addNeeded = false
         deleteNeeded = false

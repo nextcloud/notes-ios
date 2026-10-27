@@ -36,12 +36,19 @@ NEXTCLOUD_TRUSTED_DOMAINS='192.168.178.*' ./Server/Run.sh
 You only need this one as long as you do not delete the container again.
 Until then you can start or stop it with Docker Desktop.
 
-The network-backed tests are opt-in so regular unit-test and CI runs do not
-depend on this server. After provisioning it, include those tests with:
+### Live-server tests
+
+The network tests come in two tiers, and both run in CI on every pull request:
+
+- The default `iOCNotes` test plan runs against an in-process fake Notes server and needs nothing else.
+- The `LiveServer` test plan additionally runs end-to-end tests against this server. CI's `live-server` job provisions a server the same way; use this container to reproduce or debug that job locally:
 
 ```sh
-NOTES_INTEGRATION_TESTS=1 xcodebuild test -scheme iOCNotes -destination 'platform=iOS Simulator,name=iPhone 16'
+xcodebuild test -scheme iOCNotes -testPlan LiveServer -destination 'platform=iOS Simulator,name=iPhone 17'
 ```
+
+The live tests wipe the `nonotes` account before and after each test and only read `manynotes`.
+To point them at another server, change `NOTES_TEST_SERVER_URL` in `LiveServer.xctestplan`.
 
 To quickly get rid of the container and delete all its data:
 

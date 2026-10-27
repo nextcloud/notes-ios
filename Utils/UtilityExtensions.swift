@@ -10,14 +10,7 @@ import UIKit
 import Version
 
 extension NSNotification.Name {
-    static let deletingNote = NSNotification.Name("DeletingNote")
-    static let syncNotes = NSNotification.Name("SyncNotes")
-    static let networkSuccess = NSNotification.Name("NetworkSucces")
-    static let networkError = NSNotification.Name("NetworkError")
     static let offlineModeChanged = NSNotification.Name("OfflineModeChanged")
-    static let doneSelectingCategory = NSNotification.Name("DoneSelectingCategory")
-    static let editorUpdatedNote = NSNotification.Name("EditorUpdatedNote")
-    static let categoryUpdated = NSNotification.Name("CategoryUpdated")
 }
 
 struct DisclosureSection: Codable {

@@ -29,15 +29,19 @@ class EditorViewController: UIViewController {
                     noteView.undoManager?.removeAllActions()
                     noteView.scrollRangeToVisible(NSRange(location: 0, length: 0))
                     updateHeaderLabel()
+                    applyReadOnlyState()
                     HUD.hide()
                 } else {
-                    NoteSessionManager.shared.get(note: note, completion: { [weak self] in
+                    Task { [weak self] in
+                        await NoteSessionManager.shared.get(note: note)
+
                         self?.noteView.text = note.content
                         self?.noteView.undoManager?.removeAllActions()
                         self?.noteView.scrollRangeToVisible(NSRange(location: 0, length: 0))
                         self?.updateHeaderLabel()
+                        self?.applyReadOnlyState()
                         HUD.hide()
-                    })
+                    }
                 }
             }
         }
@@ -95,11 +99,10 @@ class EditorViewController: UIViewController {
 
         if let note = note {
             noteView.text = note.content;
-            noteView.isEditable = true
             noteView.isSelectable = true
             activityButton.isEnabled = !noteView.text.isEmpty
             previewButton.isEnabled = !noteView.text.isEmpty
-            deleteButton.isEnabled = true
+            applyReadOnlyState()
         } else {
             noteView.isEditable = false
             noteView.isSelectable = false
@@ -151,6 +154,17 @@ class EditorViewController: UIViewController {
         }
     }
     
+    /// Read-only notes, e.g. shared without edit permission, can be read but neither changed nor deleted.
+    private func applyReadOnlyState() {
+        guard let note else { return }
+
+        noteView.isEditable = !note.readOnly
+
+        if isViewLoaded {
+            deleteButton.isEnabled = !note.readOnly
+        }
+    }
+
     fileprivate func updateHeaderLabel() {
         if let note = note, let date = Date(timeIntervalSince1970: note.modified) as Date? {
             let formatter = DateFormatter()
@@ -240,7 +254,6 @@ class EditorViewController: UIViewController {
     }()
     
     func deleteNote(_ sender: Any?) {
-        NotificationCenter.default.post(name: .deletingNote, object: self)
         let imageView = UIImageView(frame: self.noteView.frame)
         imageView.image = self.screenShot
         self.noteView.addSubview(imageView)
@@ -353,21 +366,23 @@ class EditorViewController: UIViewController {
 extension EditorViewController: UITextViewDelegate {
     
     fileprivate func updateNoteContent() {
-        if let note = self.note, let text = self.noteView.text, text != note.content {
+        if let note = self.note, !note.readOnly, let text = self.noteView.text, text != note.content {
             note.content = text
             if isNewNote {
                 note.title = noteTitle(note)
             }
-            NoteSessionManager.shared.update(note: note, completion: { [weak self] in
+            Task { [weak self] in
+                await NoteSessionManager.shared.update(note: note)
+
                 self?.updateHeaderLabel()
-            })
+            }
         }
     }
 
     func textViewDidChange(_ textView: UITextView) {
         self.activityButton.isEnabled = !textView.text.isEmpty
         self.previewButton.isEnabled = !textView.text.isEmpty
-        self.deleteButton.isEnabled = true
+        self.deleteButton.isEnabled = !(note?.readOnly ?? false)
         throttler.throttle { [weak self] in
             self?.updateNoteContent()
         }

@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import CoreData
+import SwiftMessages
 import SwiftUI
 
 ///
@@ -59,12 +60,19 @@ struct NotesListView: View {
         }
         .listStyle(.insetGrouped)
         .refreshable {
+            guard NoteSessionManager.isOnline else {
+                showRefreshHint()
+                return
+            }
+
             await NoteSessionManager.shared.sync()
         }
         .dropDestination(for: String.self) { items, _ in
             let contents = items.filter { !$0.isEmpty }
-            for content in contents {
-                NoteSessionManager.shared.add(content: content, category: "")
+            Task {
+                for content in contents {
+                    await NoteSessionManager.shared.add(content: content, category: "")
+                }
             }
             return !contents.isEmpty
         }
@@ -90,18 +98,21 @@ struct NotesListView: View {
                 .tint(.yellow)
             }
             .swipeActions(edge: .trailing) {
-                Button(role: .destructive) {
-                    delete(row)
-                } label: {
-                    Label(String(localized: "Delete", comment: "Action to delete a note"), systemImage: "trash")
+                if !row.readOnly {
+                    Button(role: .destructive) {
+                        delete(row)
+                    } label: {
+                        Label(String(localized: "Delete", comment: "Action to delete a note"), systemImage: "trash")
+                    }
                 }
             }
         }
     }
 
+    /// Read-only notes keep only the actions the server allows for them: favorite and share.
     @ViewBuilder
     private func contextMenu(for row: NoteListRow) -> some View {
-        if canRename {
+        if canRename, !row.readOnly {
             Button {
                 renameText = row.title
                 noteToRename = row.noteID
@@ -110,7 +121,7 @@ struct NotesListView: View {
             }
         }
 
-        if isNextcloud() {
+        if isNextcloud(), !row.readOnly {
             Button {
                 openCategories(for: row)
             } label: {
@@ -130,10 +141,12 @@ struct NotesListView: View {
             Label(String(localized: "Share", comment: "Action to share a note"), systemImage: "square.and.arrow.up")
         }
 
-        Button(role: .destructive) {
-            delete(row)
-        } label: {
-            Label(String(localized: "Delete", comment: "Action to delete a note"), systemImage: "trash")
+        if !row.readOnly {
+            Button(role: .destructive) {
+                delete(row)
+            } label: {
+                Label(String(localized: "Delete", comment: "Action to delete a note"), systemImage: "trash")
+            }
         }
     }
 
@@ -161,7 +174,9 @@ struct NotesListView: View {
 
     private func delete(_ row: NoteListRow) {
         guard let note = model.note(for: row.noteID) else { return }
-        NoteSessionManager.shared.delete(note: note)
+        Task {
+            await NoteSessionManager.shared.delete(note: note)
+        }
     }
 
     @ViewBuilder
@@ -175,18 +190,41 @@ struct NotesListView: View {
 
     private func toggleFavorite(_ row: NoteListRow) {
         guard let note = model.toggleFavorite(for: row.noteID) else { return }
-        NoteSessionManager.shared.update(note: note, updateModified: false, completion: nil)
+        Task {
+            await NoteSessionManager.shared.update(note: note, updateModified: false)
+        }
     }
 
     private func commitRename() {
         guard let noteID = noteToRename,
-              let note = model.note(for: noteID) else { return }
+              let note = model.note(for: noteID),
+              !note.readOnly else { return }
         defer { noteToRename = nil }
 
         let newName = renameText.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !newName.isEmpty, newName != note.title else { return }
 
         note.title = newName
-        NoteSessionManager.shared.update(note: note, completion: nil)
+        Task {
+            await NoteSessionManager.shared.update(note: note)
+        }
+    }
+
+    private func showRefreshHint() {
+        let body = Store.shared.offlineMode
+            ? String(localized: "Offline Mode is on. Turn it off in Settings to sync.", comment: "Shown when pull-to-refresh is used in offline mode")
+            : String(localized: "The server is not reachable.", comment: "Shown when pull-to-refresh is used without a connection to the server")
+
+        var config = SwiftMessages.defaultConfig
+        config.duration = .seconds(seconds: 3)
+
+        SwiftMessages.show(config: config) {
+            let view = MessageView.viewFromNib(layout: .cardView)
+            view.configureTheme(.info, iconStyle: .default)
+            view.configureDropShadow()
+            view.button?.isHidden = true
+            view.configureContent(title: String(localized: "Not Synchronized", comment: "Title of the hint shown when pull-to-refresh cannot sync"), body: body)
+            return view
+        }
     }
 }

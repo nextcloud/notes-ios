@@ -19,11 +19,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return UIApplication.shared.delegate as! AppDelegate
     }
 
-    private let operationQueue = OperationQueue()
     private var pendingNoteToOpen: Note?
+
+    /// When hosting tests, the app must not sync or touch the real store alongside them.
+    static let isRunningTests: Bool = {
+        let environment = ProcessInfo.processInfo.environment
+        return environment["NOTES_UNDER_TEST"] == "1" || environment["XCTestConfigurationFilePath"] != nil
+    }()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         NextcloudKit.shared.setup(delegate: self)
+
+        guard !AppDelegate.isRunningTests else { return true }
+
+        // Any install <= 35.0.0 has a bug where notes are not fully synced, as `eTag` and `lastModified` were not reset upon log out.
+        // Reset once so the first sync fetches everything.
+        if !KeychainHelper.didResetSyncValidators {
+            KeychainHelper.eTag = ""
+            KeychainHelper.lastModified = 0
+            KeychainHelper.didResetSyncValidators = true
+        }
 
         for account in store.accounts {
             NextcloudKit.shared.appendSession(
@@ -120,25 +135,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func handleAppSync(task: BGAppRefreshTask) {
         // Schedule a new refresh task
         scheduleAppSync()
-        
-        // Create an operation that performs the main part of the background task
-        let operation = SyncOperation()
-        
-        // Provide an expiration handler for the background task
-        // that cancels the operation
+
+        let syncTask = Task {
+            await NoteSessionManager.shared.sync()
+
+            task.setTaskCompleted(success: !Task.isCancelled)
+        }
+
         task.expirationHandler = {
-           operation.cancel()
+            syncTask.cancel()
         }
-
-        // Inform the system that the background task is complete
-        // when the operation completes
-        operation.completionBlock = {
-            KeychainHelper.didSyncInBackground = true
-            task.setTaskCompleted(success: !operation.isCancelled)
-        }
-
-        // Start the operation
-        operationQueue.addOperation(operation)
     }
     
     @discardableResult
@@ -148,18 +154,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if let queryItems = urlComponents?.queryItems,
                 let item = queryItems.first(where: { $0.name == "note" }),
                 let content = item.value {
-                NoteSessionManager.shared.add(content: content, category: "") { note in
-                    guard let note = note else { return }
-                    DispatchQueue.main.async {
-                        self.openEditorWhenReady(for: note)
-                    }
+                Task {
+                    guard let note = await NoteSessionManager.shared.add(content: content, category: "") else { return }
+
+                    self.openEditorWhenReady(for: note)
                 }
             }
         } else if url.isFileURL {
             do {
                 _ = url.startAccessingSecurityScopedResource()
                 let content = try String(contentsOf: url, encoding: .utf8)
-                NoteSessionManager.shared.add(content: content, category: "")
+                Task {
+                    await NoteSessionManager.shared.add(content: content, category: "")
+                }
                 try FileManager.default.removeItem(at: url)
                 url.stopAccessingSecurityScopedResource()
             } catch {
