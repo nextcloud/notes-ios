@@ -7,8 +7,11 @@
 # Disable password policy app to enable simple testing passwords.
 ./occ app:disable password_policy
 
-# Install the notes app.
-./occ app:install notes
+# Install the notes app, or enable it when it was checked out into apps/ (as in CI).
+./occ app:install notes || ./occ app:enable notes
+
+# Mount incoming shares inside the notes folder, so shared notes show up in the Notes app (used by the tests).
+./occ config:system:set share_folder --value="/Notes"
 
 # Create some users.
 export OC_PASS=password

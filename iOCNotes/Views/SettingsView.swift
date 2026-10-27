@@ -80,8 +80,8 @@ struct SettingsView: View {
 
                         store.fileExtension = fileExtension
 
-                        NoteSessionManager.shared.updateSettings {
-                            // Nothing to do here yet.
+                        Task {
+                            await NoteSessionManager.shared.updateSettings()
                         }
                     }
                 }
@@ -92,7 +92,7 @@ struct SettingsView: View {
 
                     if let url = URL(string: NCBrandOptions.shared.privacyUrl) {
                         NavigationLink("Privacy and Legal Policy") {
-                            WebView(initialURL: url)
+                            WebView(initialURL: Binding.constant(url))
                         }
                     }
 
@@ -139,8 +139,8 @@ struct SettingsView: View {
                     showPathAlert = false
                     $store.notesPath.wrappedValue = pathInAlert
 
-                    NoteSessionManager.shared.updateSettings {
-                        // Nothing to do here yet.
+                    Task {
+                        await NoteSessionManager.shared.updateSettings()
                     }
                 } label: {
                     Text("Save")

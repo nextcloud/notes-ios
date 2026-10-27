@@ -1,277 +1,277 @@
 /* Crash report email body placeholder */
-"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Please provide as much details as possible about what you were doing when the crash occurred.>";
+"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Descrie cât mai detaliat ce făceai când aplicația s-a închis neașteptat.>";
 
 /* Support email body placeholder */
-"<Please state your question or problem here>" = "Please state your question or problem here";
+"<Please state your question or problem here>" = "Scrie aici întrebarea sau problema ta";
 
 /* An error message */
-"A server installation could not be found. Check the server address." = "A server installation could not be found. Check the server address.";
+"A server installation could not be found. Check the server address." = "Nu s-a găsit nicio instalare de server. Verifică adresa serverului.";
 
 /* Acknowledgements */
-"Acknowledgements" = "Acknowledgements";
+"Acknowledgements" = "Mulțumiri";
 
 /* Title of alert for adding a category */
-"Add Category" = "Add category";
+"Add Category" = "Adaugă o categorie";
 
 /* Item to show all notes */
-"All" = "All";
+"All" = "Toate";
 
 /* A menu action
    A menu option for cancelling */
 "Cancel" = "Anulează";
 
 /* Header title, categories */
-"CATEGORIES" = "CATEGORIES";
+"CATEGORIES" = "CATEGORII";
 
 /* 'Category' menu item */
 "Category" = "Categorie";
 
 /* Action to change category of a note */
-"Category…" = "Category…";
+"Category…" = "Categorie…";
 
 /* Action to change category of a note */
-"Change Category…" = "Change category…";
+"Change Category…" = "Schimbă categoria…";
 
 /* An error message */
-"Check username and password." = "Check username and password.";
+"Check username and password." = "Verifică numele de utilizator și parola.";
 
 /* Title of a button allowing the user to close the login screen and sync with the server */
-"Close & Sync" = "Close & Sync";
+"Close & Sync" = "Închide și sincronizează";
 
 /* Crash report email subject */
-"NextcloudNotes Crash Report" = "NextcloudNotes Crash Report";
+"NextcloudNotes Crash Report" = "Raport de eroare NextcloudNotes";
 
 /* No comment provided by engineer. */
-"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?";
+"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "NextcloudNotes s-a închis neașteptat ultima dată când a fost pornită. Vrei să trimiți un raport dezvoltatorului?";
 
 /* Support email subject */
-"NextcloudNotes Support Request" = "NextcloudNotes Support Request";
+"NextcloudNotes Support Request" = "Cerere de asistență NextcloudNotes";
 
 /* A button title */
-"Connect" = "Connect";
+"Connect" = "Conectează-te";
 
 /* Status information, connected */
-"Connected to Notes on the server" = "Connected to Notes on the server";
+"Connected to Notes on the server" = "Conectat la Notițe pe server";
 
 /* An error message title */
-"Connection failure" = "Connection failure";
+"Connection failure" = "Eroare de conexiune";
 
 /* Alert view title */
-"Crash Detected" = "Crash detected";
+"Crash Detected" = "S-a detectat o închidere neașteptată";
 
 /* Action to delete a note */
-"Delete" = "Delete";
+"Delete" = "Șterge";
 
 /* A menu action */
-"Delete Note" = "Şterge nota";
+"Delete Note" = "Șterge notița";
 
 /* Prompt on alert for adding a category */
-"Enter a name for the new category" = "Enter a name for the new category";
+"Enter a name for the new category" = "Introdu un nume pentru categoria nouă";
 
 /* The title of an error message */
-"Error Adding Note" = "Error adding note";
+"Error Adding Note" = "Eroare la adăugarea notiței";
 
 /* The title of an error message */
-"Error Deleting Note" = "Error deleting note";
+"Error Deleting Note" = "Eroare la ștergerea notiței";
 
 /* The title of an error message */
-"Error Getting Note" = "Error getting note";
+"Error Getting Note" = "Eroare la preluarea notiței";
 
 /* The title of an error message */
-"Error Syncing Notes" = "Error syncing notes";
+"Error Syncing Notes" = "Eroare la sincronizarea notițelor";
 
 /* The title of an error message */
-"Error Updating Note" = "Error updating note";
+"Error Updating Note" = "Eroare la actualizarea notiței";
 
 /* The title of an error message */
-"Error Updating Notes" = "Error updating notes";
+"Error Updating Notes" = "Eroare la actualizarea notițelor";
 
 /* An error message */
-"Failed to connect to a server. Check your settings." = "Failed to connect to a server. Check your settings.";
+"Failed to connect to a server. Check your settings." = "Conectarea la server a eșuat. Verifică setările.";
 
 /* Item to show favorite notes */
-"Favorites" = "Favorites";
+"Favorites" = "Favorite";
 
 /* A menu option for plain sharing in html format */
 "HTML" = "HTML";
 
 /* A status label indicating that the user is logged in */
-"Logged In" = "Logged in";
+"Logged In" = "Autentificat";
 
 /* Header title, main */
-"MAIN" = "MAIN";
+"MAIN" = "PRINCIPAL";
 
 /* A menu option for sharing in markdown format */
 "Markdown" = "Markdown";
 
 /* The title of a new note */
-"New note" = "Notă nouă";
+"New note" = "Notiță nouă";
 
 /* No comment provided by engineer. */
-"No thanks" = "No thanks";
+"No thanks" = "Nu, mulțumesc";
 
 /* Status information, not connected */
-"Not connected to Notes on a server" = "Not connected to Notes on a server";
+"Not connected to Notes on a server" = "Nu ești conectat la Notițe pe un server";
 
 /* A status label indicating that the user is not logged in */
-"Not Logged In" = "Not logged in";
+"Not Logged In" = "Neautentificat";
 
 /* Message about not being logged in */
-"Not logged in" = "Not logged in";
+"Not logged in" = "Neautentificat";
 
 /* Title of alert to change title */
-"Note Title" = "Note title";
+"Note Title" = "Titlul notiței";
 
 /* An error message */
-"Notes could not be found on your server. Make sure it is installed and enabled" = "Notes could not be found on your server. Make sure it is installed and enabled";
+"Notes could not be found on your server. Make sure it is installed and enabled" = "Aplicația Notițe nu a fost găsită pe server. Asigură-te că este instalată și activată";
 
 /* An error message title */
-"Notes not found" = "Notes not found";
+"Notes not found" = "Aplicația Notițe nu a fost găsită";
 
 /* Button, OK */
 "OK" = "OK";
 
 /* Title for Open In activity */
-"Open in…" = "Open in…";
+"Open in…" = "Deschide în…";
 
 /* A menu option for sharing in plain text format */
-"Plain Text" = "Plain text";
+"Plain Text" = "Text simplu";
 
 /* A message
    A message to check network connection */
-"Please check network connection and login." = "Please check network connection and login.";
+"Please check network connection and login." = "Verifică conexiunea la rețea și autentificarea.";
 
 /* A button title */
-"Reconnect" = "Reconnect";
+"Reconnect" = "Reconectează-te";
 
 /* Action to change title of a note
    Caption of Rename button */
-"Rename" = "Rename";
+"Rename" = "Redenumește";
 
 /* Message of alert to change title */
-"Rename the note" = "Rename the note";
+"Rename the note" = "Redenumește notița";
 
 /* Action to change title of a note */
-"Rename…" = "Rename…";
+"Rename…" = "Redenumește…";
 
 /* A menu option for sharing in rich text format */
-"Rich Text" = "Rich text";
+"Rich Text" = "Text formatat";
 
 /* Placeholder text when no note is selected */
-"Select or create a note." = "Select or create a note.";
+"Select or create a note." = "Selectează sau creează o notiță.";
 
 /* Alert title for selecting server brand */
 "Server" = "Server";
 
 /* An error message title */
-"Server not found" = "Server not found";
+"Server not found" = "Serverul nu a fost găsit";
 
 /* A message title */
-"Server Reachable" = "Server reachable";
+"Server Reachable" = "Serverul este accesibil";
 
 /* Title of a menu with sharing options */
-"Share Note As" = "Share note as";
+"Share Note As" = "Partajează notița ca";
 
 /* A message title */
 "Success" = "Succes";
 
 /* A message */
-"The network connection is working properly." = "The network connection is working properly.";
+"The network connection is working properly." = "Conexiunea la rețea funcționează corect.";
 
 /* An error message */
-"The note does not exist" = "The note does not exist";
+"The note does not exist" = "Notița nu există";
 
 /* Alert message for selecting server brand */
-"Unable to automatically detect type of server.\nPlease select:" = "Unable to automatically detect type of server.\nPlease select:";
+"Unable to automatically detect type of server.\nPlease select:" = "Tipul serverului nu a putut fi detectat automat.\nSelectează:";
 
 /* A message title
    The title of an error message */
-"Unable to Reach Server" = "Unable to reach server";
+"Unable to Reach Server" = "Serverul nu poate fi accesat";
 
 /* An error message title */
-"Unauthorized" = "Unauthorized";
+"Unauthorized" = "Neautorizat";
 
 /* Text displayed for notes not assigned to a category */
-"Uncategorized" = "Fără categorie ";
+"Uncategorized" = "Fără categorie";
 
 /* Message with Notes version, product name and version */
-"Using Notes %1$@ on %2$@ %3$@." = "Using Notes %1$@ on %2$@ %3$@.";
+"Using Notes %1$@ on %2$@ %3$@." = "Folosești Notițe %1$@ pe %2$@ %3$@.";
 
 /* No comment provided by engineer. */
-"Yes, please!" = "Yes, please!";
+"Yes, please!" = "Da, te rog!";
 
 /* A message */
-"You are now connected to Notes on your server" = "You are now connected to Notes on your server";
+"You are now connected to Notes on your server" = "Acum ești conectat la Notițe pe serverul tău";
 
 /* HUD subtitle when checking server capabilities */
-"Checking server capabilities" = "Checking server capabilities";
+"Checking server capabilities" = "Se verifică capacitățile serverului";
 
 /* HUD subtitle when checking server settings */
-"Checking server settings" = "Checking server settings";
+"Checking server settings" = "Se verifică setările serverului";
 
 /* HUD subtitle when checking server status */
-"Checking server status" = "Checking server status";
+"Checking server status" = "Se verifică starea serverului";
 
 /* No comment provided by engineer. */
-"Connection error" = "Connection error";
+"Connection error" = "Eroare de conexiune";
 
 /* No comment provided by engineer. */
-"Do you want to connect to the server anyway?" = "Do you want to connect to the server anyway?";
+"Do you want to connect to the server anyway?" = "Vrei totuși să te conectezi la server?";
 
 /* An error message title */
-"Error" = "Error";
+"Error" = "Eroare";
 
 /* No comment provided by engineer. */
 "No" = "Nu";
 
 /* Title of alert to change notes folder */
-"Notes Folder" = "Notes folder";
+"Notes Folder" = "Dosarul pentru notițe";
 
 /* A menu option for sharing in pdf format */
 "PDF" = "PDF";
 
 /* Caption of Save button */
-"Save" = "Save";
+"Save" = "Salvează";
 
 /* No comment provided by engineer. */
-"The certificate for this server is invalid" = "The certificate for this server is invalid";
+"The certificate for this server is invalid" = "Certificatul acestui server este nevalid";
 
 /* No comment provided by engineer. */
-"View Certificate" = "View certificate";
+"View Certificate" = "Vezi certificatul";
 
 /* No comment provided by engineer. */
-"Yes" = "a";
+"Yes" = "Da";
 
 // NEXTCLOUD
-"Select the account to add"   = "Select the account to add";
+"Select the account to add"   = "Selectează contul de adăugat";
 
-"Notes" = "Note";
+"Notes" = "Notițe";
 
 "Cancel" = "Anulează";
-"Scan QR Code" = "Scan QR Code";
-"Close" = "Close";
-"Server Address" = "Server Address";
-"The address of your Nextcloud web interface when you open it in your browser." = "The address of your Nextcloud web interface when you open it in your browser.";
-"The entered server address is invalid." = "The entered server address is invalid.";
-"Accounts from our other apps were found on this device. Would you like to add one of these?" = "Accounts from our other apps were found on this device. Would you like to add one of these?";
-"Shared Accounts" = "Shared Accounts";
+"Scan QR Code" = "Scanează codul QR";
+"Close" = "Închide";
+"Server Address" = "Adresa serverului";
+"The address of your Nextcloud web interface when you open it in your browser." = "Adresa interfeței web Nextcloud, așa cum apare când o deschizi în browser.";
+"The entered server address is invalid." = "Adresa de server introdusă este nevalidă.";
+"Accounts from our other apps were found on this device. Would you like to add one of these?" = "Pe acest dispozitiv au fost găsite conturi din celelalte aplicații ale noastre. Vrei să adaugi unul dintre ele?";
+"Shared Accounts" = "Conturi partajate";
 
 // SettingsView
-"Account" = "Account";
-"Log Out" = "Log Out";
-"Synchronization" = "Synchronization";
-"Synchronize on Start" = "Synchronize on Start";
-"Offline Mode" = "Offline Mode";
-"Server Settings" = "Server Settings";
-"Notes Path" = "Notes Path";
-"Internal Editor" = "Internal Editor";
-"File Extension" = "File Extension";
-"About This App" = "About This App";
-"Client Version" = "Client Version";
-"Server Version" = "Server Version";
-"Privacy and Legal Policy" = "Politica legală și de confidențialitate";
-"Show Source Code on GitHub" = "Show Source Code on GitHub";
-"Logout" = "Logout";
-"Are you sure you want to log out?" = "Are you sure you want to log out?";
-"Enter a name for the folder where notes should be saved on the server" = "Enter a name for the folder where notes should be saved on the server";
-"Settings" = "Settings";
+"Account" = "Cont";
+"Log Out" = "Deconectează-te";
+"Synchronization" = "Sincronizare";
+"Synchronize on Start" = "Sincronizează la pornire";
+"Offline Mode" = "Mod offline";
+"Server Settings" = "Setările serverului";
+"Notes Path" = "Calea notițelor";
+"Internal Editor" = "Editor intern";
+"File Extension" = "Extensia fișierului";
+"About This App" = "Despre această aplicație";
+"Client Version" = "Versiunea clientului";
+"Server Version" = "Versiunea serverului";
+"Privacy and Legal Policy" = "Politica de confidențialitate și informații legale";
+"Show Source Code on GitHub" = "Vezi codul sursă pe GitHub";
+"Logout" = "Deconectare";
+"Are you sure you want to log out?" = "Sigur vrei să te deconectezi?";
+"Enter a name for the folder where notes should be saved on the server" = "Introdu un nume pentru dosarul în care vor fi salvate notițele pe server";
+"Settings" = "Setări";
