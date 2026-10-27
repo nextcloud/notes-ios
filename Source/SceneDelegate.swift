@@ -25,13 +25,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         windowScene.title = "NextcloudNotes"
 
+        let window = UIWindow(windowScene: windowScene)
+        self.window = window
+
+        guard !AppDelegate.isRunningTests else {
+            window.rootViewController = UIViewController()
+            window.makeKeyAndVisible()
+            return
+        }
+
         let contentView = ContentView()
             .environment(Store.shared)
 
-        let window = UIWindow(windowScene: windowScene)
         window.tintColor = .ph_iconColor
         window.rootViewController = UIHostingController(rootView: contentView)
-        self.window = window
         window.makeKeyAndVisible()
 
         for context in connectionOptions.urlContexts {
@@ -40,18 +47,26 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
+        guard !AppDelegate.isRunningTests else { return }
+
         AppDelegate.shared.handleDidBecomeActive()
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
+        guard !AppDelegate.isRunningTests else { return }
+
         AppDelegate.shared.handleWillResignActive()
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
+        guard !AppDelegate.isRunningTests else { return }
+
         AppDelegate.shared.handleDidEnterBackground()
     }
 
     func scene(_ scene: UIScene, openURLContexts urlContexts: Set<UIOpenURLContext>) {
+        guard !AppDelegate.isRunningTests else { return }
+
         for context in urlContexts {
             _ = AppDelegate.shared.handleOpen(url: context.url)
         }

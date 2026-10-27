@@ -1,0 +1,44 @@
+{
+  "configurations" : [
+    {
+      "id" : "2D7E4598-BBD0-4A79-B84B-A4E06329CAC9",
+      "name" : "Live Server",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : true,
+    "environmentVariableEntries" : [
+      {
+        "key" : "NOTES_UNDER_TEST",
+        "value" : "1"
+      },
+      {
+        "key" : "NOTES_INTEGRATION_TESTS",
+        "value" : "1"
+      },
+      {
+        "key" : "NOTES_TEST_SERVER_URL",
+        "value" : "http:\/\/localhost:8080"
+      }
+    ],
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:iOCNotes.xcodeproj",
+      "identifier" : "D0CFE5321888A7BD00165839",
+      "name" : "iOCNotes"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : false,
+      "target" : {
+        "containerPath" : "container:iOCNotes.xcodeproj",
+        "identifier" : "F300373F2E6ED2DC00A49C0D",
+        "name" : "IOCNotesUnitTests"
+      }
+    }
+  ],
+  "version" : 1
+}

@@ -116,6 +116,9 @@
 /* Message about not being logged in */
 "Not logged in" = "Not logged in";
 
+/* Title of the hint shown when pull-to-refresh cannot sync */
+"Not Synchronized" = "Not Synchronized";
+
 /* Title of alert to change title */
 "Note Title" = "Note title";
 
@@ -124,6 +127,9 @@
 
 /* An error message title */
 "Notes not found" = "Notes not found";
+
+/* Shown when pull-to-refresh is used in offline mode */
+"Offline Mode is on. Turn it off in Settings to sync." = "Offline Mode is on. Turn it off in Settings to sync.";
 
 /* Button, OK */
 "OK" = "OK";
@@ -174,6 +180,15 @@
 
 /* An error message */
 "The note does not exist" = "The note does not exist";
+
+/* Shown when pull-to-refresh is used without a connection to the server */
+"The server is not reachable." = "The server is not reachable.";
+
+/* An error message */
+"This note is read-only and cannot be deleted." = "This note is read-only and cannot be deleted.";
+
+/* An error message */
+"This note is read-only. Your changes were not saved." = "This note is read-only. Your changes were not saved.";
 
 /* Alert message for selecting server brand */
 "Unable to automatically detect type of server.\nPlease select:" = "Unable to automatically detect type of server.\nPlease select:";

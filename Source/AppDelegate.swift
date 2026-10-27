@@ -21,7 +21,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private var pendingNoteToOpen: Note?
 
+    /// When hosting tests, the app must not sync or touch the real store alongside them.
+    static let isRunningTests: Bool = {
+        let environment = ProcessInfo.processInfo.environment
+        return environment["NOTES_UNDER_TEST"] == "1" || environment["XCTestConfigurationFilePath"] != nil
+    }()
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        NextcloudKit.shared.setup(delegate: self)
+
+        guard !AppDelegate.isRunningTests else { return true }
+
         // Any install <= 35.0.0 has a bug where notes are not fully synced, as `eTag` and `lastModified` were not reset upon log out.
         // Reset once so the first sync fetches everything.
         if !KeychainHelper.didResetSyncValidators {
@@ -29,8 +39,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             KeychainHelper.lastModified = 0
             KeychainHelper.didResetSyncValidators = true
         }
-
-        NextcloudKit.shared.setup(delegate: self)
 
         for account in store.accounts {
             NextcloudKit.shared.appendSession(

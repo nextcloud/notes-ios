@@ -8,7 +8,7 @@ import SwiftMessages
 import SystemConfiguration
 import UIKit
 
-private struct ErrorMessage {
+struct ErrorMessage {
     let title: String
     let body: String
 }
@@ -47,6 +47,21 @@ private final class NotesURLSessionDelegate: NSObject, URLSessionDelegate, @unch
 
 }
 
+/// The fields a user edits, to tell whether a note changed while a request for it was in flight.
+private struct EditableFields: Equatable {
+    let title: String
+    let content: String
+    let category: String
+    let favorite: Bool
+
+    init(_ note: NoteProtocol) {
+        title = note.title
+        content = note.content
+        category = note.category
+        favorite = note.favorite
+    }
+}
+
 private struct HTTPResult {
     let data: Data
     let response: HTTPURLResponse
@@ -77,6 +92,16 @@ private enum RequestError: Error, LocalizedError {
         return false
     }
 
+    /// Whether the Notes app itself answered, as opposed to e.g. an HTML error page of the server core.
+    var isNotesAppResponse: Bool {
+        switch self {
+        case .transport:
+            return false
+        case let .unacceptableStatusCode(result), let .unacceptableContentType(result), let .decoding(_, result):
+            return result.response.mimeType?.lowercased() == Router.applicationJson
+        }
+    }
+
     var errorDescription: String? {
         switch self {
         case let .transport(error), let .decoding(error, _):
@@ -97,11 +122,18 @@ final class NoteSessionManager {
         let message: ErrorMessage
     }
 
-    static let shared = NoteSessionManager()
+    static let shared = NoteSessionManager(configuration: makeProductionConfiguration(), retryDelay: .seconds(2))
+
+    /// Presents user-facing errors; tests replace it to capture them.
+    var presentError: @MainActor (ErrorMessage) -> Void = { message in
+        NoteSessionManager.showBanner(for: message)
+    }
 
     private var notesBeingAdded = Set<String>()
+    private var runningSync: Task<Void, Never>?
 
     private let session: URLSession
+    private let retryDelay: Duration
 
     nonisolated static var isConnectedToServer: Bool {
         guard let url = URL(string: KeychainHelper.server),
@@ -116,13 +148,22 @@ final class NoteSessionManager {
         return NoteSessionManager.isConnectedToServer && !Store.shared.offlineMode
     }
 
-    private init() {
+    init(configuration: URLSessionConfiguration, retryDelay: Duration) {
+        session = URLSession(configuration: configuration, delegate: NotesURLSessionDelegate(), delegateQueue: nil)
+        self.retryDelay = retryDelay
+    }
+
+    nonisolated static func makeProductionConfiguration() -> URLSessionConfiguration {
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForResource = 30
         configuration.timeoutIntervalForRequest = 30
         configuration.waitsForConnectivity = true
-        configuration.httpAdditionalHeaders = ["User-Agent": userAgent]
-        session = URLSession(configuration: configuration, delegate: NotesURLSessionDelegate(), delegateQueue: nil)
+        return configuration
+    }
+
+    /// Releases the session, which otherwise retains its delegate for the lifetime of the process.
+    func invalidateSession() {
+        session.finishTasksAndInvalidate()
     }
 
     /// Fetch the server status from `/status.php`.
@@ -205,27 +246,52 @@ final class NoteSessionManager {
 
     ///
     /// Synchronize the notes: push local deletions, additions and updates, then pull remote changes.
+    /// Overlapping calls join the synchronization already in progress.
     ///
     func sync() async {
+        if let runningSync {
+            await runningSync.value
+            return
+        }
+
+        guard NoteSessionManager.isOnline else {
+            logger.notice("Skipping synchronization because offline mode is on or the server is not reachable.")
+            return
+        }
+
         logger.notice("Synchronizing...")
 
-        await pushLocalDeletions()
-        await pushLocalAdditions()
-        await pushLocalUpdates()
-        await pullRemoteChanges()
+        let task = Task {
+            await pushLocalDeletions()
+            await pushLocalAdditions()
+            await pushLocalUpdates()
+            await pullRemoteChanges()
+        }
+
+        runningSync = task
+
+        await withTaskCancellationHandler {
+            await task.value
+        } onCancel: {
+            task.cancel()
+        }
+
+        runningSync = nil
     }
+
+    // Each push re-checks its row: earlier awaits may have uploaded, deleted or detached it.
 
     private func pushLocalDeletions() async {
         for note in Note.notes(property: "deleteNeeded") ?? [] {
+            guard note.managedObjectContext != nil, note.deleteNeeded else { continue }
+
             await delete(note: note)
         }
     }
 
     private func pushLocalAdditions() async {
         for note in Note.notes(property: "addNeeded") ?? [] {
-            if let guid = note.guid, notesBeingAdded.contains(guid) {
-                continue
-            }
+            guard note.managedObjectContext != nil, note.addNeeded else { continue }
 
             _ = await addToServer(note: note)
         }
@@ -233,39 +299,35 @@ final class NoteSessionManager {
 
     private func pushLocalUpdates() async {
         for note in Note.notes(property: "updateNeeded") ?? [] {
+            guard note.managedObjectContext != nil, note.updateNeeded, !note.addNeeded else { continue }
+
             await update(note: note)
         }
     }
 
     private func pullRemoteChanges(recoveringFromStaleCache: Bool = false) async {
+        // Local operations can finish while the list is in flight, so the response may only remove or
+        // re-insert notes the database already knew, unchanged, when the request was sent.
+        let knownBeforeRequest = Note.syncedIds()
+        let unchangedBeforeRequest = Note.syncedIds(excludingPendingChanges: true)
+
         switch await perform(Router.allNotes, retryLimit: 2) {
             case let .success(result):
-                let dateFormatter = DateFormatter()
-                dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-                dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
-                dateFormatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss zzz"
-
-                // Like the Android client: 0 (no pruning) when the header is missing or unparseable.
-                let lastModifiedDate = result.response.value(forHTTPHeaderField: "Last-Modified").flatMap { dateFormatter.date(from: $0) }
-                KeychainHelper.lastModified = Int(lastModifiedDate?.timeIntervalSince1970 ?? 0)
-
-                if let etag = result.response.value(forHTTPHeaderField: "Etag") {
-                    KeychainHelper.eTag = etag
-                }
-
                 guard let json = try? JSONSerialization.jsonObject(with: result.data, options: .allowFragments),
                       let jsonArray = json as? Array<[String: Any]> else {
                     logger.error("Unexpected payload received for the list of all notes.")
                     return
                 }
 
+                storeValidators(from: result.response)
+
                 // A pruned stub for a note missing locally means the validators got ahead of
                 // the local database: drop them and fetch the full list once.
                 if !recoveringFromStaleCache {
-                    let knownIds = Set(Note.all()?.map(\.id) ?? [])
+                    let localIds = Note.syncedIds()
                     let prunedIds = jsonArray.filter({ $0.keys.count == 1 }).compactMap({ $0["id"] as? Int64 })
 
-                    if prunedIds.contains(where: { !knownIds.contains($0) }) {
+                    if prunedIds.contains(where: { !localIds.contains($0) }) {
                         logger.notice("Server pruned notes that do not exist locally, refetching the full list...")
 
                         KeychainHelper.eTag = ""
@@ -276,33 +338,28 @@ final class NoteSessionManager {
                     }
                 }
 
-                if let serverIds = jsonArray.map({ $0["id"] }) as? [Int64],
-                    let knownIds = Note.all()?.map({ $0.id }).filter({ $0 > 0 }) {
-                    let deletedOnServer = Set(knownIds).subtracting(Set(serverIds))
+                // Rows with unpushed changes survive a remote deletion: their next push re-creates them.
+                if let serverIds = jsonArray.map({ $0["id"] }) as? [Int64] {
+                    let deletedOnServer = unchangedBeforeRequest
+                        .intersection(Note.syncedIds(excludingPendingChanges: true))
+                        .subtracting(serverIds)
 
                     if !deletedOnServer.isEmpty {
                         Note.delete(ids: Array(deletedOnServer))
                     }
                 }
 
-                let filteredDicts = jsonArray.filter({ $0.keys.count > 1 })
+                let localIds = Note.syncedIds()
+                let remoteNotes = jsonArray
+                    .filter({ $0.keys.count > 1 })
+                    .map { NoteStruct(dictionary: $0) }
+                    .filter { localIds.contains($0.id) || !knownBeforeRequest.contains($0.id) }
 
-                if !filteredDicts.isEmpty {
-                    let notes = filteredDicts.map { NoteStruct(dictionary: $0) }
-                    Note.update(notes: notes)
+                if !remoteNotes.isEmpty {
+                    Note.merge(remote: remoteNotes)
                 }
             case let .failure(error):
                 if error.statusCode == 304 {
-                    // A 304 with no local notes means the validators outlived the database (e.g. relogin):
-                    // drop them and fetch the full list once.
-                    if !recoveringFromStaleCache, Note.all()?.isEmpty != false {
-                        KeychainHelper.eTag = ""
-                        KeychainHelper.lastModified = 0
-
-                        await pullRemoteChanges(recoveringFromStaleCache: true)
-                        return
-                    }
-
                     logger.notice("Remote notes did not change.")
                 } else {
                     let body = error.isTimedOut ? "The server request timed out" : error.localizedDescription
@@ -310,6 +367,21 @@ final class NoteSessionManager {
                                                body: body)
                     showErrorMessage(message: message)
                 }
+        }
+    }
+
+    private func storeValidators(from response: HTTPURLResponse) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+        dateFormatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss zzz"
+
+        // Like the Android client: 0 (no pruning) when the header is missing or unparseable.
+        let lastModifiedDate = response.value(forHTTPHeaderField: "Last-Modified").flatMap { dateFormatter.date(from: $0) }
+        KeychainHelper.lastModified = Int(lastModifiedDate?.timeIntervalSince1970 ?? 0)
+
+        if let etag = response.value(forHTTPHeaderField: "Etag") {
+            KeychainHelper.eTag = etag
         }
     }
 
@@ -338,6 +410,19 @@ final class NoteSessionManager {
     }
 
     private func addToServer(note: Note) async -> Result<Note?, NoteError> {
+        let guid = note.guid ?? UUID().uuidString
+        note.guid = guid
+
+        // Several paths can upload the same pending note; only one request may be in flight for it.
+        guard notesBeingAdded.insert(guid).inserted else {
+            return .success(note)
+        }
+
+        defer {
+            notesBeingAdded.remove(guid)
+        }
+
+        let sent = EditableFields(note)
         let parameters: Parameters = ["title": note.title as Any,
                                       "content": note.content as Any,
                                       "category": note.category as Any,
@@ -345,26 +430,39 @@ final class NoteSessionManager {
                                       "favorite": note.favorite]
         let router = Router.createNote(parameters: parameters)
 
-        if let guid = note.guid {
-            notesBeingAdded.insert(guid)
-        }
-
-        defer {
-            if let guid = note.guid {
-                notesBeingAdded.remove(guid)
-            }
-        }
-
         switch await performDecodable(router, of: NoteStruct.self, retryLimit: 2) {
             case let .success(remote):
+                // Deleted locally while the upload was in flight: remove the server copy as well.
+                guard note.managedObjectContext != nil else {
+                    _ = await perform(Router.deleteNote(id: Int(remote.id)), requireJSONContentType: false, retryLimit: 2)
+                    return .success(nil)
+                }
+
                 note.id = remote.id
-                note.modified = remote.modified
-                note.title = remote.title
-                note.content = remote.content
-                note.category = remote.category
+                note.readOnly = remote.readOnly
+                note.etag = remote.etag
                 note.addNeeded = false
-                note.updateNeeded = false
-                return .success(Note.update(note: note))
+
+                // Edits made while the upload was in flight win over the server's echo of the older version.
+                let editedMeanwhile = EditableFields(note) != sent
+
+                if editedMeanwhile {
+                    note.updateNeeded = true
+                } else {
+                    note.modified = remote.modified
+                    note.title = remote.title
+                    note.content = remote.content
+                    note.category = remote.category
+                    note.updateNeeded = false
+                }
+
+                let saved = Note.update(note: note)
+
+                if editedMeanwhile, case let .failure(error) = await updateOnServer(note) {
+                    showErrorMessage(message: error.message)
+                }
+
+                return .success(saved)
             case let .failure(error):
                 let message = ErrorMessage(title: NSLocalizedString("Error Adding Note", comment: "The title of an error message"),
                                            body: error.localizedDescription)
@@ -375,22 +473,19 @@ final class NoteSessionManager {
     func get(note: NoteProtocol) async {
         logger.notice("Getting note...")
 
-        guard NoteSessionManager.isOnline else { return }
+        // Unpushed local changes win until they are pushed, so there is nothing to fetch.
+        guard !note.addNeeded, !note.updateNeeded, !note.deleteNeeded, NoteSessionManager.isOnline else { return }
 
         let router = Router.getNote(id: Int(note.id), etag: note.etag)
         let validStatusCodes = KeychainHelper.notesApiVersion == Router.defaultApiVersion ? 200..<300 : 200..<201
 
         switch await performDecodable(router, of: NoteStruct.self, validStatusCodes: validStatusCodes) {
             case let .success(remote):
-                Note.update(notes: [remote])
+                Note.merge(remote: [remote])
             case let .failure(error):
                 switch error.statusCode {
-                    case nil, 304, 400: // Transport error, not modified, or bad request
+                    case nil, 304, 400, 404: // Transport error, not modified, bad request, or deleted remotely (the next pull removes it)
                         break
-                    case 404:
-                        if let guid = note.guid, let dbNote = Note.note(guid: guid) {
-                            await add(note: dbNote)
-                        }
                     default:
                         let message = ErrorMessage(title: NSLocalizedString("Error Getting Note", comment: "The title of an error message"),
                                                    body: error.localizedDescription)
@@ -410,33 +505,73 @@ final class NoteSessionManager {
             return
         }
 
+        // A note the server has not seen yet is uploaded as a whole instead.
+        if incoming.addNeeded {
+            Note.update(notes: [incoming])
+
+            if let pending = managedNote(for: incoming) {
+                await add(note: pending)
+            }
+
+            return
+        }
+
         if case let .failure(error) = await updateOnServer(incoming, updateModified: updateModified) {
             showErrorMessage(message: error.message)
         }
     }
 
     private func updateOnServer(_ note: NoteProtocol, updateModified: Bool = true) async -> Result<Void, NoteError> {
-        // Metadata-only changes (e.g. toggling favorite) keep the existing modification date so the note does
-        // not jump to the top of a date-sorted list and the row is not re-sorted a second time after the sync.
-        let modified = updateModified ? Date().timeIntervalSince1970 : note.modified
-        let parameters: Parameters = ["title": note.title as Any,
-                                      "content": note.content as Any,
-                                      "category": note.category as Any,
-                                      "modified": modified as Any,
-                                      "favorite": note.favorite]
+        let parameters: Parameters
+
+        if note.readOnly || note.error {
+            // The server rejects other changes to these notes, and their content must never be sent back.
+            parameters = ["favorite": note.favorite]
+        } else {
+            // Metadata-only changes (e.g. toggling favorite) keep the existing modification date so the note does
+            // not jump to the top of a date-sorted list and the row is not re-sorted a second time after the sync.
+            let modified = updateModified ? Date().timeIntervalSince1970 : note.modified
+            parameters = ["title": note.title as Any,
+                          "content": note.content as Any,
+                          "category": note.category as Any,
+                          "modified": modified as Any,
+                          "favorite": note.favorite]
+        }
+
+        let sent = EditableFields(note)
+        let sentId = note.id
         let router = Router.updateNote(id: Int(note.id), parameters: parameters)
 
         switch await performDecodable(router, of: NoteStruct.self, retryLimit: 2) {
             case let .success(remote):
+                // A newer local edit made while this request was in flight stays pending instead of being reverted.
+                guard EditableFields(note) == sent else {
+                    return .success(())
+                }
+
                 Note.update(notes: [remote])
                 return .success(())
             case let .failure(error):
                 Note.update(notes: [note])
 
                 switch error.statusCode {
-                    case 404, 405:
-                        if let guid = note.guid, let dbNote = Note.note(guid: guid) {
-                            await add(note: dbNote)
+                    case 403:
+                        // Read-only on the server: drop the rejected change and restore the server copy.
+                        if let rejected = managedNote(for: note) {
+                            rejected.updateNeeded = false
+                            // Unconditional fetch: the server copy is unchanged, so a conditional one would get 304.
+                            rejected.etag = ""
+                            Note.update(notes: [rejected])
+                            await get(note: rejected)
+                        }
+
+                        let message = ErrorMessage(title: NSLocalizedString("Error Updating Note", comment: "The title of an error message"),
+                                                   body: NSLocalizedString("This note is read-only. Your changes were not saved.", comment: "An error message"))
+                        return .failure(NoteError(message: message))
+                    case 404 where error.isNotesAppResponse, 405:
+                        // A late answer to an older request must not re-create an already re-created note.
+                        if note.id == sentId {
+                            await recreateOnServer(note)
                         }
 
                         return .success(())
@@ -482,6 +617,16 @@ final class NoteSessionManager {
                         // The note is already gone from the server, delete it locally.
                         Note.delete(note: note)
                         return .success(())
+                    case 403:
+                        // Read-only on the server: the note stays, so show it again.
+                        if let kept = managedNote(for: note) {
+                            kept.deleteNeeded = false
+                            Note.update(notes: [kept])
+                        }
+
+                        let message = ErrorMessage(title: NSLocalizedString("Error Deleting Note", comment: "The title of an error message"),
+                                                   body: NSLocalizedString("This note is read-only and cannot be deleted.", comment: "An error message"))
+                        return .failure(NoteError(message: message))
                     case 423:
                         let message = ErrorMessage(title: NSLocalizedString("Error Deleting Note", comment: "The title of an error message"),
                                                    body: NSLocalizedString("Unable to delete locked file on server", comment: ""))
@@ -494,6 +639,36 @@ final class NoteSessionManager {
                         return .failure(NoteError(message: message))
                 }
         }
+    }
+
+    ///
+    /// Re-creates a note the server no longer has, keeping the local content: an edit wins over a remote delete.
+    ///
+    private func recreateOnServer(_ note: NoteProtocol) async {
+        guard let orphan = managedNote(for: note) else { return }
+
+        orphan.id = -1
+        orphan.addNeeded = true
+        orphan.updateNeeded = false
+
+        if orphan.guid == nil {
+            orphan.guid = UUID().uuidString
+        }
+
+        Note.update(notes: [orphan])
+        await add(note: orphan)
+    }
+
+    private func managedNote(for note: NoteProtocol) -> Note? {
+        if let managed = note as? Note, managed.managedObjectContext != nil {
+            return managed
+        }
+
+        if note.id > 0 {
+            return Note.note(id: note.id)
+        }
+
+        return note.guid.flatMap(Note.note(guid:))
     }
 
     // MARK: - Requests
@@ -534,9 +709,15 @@ final class NoteSessionManager {
             let result = HTTPResult(data: data, response: httpResponse)
 
             guard validStatusCodes.contains(httpResponse.statusCode) else {
-                if httpResponse.statusCode == 423, attempt < retryLimit, !Task.isCancelled { // File lock on server
+                if httpResponse.statusCode == 423, attempt < retryLimit { // File lock on server
                     attempt += 1
-                    try? await Task.sleep(nanoseconds: 2_000_000_000)
+
+                    do {
+                        try await Task.sleep(for: retryDelay)
+                    } catch {
+                        return .failure(.transport(error))
+                    }
+
                     continue
                 }
 
@@ -589,6 +770,10 @@ final class NoteSessionManager {
         // A cancelled flow (dismissed pull-to-refresh, expired background task) must not surface banners.
         guard !Task.isCancelled else { return }
 
+        presentError(message)
+    }
+
+    private static func showBanner(for message: ErrorMessage) {
         #if !os(OSX)
         var config = SwiftMessages.defaultConfig
         config.interactiveHide = true

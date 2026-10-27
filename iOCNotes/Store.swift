@@ -188,8 +188,6 @@ final class Store: Logging, Storing {
         KeychainHelper.server = ""
         KeychainHelper.username = ""
         KeychainHelper.password = ""
-        KeychainHelper.eTag = ""
-        KeychainHelper.lastModified = 0
         KeychainHelper.notesApiVersion = Router.defaultApiVersion
         Note.reset()
         reloadAccounts()

@@ -64,6 +64,8 @@ jobs:
           echo "Using simulator $UDID"
           echo "udid=$UDID" >> "$GITHUB_OUTPUT"
 
+      # Ad-hoc signing (no certificate needed) gives the simulator app keychain access, which the
+      # network tests' credentials need; an unsigned build silently fails every keychain write.
       - name: Run unit tests
         run: |
           xcodebuild test \
@@ -73,7 +75,7 @@ jobs:
             -resultBundlePath TestResults.xcresult \
             -skipPackagePluginValidation \
             -parallel-testing-enabled NO \
-            CODE_SIGNING_ALLOWED=NO
+            CODE_SIGN_IDENTITY=- CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM=
 
       - name: Show failure details
         if: failure()
@@ -97,4 +99,122 @@ jobs:
         with:
           name: TestResults
           path: TestResults.xcresult
+          if-no-files-found: ignore
+
+  live-server:
+    # End-to-end tests against a real Nextcloud with the Notes app. Hosted macOS runners cannot run
+    # Docker, so the server runs natively on PHP.
+    runs-on: macos-15
+    if: github.event.pull_request.draft != true
+
+    env:
+      SERVER_BRANCH: stable35
+      NOTES_VERSION: v6.1.0
+      PHP_VERSION: '8.4'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Select latest installed Xcode
+        run: |
+          LATEST=$(ls -d /Applications/Xcode_*.app 2>/dev/null | sort -V | tail -1)
+          LATEST=${LATEST:-/Applications/Xcode.app}
+          echo "Selecting $LATEST"
+          sudo xcode-select --switch "$LATEST"
+
+      - name: Set up PHP ${{ env.PHP_VERSION }}
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ env.PHP_VERSION }}
+          # https://docs.nextcloud.com/server/stable/admin_manual/installation/source_installation.html#prerequisites-for-manual-installation
+          extensions: apcu, bz2, ctype, curl, dom, fileinfo, gd, iconv, intl, json, libxml, mbstring, openssl, pcntl, posix, session, simplexml, xmlreader, xmlwriter, zip, zlib, pdo_sqlite, sqlite3
+          coverage: none
+          ini-file: development
+          ini-values: apc.enable_cli=on, disable_functions=
+
+      - name: Check out Nextcloud server
+        uses: actions/checkout@v7
+        with:
+          repository: nextcloud/server
+          ref: ${{ env.SERVER_BRANCH }}
+          submodules: true
+          path: server
+
+      - name: Check out the Notes app
+        uses: actions/checkout@v7
+        with:
+          repository: nextcloud/notes
+          ref: ${{ env.NOTES_VERSION }}
+          path: server/apps/notes
+
+      - name: Install and provision Nextcloud
+        working-directory: server
+        run: |
+          mkdir data
+          ./occ maintenance:install --database=sqlite --admin-user admin --admin-pass admin
+          ./occ config:system:set auth.bruteforce.protection.enabled --value false --type bool
+          ./occ config:system:set ratelimit.protection.enabled --value false --type bool
+          bash ../Server/Provisioning.sh
+          cp -R ../Server/Notes/. data/manynotes/files/Notes/
+          ./occ files:scan manynotes
+
+      - name: Start Nextcloud
+        run: |
+          PHP_CLI_SERVER_WORKERS=5 php -S localhost:8080 -t server/ > php-server.log 2>&1 &
+          curl --silent --fail --retry 30 --retry-delay 2 --retry-all-errors http://localhost:8080/status.php
+
+      - name: Resolve Swift package dependencies
+        run: |
+          xcodebuild -resolvePackageDependencies \
+            -project iOCNotes.xcodeproj \
+            -scheme iOCNotes
+
+      - name: Pick an iOS simulator
+        id: sim
+        run: |
+          cat > /tmp/pick_sim.py <<'PY'
+          import json, sys
+          devices = json.load(sys.stdin)["devices"]
+          cands = [d for rt, ds in devices.items() if "iOS" in rt
+                   for d in ds if d.get("isAvailable") and "iPhone" in d["name"]]
+          print(cands[-1]["udid"] if cands else "")
+          PY
+          UDID=$(xcrun simctl list devices available --json | python3 /tmp/pick_sim.py)
+          if [ -z "$UDID" ]; then
+            echo "No iOS simulator available" >&2
+            xcrun simctl list devices available
+            exit 1
+          fi
+          echo "Using simulator $UDID"
+          echo "udid=$UDID" >> "$GITHUB_OUTPUT"
+
+      # No -retry-tests-on-failure: retries would hide flaky behavior instead of surfacing it.
+      - name: Run live-server tests
+        run: |
+          xcodebuild test \
+            -project iOCNotes.xcodeproj \
+            -scheme iOCNotes \
+            -testPlan LiveServer \
+            -destination "platform=iOS Simulator,id=${{ steps.sim.outputs.udid }}" \
+            -resultBundlePath LiveServerResults.xcresult \
+            -skipPackagePluginValidation \
+            -parallel-testing-enabled NO \
+            CODE_SIGN_IDENTITY=- CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM=
+
+      - name: Show failure details
+        if: failure()
+        run: |
+          xcrun xcresulttool get test-results summary --path LiveServerResults.xcresult || true
+          echo "===== nextcloud.log ====="
+          tail -n 200 server/data/nextcloud.log || true
+          echo "===== php-server.log ====="
+          tail -n 200 php-server.log || true
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: LiveServerResults
+          path: LiveServerResults.xcresult
           if-no-files-found: ignore

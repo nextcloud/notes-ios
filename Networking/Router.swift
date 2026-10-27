@@ -97,6 +97,7 @@ enum Router {
 
         urlRequest.setValue("Basic \(credential)", forHTTPHeaderField: "Authorization")
         urlRequest.setValue(Router.applicationJson, forHTTPHeaderField: "Accept")
+        urlRequest.setValue(userAgent, forHTTPHeaderField: "User-Agent")
 
         switch self {
             case .allNotes:
@@ -112,8 +113,10 @@ enum Router {
 
                 Router.encode(parameters, into: &urlRequest)
             case .getNote(_, let etag):
+                // The note's JSON etag is unquoted, but the server only matches the quoted header form.
                 if !etag.isEmpty {
-                    urlRequest.setValue(etag, forHTTPHeaderField: "If-None-Match")
+                    let quotedEtag = etag.hasPrefix("\"") ? etag : "\"\(etag)\""
+                    urlRequest.setValue(quotedEtag, forHTTPHeaderField: "If-None-Match")
                 }
             case .createNote(let parameters):
                 Router.encode(parameters, into: &urlRequest)
@@ -132,10 +135,7 @@ enum Router {
 // MARK: - Parameter encoding
 
 private extension Router {
-    ///
-    /// Encodes parameters like Alamofire's `URLEncoding.default` did: into the query
-    /// string for GET/DELETE, into a form-urlencoded body for POST/PUT.
-    ///
+    /// Encodes parameters into the query string for GET/DELETE and a form-urlencoded body for POST/PUT.
     static func encode(_ parameters: Parameters, into urlRequest: inout URLRequest) {
         guard !parameters.isEmpty else { return }
 
@@ -162,7 +162,7 @@ private extension Router {
         }
     }
 
-    /// `.urlQueryAllowed` minus the delimiters Alamofire escaped; `/` and `?` stay literal.
+    /// `.urlQueryAllowed` minus the RFC 3986 delimiters, except `/` and `?`.
     static let allowedCharacters: CharacterSet = {
         var allowed = CharacterSet.urlQueryAllowed
         allowed.remove(charactersIn: ":#[]@!$&'()*+,;=")
@@ -173,13 +173,13 @@ private extension Router {
         string.addingPercentEncoding(withAllowedCharacters: allowedCharacters) ?? string
     }
 
-    /// Booleans must encode as `1`/`0` — the server treats a literal `"false"` as truthy.
+    /// Booleans must encode as `1`/`0`: the server treats a literal `"false"` as truthy.
     static func encodedValue(_ value: Any) -> String {
         switch value {
             case let number as NSNumber where CFGetTypeID(number) == CFBooleanGetTypeID():
                 return number.boolValue ? "1" : "0"
-            case let bool as Bool:
-                return bool ? "1" : "0"
+            case let number as NSNumber:
+                return number.stringValue
             default:
                 return "\(value)"
         }

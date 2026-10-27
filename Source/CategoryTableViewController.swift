@@ -79,7 +79,8 @@ class CategoryTableViewController: UITableViewController {
     
     @IBAction func onCancel(_ sender: Any) {
         if isDirty,
-            let note = self.note {
+            let note = self.note,
+            !note.readOnly {
             note.category = currentCategory
             Task {
                 await NoteSessionManager.shared.update(note: note)
