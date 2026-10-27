@@ -140,17 +140,17 @@ jobs:
           repository: nextcloud/server
           ref: ${{ env.SERVER_BRANCH }}
           submodules: true
-          path: server
+          path: nextcloud-server
 
       - name: Check out the Notes app
         uses: actions/checkout@v7
         with:
           repository: nextcloud/notes
           ref: ${{ env.NOTES_VERSION }}
-          path: server/apps/notes
+          path: nextcloud-server/apps/notes
 
       - name: Install and provision Nextcloud
-        working-directory: server
+        working-directory: nextcloud-server
         run: |
           mkdir data
           ./occ maintenance:install --database=sqlite --admin-user admin --admin-pass admin
@@ -162,7 +162,7 @@ jobs:
 
       - name: Start Nextcloud
         run: |
-          PHP_CLI_SERVER_WORKERS=5 php -S localhost:8080 -t server/ > php-server.log 2>&1 &
+          PHP_CLI_SERVER_WORKERS=5 php -S localhost:8080 -t nextcloud-server/ > php-server.log 2>&1 &
           curl --silent --fail --retry 30 --retry-delay 2 --retry-all-errors http://localhost:8080/status.php
 
       - name: Resolve Swift package dependencies
@@ -208,7 +208,7 @@ jobs:
         run: |
           xcrun xcresulttool get test-results summary --path LiveServerResults.xcresult || true
           echo "===== nextcloud.log ====="
-          tail -n 200 server/data/nextcloud.log || true
+          tail -n 200 nextcloud-server/data/nextcloud.log || true
           echo "===== php-server.log ====="
           tail -n 200 php-server.log || true
 
