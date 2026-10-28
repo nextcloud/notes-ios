@@ -34,18 +34,20 @@ class EditorViewController: UIViewController {
     /// The note's own date only moves after a successful sync, so local edits are tracked here.
     private var editedDate: Date?
 
+    private var hasFocusedNewNote = false
+
     var note: Note? {
         didSet {
             if note != oldValue, let note = note {
-                HUD.show(.progress)
                 if note.addNeeded {
                     noteView.text = note.content
                     noteView.undoManager?.removeAllActions()
                     noteView.scrollRangeToVisible(NSRange(location: 0, length: 0))
                     updateTitleAndDate()
                     applyReadOnlyState()
-                    HUD.hide()
                 } else {
+                    HUD.show(.progress)
+
                     Task { [weak self] in
                         await NoteSessionManager.shared.get(note: note)
 
@@ -114,7 +116,6 @@ class EditorViewController: UIViewController {
             navigationItem.title = ""
         }
         navigationController?.navigationBar.isTranslucent = true
-        navigationController?.delegate = self
         navigationController?.toolbar.isTranslucent = true
         navigationController?.toolbar.clipsToBounds = true
         updatedByEditing = false
@@ -179,10 +180,26 @@ class EditorViewController: UIViewController {
         //        //TODO: This works around a Swift/Objective-C interaction issue. Verify that it is still needed.
         self.noteView.isScrollEnabled = false
         self.noteView.isScrollEnabled = true
+
+        if isNewNote, !hasFocusedNewNote, traitCollection.userInterfaceIdiom == .phone {
+            hasFocusedNewNote = true
+            noteView.becomeFirstResponder()
+        }
     }
 
     override func viewWillDisappear(_ animated: Bool) {
-        self.updateNoteContent()
+        if let note, isNewNote, navigationController?.isBeingDismissed == true,
+           noteView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            // Closing a new note without writing anything discards it.
+            self.note = nil
+
+            Task {
+                await NoteSessionManager.shared.delete(note: note)
+            }
+        } else {
+            self.updateNoteContent()
+        }
+
         super.viewWillDisappear(animated)
     }
 
@@ -665,19 +682,6 @@ extension EditorViewController: UITextViewDelegate {
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         noteView.settleDate(targetContentOffset: targetContentOffset)
     }
-}
-
-extension EditorViewController: UINavigationControllerDelegate {
-    
-    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-        if viewController == self {
-            if self.traitCollection.userInterfaceIdiom == .phone, let note = self.note, note.id == 0 {
-                self.view.bringSubviewToFront(self.noteView)
-                self.noteView.becomeFirstResponder()
-            }
-        }
-    }
-    
 }
 
 extension CharacterSet {

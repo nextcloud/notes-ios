@@ -387,13 +387,18 @@ final class NoteSessionManager {
 
     @discardableResult
     func add(content: String, category: String) async -> Note? {
-        logger.notice("Adding note...")
-
-        let note = NoteStruct(content: content, category: category)
-
-        guard let incoming = Note.update(note: note) else { return nil } //addNeeded defaults to true
+        guard let incoming = addLocally(content: content, category: category) else { return nil }
 
         return await add(note: incoming)
+    }
+
+    ///
+    /// Create a note on the device only; its first save or the next sync uploads it.
+    ///
+    func addLocally(content: String, category: String) -> Note? {
+        logger.notice("Adding note...")
+
+        return Note.update(note: NoteStruct(content: content, category: category)) //addNeeded defaults to true
     }
 
     @discardableResult

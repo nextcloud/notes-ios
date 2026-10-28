@@ -51,11 +51,9 @@ struct NotesView: View {
     }
 
     private func addNote() {
-        Task {
-            guard let note = await NoteSessionManager.shared.add(content: "", category: "") else { return }
+        guard let note = NoteSessionManager.shared.addLocally(content: "", category: "") else { return }
 
-            NotesPresenter.openEditor(for: note, isNewNote: true)
-        }
+        NotesPresenter.openEditor(for: note, isNewNote: true)
     }
 }
 

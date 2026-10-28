@@ -13,14 +13,34 @@ import UIKit
 enum NotesPresenter {
     ///
     /// Open the given note, using the server's collaborative text editor when direct editing is available and the
-    /// built-in editor otherwise.
+    /// built-in editor otherwise. Direct editing uploads a note that only exists locally first.
     ///
     @discardableResult
     static func openEditor(for note: Note, isNewNote: Bool) -> Bool {
-        if isDirectEditingAvailable {
+        guard isDirectEditingAvailable else {
+            return openInBuiltInEditor(note: note, isNewNote: isNewNote)
+        }
+
+        guard note.addNeeded else {
             return openInDirectEditing(note: note)
         }
 
+        // Offline or on a failed upload, the note opens in the built-in editor instead.
+        Task { @MainActor in
+            guard let added = await NoteSessionManager.shared.add(note: note), added.managedObjectContext != nil else { return }
+
+            if added.addNeeded {
+                openInBuiltInEditor(note: added, isNewNote: isNewNote)
+            } else {
+                openInDirectEditing(note: added)
+            }
+        }
+
+        return true
+    }
+
+    @discardableResult
+    private static func openInBuiltInEditor(note: Note, isNewNote: Bool) -> Bool {
         let storyboard = UIStoryboard(name: "Main_iPhone", bundle: nil)
         guard let navigationController = storyboard.instantiateViewController(withIdentifier: "Editor") as? UINavigationController,
               let editor = navigationController.topViewController as? EditorViewController,
@@ -80,6 +100,7 @@ enum NotesPresenter {
         return reachability == .reachableCellular || reachability == .reachableEthernetOrWiFi
     }
 
+    @discardableResult
     private static func openInDirectEditing(note: Note) -> Bool {
         guard let account = KeychainHelper.account,
               UIApplication.topViewController() != nil else {
