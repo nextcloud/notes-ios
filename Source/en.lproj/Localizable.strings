@@ -314,3 +314,9 @@
 
 /* Action to share a note */
 "Share" = "Share";
+
+/* Direct editing failure followed by the underlying error */
+"Cannot open file for direct editing: %@" = "Cannot open file for direct editing: %@";
+
+/* Action offered when the collaborative editor fails to load */
+"Switch to Internal Editor" = "Switch to Internal Editor";

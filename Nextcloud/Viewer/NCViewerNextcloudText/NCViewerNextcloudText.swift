@@ -5,14 +5,22 @@
 import UIKit
 import WebKit
 import JGProgressHUD
+import NextcloudKit
 
 class NCViewerNextcloudText: UIViewController, WKNavigationDelegate, WKScriptMessageHandler {
 
     var webView = WKWebView()
     var bottomConstraint: NSLayoutConstraint?
-    var link: String = ""
     var fileName: String?
     let hud = JGProgressHUD()
+
+    var loadLink: (() async throws -> URL)?
+
+    var switchToInternalEditor: (() -> Void)?
+
+    private var isLoaded = false
+    private var isShowingLoadError = false
+    private var isClosed = false
 
     // MARK: - View Life Cycle
 
@@ -45,15 +53,66 @@ class NCViewerNextcloudText: UIViewController, WKNavigationDelegate, WKScriptMes
         bottomConstraint = webView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
         bottomConstraint?.isActive = true
 
-        var request = URLRequest(url: URL(string: link)!)
-        request.addValue("true", forHTTPHeaderField: "OCS-APIRequest")
-        let language = NSLocale.preferredLanguages[0] as String
-        request.addValue(language, forHTTPHeaderField: "Accept-Language")
-
         webView.customUserAgent = getCustomUserAgentNCText()
-        webView.load(request)
 
         hud.show(in: view)
+
+        loadEditor()
+    }
+
+    private func loadEditor() {
+        // Like Android, stop waiting after 10 seconds; a late load still replaces the error.
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10) { [weak self] in
+            guard let self, !isLoaded else { return }
+
+            failToLoad(with: URLError(.timedOut))
+        }
+
+        Task {
+            do {
+                guard let url = try await loadLink?(), !isClosed else { return }
+
+                var request = URLRequest(url: url)
+                request.addValue("true", forHTTPHeaderField: "OCS-APIRequest")
+                let language = NSLocale.preferredLanguages[0] as String
+                request.addValue(language, forHTTPHeaderField: "Accept-Language")
+
+                webView.load(request)
+            } catch {
+                failToLoad(with: error)
+            }
+        }
+    }
+
+    private func failToLoad(with error: Error) {
+        // Text starting a new navigation cancels the previous one; that isn't a failure.
+        guard !isLoaded, !isShowingLoadError, !isClosed, (error as NSError).code != NSURLErrorCancelled else { return }
+
+        isShowingLoadError = true
+        hud.dismiss()
+
+        let detail = (error as? NKError)?.errorDescription ?? error.localizedDescription
+        let messageFormat = NSLocalizedString("Cannot open file for direct editing: %@", comment: "Direct editing failure followed by the underlying error")
+        let alert = UIAlertController(title: NSLocalizedString("Error", comment: "Title of an error alert"), message: String(format: messageFormat, detail), preferredStyle: .alert)
+
+        if let switchToInternalEditor {
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Switch to Internal Editor", comment: "Action offered when the collaborative editor fails to load"), style: .default) { [weak self] _ in
+                self?.viewUnload(completion: switchToInternalEditor)
+            })
+        }
+
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Close", comment: "Closes the editor that failed to load"), style: .cancel) { [weak self] _ in
+            self?.viewUnload()
+        })
+
+        let showAlert = { [weak self] in
+            self?.present(alert, animated: true)
+        }
+
+        // A quick failure can land while this screen is still being presented.
+        if transitionCoordinator?.animate(alongsideTransition: nil, completion: { _ in showAlert() }) != true {
+            showAlert()
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -72,10 +131,12 @@ class NCViewerNextcloudText: UIViewController, WKNavigationDelegate, WKScriptMes
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 
-    @objc func viewUnload() {
+    private func viewUnload(completion: (() -> Void)? = nil) {
+        isClosed = true
+
         // The content controller retains its handler, so release it to break the cycle.
         webView.configuration.userContentController.removeScriptMessageHandler(forName: "DirectEditingMobileInterface")
-        self.dismiss(animated: true)
+        self.dismiss(animated: true, completion: completion)
         // navigationController?.popViewController(animated: true)
     }
 
@@ -184,8 +245,22 @@ class NCViewerNextcloudText: UIViewController, WKNavigationDelegate, WKScriptMes
         print("didReceiveServerRedirectForProvisionalNavigation")
     }
 
+    public func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        failToLoad(with: error)
+    }
+
+    public func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        failToLoad(with: error)
+    }
+
     public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        isLoaded = true
         hud.dismiss()
+
+        if isShowingLoadError {
+            isShowingLoadError = false
+            presentedViewController?.dismiss(animated: true)
+        }
     }
 }
 
