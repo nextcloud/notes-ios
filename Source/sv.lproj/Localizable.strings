@@ -35,9 +35,6 @@
 /* An error message */
 "Check username and password." = "Kontrollera användarnamn och lösenord.";
 
-/* Title of a button allowing the user to close the login screen and sync with the server */
-"Close & Sync" = "Stäng och synkronisera";
-
 /* Crash report email subject */
 "NextcloudNotes Crash Report" = "Kraschrapport för Nextcloud Notes";
 
@@ -119,6 +116,9 @@
 /* Message about not being logged in */
 "Not logged in" = "Inte inloggad";
 
+/* Title of the hint shown when pull-to-refresh cannot sync */
+"Not Synchronized" = "Not Synchronized";
+
 /* Title of alert to change title */
 "Note Title" = "Anteckningens titel";
 
@@ -127,6 +127,9 @@
 
 /* An error message title */
 "Notes not found" = "Anteckningar hittades inte";
+
+/* Shown when pull-to-refresh is used in offline mode */
+"Offline Mode is on. Turn it off in Settings to sync." = "Offline Mode is on. Turn it off in Settings to sync.";
 
 /* Button, OK */
 "OK" = "OK";
@@ -172,14 +175,20 @@
 /* Title of a menu with sharing options */
 "Share Note As" = "Dela anteckning som";
 
-/* A message title */
-"Success" = "Klart";
-
 /* A message */
 "The network connection is working properly." = "Nätverksanslutningen fungerar korrekt.";
 
 /* An error message */
 "The note does not exist" = "Anteckningen finns inte";
+
+/* Shown when pull-to-refresh is used without a connection to the server */
+"The server is not reachable." = "The server is not reachable.";
+
+/* An error message */
+"This note is read-only and cannot be deleted." = "This note is read-only and cannot be deleted.";
+
+/* An error message */
+"This note is read-only. Your changes were not saved." = "This note is read-only. Your changes were not saved.";
 
 /* Alert message for selecting server brand */
 "Unable to automatically detect type of server.\nPlease select:" = "Det gick inte att identifiera servertypen automatiskt.\nVälj:";
@@ -199,9 +208,6 @@
 
 /* No comment provided by engineer. */
 "Yes, please!" = "Ja tack!";
-
-/* A message */
-"You are now connected to Notes on your server" = "Du är nu ansluten till Anteckningar på din server";
 
 /* HUD subtitle when checking server capabilities */
 "Checking server capabilities" = "Kontrollerar serverfunktioner";

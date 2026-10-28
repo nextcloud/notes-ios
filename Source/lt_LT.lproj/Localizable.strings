@@ -35,9 +35,6 @@
 /* An error message */
 "Check username and password." = "Patikrinkite naudotojo vardą ir slaptažodį.";
 
-/* Title of a button allowing the user to close the login screen and sync with the server */
-"Close & Sync" = "Uždaryti ir sinchronizuoti";
-
 /* Crash report email subject */
 "NextcloudNotes Crash Report" = "„Nextcloud „Užrašai“ gedimų ataskaita";
 
@@ -119,6 +116,9 @@
 /* Message about not being logged in */
 "Not logged in" = "Neprisijungta";
 
+/* Title of the hint shown when pull-to-refresh cannot sync */
+"Not Synchronized" = "Not Synchronized";
+
 /* Title of alert to change title */
 "Note Title" = "Užrašo pavadinimas";
 
@@ -127,6 +127,9 @@
 
 /* An error message title */
 "Notes not found" = "Užrašai nerasti";
+
+/* Shown when pull-to-refresh is used in offline mode */
+"Offline Mode is on. Turn it off in Settings to sync." = "Offline Mode is on. Turn it off in Settings to sync.";
 
 /* Button, OK */
 "OK" = "Gerai";
@@ -172,14 +175,20 @@
 /* Title of a menu with sharing options */
 "Share Note As" = "Bendrinti pastabą kaip";
 
-/* A message title */
-"Success" = "Pavyko";
-
 /* A message */
 "The network connection is working properly." = "Tinklo ryšys veikia tinkamai.";
 
 /* An error message */
 "The note does not exist" = "Užrašo nėra";
+
+/* Shown when pull-to-refresh is used without a connection to the server */
+"The server is not reachable." = "The server is not reachable.";
+
+/* An error message */
+"This note is read-only and cannot be deleted." = "This note is read-only and cannot be deleted.";
+
+/* An error message */
+"This note is read-only. Your changes were not saved." = "This note is read-only. Your changes were not saved.";
 
 /* Alert message for selecting server brand */
 "Unable to automatically detect type of server.\nPlease select:" = "Nepavyko automatiškai nustatyti serverio tipo.\nPrašome pasirinkti:";
@@ -199,9 +208,6 @@
 
 /* No comment provided by engineer. */
 "Yes, please!" = "Taip, prašau!";
-
-/* A message */
-"You are now connected to Notes on your server" = "Dabar esate prisijungę prie „Užrašai“ savo serveryje";
 
 /* HUD subtitle when checking server capabilities */
 "Checking server capabilities" = "Serverio galimybių tikrinimas";

@@ -35,9 +35,6 @@
 /* An error message */
 "Check username and password." = "사용자 이름과 암호를 검사.";
 
-/* Title of a button allowing the user to close the login screen and sync with the server */
-"Close & Sync" = "닫기 & 동기화";
-
 /* Crash report email subject */
 "NextcloudNotes Crash Report" = "NextcloudNotes 충돌 보고서";
 
@@ -119,6 +116,9 @@
 /* Message about not being logged in */
 "Not logged in" = "로그인 되지 않음";
 
+/* Title of the hint shown when pull-to-refresh cannot sync */
+"Not Synchronized" = "Not Synchronized";
+
 /* Title of alert to change title */
 "Note Title" = "Note title";
 
@@ -127,6 +127,9 @@
 
 /* An error message title */
 "Notes not found" = "메모 없음";
+
+/* Shown when pull-to-refresh is used in offline mode */
+"Offline Mode is on. Turn it off in Settings to sync." = "Offline Mode is on. Turn it off in Settings to sync.";
 
 /* Button, OK */
 "OK" = "OK";
@@ -172,14 +175,20 @@
 /* Title of a menu with sharing options */
 "Share Note As" = "Share note as";
 
-/* A message title */
-"Success" = "성공";
-
 /* A message */
 "The network connection is working properly." = "네트워크 연결이 원활히 동작 중입니다.";
 
 /* An error message */
 "The note does not exist" = "메모가 존재하지 않음";
+
+/* Shown when pull-to-refresh is used without a connection to the server */
+"The server is not reachable." = "The server is not reachable.";
+
+/* An error message */
+"This note is read-only and cannot be deleted." = "This note is read-only and cannot be deleted.";
+
+/* An error message */
+"This note is read-only. Your changes were not saved." = "This note is read-only. Your changes were not saved.";
 
 /* Alert message for selecting server brand */
 "Unable to automatically detect type of server.\nPlease select:" = "서버 종류를 자동적으로 감지할 수 없습니다.\n선택하십시오:";
@@ -199,9 +208,6 @@
 
 /* No comment provided by engineer. */
 "Yes, please!" = "Yes, please!";
-
-/* A message */
-"You are now connected to Notes on your server" = "서버 상의 메모와 연결되었습니다.";
 
 /* HUD subtitle when checking server capabilities */
 "Checking server capabilities" = "서버 기능 확인";

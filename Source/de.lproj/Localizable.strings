@@ -35,9 +35,6 @@
 /* An error message */
 "Check username and password." = "Benutzername und Passwort prüfen.";
 
-/* Title of a button allowing the user to close the login screen and sync with the server */
-"Close & Sync" = "Schließen & synchronisieren";
-
 /* Crash report email subject */
 "NextcloudNotes Crash Report" = "NextcloudNotes-Absturzbericht";
 
@@ -119,6 +116,9 @@
 /* Message about not being logged in */
 "Not logged in" = "Nicht angemeldet";
 
+/* Title of the hint shown when pull-to-refresh cannot sync */
+"Not Synchronized" = "Not Synchronized";
+
 /* Title of alert to change title */
 "Note Title" = "Notiztitel";
 
@@ -127,6 +127,9 @@
 
 /* An error message title */
 "Notes not found" = "Notizen nicht gefunden";
+
+/* Shown when pull-to-refresh is used in offline mode */
+"Offline Mode is on. Turn it off in Settings to sync." = "Offline Mode is on. Turn it off in Settings to sync.";
 
 /* Button, OK */
 "OK" = "Ok";
@@ -172,14 +175,20 @@
 /* Title of a menu with sharing options */
 "Share Note As" = "Notiz teilen als";
 
-/* A message title */
-"Success" = "Erfolgreich";
-
 /* A message */
 "The network connection is working properly." = "Die Netzwerkverbindung funktioniert.";
 
 /* An error message */
 "The note does not exist" = "Die Notiz existiert nicht";
+
+/* Shown when pull-to-refresh is used without a connection to the server */
+"The server is not reachable." = "The server is not reachable.";
+
+/* An error message */
+"This note is read-only and cannot be deleted." = "This note is read-only and cannot be deleted.";
+
+/* An error message */
+"This note is read-only. Your changes were not saved." = "This note is read-only. Your changes were not saved.";
 
 /* Alert message for selecting server brand */
 "Unable to automatically detect type of server.\nPlease select:" = "Servertyp kann nicht automatisch erkannt werden.\nBitte auswählen:";
@@ -199,9 +208,6 @@
 
 /* No comment provided by engineer. */
 "Yes, please!" = "Ja, bitte!";
-
-/* A message */
-"You are now connected to Notes on your server" = "Sie sind jetzt mit Notes auf Ihrem Server verbunden";
 
 /* HUD subtitle when checking server capabilities */
 "Checking server capabilities" = "Serverfähigkeiten überprüfen";

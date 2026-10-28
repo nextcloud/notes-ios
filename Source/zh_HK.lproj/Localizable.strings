@@ -35,9 +35,6 @@
 /* An error message */
 "Check username and password." = "檢查用戶名和密碼。";
 
-/* Title of a button allowing the user to close the login screen and sync with the server */
-"Close & Sync" = "關閉 & 同步";
-
 /* Crash report email subject */
 "NextcloudNotes Crash Report" = "NextcloudNotes 死機報告";
 
@@ -119,6 +116,9 @@
 /* Message about not being logged in */
 "Not logged in" = "未登入";
 
+/* Title of the hint shown when pull-to-refresh cannot sync */
+"Not Synchronized" = "Not Synchronized";
+
 /* Title of alert to change title */
 "Note Title" = "筆記標題";
 
@@ -127,6 +127,9 @@
 
 /* An error message title */
 "Notes not found" = "找不到筆記";
+
+/* Shown when pull-to-refresh is used in offline mode */
+"Offline Mode is on. Turn it off in Settings to sync." = "Offline Mode is on. Turn it off in Settings to sync.";
 
 /* Button, OK */
 "OK" = "確認";
@@ -172,14 +175,20 @@
 /* Title of a menu with sharing options */
 "Share Note As" = "以以下方式分享筆記";
 
-/* A message title */
-"Success" = "成功";
-
 /* A message */
 "The network connection is working properly." = "網絡連接正常運作。";
 
 /* An error message */
 "The note does not exist" = "該筆記不存在";
+
+/* Shown when pull-to-refresh is used without a connection to the server */
+"The server is not reachable." = "The server is not reachable.";
+
+/* An error message */
+"This note is read-only and cannot be deleted." = "This note is read-only and cannot be deleted.";
+
+/* An error message */
+"This note is read-only. Your changes were not saved." = "This note is read-only. Your changes were not saved.";
 
 /* Alert message for selecting server brand */
 "Unable to automatically detect type of server.\nPlease select:" = "無法自動檢測伺服器類型。請選擇：";
@@ -199,9 +208,6 @@
 
 /* No comment provided by engineer. */
 "Yes, please!" = "是的，請這樣做！";
-
-/* A message */
-"You are now connected to Notes on your server" = "您已連接到您伺服器上的 Notes";
 
 /* HUD subtitle when checking server capabilities */
 "Checking server capabilities" = "檢查伺服器功能";

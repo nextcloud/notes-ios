@@ -35,9 +35,6 @@
 /* An error message */
 "Check username and password." = "Seiceáil ainm úsáideora agus pasfhocal.";
 
-/* Title of a button allowing the user to close the login screen and sync with the server */
-"Close & Sync" = "Dún & Sioncronaigh";
-
 /* Crash report email subject */
 "NextcloudNotes Crash Report" = "Tuairisc Tuairteála NextcloudNotes";
 
@@ -119,6 +116,9 @@
 /* Message about not being logged in */
 "Not logged in" = "Gan logáil isteach";
 
+/* Title of the hint shown when pull-to-refresh cannot sync */
+"Not Synchronized" = "Not Synchronized";
+
 /* Title of alert to change title */
 "Note Title" = "Teideal an nóta";
 
@@ -127,6 +127,9 @@
 
 /* An error message title */
 "Notes not found" = "Nótaí gan aimsiú";
+
+/* Shown when pull-to-refresh is used in offline mode */
+"Offline Mode is on. Turn it off in Settings to sync." = "Offline Mode is on. Turn it off in Settings to sync.";
 
 /* Button, OK */
 "OK" = "ceart go leor";
@@ -172,14 +175,20 @@
 /* Title of a menu with sharing options */
 "Share Note As" = "Roinn nóta mar";
 
-/* A message title */
-"Success" = "Rath";
-
 /* A message */
 "The network connection is working properly." = "Tá an nasc líonra ag obair i gceart.";
 
 /* An error message */
 "The note does not exist" = "Níl an nóta ann";
+
+/* Shown when pull-to-refresh is used without a connection to the server */
+"The server is not reachable." = "The server is not reachable.";
+
+/* An error message */
+"This note is read-only and cannot be deleted." = "This note is read-only and cannot be deleted.";
+
+/* An error message */
+"This note is read-only. Your changes were not saved." = "This note is read-only. Your changes were not saved.";
 
 /* Alert message for selecting server brand */
 "Unable to automatically detect type of server.\nPlease select:" = "Ní féidir an cineál freastalaí a bhrath go huathoibríoch.\nRoghnaigh le do thoil:";
@@ -199,9 +208,6 @@
 
 /* No comment provided by engineer. */
 "Yes, please!" = "Sea, le do thoil!";
-
-/* A message */
-"You are now connected to Notes on your server" = "Tá tú ceangailte anois le Nótaí ar do fhreastalaí";
 
 /* HUD subtitle when checking server capabilities */
 "Checking server capabilities" = "Cumais an fhreastalaí á seiceáil";

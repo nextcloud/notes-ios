@@ -35,9 +35,6 @@
 /* An error message */
 "Check username and password." = "Провера корисничког имена и лозинке.";
 
-/* Title of a button allowing the user to close the login screen and sync with the server */
-"Close & Sync" = "Затвори и синхронизуј";
-
 /* Crash report email subject */
 "NextcloudNotes Crash Report" = "NextcloudNotes извештај о краху";
 
@@ -119,6 +116,9 @@
 /* Message about not being logged in */
 "Not logged in" = "Није пријављено";
 
+/* Title of the hint shown when pull-to-refresh cannot sync */
+"Not Synchronized" = "Not Synchronized";
+
 /* Title of alert to change title */
 "Note Title" = "Наслов белешке";
 
@@ -127,6 +127,9 @@
 
 /* An error message title */
 "Notes not found" = "Белешке није пронађена";
+
+/* Shown when pull-to-refresh is used in offline mode */
+"Offline Mode is on. Turn it off in Settings to sync." = "Offline Mode is on. Turn it off in Settings to sync.";
 
 /* Button, OK */
 "OK" = "У реду";
@@ -172,14 +175,20 @@
 /* Title of a menu with sharing options */
 "Share Note As" = "Дели белешку као";
 
-/* A message title */
-"Success" = "Успешно";
-
 /* A message */
 "The network connection is working properly." = "Веза са мрежом не функционише како треба.";
 
 /* An error message */
 "The note does not exist" = "Белешка не постоји";
+
+/* Shown when pull-to-refresh is used without a connection to the server */
+"The server is not reachable." = "The server is not reachable.";
+
+/* An error message */
+"This note is read-only and cannot be deleted." = "This note is read-only and cannot be deleted.";
+
+/* An error message */
+"This note is read-only. Your changes were not saved." = "This note is read-only. Your changes were not saved.";
 
 /* Alert message for selecting server brand */
 "Unable to automatically detect type of server.\nPlease select:" = "Не може аутоматски да се открије тип сервера.\nМолимо вас изаберите:";
@@ -199,9 +208,6 @@
 
 /* No comment provided by engineer. */
 "Yes, please!" = "Да, хвала!";
-
-/* A message */
-"You are now connected to Notes on your server" = "Сада сте повезани са Белешке на свом серверу";
 
 /* HUD subtitle when checking server capabilities */
 "Checking server capabilities" = "Проверавају се могућности сервера";

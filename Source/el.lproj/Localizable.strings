@@ -35,9 +35,6 @@
 /* An error message */
 "Check username and password." = "Ελέγξτε το όνομα χρήστη και τον κωδικό πρόσβασης.";
 
-/* Title of a button allowing the user to close the login screen and sync with the server */
-"Close & Sync" = "Κλείσιμο & Συγχρονισμός";
-
 /* Crash report email subject */
 "NextcloudNotes Crash Report" = "Αναφορά Σφάλματος NextcloudNotes";
 
@@ -119,6 +116,9 @@
 /* Message about not being logged in */
 "Not logged in" = "Δεν είστε συνδεδεμένος";
 
+/* Title of the hint shown when pull-to-refresh cannot sync */
+"Not Synchronized" = "Not Synchronized";
+
 /* Title of alert to change title */
 "Note Title" = "Τίτλος σημείωσης";
 
@@ -127,6 +127,9 @@
 
 /* An error message title */
 "Notes not found" = "Δεν βρέθηκαν σημειώσεις";
+
+/* Shown when pull-to-refresh is used in offline mode */
+"Offline Mode is on. Turn it off in Settings to sync." = "Offline Mode is on. Turn it off in Settings to sync.";
 
 /* Button, OK */
 "OK" = "OK";
@@ -172,14 +175,20 @@
 /* Title of a menu with sharing options */
 "Share Note As" = "Κοινοποίηση σημείωσης ως";
 
-/* A message title */
-"Success" = "Επιτυχία";
-
 /* A message */
 "The network connection is working properly." = "Η σύνδεση δικτύου λειτουργεί σωστά.";
 
 /* An error message */
 "The note does not exist" = "Η σημείωση δεν υπάρχει";
+
+/* Shown when pull-to-refresh is used without a connection to the server */
+"The server is not reachable." = "The server is not reachable.";
+
+/* An error message */
+"This note is read-only and cannot be deleted." = "This note is read-only and cannot be deleted.";
+
+/* An error message */
+"This note is read-only. Your changes were not saved." = "This note is read-only. Your changes were not saved.";
 
 /* Alert message for selecting server brand */
 "Unable to automatically detect type of server.\nPlease select:" = "Δεν είναι δυνατή η αυτόματη ανίχνευση τύπου διακομιστή.\nΠαρακαλώ επιλέξτε:";
@@ -199,9 +208,6 @@
 
 /* No comment provided by engineer. */
 "Yes, please!" = "Ναι, παρακαλώ!";
-
-/* A message */
-"You are now connected to Notes on your server" = "Είστε πλέον συνδεδεμένοι με τις Σημειώσεις στον διακομιστή σας";
 
 /* HUD subtitle when checking server capabilities */
 "Checking server capabilities" = "Έλεγχος δυνατοτήτων διακομιστή";
