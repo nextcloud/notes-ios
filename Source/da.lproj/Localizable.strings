@@ -117,7 +117,7 @@
 "Not logged in" = "Ikke logget ind";
 
 /* Title of the hint shown when pull-to-refresh cannot sync */
-"Not Synchronized" = "Not Synchronized";
+"Not Synchronized" = "Ikke synkroniseret";
 
 /* Title of alert to change title */
 "Note Title" = "Note titel";
@@ -129,7 +129,7 @@
 "Notes not found" = "Noter ikke fundet";
 
 /* Shown when pull-to-refresh is used in offline mode */
-"Offline Mode is on. Turn it off in Settings to sync." = "Offline Mode is on. Turn it off in Settings to sync.";
+"Offline Mode is on. Turn it off in Settings to sync." = "Offlinetilstand er slået til. Slå den fra i Indstillinger for at synkronisere.";
 
 /* Button, OK */
 "OK" = "OK";
@@ -182,13 +182,13 @@
 "The note does not exist" = "Noten findes ikke";
 
 /* Shown when pull-to-refresh is used without a connection to the server */
-"The server is not reachable." = "The server is not reachable.";
+"The server is not reachable." = "Serveren kan ikke nås.";
 
 /* An error message */
-"This note is read-only and cannot be deleted." = "This note is read-only and cannot be deleted.";
+"This note is read-only and cannot be deleted." = "Denne note er skrivebeskyttet og kan ikke slettes.";
 
 /* An error message */
-"This note is read-only. Your changes were not saved." = "This note is read-only. Your changes were not saved.";
+"This note is read-only. Your changes were not saved." = "Denne note er skrivebeskyttet. Dine ændringer blev ikke gemt.";
 
 /* Alert message for selecting server brand */
 "Unable to automatically detect type of server.\nPlease select:" = "Kan ikke registrere servertypen automatisk.\nVælg:";

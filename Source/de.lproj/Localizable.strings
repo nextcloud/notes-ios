@@ -117,7 +117,7 @@
 "Not logged in" = "Nicht angemeldet";
 
 /* Title of the hint shown when pull-to-refresh cannot sync */
-"Not Synchronized" = "Not Synchronized";
+"Not Synchronized" = "Nicht synchronisiert";
 
 /* Title of alert to change title */
 "Note Title" = "Notiztitel";
@@ -129,7 +129,7 @@
 "Notes not found" = "Notizen nicht gefunden";
 
 /* Shown when pull-to-refresh is used in offline mode */
-"Offline Mode is on. Turn it off in Settings to sync." = "Offline Mode is on. Turn it off in Settings to sync.";
+"Offline Mode is on. Turn it off in Settings to sync." = "Der Offline-Modus ist aktiviert. Zum Synchronisieren, bitte ausschalten.";
 
 /* Button, OK */
 "OK" = "Ok";
@@ -182,10 +182,10 @@
 "The note does not exist" = "Die Notiz existiert nicht";
 
 /* Shown when pull-to-refresh is used without a connection to the server */
-"The server is not reachable." = "The server is not reachable.";
+"The server is not reachable." = "Der Server ist nicht erreichbar.";
 
 /* An error message */
-"This note is read-only and cannot be deleted." = "This note is read-only and cannot be deleted.";
+"This note is read-only and cannot be deleted." = "Die Notiz ist schreibgeschützt und kann nicht gelöscht werden.";
 
 /* An error message */
 "This note is read-only. Your changes were not saved." = "This note is read-only. Your changes were not saved.";

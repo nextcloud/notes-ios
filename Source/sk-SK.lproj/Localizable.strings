@@ -117,7 +117,7 @@
 "Not logged in" = "Neprihlásený";
 
 /* Title of the hint shown when pull-to-refresh cannot sync */
-"Not Synchronized" = "Not Synchronized";
+"Not Synchronized" = "Nesynchronizované";
 
 /* Title of alert to change title */
 "Note Title" = "Nadpis poznámky";
@@ -129,7 +129,7 @@
 "Notes not found" = "Poznámky sa nenašli";
 
 /* Shown when pull-to-refresh is used in offline mode */
-"Offline Mode is on. Turn it off in Settings to sync." = "Offline Mode is on. Turn it off in Settings to sync.";
+"Offline Mode is on. Turn it off in Settings to sync." = "Režim offline je zapnutý. Ak chcete synchronizovať, vypnite ho v Nastaveniach.";
 
 /* Button, OK */
 "OK" = "OK";
@@ -182,13 +182,13 @@
 "The note does not exist" = "Poznámka neexistuje";
 
 /* Shown when pull-to-refresh is used without a connection to the server */
-"The server is not reachable." = "The server is not reachable.";
+"The server is not reachable." = "Server nie je dostupný.";
 
 /* An error message */
-"This note is read-only and cannot be deleted." = "This note is read-only and cannot be deleted.";
+"This note is read-only and cannot be deleted." = "Táto poznámka je len na čítanie a nedá sa odstrániť.";
 
 /* An error message */
-"This note is read-only. Your changes were not saved." = "This note is read-only. Your changes were not saved.";
+"This note is read-only. Your changes were not saved." = "Táto poznámka je len na čítanie. Vaše zmeny sa neuložili.";
 
 /* Alert message for selecting server brand */
 "Unable to automatically detect type of server.\nPlease select:" = "Nepodarilo sa automaticky zistiť typ serveru. Prosím vyberte:";
