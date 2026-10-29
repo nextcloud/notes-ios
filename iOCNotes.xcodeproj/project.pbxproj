@@ -1135,7 +1135,7 @@
 			repositoryURL = "https://github.com/nextcloud/NextcloudKit";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 7.6.2;
+				minimumVersion = 7.6.3;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
