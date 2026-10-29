@@ -15,10 +15,12 @@ struct ContentView: View {
 
     @State var selection: Int = 0
 
+    // Temporarily shown on every launch, even when logged in; restore `KeychainHelper.shouldShowOnboarding` afterwards.
+
     ///
     /// Show once at launch, after which ``KeychainHelper/shouldShowOnboarding`` is set to false.
     ///
-    @State private var isPresentingOnboarding = KeychainHelper.shouldShowOnboarding
+    @State private var isPresentingOnboarding = true
 
     private var onboardingTitle: String {
         let appName = Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String ?? NCBrandOptions.shared.brandName
@@ -29,12 +31,12 @@ struct ContentView: View {
     private var onboardingFeatures: [OnboardingFeature] {
         [
             OnboardingFeature(
-                icon: Image(systemName: "lock.shield.fill"),
+                icon: Image(systemName: "lock.shield"),
                 title: String(localized: "Your Data, Your Control", comment: "Onboarding feature title."),
                 description: String(localized: "Keep your data secure and under your control.", comment: "Onboarding feature description.")
             ),
             OnboardingFeature(
-                icon: Image(systemName: "person.2.fill"),
+                icon: Image(systemName: "person.2"),
                 title: String(localized: "Secure Collaboration", comment: "Onboarding feature title."),
                 description: String(localized: "Work together and exchange files securely.", comment: "Onboarding feature description.")
             ),
@@ -70,7 +72,7 @@ struct ContentView: View {
     }
 
     var body: some View {
-        if store.accounts.isEmpty && isPresentingOnboarding {
+        if isPresentingOnboarding {
             OnboardingView(title: onboardingTitle, features: onboardingFeatures, tint: Color.accent) {
                 withAnimation {
                     isPresentingOnboarding = false

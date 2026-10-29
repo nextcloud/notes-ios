@@ -33,7 +33,7 @@
             default = "YES">
          </TestPlanReference>
          <TestPlanReference
-            reference = "container:LiveServer.xctestplan">
+            reference = "container:Integration.xctestplan">
          </TestPlanReference>
       </TestPlans>
    </TestAction>
