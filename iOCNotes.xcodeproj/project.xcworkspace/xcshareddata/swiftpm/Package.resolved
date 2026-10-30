@@ -1,4 +1,5 @@
 {
+  "originHash" : "ef26461594b04fb18ca383bea56295c07d1edb342aeff52012d2f8f57a1c31a5",
   "pins" : [
     {
       "identity" : "alamofire",
@@ -37,12 +38,12 @@
       }
     },
     {
-      "identity" : "mocker",
+      "identity" : "nextcloudkit",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/WeTransfer/Mocker.git",
+      "location" : "https://github.com/nextcloud/NextcloudKit",
       "state" : {
-        "revision" : "95fa785c751f6bc40c49e112d433c3acf8417a97",
-        "version" : "3.0.2"
+        "branch" : "main",
+        "revision" : "e7e561791642e32bbe94c10fd925a38d6cc4c2f7"
       }
     },
     {
@@ -118,5 +119,5 @@
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }

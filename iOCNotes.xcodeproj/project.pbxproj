@@ -191,7 +191,6 @@
 		F32A39452C99A40D008EE8DC /* iOCNotes.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = iOCNotes.plist; sourceTree = "<group>"; };
 		F32D78292FA350BD0067EBE9 /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon.icon; sourceTree = "<group>"; };
 		F389ABFE2C9C40210056C059 /* Custom.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Custom.xcassets; sourceTree = "<group>"; };
-		F3B9E41B308261A000E58449 /* NextcloudKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = NextcloudKit; path = ../NextcloudKit; sourceTree = SOURCE_ROOT; };
 		F3E3C8D82C6B7C2200A80504 /* NCBrand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NCBrand.swift; sourceTree = "<group>"; };
 		F3E3C8DB2C6B7DA600A80504 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		F3E3D5C82F9F6A1C007FC9F0 /* Note+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -299,7 +298,6 @@
 				AABD0BF82D5E08B500F009E6 /* README.md */,
 				D084FB6C245A5FDC003EB6FB /* Utils */,
 				D0CFE53C1888A7BD00165839 /* Source */,
-				F3B9E41B308261A000E58449 /* NextcloudKit */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1136,7 +1134,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/nextcloud/NextcloudKit";
 			requirement = {
-				branch = sprint1;
+				branch = main;
 				kind = branch;
 			};
 		};
