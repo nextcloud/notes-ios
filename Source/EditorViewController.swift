@@ -190,7 +190,6 @@ class EditorViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         if let note, isNewNote, navigationController?.isBeingDismissed == true,
            noteView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-            // Closing a new note without writing anything discards it.
             self.note = nil
 
             Task {

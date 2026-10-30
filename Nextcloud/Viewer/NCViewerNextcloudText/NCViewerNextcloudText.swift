@@ -61,7 +61,6 @@ class NCViewerNextcloudText: UIViewController, WKNavigationDelegate, WKScriptMes
     }
 
     private func loadEditor() {
-        // Like Android, stop waiting after 10 seconds; a late load still replaces the error.
         DispatchQueue.main.asyncAfter(deadline: .now() + 10) { [weak self] in
             guard let self, !isLoaded else { return }
 
@@ -85,7 +84,6 @@ class NCViewerNextcloudText: UIViewController, WKNavigationDelegate, WKScriptMes
     }
 
     private func failToLoad(with error: Error) {
-        // Text starting a new navigation cancels the previous one; that isn't a failure.
         guard !isLoaded, !isShowingLoadError, !isClosed, (error as NSError).code != NSURLErrorCancelled else { return }
 
         isShowingLoadError = true

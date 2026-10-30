@@ -13,7 +13,7 @@ import UIKit
 enum NotesPresenter {
     ///
     /// Open the given note when direct editing is available and the
-    /// built-in editor otherwise. Direct editing uploads a note that only exists locally first.
+    /// built-in editor otherwise.
     ///
     @discardableResult
     static func openEditor(for note: Note, isNewNote: Bool) -> Bool {

@@ -392,9 +392,6 @@ final class NoteSessionManager {
         return await add(note: incoming)
     }
 
-    ///
-    /// Create a note on the device only; its first save or the next sync uploads it.
-    ///
     func addLocally(content: String, category: String) -> Note? {
         logger.notice("Adding note...")
 
