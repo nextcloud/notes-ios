@@ -7,21 +7,11 @@ class PreviewViewController: UIViewController {
 
     var content: String?
     var noteTitle: String?
-    var noteDate: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        var previewContent = ""
-        if let noteTitle = noteTitle {
-            previewContent.append("# \(noteTitle)\n")
-        }
-        if let noteDate = noteDate {
-            previewContent.append("*\(noteDate)*\n\n")
-        }
         if let content = content {
             do {
-                previewContent.append(content)
-
                 let previewWebView = try PreviewWebView(markdown: content) {
                     print("Markdown was rendered.")
                 }

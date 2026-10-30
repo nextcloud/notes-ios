@@ -6,39 +6,55 @@ import PKHUD
 
 class EditorViewController: UIViewController {
 
-    @IBOutlet var activityButton: UIBarButtonItem!
-    @IBOutlet var deleteButton: UIBarButtonItem!
-    @IBOutlet var previewButton: UIBarButtonItem!
     @IBOutlet var undoButton: UIBarButtonItem!
     @IBOutlet var redoButton: UIBarButtonItem!
     @IBOutlet var doneButton: UIBarButtonItem!
     @IBOutlet var dismissButton: UIBarButtonItem!
     @IBOutlet var fixedSpace: UIBarButtonItem!
-    
+
+    /// Preview, share and delete; rebuilt on every open so the disabled states follow the text.
+    private lazy var moreButton: UIBarButtonItem = {
+        let menu = UIMenu(children: [
+            UIDeferredMenuElement.uncached { [weak self] completion in
+                completion(self?.moreMenuElements() ?? [])
+            }
+        ])
+
+        let button = UIBarButtonItem(title: NSLocalizedString("More", comment: "Accessibility label of the button with more note actions"), image: UIImage(systemName: "ellipsis"), primaryAction: nil, menu: menu)
+        button.tintColor = .ph_iconColor
+
+        return button
+    }()
+
     var updatedByEditing = false
     var noteExporter: NoteExporter?
     var bottomLayoutConstraint: NSLayoutConstraint?
     var isNewNote = false
 
+    /// The note's own date only moves after a successful sync, so local edits are tracked here.
+    private var editedDate: Date?
+
+    private var hasFocusedNewNote = false
+
     var note: Note? {
         didSet {
             if note != oldValue, let note = note {
-                HUD.show(.progress)
                 if note.addNeeded {
                     noteView.text = note.content
                     noteView.undoManager?.removeAllActions()
                     noteView.scrollRangeToVisible(NSRange(location: 0, length: 0))
-                    updateHeaderLabel()
+                    updateTitleAndDate()
                     applyReadOnlyState()
-                    HUD.hide()
                 } else {
+                    HUD.show(.progress)
+
                     Task { [weak self] in
                         await NoteSessionManager.shared.get(note: note)
 
                         self?.noteView.text = note.content
                         self?.noteView.undoManager?.removeAllActions()
                         self?.noteView.scrollRangeToVisible(NSRange(location: 0, length: 0))
-                        self?.updateHeaderLabel()
+                        self?.updateTitleAndDate()
                         self?.applyReadOnlyState()
                         HUD.hide()
                     }
@@ -84,37 +100,22 @@ class EditorViewController: UIViewController {
             bottomConstraint,
         ])
 
-        navigationItem.rightBarButtonItems = [
-            fixedSpace,
-            dismissButton,
-            fixedSpace,
-            activityButton,
-            fixedSpace,
-            deleteButton,
-            fixedSpace,
-            previewButton,
-        ]
+        navigationItem.leftBarButtonItem = dismissButton
+        navigationItem.rightBarButtonItem = moreButton
 
         navigationItem.leftItemsSupplementBackButton = true
 
         if let note = note {
             noteView.text = note.content;
             noteView.isSelectable = true
-            activityButton.isEnabled = !noteView.text.isEmpty
-            previewButton.isEnabled = !noteView.text.isEmpty
             applyReadOnlyState()
         } else {
             noteView.isEditable = false
             noteView.isSelectable = false
             noteView.text = ""
-            noteView.headerLabel.text = NSLocalizedString("Select or create a note.", comment: "Placeholder text when no note is selected")
             navigationItem.title = ""
-            activityButton.isEnabled = false
-            deleteButton.isEnabled = false
-            previewButton.isEnabled = false
         }
         navigationController?.navigationBar.isTranslucent = true
-        navigationController?.delegate = self
         navigationController?.toolbar.isTranslucent = true
         navigationController?.toolbar.clipsToBounds = true
         updatedByEditing = false
@@ -154,32 +155,24 @@ class EditorViewController: UIViewController {
         }
     }
     
+    private func updateTitleAndDate() {
+        guard let note else { return }
+
+        let modified = Date(timeIntervalSince1970: note.modified)
+        noteView.dateLabel.text = max(modified, editedDate ?? modified).formatted(date: .abbreviated, time: .omitted)
+        navigationItem.title = note.title
+    }
+
     /// Read-only notes, e.g. shared without edit permission, can be read but neither changed nor deleted.
     private func applyReadOnlyState() {
         guard let note else { return }
 
         noteView.isEditable = !note.readOnly
-
-        if isViewLoaded {
-            deleteButton.isEnabled = !note.readOnly
-        }
-    }
-
-    fileprivate func updateHeaderLabel() {
-        if let note = note, let date = Date(timeIntervalSince1970: note.modified) as Date? {
-            let formatter = DateFormatter()
-            formatter.dateStyle = .short
-            formatter.timeStyle = .short
-            formatter.doesRelativeDateFormatting = false
-            noteView.headerLabel.text = formatter.string(from: date)
-            noteView.headerLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)
-            navigationItem.title = note.title
-        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        updateHeaderLabel()
+        updateTitleAndDate()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -187,10 +180,25 @@ class EditorViewController: UIViewController {
         //        //TODO: This works around a Swift/Objective-C interaction issue. Verify that it is still needed.
         self.noteView.isScrollEnabled = false
         self.noteView.isScrollEnabled = true
+
+        if isNewNote, !hasFocusedNewNote, traitCollection.userInterfaceIdiom == .phone {
+            hasFocusedNewNote = true
+            noteView.becomeFirstResponder()
+        }
     }
 
     override func viewWillDisappear(_ animated: Bool) {
-        self.updateNoteContent()
+        if let note, isNewNote, navigationController?.isBeingDismissed == true,
+           noteView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            self.note = nil
+
+            Task {
+                await NoteSessionManager.shared.delete(note: note)
+            }
+        } else {
+            self.updateNoteContent()
+        }
+
         super.viewWillDisappear(animated)
     }
 
@@ -217,14 +225,31 @@ class EditorViewController: UIViewController {
             if let preview = segue.destination as? PreviewViewController, let note = note {
                 preview.content = noteView.text
                 preview.noteTitle = note.title
-                preview.noteDate = noteView.headerLabel.text
             }
         }
     }
     
     // MARK: - Actions
 
-    @IBAction func onActivities(_ sender: Any?) {
+    private func moreMenuElements() -> [UIMenuElement] {
+        let textAttributes: UIMenuElement.Attributes = noteView.text.isEmpty ? .disabled : []
+
+        let previewAction = UIAction(title: NSLocalizedString("Preview", comment: "Action to preview a note"), image: UIImage(systemName: "text.page.badge.magnifyingglass"), attributes: textAttributes) { [weak self] _ in
+            self?.performSegue(withIdentifier: "showPreview", sender: nil)
+        }
+
+        let shareAction = UIAction(title: NSLocalizedString("Share", comment: "Action to share a note"), image: UIImage(systemName: "square.and.arrow.up"), attributes: textAttributes) { [weak self] _ in
+            self?.share()
+        }
+
+        let deleteAction = UIAction(title: NSLocalizedString("Delete", comment: "Action to delete a note"), image: UIImage(systemName: "trash"), attributes: note == nil || note?.readOnly == true ? [.destructive, .disabled] : .destructive) { [weak self] _ in
+            self?.confirmDelete()
+        }
+
+        return [previewAction, shareAction, UIMenu(options: .displayInline, children: [deleteAction])]
+    }
+
+    private func share() {
         var textToExport: String?
         if let selectedRange = noteView.selectedTextRange, let selectedText = noteView.text(in: selectedRange), !selectedText.isEmpty  {
             textToExport = selectedText
@@ -232,7 +257,7 @@ class EditorViewController: UIViewController {
             textToExport = noteView.text
         }
         if let text = textToExport {
-            noteExporter = NoteExporter(title: note?.title ?? "Untitled", text: text, viewController: self, from: activityButton)
+            noteExporter = NoteExporter(title: note?.title ?? "Untitled", text: text, viewController: self, from: moreButton)
             noteExporter?.showMenu()
         }
     }
@@ -271,17 +296,13 @@ class EditorViewController: UIViewController {
         }
     }
     
-    @IBAction func onDelete(_ sender: Any?) {
+    private func confirmDelete() {
         if let popover = deleteAlertController.popoverPresentationController {
-            popover.barButtonItem = deleteButton
+            popover.barButtonItem = moreButton
         }
         present(deleteAlertController, animated: true, completion: nil)
     }
 
-    @IBAction func onPreview(_ sender: Any?) {
-        performSegue(withIdentifier: "showPreview", sender: sender)
-    }
-    
     @IBAction func onUndo(_ sender: Any?) {
         if let _ = noteView.undoManager?.canUndo {
             noteView.undoManager?.undo()
@@ -332,15 +353,7 @@ class EditorViewController: UIViewController {
 
     func keyboardWillHide(notification: Notification) {
         if self.traitCollection.userInterfaceIdiom == .phone {
-            self.navigationItem.rightBarButtonItems = [
-                dismissButton,
-                fixedSpace,
-                activityButton,
-                fixedSpace,
-                deleteButton,
-                fixedSpace,
-                previewButton
-            ]
+            self.navigationItem.rightBarButtonItem = moreButton
         }
 
         if let info = notification.userInfo,
@@ -359,7 +372,6 @@ class EditorViewController: UIViewController {
 
     func preferredContentSizeChanged() {
         self.noteView.font = UIFont.preferredFont(forTextStyle: .body)
-        self.noteView.headerLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)
     }
 }
 
@@ -374,15 +386,15 @@ extension EditorViewController: UITextViewDelegate {
             Task { [weak self] in
                 await NoteSessionManager.shared.update(note: note)
 
-                self?.updateHeaderLabel()
+                self?.updateTitleAndDate()
             }
         }
     }
 
     func textViewDidChange(_ textView: UITextView) {
-        self.activityButton.isEnabled = !textView.text.isEmpty
-        self.previewButton.isEnabled = !textView.text.isEmpty
-        self.deleteButton.isEnabled = !(note?.readOnly ?? false)
+        editedDate = Date()
+        updateTitleAndDate()
+
         throttler.throttle { [weak self] in
             self?.updateNoteContent()
         }
@@ -665,19 +677,10 @@ extension EditorViewController: UITextViewDelegate {
     func textViewDidChangeSelection(_ textView: UITextView) {
         textView.scrollRangeToVisible(textView.selectedRange)
     }
-}
 
-extension EditorViewController: UINavigationControllerDelegate {
-    
-    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-        if viewController == self {
-            if self.traitCollection.userInterfaceIdiom == .phone, let note = self.note, note.id == 0 {
-                self.view.bringSubviewToFront(self.noteView)
-                self.noteView.becomeFirstResponder()
-            }
-        }
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        noteView.settleDate(targetContentOffset: targetContentOffset)
     }
-    
 }
 
 extension CharacterSet {

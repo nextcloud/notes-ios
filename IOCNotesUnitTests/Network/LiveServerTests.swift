@@ -13,7 +13,7 @@ extension NetworkIntegrationTests {
     @MainActor
     @Suite("Live server: mutable account",
            .tags(.liveServer),
-           .enabled(if: LiveServer.isEnabled, "Needs the LiveServer test plan and a provisioned server"),
+           .enabled(if: LiveServer.isEnabled, "Needs the Integration test plan and a provisioned server"),
            // A real server, especially a local SQLite one under load, can take tens of seconds per request.
            .timeLimit(.minutes(3)),
            .liveAccount(.mutable))
@@ -239,7 +239,7 @@ extension NetworkIntegrationTests {
     @MainActor
     @Suite("Live server: fixture account",
            .tags(.liveServer),
-           .enabled(if: LiveServer.isEnabled, "Needs the LiveServer test plan and a provisioned server"),
+           .enabled(if: LiveServer.isEnabled, "Needs the Integration test plan and a provisioned server"),
            // A real server, especially a local SQLite one under load, can take tens of seconds per request.
            .timeLimit(.minutes(3)),
            .liveAccount(.fixtures))

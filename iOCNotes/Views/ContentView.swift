@@ -15,6 +15,42 @@ struct ContentView: View {
 
     @State var selection: Int = 0
 
+    ///
+    /// Show once at launch, after which ``KeychainHelper/shouldShowOnboarding`` is set to false.
+    ///
+    @State private var isPresentingOnboarding = KeychainHelper.shouldShowOnboarding
+
+    private var onboardingTitle: String {
+        let appName = Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String ?? NCBrandOptions.shared.brandName
+
+        return String(localized: "Welcome to \(appName)", comment: "Onboarding title. The placeholder is the app name.")
+    }
+
+    private var onboardingFeatures: [OnboardingFeature] {
+        [
+            OnboardingFeature(
+                icon: Image(systemName: "lock.shield"),
+                title: String(localized: "Your Data, Your Control", comment: "Onboarding feature title."),
+                description: String(localized: "Keep your data secure and under your control.", comment: "Onboarding feature description.")
+            ),
+            OnboardingFeature(
+                icon: Image(systemName: "person.2"),
+                title: String(localized: "Secure Collaboration", comment: "Onboarding feature title."),
+                description: String(localized: "Work together and exchange files securely.", comment: "Onboarding feature description.")
+            ),
+            OnboardingFeature(
+                icon: Image(systemName: "arrow.triangle.2.circlepath"),
+                title: String(localized: "Always in Sync", comment: "Onboarding feature title."),
+                description: String(localized: "Your notes stay up to date across all your devices.", comment: "Onboarding feature description.")
+            ),
+            OnboardingFeature(
+                icon: Image(systemName: "wifi.slash"),
+                title: String(localized: "Works Offline", comment: "Onboarding feature title."),
+                description: String(localized: "Keep writing even without a connection.", comment: "Onboarding feature description.")
+            )
+        ]
+    }
+
     var sharedAccounts: [SharedAccount] {
         store.sharedAccounts.compactMap {
             guard let url = URL(string: $0.url) else {
@@ -34,7 +70,16 @@ struct ContentView: View {
     }
 
     var body: some View {
-        if store.accounts.isEmpty {
+        if store.accounts.isEmpty && isPresentingOnboarding {
+            OnboardingView(title: onboardingTitle, features: onboardingFeatures, tint: Color.accent) {
+                withAnimation {
+                    isPresentingOnboarding = false
+                }
+            }
+            .onAppear {
+                KeychainHelper.shouldShowOnboarding = false
+            }
+        } else if store.accounts.isEmpty {
             ServerAddressView(backgroundColor: .constant(Color.accent), brandImage: Image("BrandLogo"), sharedAccounts: sharedAccounts, userAgent: userAgent) { host, name, password in
                 store.addAccount(host: host, name: name, password: password)
             }

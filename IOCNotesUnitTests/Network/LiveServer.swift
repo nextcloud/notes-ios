@@ -8,7 +8,7 @@ import Testing
 @testable import iOCNotes
 
 ///
-/// The real Nextcloud the live tier runs against: the `LiveServer` test plan, CI's `live-server` job,
+/// The real Nextcloud the live tier runs against: the `Integration` test plan, CI's `Integration Tests` job,
 /// or `Server/Run.sh` locally. Its users are provisioned by `Server/Provisioning.sh`.
 ///
 enum LiveServer {

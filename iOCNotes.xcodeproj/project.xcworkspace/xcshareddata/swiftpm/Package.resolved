@@ -1,5 +1,5 @@
 {
-  "originHash" : "362600762584dfcdd7a2dce6bf3ff2289adda012d9991e48e76a89167b3e0447",
+  "originHash" : "ef26461594b04fb18ca383bea56295c07d1edb342aeff52012d2f8f57a1c31a5",
   "pins" : [
     {
       "identity" : "alamofire",
@@ -42,8 +42,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/nextcloud/NextcloudKit",
       "state" : {
-        "revision" : "705e69cf0526cac0bdeaf21699c41c895cae42a0",
-        "version" : "7.6.2"
+        "branch" : "main",
+        "revision" : "e7e561791642e32bbe94c10fd925a38d6cc4c2f7"
       }
     },
     {

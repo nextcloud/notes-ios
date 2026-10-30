@@ -12,15 +12,20 @@ import UIKit
 ///
 enum NotesPresenter {
     ///
-    /// Open the given note, using the server's collaborative text editor when direct editing is available and the
+    /// Open the given note when direct editing is available and the
     /// built-in editor otherwise.
     ///
     @discardableResult
     static func openEditor(for note: Note, isNewNote: Bool) -> Bool {
-        if isDirectEditingAvailable {
-            return openInDirectEditing(note: note)
+        guard isDirectEditingAvailable, !note.addNeeded || NoteSessionManager.isOnline else {
+            return openInBuiltInEditor(note: note, isNewNote: isNewNote)
         }
 
+        return openInDirectEditing(note: note, isNewNote: isNewNote)
+    }
+
+    @discardableResult
+    private static func openInBuiltInEditor(note: Note, isNewNote: Bool) -> Bool {
         let storyboard = UIStoryboard(name: "Main_iPhone", bundle: nil)
         guard let navigationController = storyboard.instantiateViewController(withIdentifier: "Editor") as? UINavigationController,
               let editor = navigationController.topViewController as? EditorViewController,
@@ -80,35 +85,48 @@ enum NotesPresenter {
         return reachability == .reachableCellular || reachability == .reachableEthernetOrWiFi
     }
 
-    private static func openInDirectEditing(note: Note) -> Bool {
+    private static func openInDirectEditing(note: Note, isNewNote: Bool) -> Bool {
         guard let account = KeychainHelper.account,
-              UIApplication.topViewController() != nil else {
+              let presenter = UIApplication.topViewController(),
+              let viewer = UIStoryboard(name: "NCViewerNextcloudText", bundle: nil).instantiateInitialViewController() as? NCViewerNextcloudText else {
             return false
         }
 
-        NextcloudKit.shared.openFileForDirectEditing(fileNamePath: KeychainHelper.notesPath, fileId: String(note.id), editorId: "text", account: account) { _, url, _, error in
-            DispatchQueue.main.async {
-                guard let presenter = UIApplication.topViewController() else { return }
+        viewer.fileName = note.title
 
-                if error == .success,
-                   let url,
-                   let viewController = UIStoryboard(name: "NCViewerNextcloudText", bundle: nil).instantiateInitialViewController() as? NCViewerNextcloudText {
-                    viewController.link = url
-                    viewController.fileName = note.title
+        viewer.loadLink = {
+            try await directEditingURL(for: note, account: account)
+        }
 
-                    let navigationController = UINavigationController(rootViewController: viewController)
-                    navigationController.modalPresentationStyle = .fullScreen
-                    presenter.present(navigationController, animated: true)
-                } else {
-                    let title = NSLocalizedString("Error", comment: "Title of an error alert")
-                    let messageFormat = NSLocalizedString("Cannot open file for direct editing: %@", comment: "Direct editing failure followed by the underlying error")
-                    let alert = UIAlertController(title: title, message: String(format: messageFormat, error.localizedDescription), preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
-                    presenter.present(alert, animated: true)
-                }
+        viewer.switchToInternalEditor = {
+            guard note.managedObjectContext != nil else { return }
+
+            openInBuiltInEditor(note: note, isNewNote: isNewNote)
+        }
+
+        let navigationController = UINavigationController(rootViewController: viewer)
+        navigationController.modalPresentationStyle = .fullScreen
+        presenter.present(navigationController, animated: true)
+
+        return true
+    }
+
+    @MainActor
+    private static func directEditingURL(for note: Note, account: String) async throws -> URL {
+        if note.addNeeded {
+            await NoteSessionManager.shared.add(note: note)
+
+            guard note.managedObjectContext != nil, !note.addNeeded else {
+                throw NKError(errorCode: NSURLErrorCannotCreateFile, errorDescription: NSLocalizedString("Error Adding Note", comment: "The title of an error message"))
             }
         }
 
-        return true
+        let result = await NextcloudKit.shared.openFileForDirectEditingAsync(fileNamePath: KeychainHelper.notesPath, fileId: String(note.id), editorId: "text", account: account)
+
+        guard result.error == .success else { throw result.error }
+
+        guard let link = result.url, let url = URL(string: link) else { throw NKError.invalidResponseError }
+
+        return url
     }
 }

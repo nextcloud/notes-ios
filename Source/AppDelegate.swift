@@ -89,6 +89,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         UILabel.appearance().themeColor = .ph_textColor
         UILabel.appearance(whenContainedInInstancesOf: [UITextField.self]).themeColor = .ph_readTextColor
+        UILabel.appearance(whenContainedInInstancesOf: [HeaderTextView.self]).themeColor = .secondaryLabel
 
         UITextField.appearance().textColor = .ph_textColor
         
@@ -154,8 +155,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if let queryItems = urlComponents?.queryItems,
                 let item = queryItems.first(where: { $0.name == "note" }),
                 let content = item.value {
+                // Presents on the next main-actor turn, once the scene is connected.
                 Task {
-                    guard let note = await NoteSessionManager.shared.add(content: content, category: "") else { return }
+                    guard let note = NoteSessionManager.shared.addLocally(content: content, category: "") else { return }
 
                     self.openEditorWhenReady(for: note)
                 }

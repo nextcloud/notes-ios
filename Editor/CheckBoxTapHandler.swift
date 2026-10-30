@@ -63,6 +63,11 @@ public class CheckBoxTapHandler: NSObject {
             for range in clearRanges {
                 textStorage.replaceCharacters(in: NSRange(location: range.location - 2, length: 3), with: "[ ]")
             }
+
+            // Direct storage edits skip the delegate, so report the toggle like typing.
+            if !checkRanges.isEmpty || !clearRanges.isEmpty {
+                textView.delegate?.textViewDidChange?(textView)
+            }
         }
     }
 

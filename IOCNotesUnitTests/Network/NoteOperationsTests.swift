@@ -44,6 +44,16 @@ extension NetworkIntegrationTests {
             #expect(fixture.server.requests.isEmpty)
         }
 
+        @Test("Adding locally keeps the note on the device without any request")
+        func addLocally() throws {
+            let note = try #require(fixture.manager.addLocally(content: "", category: ""))
+
+            #expect(note.addNeeded)
+            #expect(note.id == -1)
+            #expect(note.title == Constants.newNote)
+            #expect(fixture.server.requests.isEmpty)
+        }
+
         @Test("A failed upload keeps the note pending and reports it")
         func addFailure() async throws {
             fixture.server.script("POST", "/notes", .status(500))
