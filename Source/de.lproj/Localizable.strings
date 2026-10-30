@@ -188,7 +188,7 @@
 "This note is read-only and cannot be deleted." = "Die Notiz ist schreibgeschützt und kann nicht gelöscht werden.";
 
 /* An error message */
-"This note is read-only. Your changes were not saved." = "This note is read-only. Your changes were not saved.";
+"This note is read-only. Your changes were not saved." = "Diese Notiz ist schreibgeschützt. Die Änderungen wurden nicht gespeichert.";
 
 /* Alert message for selecting server brand */
 "Unable to automatically detect type of server.\nPlease select:" = "Servertyp kann nicht automatisch erkannt werden.\nBitte auswählen:";
