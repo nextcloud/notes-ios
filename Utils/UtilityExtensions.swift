@@ -77,6 +77,10 @@ extension String {
         while truncated.last != " ", !truncated.isEmpty {
             truncated = truncated.dropLast()
         }
+        if truncated.isEmpty {
+            // No space to break at, for example a URL: cut at the length instead of returning only the trailing.
+            truncated = self.prefix(length)
+        }
         return truncated + trailing
     }
 
