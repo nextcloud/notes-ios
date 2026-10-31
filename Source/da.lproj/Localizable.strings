@@ -8,7 +8,7 @@
 "A server installation could not be found. Check the server address." = "En serverinstallation kunne ikke findes. Tjek serveradressen.";
 
 /* Acknowledgements */
-"Acknowledgements" = "Acknowledgements";
+"Acknowledgements" = "Tak til";
 
 /* Title of alert for adding a category */
 "Add Category" = "Tilføj kategori";
@@ -27,10 +27,10 @@
 "Category" = "Kategori";
 
 /* Action to change category of a note */
-"Category…" = "Kategori...";
+"Category…" = "Kategori…";
 
 /* Action to change category of a note */
-"Change Category…" = "Skift kategori...";
+"Change Category…" = "Skift kategori…";
 
 /* An error message */
 "Check username and password." = "Kontroller brugernavn og adgangskode.";
@@ -39,7 +39,7 @@
 "NextcloudNotes Crash Report" = "NextcloudNotes-nedbrudsrapport";
 
 /* No comment provided by engineer. */
-"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "NextcloudNotes gik ned, sidste gang det blev lanceret. Vil du sende en rapport til udvikleren?";
+"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "NextcloudNotes gik ned, sidste gang appen blev startet. Vil du sende en rapport til udvikleren?";
 
 /* Support email subject */
 "NextcloudNotes Support Request" = "NextcloudNotes-supportanmodning";
@@ -48,7 +48,7 @@
 "Connect" = "Forbind";
 
 /* Status information, connected */
-"Connected to Notes on the server" = "Forbundet til noter på serveren";
+"Connected to Notes on the server" = "Forbundet til Noter på serveren";
 
 /* An error message title */
 "Connection failure" = "Forbindelsesfejl";
@@ -57,7 +57,7 @@
 "Crash Detected" = "Nedbrud registreret";
 
 /* Action to delete a note */
-"Delete" = "Delete";
+"Delete" = "Slet";
 
 /* A menu action */
 "Delete Note" = "Slet note";
@@ -120,13 +120,13 @@
 "Not Synchronized" = "Ikke synkroniseret";
 
 /* Title of alert to change title */
-"Note Title" = "Note titel";
+"Note Title" = "Notens titel";
 
 /* An error message */
-"Notes could not be found on your server. Make sure it is installed and enabled" = "Noter kunne ikke findes på din server. Sørg for at den er installeret og aktiveret";
+"Notes could not be found on your server. Make sure it is installed and enabled" = "Noter blev ikke fundet på din server. Sørg for, at appen er installeret og aktiveret";
 
 /* An error message title */
-"Notes not found" = "Noter ikke fundet";
+"Notes not found" = "Noter blev ikke fundet";
 
 /* Shown when pull-to-refresh is used in offline mode */
 "Offline Mode is on. Turn it off in Settings to sync." = "Offlinetilstand er slået til. Slå den fra i Indstillinger for at synkronisere.";
@@ -135,10 +135,10 @@
 "OK" = "OK";
 
 /* Title for Open In activity */
-"Open in…" = "Åben i...";
+"Open in…" = "Åbn i…";
 
 /* A menu option for sharing in plain text format */
-"Plain Text" = "Rå tekst";
+"Plain Text" = "Almindelig tekst";
 
 /* A message
    A message to check network connection */
@@ -149,28 +149,25 @@
 
 /* Action to change title of a note
    Caption of Rename button */
-"Rename" = "Rename";
+"Rename" = "Omdøb";
 
 /* Message of alert to change title */
 "Rename the note" = "Omdøb noten";
 
 /* Action to change title of a note */
-"Rename…" = "Omdøb...";
+"Rename…" = "Omdøb…";
 
 /* A menu option for sharing in rich text format */
 "Rich Text" = "Formateret tekst";
-
-/* Placeholder text when no note is selected */
-"Select or create a note." = "Vælg eller opret en note.";
 
 /* Alert title for selecting server brand */
 "Server" = "Server";
 
 /* An error message title */
-"Server not found" = "Server ikke fundet";
+"Server not found" = "Serveren blev ikke fundet";
 
 /* A message title */
-"Server Reachable" = "Server tilgængelig";
+"Server Reachable" = "Serveren kan nås";
 
 /* Title of a menu with sharing options */
 "Share Note As" = "Del note som";
@@ -195,13 +192,13 @@
 
 /* A message title
    The title of an error message */
-"Unable to Reach Server" = "Kan ikke nå server";
+"Unable to Reach Server" = "Kan ikke nå serveren";
 
 /* An error message title */
-"Unauthorized" = "Ikke autoriseret";
+"Unauthorized" = "Ingen adgang";
 
 /* Text displayed for notes not assigned to a category */
-"Uncategorized" = "Ikke kategoriseret";
+"Uncategorized" = "Uden kategori";
 
 /* Message with Notes version, product name and version */
 "Using Notes %1$@ on %2$@ %3$@." = "Bruger Noter %1$@ på %2$@ %3$@.";
@@ -210,37 +207,37 @@
 "Yes, please!" = "Ja tak!";
 
 /* HUD subtitle when checking server capabilities */
-"Checking server capabilities" = "Kontroller serverens muligheder";
+"Checking server capabilities" = "Kontrollerer serverens funktioner";
 
 /* HUD subtitle when checking server settings */
-"Checking server settings" = "Kontroller serverindstillinger";
+"Checking server settings" = "Kontrollerer serverindstillinger";
 
 /* HUD subtitle when checking server status */
-"Checking server status" = "Kontroller serverstatus";
+"Checking server status" = "Kontrollerer serverstatus";
 
 /* No comment provided by engineer. */
-"Connection error" = "Forbindelses fejl";
+"Connection error" = "Forbindelsesfejl";
 
 /* No comment provided by engineer. */
 "Do you want to connect to the server anyway?" = "Vil du alligevel oprette forbindelse til serveren?";
 
 /* An error message title */
-"Error" = "Error";
+"Error" = "Fejl";
 
 /* No comment provided by engineer. */
 "No" = "Nej";
 
 /* Title of alert to change notes folder */
-"Notes Folder" = "Noter mappe";
+"Notes Folder" = "Mappe til noter";
 
 /* A menu option for sharing in pdf format */
 "PDF" = "PDF";
 
 /* Caption of Save button */
-"Save" = "Save";
+"Save" = "Gem";
 
 /* No comment provided by engineer. */
-"The certificate for this server is invalid" = "Certefikatet for denne server er ikke korrekt";
+"The certificate for this server is invalid" = "Certifikatet for denne server er ugyldigt";
 
 /* No comment provided by engineer. */
 "View Certificate" = "Se certifikat";
@@ -275,9 +272,51 @@
 "About This App" = "Om denne app";
 "Client Version" = "Klientversion";
 "Server Version" = "Serverversion";
-"Privacy and Legal Policy" = "Privatliv og juridisk politik";
+"Privacy and Legal Policy" = "Privatlivspolitik og juridiske oplysninger";
 "Show Source Code on GitHub" = "Vis kildekode på GitHub";
 "Logout" = "Log ud";
 "Are you sure you want to log out?" = "Er du sikker på, at du vil logge ud?";
-"Enter a name for the folder where notes should be saved on the server" = "Indtast et navn for mappen hvor noter skal gemmes på serveren";
+"Enter a name for the folder where notes should be saved on the server" = "Indtast et navn på mappen, hvor noterne skal gemmes på serveren";
 "Settings" = "Indstillinger";
+
+/* Onboarding title. The placeholder is the app name. */
+"Welcome to %@" = "Welcome to %@";
+
+/* Onboarding feature title. */
+"Your Data, Your Control" = "Your Data, Your Control";
+
+/* Onboarding feature description. */
+"Keep your data secure and under your control." = "Keep your data secure and under your control.";
+
+/* Onboarding feature title. */
+"Secure Collaboration" = "Secure Collaboration";
+
+/* Onboarding feature description. */
+"Work together and exchange files securely." = "Work together and exchange files securely.";
+
+/* Onboarding feature title. */
+"Always in Sync" = "Always in Sync";
+
+/* Onboarding feature description. */
+"Your notes stay up to date across all your devices." = "Your notes stay up to date across all your devices.";
+
+/* Onboarding feature title. */
+"Works Offline" = "Works Offline";
+
+/* Onboarding feature description. */
+"Keep writing even without a connection." = "Keep writing even without a connection.";
+
+/* Accessibility label of the button with more note actions */
+"More" = "Mere";
+
+/* Action to preview a note */
+"Preview" = "Forhåndsvis";
+
+/* Action to share a note */
+"Share" = "Del";
+
+/* Direct editing failure followed by the underlying error */
+"Cannot open file for direct editing: %@" = "Cannot open file for direct editing: %@";
+
+/* Action offered when the collaborative editor fails to load */
+"Switch to Internal Editor" = "Switch to Internal Editor";

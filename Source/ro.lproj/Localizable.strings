@@ -117,7 +117,7 @@
 "Not logged in" = "Neautentificat";
 
 /* Title of the hint shown when pull-to-refresh cannot sync */
-"Not Synchronized" = "Not Synchronized";
+"Not Synchronized" = "Nesincronizat";
 
 /* Title of alert to change title */
 "Note Title" = "Titlul notiței";
@@ -129,7 +129,7 @@
 "Notes not found" = "Aplicația Notițe nu a fost găsită";
 
 /* Shown when pull-to-refresh is used in offline mode */
-"Offline Mode is on. Turn it off in Settings to sync." = "Offline Mode is on. Turn it off in Settings to sync.";
+"Offline Mode is on. Turn it off in Settings to sync." = "Modul offline este activat. Dezactivează-l din Setări pentru a sincroniza.";
 
 /* Button, OK */
 "OK" = "OK";
@@ -160,9 +160,6 @@
 /* A menu option for sharing in rich text format */
 "Rich Text" = "Text formatat";
 
-/* Placeholder text when no note is selected */
-"Select or create a note." = "Selectează sau creează o notiță.";
-
 /* Alert title for selecting server brand */
 "Server" = "Server";
 
@@ -182,13 +179,13 @@
 "The note does not exist" = "Notița nu există";
 
 /* Shown when pull-to-refresh is used without a connection to the server */
-"The server is not reachable." = "The server is not reachable.";
+"The server is not reachable." = "Serverul nu poate fi accesat.";
 
 /* An error message */
-"This note is read-only and cannot be deleted." = "This note is read-only and cannot be deleted.";
+"This note is read-only and cannot be deleted." = "Această notiță este doar pentru citire și nu poate fi ștearsă.";
 
 /* An error message */
-"This note is read-only. Your changes were not saved." = "This note is read-only. Your changes were not saved.";
+"This note is read-only. Your changes were not saved." = "Această notiță este doar pentru citire. Modificările tale nu au fost salvate.";
 
 /* Alert message for selecting server brand */
 "Unable to automatically detect type of server.\nPlease select:" = "Tipul serverului nu a putut fi detectat automat.\nSelectează:";
@@ -281,3 +278,45 @@
 "Are you sure you want to log out?" = "Sigur vrei să te deconectezi?";
 "Enter a name for the folder where notes should be saved on the server" = "Introdu un nume pentru dosarul în care vor fi salvate notițele pe server";
 "Settings" = "Setări";
+
+/* Onboarding title. The placeholder is the app name. */
+"Welcome to %@" = "Welcome to %@";
+
+/* Onboarding feature title. */
+"Your Data, Your Control" = "Your Data, Your Control";
+
+/* Onboarding feature description. */
+"Keep your data secure and under your control." = "Keep your data secure and under your control.";
+
+/* Onboarding feature title. */
+"Secure Collaboration" = "Secure Collaboration";
+
+/* Onboarding feature description. */
+"Work together and exchange files securely." = "Work together and exchange files securely.";
+
+/* Onboarding feature title. */
+"Always in Sync" = "Always in Sync";
+
+/* Onboarding feature description. */
+"Your notes stay up to date across all your devices." = "Your notes stay up to date across all your devices.";
+
+/* Onboarding feature title. */
+"Works Offline" = "Works Offline";
+
+/* Onboarding feature description. */
+"Keep writing even without a connection." = "Keep writing even without a connection.";
+
+/* Accessibility label of the button with more note actions */
+"More" = "Mai mult";
+
+/* Action to preview a note */
+"Preview" = "Preview";
+
+/* Action to share a note */
+"Share" = "Partajează";
+
+/* Direct editing failure followed by the underlying error */
+"Cannot open file for direct editing: %@" = "Cannot open file for direct editing: %@";
+
+/* Action offered when the collaborative editor fails to load */
+"Switch to Internal Editor" = "Switch to Internal Editor";

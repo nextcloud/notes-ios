@@ -160,9 +160,6 @@
 /* A menu option for sharing in rich text format */
 "Rich Text" = "Обогаћени текст";
 
-/* Placeholder text when no note is selected */
-"Select or create a note." = "Избор или креирање белешке.";
-
 /* Alert title for selecting server brand */
 "Server" = "Сервер";
 
@@ -281,3 +278,45 @@
 "Are you sure you want to log out?" = "Да ли сте сигурни да желите да се одјавите?";
 "Enter a name for the folder where notes should be saved on the server" = "Унесите име фолдера на серверу у којем би требало да се чувају белешке";
 "Settings" = "Подешавања";
+
+/* Onboarding title. The placeholder is the app name. */
+"Welcome to %@" = "Welcome to %@";
+
+/* Onboarding feature title. */
+"Your Data, Your Control" = "Your Data, Your Control";
+
+/* Onboarding feature description. */
+"Keep your data secure and under your control." = "Keep your data secure and under your control.";
+
+/* Onboarding feature title. */
+"Secure Collaboration" = "Secure Collaboration";
+
+/* Onboarding feature description. */
+"Work together and exchange files securely." = "Work together and exchange files securely.";
+
+/* Onboarding feature title. */
+"Always in Sync" = "Always in Sync";
+
+/* Onboarding feature description. */
+"Your notes stay up to date across all your devices." = "Your notes stay up to date across all your devices.";
+
+/* Onboarding feature title. */
+"Works Offline" = "Works Offline";
+
+/* Onboarding feature description. */
+"Keep writing even without a connection." = "Keep writing even without a connection.";
+
+/* Accessibility label of the button with more note actions */
+"More" = "Још";
+
+/* Action to preview a note */
+"Preview" = "Претпреглед";
+
+/* Action to share a note */
+"Share" = "Подели";
+
+/* Direct editing failure followed by the underlying error */
+"Cannot open file for direct editing: %@" = "Cannot open file for direct editing: %@";
+
+/* Action offered when the collaborative editor fails to load */
+"Switch to Internal Editor" = "Switch to Internal Editor";

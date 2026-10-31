@@ -129,7 +129,7 @@
 "Notes not found" = "Notizen nicht gefunden";
 
 /* Shown when pull-to-refresh is used in offline mode */
-"Offline Mode is on. Turn it off in Settings to sync." = "Der Offline-Modus ist aktiviert. Zum Synchronisieren, bitte ausschalten.";
+"Offline Mode is on. Turn it off in Settings to sync." = "Offline-Modus ist aktiviert. Zum Synchronisieren, bitte ausschalten.";
 
 /* Button, OK */
 "OK" = "Ok";
@@ -160,9 +160,6 @@
 /* A menu option for sharing in rich text format */
 "Rich Text" = "Rich-Text";
 
-/* Placeholder text when no note is selected */
-"Select or create a note." = "Notiz auswählen oder eine erstellen.";
-
 /* Alert title for selecting server brand */
 "Server" = "Server";
 
@@ -182,10 +179,10 @@
 "The note does not exist" = "Die Notiz existiert nicht";
 
 /* Shown when pull-to-refresh is used without a connection to the server */
-"The server is not reachable." = "Der Server ist nicht erreichbar.";
+"The server is not reachable." = "Server ist nicht erreichbar.";
 
 /* An error message */
-"This note is read-only and cannot be deleted." = "Die Notiz ist schreibgeschützt und kann nicht gelöscht werden.";
+"This note is read-only and cannot be deleted." = "Diese Notiz ist schreibgeschützt und kann nicht gelöscht werden.";
 
 /* An error message */
 "This note is read-only. Your changes were not saved." = "Diese Notiz ist schreibgeschützt. Die Änderungen wurden nicht gespeichert.";
@@ -281,3 +278,45 @@
 "Are you sure you want to log out?" = "Möchten Sie sich wirklich abmelden?";
 "Enter a name for the folder where notes should be saved on the server" = "Geben Sie einen Namen für den Ordner ein, in dem Notizen auf dem Server gespeichert werden sollen";
 "Settings" = "Einstellungen";
+
+/* Onboarding title. The placeholder is the app name. */
+"Welcome to %@" = "Welcome to %@";
+
+/* Onboarding feature title. */
+"Your Data, Your Control" = "Your Data, Your Control";
+
+/* Onboarding feature description. */
+"Keep your data secure and under your control." = "Keep your data secure and under your control.";
+
+/* Onboarding feature title. */
+"Secure Collaboration" = "Secure Collaboration";
+
+/* Onboarding feature description. */
+"Work together and exchange files securely." = "Work together and exchange files securely.";
+
+/* Onboarding feature title. */
+"Always in Sync" = "Always in Sync";
+
+/* Onboarding feature description. */
+"Your notes stay up to date across all your devices." = "Your notes stay up to date across all your devices.";
+
+/* Onboarding feature title. */
+"Works Offline" = "Works Offline";
+
+/* Onboarding feature description. */
+"Keep writing even without a connection." = "Keep writing even without a connection.";
+
+/* Accessibility label of the button with more note actions */
+"More" = "Mehr";
+
+/* Action to preview a note */
+"Preview" = "Preview";
+
+/* Action to share a note */
+"Share" = "Teilen";
+
+/* Direct editing failure followed by the underlying error */
+"Cannot open file for direct editing: %@" = "Cannot open file for direct editing: %@";
+
+/* Action offered when the collaborative editor fails to load */
+"Switch to Internal Editor" = "Switch to Internal Editor";
