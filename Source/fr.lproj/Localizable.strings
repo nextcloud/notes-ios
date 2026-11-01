@@ -280,31 +280,31 @@
 "Settings" = "Paramètres";
 
 /* Onboarding title. The placeholder is the app name. */
-"Welcome to %@" = "Welcome to %@";
+"Welcome to %@" = "Bienvenue dans %@";
 
 /* Onboarding feature title. */
-"Your Data, Your Control" = "Your Data, Your Control";
+"Your Data, Your Control" = "Vos données, votre contrôle";
 
 /* Onboarding feature description. */
-"Keep your data secure and under your control." = "Keep your data secure and under your control.";
+"Keep your data secure and under your control." = "Gardez vos données en sécurité et sous votre contrôle.";
 
 /* Onboarding feature title. */
-"Secure Collaboration" = "Secure Collaboration";
+"Secure Collaboration" = "Collaboration sécurisée";
 
 /* Onboarding feature description. */
-"Work together and exchange files securely." = "Work together and exchange files securely.";
+"Work together and exchange files securely." = "Travaillez ensemble et échangez des fichiers en toute sécurité.";
 
 /* Onboarding feature title. */
-"Always in Sync" = "Always in Sync";
+"Always in Sync" = "Toujours synchronisées";
 
 /* Onboarding feature description. */
-"Your notes stay up to date across all your devices." = "Your notes stay up to date across all your devices.";
+"Your notes stay up to date across all your devices." = "Vos notes restent à jour sur tous vos appareils.";
 
 /* Onboarding feature title. */
-"Works Offline" = "Works Offline";
+"Works Offline" = "Fonctionne hors connexion";
 
 /* Onboarding feature description. */
-"Keep writing even without a connection." = "Keep writing even without a connection.";
+"Keep writing even without a connection." = "Continuez à écrire même sans connexion.";
 
 /* Accessibility label of the button with more note actions */
 "More" = "Plus";
@@ -316,7 +316,7 @@
 "Share" = "Partager";
 
 /* Direct editing failure followed by the underlying error */
-"Cannot open file for direct editing: %@" = "Cannot open file for direct editing: %@";
+"Cannot open file for direct editing: %@" = "Impossible d’ouvrir le fichier pour une modification directe : %@";
 
 /* Action offered when the collaborative editor fails to load */
-"Switch to Internal Editor" = "Switch to Internal Editor";
+"Switch to Internal Editor" = "Passer à l’éditeur interne";

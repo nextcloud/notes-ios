@@ -280,43 +280,43 @@
 "Settings" = "Nastavenia";
 
 /* Onboarding title. The placeholder is the app name. */
-"Welcome to %@" = "Welcome to %@";
+"Welcome to %@" = "Vitajte v aplikácii %@";
 
 /* Onboarding feature title. */
-"Your Data, Your Control" = "Your Data, Your Control";
+"Your Data, Your Control" = "Vaše údaje pod vašou kontrolou";
 
 /* Onboarding feature description. */
-"Keep your data secure and under your control." = "Keep your data secure and under your control.";
+"Keep your data secure and under your control." = "Uchovajte svoje údaje v bezpečí a pod svojou kontrolou.";
 
 /* Onboarding feature title. */
-"Secure Collaboration" = "Secure Collaboration";
+"Secure Collaboration" = "Bezpečná spolupráca";
 
 /* Onboarding feature description. */
-"Work together and exchange files securely." = "Work together and exchange files securely.";
+"Work together and exchange files securely." = "Spolupracujte a bezpečne si vymieňajte súbory.";
 
 /* Onboarding feature title. */
-"Always in Sync" = "Always in Sync";
+"Always in Sync" = "Vždy synchronizované";
 
 /* Onboarding feature description. */
-"Your notes stay up to date across all your devices." = "Your notes stay up to date across all your devices.";
+"Your notes stay up to date across all your devices." = "Vaše poznámky zostanú aktuálne na všetkých vašich zariadeniach.";
 
 /* Onboarding feature title. */
-"Works Offline" = "Works Offline";
+"Works Offline" = "Funguje aj offline";
 
 /* Onboarding feature description. */
-"Keep writing even without a connection." = "Keep writing even without a connection.";
+"Keep writing even without a connection." = "Pokračujte v písaní aj bez pripojenia.";
 
 /* Accessibility label of the button with more note actions */
 "More" = "More";
 
 /* Action to preview a note */
-"Preview" = "Preview";
+"Preview" = "Náhľad";
 
 /* Action to share a note */
 "Share" = "Sprístupňovať";
 
 /* Direct editing failure followed by the underlying error */
-"Cannot open file for direct editing: %@" = "Cannot open file for direct editing: %@";
+"Cannot open file for direct editing: %@" = "Súbor sa nedá otvoriť na priame úpravy: %@";
 
 /* Action offered when the collaborative editor fails to load */
-"Switch to Internal Editor" = "Switch to Internal Editor";
+"Switch to Internal Editor" = "Prepnúť na interný editor";

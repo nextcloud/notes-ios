@@ -280,43 +280,43 @@
 "Settings" = "Einstellungen";
 
 /* Onboarding title. The placeholder is the app name. */
-"Welcome to %@" = "Welcome to %@";
+"Welcome to %@" = "Wilkommen zu %@";
 
 /* Onboarding feature title. */
-"Your Data, Your Control" = "Your Data, Your Control";
+"Your Data, Your Control" = "Deine Daten, deine Kontrolle";
 
 /* Onboarding feature description. */
-"Keep your data secure and under your control." = "Keep your data secure and under your control.";
+"Keep your data secure and under your control." = "Halte deine Daten sicher und unter deiner Kontrolle";
 
 /* Onboarding feature title. */
-"Secure Collaboration" = "Secure Collaboration";
+"Secure Collaboration" = "Sichere Zusammenarbeit";
 
 /* Onboarding feature description. */
-"Work together and exchange files securely." = "Work together and exchange files securely.";
+"Work together and exchange files securely." = "Zusammenarbeiten und Dateien sicher austauschen.";
 
 /* Onboarding feature title. */
-"Always in Sync" = "Always in Sync";
+"Always in Sync" = "Synchron bleiben";
 
 /* Onboarding feature description. */
-"Your notes stay up to date across all your devices." = "Your notes stay up to date across all your devices.";
+"Your notes stay up to date across all your devices." = "Ihre Notizen bleiben auf all Ihren Geräten auf dem neuesten Stand.";
 
 /* Onboarding feature title. */
-"Works Offline" = "Works Offline";
+"Works Offline" = "Funktioniert offline";
 
 /* Onboarding feature description. */
-"Keep writing even without a connection." = "Keep writing even without a connection.";
+"Keep writing even without a connection." = "Auch ohne Verbindung weiterschreiben.";
 
 /* Accessibility label of the button with more note actions */
 "More" = "Mehr";
 
 /* Action to preview a note */
-"Preview" = "Preview";
+"Preview" = "Vorschau";
 
 /* Action to share a note */
 "Share" = "Teilen";
 
 /* Direct editing failure followed by the underlying error */
-"Cannot open file for direct editing: %@" = "Cannot open file for direct editing: %@";
+"Cannot open file for direct editing: %@" = "Datei kann nicht zur direkten Bearbeitung geöffnet werden: %@";
 
 /* Action offered when the collaborative editor fails to load */
-"Switch to Internal Editor" = "Switch to Internal Editor";
+"Switch to Internal Editor" = "Zum internem Editor wechseln";

@@ -280,43 +280,43 @@
 "Settings" = "Ayarlar";
 
 /* Onboarding title. The placeholder is the app name. */
-"Welcome to %@" = "Welcome to %@";
+"Welcome to %@" = "%@ uygulamasına hoş geldiniz";
 
 /* Onboarding feature title. */
-"Your Data, Your Control" = "Your Data, Your Control";
+"Your Data, Your Control" = "Verileriniz sizde, denetim sizde";
 
 /* Onboarding feature description. */
-"Keep your data secure and under your control." = "Keep your data secure and under your control.";
+"Keep your data secure and under your control." = "Verilerinizi güvende ve denetiminiz altında tutun.";
 
 /* Onboarding feature title. */
-"Secure Collaboration" = "Secure Collaboration";
+"Secure Collaboration" = "Güvenli iş birliği";
 
 /* Onboarding feature description. */
-"Work together and exchange files securely." = "Work together and exchange files securely.";
+"Work together and exchange files securely." = "Birlikte çalışın ve güvenle dosya alışverişinde bulunun.";
 
 /* Onboarding feature title. */
-"Always in Sync" = "Always in Sync";
+"Always in Sync" = "Her zaman eşitlenir";
 
 /* Onboarding feature description. */
-"Your notes stay up to date across all your devices." = "Your notes stay up to date across all your devices.";
+"Your notes stay up to date across all your devices." = "Notlarınız tüm aygıtlarınızda güncel kalır.";
 
 /* Onboarding feature title. */
-"Works Offline" = "Works Offline";
+"Works Offline" = "Çevrim dışı çalışabilir";
 
 /* Onboarding feature description. */
-"Keep writing even without a connection." = "Keep writing even without a connection.";
+"Keep writing even without a connection." = "Bağlantı olmadan bile yazmayı sürdürün.";
 
 /* Accessibility label of the button with more note actions */
 "More" = "Diğer";
 
 /* Action to preview a note */
-"Preview" = "Preview";
+"Preview" = "Ön izleme";
 
 /* Action to share a note */
 "Share" = "Paylaş";
 
 /* Direct editing failure followed by the underlying error */
-"Cannot open file for direct editing: %@" = "Cannot open file for direct editing: %@";
+"Cannot open file for direct editing: %@" = "Dosya doğrudan düzenlenmek üzere açılamadı: %@";
 
 /* Action offered when the collaborative editor fails to load */
-"Switch to Internal Editor" = "Switch to Internal Editor";
+"Switch to Internal Editor" = "İç düzenleyiciye geç";

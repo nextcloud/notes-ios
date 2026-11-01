@@ -280,31 +280,31 @@
 "Settings" = "Indstillinger";
 
 /* Onboarding title. The placeholder is the app name. */
-"Welcome to %@" = "Welcome to %@";
+"Welcome to %@" = "Velkommen til %@";
 
 /* Onboarding feature title. */
-"Your Data, Your Control" = "Your Data, Your Control";
+"Your Data, Your Control" = "Dine data, din kontrol";
 
 /* Onboarding feature description. */
-"Keep your data secure and under your control." = "Keep your data secure and under your control.";
+"Keep your data secure and under your control." = "Hold dine data sikre og under din kontrol.";
 
 /* Onboarding feature title. */
-"Secure Collaboration" = "Secure Collaboration";
+"Secure Collaboration" = "Sikkert samarbejde";
 
 /* Onboarding feature description. */
-"Work together and exchange files securely." = "Work together and exchange files securely.";
+"Work together and exchange files securely." = "Arbejd sammen, og udveksl filer sikkert.";
 
 /* Onboarding feature title. */
-"Always in Sync" = "Always in Sync";
+"Always in Sync" = "Altid synkroniseret";
 
 /* Onboarding feature description. */
-"Your notes stay up to date across all your devices." = "Your notes stay up to date across all your devices.";
+"Your notes stay up to date across all your devices." = "Dine noter er opdaterede på alle dine enheder.";
 
 /* Onboarding feature title. */
-"Works Offline" = "Works Offline";
+"Works Offline" = "Virker offline";
 
 /* Onboarding feature description. */
-"Keep writing even without a connection." = "Keep writing even without a connection.";
+"Keep writing even without a connection." = "Skriv videre, også uden forbindelse.";
 
 /* Accessibility label of the button with more note actions */
 "More" = "Mere";
@@ -316,7 +316,7 @@
 "Share" = "Del";
 
 /* Direct editing failure followed by the underlying error */
-"Cannot open file for direct editing: %@" = "Cannot open file for direct editing: %@";
+"Cannot open file for direct editing: %@" = "Filen kan ikke åbnes til direkte redigering: %@";
 
 /* Action offered when the collaborative editor fails to load */
-"Switch to Internal Editor" = "Switch to Internal Editor";
+"Switch to Internal Editor" = "Skift til intern editor";
