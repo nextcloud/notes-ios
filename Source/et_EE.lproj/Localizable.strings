@@ -280,43 +280,43 @@
 "Settings" = "Seadistused";
 
 /* Onboarding title. The placeholder is the app name. */
-"Welcome to %@" = "Welcome to %@";
+"Welcome to %@" = "Tere tulemast, see on %@";
 
 /* Onboarding feature title. */
-"Your Data, Your Control" = "Your Data, Your Control";
+"Your Data, Your Control" = "Sinu andmed, sinu kontrolli all";
 
 /* Onboarding feature description. */
-"Keep your data secure and under your control." = "Keep your data secure and under your control.";
+"Keep your data secure and under your control." = "Hoia oma andmeid turvaliselt ja enda kontrolli all.";
 
 /* Onboarding feature title. */
-"Secure Collaboration" = "Secure Collaboration";
+"Secure Collaboration" = "Turvaline ühistöö";
 
 /* Onboarding feature description. */
-"Work together and exchange files securely." = "Work together and exchange files securely.";
+"Work together and exchange files securely." = "Tööta üheskoos ja jaga faile turvaliselt.";
 
 /* Onboarding feature title. */
-"Always in Sync" = "Always in Sync";
+"Always in Sync" = "Alati sünkroonis";
 
 /* Onboarding feature description. */
-"Your notes stay up to date across all your devices." = "Your notes stay up to date across all your devices.";
+"Your notes stay up to date across all your devices." = "Sinu märkmed on alati kõikides seadmetes ühed ja samad.";
 
 /* Onboarding feature title. */
-"Works Offline" = "Works Offline";
+"Works Offline" = "Toimib võrguühenduseta";
 
 /* Onboarding feature description. */
-"Keep writing even without a connection." = "Keep writing even without a connection.";
+"Keep writing even without a connection." = "Saad jätkata kirjutamist ka võrguühenduse katkemisel.";
 
 /* Accessibility label of the button with more note actions */
-"More" = "Rohkem";
+"More" = "Veel";
 
 /* Action to preview a note */
-"Preview" = "Preview";
+"Preview" = "Eelvaade";
 
 /* Action to share a note */
 "Share" = "Jaga";
 
 /* Direct editing failure followed by the underlying error */
-"Cannot open file for direct editing: %@" = "Cannot open file for direct editing: %@";
+"Cannot open file for direct editing: %@" = "Faili avamine otsemuutmiseks ei õnnestu: %@";
 
 /* Action offered when the collaborative editor fails to load */
-"Switch to Internal Editor" = "Switch to Internal Editor";
+"Switch to Internal Editor" = "Kasuta sisseehitatud tekstitoimetit";
