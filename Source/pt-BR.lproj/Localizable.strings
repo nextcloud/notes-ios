@@ -280,31 +280,31 @@
 "Settings" = "Configurações";
 
 /* Onboarding title. The placeholder is the app name. */
-"Welcome to %@" = "Welcome to %@";
+"Welcome to %@" = "Boas-vindas ao %@";
 
 /* Onboarding feature title. */
-"Your Data, Your Control" = "Seus dados, seu cnotrole";
+"Your Data, Your Control" = "Seus dados, seu controle";
 
 /* Onboarding feature description. */
-"Keep your data secure and under your control." = "Keep your data secure and under your control.";
+"Keep your data secure and under your control." = "Mantenha seus dados seguros e sob seu controle.";
 
 /* Onboarding feature title. */
 "Secure Collaboration" = "Colaboração segura";
 
 /* Onboarding feature description. */
-"Work together and exchange files securely." = "Work together and exchange files securely.";
+"Work together and exchange files securely." = "Trabalhem juntos e troquem arquivos com segurança.";
 
 /* Onboarding feature title. */
-"Always in Sync" = "Always in Sync";
+"Always in Sync" = "Sempre em sincronia";
 
 /* Onboarding feature description. */
-"Your notes stay up to date across all your devices." = "Your notes stay up to date across all your devices.";
+"Your notes stay up to date across all your devices." = "Suas anotações ficam atualizadas em todos os seus dispositivos.";
 
 /* Onboarding feature title. */
 "Works Offline" = "Funciona off-line";
 
 /* Onboarding feature description. */
-"Keep writing even without a connection." = "Keep writing even without a connection.";
+"Keep writing even without a connection." = "Continue escrevendo mesmo sem conexão.";
 
 /* Accessibility label of the button with more note actions */
 "More" = "Mais";
@@ -316,7 +316,7 @@
 "Share" = "Compartilhar";
 
 /* Direct editing failure followed by the underlying error */
-"Cannot open file for direct editing: %@" = "Não é possível abrir arquivo para edição direta: %@";
+"Cannot open file for direct editing: %@" = "Não é possível abrir o arquivo para edição direta: %@";
 
 /* Action offered when the collaborative editor fails to load */
-"Switch to Internal Editor" = "Switch to Internal Editor";
+"Switch to Internal Editor" = "Alternar para o editor interno";
