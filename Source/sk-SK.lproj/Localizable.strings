@@ -18,7 +18,7 @@
 
 /* A menu action
    A menu option for cancelling */
-"Cancel" = "Cancel";
+"Cancel" = "Zrušiť";
 
 /* Header title, categories */
 "CATEGORIES" = "KATEGÓRIE";
@@ -27,13 +27,13 @@
 "Category" = "Kategória";
 
 /* Action to change category of a note */
-"Category…" = "Kategória...";
+"Category…" = "Kategória…";
 
 /* Action to change category of a note */
-"Change Category…" = "Zmeniť kategóriu...";
+"Change Category…" = "Zmeniť kategóriu…";
 
 /* An error message */
-"Check username and password." = "Skontrolujte uživateľké meno a heslo.";
+"Check username and password." = "Skontrolujte používateľské meno a heslo.";
 
 /* Crash report email subject */
 "NextcloudNotes Crash Report" = "NextcloudNotes Oznámenie o zlyhaní";
@@ -57,13 +57,13 @@
 "Crash Detected" = "Bol zistený pád aplikácie";
 
 /* Action to delete a note */
-"Delete" = "Delete";
+"Delete" = "Zmazať";
 
 /* A menu action */
 "Delete Note" = "Zmazať poznámku";
 
 /* Prompt on alert for adding a category */
-"Enter a name for the new category" = "Vložte meno novej kategórie";
+"Enter a name for the new category" = "Zadajte názov novej kategórie";
 
 /* The title of an error message */
 "Error Adding Note" = "Pri pridávaní poznámky sa vyskytla chyba";
@@ -81,13 +81,13 @@
 "Error Updating Note" = "Pri úprave poznámky sa vyskytla chyba";
 
 /* The title of an error message */
-"Error Updating Notes" = "Pri úprave poznámok sa vyskytla chyba";
+"Error Updating Notes" = "Pri aktualizácii poznámok sa vyskytla chyba";
 
 /* An error message */
-"Failed to connect to a server. Check your settings." = "Nepodarilo sa pripojiť k serveru. Skontrolujte vaše nastavenia.";
+"Failed to connect to a server. Check your settings." = "Nepodarilo sa pripojiť k serveru. Skontrolujte svoje nastavenia.";
 
 /* Item to show favorite notes */
-"Favorites" = "Favorites";
+"Favorites" = "Obľúbené";
 
 /* A menu option for plain sharing in html format */
 "HTML" = "HTML";
@@ -108,7 +108,7 @@
 "No thanks" = "Nie, ďakujem";
 
 /* Status information, not connected */
-"Not connected to Notes on a server" = "Nie je pripojené k Notes/Poznámky na serveri";
+"Not connected to Notes on a server" = "Nie je pripojené k aplikácii Notes na serveri";
 
 /* A status label indicating that the user is not logged in */
 "Not Logged In" = "Neprihlásený";
@@ -123,7 +123,7 @@
 "Note Title" = "Nadpis poznámky";
 
 /* An error message */
-"Notes could not be found on your server. Make sure it is installed and enabled" = "Notes/Poznámky neboli nájdené na vašom serveri. Skontrolujte či sú nainštalované a povolené";
+"Notes could not be found on your server. Make sure it is installed and enabled" = "Aplikáciu Notes sa na vašom serveri nepodarilo nájsť. Skontrolujte, či je nainštalovaná a zapnutá";
 
 /* An error message title */
 "Notes not found" = "Poznámky sa nenašli";
@@ -142,7 +142,7 @@
 
 /* A message
    A message to check network connection */
-"Please check network connection and login." = "Prosím, skontrolujte sieťové pripojenie a prihláste sa.";
+"Please check network connection and login." = "Skontrolujte sieťové pripojenie a prihlasovacie údaje.";
 
 /* A button title */
 "Reconnect" = "Pripojiť znova";
@@ -155,7 +155,7 @@
 "Rename the note" = "Premenovať poznámku";
 
 /* Action to change title of a note */
-"Rename…" = "Premenovať...";
+"Rename…" = "Premenovať…";
 
 /* A menu option for sharing in rich text format */
 "Rich Text" = "Formátovaný text";
@@ -188,7 +188,7 @@
 "This note is read-only. Your changes were not saved." = "Táto poznámka je len na čítanie. Vaše zmeny sa neuložili.";
 
 /* Alert message for selecting server brand */
-"Unable to automatically detect type of server.\nPlease select:" = "Nepodarilo sa automaticky zistiť typ serveru. Prosím vyberte:";
+"Unable to automatically detect type of server.\nPlease select:" = "Nepodarilo sa automaticky zistiť typ servera.\nProsím, vyberte:";
 
 /* A message title
    The title of an error message */
@@ -216,25 +216,25 @@
 "Checking server status" = "Kontrola stavu servera";
 
 /* No comment provided by engineer. */
-"Connection error" = "Connection error";
+"Connection error" = "Chyba pripojenia";
 
 /* No comment provided by engineer. */
 "Do you want to connect to the server anyway?" = "Chcete sa napriek tomu pripojiť k serveru?";
 
 /* An error message title */
-"Error" = "Error";
+"Error" = "Chyba";
 
 /* No comment provided by engineer. */
-"No" = "No";
+"No" = "Nie";
 
 /* Title of alert to change notes folder */
-"Notes Folder" = "Adresár pre poznámky";
+"Notes Folder" = "Priečinok pre poznámky";
 
 /* A menu option for sharing in pdf format */
 "PDF" = "PDF";
 
 /* Caption of Save button */
-"Save" = "Save";
+"Save" = "Uložiť";
 
 /* No comment provided by engineer. */
 "The certificate for this server is invalid" = "Certifikát tohto servera je neplatný";
@@ -243,18 +243,18 @@
 "View Certificate" = "Zobraziť certifikát";
 
 /* No comment provided by engineer. */
-"Yes" = "Yes";
+"Yes" = "Áno";
 
 // NEXTCLOUD
 "Select the account to add"   = "Vyberte účet, ktorý chcete pridať";
 
 "Notes" = "Notes";
 
-"Cancel" = "Cancel";
+"Cancel" = "Zrušiť";
 "Scan QR Code" = "Skenovať QR kód";
 "Close" = "Zatvoriť";
 "Server Address" = "Adresa servera";
-"The address of your Nextcloud web interface when you open it in your browser." = "Adresa vášho webového rozhrania Nextcloud pri otvorení v prehliadači.";
+"The address of your Nextcloud web interface when you open it in your browser." = "Adresa webového rozhrania Nextcloudu, ktoré otvárate v prehliadači.";
 "The entered server address is invalid." = "Zadaná adresa servera je neplatná.";
 "Accounts from our other apps were found on this device. Would you like to add one of these?" = "V tomto zariadení boli nájdené účty z našich ďalších aplikácií. Chcete niektorý z nich pridať?";
 "Shared Accounts" = "Zdieľané účty";
@@ -273,10 +273,10 @@
 "Client Version" = "Verzia klienta";
 "Server Version" = "Verzia servera";
 "Privacy and Legal Policy" = "Ochrana osobných údajov a právne zásady";
-"Show Source Code on GitHub" = "Zobraziť zdrojový kód na GitHub";
+"Show Source Code on GitHub" = "Zobraziť zdrojový kód na GitHube";
 "Logout" = "Odhlásiť sa";
 "Are you sure you want to log out?" = "Naozaj sa chcete odhlásiť?";
-"Enter a name for the folder where notes should be saved on the server" = "Zadajte názov adresára, do ktorého sa majú na serveri ukladať poznámky";
+"Enter a name for the folder where notes should be saved on the server" = "Zadajte názov priečinka, do ktorého sa majú na serveri ukladať poznámky";
 "Settings" = "Nastavenia";
 
 /* Onboarding title. The placeholder is the app name. */
@@ -307,13 +307,13 @@
 "Keep writing even without a connection." = "Pokračujte v písaní aj bez pripojenia.";
 
 /* Accessibility label of the button with more note actions */
-"More" = "More";
+"More" = "Viac";
 
 /* Action to preview a note */
 "Preview" = "Náhľad";
 
 /* Action to share a note */
-"Share" = "Sprístupňovať";
+"Share" = "Zdieľať";
 
 /* Direct editing failure followed by the underlying error */
 "Cannot open file for direct editing: %@" = "Súbor sa nedá otvoriť na priame úpravy: %@";
