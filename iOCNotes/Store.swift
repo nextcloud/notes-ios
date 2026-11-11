@@ -83,6 +83,28 @@ final class Store: Logging, Storing {
         KeychainHelper.serverMajorVersion = capabilities[serverVersionKeyPath]["major"].int ?? 0
         KeychainHelper.serverMinorVersion = capabilities[serverVersionKeyPath]["minor"].int ?? 0
         KeychainHelper.serverMicroVersion = capabilities[serverVersionKeyPath]["micro"].int ?? 0
+
+        reportMissingNotesAppIfNeeded()
+    }
+
+    ///
+    /// A login to a server without the Notes app only failed later with a cryptic 404 from the synchronization.
+    ///
+    /// Say it as soon as the capabilities prove it, and once per launch rather than on every synchronization.
+    ///
+    private static var didReportMissingNotesApp = false
+
+    private func reportMissingNotesAppIfNeeded() {
+        guard KeychainHelper.notesVersion.isEmpty, !Store.didReportMissingNotesApp else {
+            return
+        }
+
+        Store.didReportMissingNotesApp = true
+
+        ErrorBanner.show(ErrorMessage(
+            title: NSLocalizedString("Notes App Missing", comment: "Title of the error shown when the server has no Notes app"),
+            body: NSLocalizedString("The Notes app is not installed on this server. Install it to synchronize notes with this app.", comment: "Error shown when the server has no Notes app")
+        ))
     }
 
     func synchronize() {
@@ -263,6 +285,16 @@ final class Store: Logging, Storing {
         set {
             logger.debug("Setting startup synchronization enabled to \(newValue).")
             KeychainHelper.syncOnStart = newValue
+        }
+    }
+
+    var useFirstLineAsTitle: Bool {
+        get {
+            KeychainHelper.useFirstLineAsTitle
+        }
+        set {
+            logger.debug("Setting title from first line enabled to \(newValue).")
+            KeychainHelper.useFirstLineAsTitle = newValue
         }
     }
 }

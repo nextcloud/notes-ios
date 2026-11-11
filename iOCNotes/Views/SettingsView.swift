@@ -9,20 +9,20 @@ import SwiftUI
 ///
 /// Combined app and user settings.
 ///
-/// The management of the file extension is a bit complicated at the moment.
-/// It is not just a two-way binding to the store but also programmatically updated by the ``NoteSessionManager`` when server-side settings are fetched.
-/// A loop of property value change and server requests must be avoided as it is with the current implementation.
+/// The file extension is not limited to the two extensions the picker used to offer: the Notes app of the server
+/// accepts any extension, so the current one is shown and can be replaced by any valid value. It is also updated
+/// programmatically by the ``NoteSessionManager`` when the server-side settings are fetched.
 ///
 struct SettingsView: View {
     @Environment(\.openURL) private var openURL
     @Environment(Store.self) var store
 
-    @State var fileExtension: FileSuffix?
-    @State var initialFileExtensionDefinition = false
-
     @State var pathInAlert: String = ""
+    @State var fileExtensionInAlert: String = ""
     @State var showLogoutConfirmation = false
     @State var showPathAlert = false
+    @State var showFileExtensionAlert = false
+    @State var showInvalidFileExtensionAlert = false
 
     var body: some View {
         @Bindable var store = store
@@ -57,38 +57,23 @@ struct SettingsView: View {
 
                     Toggle("Internal Editor", isOn: $store.internalEditor)
 
-                    Picker("File Extension", selection: $fileExtension) {
-                        Text(verbatim: "Plain Text (*.txt)")
-                            .tag(FileSuffix.txt)
-
-                        Text(verbatim: "Markdown (*.md)")
-                            .tag(FileSuffix.md)
+                    FormDetailView("File Extension", detail: .constant(store.fileExtension.suffix)) {
+                        fileExtensionInAlert = store.fileExtension.suffix
+                        showFileExtensionAlert = true
                     }
-                    .onAppear {
-                        initialFileExtensionDefinition = true
-                        fileExtension = store.fileExtension
-                    }
-                    .onChange(of: fileExtension) {
-                        guard initialFileExtensionDefinition == false else {
-                            initialFileExtensionDefinition = false
-                            return
-                        }
+                }
 
-                        guard let fileExtension else {
-                            return
-                        }
-
-                        store.fileExtension = fileExtension
-
-                        Task {
-                            await NoteSessionManager.shared.updateSettings()
-                        }
-                    }
+                Section {
+                    Toggle("Use First Line as Title", isOn: $store.useFirstLineAsTitle)
+                } header: {
+                    Text("Notes")
+                } footer: {
+                    Text("A new note is named after its first line, like in the web app. Turn this off to keep the name a note was created with.")
                 }
 
                 Section("About This App") {
                     FormDetailView("Client Version", detail: .constant("\(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "nil") (\(Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "nil"))"))
-                    FormDetailView("Server Version", detail: .constant(KeychainHelper.productVersion))
+                    FormDetailView("Server Version", detail: .constant(KeychainHelper.serverVersion))
 
                     if let url = URL(string: NCBrandOptions.shared.privacyUrl) {
                         NavigationLink("Privacy and Legal Policy") {
@@ -149,8 +134,55 @@ struct SettingsView: View {
             } message: {
                 Text("Enter a name for the folder where notes should be saved on the server")
             }
+            // File extension alert
+            .alert("File Extension", isPresented: $showFileExtensionAlert) {
+                TextField("File Extension", text: $fileExtensionInAlert)
+
+                Button(role: .cancel) {
+                    showFileExtensionAlert = false
+                } label: {
+                    Text("Cancel")
+                }
+                .keyboardShortcut(.cancelAction)
+
+                Button {
+                    showFileExtensionAlert = false
+                    applyFileExtension(fileExtensionInAlert, to: $store.fileExtension)
+                } label: {
+                    Text("Save")
+                }
+                .keyboardShortcut(.defaultAction)
+            } message: {
+                Text("Enter the extension of note files on the server, for example .md or .org")
+            }
+            .alert("Invalid File Extension", isPresented: $showInvalidFileExtensionAlert) {
+                Button(role: .cancel) {
+                    // Keeps the previous extension.
+                } label: {
+                    Text("OK")
+                }
+            } message: {
+                Text("A file extension starts with a dot and contains only letters and digits, for example .md")
+            }
             .navigationTitle("Settings")
             .toolbarTitleDisplayMode(.inline)
+        }
+    }
+
+    private func applyFileExtension(_ input: String, to fileExtension: Binding<FileSuffix>) {
+        guard let suffix = FileSuffix(validating: input) else {
+            showInvalidFileExtensionAlert = true
+            return
+        }
+
+        guard suffix != fileExtension.wrappedValue else {
+            return
+        }
+
+        fileExtension.wrappedValue = suffix
+
+        Task {
+            await NoteSessionManager.shared.updateSettings()
         }
     }
 }

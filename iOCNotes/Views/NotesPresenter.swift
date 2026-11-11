@@ -18,10 +18,36 @@ enum NotesPresenter {
     @discardableResult
     static func openEditor(for note: Note, isNewNote: Bool) -> Bool {
         guard isDirectEditingAvailable, !note.addNeeded || NoteSessionManager.isOnline else {
+            explainFallbackToInternalEditorIfNeeded()
+
             return openInBuiltInEditor(note: note, isNewNote: isNewNote)
         }
 
         return openInDirectEditing(note: note, isNewNote: isNewNote)
+    }
+
+    /// Set once the user has been told why the internal editor opens although the setting asks for the web editor.
+    private static var didExplainFallback = false
+
+    ///
+    /// Editing a note in the collaborative editor needs the server's direct editing support.
+    ///
+    /// Without it the note silently opened in the internal editor, which looked like the setting being ignored.
+    ///
+    private static func explainFallbackToInternalEditorIfNeeded() {
+        guard KeychainHelper.internalEditor == false,
+              !KeychainHelper.directEditingSupportsFileId,
+              AppDelegate.isRunningTests == false,
+              !didExplainFallback else {
+            return
+        }
+
+        didExplainFallback = true
+
+        ErrorBanner.show(ErrorMessage(
+            title: NSLocalizedString("Internal Editor", comment: "Title of the notice shown when the web editor is unavailable"),
+            body: NSLocalizedString("The server does not offer the collaborative editor for this note, so it opened in the internal editor. You can hide this notice by turning the internal editor on in Settings.", comment: "Notice shown when the web editor is unavailable")
+        ))
     }
 
     @discardableResult

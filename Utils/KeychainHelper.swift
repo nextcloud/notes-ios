@@ -103,10 +103,22 @@ struct KeychainHelper {
 
     static var fileSuffix: FileSuffix {
         get {
-            return FileSuffix(rawValue: UserDefaults.standard.integer(forKey: "FileSuffix")) ?? FileSuffix.txt
+            if let stored = UserDefaults.standard.string(forKey: "FileSuffixString"),
+               let suffix = FileSuffix(validating: stored) {
+                return suffix
+            }
+
+            // Installs older than custom extensions stored the index of the former enum.
+            switch UserDefaults.standard.integer(forKey: "FileSuffix") {
+                case 1:
+                    return .md
+                default:
+                    return .txt
+            }
         }
         set {
-            UserDefaults.standard.set(newValue.rawValue, forKey: "FileSuffix")
+            UserDefaults.standard.set(newValue.suffix, forKey: "FileSuffixString")
+            UserDefaults.standard.set(newValue == .md ? 1 : 0, forKey: "FileSuffix")
         }
     }
 
@@ -127,6 +139,21 @@ struct KeychainHelper {
         }
         set {
             UserDefaults.standard.set(newValue, forKey: "SyncOnStart")
+        }
+    }
+
+    ///
+    /// Whether a new note takes its title from its first line, as the web app does.
+    ///
+    /// Off keeps the name the note was created with, which is what users of synced Markdown files
+    /// asked for: editing a note must not rename the file on the server.
+    ///
+    static var useFirstLineAsTitle: Bool {
+        get {
+            return UserDefaults.standard.object(forKey: "UseFirstLineAsTitle") as? Bool ?? true
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "UseFirstLineAsTitle")
         }
     }
 
@@ -224,6 +251,21 @@ struct KeychainHelper {
         set {
             UserDefaults.standard.set(newValue, forKey: "productName")
         }
+    }
+
+    ///
+    /// The version of the server as reported by its capabilities, e.g. `32.0.3`.
+    ///
+    /// The capabilities are fetched on every synchronization, while the `/status.php` product version is only
+    /// known once a status request succeeded. Falling back to the latter keeps the value useful on servers that
+    /// do not report capabilities.
+    ///
+    static var serverVersion: String {
+        guard serverMajorVersion > 0 else {
+            return productVersion
+        }
+
+        return "\(serverMajorVersion).\(serverMinorVersion).\(serverMicroVersion)"
     }
 
     /// Any install <= 35.0.0 has a bug where notes are not fully synced, as `eTag` and `lastModified` were not reset upon log out. Reset once so the first sync fetches everything.

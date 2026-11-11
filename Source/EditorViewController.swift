@@ -394,6 +394,17 @@ class EditorViewController: UIViewController {
             if let preview = segue.destination as? PreviewViewController, let note = note {
                 preview.content = noteView.text
                 preview.noteTitle = note.title
+                // A checkbox may only be ticked when the note can be written back.
+                preview.allowsCheckBoxToggling = !note.readOnly
+                preview.onContentChanged = { [weak self] content in
+                    guard let self else { return }
+
+                    self.noteView.text = content
+                    // Ticking several checkboxes in a row turns into a single upload.
+                    self.throttler.throttle {
+                        self.updateNoteContent()
+                    }
+                }
             }
         }
     }
@@ -448,6 +459,11 @@ class EditorViewController: UIViewController {
     }()
     
     func deleteNote(_ sender: Any?) {
+        guard let noteToDelete = note else { return }
+
+        // The editor no longer writes anything back while it closes; the note is about to be deleted.
+        note = nil
+
         let imageView = UIImageView(frame: self.noteView.frame)
         imageView.image = self.screenShot
         self.noteView.addSubview(imageView)
@@ -458,10 +474,16 @@ class EditorViewController: UIViewController {
             let targetFrame = CGRect(x: self?.noteView.frame.size.width ?? 100 / 2, y: self?.noteView.frame.size.height ?? 100 / 2, width: 0, height: 0)
             imageView.frame = targetFrame
             imageView.alpha = 0.0
-        }) { (_) in
+        }) { [weak self] (_) in
             imageView.removeFromSuperview()
-            self.view.layer.setNeedsDisplay()
-            self.view.layer.displayIfNeeded()
+            self?.view.layer.setNeedsDisplay()
+            self?.view.layer.displayIfNeeded()
+
+            // Confirming the deletion used to only play this animation, so the note stayed where it was.
+            Task { @MainActor in
+                await NoteSessionManager.shared.delete(note: noteToDelete)
+                self?.navigationController?.dismiss(animated: true) ?? self?.dismiss(animated: true)
+            }
         }
     }
     
@@ -585,7 +607,9 @@ extension EditorViewController: UITextViewDelegate {
     fileprivate func updateNoteContent() {
         if let note = self.note, !note.readOnly, let text = self.noteView.text, text != note.content {
             note.content = text
-            if isNewNote {
+            // Only a note being created takes its title from the first line, and only when the user wants that:
+            // renaming a note that exists everywhere else surprises the people who share Markdown files (#58).
+            if isNewNote, Store.shared.useFirstLineAsTitle {
                 note.title = noteTitle(note)
             }
             Task { [weak self] in

@@ -117,12 +117,18 @@ func noteTitle(_ note: NoteProtocol) -> String {
         result = note.title
     } else {
         if note.title.count <= 50 || note.title.hasPrefix(Constants.newNote) {
+            // `split` skips empty subsequences, so a note starting with blank lines still gets a title.
             let components = note.content.split(separator: "\n")
             result = String(components.first ?? "")
             let forbiddenCharacters: Set<Character> = ["*", "|", "/", "\\", ":", "\"", "<", ">", "?"]
             result.removeAll(where: { forbiddenCharacters.contains($0) })
             result = result.trimmingCharacters(in: .whitespaces)
             result = result.truncate(length: 50)
+
+            // Nothing usable on the first line: keep the name the note already has instead of clearing it.
+            if result.isEmpty {
+                result = note.title
+            }
         }
     }
     return result

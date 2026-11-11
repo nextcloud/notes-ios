@@ -238,7 +238,12 @@ final class NotesListModel: NSObject, Logging, NSFetchedResultsControllerDelegat
     }
 }
 
-private enum NoteDateSection: Hashable {
+///
+/// The date based section a note belongs to when the list is sorted by modification date.
+///
+/// Internal rather than private so the buckets can be tested without a running list.
+///
+enum NoteDateSection: Hashable {
     case month(Date)
     case previousSevenDays(Date)
     case previousThirtyDays(Date)

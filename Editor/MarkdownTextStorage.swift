@@ -81,7 +81,7 @@ public class MarkdownTextStorage: NSTextStorage {
         backingStore.setAttributes(baseAttributes, range: range)
         
         // Find all fenced code blocks first to exclude from other formatting
-        let codeBlockRanges = findFencedCodeBlocks(in: text, range: range)
+        let codeBlockRanges = fencedCodeBlockRanges(in: text)
         
         // Apply formatting for each markdown element
         applyHeaderFormatting(in: text, range: range, excludingRanges: codeBlockRanges)
@@ -102,25 +102,44 @@ public class MarkdownTextStorage: NSTextStorage {
         }
     }
     
-    /// Finds all fenced code block ranges (```...```)
-    private func findFencedCodeBlocks(in text: String, range: NSRange) -> [NSRange] {
-        var codeBlockRanges: [NSRange] = []
-        
-        // Pattern: ```(optional language)\n(content)\n```
-        // More robust pattern that handles edge cases
-        let pattern = "```[^\\r\\n]*[\\r\\n][\\s\\S]*?[\\r\\n]```"
-        guard let regex = try? NSRegularExpression(pattern: pattern, options: [.dotMatchesLineSeparators]) else {
-            return codeBlockRanges
+    ///
+    /// The ranges of all fenced code blocks in the note, including a fence that is not closed yet.
+    ///
+    /// Only the edited lines are restyled after a keystroke, but whether a line is code depends on the fences
+    /// around it. Looking at the whole note keeps `#` and `*` inside a code block unformatted, and a fence that
+    /// has just been opened already marks the text below it as code, like the web editor and the preview do.
+    ///
+    private func fencedCodeBlockRanges(in text: String) -> [NSRange] {
+        guard text.contains("```") || text.contains("~~~"),
+              let fence = try? NSRegularExpression(pattern: #"^ {0,3}(?:```|~~~)"#) else {
+            return []
         }
-        
-        regex.enumerateMatches(in: text, options: [], range: range) { match, _, _ in
-            if let match = match {
-                // Include the entire code block (including backticks) for monospaced formatting
-                codeBlockRanges.append(match.range)
+
+        var ranges = [NSRange]()
+        var blockStart: Int?
+        var offset = 0
+
+        for line in text.components(separatedBy: "\n") {
+            let length = (line as NSString).length
+
+            if fence.firstMatch(in: line, range: NSRange(location: 0, length: length)) != nil {
+                if let start = blockStart {
+                    ranges.append(NSRange(location: start, length: offset + length - start))
+                    blockStart = nil
+                } else {
+                    blockStart = offset
+                }
             }
+
+            offset += length + 1
         }
-        
-        return codeBlockRanges
+
+        // An unclosed fence runs to the end of the note.
+        if let start = blockStart {
+            ranges.append(NSRange(location: start, length: max((text as NSString).length - start, 0)))
+        }
+
+        return ranges
     }
     
     /// Applies header formatting (larger font sizes)

@@ -51,6 +51,15 @@ class NCViewerNextcloudText: UIViewController, WKNavigationDelegate, WKScriptMes
 
         webView = WKWebView(frame: CGRect.zero, configuration: config)
         webView.navigationDelegate = self
+
+        // The editor page is still loading below the navigation bar. An opaque web view paints plain white
+        // until the page's own stylesheet arrives, which is glaring in dark mode (#218).
+        view.backgroundColor = .systemBackground
+        webView.isOpaque = false
+        webView.backgroundColor = .clear
+        webView.scrollView.backgroundColor = .clear
+        webView.underPageBackgroundColor = .clear
+
         view.addSubview(webView)
 
         webView.translatesAutoresizingMaskIntoConstraints = false

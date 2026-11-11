@@ -6,6 +6,10 @@
                 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'none'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:;">
                     <link charset="utf-8" href="css/github-markdown.css" rel="stylesheet">
                         <style>
+                            :root {
+                                color-scheme: light dark;
+                            }
+
                             .markdown-body {
                                 box-sizing: border-box;
                                 min-width: 200px;
@@ -17,6 +21,115 @@
                             @media (max-width: 767px) {
                                 .markdown-body {
                                     padding: 15px;
+                                }
+                            }
+
+                            /*
+                             The page is transparent because the web view is, so the note does not flash
+                             white before the stylesheet has been applied in dark mode.
+                             */
+                            html,
+                            body {
+                                background-color: transparent;
+                            }
+
+                            /*
+                             Task lists. The renderer wraps the text of every list item in a
+                             paragraph and emits a bare <input> without the task-list-item class
+                             the GitHub stylesheet expects. Without the rules below the checkbox
+                             and its text end up on separate lines and the list marker stays.
+                             */
+                            li:has(> .task-toggle),
+                            li:has(> input[type="checkbox"]) {
+                                list-style-type: none;
+                                /* Room between the rows so the enlarged tap targets of two
+                                   neighbouring checkboxes cannot overlap. */
+                                margin: 0.35em 0;
+                            }
+
+                            li > .task-toggle,
+                            li > input[type="checkbox"] {
+                                margin-left: -1.5em;
+                                margin-right: 0.35em;
+                                vertical-align: middle;
+                            }
+
+                            li > .task-toggle {
+                                display: inline-block;
+                                /* A finger is wider than a checkbox: enlarge the target without
+                                   moving the box itself. */
+                                padding: 0.4em 0.5em;
+                                margin-top: -0.4em;
+                                margin-bottom: -0.4em;
+                                margin-left: -2em;
+                                text-decoration: none;
+                            }
+
+                            li > .task-toggle > input[type="checkbox"] {
+                                margin: 0;
+                                width: 1.05em;
+                                height: 1.05em;
+                                pointer-events: none;
+                            }
+
+                            li > .task-toggle + p,
+                            li > input[type="checkbox"] + p {
+                                display: inline;
+                                margin: 0;
+                            }
+
+                            /*
+                             Dark mode. The bundled GitHub stylesheet only defines the light theme,
+                             so the colours it would otherwise leave at black on white are set here.
+                             */
+                            @media (prefers-color-scheme: dark) {
+                                .markdown-body {
+                                    color: #e6edf3;
+                                }
+
+                                .markdown-body a {
+                                    color: #6cb6ff;
+                                }
+
+                                .markdown-body h1,
+                                .markdown-body h2 {
+                                    border-bottom-color: #30363d;
+                                }
+
+                                .markdown-body hr {
+                                    background-color: #30363d;
+                                }
+
+                                .markdown-body blockquote {
+                                    color: #9198a1;
+                                    border-left-color: #3d444d;
+                                }
+
+                                .markdown-body code,
+                                .markdown-body tt {
+                                    background-color: #262c36;
+                                }
+
+                                .markdown-body pre {
+                                    background-color: #151b23;
+                                }
+
+                                .markdown-body table tr {
+                                    background-color: transparent;
+                                    border-top-color: #3d444d;
+                                }
+
+                                .markdown-body table tr:nth-child(2n) {
+                                    background-color: #151b23;
+                                }
+
+                                .markdown-body table td,
+                                .markdown-body table th {
+                                    border-color: #3d444d;
+                                }
+
+                                .markdown-body img {
+                                    background-color: transparent;
                                 }
                             }
                         </style>

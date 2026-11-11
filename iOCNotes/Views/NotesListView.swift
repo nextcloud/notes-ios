@@ -48,14 +48,13 @@ struct NotesListView: View {
         List {
             ForEach(model.sections) { section in
                 if section.hasHeader {
-                    Section(isExpanded: expansionBinding(for: section.title)) {
+                    // A `DisclosureGroup` owns the expanded state of its rows, unlike
+                    // `Section(isExpanded:)`, which a `List` may keep in its own state and ignore on taps.
+                    DisclosureGroup(isExpanded: expansionBinding(for: section.title)) {
                         rows(for: section)
-                    } header: {
-                        if let systemImage = section.systemImage {
-                            Label(section.title, systemImage: systemImage)
-                        } else {
-                            Text(section.title)
-                        }
+                    } label: {
+                        Label(section.title, systemImage: section.systemImage ?? "folder")
+                            .font(.headline)
                     }
                 } else {
                     rows(for: section)
