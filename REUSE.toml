@@ -27,6 +27,12 @@ precedence = "aggregate"
 SPDX-FileCopyrightText = "2014-2026 Nextcloud GmbH and Nextcloud contributors"
 SPDX-License-Identifier = "GPL-3.0-or-later"
 
+[[annotations]]
+path = ["CHANGELOG.md", "docs/**"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2014-2026 Nextcloud GmbH and Nextcloud contributors"
+SPDX-License-Identifier = "GPL-3.0-or-later"
+
 # Translations are managed on Transifex; headers here would be overwritten on sync.
 [[annotations]]
 path = ["Source/*.lproj/*.strings", "Source/Settings.bundle/*.lproj/*.strings", "Source/Screens/**/*.lproj/*.strings"]
