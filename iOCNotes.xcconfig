@@ -5,3 +5,16 @@ ENABLE_USER_SCRIPT_SANDBOXING = NO
 INFOPLIST_KEY_NSHumanReadableCopyright = Copyright © 2025 Nextcloud GmbH. All rights reserved.
 IPHONEOS_DEPLOYMENT_TARGET = 17.0
 PRODUCT_BUNDLE_IDENTIFIER = com.peterandlinda.iOCNotes
+
+// Signing defaults. The team, the bundle identifier and the entitlements of a local build differ
+// between developers, so they belong in Local.xcconfig (see below) and never in the project file.
+// The file is optional: a checkout without it builds with the values above.
+CODE_SIGN_ENTITLEMENTS = Brand/iOCNotes.entitlements
+
+// Developer specific overrides, kept out of version control:
+//
+//     DEVELOPMENT_TEAM = ABCDE12345
+//     PRODUCT_BUNDLE_IDENTIFIER = com.example.iOCNotes
+//     CODE_SIGN_ENTITLEMENTS = Local.entitlements
+//
+#include? "Local.xcconfig"
