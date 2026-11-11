@@ -85,8 +85,9 @@ enum ErrorBanner {
                                   iconImage: Icon.error.image,
                                   iconText: nil,
                                   buttonImage: nil,
-                                  buttonTitle: NSLocalizedString("Dismiss", comment: "Dismisses an error message"),
-                                  buttonTapHandler: { _ in SwiftMessages.hide() })
+                                  buttonTitle: NSLocalizedString("Dismiss", comment: "Dismisses an error message")) { _ in
+                SwiftMessages.hide()
+            }
             return view
         }
         #endif

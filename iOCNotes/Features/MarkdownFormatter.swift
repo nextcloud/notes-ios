@@ -224,11 +224,26 @@ enum MarkdownFormatter {
         var content: String
 
         /// Indentation, then a bullet with an optional checkbox or a number, then the text.
-        private static let pattern = try! NSRegularExpression(pattern: "^([ \\t]*)((?:[-*+][ \\t]+(?:\\[[ xX]\\](?:[ \\t]+|$))?|\\d+\\.[ \\t]+)?)(.*)$")
+        private static let pattern: NSRegularExpression = {
+            // The pattern is a constant; a failure here is a programming mistake, not a runtime condition.
+            do {
+                return try NSRegularExpression(pattern: "^([ \\t]*)((?:[-*+][ \\t]+(?:\\[[ xX]\\](?:[ \\t]+|$))?|\\d+\\.[ \\t]+)?)(.*)$")
+            } catch {
+                fatalError("invalid list pattern: \(error)")
+            }
+        }()
 
         init(_ string: String) {
             let range = NSRange(location: 0, length: (string as NSString).length)
-            let match = Self.pattern.firstMatch(in: string, range: range)!
+
+            // Every line matches: indentation and marker are optional, the rest is the content.
+            guard let match = Self.pattern.firstMatch(in: string, range: range) else {
+                indentation = ""
+                marker = ""
+                content = string
+                return
+            }
+
             let part = { (index: Int) in (string as NSString).substring(with: match.range(at: index)) }
 
             indentation = part(1)
@@ -291,7 +306,14 @@ enum MarkdownFormatter {
     }
 
     /// Indentation, heading or quote, and list marker: everything a line edit may change.
-    private static let markupPrefix = try! NSRegularExpression(pattern: "^[ \\t]*(?:#{1,6}[ \\t]+|>[ \\t]?)?[ \\t]*(?:[-*+][ \\t]+(?:\\[[ xX]\\](?:[ \\t]+|$))?|\\d+\\.[ \\t]+)?")
+    private static let markupPrefix: NSRegularExpression = {
+        // The pattern is a constant; a failure here is a programming mistake, not a runtime condition.
+        do {
+            return try NSRegularExpression(pattern: "^[ \\t]*(?:#{1,6}[ \\t]+|>[ \\t]?)?[ \\t]*(?:[-*+][ \\t]+(?:\\[[ xX]\\](?:[ \\t]+|$))?|\\d+\\.[ \\t]+)?")
+        } catch {
+            fatalError("invalid markup prefix pattern: \(error)")
+        }
+    }()
 
     private static func markupPrefixLength(of line: String) -> Int {
         markupPrefix.firstMatch(in: line, range: NSRange(location: 0, length: (line as NSString).length))?.range.length ?? 0
