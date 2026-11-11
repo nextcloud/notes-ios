@@ -33,8 +33,7 @@ only when the caret enters or leaves an element, so typing stays cheap.
 **Signing in survives a restart.** The account password was stored with the default `whenUnlocked`
 accessibility; after a reboot or while the device was locked, the first synchronization read an empty
 keychain, treated the account as signed out and surfaced `401` and "Not logged in". It is now stored
-`afterFirstUnlock`, so the account is readable as soon as the device has been unlocked once. The
-"Unauthorized" banner additionally keeps its wording actionable instead of implying a wrong password.
+`afterFirstUnlock`, so the account is readable as soon as the device has been unlocked once.
 
 **The note list uses a large title** instead of the inline one, so the page has a heading of its own and
 the bar keeps room for search, sorting and the new-note button.
