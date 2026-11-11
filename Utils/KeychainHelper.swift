@@ -165,6 +165,22 @@ struct KeychainHelper {
         }
     }
 
+    ///
+    /// Whether the editor shows the Markdown characters instead of the formatted text.
+    ///
+    /// Off is the reading mode: a note looks like a rich text document, the delimiters are invisible, and
+    /// it stays editable. On shows `**bold**` and `# heading`, for people who want to edit the source.
+    /// Either way the note is saved as Markdown.
+    ///
+    static var showMarkdownSource: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: "ShowMarkdownSource")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "ShowMarkdownSource")
+        }
+    }
+
     static var offlineMode: Bool {
         get {
             return UserDefaults.standard.bool(forKey: "OfflineMode")

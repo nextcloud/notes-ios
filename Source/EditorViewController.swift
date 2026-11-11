@@ -426,7 +426,18 @@ class EditorViewController: UIViewController {
             self?.confirmDelete()
         }
 
-        return [previewAction, shareAction, UIMenu(options: .displayInline, children: [deleteAction])]
+        let displayModeAction = UIAction(title: KeychainHelper.showMarkdownSource
+                                         ? NSLocalizedString("Hide Markdown Source", comment: "Editor action switching to formatted text")
+                                         : NSLocalizedString("Show Markdown Source", comment: "Editor action switching to Markdown source"),
+                                         image: UIImage(systemName: "chevron.left.forwardslash.chevron.right")) { [weak self] _ in
+            KeychainHelper.showMarkdownSource.toggle()
+            self?.noteView.refreshFormatting()
+        }
+
+        return [previewAction,
+                shareAction,
+                UIMenu(options: .displayInline, children: [displayModeAction]),
+                UIMenu(options: .displayInline, children: [deleteAction])]
     }
 
     private func share() {

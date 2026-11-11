@@ -17,6 +17,9 @@ public class MarkdownTextStorage: NSTextStorage {
     /// The delimiters to hide on screen, collected while styling and applied at the end of the pass.
     private var hiddenMarkers = [NSRange]()
 
+    /// Whether the note shows its Markdown characters. The editor keeps this in sync with the user's setting.
+    var showsMarkdownSource = KeychainHelper.showMarkdownSource
+
     /// What a hidden delimiter looks like: present in the text, invisible and without width on screen.
     private var hiddenDelimiterAttributes: [NSAttributedString.Key: Any] {
         [.font: UIFont.systemFont(ofSize: 0.1), .foregroundColor: UIColor.clear]
@@ -126,6 +129,11 @@ public class MarkdownTextStorage: NSTextStorage {
 
     /// Hides the Markdown delimiters after all other styling ran, so they never take up space on screen.
     private func applyHiddenDelimiters() {
+        // The source mode shows the characters a note is made of, so nothing is hidden there.
+        guard showsMarkdownSource == false else {
+            return
+        }
+
         for marker in hiddenMarkers {
             backingStore.addAttributes(hiddenDelimiterAttributes, range: marker)
         }

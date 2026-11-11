@@ -288,6 +288,16 @@ final class Store: Logging, Storing {
         }
     }
 
+    var showMarkdownSource: Bool {
+        get {
+            KeychainHelper.showMarkdownSource
+        }
+        set {
+            logger.debug("Setting Markdown source display to \(newValue).")
+            KeychainHelper.showMarkdownSource = newValue
+        }
+    }
+
     var useFirstLineAsTitle: Bool {
         get {
             KeychainHelper.useFirstLineAsTitle

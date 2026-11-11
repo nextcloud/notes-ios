@@ -25,6 +25,19 @@ still occupies a character, the caret can land on one; it is invisible there, wh
 keeping the source intact. Code blocks and links keep their characters: a fence or a URL is content
 the user may need to see.
 
+## Reading mode and source mode
+
+The editor has two displays of the same file, switched in the note's "More" menu or in Settings under
+"Editing":
+
+- **Formatted (default).** A bold word is bold, a heading is larger, and the Markdown characters are
+  hidden, also while typing. The note stays editable; it is not a separate preview.
+- **Markdown source.** `**bold**`, `# heading` and the rest are shown and can be edited directly. The
+  styling of the formatted mode stays on, so the text is still bold where it is bold in Markdown.
+
+Either way the note is saved as Markdown and synchronized unchanged. The choice is local to the device;
+it lives in `KeychainHelper.showMarkdownSource` and is applied by `MarkdownTextStorage`.
+
 ## Formatting bar
 
 `iOCNotes/Views/FormattingBar.swift` is a `UIInputView` used as the text view's `inputAccessoryView`. It

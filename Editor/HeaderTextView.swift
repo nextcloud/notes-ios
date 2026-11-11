@@ -161,7 +161,14 @@ class HeaderTextView: UITextView {
             let attributedString = newValue != nil ? NSAttributedString(string: newValue) : NSAttributedString()
             noteTextStorage.setAttributedString(attributedString)
             noteTextStorage.endEditing()
+            noteTextStorage.showsMarkdownSource = KeychainHelper.showMarkdownSource
         }
+    }
+
+    /// Re-applies the styling, e.g. after switching between formatted text and Markdown source.
+    func refreshFormatting() {
+        noteTextStorage.showsMarkdownSource = KeychainHelper.showMarkdownSource
+        noteTextStorage.refreshFormatting()
     }
 
     open func updateInsets(size: CGFloat) {

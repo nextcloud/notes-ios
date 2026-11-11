@@ -35,6 +35,10 @@ accessibility; after a reboot or while the device was locked, the first synchron
 keychain, treated the account as signed out and surfaced `401` and "Not logged in". It is now stored
 `afterFirstUnlock`, so the account is readable as soon as the device has been unlocked once.
 
+**Two editor modes, one setting.** "Show Markdown Source" in Settings → Editing (or in the note's More
+menu) switches between formatted text with hidden delimiters and the raw Markdown. Both stay editable,
+and the note is saved as Markdown either way.
+
 **The note list uses a large title** instead of the inline one, so the page has a heading of its own and
 the bar keeps room for search, sorting and the new-note button.
 

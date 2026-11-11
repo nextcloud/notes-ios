@@ -271,6 +271,21 @@ struct MarkdownTextStorageTests {
         #expect(font?.pointSize ?? 99 < 1, "A loaded note should not show its Markdown")
     }
 
+    @Test("The source mode shows the delimiters")
+    func markdownSourceMode() {
+        let text = "Normal **bold** normal"
+        let storage = MarkdownTextStorage()
+        storage.showsMarkdownSource = true
+
+        storage.beginEditing()
+        storage.replaceCharacters(in: NSRange(location: 0, length: 0), with: text)
+        storage.endEditing()
+
+        let markerIndex = (text as NSString).range(of: "**").location
+        let markerFont = storage.attribute(.font, at: markerIndex, effectiveRange: nil) as? UIFont
+        #expect((markerFont?.pointSize ?? 0) > 1, "The source mode shows the asterisks")
+    }
+
     // MARK: - Link Tests
     
     @Test("Link formatting", arguments: [

@@ -31,6 +31,10 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ### Changed
 
+- "Show Markdown Source" switches the editor between formatted text with hidden delimiters and the raw
+  Markdown, from the note's More menu or Settings → Editing.
+- The settings screen is grouped into Account, Editing, Synchronization, Server and About, with an
+  explanation under each group.
 - The notes list defaults to sorting by most recent, with category grouping still available.
 - The note list uses a large navigation title instead of the inline one.
 - The server version in Settings is taken from the server capabilities, which are refreshed on every
