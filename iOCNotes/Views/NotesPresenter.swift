@@ -105,7 +105,10 @@ enum NotesPresenter {
         }
 
         let navigationController = UINavigationController(rootViewController: viewer)
-        navigationController.modalPresentationStyle = .fullScreen
+        // The web editor slides in from the right like a pushed screen, and the same animator slides it out
+        // again when the back swipe or the close button dismisses it.
+        navigationController.modalPresentationStyle = .custom
+        navigationController.transitioningDelegate = viewer
         presenter.present(navigationController, animated: true)
 
         return true
