@@ -40,31 +40,34 @@ struct NoteRowView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 3) {
-            HStack(alignment: .firstTextBaseline, spacing: 8) {
+            HStack(alignment: .firstTextBaseline, spacing: 6) {
                 Text(title)
                     .font(.headline)
                     .lineLimit(1)
 
                 if favorite {
                     Image(systemName: "star.fill")
-                        .font(.caption)
+                        .font(.caption2)
                         .foregroundStyle(.yellow)
+                        .accessibilityLabel(String(localized: "Favorite", comment: "Accessibility label of the star in a note row"))
                 }
 
-                Spacer()
+                Spacer(minLength: 8)
 
                 Text(modifiedText)
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
+                    .font(.caption)
+                    .foregroundStyle(.tertiary)
+                    .monospacedDigit()
             }
 
             Text(snippet.isEmpty ? String(localized: "No content", comment: "Shown in the notes list for notes without content") : snippet)
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
-                .lineLimit(1)
+                .lineLimit(2)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(.vertical, 2)
+        .padding(.vertical, 4)
         .contentShape(.rect)
+        .accessibilityElement(children: .combine)
     }
 }

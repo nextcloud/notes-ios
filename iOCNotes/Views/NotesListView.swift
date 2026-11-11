@@ -22,10 +22,11 @@ struct NotesListView: View {
     var body: some View {
         Group {
             if model.sections.isEmpty {
-                ContentUnavailableView(
-                    String(localized: "No Notes", comment: "Shown when there are no notes to display"),
-                    systemImage: "note.text"
-                )
+                ContentUnavailableView {
+                    Label(String(localized: "No Notes", comment: "Shown when there are no notes to display"), systemImage: "note.text")
+                } description: {
+                    Text(String(localized: "Notes you write here are synchronized with your account.", comment: "Explanation in the empty notes list"))
+                }
             } else {
                 notesList
             }
