@@ -25,10 +25,10 @@ file to be edited, and adds the documentation set under `docs/`.
 
 **The editor shows formatted text.** The delimiters of the inline elements are hidden on screen: `**bold**`
 reads as **bold**, `==highlight==` as a highlight, `` `code` `` as monospaced text, `~~gone~~` struck
-through. The note keeps its Markdown characters in every request and in the file on the server; the
-delimiters reappear as soon as the caret enters the element, so they can still be edited, and the caret
-never jumps. `MarkdownTextStorage` marks them with an invisible font and `EditorViewController` restyles
-only when the caret enters or leaves an element, so typing stays cheap.
+through, and the `#` of a heading is hidden too. They stay hidden while editing, so the note never shows
+its Markdown; the characters remain in the text, so the server still receives `**bold**`. The hiding runs
+at the end of the styling pass, after list and checkbox styling, which would otherwise restore the font
+over the delimiter characters.
 
 **Signing in survives a restart.** The account password was stored with the default `whenUnlocked`
 accessibility; after a reboot or while the device was locked, the first synchronization read an empty

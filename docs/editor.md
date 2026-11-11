@@ -14,13 +14,16 @@ hosts it in a modal navigation controller.
 
 The note stays Markdown in the database, in every request and in the file on the server. On screen the
 delimiters of the inline elements are hidden: `**bold**` reads as **bold**, `==highlight==` shows a
-highlighted word, `` `code` `` shows monospaced text. The delimiters reappear as soon as the caret
-enters the element, so they can still be edited, and they are always present in the text, so undo,
-selection and copy work on the Markdown source.
+highlighted word, `` `code` `` shows monospaced text, `~~gone~~` is struck through, and the `#` of a
+heading is gone as well. They stay hidden while the caret is inside the element, so nothing jumps
+while typing; the characters are always part of the text, so undo, selection, copy and the saved note
+still contain the Markdown source.
 
-`MarkdownTextStorage` marks the delimiters with a nearly invisible font and triggers a restyle in
-`EditorViewController.textViewDidChangeSelection(_:)` only when the caret enters or leaves an element.
-Code blocks and links keep their characters: a fence or a URL is content the user may need to see.
+`MarkdownTextStorage` collects the delimiter ranges while it styles and makes them invisible at the end
+of the pass, after list and checkbox styling, so those cannot bring them back. Because a delimiter
+still occupies a character, the caret can land on one; it is invisible there, which is the price of
+keeping the source intact. Code blocks and links keep their characters: a fence or a URL is content
+the user may need to see.
 
 ## Formatting bar
 

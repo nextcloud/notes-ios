@@ -72,7 +72,9 @@ struct MarkdownTextStorageTests {
     ])
     func headerFormatting(text: String, expectedStyle: UIFont.TextStyle) {
         let result = applyText(text)
-        let font = getFontAt(0, in: result)
+        // The hashtags are hidden, so the heading text starts after them and the space.
+        let level = text.prefix(while: { $0 == "#" }).count
+        let font = getFontAt(level + 1, in: result)
         
         #expect(font != nil, "Font should not be nil for: \(text)")
         
@@ -85,25 +87,15 @@ struct MarkdownTextStorageTests {
                 "Header font should match its configured text style for: \(text)")
     }
     
-    @Test("Header hashtag fading")
-    func headerHashtagFading() {
-        let text = "# Faded Header"
+    @Test("Header hashtags are hidden")
+    func headerHashtagsAreHidden() {
+        let text = "## Heading"
         let result = applyText(text)
-        
-        // Check that hashtag has faded color
-        let hashtagColor = getColorAt(0, in: result)
-        let textColor = getColorAt(2, in: result) // After "# "
-        
-        #expect(hashtagColor != nil, "Hashtag should have color")
-        #expect(textColor != nil, "Text should have color")
-        
-        // The hashtag should be more transparent (faded)
-        let hashtagAlpha = hashtagColor?.cgColor.alpha ?? 1.0
-        let textAlpha = textColor?.cgColor.alpha ?? 1.0
-        
-        #expect(hashtagAlpha < textAlpha, "Hashtag should be more faded than text")
+
+        #expect(getFontAt(0, in: result)?.pointSize ?? 99 < 1, "The hashtags should not be shown")
+        #expect(getFontAt(3, in: result) != nil, "The heading text keeps its font")
     }
-    
+
     @Test("Headers not formatted in code blocks")
     func headersNotFormattedInCodeBlocks() {
         let text = """
@@ -119,8 +111,9 @@ struct MarkdownTextStorageTests {
         
         let result = applyText(text)
         
-        // First header should be formatted
-        let firstHeaderFont = getFontAt(0, in: result)
+        // First header should be formatted; its hashtags are hidden.
+        let level = text.prefix(while: { $0 == "#" }).count
+        let firstHeaderFont = getFontAt(level + 1, in: result)
         let bodyFont = UIFont.preferredFont(forTextStyle: .body)
         #expect(firstHeaderFont!.pointSize > bodyFont.pointSize, 
                 "First header should be larger than body font")
@@ -247,31 +240,35 @@ struct MarkdownTextStorageTests {
 
     // MARK: - Delimiter Tests
 
-    @Test("Delimiters are hidden until the caret is inside the element")
+    @Test("Delimiters are hidden, also while editing")
     func delimitersAreHidden() {
         let text = "Normal **bold** normal"
-        let storage = MarkdownTextStorage()
-        storage.selectionRangeProvider = { NSRange(location: 0, length: 0) }
-
-        storage.beginEditing()
-        storage.replaceCharacters(in: NSRange(location: 0, length: 0), with: text)
-        storage.endEditing()
+        let result = applyText(text)
 
         let markerIndex = (text as NSString).range(of: "**").location
-        let contentIndex = markerIndex + 2
+        #expect(getFontAt(markerIndex, in: result)?.pointSize ?? 99 < 1, "The delimiter should not take up space")
+        #expect(getFontAt(markerIndex + 2, in: result)?.fontDescriptor.symbolicTraits.contains(.traitBold) == true,
+                "The text itself stays bold")
+    }
 
-        let hiddenFont = storage.attribute(.font, at: markerIndex, effectiveRange: nil) as? UIFont
-        #expect(hiddenFont?.pointSize ?? 99 < 1, "The delimiter should not take up space")
+    @Test("Delimiters stay hidden in a list item")
+    func listItemDelimitersAreHidden() {
+        let text = "- **bold** item"
+        let result = applyText(text)
 
-        let contentFont = storage.attribute(.font, at: contentIndex, effectiveRange: nil) as? UIFont
-        #expect(contentFont?.fontDescriptor.symbolicTraits.contains(.traitBold) == true, "The text itself stays bold")
+        let markerIndex = (text as NSString).range(of: "**").location
+        #expect(getFontAt(markerIndex, in: result)?.pointSize ?? 99 < 1, "List styling must not bring them back")
+    }
 
-        // Moving the caret into the word brings its delimiters back so they can be edited.
-        storage.selectionRangeProvider = { NSRange(location: contentIndex, length: 0) }
-        storage.refreshFormatting()
+    @Test("Opening a note shows formatted text")
+    func loadingHidesDelimiters() {
+        let text = "Normal **bold** normal"
+        let view = HeaderTextView(frame: CGRect(x: 0, y: 0, width: 320, height: 480))
+        view.text = text
 
-        let revealedFont = storage.attribute(.font, at: markerIndex, effectiveRange: nil) as? UIFont
-        #expect(revealedFont?.pointSize ?? 0 > 1, "The delimiter reappears while editing the element")
+        let markerIndex = (text as NSString).range(of: "**").location
+        let font = view.textStorage.attribute(.font, at: markerIndex, effectiveRange: nil) as? UIFont
+        #expect(font?.pointSize ?? 99 < 1, "A loaded note should not show its Markdown")
     }
 
     // MARK: - Link Tests
@@ -520,8 +517,9 @@ struct MarkdownTextStorageTests {
         // Verify the document was processed
         #expect(result.length == text.count, "Result length should match input")
         
-        // Verify main header is formatted
-        let headerFont = getFontAt(0, in: result)
+        // Verify main header is formatted; its hashtags are hidden.
+        let level = text.prefix(while: { $0 == "#" }).count
+        let headerFont = getFontAt(level + 1, in: result)
         let bodyFont = UIFont.preferredFont(forTextStyle: .body)
         #expect(headerFont!.pointSize > bodyFont.pointSize, 
                "Main header should be larger than body")
@@ -553,8 +551,9 @@ struct MarkdownTextStorageTests {
         
         let result = applyText(text)
         
-        // Both headers should be formatted normally
-        let firstHeaderFont = getFontAt(0, in: result)
+        // Both headers should be formatted normally; the hashtags are hidden.
+        let level = text.prefix(while: { $0 == "#" }).count
+        let firstHeaderFont = getFontAt(level + 1, in: result)
         let bodyFont = UIFont.preferredFont(forTextStyle: .body)
         
         #expect(firstHeaderFont!.pointSize > bodyFont.pointSize, 

@@ -18,8 +18,8 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
   math, callouts, tables and links.
 - Syntax highlighting for `==highlighted==` text in the internal editor.
 - The editor shows formatted text instead of Markdown source: the delimiters of bold, italic,
-  underline, strikethrough, highlight and inline code are hidden and reappear while the caret is in
-  that element. The note stays Markdown on the server.
+  underline, strikethrough, highlight and inline code are hidden, as are the `#` of a heading. They
+  stay hidden while editing; the note itself stays Markdown on the server.
 - Note list grouped by modification date (Today, Previous 7 Days, Previous 30 Days, months of the
   current year, earlier years) instead of a single flat list, when sorting by most recent.
 - Option to open the collaborative editor and the note preview with a swipe from the left screen edge.

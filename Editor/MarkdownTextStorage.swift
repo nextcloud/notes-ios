@@ -14,13 +14,8 @@ public class MarkdownTextStorage: NSTextStorage {
     /// The underlying text storage implementation.
     private var backingStore = NSTextStorage()
 
-    /// Where the caret is, injected by the text view. Without it, every delimiter stays hidden.
-    var selectionRangeProvider: (() -> NSRange)?
-
-    /// Spans of the inline elements in the note, used to notice when the caret enters or leaves one.
-    private var inlineSpans = [NSRange]()
-
-    private var lastSelection = NSRange(location: NSNotFound, length: 0)
+    /// The delimiters to hide on screen, collected while styling and applied at the end of the pass.
+    private var hiddenMarkers = [NSRange]()
 
     /// What a hidden delimiter looks like: present in the text, invisible and without width on screen.
     private var hiddenDelimiterAttributes: [NSAttributedString.Key: Any] {
@@ -91,26 +86,6 @@ public class MarkdownTextStorage: NSTextStorage {
         endEditing()
     }
 
-    /// Restyles only when the caret entered or left an inline element, so moving the caret stays cheap.
-    func refreshFormattingIfNeeded(for selection: NSRange) {
-        let changed = activeSpans(for: selection) != activeSpans(for: lastSelection)
-        lastSelection = selection
-
-        if changed {
-            refreshFormatting()
-        }
-    }
-
-    private func activeSpans(for selection: NSRange) -> [Int] {
-        guard selection.location != NSNotFound, inlineSpans.isEmpty == false else {
-            return []
-        }
-
-        return inlineSpans
-            .filter { selectionTouches($0, selection) }
-            .map(\.location)
-    }
-
     /// Applies Markdown formatting to the specified range.
     /// The delimiters stay in the text and are hidden unless the caret is inside their element.
     private func applyMarkdownFormatting(_ range: NSRange) {
@@ -123,7 +98,7 @@ public class MarkdownTextStorage: NSTextStorage {
         ]
         backingStore.setAttributes(baseAttributes, range: range)
 
-        inlineSpans.removeAll()
+        hiddenMarkers.removeAll()
 
         // Find all fenced code blocks first to exclude from other formatting
         let codeBlockRanges = fencedCodeBlockRanges(in: text)
@@ -144,6 +119,15 @@ public class MarkdownTextStorage: NSTextStorage {
         // Apply code block formatting (this should be last to override other formatting)
         for codeBlockRange in codeBlockRanges {
             applyCodeBlockFormatting(range: codeBlockRange)
+        }
+
+        applyHiddenDelimiters()
+    }
+
+    /// Hides the Markdown delimiters after all other styling ran, so they never take up space on screen.
+    private func applyHiddenDelimiters() {
+        for marker in hiddenMarkers {
+            backingStore.addAttributes(hiddenDelimiterAttributes, range: marker)
         }
     }
 
@@ -209,11 +193,9 @@ public class MarkdownTextStorage: NSTextStorage {
                     let font = UIFont.preferredFont(forTextStyle: textStyle).bold()
                     backingStore.addAttribute(.font, value: font, range: match.range)
 
-                    // Apply faded color to the hashtag symbols only
+                    // The hashtags are syntax, not text: hide them like the inline delimiters.
                     if match.numberOfRanges >= 2 {
-                        let hashtagRange = match.range(at: 1)
-                        let fadedColor = UIColor.label.withAlphaComponent(0.5)
-                        backingStore.addAttribute(.foregroundColor, value: fadedColor, range: hashtagRange)
+                        hiddenMarkers.append(match.range(at: 1))
                     }
                 }
             }
@@ -492,31 +474,11 @@ public class MarkdownTextStorage: NSTextStorage {
         }
 
         style(content)
-        inlineSpans.append(whole)
 
-        let selection = selectionRangeProvider?() ?? NSRange(location: NSNotFound, length: 0)
-
-        guard !selectionTouches(whole, selection) else {
-            return
-        }
-
-        backingStore.addAttributes(hiddenDelimiterAttributes,
-                                   range: NSRange(location: whole.location, length: delimiters))
-        backingStore.addAttributes(hiddenDelimiterAttributes,
-                                   range: NSRange(location: NSMaxRange(whole) - delimiters, length: delimiters))
-    }
-
-    /// Whether the caret or the selection is inside a span. A caret has no length, so it never intersects.
-    private func selectionTouches(_ span: NSRange, _ selection: NSRange) -> Bool {
-        guard selection.location != NSNotFound else {
-            return false
-        }
-
-        if selection.length == 0 {
-            return NSLocationInRange(selection.location, span) || selection.location == NSMaxRange(span)
-        }
-
-        return NSIntersectionRange(span, selection).length > 0
+        // Hidden at the end of the pass: list and checkbox styling set a font over their whole line,
+        // which would otherwise bring the delimiters back.
+        hiddenMarkers.append(NSRange(location: whole.location, length: delimiters))
+        hiddenMarkers.append(NSRange(location: NSMaxRange(whole) - delimiters, length: delimiters))
     }
 
     /// Checks if a range overlaps with any of the excluded ranges
