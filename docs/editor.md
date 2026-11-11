@@ -10,6 +10,18 @@ storage that styles Markdown while showing its characters (`Editor/MarkdownTextS
 manager that replaces list markers with glyphs, and a tap handler for checkboxes. `Source/EditorViewController.swift`
 hosts it in a modal navigation controller.
 
+## Formatted text, Markdown underneath
+
+The note stays Markdown in the database, in every request and in the file on the server. On screen the
+delimiters of the inline elements are hidden: `**bold**` reads as **bold**, `==highlight==` shows a
+highlighted word, `` `code` `` shows monospaced text. The delimiters reappear as soon as the caret
+enters the element, so they can still be edited, and they are always present in the text, so undo,
+selection and copy work on the Markdown source.
+
+`MarkdownTextStorage` marks the delimiters with a nearly invisible font and triggers a restyle in
+`EditorViewController.textViewDidChangeSelection(_:)` only when the caret enters or leaves an element.
+Code blocks and links keep their characters: a fence or a URL is content the user may need to see.
+
 ## Formatting bar
 
 `iOCNotes/Views/FormattingBar.swift` is a `UIInputView` used as the text view's `inputAccessoryView`. It

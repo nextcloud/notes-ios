@@ -147,7 +147,8 @@ struct MarkdownTextStorageTests {
         
         // Find the position of bold text
         if let boldRange = text.range(of: "**") {
-            let startIndex = text.distance(from: text.startIndex, to: boldRange.lowerBound)
+            // The delimiters are hidden on screen, so the styled text starts after them.
+            let startIndex = text.distance(from: text.startIndex, to: boldRange.lowerBound) + 2
             let font = getFontAt(startIndex, in: result)
             
             #expect(font != nil, "Font should not be nil for bold text: \(text)")
@@ -169,7 +170,7 @@ struct MarkdownTextStorageTests {
         let result = applyText(text)
         
         // First bold should be formatted
-        let firstBoldFont = getFontAt(0, in: result)
+        let firstBoldFont = getFontAt(2, in: result)
         #expect(firstBoldFont!.fontDescriptor.symbolicTraits.contains(.traitBold), 
                "First bold should be formatted")
         
@@ -177,7 +178,7 @@ struct MarkdownTextStorageTests {
         let nsText = text as NSString
         let codeBoldRange = nsText.range(of: "**Not bold in code**")
         if codeBoldRange.location != NSNotFound {
-            let font = getFontAt(codeBoldRange.location, in: result)
+            let font = getFontAt(codeBoldRange.location + 2, in: result)
             #expect(!font!.fontDescriptor.symbolicTraits.contains(.traitBold), 
                   "Bold inside code block should not be formatted")
         }
@@ -198,7 +199,7 @@ struct MarkdownTextStorageTests {
         let italicMarkers = ["*", "_"]
         for marker in italicMarkers {
             if let italicRange = text.range(of: marker) {
-                let startIndex = text.distance(from: text.startIndex, to: italicRange.lowerBound)
+                let startIndex = text.distance(from: text.startIndex, to: italicRange.lowerBound) + 1
                 let font = getFontAt(startIndex, in: result)
                 
                 if font != nil {
@@ -217,7 +218,7 @@ struct MarkdownTextStorageTests {
         let text = "__underlined text__"
         let result = applyText(text)
         
-        let underlineStyle = getUnderlineStyleAt(0, in: result)
+        let underlineStyle = getUnderlineStyleAt(2, in: result)
         #expect(underlineStyle == NSUnderlineStyle.single.rawValue, 
                "Text should be underlined")
     }
@@ -229,7 +230,7 @@ struct MarkdownTextStorageTests {
         let text = "~~strikethrough text~~"
         let result = applyText(text)
         
-        let strikethroughStyle = getStrikethroughStyleAt(0, in: result)
+        let strikethroughStyle = getStrikethroughStyleAt(2, in: result)
         #expect(strikethroughStyle == NSUnderlineStyle.single.rawValue, 
                "Text should have strikethrough")
     }
@@ -240,8 +241,37 @@ struct MarkdownTextStorageTests {
     func highlightFormatting(text: String) {
         let result = applyText(text)
 
-        #expect(result.attribute(.highlight, at: 0, effectiveRange: nil) != nil, "Text should be highlighted: \(text)")
-        #expect(getBackgroundColorAt(0, in: result) != nil, "Highlight should have a background color: \(text)")
+        #expect(result.attribute(.highlight, at: 2, effectiveRange: nil) != nil, "Text should be highlighted: \(text)")
+        #expect(getBackgroundColorAt(2, in: result) != nil, "Highlight should have a background color: \(text)")
+    }
+
+    // MARK: - Delimiter Tests
+
+    @Test("Delimiters are hidden until the caret is inside the element")
+    func delimitersAreHidden() {
+        let text = "Normal **bold** normal"
+        let storage = MarkdownTextStorage()
+        storage.selectionRangeProvider = { NSRange(location: 0, length: 0) }
+
+        storage.beginEditing()
+        storage.replaceCharacters(in: NSRange(location: 0, length: 0), with: text)
+        storage.endEditing()
+
+        let markerIndex = (text as NSString).range(of: "**").location
+        let contentIndex = markerIndex + 2
+
+        let hiddenFont = storage.attribute(.font, at: markerIndex, effectiveRange: nil) as? UIFont
+        #expect(hiddenFont?.pointSize ?? 99 < 1, "The delimiter should not take up space")
+
+        let contentFont = storage.attribute(.font, at: contentIndex, effectiveRange: nil) as? UIFont
+        #expect(contentFont?.fontDescriptor.symbolicTraits.contains(.traitBold) == true, "The text itself stays bold")
+
+        // Moving the caret into the word brings its delimiters back so they can be edited.
+        storage.selectionRangeProvider = { NSRange(location: contentIndex, length: 0) }
+        storage.refreshFormatting()
+
+        let revealedFont = storage.attribute(.font, at: markerIndex, effectiveRange: nil) as? UIFont
+        #expect(revealedFont?.pointSize ?? 0 > 1, "The delimiter reappears while editing the element")
     }
 
     // MARK: - Link Tests
@@ -297,7 +327,8 @@ struct MarkdownTextStorageTests {
         
         // Find code position
         if let codeRange = text.range(of: "`") {
-            let startIndex = text.distance(from: text.startIndex, to: codeRange.lowerBound)
+            // The backticks are hidden on screen, the code itself starts after them.
+            let startIndex = text.distance(from: text.startIndex, to: codeRange.lowerBound) + 1
             let font = getFontAt(startIndex, in: result)
             let backgroundColor = getBackgroundColorAt(startIndex, in: result)
             

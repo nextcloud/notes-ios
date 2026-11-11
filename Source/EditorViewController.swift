@@ -890,6 +890,7 @@ extension EditorViewController: UITextViewDelegate {
     
     func textViewDidChangeSelection(_ textView: UITextView) {
         textView.scrollRangeToVisible(textView.selectedRange)
+        noteView.refreshFormattingIfNeeded()
         updateFormattingBar()
     }
 

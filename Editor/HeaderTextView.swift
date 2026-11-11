@@ -53,6 +53,9 @@ class HeaderTextView: UITextView {
         noteTextStorage.addLayoutManager(layoutManager)
 
         super.init(frame: frame, textContainer: container)
+        noteTextStorage.selectionRangeProvider = { [weak self] in
+            self?.selectedRange ?? NSRange(location: NSNotFound, length: 0)
+        }
         self.addGestureRecognizer(checkBoxTapHandler.tapGestureRecognizer)
         checkBoxTapHandler.textView = self
         checkBoxTapHandler.layoutManager = layoutManager
@@ -162,6 +165,16 @@ class HeaderTextView: UITextView {
             noteTextStorage.setAttributedString(attributedString)
             noteTextStorage.endEditing()
         }
+    }
+
+    ///
+    /// Restyles the note when the caret moved into or out of an inline element.
+    ///
+    /// The delimiters of the element being edited become visible again, the ones of every other element stay
+    /// hidden, so the editor looks like a rich text editor without losing the Markdown source underneath.
+    ///
+    func refreshFormattingIfNeeded() {
+        noteTextStorage.refreshFormattingIfNeeded(for: selectedRange)
     }
 
     open func updateInsets(size: CGFloat) {

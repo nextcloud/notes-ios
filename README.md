@@ -33,6 +33,7 @@ see [docs/local-signing.md](docs/local-signing.md). A fresh checkout builds with
 - [docs/synchronization.md](docs/synchronization.md) — sync phases, per-note write queue, error banners
 - [docs/local-signing.md](docs/local-signing.md) — local signing with `Local.xcconfig` and `Local.entitlements`
 - [docs/issue-triage.md](docs/issue-triage.md) — every open issue and its disposition
+- [docs/ai-generated-code.md](docs/ai-generated-code.md) — that the changes are AI-generated, and how they were verified
 - [CHANGELOG.md](CHANGELOG.md) — user-visible changes
 
 ## Testing

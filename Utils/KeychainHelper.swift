@@ -5,7 +5,15 @@ import Foundation
 import KeychainAccess
 
 struct KeychainHelper {
+    ///
+    /// The credentials of the account.
+    ///
+    /// `afterFirstUnlock` keeps the account readable in the background and right after a reboot, once the
+    /// device has been unlocked: with the default accessibility the first synchronization after a restart
+    /// found an empty keychain, treated the user as signed out and surfaced `401` and "Not logged in".
+    ///
     private static let keychain = Keychain(service: "com.peterandlinda.CloudNotes")
+        .accessibility(.afterFirstUnlock)
 
     ///
     /// A computed property to automatically derive the account identifier for the currently only possible account from ``server`` and ``username``.

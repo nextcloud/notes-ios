@@ -17,6 +17,9 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
   underline, strikethrough, highlight, lists, indentation, quotes, code and Mermaid blocks, details,
   math, callouts, tables and links.
 - Syntax highlighting for `==highlighted==` text in the internal editor.
+- The editor shows formatted text instead of Markdown source: the delimiters of bold, italic,
+  underline, strikethrough, highlight and inline code are hidden and reappear while the caret is in
+  that element. The note stays Markdown on the server.
 - Note list grouped by modification date (Today, Previous 7 Days, Previous 30 Days, months of the
   current year, earlier years) instead of a single flat list, when sorting by most recent.
 - Option to open the collaborative editor and the note preview with a swipe from the left screen edge.
@@ -29,6 +32,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 ### Changed
 
 - The notes list defaults to sorting by most recent, with category grouping still available.
+- The note list uses a large navigation title instead of the inline one.
 - The server version in Settings is taken from the server capabilities, which are refreshed on every
   synchronization, instead of the cached `/status.php` product version.
 - Error banners now hide themselves after eight seconds, carry a "Dismiss" button, appear at the top of
@@ -56,3 +60,5 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 - Anonymous `404` responses from servers without the Notes app now produce a clear message.
 - Opening a note in the internal editor although the collaborative editor was requested is now explained.
 - A suffix returned by the server that is not a valid extension no longer silently falls back to `.txt`.
+- The account password is stored with `afterFirstUnlock` accessibility, so the app no longer treats a
+  restarted device as signed out and reports `401` before the first synchronization.
