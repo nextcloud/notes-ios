@@ -193,6 +193,7 @@ Executed on this branch with Xcode 27.2 (Swift 6.4.2) on an iOS simulator:
   -allowProvisioningUpdates` → `BUILD SUCCEEDED`, signed with an "iOS Team Provisioning Profile" for the
   developer's own bundle identifier. Before the signing change this failed with "An Application Group
   with Identifier 'group.com.nextcloud.apps' is not available" and "No profiles … were found".
+- **Lint:** `swiftlint lint --strict` → no violations.
 - **Normal checkout without local files:** with `Local.xcconfig` and `Local.entitlements` moved away,
   `xcodebuild -showBuildSettings` reports `CODE_SIGN_ENTITLEMENTS = Brand/iOCNotes.entitlements` and the
   shared bundle identifier, and the simulator build succeeds with `CODE_SIGNING_ALLOWED=NO`.
