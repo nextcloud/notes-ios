@@ -121,7 +121,9 @@ struct KeychainHelper {
 
     static var syncOnStart: Bool {
         get {
-            return UserDefaults.standard.bool(forKey: "SyncOnStart")
+            // The app always synchronized on start before this setting took effect, so keep that for users who never
+            // changed it.
+            return UserDefaults.standard.object(forKey: "SyncOnStart") as? Bool ?? true
         }
         set {
             UserDefaults.standard.set(newValue, forKey: "SyncOnStart")
