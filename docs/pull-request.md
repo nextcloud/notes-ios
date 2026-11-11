@@ -235,8 +235,8 @@ editing a tracked file — and a free "Personal Team" could not build at all, be
 `EditorEditingTests.swift`, `AppBehaviourTests.swift` (all from the merged PRs),
 `PreviewCheckBoxesTests.swift`, `SettingsAndBannerTests.swift` (file suffix, banner policy, server
 version, titles), `EditorCodeBlockTests.swift`, `NotesDateSectionsTests.swift`,
-`Network/NoteUpdateQueueTests.swift`, and updated `Network/SettingsTests.swift` and
-`Network/IsolatedAppState.swift`.
+`Network/NoteUpdateQueueTests.swift`, `ReadingModeTests.swift` and `ViewSnapshotTests.swift`, and updated
+`Network/SettingsTests.swift` and `Network/IsolatedAppState.swift`.
 
 ## 6. Documentation
 
@@ -253,10 +253,31 @@ version, titles), `EditorCodeBlockTests.swift`, `NotesDateSectionsTests.swift`,
 
 Executed on this branch with Xcode 27.2 (Swift 6.4.2) on an iOS simulator:
 
-- **Unit tests:** `xcodebuild test -scheme iOCNotes -destination 'platform=iOS Simulator,…'` →
-  `TEST SUCCEEDED`, **184 tests, 171 passed, 0 failed, 13 skipped**. The new suites are
-  `Note update queue`, `Error banner policy`, `File extension`, `Server version display`, `Note titles`,
-  `Code blocks in the editor`, `Notes list date grouping` and `Tappable Checkboxes In The Preview`.
+- **Unit and integration tests:** `xcodebuild test -scheme iOCNotes -destination
+  'platform=iOS Simulator,id=1D1241CD-…'` → `TEST SUCCEEDED`, **198 tests in 25 suites, 0 failed**.
+  The new suites are `Note update queue`, `Error banner policy`, `File extension`,
+  `Server version display`, `Note titles`, `Code blocks in the editor`, `Notes list date grouping`,
+  `Tappable Checkboxes In The Preview`, `Reading mode` and `View snapshots`.
+- **The app on a simulator:** built for `platform=iOS Simulator` with the shared scheme, installed and
+  launched on an iPhone 18 Pro (iOS 27.2). The first screen renders correctly.
+- **The redesigned screens, rendered and reviewed:** because the app needs a signed-in account before its
+  tab bar exists, `ViewSnapshotTests` renders the real views through a `UIHostingController` in a window
+  and writes PNGs: the settings page, note rows inside a native `List`, and the editor in formatted mode,
+  in source mode, after switching back, and in dark mode. Light, dark and accessibility-3 type sizes are
+  covered. Every image was reviewed, and the defects it exposed are fixed in this branch:
+  - a task item drew a bullet and a checkbox, with the checkbox over the following word (the layout
+    manager replaced a glyph at a fixed index of the glyph range instead of at the marker);
+  - the `>` of a block quote stayed visible in formatted mode;
+  - source mode kept the checkbox glyphs instead of showing `[ ]`, because the layout manager's glyphs
+    were cached across the mode switch;
+  - the settings rows that edit a server value showed no affordance and turned into blue link text once
+    wrapped in a button;
+  - creating a header view off the main actor crashed the test process in `traitCollectionDidChange`.
+- **Mode switching:** `ReadingModeTests` checks that the delimiters are invisible but still in the text,
+  that a heading's `#` and a quote's `>` are hidden, that a task line has a checkbox and no bullet, that
+  the caret steps past a hidden delimiter, that the source mode keeps the caret, that switching the mode
+  twice leaves the note byte-identical, and that a new editor picks up the stored setting (a `UserDefaults`
+  value, so it survives a relaunch).
 - **Device build with a personal team:** `xcodebuild build -destination 'generic/platform=iOS'
   -allowProvisioningUpdates` → `BUILD SUCCEEDED`, signed with an "iOS Team Provisioning Profile" for the
   developer's own bundle identifier. Before the signing change this failed with "An Application Group
@@ -304,6 +325,11 @@ Manually:
 - **Preview checkboxes.** Ticking is disabled for read-only notes, and a note changed elsewhere while the
   preview is open makes the stale checkbox do nothing until the preview is reopened.
 - **App group.** A build without the app group cannot read accounts shared by the Nextcloud iOS app.
+- **Snapshot coverage.** The snapshots render the settings page, the note rows and the editor; they do
+  not drive the full `NotesView` with a live Core Data stack, and gestures (tap, drag, keyboard) are not
+  simulated. The mode switch, caret handling and text preservation are covered by unit tests instead.
+- **Account-gated screens.** Without a test account the simulator launch ends on onboarding, so the
+  signed-in navigation was verified through the rendered screens rather than by tapping through the app.
 - **Not fixed here:** swipe-down to close a note (#121 asks for it; the branch restores swipe-back),
   the remaining large features listed in the triage, and issues without a reproducible report.
 

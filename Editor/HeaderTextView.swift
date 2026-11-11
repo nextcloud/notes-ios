@@ -165,10 +165,32 @@ class HeaderTextView: UITextView {
         }
     }
 
+    /// Shows or hides the Markdown characters without changing the stored setting, for previews and tests.
+    func setShowsMarkdownSource(_ value: Bool) {
+        noteTextStorage.showsMarkdownSource = value
+        refreshLayout()
+    }
+
+    /// The caret position to use: a caret inside an invisible delimiter is moved behind it.
+    func adjustedCaretRange() -> NSRange {
+        noteTextStorage.caretPosition(for: selectedRange)
+    }
+
     /// Re-applies the styling, e.g. after switching between formatted text and Markdown source.
     func refreshFormatting() {
         noteTextStorage.showsMarkdownSource = KeychainHelper.showMarkdownSource
+        refreshLayout()
+    }
+
+    /// Restyles the note and drops the cached glyphs, which still showed the previous mode's bullets and boxes.
+    private func refreshLayout() {
         noteTextStorage.refreshFormatting()
+
+        let range = NSRange(location: 0, length: noteTextStorage.length)
+
+        layoutManager.invalidateGlyphs(forCharacterRange: range, changeInLength: 0, actualCharacterRange: nil)
+        layoutManager.invalidateLayout(forCharacterRange: range, actualCharacterRange: nil)
+        setNeedsLayout()
     }
 
     open func updateInsets(size: CGFloat) {

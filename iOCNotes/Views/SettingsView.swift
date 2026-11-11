@@ -77,15 +77,21 @@ struct SettingsView: View {
                 }
 
                 Section {
-                    FormDetailView("Notes Path", detail: $store.notesPath) {
-                        pathInAlert = $store.notesPath.wrappedValue
+                    Button {
+                        pathInAlert = store.notesPath
                         showPathAlert = true
+                    } label: {
+                        SettingsDetailRow(title: "Notes Path", detail: store.notesPath)
                     }
+                    .buttonStyle(.plain)
 
-                    FormDetailView("File Extension", detail: .constant(store.fileExtension.suffix)) {
+                    Button {
                         fileExtensionInAlert = store.fileExtension.suffix
                         showFileExtensionAlert = true
+                    } label: {
+                        SettingsDetailRow(title: "File Extension", detail: store.fileExtension.suffix)
                     }
+                    .buttonStyle(.plain)
                 } header: {
                     Text("Server")
                 } footer: {
@@ -217,6 +223,33 @@ struct SettingsView: View {
         Task {
             await NoteSessionManager.shared.updateSettings()
         }
+    }
+}
+
+///
+/// A settings row whose value is stored on the server.
+///
+/// It carries the disclosure chevron because it is tappable: without it the row read like plain text.
+///
+private struct SettingsDetailRow: View {
+    let title: LocalizedStringKey
+    let detail: String
+
+    var body: some View {
+        LabeledContent {
+            HStack(spacing: 6) {
+                Text(verbatim: detail)
+                    .foregroundStyle(.secondary)
+
+                Image(systemName: "chevron.right")
+                    .font(.footnote.weight(.semibold))
+                    .foregroundStyle(.tertiary)
+            }
+        } label: {
+            Text(title)
+                .foregroundStyle(.primary)
+        }
+        .contentShape(.rect)
     }
 }
 

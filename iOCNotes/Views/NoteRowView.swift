@@ -22,6 +22,13 @@ struct NoteRowView: View {
         favorite = row.favorite
     }
 
+    init(title: String, snippet: String, modified: Double, favorite: Bool) {
+        self.title = title
+        self.snippet = snippet
+        self.modified = modified
+        self.favorite = favorite
+    }
+
     private static let intervalFormatter: DateComponentsFormatter = {
         let formatter = DateComponentsFormatter()
         formatter.unitsStyle = .abbreviated

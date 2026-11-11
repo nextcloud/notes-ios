@@ -13,6 +13,7 @@ struct MarkdownTextStorageTests {
     
     private func applyText(_ text: String) -> NSAttributedString {
         let textStorage = MarkdownTextStorage()
+        textStorage.showsMarkdownSource = false
 
         // Drive the storage the way a UITextView does: insert the text through
         // `replaceCharacters` inside a begin/end editing group. This sets a valid
@@ -261,9 +262,13 @@ struct MarkdownTextStorageTests {
     }
 
     @Test("Opening a note shows formatted text")
+    @MainActor
     func loadingHidesDelimiters() {
         let text = "Normal **bold** normal"
         let view = HeaderTextView(frame: CGRect(x: 0, y: 0, width: 320, height: 480))
+        let window = UIWindow(frame: view.bounds)
+        window.addSubview(view)
+        window.makeKeyAndVisible()
         view.text = text
 
         let markerIndex = (text as NSString).range(of: "**").location

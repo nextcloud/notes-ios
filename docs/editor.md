@@ -15,15 +15,19 @@ hosts it in a modal navigation controller.
 The note stays Markdown in the database, in every request and in the file on the server. On screen the
 delimiters of the inline elements are hidden: `**bold**` reads as **bold**, `==highlight==` shows a
 highlighted word, `` `code` `` shows monospaced text, `~~gone~~` is struck through, and the `#` of a
-heading is gone as well. They stay hidden while the caret is inside the element, so nothing jumps
+heading and the `>` of a block quote are gone as well. They stay hidden while the caret is inside the element, so nothing jumps
 while typing; the characters are always part of the text, so undo, selection, copy and the saved note
 still contain the Markdown source.
 
 `MarkdownTextStorage` collects the delimiter ranges while it styles and makes them invisible at the end
-of the pass, after list and checkbox styling, so those cannot bring them back. Because a delimiter
-still occupies a character, the caret can land on one; it is invisible there, which is the price of
-keeping the source intact. Code blocks and links keep their characters: a fence or a URL is content
-the user may need to see.
+of the pass, after list and checkbox styling, so those cannot bring them back. A hidden delimiter still
+occupies a character, so `caretPosition(for:)` moves a caret that would rest inside one behind the
+marker: typing never edits a `**` or a `#` the user cannot see, and the caret does not appear to stick.
+
+List markers are drawn as glyphs, and only in the formatted mode: a bulleted line shows `•`, a task item
+shows `☐` or `☑` in place of `- [ ]`, and the dash in front of a task checkbox is hidden like the other
+delimiters. `LayoutManager` leaves the text alone in the source mode, so `-` and `[ ]` stay editable
+there. Code blocks and links keep their characters: a fence or a URL is content the user may need to see.
 
 ## Reading mode and source mode
 
@@ -36,7 +40,10 @@ The editor has two displays of the same file, switched in the note's "More" menu
   styling of the formatted mode stays on, so the text is still bold where it is bold in Markdown.
 
 Either way the note is saved as Markdown and synchronized unchanged. The choice is local to the device;
-it lives in `KeychainHelper.showMarkdownSource` and is applied by `MarkdownTextStorage`.
+it lives in `KeychainHelper.showMarkdownSource`, which is backed by `UserDefaults` and therefore survives
+a relaunch, and every new `MarkdownTextStorage` starts with it. Switching the mode restyles the note and
+`HeaderTextView.refreshLayout()` drops the layout manager's cached glyphs, so bullets and checkboxes never
+leak from one mode into the other.
 
 ## Formatting bar
 

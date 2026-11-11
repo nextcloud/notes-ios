@@ -900,6 +900,14 @@ extension EditorViewController: UITextViewDelegate {
     }
     
     func textViewDidChangeSelection(_ textView: UITextView) {
+        let adjusted = noteView.adjustedCaretRange()
+
+        if adjusted != textView.selectedRange {
+            // Setting the range calls this delegate again, so the next pass continues below.
+            textView.selectedRange = adjusted
+            return
+        }
+
         textView.scrollRangeToVisible(textView.selectedRange)
         updateFormattingBar()
     }

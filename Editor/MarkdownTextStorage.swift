@@ -20,6 +20,27 @@ public class MarkdownTextStorage: NSTextStorage {
     /// Whether the note shows its Markdown characters. The editor keeps this in sync with the user's setting.
     var showsMarkdownSource = KeychainHelper.showMarkdownSource
 
+    /// The delimiter ranges that are currently invisible, so the caret can step over them.
+    private(set) var hiddenDelimiterRanges = [NSRange]()
+
+    ///
+    /// Moves a caret that landed inside a hidden delimiter behind it.
+    ///
+    /// The characters are invisible but still part of the text. Without this, tapping at the end of a bold word
+    /// could put the caret between the asterisks and the next typed character would edit the Markdown markup.
+    ///
+    func caretPosition(for selection: NSRange) -> NSRange {
+        guard selection.length == 0, showsMarkdownSource == false else {
+            return selection
+        }
+
+        for marker in hiddenDelimiterRanges where NSLocationInRange(selection.location, marker) {
+            return NSRange(location: NSMaxRange(marker), length: 0)
+        }
+
+        return selection
+    }
+
     /// What a hidden delimiter looks like: present in the text, invisible and without width on screen.
     private var hiddenDelimiterAttributes: [NSAttributedString.Key: Any] {
         [.font: UIFont.systemFont(ofSize: 0.1), .foregroundColor: UIColor.clear]
@@ -131,12 +152,15 @@ public class MarkdownTextStorage: NSTextStorage {
     private func applyHiddenDelimiters() {
         // The source mode shows the characters a note is made of, so nothing is hidden there.
         guard showsMarkdownSource == false else {
+            hiddenDelimiterRanges.removeAll()
             return
         }
 
         for marker in hiddenMarkers {
             backingStore.addAttributes(hiddenDelimiterAttributes, range: marker)
         }
+
+        hiddenDelimiterRanges = hiddenMarkers
     }
 
     ///
@@ -329,11 +353,12 @@ public class MarkdownTextStorage: NSTextStorage {
                 // Apply faded color to the entire block quote
                 backingStore.addAttribute(.foregroundColor, value: fadedColor, range: match.range)
 
-                // Apply even more faded color to the > symbol
-                if match.numberOfRanges >= 2 {
-                    let quoteSymbolRange = match.range(at: 1)
-                    let symbolFadedColor = UIColor.label.withAlphaComponent(0.4)
-                    backingStore.addAttribute(.foregroundColor, value: symbolFadedColor, range: quoteSymbolRange)
+                // The quote marker is formatting, so it is hidden in reading mode like the other delimiters.
+                if match.numberOfRanges >= 3 {
+                    let symbolRange = match.range(at: 1)
+                    let contentRange = match.range(at: 2)
+                    hiddenMarkers.append(NSRange(location: symbolRange.location,
+                                                 length: max(contentRange.location - symbolRange.location, symbolRange.length)))
                 }
             }
         }
@@ -413,6 +438,11 @@ public class MarkdownTextStorage: NSTextStorage {
 
             regex.enumerateMatches(in: text, options: [], range: range) { match, _, _ in
                 if let match = match, !isRangeInExcludedRanges(match.range, excludingRanges: excludingRanges) {
+                    // A task line is drawn with a checkbox instead of a bullet.
+                    guard !isTaskItem(match.range, in: text) else {
+                        return
+                    }
+
                     // Apply styling to the entire list item but keep it readable
                     let font = UIFont.preferredFont(forTextStyle: .body)
                     backingStore.addAttribute(.font, value: font, range: match.range)
@@ -430,6 +460,15 @@ public class MarkdownTextStorage: NSTextStorage {
                 }
             }
         }
+    }
+
+    /// Whether the line is a task list item like `- [ ] Buy milk`.
+    private func isTaskItem(_ range: NSRange, in text: String) -> Bool {
+        guard let line = Range(range, in: text) else {
+            return false
+        }
+
+        return text[line].range(of: #"^\s*[-*+]\s+\[[ xX]\]"#, options: .regularExpression) != nil
     }
 
     /// Applies checkbox formatting for task lists
@@ -454,6 +493,11 @@ public class MarkdownTextStorage: NSTextStorage {
                     if match.numberOfRanges >= 4 {
                         let checkboxRange = match.range(at: 3)
                         let contentRange = match.range(at: 4)
+                        let bulletRange = match.range(at: 2)
+
+                        // The dash in front of the checkbox is syntax, so reading mode hides it too.
+                        hiddenMarkers.append(NSRange(location: bulletRange.location,
+                                                     length: checkboxRange.location - bulletRange.location))
 
                         if index == 0 { // Unchecked
                             backingStore.addAttribute(.checkBoxOpen, value: true, range: checkboxRange)

@@ -37,6 +37,10 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
   explanation under each group.
 - The notes list defaults to sorting by most recent, with category grouping still available.
 - The note list uses a large navigation title instead of the inline one.
+- In the formatted editor a task item shows a checkbox in place of its dash and `[ ]`, and a block quote
+  hides its `>` like the other Markdown markers.
+- The rows in Settings → Server that change a server value show a disclosure chevron instead of reading
+  like plain text.
 - The server version in Settings is taken from the server capabilities, which are refreshed on every
   synchronization, instead of the cached `/status.php` product version.
 - Error banners now hide themselves after eight seconds, carry a "Dismiss" button, appear at the top of
@@ -58,6 +62,12 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 - `#` and `*` inside a fenced code block were styled as a heading or emphasis; an unclosed fence now
   marks the text below it as code.
 - Opening a note in place from Files or iCloud Drive deleted the original document.
+- A task item in the formatted editor drew a bullet and a checkbox on the same line, with the checkbox on
+  top of the following word.
+- The Markdown source mode still replaced `[ ]` with a checkbox glyph instead of showing the characters,
+  and kept the previous mode's glyphs until the note was reopened.
+- The caret could rest on an invisible `**` or `#`, so typing there edited the Markdown markup.
+- A header view built outside the main actor crashed the unit-test process in `traitCollectionDidChange`.
 - "Synchronize on Start" was saved but ignored, and the app synchronized on every activation.
 - Overlapping uploads for one note piled up file locks on the server and ended in `423 Locked` and
   "Error updating note". Uploads for a note are now serialized and coalesced.
