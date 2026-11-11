@@ -36,6 +36,8 @@ class EditorViewController: UIViewController {
 
     private var hasFocusedNewNote = false
 
+    private var isApplyingFormatting = false
+
     var note: Note? {
         didSet {
             if note != oldValue, let note = note {
@@ -64,6 +66,141 @@ class EditorViewController: UIViewController {
     }
 
     var noteView = HeaderTextView(frame: .zero)
+
+    private lazy var undoFormattingButton = actionButton("arrow.uturn.backward", NSLocalizedString("Undo", comment: "Formatting bar button")) { [weak self] in
+        self?.onUndo(nil)
+    }
+
+    private lazy var redoFormattingButton = actionButton("arrow.uturn.forward", NSLocalizedString("Redo", comment: "Formatting bar button")) { [weak self] in
+        self?.onRedo(nil)
+    }
+
+    private var activeFormatChecks = [(button: UIButton, isActive: (FormattingState) -> Bool)]()
+
+    /// The entries of Nextcloud Text's menu bar that map to Markdown, in its groups and order.
+    private lazy var formattingBar: FormattingBar = {
+        let format = { [weak self] (symbol: String, label: String, isActive: ((FormattingState) -> Bool)?, edit: @escaping (String, NSRange) -> MarkdownFormatter.Edit) -> UIButton in
+            let button = FormattingBar.button(symbol, label)
+            button.addAction(UIAction { _ in self?.applyFormatting(edit) }, for: .primaryActionTriggered)
+
+            if let isActive {
+                self?.activeFormatChecks.append((button, isActive))
+            }
+
+            return button
+        }
+
+        let headings = FormattingBar.menuButton("textformat.size", NSLocalizedString("Headings", comment: "Formatting bar button")) { [weak self] in
+            let current = self?.formattingState.line.heading
+
+            return (1...6).map { level in
+                UIAction(title: String.localizedStringWithFormat(NSLocalizedString("Heading %d", comment: "Formatting menu entry"), level), state: current == level ? .on : .off) { _ in
+                    self?.applyFormatting { MarkdownFormatter.toggleHeading(level, in: $0, selection: $1) }
+                }
+            }
+        }
+        activeFormatChecks.append((headings, { $0.line.heading != nil }))
+
+        let blocks = FormattingBar.menuButton("rectangle.stack", NSLocalizedString("Blocks", comment: "Formatting bar button")) { [weak self] in
+            let wrap = { (title: String, symbol: String, open: String, close: String) in
+                UIAction(title: title, image: UIImage(systemName: symbol)) { _ in
+                    self?.applyFormatting { MarkdownFormatter.wrapLines(open: open, close: close, in: $0, selection: $1) }
+                }
+            }
+
+            let quote = UIAction(title: NSLocalizedString("Blockquote", comment: "Formatting menu entry"), image: UIImage(systemName: "text.quote"), state: self?.formattingState.line.isQuote == true ? .on : .off) { _ in
+                self?.applyFormatting(MarkdownFormatter.toggleQuote)
+            }
+
+            let inlineMath = UIAction(title: NSLocalizedString("Inline math", comment: "Formatting menu entry"), image: UIImage(systemName: "function")) { _ in
+                self?.applyFormatting { MarkdownFormatter.toggleWrap("$", in: $0, selection: $1) }
+            }
+
+            let callouts = [
+                ("info", NSLocalizedString("Info callout", comment: "Formatting menu entry"), "info.circle"),
+                ("success", NSLocalizedString("Success callout", comment: "Formatting menu entry"), "checkmark.circle"),
+                ("warn", NSLocalizedString("Warning callout", comment: "Formatting menu entry"), "exclamationmark.triangle"),
+                ("error", NSLocalizedString("Danger callout", comment: "Formatting menu entry"), "xmark.octagon"),
+                ("question", NSLocalizedString("Question callout", comment: "Formatting menu entry"), "questionmark.circle")
+            ]
+
+            return [
+                UIMenu(options: .displayInline, children: [
+                    quote,
+                    wrap(NSLocalizedString("Code block", comment: "Formatting menu entry"), "chevron.left.forwardslash.chevron.right", "```", "```"),
+                    wrap(NSLocalizedString("Mermaid diagram", comment: "Formatting menu entry"), "flowchart", "```mermaid", "```")
+                ]),
+                UIMenu(options: .displayInline, children: [
+                    wrap(NSLocalizedString("Details", comment: "Formatting menu entry"), "chevron.down.square", "<details>\n<summary>" + NSLocalizedString("Details", comment: "Default summary of a new details block") + "</summary>", "</details>")
+                ]),
+                UIMenu(options: .displayInline, children: [
+                    inlineMath,
+                    wrap(NSLocalizedString("Block math", comment: "Formatting menu entry"), "x.squareroot", "$$", "$$")
+                ]),
+                UIMenu(options: .displayInline, children: callouts.map { type, title, symbol in
+                    wrap(title, symbol, "::: \(type)", ":::")
+                })
+            ]
+        }
+
+        let link = actionButton("link", NSLocalizedString("Insert link", comment: "Formatting bar button")) { [weak self] in
+            self?.insertLink()
+        }
+
+        return FormattingBar(groups: [
+            [undoFormattingButton, redoFormattingButton],
+            [
+                headings,
+                format("bold", NSLocalizedString("Bold", comment: "Formatting bar button"), { $0.isBold }, MarkdownFormatter.toggleBold),
+                format("italic", NSLocalizedString("Italic", comment: "Formatting bar button"), { $0.isItalic }, MarkdownFormatter.toggleItalic),
+                format("underline", NSLocalizedString("Underline", comment: "Formatting bar button"), { $0.isUnderlined }) { MarkdownFormatter.toggleWrap("__", in: $0, selection: $1) },
+                format("strikethrough", NSLocalizedString("Strikethrough", comment: "Formatting bar button"), { $0.isStruckThrough }) { MarkdownFormatter.toggleWrap("~~", in: $0, selection: $1) },
+                format("highlighter", NSLocalizedString("Highlight", comment: "Formatting bar button"), { $0.isHighlighted }) { MarkdownFormatter.toggleWrap("==", in: $0, selection: $1) }
+            ],
+            [
+                format("list.bullet", NSLocalizedString("Unordered list", comment: "Formatting bar button"), { $0.line.list == .bullet }) { MarkdownFormatter.toggleLineStyle(.bullet, in: $0, selection: $1) },
+                format("list.number", NSLocalizedString("Ordered list", comment: "Formatting bar button"), { $0.line.list == .ordered }) { MarkdownFormatter.toggleLineStyle(.ordered, in: $0, selection: $1) },
+                format("checklist", NSLocalizedString("To-Do list", comment: "Formatting bar button"), { $0.line.list == .checkbox }) { MarkdownFormatter.toggleLineStyle(.checkbox, in: $0, selection: $1) },
+                format("decrease.indent", NSLocalizedString("Decrease indentation", comment: "Formatting bar button"), nil, MarkdownFormatter.outdent),
+                format("increase.indent", NSLocalizedString("Increase indentation", comment: "Formatting bar button"), nil, MarkdownFormatter.indent)
+            ],
+            [
+                blocks,
+                format("tablecells", NSLocalizedString("Table", comment: "Formatting bar button"), nil, MarkdownFormatter.insertTable),
+                link
+            ]
+        ])
+    }()
+
+    private func actionButton(_ symbol: String, _ label: String, action: @escaping () -> Void) -> UIButton {
+        let button = FormattingBar.button(symbol, label)
+        button.addAction(UIAction { _ in action() }, for: .primaryActionTriggered)
+        return button
+    }
+
+    private var formattingState: FormattingState {
+        let selection = noteView.selectedRange
+        let storage = noteView.textStorage
+
+        // A caret takes the format of the character before it, like typing does.
+        let location = selection.length > 0 ? selection.location : selection.location - 1
+        let attributes = location >= 0 && location < storage.length && (storage.string as NSString).character(at: location) != 0x0A
+            ? storage.attributes(at: location, effectiveRange: nil)
+            : [:]
+
+        return FormattingState(line: MarkdownFormatter.lineState(in: noteView.text, selection: selection), attributes: attributes)
+    }
+
+    private func updateFormattingBar() {
+        let state = formattingState
+
+        for (button, isActive) in activeFormatChecks {
+            button.isSelected = isActive(state)
+        }
+
+        undoFormattingButton.isEnabled = noteView.undoManager?.canUndo == true
+        redoFormattingButton.isEnabled = noteView.undoManager?.canRedo == true
+    }
 
     private var observers = [NSObjectProtocol]()
     private let throttler = Throttler(minimumDelay: 0.5)
@@ -97,6 +234,7 @@ class EditorViewController: UIViewController {
         view.addSubview(noteView)
         noteView.translatesAutoresizingMaskIntoConstraints = false
         noteView.delegate = self
+        noteView.inputAccessoryView = formattingBar
         let bottomConstraint = noteView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
         bottomLayoutConstraint = bottomConstraint
         self.view.backgroundColor = .ph_cellBackgroundColor
@@ -126,6 +264,13 @@ class EditorViewController: UIViewController {
         navigationController?.toolbar.isTranslucent = true
         navigationController?.toolbar.clipsToBounds = true
         updatedByEditing = false
+        for name in [Notification.Name.NSUndoManagerCheckpoint, .NSUndoManagerDidUndoChange, .NSUndoManagerDidRedoChange] {
+            self.observers.append(NotificationCenter.default.addObserver(forName: name, object: nil, queue: OperationQueue.main) { [weak self] notification in
+                guard let self, notification.object as? UndoManager === noteView.undoManager else { return }
+
+                updateFormattingBar()
+            })
+        }
         self.observers.append(NotificationCenter.default.addObserver(forName: UIWindow.keyboardWillShowNotification,
                                                                      object: nil,
                                                                      queue: OperationQueue.main,
@@ -339,6 +484,47 @@ class EditorViewController: UIViewController {
         }
     }
     
+    private func insertLink() {
+        let alert = UIAlertController(title: NSLocalizedString("Insert link", comment: "Title of the alert asking for a link"), message: nil, preferredStyle: .alert)
+        alert.addTextField { field in
+            field.placeholder = "https://"
+            field.keyboardType = .URL
+            field.autocapitalizationType = .none
+            field.autocorrectionType = .no
+        }
+
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "A menu action"), style: .cancel))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Insert", comment: "Inserts the link"), style: .default) { [weak self, weak alert] _ in
+            guard let url = alert?.textFields?.first?.text?.trimmingCharacters(in: .whitespaces), !url.isEmpty else { return }
+
+            self?.applyFormatting { MarkdownFormatter.insertLink(url, in: $0, selection: $1) }
+            self?.noteView.becomeFirstResponder()
+        })
+
+        present(alert, animated: true)
+    }
+
+    /// Goes through the text input system so the edit can be undone like typing.
+    private func applyFormatting(_ format: (String, NSRange) -> MarkdownFormatter.Edit) {
+        guard noteView.isEditable else { return }
+
+        let edit = format(noteView.text, noteView.selectedRange)
+
+        guard let start = noteView.position(from: noteView.beginningOfDocument, offset: edit.range.location),
+              let end = noteView.position(from: start, offset: edit.range.length),
+              let range = noteView.textRange(from: start, to: end) else {
+            return
+        }
+
+        // The list handling for typed returns and backspaces must not rewrite the edit.
+        isApplyingFormatting = true
+        noteView.replace(range, withText: edit.replacement)
+        isApplyingFormatting = false
+
+        noteView.selectedRange = edit.selection
+        textViewDidChange(noteView)
+    }
+
     @IBAction func onDone(_ sender: Any?) {
         noteView.endEditing(true)
     }
@@ -349,14 +535,9 @@ class EditorViewController: UIViewController {
 
     func keyboardWillShow(notification: Notification) {
         if self.traitCollection.userInterfaceIdiom == .phone {
-            self.navigationItem.rightBarButtonItems = [
-                doneButton,
-                fixedSpace,
-                redoButton,
-                fixedSpace,
-                undoButton
-            ]
+            self.navigationItem.rightBarButtonItem = doneButton
         }
+        updateFormattingBar()
 
         if let info = notification.userInfo,
            let rect: CGRect = info[UIWindow.keyboardFrameEndUserInfoKey] as? CGRect,
@@ -418,6 +599,7 @@ extension EditorViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         editedDate = Date()
         updateTitleAndDate()
+        updateFormattingBar()
 
         throttler.throttle { [weak self] in
             self?.updateNoteContent()
@@ -425,6 +607,8 @@ extension EditorViewController: UITextViewDelegate {
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        guard !isApplyingFormatting else { return true }
+
         let textRect = textView.layoutManager.usedRect(for: textView.textContainer)
         let sizeAdjustment = textView.font?.lineHeight ?? 0.0 * UIScreen.main.scale
 
@@ -682,10 +866,34 @@ extension EditorViewController: UITextViewDelegate {
     
     func textViewDidChangeSelection(_ textView: UITextView) {
         textView.scrollRangeToVisible(textView.selectedRange)
+        updateFormattingBar()
     }
 
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         noteView.settleDate(targetContentOffset: targetContentOffset)
+    }
+}
+
+/// What the formatting bar shows as active, read from the line's Markdown and the styling at the cursor.
+private struct FormattingState {
+    let line: MarkdownFormatter.LineState
+    let attributes: [NSAttributedString.Key: Any]
+
+    // Headings are bold as a whole, which says nothing about bold text in them.
+    var isBold: Bool { line.heading == nil && traits.contains(.traitBold) }
+
+    var isItalic: Bool { traits.contains(.traitItalic) }
+
+    // Links are underlined too.
+    var isUnderlined: Bool { attributes[.underlineStyle] != nil && attributes[.foregroundColor] as? UIColor != .systemBlue }
+
+    // Checked to-dos are struck through too.
+    var isStruckThrough: Bool { attributes[.strikethroughStyle] != nil && line.list != .checkbox }
+
+    var isHighlighted: Bool { attributes[.highlight] != nil }
+
+    private var traits: UIFontDescriptor.SymbolicTraits {
+        (attributes[.font] as? UIFont)?.fontDescriptor.symbolicTraits ?? []
     }
 }
 
