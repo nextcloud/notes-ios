@@ -246,7 +246,7 @@
 "Yes" = "Ya";
 
 // NEXTCLOUD
-"Select the account to add"   = "Select the account to add";
+"Select the account to add"   = "Pilih akun yang akan ditambahkan";
 
 "Notes" = "Catatan";
 
@@ -272,7 +272,7 @@
 "About This App" = "About This App";
 "Client Version" = "Client Version";
 "Server Version" = "Server Version";
-"Privacy and Legal Policy" = "Privacy and Legal Policy";
+"Privacy and Legal Policy" = "Kebijakan Privasi dan Hukum";
 "Show Source Code on GitHub" = "Show Source Code on GitHub";
 "Logout" = "Logout";
 "Are you sure you want to log out?" = "Are you sure you want to log out?";
