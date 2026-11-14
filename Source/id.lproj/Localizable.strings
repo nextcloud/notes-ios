@@ -1,60 +1,60 @@
 /* Crash report email body placeholder */
-"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Please provide as much details as possible about what you were doing when the crash occurred.>";
+"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Jelaskan sedetail mungkin apa yang sedang Anda lakukan saat aplikasi mengalami kerusakan.>";
 
 /* Support email body placeholder */
-"<Please state your question or problem here>" = "Please state your question or problem here";
+"<Please state your question or problem here>" = "Tuliskan pertanyaan atau masalah Anda di sini";
 
 /* An error message */
-"A server installation could not be found. Check the server address." = "A server installation could not be found. Check the server address.";
+"A server installation could not be found. Check the server address." = "Instalasi server tidak dapat ditemukan. Periksa alamat server.";
 
 /* Acknowledgements */
 "Acknowledgements" = "Acknowledgements";
 
 /* Title of alert for adding a category */
-"Add Category" = "Add category";
+"Add Category" = "Tambahkan kategori";
 
 /* Item to show all notes */
-"All" = "All";
+"All" = "Semua";
 
 /* A menu action
    A menu option for cancelling */
 "Cancel" = "Membatalkan";
 
 /* Header title, categories */
-"CATEGORIES" = "CATEGORIES";
+"CATEGORIES" = "KATEGORI";
 
 /* 'Category' menu item */
-"Category" = "Category";
+"Category" = "Kategori";
 
 /* Action to change category of a note */
-"Category…" = "Category…";
+"Category…" = "Kategori…";
 
 /* Action to change category of a note */
-"Change Category…" = "Change category…";
+"Change Category…" = "Ubah kategori…";
 
 /* An error message */
-"Check username and password." = "Check username and password.";
+"Check username and password." = "Periksa nama pengguna dan kata sandi.";
 
 /* Crash report email subject */
-"NextcloudNotes Crash Report" = "NextcloudNotes Crash Report";
+"NextcloudNotes Crash Report" = "Laporan Kerusakan NextcloudNotes";
 
 /* No comment provided by engineer. */
-"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?";
+"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "NextcloudNotes mengalami kerusakan saat terakhir kali dijalankan. Apakah Anda ingin mengirim laporan kepada pengembang?";
 
 /* Support email subject */
-"NextcloudNotes Support Request" = "NextcloudNotes Support Request";
+"NextcloudNotes Support Request" = "Permintaan Dukungan NextcloudNotes";
 
 /* A button title */
 "Connect" = "Menghubungkan";
 
 /* Status information, connected */
-"Connected to Notes on the server" = "Connected to Notes on the server";
+"Connected to Notes on the server" = "Terhubung ke Notes di server";
 
 /* An error message title */
-"Connection failure" = "Connection failure";
+"Connection failure" = "Kegagalan koneksi";
 
 /* Alert view title */
-"Crash Detected" = "Crash detected";
+"Crash Detected" = "Kerusakan aplikasi terdeteksi";
 
 /* Action to delete a note */
 "Delete" = "Delete";
@@ -63,28 +63,28 @@
 "Delete Note" = "Hapus catatan";
 
 /* Prompt on alert for adding a category */
-"Enter a name for the new category" = "Enter a name for the new category";
+"Enter a name for the new category" = "Masukkan nama untuk kategori baru";
 
 /* The title of an error message */
-"Error Adding Note" = "Error adding note";
+"Error Adding Note" = "Terjadi kesalahan saat menambahkan catatan";
 
 /* The title of an error message */
-"Error Deleting Note" = "Error deleting note";
+"Error Deleting Note" = "Terjadi kesalahan saat menghapus catatan";
 
 /* The title of an error message */
-"Error Getting Note" = "Error getting note";
+"Error Getting Note" = "Terjadi kesalahan saat mengambil catatan";
 
 /* The title of an error message */
-"Error Syncing Notes" = "Error syncing notes";
+"Error Syncing Notes" = "Terjadi kesalahan saat menyinkronkan catatan";
 
 /* The title of an error message */
-"Error Updating Note" = "Error updating note";
+"Error Updating Note" = "Terjadi kesalahan saat memperbarui catatan";
 
 /* The title of an error message */
-"Error Updating Notes" = "Error updating notes";
+"Error Updating Notes" = "Terjadi kesalahan saat memperbarui catatan";
 
 /* An error message */
-"Failed to connect to a server. Check your settings." = "Failed to connect to a server. Check your settings.";
+"Failed to connect to a server. Check your settings." = "Gagal terhubung ke server. Periksa pengaturan Anda.";
 
 /* Item to show favorite notes */
 "Favorites" = "Favorites";
@@ -93,10 +93,10 @@
 "HTML" = "HTML";
 
 /* A status label indicating that the user is logged in */
-"Logged In" = "Logged in";
+"Logged In" = "Sudah masuk";
 
 /* Header title, main */
-"MAIN" = "MAIN";
+"MAIN" = "UTAMA";
 
 /* A menu option for sharing in markdown format */
 "Markdown" = "Markdown";
@@ -105,57 +105,57 @@
 "New note" = "Catatan baru";
 
 /* No comment provided by engineer. */
-"No thanks" = "No thanks";
+"No thanks" = "Tidak, terima kasih";
 
 /* Status information, not connected */
-"Not connected to Notes on a server" = "Not connected to Notes on a server";
+"Not connected to Notes on a server" = "Tidak terhubung ke Notes di server";
 
 /* A status label indicating that the user is not logged in */
-"Not Logged In" = "Not logged in";
+"Not Logged In" = "Belum masuk";
 
 /* Message about not being logged in */
-"Not logged in" = "Not logged in";
+"Not logged in" = "Belum masuk";
 
 /* Title of the hint shown when pull-to-refresh cannot sync */
-"Not Synchronized" = "Not Synchronized";
+"Not Synchronized" = "Belum Disinkronkan";
 
 /* Title of alert to change title */
-"Note Title" = "Note title";
+"Note Title" = "Judul catatan";
 
 /* An error message */
-"Notes could not be found on your server. Make sure it is installed and enabled" = "Notes could not be found on your server. Make sure it is installed and enabled";
+"Notes could not be found on your server. Make sure it is installed and enabled" = "Notes tidak dapat ditemukan di server Anda. Pastikan aplikasi tersebut telah diinstal dan diaktifkan";
 
 /* An error message title */
-"Notes not found" = "Notes not found";
+"Notes not found" = "Notes tidak ditemukan";
 
 /* Shown when pull-to-refresh is used in offline mode */
-"Offline Mode is on. Turn it off in Settings to sync." = "Offline Mode is on. Turn it off in Settings to sync.";
+"Offline Mode is on. Turn it off in Settings to sync." = "Mode Luring aktif. Nonaktifkan di Pengaturan untuk menyinkronkan.";
 
 /* Button, OK */
 "OK" = "OK";
 
 /* Title for Open In activity */
-"Open in…" = "Open in…";
+"Open in…" = "Buka di…";
 
 /* A menu option for sharing in plain text format */
 "Plain Text" = "Teks polos";
 
 /* A message
    A message to check network connection */
-"Please check network connection and login." = "Please check network connection and login.";
+"Please check network connection and login." = "Periksa koneksi jaringan dan status masuk Anda.";
 
 /* A button title */
-"Reconnect" = "Reconnect";
+"Reconnect" = "Hubungkan kembali";
 
 /* Action to change title of a note
    Caption of Rename button */
 "Rename" = "Ganti nama";
 
 /* Message of alert to change title */
-"Rename the note" = "Rename the note";
+"Rename the note" = "Ubah nama catatan";
 
 /* Action to change title of a note */
-"Rename…" = "Rename…";
+"Rename…" = "Ubah nama…";
 
 /* A menu option for sharing in rich text format */
 "Rich Text" = "Teks kaya";
@@ -164,56 +164,56 @@
 "Server" = "Server";
 
 /* An error message title */
-"Server not found" = "Server not found";
+"Server not found" = "Server tidak ditemukan";
 
 /* A message title */
-"Server Reachable" = "Server reachable";
+"Server Reachable" = "Server dapat dijangkau";
 
 /* Title of a menu with sharing options */
-"Share Note As" = "Share note as";
+"Share Note As" = "Bagikan catatan sebagai";
 
 /* A message */
-"The network connection is working properly." = "The network connection is working properly.";
+"The network connection is working properly." = "Koneksi jaringan berfungsi dengan baik.";
 
 /* An error message */
-"The note does not exist" = "The note does not exist";
+"The note does not exist" = "Catatan tidak ada";
 
 /* Shown when pull-to-refresh is used without a connection to the server */
-"The server is not reachable." = "The server is not reachable.";
+"The server is not reachable." = "Server tidak dapat dijangkau.";
 
 /* An error message */
-"This note is read-only and cannot be deleted." = "This note is read-only and cannot be deleted.";
+"This note is read-only and cannot be deleted." = "Catatan ini hanya dapat dibaca dan tidak dapat dihapus.";
 
 /* An error message */
-"This note is read-only. Your changes were not saved." = "This note is read-only. Your changes were not saved.";
+"This note is read-only. Your changes were not saved." = "Catatan ini hanya dapat dibaca. Perubahan Anda tidak disimpan.";
 
 /* Alert message for selecting server brand */
-"Unable to automatically detect type of server.\nPlease select:" = "Unable to automatically detect type of server.\nPlease select:";
+"Unable to automatically detect type of server.\nPlease select:" = "Tidak dapat mendeteksi jenis server secara otomatis.\nSilakan pilih:";
 
 /* A message title
    The title of an error message */
-"Unable to Reach Server" = "Unable to reach server";
+"Unable to Reach Server" = "Tidak dapat menjangkau server";
 
 /* An error message title */
-"Unauthorized" = "Unauthorized";
+"Unauthorized" = "Tidak diotorisasi";
 
 /* Text displayed for notes not assigned to a category */
 "Uncategorized" = "Tanpa kategori";
 
 /* Message with Notes version, product name and version */
-"Using Notes %1$@ on %2$@ %3$@." = "Using Notes %1$@ on %2$@ %3$@.";
+"Using Notes %1$@ on %2$@ %3$@." = "Menggunakan Notes %1$@ di %2$@ %3$@.";
 
 /* No comment provided by engineer. */
-"Yes, please!" = "Yes, please!";
+"Yes, please!" = "Ya, silakan!";
 
 /* HUD subtitle when checking server capabilities */
-"Checking server capabilities" = "Checking server capabilities";
+"Checking server capabilities" = "Memeriksa kapabilitas server";
 
 /* HUD subtitle when checking server settings */
-"Checking server settings" = "Checking server settings";
+"Checking server settings" = "Memeriksa pengaturan server";
 
 /* HUD subtitle when checking server status */
-"Checking server status" = "Checking server status";
+"Checking server status" = "Memeriksa status server";
 
 /* No comment provided by engineer. */
 "Connection error" = "Connection error";
@@ -222,7 +222,7 @@
 "Do you want to connect to the server anyway?" = "Do you want to connect to the server anyway?";
 
 /* An error message title */
-"Error" = "Error";
+"Error" = "Kesalahan";
 
 /* No comment provided by engineer. */
 "No" = "Tidak";
@@ -234,13 +234,13 @@
 "PDF" = "PDF";
 
 /* Caption of Save button */
-"Save" = "Save";
+"Save" = "Simpan";
 
 /* No comment provided by engineer. */
 "The certificate for this server is invalid" = "Sertifikat untuk server ini salah";
 
 /* No comment provided by engineer. */
-"View Certificate" = "View certificate";
+"View Certificate" = "Lihat sertifikat";
 
 /* No comment provided by engineer. */
 "Yes" = "Ya";
@@ -251,72 +251,72 @@
 "Notes" = "Catatan";
 
 "Cancel" = "Membatalkan";
-"Scan QR Code" = "Scan QR Code";
-"Close" = "Close";
-"Server Address" = "Server Address";
-"The address of your Nextcloud web interface when you open it in your browser." = "The address of your Nextcloud web interface when you open it in your browser.";
-"The entered server address is invalid." = "The entered server address is invalid.";
-"Accounts from our other apps were found on this device. Would you like to add one of these?" = "Accounts from our other apps were found on this device. Would you like to add one of these?";
-"Shared Accounts" = "Shared Accounts";
+"Scan QR Code" = "Pindai Kode QR";
+"Close" = "Tutup";
+"Server Address" = "Alamat Server";
+"The address of your Nextcloud web interface when you open it in your browser." = "Alamat antarmuka web Nextcloud Anda saat dibuka di peramban.";
+"The entered server address is invalid." = "Alamat server yang dimasukkan tidak valid.";
+"Accounts from our other apps were found on this device. Would you like to add one of these?" = "Akun dari aplikasi kami yang lain ditemukan di perangkat ini. Apakah Anda ingin menambahkan salah satunya?";
+"Shared Accounts" = "Akun Bersama";
 
 // SettingsView
-"Account" = "Account";
-"Log Out" = "Log Out";
+"Account" = "Akun";
+"Log Out" = "Keluar";
 "Synchronization" = "Sinkronisasi";
-"Synchronize on Start" = "Synchronize on Start";
-"Offline Mode" = "Offline Mode";
-"Server Settings" = "Server Settings";
-"Notes Path" = "Notes Path";
-"Internal Editor" = "Internal Editor";
-"File Extension" = "File Extension";
-"About This App" = "About This App";
-"Client Version" = "Client Version";
-"Server Version" = "Server Version";
+"Synchronize on Start" = "Sinkronkan Saat Memulai";
+"Offline Mode" = "Mode Luring";
+"Server Settings" = "Pengaturan Server";
+"Notes Path" = "Jalur Catatan";
+"Internal Editor" = "Editor Internal";
+"File Extension" = "Ekstensi Berkas";
+"About This App" = "Tentang Aplikasi Ini";
+"Client Version" = "Versi Klien";
+"Server Version" = "Versi Server";
 "Privacy and Legal Policy" = "Kebijakan Privasi dan Hukum";
-"Show Source Code on GitHub" = "Show Source Code on GitHub";
-"Logout" = "Logout";
-"Are you sure you want to log out?" = "Are you sure you want to log out?";
-"Enter a name for the folder where notes should be saved on the server" = "Enter a name for the folder where notes should be saved on the server";
+"Show Source Code on GitHub" = "Lihat Kode Sumber di GitHub";
+"Logout" = "Keluar";
+"Are you sure you want to log out?" = "Anda yakin ingin keluar?";
+"Enter a name for the folder where notes should be saved on the server" = "Masukkan nama folder tempat catatan akan disimpan di server";
 "Settings" = "Settings";
 
 /* Onboarding title. The placeholder is the app name. */
-"Welcome to %@" = "Welcome to %@";
+"Welcome to %@" = "Selamat datang di %@";
 
 /* Onboarding feature title. */
-"Your Data, Your Control" = "Your Data, Your Control";
+"Your Data, Your Control" = "Data Anda, Kendali Anda";
 
 /* Onboarding feature description. */
-"Keep your data secure and under your control." = "Keep your data secure and under your control.";
+"Keep your data secure and under your control." = "Jaga data Anda tetap aman dan berada dalam kendali Anda.";
 
 /* Onboarding feature title. */
-"Secure Collaboration" = "Secure Collaboration";
+"Secure Collaboration" = "Kolaborasi Aman";
 
 /* Onboarding feature description. */
-"Work together and exchange files securely." = "Work together and exchange files securely.";
+"Work together and exchange files securely." = "Bekerja sama dan bertukar berkas dengan aman.";
 
 /* Onboarding feature title. */
-"Always in Sync" = "Always in Sync";
+"Always in Sync" = "Selalu Tersinkronisasi";
 
 /* Onboarding feature description. */
-"Your notes stay up to date across all your devices." = "Your notes stay up to date across all your devices.";
+"Your notes stay up to date across all your devices." = "Catatan Anda selalu diperbarui di semua perangkat Anda.";
 
 /* Onboarding feature title. */
-"Works Offline" = "Works Offline";
+"Works Offline" = "Berfungsi Secara Luring";
 
 /* Onboarding feature description. */
-"Keep writing even without a connection." = "Keep writing even without a connection.";
+"Keep writing even without a connection." = "Tetap menulis meski tanpa koneksi.";
 
 /* Accessibility label of the button with more note actions */
 "More" = "Lainnya";
 
 /* Action to preview a note */
-"Preview" = "Preview";
+"Preview" = "Pratinjau";
 
 /* Action to share a note */
 "Share" = "Bagikan";
 
 /* Direct editing failure followed by the underlying error */
-"Cannot open file for direct editing: %@" = "Cannot open file for direct editing: %@";
+"Cannot open file for direct editing: %@" = "Tidak dapat membuka berkas untuk pengeditan langsung: %@";
 
 /* Action offered when the collaborative editor fails to load */
-"Switch to Internal Editor" = "Switch to Internal Editor";
+"Switch to Internal Editor" = "Beralih ke Editor Internal";
