@@ -4,14 +4,8 @@
 import Foundation
 import NextcloudKit
 import os
-import SwiftMessages
 import SystemConfiguration
 import UIKit
-
-struct ErrorMessage {
-    let title: String
-    let body: String
-}
 
 ///
 /// Server trust handling for the notes session: accepts the saved self-signed
@@ -126,10 +120,18 @@ final class NoteSessionManager {
 
     /// Presents user-facing errors; tests replace it to capture them.
     var presentError: @MainActor (ErrorMessage) -> Void = { message in
-        NoteSessionManager.showBanner(for: message)
+        ErrorBanner.show(message)
     }
 
     private var notesBeingAdded = Set<String>()
+    ///
+    /// Notes with an upload in flight, and notes that changed again while their upload was in flight.
+    ///
+    /// Continuous typing produces one update per typing pause; a slow server would still answer several of them
+    /// at once, and every additional overlapping write piles up another file lock on the server (#215).
+    ///
+    private var notesBeingUpdated = Set<Int64>()
+    private var notesUpdatedWhileUploading = Set<Int64>()
     private var runningSync: Task<Void, Never>?
 
     private let session: URLSession
@@ -196,14 +198,11 @@ final class NoteSessionManager {
             case let .success(result):
                 logger.debug("Successfully received settings from the server (notes path: \"\(result.notesPath)\", file suffix: \"\(result.fileSuffix)\").")
 
-                switch result.fileSuffix {
-                    case FileSuffix.md.suffix:
-                        Store.shared.fileExtension = FileSuffix.md
-                    case FileSuffix.txt.suffix:
-                        Store.shared.fileExtension = FileSuffix.txt
-                    default:
-                        logger.error("Unexpected file suffix \"\(result.fileSuffix, privacy: .public)\" received in settings, falling back to plain text extension.")
-                        Store.shared.fileExtension = FileSuffix.txt
+                // The server accepts any extension, so a custom one must be kept rather than replaced (#143).
+                if let suffix = FileSuffix(validating: result.fileSuffix) {
+                    Store.shared.fileExtension = suffix
+                } else {
+                    logger.error("Unexpected file suffix \"\(result.fileSuffix, privacy: .public)\" received in settings, keeping the local one.")
                 }
 
                 Store.shared.notesPath = result.notesPath
@@ -518,8 +517,40 @@ final class NoteSessionManager {
             return
         }
 
-        if case let .failure(error) = await updateOnServer(incoming, updateModified: updateModified) {
-            showErrorMessage(message: error.message)
+        let id = incoming.id
+
+        // One write per note at a time. A request that is still in flight for this note is not duplicated;
+        // the loop below sends the newest content once it has finished instead.
+        guard notesBeingUpdated.insert(id).inserted else {
+            notesUpdatedWhileUploading.insert(id)
+            return
+        }
+
+        defer {
+            notesBeingUpdated.remove(id)
+            notesUpdatedWhileUploading.remove(id)
+        }
+
+        var shouldUpdateModified = updateModified
+
+        while true {
+            notesUpdatedWhileUploading.remove(id)
+
+            // Read the note again: the user may have typed while the previous request was in flight.
+            let latest = managedNote(for: incoming) ?? incoming
+
+            if case let .failure(error) = await updateOnServer(latest, updateModified: shouldUpdateModified) {
+                // A failure keeps the note marked as pending, so the next synchronization retries it.
+                showErrorMessage(message: error.message)
+                return
+            }
+
+            guard notesUpdatedWhileUploading.contains(id) else {
+                return
+            }
+
+            // An edit made after the request was sent is a modification in its own right.
+            shouldUpdateModified = true
         }
     }
 
@@ -773,26 +804,6 @@ final class NoteSessionManager {
         guard !Task.isCancelled else { return }
 
         presentError(message)
-    }
-
-    private static func showBanner(for message: ErrorMessage) {
-        #if !os(OSX)
-        var config = SwiftMessages.defaultConfig
-        config.interactiveHide = true
-        config.duration = .forever
-        config.preferredStatusBarStyle = .default
-        SwiftMessages.show(config: config, viewProvider: {
-            let view = MessageView.viewFromNib(layout: .cardView)
-            view.configureTheme(.error, iconStyle: .default)
-            view.configureDropShadow()
-            view.button?.isHidden = true
-            view.configureContent(title: message.title,
-                                  body: message.body,
-                                  iconImage: Icon.error.image
-            )
-            return view
-        })
-        #endif
     }
 
 }

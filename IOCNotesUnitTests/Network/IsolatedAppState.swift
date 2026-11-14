@@ -21,6 +21,7 @@ struct AppStateSnapshot {
     /// Every user defaults key `KeychainHelper` persists.
     private static let defaultsKeys = [
         "ServerMajorVersion", "ServerMinorVersion", "ServerMicroVersion", "Server", "NotesPath", "FileSuffix",
+        "FileSuffixString", "UseFirstLineAsTitle",
         "version", "SyncOnStart", "OfflineMode", "AllowUntrustedCertificate", "dbReset", "GroupByCategory",
         "Sections", "notesApiVersion", "notesVersion", "productVersion", "productName", "didResetSyncValidators",
         "eTag", "lastModified", "InternalEditor", "directEditingSupportsFileId"

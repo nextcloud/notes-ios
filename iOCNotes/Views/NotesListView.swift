@@ -22,10 +22,11 @@ struct NotesListView: View {
     var body: some View {
         Group {
             if model.sections.isEmpty {
-                ContentUnavailableView(
-                    String(localized: "No Notes", comment: "Shown when there are no notes to display"),
-                    systemImage: "note.text"
-                )
+                ContentUnavailableView {
+                    Label(String(localized: "No Notes", comment: "Shown when there are no notes to display"), systemImage: "note.text")
+                } description: {
+                    Text(String(localized: "Notes you write here are synchronized with your account.", comment: "Explanation in the empty notes list"))
+                }
             } else {
                 notesList
             }
@@ -48,10 +49,13 @@ struct NotesListView: View {
         List {
             ForEach(model.sections) { section in
                 if section.hasHeader {
-                    Section(isExpanded: expansionBinding(for: section.title)) {
+                    // A `DisclosureGroup` owns the expanded state of its rows, unlike
+                    // `Section(isExpanded:)`, which a `List` may keep in its own state and ignore on taps.
+                    DisclosureGroup(isExpanded: expansionBinding(for: section.title)) {
                         rows(for: section)
-                    } header: {
-                        Label(section.title, systemImage: "folder")
+                    } label: {
+                        Label(section.title, systemImage: section.systemImage ?? "folder")
+                            .font(.headline)
                     }
                 } else {
                     rows(for: section)

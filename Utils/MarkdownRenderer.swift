@@ -80,12 +80,18 @@ enum MarkdownRenderer {
         return disallowedURLSchemes.contains(String(scheme))
     }
 
-    static func html(from markdown: String) -> String {
+    /// - Parameter tappableCheckBoxes: Wraps every checkbox in a link toggling its source line.
+    ///   The preview needs this because note content may not run scripts there.
+    static func html(from markdown: String, tappableCheckBoxes: Bool = false) -> String {
         let document = Document(parsing: markdown)
         var sanitizer = SanitizingRewriter()
         guard let sanitizedMarkup = sanitizer.visit(document) else {
             return ""
         }
-        return HTMLFormatter.format(sanitizedMarkup)
+        let html = HTMLFormatter.format(sanitizedMarkup)
+        guard tappableCheckBoxes else {
+            return html
+        }
+        return PreviewCheckBoxes.linkingCheckBoxes(in: html, of: markdown)
     }
 }
