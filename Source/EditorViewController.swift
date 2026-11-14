@@ -415,8 +415,8 @@ extension EditorViewController: UITextViewDelegate {
         let fullText = textView.text as NSString
         if text.first == Character("\n") {
             let precedingText = fullText.substring(to: range.upperBound)
-            var allLines = fullText.components(separatedBy: .newlines)
-            let precedingLines = precedingText.components(separatedBy: .newlines)
+            var allLines = fullText.components(separatedBy: "\n")
+            let precedingLines = precedingText.components(separatedBy: "\n")
             guard let precedingLineString = precedingLines.last else {
                 return true
             }
@@ -444,11 +444,6 @@ extension EditorViewController: UITextViewDelegate {
             }
 
             if let checkboxUncheckedMatch = checkboxUncheckedRegex.matches(in: precedingLineString, options: options, range: precedingLineRange).first {
-                for i in 0..<checkboxUncheckedMatch.numberOfRanges {
-                    let startIndex = textView.text.index(textView.text.startIndex, offsetBy: checkboxUncheckedMatch.range(at: i).location)
-                    let endIndex = textView.text.index(textView.text.startIndex, offsetBy: checkboxUncheckedMatch.range(at: i).location + checkboxUncheckedMatch.range(at: i).length)
-                    print("Unchecked checkbox matched at \(checkboxUncheckedMatch.range(at: i)) chars '\(textView.text[startIndex..<endIndex])'")
-                }
 
                 let checkboxRange = checkboxUncheckedMatch.range(at: 0)
                 if checkboxRange.location != NSNotFound {
@@ -471,11 +466,6 @@ extension EditorViewController: UITextViewDelegate {
 
             if let checkboxCheckedMatch = checkboxCheckedRegex.matches(in: precedingLineString, options: options, range: precedingLineRange).first {
 
-                for i in 0..<checkboxCheckedMatch.numberOfRanges {
-                    let startIndex = textView.text.index(textView.text.startIndex, offsetBy: checkboxCheckedMatch.range(at: i).location)
-                    let endIndex = textView.text.index(textView.text.startIndex, offsetBy: checkboxCheckedMatch.range(at: i).location + checkboxCheckedMatch.range(at: i).length)
-                    print("Checked checkbox matched at \(checkboxCheckedMatch.range(at: i)) chars '\(textView.text[startIndex..<endIndex])'")
-                }
 
                 let checkboxRange = checkboxCheckedMatch.range(at: 0)
                 if checkboxRange.location != NSNotFound {
@@ -498,11 +488,6 @@ extension EditorViewController: UITextViewDelegate {
 
             if let unorderedMatch = listItemUnorderedRegex.matches(in: precedingLineString, options: options, range: precedingLineRange).first {
 
-                for i in 0..<unorderedMatch.numberOfRanges {
-                    let startIndex = textView.text.index(textView.text.startIndex, offsetBy: unorderedMatch.range(at: i).location)
-                    let endIndex = textView.text.index(textView.text.startIndex, offsetBy: unorderedMatch.range(at: i).location + unorderedMatch.range(at: i).length)
-                    print("Unordered list matched at \(unorderedMatch.range(at: i)) chars '\(textView.text[startIndex..<endIndex])'")
-                }
 
                 let bulletRange = NSRange(location: unorderedMatch.range(at: 0).location, length: unorderedMatch.range(at: 0).length - unorderedMatch.range(at: 3).length - 1)
                 if bulletRange.location != NSNotFound {
@@ -525,11 +510,6 @@ extension EditorViewController: UITextViewDelegate {
 
             if let orderedMatch = listItemOrderedRegex.matches(in: precedingLineString, options: options, range: precedingLineRange).first {
 
-                for i in 0..<orderedMatch.numberOfRanges {
-                    let startIndex = precedingLineString.index(precedingLineString.startIndex, offsetBy: orderedMatch.range(at: i).location)
-                    let endIndex = precedingLineString.index(precedingLineString.startIndex, offsetBy: orderedMatch.range(at: i).location + orderedMatch.range(at: i).length)
-                    print("Ordered list matched at \(orderedMatch.range(at: i)) chars '\(precedingLineString[startIndex..<endIndex])'")
-                }
                 let startIndex = precedingLineString.index(precedingLineString.startIndex, offsetBy: orderedMatch.range(at: 2).location)
                 let endIndex = precedingLineString.firstIndex(of: ".")
 
@@ -552,7 +532,7 @@ extension EditorViewController: UITextViewDelegate {
                             let digitString = line[startIndex..<endIndex!]
 
                             if let digit = Int(digitString) {
-                                let updatedLine = line.replacingOccurrences(of: digitString, with: "\(digit + 1)")
+                                let updatedLine = line.replacingCharacters(in: startIndex..<endIndex!, with: "\(digit + 1)")
                                 print("Updated line: \(updatedLine)")
                                 updatedLines.append(updatedLine)
                             } else {
@@ -597,15 +577,22 @@ extension EditorViewController: UITextViewDelegate {
                     let currentCursor = textView.selectedRange.location
 
                     let precedingText = fullText.substring(to: range.upperBound - 1)
-                    var allLines = fullText.components(separatedBy: .newlines)
-                    let precedingLines = precedingText.components(separatedBy: .newlines)
+                    var allLines = fullText.components(separatedBy: "\n")
+                    let precedingLines = precedingText.components(separatedBy: "\n")
                     guard let precedingLineString = precedingLines.last else {
                         return true
                     }
                     let precedingLineNSString = precedingLineString as NSString
                     let precedingLineRange = NSMakeRange(0, precedingLineNSString.length)
                     let options = NSRegularExpression.MatchingOptions(rawValue: 0)
-                    let precedingLineIndex = allLines.firstIndex(of: precedingLineString)
+                    // The line the cursor is on follows the preceding line. Only remove it when it is empty,
+                    // otherwise let UIKit join the two lines so no text is lost.
+                    let precedingLineIndex: Int? = precedingLines.count - 1
+                    guard let currentLineIndex = precedingLineIndex.map({ $0 + 1 }),
+                          allLines.indices.contains(currentLineIndex),
+                          allLines[currentLineIndex].trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+                        return true
+                    }
                     var remainingLines = Array<String>.SubSequence()
                     if let precedingIndex = precedingLineIndex {
                         allLines.remove(at: precedingIndex + 1)
@@ -618,11 +605,6 @@ extension EditorViewController: UITextViewDelegate {
                     print("Current line: \(precedingLineString)")
                     if let orderedMatch = listItemOrderedRegex.matches(in: precedingLineString, options: options, range: precedingLineRange).first {
 
-                        for i in 0..<orderedMatch.numberOfRanges {
-                            let startIndex = precedingLineString.index(precedingLineString.startIndex, offsetBy: orderedMatch.range(at: i).location)
-                            let endIndex = precedingLineString.index(precedingLineString.startIndex, offsetBy: orderedMatch.range(at: i).location + orderedMatch.range(at: i).length)
-                            print("Ordered list matched at \(orderedMatch.range(at: i)) chars '\(precedingLineString[startIndex..<endIndex])'")
-                        }
                         let startIndex = precedingLineString.index(precedingLineString.startIndex, offsetBy: orderedMatch.range(at: 2).location)
                         let endIndex = precedingLineString.firstIndex(of: ".")
 
@@ -641,7 +623,7 @@ extension EditorViewController: UITextViewDelegate {
                                     let digitString = line[startIndex..<endIndex!]
 
                                     if let digit = Int(digitString) {
-                                        let updatedLine = line.replacingOccurrences(of: digitString, with: "\(digit - 1)")
+                                        let updatedLine = line.replacingCharacters(in: startIndex..<endIndex!, with: "\(digit - 1)")
                                         print("Updated line: \(updatedLine)")
                                         updatedLines.append(updatedLine)
                                     } else {
