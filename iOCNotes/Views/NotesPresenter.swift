@@ -105,7 +105,8 @@ enum NotesPresenter {
         }
 
         let navigationController = UINavigationController(rootViewController: viewer)
-        navigationController.modalPresentationStyle = .fullScreen
+        navigationController.modalPresentationStyle = .custom
+        navigationController.transitioningDelegate = viewer
         presenter.present(navigationController, animated: true)
 
         return true
