@@ -908,7 +908,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 35.0.0;
+				MARKETING_VERSION = 35.1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu99 gnu++11";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -942,7 +942,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 35.0.0;
+				MARKETING_VERSION = 35.1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu99 gnu++11";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
