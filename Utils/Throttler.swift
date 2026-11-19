@@ -34,7 +34,10 @@ class Throttler {
         // => execute the workItem immediately
         // else
         // => delay the workItem execution by the minimum delay time
-        let delay = previousRun.timeIntervalSinceNow > minimumDelay ? 0 : minimumDelay
+        // `timeIntervalSinceNow` of a past date is negative, so the elapsed time is its negation. Running the
+        // pending work at most `minimumDelay` after the previous run keeps saving while the user types.
+        let elapsed = -previousRun.timeIntervalSinceNow
+        let delay = elapsed > minimumDelay ? 0 : minimumDelay - elapsed
         queue.asyncAfter(deadline: .now() + Double(delay), execute: workItem)
     }
 }

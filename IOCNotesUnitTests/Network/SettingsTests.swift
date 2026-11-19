@@ -17,17 +17,29 @@ extension NetworkIntegrationTests {
         }
 
         @Test("Server settings set the notes folder and file extension", arguments: [
-            (".md", FileSuffix.md),
-            (".txt", FileSuffix.txt),
-            (".org", FileSuffix.txt)
+            (".md", ".md"),
+            (".txt", ".txt"),
+            (".org", ".org"),
+            ("org", ".org")
         ])
-        func fetch(suffix: String, expected: FileSuffix) async {
+        func fetch(suffix: String, expected: String) async {
             fixture.server.settings = ["notesPath": "My Notes", "fileSuffix": suffix]
 
             await fixture.manager.settings()
 
             #expect(Store.shared.notesPath == "My Notes")
-            #expect(Store.shared.fileExtension == expected)
+            #expect(Store.shared.fileExtension.suffix == expected)
+            #expect(fixture.presentedErrors.isEmpty)
+        }
+
+        @Test("A suffix that is no file extension keeps the local one")
+        func invalidSuffix() async {
+            Store.shared.fileExtension = .md
+            fixture.server.settings = ["notesPath": "Notes", "fileSuffix": "md/../../evil" ]
+
+            await fixture.manager.settings()
+
+            #expect(Store.shared.fileExtension == .md)
             #expect(fixture.presentedErrors.isEmpty)
         }
 

@@ -13,6 +13,7 @@ struct MarkdownTextStorageTests {
     
     private func applyText(_ text: String) -> NSAttributedString {
         let textStorage = MarkdownTextStorage()
+        textStorage.showsMarkdownSource = false
 
         // Drive the storage the way a UITextView does: insert the text through
         // `replaceCharacters` inside a begin/end editing group. This sets a valid
@@ -72,7 +73,9 @@ struct MarkdownTextStorageTests {
     ])
     func headerFormatting(text: String, expectedStyle: UIFont.TextStyle) {
         let result = applyText(text)
-        let font = getFontAt(0, in: result)
+        // The hashtags are hidden, so the heading text starts after them and the space.
+        let level = text.prefix(while: { $0 == "#" }).count
+        let font = getFontAt(level + 1, in: result)
         
         #expect(font != nil, "Font should not be nil for: \(text)")
         
@@ -85,25 +88,15 @@ struct MarkdownTextStorageTests {
                 "Header font should match its configured text style for: \(text)")
     }
     
-    @Test("Header hashtag fading")
-    func headerHashtagFading() {
-        let text = "# Faded Header"
+    @Test("Header hashtags are hidden")
+    func headerHashtagsAreHidden() {
+        let text = "## Heading"
         let result = applyText(text)
-        
-        // Check that hashtag has faded color
-        let hashtagColor = getColorAt(0, in: result)
-        let textColor = getColorAt(2, in: result) // After "# "
-        
-        #expect(hashtagColor != nil, "Hashtag should have color")
-        #expect(textColor != nil, "Text should have color")
-        
-        // The hashtag should be more transparent (faded)
-        let hashtagAlpha = hashtagColor?.cgColor.alpha ?? 1.0
-        let textAlpha = textColor?.cgColor.alpha ?? 1.0
-        
-        #expect(hashtagAlpha < textAlpha, "Hashtag should be more faded than text")
+
+        #expect(getFontAt(0, in: result)?.pointSize ?? 99 < 1, "The hashtags should not be shown")
+        #expect(getFontAt(3, in: result) != nil, "The heading text keeps its font")
     }
-    
+
     @Test("Headers not formatted in code blocks")
     func headersNotFormattedInCodeBlocks() {
         let text = """
@@ -119,8 +112,9 @@ struct MarkdownTextStorageTests {
         
         let result = applyText(text)
         
-        // First header should be formatted
-        let firstHeaderFont = getFontAt(0, in: result)
+        // First header should be formatted; its hashtags are hidden.
+        let level = text.prefix(while: { $0 == "#" }).count
+        let firstHeaderFont = getFontAt(level + 1, in: result)
         let bodyFont = UIFont.preferredFont(forTextStyle: .body)
         #expect(firstHeaderFont!.pointSize > bodyFont.pointSize, 
                 "First header should be larger than body font")
@@ -147,7 +141,8 @@ struct MarkdownTextStorageTests {
         
         // Find the position of bold text
         if let boldRange = text.range(of: "**") {
-            let startIndex = text.distance(from: text.startIndex, to: boldRange.lowerBound)
+            // The delimiters are hidden on screen, so the styled text starts after them.
+            let startIndex = text.distance(from: text.startIndex, to: boldRange.lowerBound) + 2
             let font = getFontAt(startIndex, in: result)
             
             #expect(font != nil, "Font should not be nil for bold text: \(text)")
@@ -169,7 +164,7 @@ struct MarkdownTextStorageTests {
         let result = applyText(text)
         
         // First bold should be formatted
-        let firstBoldFont = getFontAt(0, in: result)
+        let firstBoldFont = getFontAt(2, in: result)
         #expect(firstBoldFont!.fontDescriptor.symbolicTraits.contains(.traitBold), 
                "First bold should be formatted")
         
@@ -177,7 +172,7 @@ struct MarkdownTextStorageTests {
         let nsText = text as NSString
         let codeBoldRange = nsText.range(of: "**Not bold in code**")
         if codeBoldRange.location != NSNotFound {
-            let font = getFontAt(codeBoldRange.location, in: result)
+            let font = getFontAt(codeBoldRange.location + 2, in: result)
             #expect(!font!.fontDescriptor.symbolicTraits.contains(.traitBold), 
                   "Bold inside code block should not be formatted")
         }
@@ -198,7 +193,7 @@ struct MarkdownTextStorageTests {
         let italicMarkers = ["*", "_"]
         for marker in italicMarkers {
             if let italicRange = text.range(of: marker) {
-                let startIndex = text.distance(from: text.startIndex, to: italicRange.lowerBound)
+                let startIndex = text.distance(from: text.startIndex, to: italicRange.lowerBound) + 1
                 let font = getFontAt(startIndex, in: result)
                 
                 if font != nil {
@@ -217,7 +212,7 @@ struct MarkdownTextStorageTests {
         let text = "__underlined text__"
         let result = applyText(text)
         
-        let underlineStyle = getUnderlineStyleAt(0, in: result)
+        let underlineStyle = getUnderlineStyleAt(2, in: result)
         #expect(underlineStyle == NSUnderlineStyle.single.rawValue, 
                "Text should be underlined")
     }
@@ -229,11 +224,73 @@ struct MarkdownTextStorageTests {
         let text = "~~strikethrough text~~"
         let result = applyText(text)
         
-        let strikethroughStyle = getStrikethroughStyleAt(0, in: result)
+        let strikethroughStyle = getStrikethroughStyleAt(2, in: result)
         #expect(strikethroughStyle == NSUnderlineStyle.single.rawValue, 
                "Text should have strikethrough")
     }
     
+    // MARK: - Highlight Tests
+
+    @Test("Highlight formatting", arguments: ["==highlighted text==", "==a=="])
+    func highlightFormatting(text: String) {
+        let result = applyText(text)
+
+        #expect(result.attribute(.highlight, at: 2, effectiveRange: nil) != nil, "Text should be highlighted: \(text)")
+        #expect(getBackgroundColorAt(2, in: result) != nil, "Highlight should have a background color: \(text)")
+    }
+
+    // MARK: - Delimiter Tests
+
+    @Test("Delimiters are hidden, also while editing")
+    func delimitersAreHidden() {
+        let text = "Normal **bold** normal"
+        let result = applyText(text)
+
+        let markerIndex = (text as NSString).range(of: "**").location
+        #expect(getFontAt(markerIndex, in: result)?.pointSize ?? 99 < 1, "The delimiter should not take up space")
+        #expect(getFontAt(markerIndex + 2, in: result)?.fontDescriptor.symbolicTraits.contains(.traitBold) == true,
+                "The text itself stays bold")
+    }
+
+    @Test("Delimiters stay hidden in a list item")
+    func listItemDelimitersAreHidden() {
+        let text = "- **bold** item"
+        let result = applyText(text)
+
+        let markerIndex = (text as NSString).range(of: "**").location
+        #expect(getFontAt(markerIndex, in: result)?.pointSize ?? 99 < 1, "List styling must not bring them back")
+    }
+
+    @Test("Opening a note shows formatted text")
+    @MainActor
+    func loadingHidesDelimiters() {
+        let text = "Normal **bold** normal"
+        let view = HeaderTextView(frame: CGRect(x: 0, y: 0, width: 320, height: 480))
+        let window = UIWindow(frame: view.bounds)
+        window.addSubview(view)
+        window.makeKeyAndVisible()
+        view.text = text
+
+        let markerIndex = (text as NSString).range(of: "**").location
+        let font = view.textStorage.attribute(.font, at: markerIndex, effectiveRange: nil) as? UIFont
+        #expect(font?.pointSize ?? 99 < 1, "A loaded note should not show its Markdown")
+    }
+
+    @Test("The source mode shows the delimiters")
+    func markdownSourceMode() {
+        let text = "Normal **bold** normal"
+        let storage = MarkdownTextStorage()
+        storage.showsMarkdownSource = true
+
+        storage.beginEditing()
+        storage.replaceCharacters(in: NSRange(location: 0, length: 0), with: text)
+        storage.endEditing()
+
+        let markerIndex = (text as NSString).range(of: "**").location
+        let markerFont = storage.attribute(.font, at: markerIndex, effectiveRange: nil) as? UIFont
+        #expect((markerFont?.pointSize ?? 0) > 1, "The source mode shows the asterisks")
+    }
+
     // MARK: - Link Tests
     
     @Test("Link formatting", arguments: [
@@ -287,7 +344,8 @@ struct MarkdownTextStorageTests {
         
         // Find code position
         if let codeRange = text.range(of: "`") {
-            let startIndex = text.distance(from: text.startIndex, to: codeRange.lowerBound)
+            // The backticks are hidden on screen, the code itself starts after them.
+            let startIndex = text.distance(from: text.startIndex, to: codeRange.lowerBound) + 1
             let font = getFontAt(startIndex, in: result)
             let backgroundColor = getBackgroundColorAt(startIndex, in: result)
             
@@ -479,8 +537,9 @@ struct MarkdownTextStorageTests {
         // Verify the document was processed
         #expect(result.length == text.count, "Result length should match input")
         
-        // Verify main header is formatted
-        let headerFont = getFontAt(0, in: result)
+        // Verify main header is formatted; its hashtags are hidden.
+        let level = text.prefix(while: { $0 == "#" }).count
+        let headerFont = getFontAt(level + 1, in: result)
         let bodyFont = UIFont.preferredFont(forTextStyle: .body)
         #expect(headerFont!.pointSize > bodyFont.pointSize, 
                "Main header should be larger than body")
@@ -512,8 +571,9 @@ struct MarkdownTextStorageTests {
         
         let result = applyText(text)
         
-        // Both headers should be formatted normally
-        let firstHeaderFont = getFontAt(0, in: result)
+        // Both headers should be formatted normally; the hashtags are hidden.
+        let level = text.prefix(while: { $0 == "#" }).count
+        let firstHeaderFont = getFontAt(level + 1, in: result)
         let bodyFont = UIFont.preferredFont(forTextStyle: .body)
         
         #expect(firstHeaderFont!.pointSize > bodyFont.pointSize, 

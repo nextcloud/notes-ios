@@ -27,7 +27,8 @@ struct NotesView: View {
                     }
                 }
             }
-            .toolbarTitleDisplayMode(.inline)
+            // A large title keeps the account's notes as the page's own heading and frees the bar for actions.
+            .toolbarTitleDisplayMode(.large)
             .navigationTitle(String(localized: "Notes", comment: ""))
             .toolbarBackground(.visible, for: .navigationBar)
             .toolbarBackground(.visible, for: .tabBar)

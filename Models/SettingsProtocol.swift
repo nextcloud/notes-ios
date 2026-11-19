@@ -3,28 +3,62 @@
 
 import Foundation
 
-enum FileSuffix: Int, CustomStringConvertible, Equatable {
-    case txt = 0
-    case md = 1
+///
+/// The extension of the note files on the server.
+///
+/// Nextcloud Notes accepts any file extension, so this is a validated string and not a fixed set: an
+/// installation configured with `.org` or `.markdown` keeps working instead of silently falling back
+/// to `.txt`.
+///
+struct FileSuffix: Hashable, Sendable {
+    static let txt = FileSuffix(valid: ".txt")
+    static let md = FileSuffix(valid: ".md")
 
+    /// The suffix including the leading dot, e.g. `.md`.
+    let suffix: String
+
+    ///
+    /// Creates a suffix from user or server input.
+    ///
+    /// - Parameter suffix: `.md`, `md` and `.MD` all normalize to `.md`.
+    ///
+    init?(validating suffix: String) {
+        let normalized = suffix.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        let withDot = normalized.hasPrefix(".") ? normalized : "." + normalized
+        let name = withDot.dropFirst()
+
+        // File extensions are short and may only contain ASCII letters and digits, which keeps the value
+        // safe to use in the file name the server creates.
+        guard !name.isEmpty,
+              name.count <= 16,
+              name.allSatisfy({ $0.isASCII && ($0.isLetter || $0.isNumber) }) else {
+            return nil
+        }
+
+        self.suffix = withDot
+    }
+
+    private init(valid suffix: String) {
+        self.suffix = suffix
+    }
+
+    /// Whether this is one of the extensions the app offers by name.
+    var isKnown: Bool {
+        self == .txt || self == .md
+    }
+}
+
+extension FileSuffix: CustomStringConvertible {
     var description: String {
         switch self {
-        case .txt:
-            return NSLocalizedString("Plain Text (\(suffix))", comment: "Extension for plain text")
-        case .md:
-            return NSLocalizedString("Markdown (\(suffix))", comment: "Extension for markdown")
+            case .txt:
+                return NSLocalizedString("Plain Text (\(suffix))", comment: "Extension for plain text")
+            case .md:
+                return NSLocalizedString("Markdown (\(suffix))", comment: "Extension for markdown")
+            default:
+                return suffix
         }
     }
-
-    var suffix: String {
-        switch self {
-        case .txt:
-            return ".txt"
-        case .md:
-            return ".md"
-        }
-    }
-
 }
 
 protocol SettingsProtocol {

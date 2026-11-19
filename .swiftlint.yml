@@ -30,8 +30,10 @@ included:
 strict: true
 
 file_header:
+  # The copyright year is optional: prompted code generation models have
+  # produced headers without one, and REUSE derives the year from git anyway.
   required_pattern: |
-    \/\/ SPDX-FileCopyrightText: 2025 .*?
+    \/\/ SPDX-FileCopyrightText: (?:20\d{2} )?.*?
     \/\/ SPDX-License-Identifier: GPL-3.0-or-later
   severity: error
 

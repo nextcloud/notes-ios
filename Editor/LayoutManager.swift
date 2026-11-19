@@ -19,6 +19,13 @@ extension LayoutManager: NSLayoutManagerDelegate {
             return glyphRange.length
         }
 
+        // Source mode shows the Markdown characters, so the markers are not replaced by bullets or checkboxes.
+        if let storage = textStorage as? MarkdownTextStorage, storage.showsMarkdownSource {
+            layoutManager.setGlyphs(glyphs, properties: props, characterIndexes: charIndexes,
+                                    font: aFont, forGlyphRange: glyphRange)
+            return glyphRange.length
+        }
+
         let firstCharIndex = charIndexes[0]
         let lastCharIndex = charIndexes[glyphRange.length - 1]
         let charactersRange = NSRange(location: firstCharIndex, length: lastCharIndex - firstCharIndex + 1)
@@ -57,26 +64,26 @@ extension LayoutManager: NSLayoutManagerDelegate {
             var glyphProperties = props[i]
             let characterIndex = charIndexes[i]
 
-            let filteredCheckboxRanges = checkBoxOpenRanges.filter { NSLocationInRange(characterIndex, $0) }
-            if !filteredCheckboxRanges.isEmpty {
-                if i < 2 {
-                    glyphProperties.insert(.null)
+            // Replace the glyph of the first character of the marker and hide the rest of it. Drawing at a
+            // fixed index of the glyph range put the checkbox on top of the following word.
+            if let range = checkBoxOpenRanges.first(where: { NSLocationInRange(characterIndex, $0) }) {
+                if characterIndex == range.location {
+                    finalGlyphs[i] = myGlyphs[1]
                 } else {
-                    finalGlyphs[2] = myGlyphs[1]
+                    glyphProperties.insert(.null)
+                }
+            } else if let range = checkBoxCheckedRanges.first(where: { NSLocationInRange(characterIndex, $0) }) {
+                if characterIndex == range.location {
+                    finalGlyphs[i] = myGlyphs[2]
+                } else {
+                    glyphProperties.insert(.null)
+                }
+            } else if let range = unorderedListRanges.first(where: { NSLocationInRange(characterIndex, $0) }) {
+                if characterIndex == range.location {
+                    finalGlyphs[i] = myGlyphs[0]
                 }
             }
-            let filteredCheckBoxCheckedRanges = checkBoxCheckedRanges.filter { NSLocationInRange(characterIndex, $0) }
-            if !filteredCheckBoxCheckedRanges.isEmpty {
-                if i < 2 {
-                    glyphProperties.insert(.null)
-                } else {
-                    finalGlyphs[2] = myGlyphs[2]
-                }
-            }
-            let filteredReplacementRanges = unorderedListRanges.filter { NSLocationInRange(characterIndex, $0) }
-            if !filteredReplacementRanges.isEmpty {
-                finalGlyphs[0] = myGlyphs[0]
-            }
+
             modifiedGlyphProperties.append(glyphProperties)
         }
 

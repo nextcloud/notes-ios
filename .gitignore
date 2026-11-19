@@ -43,3 +43,6 @@ Carthage/
 # Don't ignore Package.resolved: Dependabot needs it committed to update Xcode packages.
 
 *.generated.swift
+
+## Screenshots written by IOCNotesUnitTests/ViewSnapshotTests.swift
+.snapshots/

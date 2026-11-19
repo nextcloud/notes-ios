@@ -88,4 +88,9 @@ protocol Storing: Observable {
     /// Whether to synchronize on app launch or not.
     ///
     var launchSynchronization: Bool { get set }
+
+    ///
+    /// Whether the editor shows the Markdown characters instead of formatted text.
+    ///
+    var showMarkdownSource: Bool { get set }
 }

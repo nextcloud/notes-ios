@@ -23,6 +23,18 @@ Scan the QR code below to download the app from the App Store.
 This repository comes with a convenience script and example data to use during development and testing.
 For further information, see [Server/README.md](Server/README.md).
 
+Signing is not stored in the Xcode project. Copy your own identity into an untracked `Local.xcconfig`;
+see [docs/local-signing.md](docs/local-signing.md). A fresh checkout builds without that file.
+
+## Documentation
+
+- [docs/editor.md](docs/editor.md) — internal editor, formatting bar, list editing, code blocks, titles
+- [docs/preview.md](docs/preview.md) — rendering, task lists, tappable checkboxes, dark mode
+- [docs/synchronization.md](docs/synchronization.md) — sync phases, per-note write queue, error banners
+- [docs/local-signing.md](docs/local-signing.md) — local signing with `Local.xcconfig` and `Local.entitlements`
+- [docs/issue-triage.md](docs/issue-triage.md) — every open issue and its disposition
+- [CHANGELOG.md](CHANGELOG.md) — user-visible changes
+
 ## Testing
 
 We occassionally use [Apple's TestFlight](https://developer.apple.com/testflight/) to make builds available for testing internally or publicly by community members.
