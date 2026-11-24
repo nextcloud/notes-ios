@@ -12,4 +12,5 @@ extension NSAttributedString.Key {
     static let checkBoxChecked = NSAttributedString.Key("CheckBoxChecked")
     static let listItemUnordered = NSAttributedString.Key("ListItemUnordered")
     static let listItemOrdered = NSAttributedString.Key("ListItemOrdered")
+    static let highlight = NSAttributedString.Key("Highlight")
 }

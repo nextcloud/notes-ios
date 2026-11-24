@@ -89,6 +89,7 @@ public class MarkdownTextStorage: NSTextStorage {
         applyUnderlineFormatting(in: text, range: range, excludingRanges: codeBlockRanges)
         applyItalicFormatting(in: text, range: range, excludingRanges: codeBlockRanges)
         applyStrikethroughFormatting(in: text, range: range, excludingRanges: codeBlockRanges)
+        applyHighlightFormatting(in: text, range: range, excludingRanges: codeBlockRanges)
         applyLinkFormatting(in: text, range: range, excludingRanges: codeBlockRanges)
         applyBlockQuoteFormatting(in: text, range: range, excludingRanges: codeBlockRanges)
         applyInlineCodeFormatting(in: text, range: range, excludingRanges: codeBlockRanges)
@@ -203,6 +204,24 @@ public class MarkdownTextStorage: NSTextStorage {
         }
     }
     
+    /// Applies highlight formatting (==text==), as written by Nextcloud Text
+    private func applyHighlightFormatting(in text: String, range: NSRange, excludingRanges: [NSRange]) {
+        let pattern = "==[^=\\s](?:[^=]*[^=\\s])?=="
+
+        guard let regex = try? NSRegularExpression(pattern: pattern, options: []) else {
+            return
+        }
+
+        regex.enumerateMatches(in: text, options: [], range: range) { match, _, _ in
+            if let match = match, !isRangeInExcludedRanges(match.range, excludingRanges: excludingRanges) {
+                backingStore.addAttributes([
+                    .backgroundColor: UIColor.systemYellow.withAlphaComponent(0.35),
+                    .highlight: true
+                ], range: match.range)
+            }
+        }
+    }
+
     /// Applies link formatting ([text](url) and ![alt](src))
     private func applyLinkFormatting(in text: String, range: NSRange, excludingRanges: [NSRange]) {
         let patterns = [

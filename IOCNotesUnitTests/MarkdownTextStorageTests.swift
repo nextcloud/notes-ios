@@ -234,6 +234,16 @@ struct MarkdownTextStorageTests {
                "Text should have strikethrough")
     }
     
+    // MARK: - Highlight Tests
+
+    @Test("Highlight formatting", arguments: ["==highlighted text==", "==a=="])
+    func highlightFormatting(text: String) {
+        let result = applyText(text)
+
+        #expect(result.attribute(.highlight, at: 0, effectiveRange: nil) != nil, "Text should be highlighted: \(text)")
+        #expect(getBackgroundColorAt(0, in: result) != nil, "Highlight should have a background color: \(text)")
+    }
+
     // MARK: - Link Tests
     
     @Test("Link formatting", arguments: [
