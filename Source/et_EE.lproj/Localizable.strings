@@ -1,5 +1,5 @@
 /* Crash report email body placeholder */
-"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Palun jaga võimalikult palju teavet selle kohta, mida sa tegid kui see rakenduse kokkujooksmine juhtus.>";
+"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Palun jaga võimalikult palju teavet selle kohta, mida sa tegid, kui see rakenduse kokkujooksmine juhtus.>";
 
 /* Support email body placeholder */
 "<Please state your question or problem here>" = "Palun kirjelda siin oma küsimust või probleemi";
@@ -18,7 +18,7 @@
 
 /* A menu action
    A menu option for cancelling */
-"Cancel" = "Loobu";
+"Cancel" = "Katkesta";
 
 /* Header title, categories */
 "CATEGORIES" = "KATEGOORIAD";
@@ -34,9 +34,6 @@
 
 /* An error message */
 "Check username and password." = "Kontrolli kasutajanime ja salasõna.";
-
-/* Title of a button allowing the user to close the login screen and sync with the server */
-"Close & Sync" = "Sulge ja sünkroniseeri";
 
 /* Crash report email subject */
 "NextcloudNotes Crash Report" = "Kokkujooksmise aruanne: NextcloudNotes";
@@ -119,6 +116,9 @@
 /* Message about not being logged in */
 "Not logged in" = "Pole sisse logitud";
 
+/* Title of the hint shown when pull-to-refresh cannot sync */
+"Not Synchronized" = "Pole sünkroonis";
+
 /* Title of alert to change title */
 "Note Title" = "Märkme pealkiri";
 
@@ -127,6 +127,9 @@
 
 /* An error message title */
 "Notes not found" = "Märkmete rakendust ei leidu";
+
+/* Shown when pull-to-refresh is used in offline mode */
+"Offline Mode is on. Turn it off in Settings to sync." = "Vallasrežiim on lülitatud sisse. Sünkroonimiseks lülita ta seadistustest välja.";
 
 /* Button, OK */
 "OK" = "Sobib";
@@ -157,9 +160,6 @@
 /* A menu option for sharing in rich text format */
 "Rich Text" = "Vormindatud tekst";
 
-/* Placeholder text when no note is selected */
-"Select or create a note." = "Vali või koosta märge.";
-
 /* Alert title for selecting server brand */
 "Server" = "Server";
 
@@ -172,14 +172,20 @@
 /* Title of a menu with sharing options */
 "Share Note As" = "Jaga märget kui";
 
-/* A message title */
-"Success" = "Valmis";
-
 /* A message */
 "The network connection is working properly." = "Võrguühendus ei toimi korralikult.";
 
 /* An error message */
 "The note does not exist" = "Märget pole olemas";
+
+/* Shown when pull-to-refresh is used without a connection to the server */
+"The server is not reachable." = "See server pole leitav";
+
+/* An error message */
+"This note is read-only and cannot be deleted." = "See märge on vaid lugemiseks ja seda ei saa kustutada.";
+
+/* An error message */
+"This note is read-only. Your changes were not saved." = "See märge on vaid lugemiseks. Sinu muudatused jäid salvestamata.";
 
 /* Alert message for selecting server brand */
 "Unable to automatically detect type of server.\nPlease select:" = "Pole võimalik serveri tüüpi automaatselt tuvastada.\nPalun vali:";
@@ -199,9 +205,6 @@
 
 /* No comment provided by engineer. */
 "Yes, please!" = "Jah, palun!";
-
-/* A message */
-"You are now connected to Notes on your server" = "Ühendus märkmete rakendusega serveris on loodud";
 
 /* HUD subtitle when checking server capabilities */
 "Checking server capabilities" = "Kontrollin serveri võimalusi";
@@ -247,7 +250,7 @@
 
 "Notes" = "Märkmed";
 
-"Cancel" = "Loobu";
+"Cancel" = "Katkesta";
 "Scan QR Code" = "Skaneeri QR-koodi";
 "Close" = "Sulge";
 "Server Address" = "Serveri aadress";
@@ -275,3 +278,45 @@
 "Are you sure you want to log out?" = "Kas sa oled kindel, et soovid välja logida?";
 "Enter a name for the folder where notes should be saved on the server" = "Sisesta kausta nimi, kus märkmed peaksid serveris salvestuma";
 "Settings" = "Seadistused";
+
+/* Onboarding title. The placeholder is the app name. */
+"Welcome to %@" = "Tere tulemast, see on %@";
+
+/* Onboarding feature title. */
+"Your Data, Your Control" = "Sinu andmed, sinu kontrolli all";
+
+/* Onboarding feature description. */
+"Keep your data secure and under your control." = "Hoia oma andmeid turvaliselt ja enda kontrolli all.";
+
+/* Onboarding feature title. */
+"Secure Collaboration" = "Turvaline ühistöö";
+
+/* Onboarding feature description. */
+"Work together and exchange files securely." = "Tööta üheskoos ja jaga faile turvaliselt.";
+
+/* Onboarding feature title. */
+"Always in Sync" = "Alati sünkroonis";
+
+/* Onboarding feature description. */
+"Your notes stay up to date across all your devices." = "Sinu märkmed on alati kõikides seadmetes ühed ja samad.";
+
+/* Onboarding feature title. */
+"Works Offline" = "Toimib võrguühenduseta";
+
+/* Onboarding feature description. */
+"Keep writing even without a connection." = "Saad jätkata kirjutamist ka võrguühenduse katkemisel.";
+
+/* Accessibility label of the button with more note actions */
+"More" = "Veel";
+
+/* Action to preview a note */
+"Preview" = "Eelvaade";
+
+/* Action to share a note */
+"Share" = "Jaga";
+
+/* Direct editing failure followed by the underlying error */
+"Cannot open file for direct editing: %@" = "Faili avamine otsemuutmiseks ei õnnestu: %@";
+
+/* Action offered when the collaborative editor fails to load */
+"Switch to Internal Editor" = "Kasuta sisseehitatud tekstitoimetit";

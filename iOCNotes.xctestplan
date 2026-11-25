@@ -1,0 +1,35 @@
+{
+  "configurations" : [
+    {
+      "id" : "06467CFB-8F19-4A3B-B4E6-027D6B733F88",
+      "name" : "Default",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : true,
+    "environmentVariableEntries" : [
+      {
+        "key" : "NOTES_UNDER_TEST",
+        "value" : "1"
+      }
+    ],
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:iOCNotes.xcodeproj",
+      "identifier" : "D0CFE5321888A7BD00165839",
+      "name" : "iOCNotes"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:iOCNotes.xcodeproj",
+        "identifier" : "F300373F2E6ED2DC00A49C0D",
+        "name" : "IOCNotesUnitTests"
+      }
+    }
+  ],
+  "version" : 1
+}

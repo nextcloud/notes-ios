@@ -1,10 +1,5 @@
-//
-//  PBHNoteExporter.swift
-//  iOCNotes
-//
-//  Created by Peter Hedlund on 7/20/16.
-//  Copyright © 2016-2021 Peter Hedlund. All rights reserved.
-//
+// SPDX-FileCopyrightText: 2016-2021 Peter Hedlund
+// SPDX-License-Identifier: BSD-2-Clause
 
 import CoreFoundation
 import UIKit

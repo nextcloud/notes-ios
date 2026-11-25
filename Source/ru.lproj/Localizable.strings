@@ -1,8 +1,8 @@
 /* Crash report email body placeholder */
-"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Пожалуйста предоставьте как можно больше деталей о том что вы делали в момент когда произошла ошибка.>";
+"<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Опишите как можно подробнее, что вы делали в момент, когда произошла ошибка.>";
 
 /* Support email body placeholder */
-"<Please state your question or problem here>" = "Пожалуйста, укажите здесь ваш вопрос или проблему";
+"<Please state your question or problem here>" = "Укажите здесь ваш вопрос или проблему";
 
 /* An error message */
 "A server installation could not be found. Check the server address." = "Установка сервера не найдена. Проверьте адрес сервера.";
@@ -34,9 +34,6 @@
 
 /* An error message */
 "Check username and password." = "Проверьте имя пользователя и пароль.";
-
-/* Title of a button allowing the user to close the login screen and sync with the server */
-"Close & Sync" = "Закрыть и синхр.";
 
 /* Crash report email subject */
 "NextcloudNotes Crash Report" = "Отчёт об ошибках NextcloudNotes ";
@@ -119,6 +116,9 @@
 /* Message about not being logged in */
 "Not logged in" = "Вход не выполнен";
 
+/* Title of the hint shown when pull-to-refresh cannot sync */
+"Not Synchronized" = "Не синхронизировано";
+
 /* Title of alert to change title */
 "Note Title" = "Название заметки";
 
@@ -127,6 +127,9 @@
 
 /* An error message title */
 "Notes not found" = "Заметки не найдены";
+
+/* Shown when pull-to-refresh is used in offline mode */
+"Offline Mode is on. Turn it off in Settings to sync." = "Включён автономный режим. Чтобы синхронизировать заметки, выключите его в настройках.";
 
 /* Button, OK */
 "OK" = "ОК";
@@ -139,7 +142,7 @@
 
 /* A message
    A message to check network connection */
-"Please check network connection and login." = "Пожалуйста, проверьте соединение и войдите.";
+"Please check network connection and login." = "Проверьте соединение и войдите.";
 
 /* A button title */
 "Reconnect" = "Переподключиться ";
@@ -157,9 +160,6 @@
 /* A menu option for sharing in rich text format */
 "Rich Text" = "Rich text";
 
-/* Placeholder text when no note is selected */
-"Select or create a note." = "Выберите или создайте заметку.";
-
 /* Alert title for selecting server brand */
 "Server" = "Сервер";
 
@@ -172,17 +172,23 @@
 /* Title of a menu with sharing options */
 "Share Note As" = "Поделиться заметкой как";
 
-/* A message title */
-"Success" = "Успешно";
-
 /* A message */
 "The network connection is working properly." = "Сетевое подключение работает правильно.";
 
 /* An error message */
 "The note does not exist" = "Заметка не существует";
 
+/* Shown when pull-to-refresh is used without a connection to the server */
+"The server is not reachable." = "Сервер недоступен.";
+
+/* An error message */
+"This note is read-only and cannot be deleted." = "Заметка доступна только для чтения, её нельзя удалить.";
+
+/* An error message */
+"This note is read-only. Your changes were not saved." = "Заметка доступна только для чтения. Изменения не сохранены.";
+
 /* Alert message for selecting server brand */
-"Unable to automatically detect type of server.\nPlease select:" = "Невозможно автоматически определить тип сервера.\nПожалуйста, выберите:";
+"Unable to automatically detect type of server.\nPlease select:" = "Невозможно автоматически определить тип сервера.\nВыберите:";
 
 /* A message title
    The title of an error message */
@@ -199,9 +205,6 @@
 
 /* No comment provided by engineer. */
 "Yes, please!" = "Да, конечно!";
-
-/* A message */
-"You are now connected to Notes on your server" = "Вы подключены к Заметкам на вашем сервере";
 
 /* HUD subtitle when checking server capabilities */
 "Checking server capabilities" = "Проверка возможностей сервера";
@@ -261,7 +264,7 @@
 "Log Out" = "Выйти";
 "Synchronization" = "Синхронизация";
 "Synchronize on Start" = "Синхронизировать при старте";
-"Offline Mode" = "Оффлайн режим";
+"Offline Mode" = "Автономный режим";
 "Server Settings" = "Настройки сервера";
 "Notes Path" = "Путь для заметок";
 "Internal Editor" = "Встроенный редактор";
@@ -275,3 +278,45 @@
 "Are you sure you want to log out?" = "Вы уверены что хотите выйти?";
 "Enter a name for the folder where notes should be saved on the server" = "Введите имя папки, где заметки должны быть размещены на сервере";
 "Settings" = "Настройки";
+
+/* Onboarding title. The placeholder is the app name. */
+"Welcome to %@" = "Добро пожаловать в %@";
+
+/* Onboarding feature title. */
+"Your Data, Your Control" = "Ваши данные под вашим контролем";
+
+/* Onboarding feature description. */
+"Keep your data secure and under your control." = "Данные в безопасности и под вашим контролем.";
+
+/* Onboarding feature title. */
+"Secure Collaboration" = "Безопасная совместная работа";
+
+/* Onboarding feature description. */
+"Work together and exchange files securely." = "Работайте вместе и безопасно обменивайтесь файлами.";
+
+/* Onboarding feature title. */
+"Always in Sync" = "Всегда синхронизированы";
+
+/* Onboarding feature description. */
+"Your notes stay up to date across all your devices." = "Заметки всегда актуальны на всех ваших устройствах.";
+
+/* Onboarding feature title. */
+"Works Offline" = "Работа без подключения";
+
+/* Onboarding feature description. */
+"Keep writing even without a connection." = "Продолжайте писать, даже когда нет связи.";
+
+/* Accessibility label of the button with more note actions */
+"More" = "Ещё";
+
+/* Action to preview a note */
+"Preview" = "Предпросмотр";
+
+/* Action to share a note */
+"Share" = "Поделиться";
+
+/* Direct editing failure followed by the underlying error */
+"Cannot open file for direct editing: %@" = "Не удалось открыть файл для прямого редактирования: %@";
+
+/* Action offered when the collaborative editor fails to load */
+"Switch to Internal Editor" = "Открыть во встроенном редакторе";

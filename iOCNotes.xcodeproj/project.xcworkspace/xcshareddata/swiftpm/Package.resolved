@@ -1,5 +1,5 @@
 {
-  "originHash" : "362600762584dfcdd7a2dce6bf3ff2289adda012d9991e48e76a89167b3e0447",
+  "originHash" : "ef26461594b04fb18ca383bea56295c07d1edb342aeff52012d2f8f57a1c31a5",
   "pins" : [
     {
       "identity" : "alamofire",
@@ -42,8 +42,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/nextcloud/NextcloudKit",
       "state" : {
-        "revision" : "6d21f1258d1fb67b510c3b66129e73d86114fe14",
-        "version" : "7.4.1"
+        "branch" : "main",
+        "revision" : "e7e561791642e32bbe94c10fd925a38d6cc4c2f7"
       }
     },
     {
@@ -51,8 +51,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/krzyzanowskim/OpenSSL",
       "state" : {
-        "revision" : "4b1188ba947ddc23d03b13096b9e44b804e146c9",
-        "version" : "3.6.3000"
+        "revision" : "0a6149bff4fb00921ce0ec1811f726b166638095",
+        "version" : "3.6.5000"
       }
     },
     {

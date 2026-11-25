@@ -2,13 +2,13 @@
 "<Please provide as much details as possible about what you were doing when the crash occurred.>" = "<Angiv så mange detaljer som muligt om, hvad du lavede, da nedbrudet opstod.>";
 
 /* Support email body placeholder */
-"<Please state your question or problem here>" = "Angiv venligst dit spørgsmål eller problem her";
+"<Please state your question or problem here>" = "Skriv dit spørgsmål eller problem her";
 
 /* An error message */
 "A server installation could not be found. Check the server address." = "En serverinstallation kunne ikke findes. Tjek serveradressen.";
 
 /* Acknowledgements */
-"Acknowledgements" = "Acknowledgements";
+"Acknowledgements" = "Tak til";
 
 /* Title of alert for adding a category */
 "Add Category" = "Tilføj kategori";
@@ -27,22 +27,19 @@
 "Category" = "Kategori";
 
 /* Action to change category of a note */
-"Category…" = "Kategori...";
+"Category…" = "Kategori…";
 
 /* Action to change category of a note */
-"Change Category…" = "Skift kategori...";
+"Change Category…" = "Skift kategori…";
 
 /* An error message */
 "Check username and password." = "Kontroller brugernavn og adgangskode.";
-
-/* Title of a button allowing the user to close the login screen and sync with the server */
-"Close & Sync" = "Luk & synkroniser";
 
 /* Crash report email subject */
 "NextcloudNotes Crash Report" = "NextcloudNotes-nedbrudsrapport";
 
 /* No comment provided by engineer. */
-"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "NextcloudNotes gik ned, sidste gang det blev lanceret. Vil du sende en rapport til udvikleren?";
+"NextcloudNotes crashed last time it was launched. Do you want to send a report to the developer?" = "NextcloudNotes gik ned, sidste gang appen blev startet. Vil du sende en rapport til udvikleren?";
 
 /* Support email subject */
 "NextcloudNotes Support Request" = "NextcloudNotes-supportanmodning";
@@ -51,7 +48,7 @@
 "Connect" = "Forbind";
 
 /* Status information, connected */
-"Connected to Notes on the server" = "Forbundet til noter på serveren";
+"Connected to Notes on the server" = "Forbundet til Noter på serveren";
 
 /* An error message title */
 "Connection failure" = "Forbindelsesfejl";
@@ -60,7 +57,7 @@
 "Crash Detected" = "Nedbrud registreret";
 
 /* Action to delete a note */
-"Delete" = "Delete";
+"Delete" = "Slet";
 
 /* A menu action */
 "Delete Note" = "Slet note";
@@ -96,7 +93,7 @@
 "HTML" = "HTML";
 
 /* A status label indicating that the user is logged in */
-"Logged In" = "Logget på";
+"Logged In" = "Logget ind";
 
 /* Header title, main */
 "MAIN" = "MAIN";
@@ -114,66 +111,66 @@
 "Not connected to Notes on a server" = "Ikke forbundet til Noter på en server";
 
 /* A status label indicating that the user is not logged in */
-"Not Logged In" = "Ikke logget på";
+"Not Logged In" = "Ikke logget ind";
 
 /* Message about not being logged in */
-"Not logged in" = "Ikke logget på";
+"Not logged in" = "Ikke logget ind";
+
+/* Title of the hint shown when pull-to-refresh cannot sync */
+"Not Synchronized" = "Ikke synkroniseret";
 
 /* Title of alert to change title */
-"Note Title" = "Note titel";
+"Note Title" = "Notens titel";
 
 /* An error message */
-"Notes could not be found on your server. Make sure it is installed and enabled" = "Noter kunne ikke findes på din server. Sørg for at den er installeret og aktiveret";
+"Notes could not be found on your server. Make sure it is installed and enabled" = "Noter blev ikke fundet på din server. Sørg for, at appen er installeret og aktiveret";
 
 /* An error message title */
-"Notes not found" = "Noter ikke fundet";
+"Notes not found" = "Noter blev ikke fundet";
+
+/* Shown when pull-to-refresh is used in offline mode */
+"Offline Mode is on. Turn it off in Settings to sync." = "Offlinetilstand er slået til. Slå den fra i Indstillinger for at synkronisere.";
 
 /* Button, OK */
 "OK" = "OK";
 
 /* Title for Open In activity */
-"Open in…" = "Åben i...";
+"Open in…" = "Åbn i…";
 
 /* A menu option for sharing in plain text format */
-"Plain Text" = "Rå tekst";
+"Plain Text" = "Almindelig tekst";
 
 /* A message
    A message to check network connection */
-"Please check network connection and login." = "Tjek venligst netværksforbindelsen og log på.";
+"Please check network connection and login." = "Tjek netværksforbindelsen, og log ind.";
 
 /* A button title */
 "Reconnect" = "Tilslut igen";
 
 /* Action to change title of a note
    Caption of Rename button */
-"Rename" = "Rename";
+"Rename" = "Omdøb";
 
 /* Message of alert to change title */
 "Rename the note" = "Omdøb noten";
 
 /* Action to change title of a note */
-"Rename…" = "Omdøb...";
+"Rename…" = "Omdøb…";
 
 /* A menu option for sharing in rich text format */
 "Rich Text" = "Formateret tekst";
-
-/* Placeholder text when no note is selected */
-"Select or create a note." = "Vælg eller opret en note.";
 
 /* Alert title for selecting server brand */
 "Server" = "Server";
 
 /* An error message title */
-"Server not found" = "Server ikke fundet";
+"Server not found" = "Serveren blev ikke fundet";
 
 /* A message title */
-"Server Reachable" = "Server tilgængelig";
+"Server Reachable" = "Serveren kan nås";
 
 /* Title of a menu with sharing options */
 "Share Note As" = "Del note som";
-
-/* A message title */
-"Success" = "Succes";
 
 /* A message */
 "The network connection is working properly." = "Netværksforbindelsen fungerer korrekt.";
@@ -181,60 +178,66 @@
 /* An error message */
 "The note does not exist" = "Noten findes ikke";
 
+/* Shown when pull-to-refresh is used without a connection to the server */
+"The server is not reachable." = "Serveren kan ikke nås.";
+
+/* An error message */
+"This note is read-only and cannot be deleted." = "Denne note er skrivebeskyttet og kan ikke slettes.";
+
+/* An error message */
+"This note is read-only. Your changes were not saved." = "Denne note er skrivebeskyttet. Dine ændringer blev ikke gemt.";
+
 /* Alert message for selecting server brand */
-"Unable to automatically detect type of server.\nPlease select:" = "Kan ikke automatisk detektere servertype.\nVælg venligst:";
+"Unable to automatically detect type of server.\nPlease select:" = "Kan ikke registrere servertypen automatisk.\nVælg:";
 
 /* A message title
    The title of an error message */
-"Unable to Reach Server" = "Kan ikke nå server";
+"Unable to Reach Server" = "Kan ikke nå serveren";
 
 /* An error message title */
-"Unauthorized" = "Ikke autoriseret";
+"Unauthorized" = "Ingen adgang";
 
 /* Text displayed for notes not assigned to a category */
-"Uncategorized" = "Ikke kategoriseret";
+"Uncategorized" = "Uden kategori";
 
 /* Message with Notes version, product name and version */
-"Using Notes %1$@ on %2$@ %3$@." = "Using Notes %1$@ on %2$@ %3$@.";
+"Using Notes %1$@ on %2$@ %3$@." = "Bruger Noter %1$@ på %2$@ %3$@.";
 
 /* No comment provided by engineer. */
 "Yes, please!" = "Ja tak!";
 
-/* A message */
-"You are now connected to Notes on your server" = "Du er nu forbundet til Noter på din server";
-
 /* HUD subtitle when checking server capabilities */
-"Checking server capabilities" = "Kontroller serverens muligheder";
+"Checking server capabilities" = "Kontrollerer serverens funktioner";
 
 /* HUD subtitle when checking server settings */
-"Checking server settings" = "Kontroller serverindstillinger";
+"Checking server settings" = "Kontrollerer serverindstillinger";
 
 /* HUD subtitle when checking server status */
-"Checking server status" = "Kontroller serverstatus";
+"Checking server status" = "Kontrollerer serverstatus";
 
 /* No comment provided by engineer. */
-"Connection error" = "Forbindelses fejl";
+"Connection error" = "Forbindelsesfejl";
 
 /* No comment provided by engineer. */
 "Do you want to connect to the server anyway?" = "Vil du alligevel oprette forbindelse til serveren?";
 
 /* An error message title */
-"Error" = "Error";
+"Error" = "Fejl";
 
 /* No comment provided by engineer. */
 "No" = "Nej";
 
 /* Title of alert to change notes folder */
-"Notes Folder" = "Noter mappe";
+"Notes Folder" = "Mappe til noter";
 
 /* A menu option for sharing in pdf format */
 "PDF" = "PDF";
 
 /* Caption of Save button */
-"Save" = "Save";
+"Save" = "Gem";
 
 /* No comment provided by engineer. */
-"The certificate for this server is invalid" = "Certefikatet for denne server er ikke korrekt";
+"The certificate for this server is invalid" = "Certifikatet for denne server er ugyldigt";
 
 /* No comment provided by engineer. */
 "View Certificate" = "Se certifikat";
@@ -248,30 +251,72 @@
 "Notes" = "Noter";
 
 "Cancel" = "Annuller";
-"Scan QR Code" = "Scan QR Code";
+"Scan QR Code" = "Scan QR-kode";
 "Close" = "Luk";
-"Server Address" = "Server Address";
-"The address of your Nextcloud web interface when you open it in your browser." = "The address of your Nextcloud web interface when you open it in your browser.";
-"The entered server address is invalid." = "The entered server address is invalid.";
-"Accounts from our other apps were found on this device. Would you like to add one of these?" = "Accounts from our other apps were found on this device. Would you like to add one of these?";
-"Shared Accounts" = "Shared Accounts";
+"Server Address" = "Serveradresse";
+"The address of your Nextcloud web interface when you open it in your browser." = "Adressen på din Nextcloud-webgrænseflade, når du åbner den i din browser.";
+"The entered server address is invalid." = "Den indtastede serveradresse er ugyldig.";
+"Accounts from our other apps were found on this device. Would you like to add one of these?" = "Der blev fundet konti fra vores andre apps på denne enhed. Vil du tilføje en af dem?";
+"Shared Accounts" = "Delte konti";
 
 // SettingsView
-"Account" = "Account";
-"Log Out" = "Log Out";
+"Account" = "Konto";
+"Log Out" = "Log ud";
 "Synchronization" = "Synkronisering";
-"Synchronize on Start" = "Synchronize on Start";
-"Offline Mode" = "Offline Mode";
-"Server Settings" = "Server Settings";
-"Notes Path" = "Notes Path";
-"Internal Editor" = "Internal Editor";
-"File Extension" = "File Extension";
-"About This App" = "About This App";
-"Client Version" = "Client Version";
-"Server Version" = "Server Version";
-"Privacy and Legal Policy" = "Privatliv og juridisk politik";
-"Show Source Code on GitHub" = "Show Source Code on GitHub";
-"Logout" = "Logout";
-"Are you sure you want to log out?" = "Are you sure you want to log out?";
-"Enter a name for the folder where notes should be saved on the server" = "Indtast et navn for mappen hvor noter skal gemmes på serveren";
+"Synchronize on Start" = "Synkroniser ved start";
+"Offline Mode" = "Offlinetilstand";
+"Server Settings" = "Serverindstillinger";
+"Notes Path" = "Sti til noter";
+"Internal Editor" = "Intern editor";
+"File Extension" = "Filendelse";
+"About This App" = "Om denne app";
+"Client Version" = "Klientversion";
+"Server Version" = "Serverversion";
+"Privacy and Legal Policy" = "Privatlivspolitik og juridiske oplysninger";
+"Show Source Code on GitHub" = "Vis kildekode på GitHub";
+"Logout" = "Log ud";
+"Are you sure you want to log out?" = "Er du sikker på, at du vil logge ud?";
+"Enter a name for the folder where notes should be saved on the server" = "Indtast et navn på mappen, hvor noterne skal gemmes på serveren";
 "Settings" = "Indstillinger";
+
+/* Onboarding title. The placeholder is the app name. */
+"Welcome to %@" = "Velkommen til %@";
+
+/* Onboarding feature title. */
+"Your Data, Your Control" = "Dine data, din kontrol";
+
+/* Onboarding feature description. */
+"Keep your data secure and under your control." = "Hold dine data sikre og under din kontrol.";
+
+/* Onboarding feature title. */
+"Secure Collaboration" = "Sikkert samarbejde";
+
+/* Onboarding feature description. */
+"Work together and exchange files securely." = "Arbejd sammen, og udveksl filer sikkert.";
+
+/* Onboarding feature title. */
+"Always in Sync" = "Altid synkroniseret";
+
+/* Onboarding feature description. */
+"Your notes stay up to date across all your devices." = "Dine noter er opdaterede på alle dine enheder.";
+
+/* Onboarding feature title. */
+"Works Offline" = "Virker offline";
+
+/* Onboarding feature description. */
+"Keep writing even without a connection." = "Skriv videre, også uden forbindelse.";
+
+/* Accessibility label of the button with more note actions */
+"More" = "Mere";
+
+/* Action to preview a note */
+"Preview" = "Forhåndsvis";
+
+/* Action to share a note */
+"Share" = "Del";
+
+/* Direct editing failure followed by the underlying error */
+"Cannot open file for direct editing: %@" = "Filen kan ikke åbnes til direkte redigering: %@";
+
+/* Action offered when the collaborative editor fails to load */
+"Switch to Internal Editor" = "Skift til intern editor";

@@ -1,10 +1,5 @@
-//
-//  SettingsProtocol.swift
-//  iOCNotes
-//
-//  Created by Peter Hedlund on 12/21/21.
-//  Copyright © 2021 Peter Hedlund. All rights reserved.
-//
+// SPDX-FileCopyrightText: 2021 Peter Hedlund
+// SPDX-License-Identifier: BSD-2-Clause
 
 import Foundation
 

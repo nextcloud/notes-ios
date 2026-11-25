@@ -35,9 +35,6 @@
 /* An error message */
 "Check username and password." = "檢查用戶名和密碼。";
 
-/* Title of a button allowing the user to close the login screen and sync with the server */
-"Close & Sync" = "關閉 & 同步";
-
 /* Crash report email subject */
 "NextcloudNotes Crash Report" = "NextcloudNotes 死機報告";
 
@@ -90,7 +87,7 @@
 "Failed to connect to a server. Check your settings." = "無法連接到伺服器。請檢查您的設置。";
 
 /* Item to show favorite notes */
-"Favorites" = "Favorites";
+"Favorites" = "最愛";
 
 /* A menu option for plain sharing in html format */
 "HTML" = "HTML";
@@ -119,6 +116,9 @@
 /* Message about not being logged in */
 "Not logged in" = "未登入";
 
+/* Title of the hint shown when pull-to-refresh cannot sync */
+"Not Synchronized" = "尚未同步";
+
 /* Title of alert to change title */
 "Note Title" = "筆記標題";
 
@@ -127,6 +127,9 @@
 
 /* An error message title */
 "Notes not found" = "找不到筆記";
+
+/* Shown when pull-to-refresh is used in offline mode */
+"Offline Mode is on. Turn it off in Settings to sync." = "離線模式已開啟。請在「設定」中關閉此模式以進行同步。";
 
 /* Button, OK */
 "OK" = "確認";
@@ -146,7 +149,7 @@
 
 /* Action to change title of a note
    Caption of Rename button */
-"Rename" = "Rename";
+"Rename" = "重新命名";
 
 /* Message of alert to change title */
 "Rename the note" = "重新命名筆記";
@@ -156,9 +159,6 @@
 
 /* A menu option for sharing in rich text format */
 "Rich Text" = "富文本";
-
-/* Placeholder text when no note is selected */
-"Select or create a note." = "選擇或創建筆記。";
 
 /* Alert title for selecting server brand */
 "Server" = "伺服器";
@@ -172,14 +172,20 @@
 /* Title of a menu with sharing options */
 "Share Note As" = "以以下方式分享筆記";
 
-/* A message title */
-"Success" = "成功";
-
 /* A message */
 "The network connection is working properly." = "網絡連接正常運作。";
 
 /* An error message */
 "The note does not exist" = "該筆記不存在";
+
+/* Shown when pull-to-refresh is used without a connection to the server */
+"The server is not reachable." = "無法連線至伺服器。";
+
+/* An error message */
+"This note is read-only and cannot be deleted." = "此筆記為唯讀，無法刪除。";
+
+/* An error message */
+"This note is read-only. Your changes were not saved." = "此筆記為唯讀。你的變更未獲儲存。";
 
 /* Alert message for selecting server brand */
 "Unable to automatically detect type of server.\nPlease select:" = "無法自動檢測伺服器類型。請選擇：";
@@ -200,9 +206,6 @@
 /* No comment provided by engineer. */
 "Yes, please!" = "是的，請這樣做！";
 
-/* A message */
-"You are now connected to Notes on your server" = "您已連接到您伺服器上的 Notes";
-
 /* HUD subtitle when checking server capabilities */
 "Checking server capabilities" = "檢查伺服器功能";
 
@@ -219,10 +222,10 @@
 "Do you want to connect to the server anyway?" = "無論如何都要連接該伺服器嗎？";
 
 /* An error message title */
-"Error" = "Error";
+"Error" = "錯誤";
 
 /* No comment provided by engineer. */
-"No" = "No";
+"No" = "否";
 
 /* Title of alert to change notes folder */
 "Notes Folder" = "Notes 資料夾";
@@ -231,7 +234,7 @@
 "PDF" = "PDF";
 
 /* Caption of Save button */
-"Save" = "Save";
+"Save" = "儲存";
 
 /* No comment provided by engineer. */
 "The certificate for this server is invalid" = "此伺服器憑證無效";
@@ -240,7 +243,7 @@
 "View Certificate" = "檢視證書";
 
 /* No comment provided by engineer. */
-"Yes" = "Yes";
+"Yes" = "是";
 
 // NEXTCLOUD
 "Select the account to add"   = "選擇要添加的帳戶";
@@ -274,4 +277,46 @@
 "Logout" = "登出";
 "Are you sure you want to log out?" = "您確定要登出嗎？";
 "Enter a name for the folder where notes should be saved on the server" = "輸入要在伺服器上保存筆記的資料夾名稱";
-"Settings" = "Settings";
+"Settings" = "設定";
+
+/* Onboarding title. The placeholder is the app name. */
+"Welcome to %@" = "歡迎使用 %@";
+
+/* Onboarding feature title. */
+"Your Data, Your Control" = "你的資料，由你掌控";
+
+/* Onboarding feature description. */
+"Keep your data secure and under your control." = "保障資料安全，並由你掌控。";
+
+/* Onboarding feature title. */
+"Secure Collaboration" = "安全協作";
+
+/* Onboarding feature description. */
+"Work together and exchange files securely." = "安全地協作及交換檔案。";
+
+/* Onboarding feature title. */
+"Always in Sync" = "時刻保持同步";
+
+/* Onboarding feature description. */
+"Your notes stay up to date across all your devices." = "你的筆記會在所有裝置上保持最新。";
+
+/* Onboarding feature title. */
+"Works Offline" = "支援離線使用";
+
+/* Onboarding feature description. */
+"Keep writing even without a connection." = "即使沒有網絡連線，也能繼續書寫。";
+
+/* Accessibility label of the button with more note actions */
+"More" = "更多";
+
+/* Action to preview a note */
+"Preview" = "預覽";
+
+/* Action to share a note */
+"Share" = "共享";
+
+/* Direct editing failure followed by the underlying error */
+"Cannot open file for direct editing: %@" = "無法開啟檔案以直接編輯：%@";
+
+/* Action offered when the collaborative editor fails to load */
+"Switch to Internal Editor" = "切換至內置編輯器";

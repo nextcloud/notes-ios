@@ -1,10 +1,5 @@
-//
-//  NotesData.swift
-//  iOCNotes
-//
-//  Created by Peter Hedlund on 2/3/19.
-//  Copyright © 2019 Peter Hedlund. All rights reserved.
-//
+// SPDX-FileCopyrightText: 2019 Peter Hedlund
+// SPDX-License-Identifier: BSD-2-Clause
 
 import Foundation
 import CoreData
@@ -31,6 +26,16 @@ class NotesData {
         ]
     }
 
+    /// Loaded once; loading the model twice makes Core Data report duplicate `Note` entity claims.
+    static let model = makeManagedObjectModel()
+
+    /// Replaces the persistent store's context while set; tests install an isolated store here.
+    nonisolated(unsafe) static var overrideContext: NSManagedObjectContext?
+
+    static var mainThreadContext: NSManagedObjectContext {
+        overrideContext ?? defaultContext
+    }
+
     private static func makeManagedObjectModel() -> NSManagedObjectModel {
         guard let modelURL = Bundle.main.url(forResource: "Notes", withExtension: "momd"),
               let model = NSManagedObjectModel(contentsOf: modelURL) else {
@@ -47,9 +52,8 @@ class NotesData {
         return model
     }
 
-    
-    static var mainThreadContext: NSManagedObjectContext = {
-        let persistentContainer = NSPersistentContainer(name: "Notes", managedObjectModel: makeManagedObjectModel())
+    private static let defaultContext: NSManagedObjectContext = {
+        let persistentContainer = NSPersistentContainer(name: "Notes", managedObjectModel: model)
         if let storeDescription = persistentContainer.persistentStoreDescriptions.first {
             storeDescription.setOption(true as NSNumber, forKey: NSMigratePersistentStoresAutomaticallyOption)
             storeDescription.setOption(true as NSNumber, forKey: NSInferMappingModelAutomaticallyOption)
