@@ -99,9 +99,7 @@ extension CheckBoxTapHandler: UIGestureRecognizerDelegate {
             if value == nil {
                 return
             }
-            let input = textStorage.string
-            let character = input[input.index(input.startIndex, offsetBy: charIndex)]
-            if "[ xX]".contains(character) {
+            if CheckBoxTapHandler.isCheckBoxCharacter(in: textStorage.string, at: charIndex) {
                 result = false // Don't enter edit mode if checkbox is tapped
                 stop.pointee = true
             }
@@ -110,9 +108,7 @@ extension CheckBoxTapHandler: UIGestureRecognizerDelegate {
             if value == nil {
                 return
             }
-            let input = textStorage.string
-            let character = input[input.index(input.startIndex, offsetBy: charIndex)]
-            if "[ xX]".contains(character) {
+            if CheckBoxTapHandler.isCheckBoxCharacter(in: textStorage.string, at: charIndex) {
                 result = false // Don't enter edit mode if checkbox is tapped
                 stop.pointee = true
             }
@@ -120,4 +116,16 @@ extension CheckBoxTapHandler: UIGestureRecognizerDelegate {
         return result
     }
 
+
+    /// Whether the character at a layout manager index (UTF-16 units) belongs to a checkbox such as `[ ]` or `[x]`.
+    ///
+    /// The index must not be used as a `Character` offset into the `String`: with emoji earlier in the note the two
+    /// differ, which read the wrong character or crashed with "String index is out of bounds".
+    static func isCheckBoxCharacter(in text: String, at utf16Index: Int) -> Bool {
+        let string = text as NSString
+        guard utf16Index >= 0, utf16Index < string.length else {
+            return false
+        }
+        return "[ xX]".utf16.contains(string.character(at: utf16Index))
+    }
 }
