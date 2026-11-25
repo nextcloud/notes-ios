@@ -5,6 +5,7 @@ import CoreData
 import Observation
 import os
 import SwiftUI
+import UIKit
 
 ///
 /// Immutable values needed to identify, render and act on a note list row.
@@ -77,14 +78,24 @@ final class NotesListModel: NSObject, Logging, NSFetchedResultsControllerDelegat
     @ObservationIgnored private var fetchedResultsController: NSFetchedResultsController<Note>?
     @ObservationIgnored private var searchText = ""
     @ObservationIgnored private var pendingFavoriteRowReplacement = false
+    @ObservationIgnored private let now: () -> Date
     private var collapsedTitles: Set<String>
 
     private(set) var groupByCategory: Bool
 
-    override init() {
+    init(now: @escaping () -> Date = Date.init) {
+        self.now = now
         groupByCategory = KeychainHelper.groupByCategory
         collapsedTitles = Set(KeychainHelper.sectionExpandedInfo.filter { $0.collapsed }.map { $0.title })
         super.init()
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(significantTimeChanged),
+            name: UIApplication.significantTimeChangeNotification,
+            object: nil
+        )
+
         configure()
     }
 
@@ -126,6 +137,16 @@ final class NotesListModel: NSObject, Logging, NSFetchedResultsControllerDelegat
         KeychainHelper.sectionExpandedInfo = collapsedTitles
             .sorted()
             .map { DisclosureSection(title: $0, collapsed: true) }
+    }
+
+    // MARK: - Date sections
+
+    /// Rebuilds date sections after midnight or a time zone change, since nothing in Core Data changes then.
+    @objc
+    private func significantTimeChanged() {
+        guard !groupByCategory else { return }
+
+        rebuildSections()
     }
 
     // MARK: - Fetching
@@ -193,7 +214,7 @@ final class NotesListModel: NSObject, Logging, NSFetchedResultsControllerDelegat
             } ?? []
         } else {
             let calendar = Calendar.current
-            let referenceDate = Date()
+            let referenceDate = now()
             let groupedNotes = Dictionary(grouping: fetchedResultsController.fetchedObjects ?? []) { note in
                 NoteDateSection(modified: note.modified, relativeTo: referenceDate, calendar: calendar)
             }
