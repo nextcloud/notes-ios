@@ -141,8 +141,17 @@ class NCViewerNextcloudText: UIViewController, WKNavigationDelegate, WKScriptMes
 
         // The content controller retains its handler, so release it to break the cycle.
         webView.configuration.userContentController.removeScriptMessageHandler(forName: "DirectEditingMobileInterface")
-        self.dismiss(animated: true, completion: completion)
-        // navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: completion)
+    }
+
+    @objc private func handleBackSwipe(_ gestureRecognizer: UIScreenEdgePanGestureRecognizer) {
+        guard gestureRecognizer.state == .ended else { return }
+
+        let translation = gestureRecognizer.translation(in: view)
+        let velocity = gestureRecognizer.velocity(in: view)
+        guard translation.x > view.bounds.width * 0.15, velocity.x > 0 else { return }
+
+        close()
     }
 
     @objc private func handleBackSwipe(_ gestureRecognizer: UIScreenEdgePanGestureRecognizer) {
