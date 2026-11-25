@@ -1,39 +1,26 @@
-//
-//  NCViewerNextcloudText.swift
-//  Nextcloud
-//
-//  Created by Marino Faggiana on 12/12/19.
-//  Copyright © 2019 Marino Faggiana. All rights reserved.
-//
-//  Author Marino Faggiana <marino.faggiana@nextcloud.com>
-//
-//  This program is free software: you can redistribute it and/or modify
-//  it under the terms of the GNU General Public License as published by
-//  the Free Software Foundation, either version 3 of the License, or
-//  (at your option) any later version.
-//
-//  This program is distributed in the hope that it will be useful,
-//  but WITHOUT ANY WARRANTY; without even the implied warranty of
-//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//  GNU General Public License for more details.
-//
-//  You should have received a copy of the GNU General Public License
-//  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-//
+// SPDX-FileCopyrightText: Nextcloud GmbH
+// SPDX-FileCopyrightText: 2019 Marino Faggiana
+// SPDX-License-Identifier: GPL-3.0-or-later
 
 import UIKit
 import WebKit
 import JGProgressHUD
+import NextcloudKit
 
 class NCViewerNextcloudText: UIViewController, WKNavigationDelegate, WKScriptMessageHandler {
 
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var webView = WKWebView()
     var bottomConstraint: NSLayoutConstraint?
-    var link: String = ""
-    var editor: String = ""
     var fileName: String?
     let hud = JGProgressHUD()
+
+    var loadLink: (() async throws -> URL)?
+
+    var switchToInternalEditor: (() -> Void)?
+
+    private var isLoaded = false
+    private var isShowingLoadError = false
+    private var isClosed = false
 
     // MARK: - View Life Cycle
 
@@ -46,6 +33,9 @@ class NCViewerNextcloudText: UIViewController, WKNavigationDelegate, WKScriptMes
 
         // navigationController?.setNavigationBarHidden(true, animated: true)
         navigationItem.title = fileName
+        navigationItem.leftBarButtonItem = UIBarButtonItem(systemItem: .close, primaryAction: UIAction { [weak self] _ in
+            self?.close()
+        })
 
         let config = WKWebViewConfiguration()
         config.websiteDataStore = WKWebsiteDataStore.nonPersistent()
@@ -63,15 +53,64 @@ class NCViewerNextcloudText: UIViewController, WKNavigationDelegate, WKScriptMes
         bottomConstraint = webView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
         bottomConstraint?.isActive = true
 
-        var request = URLRequest(url: URL(string: link)!)
-        request.addValue("true", forHTTPHeaderField: "OCS-APIRequest")
-        let language = NSLocale.preferredLanguages[0] as String
-        request.addValue(language, forHTTPHeaderField: "Accept-Language")
-
         webView.customUserAgent = getCustomUserAgentNCText()
-        webView.load(request)
 
         hud.show(in: view)
+
+        loadEditor()
+    }
+
+    private func loadEditor() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10) { [weak self] in
+            guard let self, !isLoaded else { return }
+
+            failToLoad(with: URLError(.timedOut))
+        }
+
+        Task {
+            do {
+                guard let url = try await loadLink?(), !isClosed else { return }
+
+                var request = URLRequest(url: url)
+                request.addValue("true", forHTTPHeaderField: "OCS-APIRequest")
+                let language = NSLocale.preferredLanguages[0] as String
+                request.addValue(language, forHTTPHeaderField: "Accept-Language")
+
+                webView.load(request)
+            } catch {
+                failToLoad(with: error)
+            }
+        }
+    }
+
+    private func failToLoad(with error: Error) {
+        guard !isLoaded, !isShowingLoadError, !isClosed, (error as NSError).code != NSURLErrorCancelled else { return }
+
+        isShowingLoadError = true
+        hud.dismiss()
+
+        let detail = (error as? NKError)?.errorDescription ?? error.localizedDescription
+        let messageFormat = NSLocalizedString("Cannot open file for direct editing: %@", comment: "Direct editing failure followed by the underlying error")
+        let alert = UIAlertController(title: NSLocalizedString("Error", comment: "Title of an error alert"), message: String(format: messageFormat, detail), preferredStyle: .alert)
+
+        if let switchToInternalEditor {
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Switch to Internal Editor", comment: "Action offered when the collaborative editor fails to load"), style: .default) { [weak self] _ in
+                self?.viewUnload(completion: switchToInternalEditor)
+            })
+        }
+
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Close", comment: "Closes the editor that failed to load"), style: .cancel) { [weak self] _ in
+            self?.viewUnload()
+        })
+
+        let showAlert = { [weak self] in
+            self?.present(alert, animated: true)
+        }
+
+        // A quick failure can land while this screen is still being presented.
+        if transitionCoordinator?.animate(alongsideTransition: nil, completion: { _ in showAlert() }) != true {
+            showAlert()
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -90,9 +129,40 @@ class NCViewerNextcloudText: UIViewController, WKNavigationDelegate, WKScriptMes
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 
-    @objc func viewUnload() {
-        self.dismiss(animated: true)
+    private func viewUnload(completion: (() -> Void)? = nil) {
+        isClosed = true
+
+        // The content controller retains its handler, so release it to break the cycle.
+        webView.configuration.userContentController.removeScriptMessageHandler(forName: "DirectEditingMobileInterface")
+        self.dismiss(animated: true, completion: completion)
         // navigationController?.popViewController(animated: true)
+    }
+
+    private func close() {
+        let script = """
+        (function () {
+          var closeIcons = document.getElementsByClassName("icon-close");
+          if (closeIcons.length > 0) {
+            closeIcons[0].click();
+            return true;
+          }
+          return false;
+        })();
+        """
+
+        webView.evaluateJavaScript(script) { [weak self] result, _ in
+            guard result as? Bool == true else {
+                self?.viewUnload()
+                return
+            }
+
+            // Text replies with a "close" message once saved; don't get stuck if it never does.
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [weak self] in
+                guard let self, view.window != nil else { return }
+
+                viewUnload()
+            }
+        }
     }
 
     // MARK: - NotificationCenter
@@ -173,8 +243,22 @@ class NCViewerNextcloudText: UIViewController, WKNavigationDelegate, WKScriptMes
         print("didReceiveServerRedirectForProvisionalNavigation")
     }
 
+    public func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        failToLoad(with: error)
+    }
+
+    public func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        failToLoad(with: error)
+    }
+
     public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        isLoaded = true
         hud.dismiss()
+
+        if isShowingLoadError {
+            isShowingLoadError = false
+            presentedViewController?.dismiss(animated: true)
+        }
     }
 }
 

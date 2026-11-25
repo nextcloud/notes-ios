@@ -12,32 +12,32 @@ class HeaderTextView: UITextView {
 
     let smallPadding: CGFloat = 20.0
 
-    private var leftHeaderLayoutConstraint = NSLayoutConstraint()
-    private var rightHeaderLayoutConstraint = NSLayoutConstraint()
-    private var didSetupConstraints = false
-    private var headerLabelConstraintConstant: CGFloat = 20.0
-    
     private var noteTextStorage = MarkdownTextStorage()
     private var checkBoxTapHandler = CheckBoxTapHandler()
 
-    private var textContentInset = UIEdgeInsets(top: 30, left: 0, bottom: 0, right: 0);
     private var containerInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20);
 
-    lazy var headerLabel: UILabel = {
-        var label = UILabel(frame: .zero)
+    /// Sits above the text, hidden until the note is pulled down past it.
+    let dateLabel: UILabel = {
+        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 1;
-        if (self.traitCollection.horizontalSizeClass == .regular) {
-            label.textAlignment = .left;
-        } else {
-            label.textAlignment = .center
-        }
-        label.textColor = .lightGray
+        label.textAlignment = .center
         label.font = .preferredFont(forTextStyle: .subheadline)
-        label.text = NSLocalizedString("Select or create a note.", comment: "Placeholder text when no note is selected")
-    
+        label.adjustsFontForContentSizeCategory = true
+
         return label
     }()
+
+    private var isDateShown = false {
+        didSet {
+            contentInset.top = isDateShown ? dateHeight : 0
+        }
+    }
+
+    /// The date plus padding to keep it off the navigation bar.
+    private var dateHeight: CGFloat {
+        ceil(dateLabel.font.lineHeight) + smallPadding
+    }
 
     override init(frame: CGRect, textContainer: NSTextContainer?) {
         let attributedString = NSAttributedString(string: "")
@@ -56,13 +56,11 @@ class HeaderTextView: UITextView {
         self.addGestureRecognizer(checkBoxTapHandler.tapGestureRecognizer)
         checkBoxTapHandler.textView = self
         checkBoxTapHandler.layoutManager = layoutManager
-        self.contentInset = textContentInset
         self.textContainerInset = containerInset
         self.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(headerLabel)
+        self.setUpDateLabel()
         self.backgroundColor = UIColor.systemBackground
         self.tintColor = UIColor.systemBlue
-        self.setNeedsUpdateConstraints()
         self.traitCollectionDidChange(nil)
     }
 
@@ -72,10 +70,9 @@ class HeaderTextView: UITextView {
     }
     
     func setup() {
-        self.contentInset = textContentInset
         self.textContainerInset = containerInset
         self.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(headerLabel)
+        self.setUpDateLabel()
         
         let attributedString = NSAttributedString(string: "")
         noteTextStorage.setAttributedString(attributedString)
@@ -93,30 +90,52 @@ class HeaderTextView: UITextView {
 
         self.backgroundColor = UIColor.systemBackground
         self.tintColor = UIColor.systemBlue
-        self.setNeedsUpdateConstraints()
         self.traitCollectionDidChange(nil)
     }
     
-    override func updateConstraints() {
-        if (self.didSetupConstraints == false) {
-            self.headerLabel.setContentCompressionResistancePriority(.required, for: .vertical)
-            leftHeaderLayoutConstraint = self.headerLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: headerLabelConstraintConstant)
-            rightHeaderLayoutConstraint = self.headerLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -headerLabelConstraintConstant)
-            NSLayoutConstraint.activate([
-                self.headerLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
-                leftHeaderLayoutConstraint,
-                rightHeaderLayoutConstraint,
-                self.headerLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor)
-            ])
-            self.didSetupConstraints = true
-        }
-        super.updateConstraints()
+    private func setUpDateLabel() {
+        // Lets short notes be pulled down too.
+        alwaysBounceVertical = true
+
+        addSubview(dateLabel)
+
+        NSLayoutConstraint.activate([
+            dateLabel.bottomAnchor.constraint(equalTo: contentLayoutGuide.topAnchor),
+            dateLabel.leadingAnchor.constraint(equalTo: frameLayoutGuide.leadingAnchor, constant: smallPadding),
+            dateLabel.trailingAnchor.constraint(equalTo: frameLayoutGuide.trailingAnchor, constant: -smallPadding)
+        ])
     }
-    
+
+    /// Call when a drag ends: pulling past half the date shows or hides it, and it never rests half visible.
+    func settleDate(targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let minY = -adjustedContentInset.top
+        let maxY = max(minY, contentSize.height + adjustedContentInset.bottom - bounds.height)
+        let target = targetContentOffset.pointee.y
+
+        // While rubber-banding, the target is just the nearest edge, so use how far the user pulled instead.
+        let pulledY = (minY...maxY).contains(contentOffset.y) ? target : contentOffset.y
+
+        if isDateShown {
+            let height = contentInset.top
+
+            // Scrolling on into the text keeps the date for when the user comes back up.
+            guard target <= minY + height else { return }
+
+            if pulledY > minY + height / 2 {
+                targetContentOffset.pointee.y = minY + height
+                isDateShown = false
+            } else {
+                targetContentOffset.pointee.y = minY
+            }
+        } else if pulledY < minY - dateHeight / 2 {
+            targetContentOffset.pointee.y = minY - dateHeight
+            isDateShown = true
+        }
+    }
+
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         if (self.traitCollection.horizontalSizeClass == .regular) {
-            self.headerLabel.textAlignment = .left
             if (self.traitCollection.userInterfaceIdiom == .pad) {
                 if (UIScreen.main.bounds.size.width > UIScreen.main.bounds.size.height) {
                     self.updateInsets(size: 178)
@@ -127,7 +146,6 @@ class HeaderTextView: UITextView {
                 self.updateInsets(size: smallPadding)
             }
         } else {
-            self.headerLabel.textAlignment = .center;
             self.updateInsets(size: smallPadding)
         }
         self.isScrollEnabled = false
@@ -147,10 +165,7 @@ class HeaderTextView: UITextView {
     }
 
     open func updateInsets(size: CGFloat) {
-        self.textContainerInset = UIEdgeInsets(top: 2 * smallPadding, left: size, bottom: smallPadding, right: size);
-        headerLabelConstraintConstant = size
-        leftHeaderLayoutConstraint.constant = size;
-        rightHeaderLayoutConstraint.constant = size;
+        self.textContainerInset = UIEdgeInsets(top: smallPadding, left: size, bottom: smallPadding, right: size)
     }
 
 }

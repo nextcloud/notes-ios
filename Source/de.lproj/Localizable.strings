@@ -35,9 +35,6 @@
 /* An error message */
 "Check username and password." = "Benutzername und Passwort prüfen.";
 
-/* Title of a button allowing the user to close the login screen and sync with the server */
-"Close & Sync" = "Schließen & synchronisieren";
-
 /* Crash report email subject */
 "NextcloudNotes Crash Report" = "NextcloudNotes-Absturzbericht";
 
@@ -119,6 +116,9 @@
 /* Message about not being logged in */
 "Not logged in" = "Nicht angemeldet";
 
+/* Title of the hint shown when pull-to-refresh cannot sync */
+"Not Synchronized" = "Nicht synchronisiert";
+
 /* Title of alert to change title */
 "Note Title" = "Notiztitel";
 
@@ -127,6 +127,9 @@
 
 /* An error message title */
 "Notes not found" = "Notizen nicht gefunden";
+
+/* Shown when pull-to-refresh is used in offline mode */
+"Offline Mode is on. Turn it off in Settings to sync." = "Offline-Modus ist aktiviert. Zum Synchronisieren, bitte ausschalten.";
 
 /* Button, OK */
 "OK" = "Ok";
@@ -157,9 +160,6 @@
 /* A menu option for sharing in rich text format */
 "Rich Text" = "Rich-Text";
 
-/* Placeholder text when no note is selected */
-"Select or create a note." = "Notiz auswählen oder eine erstellen.";
-
 /* Alert title for selecting server brand */
 "Server" = "Server";
 
@@ -172,14 +172,20 @@
 /* Title of a menu with sharing options */
 "Share Note As" = "Notiz teilen als";
 
-/* A message title */
-"Success" = "Erfolgreich";
-
 /* A message */
 "The network connection is working properly." = "Die Netzwerkverbindung funktioniert.";
 
 /* An error message */
 "The note does not exist" = "Die Notiz existiert nicht";
+
+/* Shown when pull-to-refresh is used without a connection to the server */
+"The server is not reachable." = "Server ist nicht erreichbar.";
+
+/* An error message */
+"This note is read-only and cannot be deleted." = "Diese Notiz ist schreibgeschützt und kann nicht gelöscht werden.";
+
+/* An error message */
+"This note is read-only. Your changes were not saved." = "Diese Notiz ist schreibgeschützt. Die Änderungen wurden nicht gespeichert.";
 
 /* Alert message for selecting server brand */
 "Unable to automatically detect type of server.\nPlease select:" = "Servertyp kann nicht automatisch erkannt werden.\nBitte auswählen:";
@@ -199,9 +205,6 @@
 
 /* No comment provided by engineer. */
 "Yes, please!" = "Ja, bitte!";
-
-/* A message */
-"You are now connected to Notes on your server" = "Sie sind jetzt mit Notes auf Ihrem Server verbunden";
 
 /* HUD subtitle when checking server capabilities */
 "Checking server capabilities" = "Serverfähigkeiten überprüfen";
@@ -275,3 +278,45 @@
 "Are you sure you want to log out?" = "Möchten Sie sich wirklich abmelden?";
 "Enter a name for the folder where notes should be saved on the server" = "Geben Sie einen Namen für den Ordner ein, in dem Notizen auf dem Server gespeichert werden sollen";
 "Settings" = "Einstellungen";
+
+/* Onboarding title. The placeholder is the app name. */
+"Welcome to %@" = "Wilkommen zu %@";
+
+/* Onboarding feature title. */
+"Your Data, Your Control" = "Deine Daten, deine Kontrolle";
+
+/* Onboarding feature description. */
+"Keep your data secure and under your control." = "Halte deine Daten sicher und unter deiner Kontrolle";
+
+/* Onboarding feature title. */
+"Secure Collaboration" = "Sichere Zusammenarbeit";
+
+/* Onboarding feature description. */
+"Work together and exchange files securely." = "Zusammenarbeiten und Dateien sicher austauschen.";
+
+/* Onboarding feature title. */
+"Always in Sync" = "Synchron bleiben";
+
+/* Onboarding feature description. */
+"Your notes stay up to date across all your devices." = "Ihre Notizen bleiben auf all Ihren Geräten auf dem neuesten Stand.";
+
+/* Onboarding feature title. */
+"Works Offline" = "Funktioniert offline";
+
+/* Onboarding feature description. */
+"Keep writing even without a connection." = "Auch ohne Verbindung weiterschreiben.";
+
+/* Accessibility label of the button with more note actions */
+"More" = "Mehr";
+
+/* Action to preview a note */
+"Preview" = "Vorschau";
+
+/* Action to share a note */
+"Share" = "Teilen";
+
+/* Direct editing failure followed by the underlying error */
+"Cannot open file for direct editing: %@" = "Datei kann nicht zur direkten Bearbeitung geöffnet werden: %@";
+
+/* Action offered when the collaborative editor fails to load */
+"Switch to Internal Editor" = "Zum internem Editor wechseln";

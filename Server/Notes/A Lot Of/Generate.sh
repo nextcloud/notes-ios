@@ -1,5 +1,9 @@
 #!/bin/zsh
 
+# SPDX-FileCopyrightText: Nextcloud GmbH
+# SPDX-FileCopyrightText: 2025 Iva Horn
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 # Function to generate random blind text
 generate_text() {
   if command -v gshuf &> /dev/null; then

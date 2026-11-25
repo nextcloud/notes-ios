@@ -45,35 +45,15 @@
                     <navigationItem key="navigationItem" id="dEj-4d-nDe"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="activityButton" destination="pXa-gb-ki1" id="fMm-Yj-DYc"/>
-                        <outlet property="deleteButton" destination="aql-su-dTG" id="aZw-En-uzG"/>
                         <outlet property="dismissButton" destination="4hl-CC-W27" id="OKL-CP-CGv"/>
                         <outlet property="doneButton" destination="1qk-bQ-vnb" id="t3C-JM-SAg"/>
                         <outlet property="fixedSpace" destination="thB-y7-Xbs" id="6iI-ez-fg4"/>
-                        <outlet property="previewButton" destination="3f2-rn-lgQ" id="q8D-CE-LGd"/>
                         <outlet property="redoButton" destination="T7C-FW-CGQ" id="FeB-EW-iqa"/>
                         <outlet property="undoButton" destination="6bO-Ah-TJ8" id="jZs-pU-qIb"/>
+                        <segue destination="7xC-ZL-ULJ" kind="show" identifier="showPreview" id="2yM-1x-su8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
-                <barButtonItem systemItem="action" id="pXa-gb-ki1">
-                    <color key="tintColor" name="PHWhiteIcon"/>
-                    <connections>
-                        <action selector="onActivities:" destination="vXZ-lx-hvc" id="oex-S6-Eng"/>
-                    </connections>
-                </barButtonItem>
-                <barButtonItem systemItem="trash" id="aql-su-dTG">
-                    <color key="tintColor" name="PHWhiteIcon"/>
-                    <connections>
-                        <action selector="onDelete:" destination="vXZ-lx-hvc" id="UNY-4r-5qs"/>
-                    </connections>
-                </barButtonItem>
-                <barButtonItem title="Preview" image="text.page.badge.magnifyingglass" catalog="system" id="3f2-rn-lgQ" userLabel="Preview">
-                    <color key="tintColor" name="PHWhiteIcon"/>
-                    <connections>
-                        <segue destination="7xC-ZL-ULJ" kind="show" identifier="showPreview" id="2yM-1x-su8"/>
-                    </connections>
-                </barButtonItem>
                 <barButtonItem title="Undo" image="arrow.uturn.backward.circle" catalog="system" id="6bO-Ah-TJ8">
                     <color key="tintColor" name="PHWhiteIcon"/>
                     <connections>

@@ -79,10 +79,11 @@ class CategoryTableViewController: UITableViewController {
     
     @IBAction func onCancel(_ sender: Any) {
         if isDirty,
-            let note = self.note {
+            let note = self.note,
+            !note.readOnly {
             note.category = currentCategory
-            NoteSessionManager.shared.update(note: note) {
-                NotificationCenter.default.post(name: .doneSelectingCategory, object: nil)
+            Task {
+                await NoteSessionManager.shared.update(note: note)
             }
         }
         dismiss(animated: true, completion: nil)

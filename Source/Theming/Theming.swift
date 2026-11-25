@@ -1,10 +1,6 @@
-//
-//  Theming.swift
-//  iOCNotes
-//
-//  Created by Milen Pivchev on 16.08.24.
-//  Copyright © 2024 Milen Pivchev. All rights reserved.
-//
+// SPDX-FileCopyrightText: Nextcloud GmbH
+// SPDX-FileCopyrightText: 2024 Milen Pivchev
+// SPDX-License-Identifier: GPL-3.0-or-later
 
 import Foundation
 import UIKit

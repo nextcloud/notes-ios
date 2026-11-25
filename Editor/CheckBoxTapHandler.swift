@@ -23,7 +23,8 @@ public class CheckBoxTapHandler: NSObject {
 
     @objc func handleTap(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
-            guard let layoutManager = layoutManager, let textView = textView, let textStorage = layoutManager.textStorage, !textStorage.string.isEmpty else {
+            // Toggling rewrites the text, which a non-editable (read-only) view must not allow.
+            guard let layoutManager = layoutManager, let textView = textView, textView.isEditable, let textStorage = layoutManager.textStorage, !textStorage.string.isEmpty else {
                 return
             }
 
@@ -61,6 +62,11 @@ public class CheckBoxTapHandler: NSObject {
 
             for range in clearRanges {
                 textStorage.replaceCharacters(in: NSRange(location: range.location - 2, length: 3), with: "[ ]")
+            }
+
+            // Direct storage edits skip the delegate, so report the toggle like typing.
+            if !checkRanges.isEmpty || !clearRanges.isEmpty {
+                textView.delegate?.textViewDidChange?(textView)
             }
         }
     }

@@ -1,10 +1,5 @@
-//
-//  KeychainHelper.swift
-//  iOCNotes
-//
-//  Created by Peter Hedlund on 6/18/19.
-//  Copyright © 2019 Peter Hedlund. All rights reserved.
-//
+// SPDX-FileCopyrightText: 2019 Peter Hedlund
+// SPDX-License-Identifier: BSD-2-Clause
 
 import Foundation
 import KeychainAccess
@@ -161,15 +156,6 @@ struct KeychainHelper {
         }
     }
 
-    static var didSyncInBackground: Bool {
-        get {
-            return UserDefaults.standard.bool(forKey: "didSyncInBackground")
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: "didSyncInBackground")
-        }
-    }
-
     static var groupByCategory: Bool {
         get {
             if UserDefaults.standard.object(forKey: "GroupByCategory") == nil {
@@ -199,7 +185,12 @@ struct KeychainHelper {
     
     static var notesApiVersion: String {
         get {
-            return UserDefaults.standard.string(forKey: "notesApiVersion") ?? Router.defaultApiVersion
+            // An empty string can linger from older builds and would make every request fail version parsing.
+            guard let version = UserDefaults.standard.string(forKey: "notesApiVersion"), !version.isEmpty else {
+                return Router.defaultApiVersion
+            }
+
+            return version
         }
         set {
             UserDefaults.standard.set(newValue, forKey: "notesApiVersion")
@@ -230,6 +221,16 @@ struct KeychainHelper {
         }
         set {
             UserDefaults.standard.set(newValue, forKey: "productName")
+        }
+    }
+
+    /// Any install <= 35.0.0 has a bug where notes are not fully synced, as `eTag` and `lastModified` were not reset upon log out. Reset once so the first sync fetches everything.
+    static var didResetSyncValidators: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: "didResetSyncValidators")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "didResetSyncValidators")
         }
     }
 
@@ -269,12 +270,16 @@ struct KeychainHelper {
         }
     }
 
-    static var directEditing: Bool {
+    static var shouldShowOnboarding: Bool {
         get {
-            return UserDefaults.standard.bool(forKey: "directEditing")
+            if UserDefaults.standard.object(forKey: "shouldShowOnboarding") == nil {
+                return true
+            }
+
+            return UserDefaults.standard.bool(forKey: "shouldShowOnboarding")
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: "directEditing")
+            UserDefaults.standard.set(newValue, forKey: "shouldShowOnboarding")
         }
     }
 }
