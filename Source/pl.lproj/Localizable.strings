@@ -144,6 +144,12 @@
    A message to check network connection */
 "Please check network connection and login." = "Please check network connection and login.";
 
+/* Notes modified in the previous thirty days */
+"Previous 30 Days" = "Previous 30 Days";
+
+/* Notes modified in the previous seven days */
+"Previous 7 Days" = "Previous 7 Days";
+
 /* A button title */
 "Reconnect" = "Reconnect";
 
@@ -186,6 +192,9 @@
 
 /* An error message */
 "This note is read-only. Your changes were not saved." = "This note is read-only. Your changes were not saved.";
+
+/* Notes modified today */
+"Today" = "Dziś";
 
 /* Alert message for selecting server brand */
 "Unable to automatically detect type of server.\nPlease select:" = "Unable to automatically detect type of server.\nPlease select:";
