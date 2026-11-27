@@ -145,10 +145,10 @@
 "Please check network connection and login." = "Skontrolujte sieťové pripojenie a prihlasovacie údaje.";
 
 /* Notes modified in the previous thirty days */
-"Previous 30 Days" = "Previous 30 Days";
+"Previous 30 Days" = "Predchádzajúcich 30 dní";
 
 /* Notes modified in the previous seven days */
-"Previous 7 Days" = "Previous 7 Days";
+"Previous 7 Days" = "Predchádzajúcich 7 dní";
 
 /* A button title */
 "Reconnect" = "Pripojiť znova";

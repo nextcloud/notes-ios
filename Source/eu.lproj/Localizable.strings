@@ -138,7 +138,7 @@
 "Open in…" = "Open in…";
 
 /* A menu option for sharing in plain text format */
-"Plain Text" = "Plain text";
+"Plain Text" = "Testu soila";
 
 /* A message
    A message to check network connection */
@@ -164,7 +164,7 @@
 "Rename…" = "Rename…";
 
 /* A menu option for sharing in rich text format */
-"Rich Text" = "Rich text";
+"Rich Text" = "Testu aberastua";
 
 /* Alert title for selecting server brand */
 "Server" = "Zerbitzaria";
@@ -237,7 +237,7 @@
 "No" = "No";
 
 /* Title of alert to change notes folder */
-"Notes Folder" = "Notes folder";
+"Notes Folder" = "Oharren karpeta";
 
 /* A menu option for sharing in pdf format */
 "PDF" = "PDF";

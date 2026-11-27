@@ -145,10 +145,10 @@
 "Please check network connection and login." = "Tjek netværksforbindelsen, og log ind.";
 
 /* Notes modified in the previous thirty days */
-"Previous 30 Days" = "Previous 30 Days";
+"Previous 30 Days" = "Forrige 30 dage";
 
 /* Notes modified in the previous seven days */
-"Previous 7 Days" = "Previous 7 Days";
+"Previous 7 Days" = "Forrige 7 dage";
 
 /* A button title */
 "Reconnect" = "Tilslut igen";
