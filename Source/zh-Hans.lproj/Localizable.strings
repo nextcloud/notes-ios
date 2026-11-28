@@ -289,7 +289,7 @@
 "Settings" = "设置";
 
 /* Onboarding title. The placeholder is the app name. */
-"Welcome to %@" = "Welcome to %@";
+"Welcome to %@" = "欢迎使用 %@";
 
 /* Onboarding feature title. */
 "Your Data, Your Control" = "Your Data, Your Control";

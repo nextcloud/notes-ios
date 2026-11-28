@@ -145,10 +145,10 @@
 "Please check network connection and login." = "Veuillez vérifier la connexion réseau et la connexion.";
 
 /* Notes modified in the previous thirty days */
-"Previous 30 Days" = "Previous 30 Days";
+"Previous 30 Days" = "30 jours précédents";
 
 /* Notes modified in the previous seven days */
-"Previous 7 Days" = "Previous 7 Days";
+"Previous 7 Days" = "7 jours précédents";
 
 /* A button title */
 "Reconnect" = "Se reconnecter";

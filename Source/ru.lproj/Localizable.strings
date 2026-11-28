@@ -145,10 +145,10 @@
 "Please check network connection and login." = "Проверьте соединение и войдите.";
 
 /* Notes modified in the previous thirty days */
-"Previous 30 Days" = "Previous 30 Days";
+"Previous 30 Days" = "Предыдущие 30 дней";
 
 /* Notes modified in the previous seven days */
-"Previous 7 Days" = "Previous 7 Days";
+"Previous 7 Days" = "Предыдущие 7 дней";
 
 /* A button title */
 "Reconnect" = "Переподключиться ";

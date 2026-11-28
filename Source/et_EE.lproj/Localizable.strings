@@ -145,10 +145,10 @@
 "Please check network connection and login." = "Palun kontrolli võrguühendust ja kasutajanime.";
 
 /* Notes modified in the previous thirty days */
-"Previous 30 Days" = "Previous 30 Days";
+"Previous 30 Days" = "Eelmised 30 päeva";
 
 /* Notes modified in the previous seven days */
-"Previous 7 Days" = "Previous 7 Days";
+"Previous 7 Days" = "Eelmised 7 päeva";
 
 /* A button title */
 "Reconnect" = "Ühenda uuesti";
